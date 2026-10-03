@@ -1,11 +1,28 @@
-name: TEST MICRO CAPS
+name: MICRO CAPS V3 - TEST MOTEUR
 
 on:
   workflow_dispatch:
 
+permissions:
+  contents: write
+
 jobs:
-  test:
+  moteur:
     runs-on: ubuntu-latest
+
     steps:
-      - name: Test
-        run: echo "MICRO CAPS - GitHub Actions fonctionne"
+      - name: Recuperer le depot
+        uses: actions/checkout@v4
+
+      - name: Installer Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Installer les dependances
+        run: |
+          python -m pip install --upgrade pip
+          pip install pandas numpy yfinance pandas_market_calendars
+
+      - name: Executer MICRO CAPS V3
+        run: python SCRIPTS_ACTIFS/00_EXECUTION_QUOTIDIENNE_V3.py
