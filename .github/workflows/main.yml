@@ -1,7 +1,7 @@
 name: MICRO CAPS V3 - TEST MOTEUR
 
 on:
-   workflow_dispatch:
+  workflow_dispatch:
   schedule:
     - cron: "30 22 * * 1-5"
 
