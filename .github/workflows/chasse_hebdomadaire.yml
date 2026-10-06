@@ -38,7 +38,7 @@ jobs:
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add DONNEES/SORTIE_CHASSEUR_EXISTANT.csv DONNEES/SORTIE_SCREENER_CANDIDATS.csv DONNEES/CHASSE_CANDIDATS.csv DONNEES/CONTROLE_ADAPTATEUR_CHASSEUR_MICRO_CAPS.csv DONNEES/CONTROLE_IMPORT_SCREENER.csv DONNEES/CONTROLE_CHASSE_SSI.csv index.html
+          git add DONNEES/SORTIE_CHASSEUR_EXISTANT.csv DONNEES/SORTIE_SCREENER_CANDIDATS.csv DONNEES/CHASSE_CANDIDATS.csv DONNEES/CONTROLE_ADAPTATEUR_CHASSEUR_MICRO_CAPS.csv DONNEES/CONTROLE_IMPORT_SCREENER.csv DONNEES/PRESELECTION_VARIABLES_MARCHE.csv DONNEES/CONTROLE_CHASSE_SSI.csv index.html
           if ! git diff --cached --quiet; then
             git commit -m "Chasse hebdomadaire MICRO CAPS"
             git pull --rebase origin main
