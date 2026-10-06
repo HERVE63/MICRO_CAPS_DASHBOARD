@@ -13,7 +13,7 @@ def charger(nom):
     return module
 
 def executer():
-    # Ordre obligatoire : screener, provenance/admissibilite, analyse, duel.\n    charger("07C_SCREENER_MICRO_CAPS.py").executer()\n    charger("08A_IMPORT_SCREENER.py").executer()\n    charger("08B_CONTROLE_CHASSE_SSI.py").executer()
+    # Ordre obligatoire : screener, provenance/admissibilite, analyse, duel.\n    charger("07B_NORMALISER_FONDAMENTAUX.py").executer()\n    charger("07C_SCREENER_MICRO_CAPS.py").executer()\n    charger("08A_IMPORT_SCREENER.py").executer()\n    charger("08B_CONTROLE_CHASSE_SSI.py").executer()
     revue = charger("09_CONTROLE_REVUE_MCPA_IPS.py").executer()
     duels = charger("09B_DUEL_PROCHAIN_EURO.py").executer()
 
