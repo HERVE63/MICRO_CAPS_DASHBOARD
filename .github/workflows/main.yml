@@ -4,7 +4,7 @@ on:
   workflow_dispatch:
   push:
     branches: [main]
-    paths: [".github/workflows/main.yml", "SCRIPTS_ACTIFS/08_GENERER_DASHBOARD.py"]
+    paths: [".github/workflows/main.yml", "SCRIPTS_ACTIFS/**"]
   schedule:
     # Deux réveils UTC couvrent heure d'été / heure d'hiver.
     # Le verrou Europe/Paris ci-dessous n'exécute le moteur qu'à 22:30 locale.
