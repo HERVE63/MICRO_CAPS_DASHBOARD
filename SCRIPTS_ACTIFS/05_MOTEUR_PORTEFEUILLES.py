@@ -11,6 +11,7 @@ SRC = BASE / "SCRIPTS_ACTIFS"
 RESOLU = BASE / "DONNEES/TEST_MOTEUR_RESOLU_V3.csv"
 
 SCRIPT_05C = SRC / "05C_REPLAY_PORTEFEUILLE_GERE.py"
+SCRIPT_05D = SRC / "05D_MOTEUR_PRIX_POSITIONS_NOUVELLES.py"
 
 OUTPUT = BASE / "DONNEES/TEST_PORTEFEUILLES_V3.csv"
 
@@ -118,81 +119,61 @@ def executer():
     ].copy()
 
     # ========================================================
-    # 4. V2 FAIL-CLOSED SUR LES NOUVELLES POSITIONS
+    # 4. RACCORDEMENT DES POSITIONS T0 ET NEW_
     # ========================================================
 
-    nouvelles = actifs[
-        actifs["ID_position"]
-        .astype(str)
-        .str.startswith("NEW_")
-    ]
+    masque_new = actifs["ID_position"].astype(str).str.startswith("NEW_")
+    actifs_t0 = actifs[~masque_new].copy()
+    actifs_new = actifs[masque_new].copy()
 
-    if len(nouvelles) > 0:
-        raise RuntimeError(
-            "Position(s) NEW_ détectée(s). "
-            "Le moteur prix des challengers n'est pas encore "
-            "branché : valorisation officielle bloquée."
-        )
+    if actifs_t0["ID_origine_T0"].isna().any():
+        raise RuntimeError("Position T0 active sans ID_origine_T0.")
 
-    if actifs["ID_origine_T0"].isna().any():
-        raise RuntimeError(
-            "Position active sans ID_origine_T0. "
-            "Valorisation bloquée."
-        )
+    actifs_t0["CLE_T0"] = actifs_t0["ID_origine_T0"].map(norm_id)
+    if actifs_t0["CLE_T0"].duplicated().any():
+        raise RuntimeError("Plusieurs positions actives utilisent le même ID_origine_T0.")
 
-    actifs["CLE_T0"] = (
-        actifs["ID_origine_T0"].map(norm_id)
+    gere_t0 = actifs_t0.merge(
+        prix[[
+            "CLE_T0","ID_ligne","Ticker_cotation","Date_cloture",
+            "Cours_retenu_devise","FX_vers_EUR","Cours_EUR_resolu",
+            "Resolution_anomalie"
+        ]],
+        on="CLE_T0", how="left", validate="one_to_one"
     )
 
-    if actifs["CLE_T0"].duplicated().any():
-        raise RuntimeError(
-            "Plusieurs positions actives utilisent "
-            "le même ID_origine_T0."
-        )
-
-    # ========================================================
-    # 5. RACCORDEMENT POSITIONS ↔ PRIX
-    # ========================================================
-
-    gere = actifs.merge(
-        prix[
-            [
-                "CLE_T0",
-                "ID_ligne",
-                "Ticker_cotation",
-                "Date_cloture",
-                "Cours_retenu_devise",
-                "FX_vers_EUR",
-                "Cours_EUR_resolu",
-                "Resolution_anomalie"
-            ]
-        ],
-        on="CLE_T0",
-        how="left",
-        validate="one_to_one"
-    )
-
-    if gere["Cours_EUR_resolu"].isna().any():
-        ids = gere.loc[
-            gere["Cours_EUR_resolu"].isna(),
-            "ID_position"
-        ].astype(str).tolist()
-
-        raise RuntimeError(
-            f"Prix absent pour position(s) active(s) : {ids}"
-        )
+    if gere_t0["Cours_EUR_resolu"].isna().any():
+        ids = gere_t0.loc[gere_t0["Cours_EUR_resolu"].isna(),"ID_position"].astype(str).tolist()
+        raise RuntimeError(f"Prix absent pour position(s) T0 active(s) : {ids}")
 
     ticker_ok = (
-        gere["Ticker"].astype(str).str.strip().str.upper()
-        ==
-        gere["Ticker_cotation"]
-        .astype(str).str.strip().str.upper()
+        gere_t0["Ticker"].astype(str).str.strip().str.upper()
+        == gere_t0["Ticker_cotation"].astype(str).str.strip().str.upper()
     )
-
     if not ticker_ok.all():
-        raise RuntimeError(
-            "Discordance ticker entre 05C et 04B."
+        raise RuntimeError("Discordance ticker entre 05C et 04B.")
+
+    if len(actifs_new) > 0:
+        spec = importlib.util.spec_from_file_location("prix_new_05", SCRIPT_05D)
+        module_05d = importlib.util.module_from_spec(spec)
+        spec.loader.exec_module(module_05d)
+        prix_new = module_05d.executer(positions)
+
+        gere_new = actifs_new.merge(
+            prix_new[[
+                "ID_position","Date_cloture","Cours_retenu_devise",
+                "FX_vers_EUR","Cours_EUR_resolu","Resolution_anomalie"
+            ]],
+            on="ID_position", how="left", validate="one_to_one"
         )
+        if gere_new["Cours_EUR_resolu"].isna().any():
+            raise RuntimeError("05D : prix manquant pour une position NEW_.")
+        gere_new["CLE_T0"] = pd.NA
+        gere_new["ID_ligne"] = pd.NA
+        gere_new["Ticker_cotation"] = gere_new["Ticker"]
+        gere = pd.concat([gere_t0, gere_new], ignore_index=True, sort=False)
+    else:
+        gere = gere_t0
 
     gere["Quantite"] = pd.to_numeric(
         gere["Quantite"],
