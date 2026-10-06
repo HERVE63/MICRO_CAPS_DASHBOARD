@@ -16,7 +16,6 @@ CHASSE=D/"CHASSE_CANDIDATS.csv"; REVUE=D/"REVUE_HEBDOMADAIRE_MCPA_IPS.csv"
 C=pd.read_csv(CHASSE) if CHASSE.exists() and CHASSE.stat().st_size>1 else pd.DataFrame()
 H=pd.read_csv(REVUE) if REVUE.exists() and REVUE.stat().st_size>1 else pd.DataFrame()
 chall=H[H["Type"].astype(str).str.upper()=="CHALLENGER"].copy() if (not H.empty and "Type" in H.columns) else pd.DataFrame()
-qualif_attente = max(detected-len(chall),0) if "detected" in globals() else 0
 if not chall.empty:
     chall["MCPA_num"]=pd.to_numeric(chall["MCPA"],errors="coerce")
     chall["SSI_num"]=pd.to_numeric(chall["SSI"],errors="coerce")
