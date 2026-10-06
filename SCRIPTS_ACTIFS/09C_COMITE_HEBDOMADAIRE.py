@@ -31,13 +31,13 @@ def executer():
     synthese = pd.DataFrame([{
         "Nb_analyses": len(revue),
         "Nb_duels_sortants": len(duels),
-        "Statut": "PRET_POUR_VALIDATION_HUMAINE",
+        "Statut": "DECISION_AUTOMATIQUE_CALCULEE",
         "Journal_modifie": "NON"
     }])
     out = BASE / "DONNEES" / "SYNTHESE_COMITE_HEBDOMADAIRE.csv"
     synthese.to_csv(out, index=False)
     print("Comite hebdomadaire controle.")
-    print("Journal non modifie : validation humaine requise.")
+    print("Décision automatique calculée. Journal modifié uniquement par le module d’exécution documentée.")
     return synthese
 
 if __name__ == "__main__":
