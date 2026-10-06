@@ -1,0 +1,19 @@
+name: MICRO CAPS - RECEPTION CHASSEUR
+on:
+  workflow_dispatch:
+  push:
+    branches: [main]
+    paths:
+      - "SCRIPTS_ACTIFS/07S_SCREENING_PRIMAIRE_MICRO_CAPS.py"
+permissions:
+  contents: read
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - run: pip install pandas numpy yfinance
+      - run: python SCRIPTS_ACTIFS/07S_SCREENING_PRIMAIRE_MICRO_CAPS.py
