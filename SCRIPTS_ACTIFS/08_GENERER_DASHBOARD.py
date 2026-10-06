@@ -56,3 +56,5 @@ page=f"""<!doctype html><html lang="fr"><head><meta charset="utf-8"><meta name="
 (BASE/"index.html").write_text(page,encoding="utf-8")
 print("✅ TABLEAU DE BORD MICRO CAPS V3 PUBLIE")
 print("Séance :",date,"| lignes :",len(P),"| anomalies :",len(bad))
+
+# publication challengers mobile
