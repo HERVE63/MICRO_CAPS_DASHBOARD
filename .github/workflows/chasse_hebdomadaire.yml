@@ -1,7 +1,5 @@
 name: MICRO CAPS - CHASSE HEBDOMADAIRE
-on:
-  workflow_dispatch:
-  schedule:
+on:\n  workflow_dispatch:\n  push:\n    branches: [main]\n    paths:\n      - "SCRIPTS_ACTIFS/07S_SCREENING_PRIMAIRE_MICRO_CAPS.py"\n  schedule:
     - cron: "15 20 * * 2"
     - cron: "15 21 * * 2"
 permissions:
