@@ -132,7 +132,7 @@ def tous_les_fx(maintenant_utc=None):
 
     resultat = {}
 
-    for devise in ["EUR", "USD", "CAD", "GBP", "SEK", "DKK", "NOK", "CHF"]:
+    for devise in ["EUR", "USD", "CAD", "GBP", "SEK"]:
         resultat[devise] = dernier_fx_termine(
             devise,
             maintenant_utc
