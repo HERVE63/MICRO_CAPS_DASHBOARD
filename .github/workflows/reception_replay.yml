@@ -3,7 +3,7 @@ on:
   push:
     branches: [main]
     paths:
-      - "SCRIPTS_ACTIFS/05C_REPLAY_PORTEFEUILLE_GERE.py"
+      - "SCRIPTS_ACTIFS/05C_REPLAY_PORTEFEUILLE_GERE.py"\n      - "SCRIPTS_ACTIFS/10_EXECUTION_MENSUELLE.py"
   workflow_dispatch:
 permissions:
   contents: read
@@ -16,4 +16,4 @@ jobs:
         with:
           python-version: "3.12"
       - run: pip install pandas
-      - run: python SCRIPTS_ACTIFS/05C_REPLAY_PORTEFEUILLE_GERE.py
+      - run: python SCRIPTS_ACTIFS/05C_REPLAY_PORTEFEUILLE_GERE.py\n      - run: python -m py_compile SCRIPTS_ACTIFS/10_EXECUTION_MENSUELLE.py
