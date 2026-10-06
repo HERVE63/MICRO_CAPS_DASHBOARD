@@ -119,7 +119,7 @@ def derniere_cloture_validee(ticker, maintenant_utc=None):
     date_session = session["date_session"]
 
     # Fenêtre explicite autour de la séance recherchée.
-        start = date_session - timedelta(days=15)
+    start = date_session - timedelta(days=15)
     end = date_session + timedelta(days=1)
 
     hist = yf.download(
