@@ -1,0 +1,20 @@
+name: MICRO CAPS - RECEPTION DUEL
+on:
+  workflow_dispatch:
+  push:
+    branches: [main]
+    paths:
+      - "SCRIPTS_ACTIFS/09B_DUEL_PROCHAIN_EURO.py"
+      - "SCRIPTS_ACTIFS/TEST_RECEPTION_09B.py"
+permissions:
+  contents: read
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - run: pip install pandas
+      - run: python SCRIPTS_ACTIFS/TEST_RECEPTION_09B.py
