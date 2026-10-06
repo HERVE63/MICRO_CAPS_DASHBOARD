@@ -1,0 +1,14 @@
+Parametre,Valeur,Unite,Regle,Statut
+Version,1.0,,Regles figees ex ante,VALIDE
+Capitalisation_min,50,MEUR,Inclusif,VALIDE
+Capitalisation_max,300,MEUR,Inclusif,VALIDE
+Quota_survivants,AUCUN,,Le nombre de survivants ne pilote jamais les seuils,VALIDE
+Traitement_donnee_manquante,MANQUANTE,,Aucune imputation ni note moyenne,VALIDE
+Conservation_rejets,OUI,,Tout rejet conserve motif valeur seuil date et source,VALIDE
+Score_preselection,NON,,Le tamis ne calcule ni SSI ni MCPA,VALIDE
+Comparabilite_geographique,OBLIGATOIRE,,Un critere quantitatif n est activable que si sa definition est homogene sur tout l univers,VALIDE
+Liquidite,EN_ATTENTE_DONNEE_HOMOGENE,,Pas de seuil active avant collecte comparable,ATTENTE
+Dynamique_prix,EN_ATTENTE_DONNEE_HOMOGENE,,Pas de seuil active avant collecte comparable,ATTENTE
+Croissance_CA,EN_ATTENTE_DONNEE_HOMOGENE,,Pas de seuil active avant collecte comparable,ATTENTE
+Cash_dette_runway,EN_ATTENTE_DONNEE_HOMOGENE,,Pas de seuil active avant collecte comparable,ATTENTE
+Dilution,EN_ATTENTE_DONNEE_HOMOGENE,,Pas de seuil active avant collecte comparable,ATTENTE
