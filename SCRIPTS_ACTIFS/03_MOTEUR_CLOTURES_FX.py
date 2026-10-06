@@ -241,6 +241,15 @@ def executer():
             "au moins une ligne est en erreur."
         )
 
+    # Synchronisation stricte : aucune photographie quotidienne
+    # ne peut mélanger des clôtures de dates différentes.
+    dates_cloture = sorted(set(df["Date_cloture"].astype(str)))
+    if len(dates_cloture) != 1:
+        raise RuntimeError(
+            "MOTEUR BLOQUÉ : clôtures non synchronisées entre marchés : "
+            + ", ".join(dates_cloture)
+        )
+
     # --------------------------------------------------------
     # ÉCRITURE TEST UNIQUEMENT
     # --------------------------------------------------------
