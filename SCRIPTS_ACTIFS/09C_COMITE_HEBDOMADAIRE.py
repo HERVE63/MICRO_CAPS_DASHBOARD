@@ -16,8 +16,8 @@ def executer():
     # Chaîne hebdomadaire MICRO CAPS.
     #
     # La découverte amont n'est PAS recalculée ici :
-    # 08A importe la sortie du chasseur existant déposée dans
-    # DONNEES/SORTIE_SCREENER_CANDIDATS.csv.
+    # 08S adapte la sortie du chasseur existant au mandat MICRO CAPS 50-300 MEUR,
+    # puis 08A importe uniquement les candidats admissibles.
     #
     # Le comité applique ensuite les contrôles propres à MICRO CAPS :
     # provenance/admissibilité + SSI, revue MCPA/IPS, puis duel du prochain euro.
