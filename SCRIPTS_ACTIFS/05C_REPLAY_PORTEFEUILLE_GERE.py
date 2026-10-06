@@ -709,3 +709,5 @@ def executer():
 
 if __name__ == "__main__":
     executer()
+
+# réception frais proportionnels
