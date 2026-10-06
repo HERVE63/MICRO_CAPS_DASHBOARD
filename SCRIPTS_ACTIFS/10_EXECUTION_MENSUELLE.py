@@ -129,3 +129,5 @@ def executer(dry_run=False):
 
 if __name__=="__main__":
     executer()
+
+# réception syntaxique
