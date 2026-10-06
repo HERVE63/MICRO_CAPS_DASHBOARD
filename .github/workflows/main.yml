@@ -1,9 +1,12 @@
-name: MICRO CAPS V3 - TEST MOTEUR
+name: MICRO CAPS V3 - PRODUCTION QUOTIDIENNE
 
 on:
   workflow_dispatch:
   schedule:
-    - cron: "30 22 * * 1-5"
+    # Deux réveils UTC couvrent heure d'été / heure d'hiver.
+    # Le verrou Europe/Paris ci-dessous n'exécute le moteur qu'à 22:30 locale.
+    - cron: "30 20 * * 1-5"
+    - cron: "30 21 * * 1-5"
 
 permissions:
   contents: write
@@ -13,29 +16,56 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
+      - name: Verrou horaire Europe Paris
+        id: horaire
+        shell: bash
+        run: |
+          if [ "${{ github.event_name }}" = "workflow_dispatch" ]; then
+            echo "run=true" >> "$GITHUB_OUTPUT"
+          else
+            HEURE_PARIS=$(TZ=Europe/Paris date +%H:%M)
+            if [ "$HEURE_PARIS" = "22:30" ]; then
+              echo "run=true" >> "$GITHUB_OUTPUT"
+            else
+              echo "run=false" >> "$GITHUB_OUTPUT"
+              echo "Réveil UTC ignoré : heure Europe/Paris = $HEURE_PARIS"
+            fi
+          fi
+
       - name: Recuperer le depot
+        if: steps.horaire.outputs.run == 'true'
         uses: actions/checkout@v4
 
       - name: Installer Python
+        if: steps.horaire.outputs.run == 'true'
         uses: actions/setup-python@v5
         with:
           python-version: "3.12"
 
       - name: Installer les dependances
+        if: steps.horaire.outputs.run == 'true'
         run: |
           python -m pip install --upgrade pip
           pip install pandas numpy yfinance pandas_market_calendars
 
       - name: Executer MICRO CAPS V3
+        if: steps.horaire.outputs.run == 'true'
         run: python SCRIPTS_ACTIFS/00_EXECUTION_QUOTIDIENNE_V3.py
-      - name: Sauvegarder les résultats MICRO CAPS
+
+      - name: Generer le tableau de bord
+        if: steps.horaire.outputs.run == 'true'
+        run: python SCRIPTS_ACTIFS/08_GENERER_DASHBOARD.py
+
+      - name: Sauvegarder les resultats MICRO CAPS
+        if: steps.horaire.outputs.run == 'true'
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add DONNEES HISTORIQUE
+          git add DONNEES HISTORIQUE index.html
           if git diff --cached --quiet; then
             echo "Aucun nouveau résultat à sauvegarder."
           else
             git commit -m "Mise à jour automatique MICRO CAPS"
+            git pull --rebase origin main
             git push
           fi
