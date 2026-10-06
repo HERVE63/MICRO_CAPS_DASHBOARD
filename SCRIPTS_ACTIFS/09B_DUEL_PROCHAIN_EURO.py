@@ -5,7 +5,7 @@ MICRO CAPS — 09B DUEL DU PROCHAIN EURO
 Règles validées :
 - aucune rotation sur égalité avec la valeur détenue ;
 - une destination doit avoir une note MCPA strictement supérieure à la source ;
-- destinations admissibles : titulaire RENFORCER ou challenger SONDE/INCUBATION ;
+- seules les sorties VENDRE libèrent automatiquement du capital ;\n- destinations admissibles : titulaire RENFORCER ou challenger SONDE/INCUBATION ;
 - si plusieurs meilleures destinations ont la même note, partage équipondéré ;
 - aucune écriture dans le journal : 09B décide l'allocation, l'exécution reste
   séparée afin que prix, FX, frais et quantités soient documentés.
@@ -20,7 +20,7 @@ OUTPUT = BASE / "DONNEES" / "DUELS_PROCHAIN_EURO.csv"
 
 DEST_TITULAIRE = {"RENFORCER"}
 DEST_CHALLENGER = {"SONDE", "INCUBATION"}
-SORTIES = {"VENDRE", "ALLEGER", "ALLÉGER"}
+SORTIES = {"VENDRE"}
 
 def _s(v):
     return str(v).strip().upper()
