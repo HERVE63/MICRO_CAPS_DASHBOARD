@@ -11,7 +11,7 @@ BASE=Path(__file__).resolve().parents[1]
 D=BASE/"DONNEES"; APP=BASE/"APPLICATION"; APP.mkdir(exist_ok=True)
 P=pd.read_csv(D/"TEST_PORTEFEUILLES_V3.csv")
 Q=pd.read_csv(D/"TEST_CONTROLE_QUALITE_V3.csv")
-B=pd.read_csv(D/"TEST_BENCHMARKS_V3.csv")\nCHASSE=D/"CHASSE_CANDIDATS.csv"; REVUE=D/"REVUE_HEBDOMADAIRE_MCPA_IPS.csv"\nC=pd.read_csv(CHASSE) if CHASSE.exists() and CHASSE.stat().st_size>1 else pd.DataFrame()\nH=pd.read_csv(REVUE) if REVUE.exists() and REVUE.stat().st_size>1 else pd.DataFrame()\nchall=H[H["Type"].astype(str).str.upper()=="CHALLENGER"].copy() if (not H.empty and "Type" in H.columns) else pd.DataFrame()\nif not chall.empty:\n    chall["MCPA_num"]=pd.to_numeric(chall["MCPA"],errors="coerce")\n    chall["SSI_num"]=pd.to_numeric(chall["SSI"],errors="coerce")\n    chall=chall[chall["SSI_num"]>=65].sort_values(["MCPA_num","SSI_num"],ascending=False).head(20)\ndetected=len(C)
+B=pd.read_csv(D/"TEST_BENCHMARKS_V3.csv")\nCHASSE=D/"CHASSE_CANDIDATS.csv"; REVUE=D/"REVUE_HEBDOMADAIRE_MCPA_IPS.csv"\nC=pd.read_csv(CHASSE) if CHASSE.exists() and CHASSE.stat().st_size>1 else pd.DataFrame()\nH=pd.read_csv(REVUE) if REVUE.exists() and REVUE.stat().st_size>1 else pd.DataFrame()\nchall=H[H["Type"].astype(str).str.upper()=="CHALLENGER"].copy() if (not H.empty and "Type" in H.columns) else pd.DataFrame()\nqualif_attente = max(detected-len(chall),0) if "detected" in globals() else 0\nif not chall.empty:\n    chall["MCPA_num"]=pd.to_numeric(chall["MCPA"],errors="coerce")\n    chall["SSI_num"]=pd.to_numeric(chall["SSI"],errors="coerce")\n    chall=chall[chall["SSI_num"]>=65].sort_values(["MCPA_num","SSI_num"],ascending=False).head(20)\ndetected=len(C)\nqualif_attente=max(detected-len(chall),0)
 bad=Q[Q["Statut_qualite"]!="OK"].copy()
 valid=len(bad)==0
 r=P.iloc[0]
@@ -33,7 +33,7 @@ for i,x in S.iterrows():
     rows+=f"""<tr><td class="rank">{i+1}</td><td><strong>{html.escape(str(x["Societe"]))}</strong><div class="sub">{html.escape(str(x["Ticker_cotation"]))} · clôt. {x["Date_cloture"]}</div></td><td class="value">{v:.2f} €</td><td class="{cls(p)}">{flag} {pc(p)}<div class="sub">contribution {c:+.2f} €</div></td></tr>"""
 alerts='<div class="validated">🟢 DONNÉES VALIDÉES · 40/40</div>' if valid else f'<div class="alert">⚠️ CONTRÔLE QUALITÉ · {len(bad)} anomalie(s)</div>'
 if chall.empty:
-    challenger_html=f'<div class="challenger-head"><div><span class="big2">{detected}</span><div class="sub">candidats détectés</div></div><div><span class="big2">0</span><div class="sub">challengers qualifiés</div></div></div><div class="waiting">🔎 Chasse / qualification en attente · aucun challenger inventé.</div>'
+    challenger_html=f'<div class="challenger-head"><div><span class="big2">{detected}</span><div class="sub">candidats détectés</div></div><div><span class="big2">0</span><div class="sub">challengers qualifiés</div></div></div><div class="waiting">🔎 Détection active · qualification SSI/MCPA en attente. Aucun score inventé.</div>'
 else:
     cards=""
     medals=["🥇","🥈","🥉"]
