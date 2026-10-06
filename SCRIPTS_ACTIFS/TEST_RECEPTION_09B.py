@@ -14,3 +14,5 @@ r=m.calculer_duels(x); assert len(r)==2 and set(r["Societe_destination"])=={"A",
 x=pd.DataFrame([l("TITULAIRE","1","SOURCE",70,"VENDRE"),l("TITULAIRE","2","A",85,"RENFORCER"),l("CHALLENGER","C1","C",90,"SONDE")])
 r=m.calculer_duels(x); assert len(r)==1 and r.iloc[0]["Societe_destination"]=="C" and abs(float(r.iloc[0]["Part_allocation"])-1)<1e-12
 print("RECEPTION 09B OK")
+
+# déclenchement réception CI
