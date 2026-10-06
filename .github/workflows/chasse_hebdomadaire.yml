@@ -1,10 +1,6 @@
 name: MICRO CAPS - CHASSE HEBDOMADAIRE
 on:
   workflow_dispatch:
-  push:
-    branches: [main]
-    paths:
-      - "SCRIPTS_ACTIFS/07S_SCREENING_PRIMAIRE_MICRO_CAPS.py"
   schedule:
     - cron: "15 20 * * 2"
     - cron: "15 21 * * 2"
@@ -18,7 +14,7 @@ jobs:
         id: horaire
         shell: bash
         run: |
-          if [ "${{ github.event_name }}" = "workflow_dispatch" ] || [ "${{ github.event_name }}" = "push" ]; then
+          if [ "${{ github.event_name }}" = "workflow_dispatch" ]; then
             echo "run=true" >> "$GITHUB_OUTPUT"
           else
             H=$(TZ=Europe/Paris date +%u-%H:%M)
