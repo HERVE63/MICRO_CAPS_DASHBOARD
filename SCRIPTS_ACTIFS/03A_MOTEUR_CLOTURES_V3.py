@@ -119,7 +119,7 @@ def derniere_cloture_validee(ticker, maintenant_utc=None):
     date_session = session["date_session"]
 
     # Fenêtre explicite autour de la séance recherchée.
-    start = date_session
+        start = date_session - timedelta(days=15)
     end = date_session + timedelta(days=1)
 
     hist = yf.download(
@@ -151,9 +151,10 @@ def derniere_cloture_validee(ticker, maintenant_utc=None):
             f"Close manquant pour {ticker} "
             f"le {date_session}"
         )
-
+    date_cotation = pd.Timestamp(close_series.index[-1]).date()
     close = float(close_series.iloc[-1])
-
+    statut_cotation = "OK" if date_cotation == date_session else "ATTENTE_NOUVELLE_COTATION"
+    jours_sans_cotation = (date_session - date_cotation).days
     # Yahoo : Londres est généralement fourni en GBp.
     unite = "devise"
 
@@ -164,9 +165,11 @@ def derniere_cloture_validee(ticker, maintenant_utc=None):
     return {
         **session,
         "ticker": ticker,
+        "date_cotation": date_cotation,
+        "jours_sans_cotation": jours_sans_cotation,
         "cours_cloture": close,
         "unite_normalisee": unite,
-        "statut": "OK"
+        "statut": statut_cotation
     }
 
 
