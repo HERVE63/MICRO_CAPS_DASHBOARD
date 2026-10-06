@@ -13,7 +13,17 @@ def charger(nom):
     return module
 
 def executer():
-    # Ordre obligatoire : screener, provenance/admissibilite, analyse, duel.\n    charger("07B_NORMALISER_FONDAMENTAUX.py").executer()\n    charger("07C_SCREENER_MICRO_CAPS.py").executer()\n    charger("08A_IMPORT_SCREENER.py").executer()\n    charger("08B_CONTROLE_CHASSE_SSI.py").executer()
+    # Chaîne hebdomadaire MICRO CAPS.
+    #
+    # La découverte amont n'est PAS recalculée ici :
+    # 08A importe la sortie du chasseur existant déposée dans
+    # DONNEES/SORTIE_SCREENER_CANDIDATS.csv.
+    #
+    # Le comité applique ensuite les contrôles propres à MICRO CAPS :
+    # provenance/admissibilité + SSI, revue MCPA/IPS, puis duel du prochain euro.
+    # Les anciens modules expérimentaux 07B/07C ne font pas partie de ce chemin.
+    charger("08A_IMPORT_SCREENER.py").executer()
+    charger("08B_CONTROLE_CHASSE_SSI.py").executer()
     revue = charger("09_CONTROLE_REVUE_MCPA_IPS.py").executer()
     duels = charger("09B_DUEL_PROCHAIN_EURO.py").executer()
 
