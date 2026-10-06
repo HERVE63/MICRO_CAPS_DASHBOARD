@@ -1,0 +1,46 @@
+name: MICRO CAPS - ARBITRAGE MENSUEL
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: "45 21 * * 2"
+    - cron: "45 22 * * 2"
+permissions:
+  contents: write
+jobs:
+  arbitrage:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Verrou mardi 23h45 Europe Paris
+        id: horaire
+        shell: bash
+        run: |
+          if [ "${{ github.event_name }}" = "workflow_dispatch" ]; then
+            echo "run=true" >> "$GITHUB_OUTPUT"
+          else
+            H=$(TZ=Europe/Paris date +%u-%H:%M)
+            [ "$H" = "2-23:45" ] && echo "run=true" >> "$GITHUB_OUTPUT" || echo "run=false" >> "$GITHUB_OUTPUT"
+          fi
+      - if: steps.horaire.outputs.run == 'true'
+        uses: actions/checkout@v4
+      - if: steps.horaire.outputs.run == 'true'
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - if: steps.horaire.outputs.run == 'true'
+        run: pip install pandas numpy yfinance pandas_market_calendars
+      - if: steps.horaire.outputs.run == 'true'
+        run: |
+          python SCRIPTS_ACTIFS/10_EXECUTION_MENSUELLE.py
+          python SCRIPTS_ACTIFS/00_EXECUTION_QUOTIDIENNE_V3.py
+          python SCRIPTS_ACTIFS/08_GENERER_DASHBOARD.py
+      - name: Sauvegarder
+        if: steps.horaire.outputs.run == 'true'
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add DONNEES HISTORIQUE index.html
+          if ! git diff --cached --quiet; then
+            git commit -m "Arbitrage mensuel MICRO CAPS"
+            git pull --rebase origin main
+            git push
+          fi
