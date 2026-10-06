@@ -27,7 +27,10 @@ PAIRES = {
     "USD": "EURUSD=X",
     "CAD": "EURCAD=X",
     "GBP": "EURGBP=X",
-    "SEK": "EURSEK=X",\n    "DKK": "EURDKK=X",\n    "NOK": "EURNOK=X",\n    "CHF": "EURCHF=X",
+    "SEK": "EURSEK=X",
+    "DKK": "EURDKK=X",
+    "NOK": "EURNOK=X",
+    "CHF": "EURCHF=X",
 }
 
 
