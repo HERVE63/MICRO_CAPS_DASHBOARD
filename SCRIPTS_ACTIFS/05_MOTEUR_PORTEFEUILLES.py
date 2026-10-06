@@ -271,6 +271,30 @@ def executer():
         .fillna("SORTI")
     )
 
+    # Les positions NEW_ n'appartiennent jamais au témoin, mais doivent
+    # apparaître dans la sortie du portefeuille géré après leur entrée.
+    if len(actifs_new) > 0:
+        new_rows = gere[gere["ID_position"].astype(str).str.startswith("NEW_")].copy()
+        ajouts = []
+        for _, r in new_rows.iterrows():
+            ajouts.append({
+                "ID_ligne": r["ID_position"],
+                "Societe": r["Societe"],
+                "Ticker_cotation": r["Ticker"],
+                "Devise": r["Devise"],
+                "Date_cloture": r["Date_cloture"],
+                "Cours_retenu_devise": r["Cours_retenu_devise"],
+                "FX_vers_EUR": r["FX_vers_EUR"],
+                "Cours_EUR_resolu": r["Cours_EUR_resolu"],
+                "Valeur_Temoin_EUR": 0.0,
+                "Valeur_Gere_EUR": r["Valeur_Gere_EUR"],
+                "Statut_Temoin": "HORS_TEMOIN",
+                "Statut_Gere": "ACTIF",
+                "CLE_T0": pd.NA,
+                "Resolution_anomalie": r["Resolution_anomalie"]
+            })
+        sortie = pd.concat([sortie, pd.DataFrame(ajouts)], ignore_index=True, sort=False)
+
     sortie["Perf_Temoin_pct"] = (
         sortie["Valeur_Temoin_EUR"]
         / sortie["Capital_T0_EUR"]
