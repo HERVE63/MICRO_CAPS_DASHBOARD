@@ -11,7 +11,18 @@ BASE=Path(__file__).resolve().parents[1]
 D=BASE/"DONNEES"; APP=BASE/"APPLICATION"; APP.mkdir(exist_ok=True)
 P=pd.read_csv(D/"TEST_PORTEFEUILLES_V3.csv")
 Q=pd.read_csv(D/"TEST_CONTROLE_QUALITE_V3.csv")
-B=pd.read_csv(D/"TEST_BENCHMARKS_V3.csv")\nCHASSE=D/"CHASSE_CANDIDATS.csv"; REVUE=D/"REVUE_HEBDOMADAIRE_MCPA_IPS.csv"\nC=pd.read_csv(CHASSE) if CHASSE.exists() and CHASSE.stat().st_size>1 else pd.DataFrame()\nH=pd.read_csv(REVUE) if REVUE.exists() and REVUE.stat().st_size>1 else pd.DataFrame()\nchall=H[H["Type"].astype(str).str.upper()=="CHALLENGER"].copy() if (not H.empty and "Type" in H.columns) else pd.DataFrame()\nqualif_attente = max(detected-len(chall),0) if "detected" in globals() else 0\nif not chall.empty:\n    chall["MCPA_num"]=pd.to_numeric(chall["MCPA"],errors="coerce")\n    chall["SSI_num"]=pd.to_numeric(chall["SSI"],errors="coerce")\n    chall=chall[chall["SSI_num"]>=65].sort_values(["MCPA_num","SSI_num"],ascending=False).head(20)\ndetected=len(C)\nqualif_attente=max(detected-len(chall),0)
+B=pd.read_csv(D/"TEST_BENCHMARKS_V3.csv")
+CHASSE=D/"CHASSE_CANDIDATS.csv"; REVUE=D/"REVUE_HEBDOMADAIRE_MCPA_IPS.csv"
+C=pd.read_csv(CHASSE) if CHASSE.exists() and CHASSE.stat().st_size>1 else pd.DataFrame()
+H=pd.read_csv(REVUE) if REVUE.exists() and REVUE.stat().st_size>1 else pd.DataFrame()
+chall=H[H["Type"].astype(str).str.upper()=="CHALLENGER"].copy() if (not H.empty and "Type" in H.columns) else pd.DataFrame()
+qualif_attente = max(detected-len(chall),0) if "detected" in globals() else 0
+if not chall.empty:
+    chall["MCPA_num"]=pd.to_numeric(chall["MCPA"],errors="coerce")
+    chall["SSI_num"]=pd.to_numeric(chall["SSI"],errors="coerce")
+    chall=chall[chall["SSI_num"]>=65].sort_values(["MCPA_num","SSI_num"],ascending=False).head(20)
+detected=len(C)
+qualif_attente=max(detected-len(chall),0)
 bad=Q[Q["Statut_qualite"]!="OK"].copy()
 valid=len(bad)==0
 r=P.iloc[0]
@@ -50,7 +61,8 @@ page=f"""<!doctype html><html lang="fr"><head><meta charset="utf-8"><meta name="
 </style></head><body><div class="container"><h1>MICRO CAPS</h1><div class="subtitle">Expérience prospective · T0 01/10/2026 · dernière séance {date}</div>
 <div class="section">🏁 MATCH DEPUIS LE T0</div><table><tr><th>Stratégie</th><th>Base 100</th><th>Perf.</th><th>Écart vs géré</th></tr>{match}</table>
 <div class="alpha"><div class="sub">ALPHA DE GESTION</div><div class="big">{alpha:+.2f} pt</div><div class="sub">Géré − Jumeau sans arbitrages</div></div>{alerts}
-<div class="section">🏆 CANDIDATS CONCURRENTS</div>{challenger_html}\n<div class="section">40 VALEURS · COHORTE T0</div><table>{rows}</table>
+<div class="section">🏆 CANDIDATS CONCURRENTS</div>{challenger_html}
+<div class="section">40 VALEURS · COHORTE T0</div><table>{rows}</table>
 <div class="footer">Portefeuille géré {vg:,.2f} € · Jumeau {vt:,.2f} € · construction {now}</div></div></body></html>"""
 (APP/"index.html").write_text(page,encoding="utf-8")
 (BASE/"index.html").write_text(page,encoding="utf-8")
