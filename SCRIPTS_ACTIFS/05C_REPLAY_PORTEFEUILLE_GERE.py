@@ -26,6 +26,7 @@ BASE = Path(__file__).resolve().parent.parent
 
 INITIAL = BASE / "DONNEES/ETAT_INITIAL_PORTEFEUILLE_GERE.csv"
 JOURNAL = BASE / "DONNEES/JOURNAL_ARBITRAGES_GERE.csv"
+PARAMS_ARBITRAGE = BASE / "CONFIG/PARAMETRES_ARBITRAGE_MICRO_CAPS.csv"
 
 OUTPUT = BASE / "DONNEES/TEST_ETAT_GERE_RECONSTRUIT.csv"
 
@@ -42,7 +43,19 @@ def nombre(x, nom):
     return v
 
 
+def _taux_frais():
+    p = pd.read_csv(PARAMS_ARBITRAGE)
+    q = p.set_index("Parametre")
+    achat = float(q.loc["Frais_achat","Valeur"]) / 100.0
+    vente = float(q.loc["Frais_vente","Valeur"]) / 100.0
+    if achat < 0 or vente < 0:
+        raise RuntimeError("Taux de frais invalide.")
+    return achat, vente
+
+
 def executer():
+
+    taux_achat, taux_vente = _taux_frais()
 
     initial = pd.read_csv(INITIAL)
     journal = pd.read_csv(JOURNAL)
@@ -421,6 +434,11 @@ def executer():
                 raise RuntimeError(
                     f"Frais sortie négatifs — opération {id_op}"
                 )
+            frais_attendus = quantite * cours * fx * taux_vente
+            if abs(frais - frais_attendus) > 0.01:
+                raise RuntimeError(
+                    f"Frais vente non conformes à {taux_vente*100:.2f}% — opération {id_op}"
+                )
 
             vendre(
                 id_sortie,
@@ -465,6 +483,11 @@ def executer():
             if frais < 0:
                 raise RuntimeError(
                     f"Frais sortie négatifs — opération {id_op}"
+                )
+            frais_attendus = quantite * cours * fx * taux_vente
+            if abs(frais - frais_attendus) > 0.01:
+                raise RuntimeError(
+                    f"Frais vente non conformes à {taux_vente*100:.2f}% — opération {id_op}"
                 )
 
             vendre(
@@ -511,6 +534,11 @@ def executer():
                 raise RuntimeError(
                     f"Frais entrée négatifs — opération {id_op}"
                 )
+            frais_attendus = montant * taux_achat / (1.0 + taux_achat)
+            if abs(frais - frais_attendus) > 0.01:
+                raise RuntimeError(
+                    f"Frais achat non conformes à {taux_achat*100:.2f}% — opération {id_op}"
+                )
 
             renforcer(
                 id_entree,
@@ -551,6 +579,11 @@ def executer():
             if frais < 0:
                 raise RuntimeError(
                     f"Frais entrée négatifs — opération {id_op}"
+                )
+            frais_attendus = montant * taux_achat / (1.0 + taux_achat)
+            if abs(frais - frais_attendus) > 0.01:
+                raise RuntimeError(
+                    f"Frais achat non conformes à {taux_achat*100:.2f}% — opération {id_op}"
                 )
 
             nouvelle_entree(
