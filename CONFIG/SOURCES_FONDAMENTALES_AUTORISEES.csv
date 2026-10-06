@@ -1,0 +1,8 @@
+# Sources fondamentales autorisees pour le screener Micro Caps
+# Ce registre decrit la provenance. Il ne contient aucun secret ni cle API.
+# Une source non identifiee ou non datee ne peut pas produire Statut_donnees=OK.
+Type_source,Priorite,Usage,Exigence
+PUBLICATION_EMETTEUR,1,resultats_guidance_bilan_cashflow,dater_et_conserver_url
+DEPOT_REGLEMENTAIRE,1,comptes_actions_dilution_insiders,dater_et_conserver_url
+DONNEE_MARCHE,2,capitalisation_liquidite_prix,dater_et_conserver_source
+SOURCE_SECONDAIRE,3,recoupement_uniquement,ne_pas_remplacer_source_primaire
