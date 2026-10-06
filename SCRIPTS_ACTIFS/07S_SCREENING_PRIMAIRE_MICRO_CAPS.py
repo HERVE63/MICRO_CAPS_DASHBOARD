@@ -101,3 +101,5 @@ if __name__=="__main__":
 # déclenchement production
 
 # chasse opérationnelle
+
+# réception après correction FX
