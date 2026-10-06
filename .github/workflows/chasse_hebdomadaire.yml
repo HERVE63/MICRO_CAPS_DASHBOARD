@@ -1,0 +1,46 @@
+name: MICRO CAPS - CHASSE HEBDOMADAIRE
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: "15 20 * * 2"
+    - cron: "15 21 * * 2"
+permissions:
+  contents: write
+jobs:
+  chasse:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Verrou mardi 22h15 Europe Paris
+        id: horaire
+        shell: bash
+        run: |
+          if [ "${{ github.event_name }}" = "workflow_dispatch" ]; then
+            echo "run=true" >> "$GITHUB_OUTPUT"
+          else
+            H=$(TZ=Europe/Paris date +%u-%H:%M)
+            [ "$H" = "2-22:15" ] && echo "run=true" >> "$GITHUB_OUTPUT" || echo "run=false" >> "$GITHUB_OUTPUT"
+          fi
+      - if: steps.horaire.outputs.run == 'true'
+        uses: actions/checkout@v4
+      - if: steps.horaire.outputs.run == 'true'
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - if: steps.horaire.outputs.run == 'true'
+        run: pip install pandas numpy yfinance
+      - if: steps.horaire.outputs.run == 'true'
+        run: |
+          python SCRIPTS_ACTIFS/07S_SCREENING_PRIMAIRE_MICRO_CAPS.py
+          python SCRIPTS_ACTIFS/08S_ADAPTATEUR_CHASSEUR_MICRO_CAPS.py
+          python SCRIPTS_ACTIFS/08A_IMPORT_SCREENER.py
+      - name: Sauvegarder la chasse
+        if: steps.horaire.outputs.run == 'true'
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add DONNEES/SORTIE_CHASSEUR_EXISTANT.csv DONNEES/SORTIE_SCREENER_CANDIDATS.csv DONNEES/CHASSE_CANDIDATS.csv DONNEES/CONTROLE_ADAPTATEUR_CHASSEUR_MICRO_CAPS.csv DONNEES/CONTROLE_IMPORT_SCREENER.csv
+          if ! git diff --cached --quiet; then
+            git commit -m "Chasse hebdomadaire MICRO CAPS"
+            git pull --rebase origin main
+            git push
+          fi
