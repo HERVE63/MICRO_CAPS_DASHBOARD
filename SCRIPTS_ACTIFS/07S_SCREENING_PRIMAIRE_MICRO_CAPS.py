@@ -99,3 +99,5 @@ if __name__=="__main__":
 # production initiale contrôlée
 
 # déclenchement production
+
+# chasse opérationnelle
