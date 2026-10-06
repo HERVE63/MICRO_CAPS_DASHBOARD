@@ -97,3 +97,5 @@ if __name__=="__main__":
 # réception CI
 
 # production initiale contrôlée
+
+# déclenchement production
