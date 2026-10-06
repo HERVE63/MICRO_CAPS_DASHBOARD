@@ -27,7 +27,7 @@ PAIRES = {
     "USD": "EURUSD=X",
     "CAD": "EURCAD=X",
     "GBP": "EURGBP=X",
-    "SEK": "EURSEK=X",
+    "SEK": "EURSEK=X",\n    "DKK": "EURDKK=X",\n    "NOK": "EURNOK=X",\n    "CHF": "EURCHF=X",
 }
 
 
@@ -129,7 +129,7 @@ def tous_les_fx(maintenant_utc=None):
 
     resultat = {}
 
-    for devise in ["EUR", "USD", "CAD", "GBP", "SEK"]:
+    for devise in ["EUR", "USD", "CAD", "GBP", "SEK", "DKK", "NOK", "CHF"]:
         resultat[devise] = dernier_fx_termine(
             devise,
             maintenant_utc
