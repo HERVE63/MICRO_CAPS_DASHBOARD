@@ -32,11 +32,15 @@ jobs:
           python-version: "3.12"
       - if: steps.horaire.outputs.run == 'true'
         run: pip install pandas numpy yfinance
-      - if: steps.horaire.outputs.run == 'true'
+      - name: Executer chasse et preselection
+        if: steps.horaire.outputs.run == 'true'
         run: |
           python SCRIPTS_ACTIFS/07S_SCREENING_PRIMAIRE_MICRO_CAPS.py
           python SCRIPTS_ACTIFS/08S_ADAPTATEUR_CHASSEUR_MICRO_CAPS.py
-          python SCRIPTS_ACTIFS/08A_IMPORT_SCREENER.py\n          python SCRIPTS_ACTIFS/08B_CONTROLE_CHASSE_SSI.py || true\n          python SCRIPTS_ACTIFS/08_GENERER_DASHBOARD.py
+          python SCRIPTS_ACTIFS/08A_IMPORT_SCREENER.py
+          python SCRIPTS_ACTIFS/07P_COLLECTE_PRESELECTION_MARCHE.py
+          python SCRIPTS_ACTIFS/08B_CONTROLE_CHASSE_SSI.py
+          python SCRIPTS_ACTIFS/08_GENERER_DASHBOARD.py
       - name: Sauvegarder la chasse
         if: steps.horaire.outputs.run == 'true'
         run: |
