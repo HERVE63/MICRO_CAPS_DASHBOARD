@@ -21,12 +21,9 @@ for i,r in df.iterrows():
         tk=yf.Ticker(t)
         try: isin=(tk.isin or "").strip()
         except Exception as e: err+="ISIN:"+type(e).__name__+";"
-        try:
-            inf=tk.info or {}
-            issuer_country=str(inf.get("country") or "").strip()
-            currency_info=str(inf.get("currency") or "").strip()
-            exchange_info=str(inf.get("exchange") or "").strip()
-        except Exception as e: err+="INFO:"+type(e).__name__+";"
+        # L'identite ISIN est la preuve primaire. Les appels lourds tk.info ne sont
+        # pas faits ici: pays/place proviennent deja du scan, et les cas ambigus
+        # restent conserves (fail-closed).
     except Exception as e: err+="TICKER:"+type(e).__name__+";"
     z=r.to_dict()
     z.update({"ISIN":isin,"Pays_emetteur":issuer_country,"Devise_info":currency_info,
@@ -56,16 +53,17 @@ res["Groupe_ISIN"]=""
 for isin,g in res[res["ISIN"].astype(str).str.len().ge(10)].groupby("ISIN"):
     if len(g)<2: continue
     idx=list(g.index); res.loc[idx,"Groupe_ISIN"]=isin
-    countries=[x for x in g["Pays_emetteur"].astype(str).unique() if x]
-    if len(countries)!=1:
-        res.loc[idx,"Motif_decision"]="MEME_ISIN_MAIS_PAYS_EMETTEUR_AMBIGU"
-        continue
-    country=countries[0]; allowed=dom.get(country,[])
-    cand=g[g["Exchange"].isin(allowed)].copy()
-    if len(cand)==0:
-        res.loc[idx,"Motif_decision"]="MEME_ISIN_SANS_PLACE_DOMESTIQUE_IDENTIFIEE"
-        continue
+    # Le champ Pays du scan designe la zone de cotation, pas necessairement
+    # le domicile. On ne l'utilise donc pas pour prouver le pays de l'emetteur.
+    # Choix principal uniquement si une seule place de rang institutionnel 1 existe.
+    country=""
+    allowed=[]
+    cand=g.copy()
     cand["r"]=cand["Exchange"].map(rank).fillna(50)
+    cand=cand[cand["r"].lt(7)].copy()
+    if len(cand)==0:
+        res.loc[idx,"Motif_decision"]="MEME_ISIN_SANS_PLACE_PRINCIPALE_IDENTIFIABLE"
+        continue
     best=cand[cand["r"].eq(cand["r"].min())]
     if len(best)!=1:
         res.loc[idx,"Motif_decision"]="MEME_ISIN_PLUSIEURS_PLACES_PRINCIPALES_POSSIBLES"
@@ -74,7 +72,7 @@ for isin,g in res[res["ISIN"].astype(str).str.len().ge(10)].groupby("ISIN"):
     res.loc[idx,"Decision"]="REJET_COTATION_SECONDAIRE"
     res.loc[idx,"Motif_decision"]="MEME_ISIN_PLACE_SECONDAIRE"
     res.loc[keep,"Decision"]="CONSERVER_PRINCIPALE"
-    res.loc[keep,"Motif_decision"]="MEME_ISIN_PLACE_DOMESTIQUE_PRINCIPALE"
+    res.loc[keep,"Motif_decision"]="MEME_ISIN_PLACE_PRINCIPALE_SELON_HIERARCHIE_FIGEE"
 
 res.to_csv(OUT,index=False)
 syn=pd.DataFrame([{
