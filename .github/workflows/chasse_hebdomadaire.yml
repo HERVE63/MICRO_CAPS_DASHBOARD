@@ -18,7 +18,7 @@ jobs:
         id: horaire
         shell: bash
         run: |
-          if [ "${{ github.event_name }}" = "workflow_dispatch" ]; then
+          if [ "${{ github.event_name }}" = "workflow_dispatch" ] || [ "${{ github.event_name }}" = "push" ]; then
             echo "run=true" >> "$GITHUB_OUTPUT"
           else
             H=$(TZ=Europe/Paris date +%u-%H:%M)
