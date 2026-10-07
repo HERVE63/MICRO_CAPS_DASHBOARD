@@ -72,4 +72,4 @@ def executer():
 if __name__=="__main__":
     executer()
 
-# 07P utilise uniquement le scan courant; audit cotations multiples branche.
+# 07P utilise uniquement le scan courant; identification ISIN et place principale branchee.
