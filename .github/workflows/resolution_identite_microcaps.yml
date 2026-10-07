@@ -1,0 +1,30 @@
+name: MICRO CAPS - RESOLUTION IDENTITE
+on:
+  push:
+    paths:
+      - 'SCRIPTS_ACTIFS/07D_ENRICHIR_IDENTITE_COTATIONS.py'
+      - '.github/workflows/resolution_identite_microcaps.yml'
+  workflow_dispatch:
+permissions:
+  contents: write
+jobs:
+  identite:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - run: pip install pandas yfinance
+      - name: Identifier les emetteurs et cotations
+        run: python SCRIPTS_ACTIFS/07D_ENRICHIR_IDENTITE_COTATIONS.py
+      - name: Sauvegarder les preuves
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add DONNEES/IDENTITE_COTATIONS_MULTIPLES.csv DONNEES/SYNTHESE_IDENTITE_COTATIONS.csv
+          git diff --cached --quiet && exit 0
+          git commit -m "Actualise identification cotations multiples"
+          git pull --rebase origin main
+          git push origin main
