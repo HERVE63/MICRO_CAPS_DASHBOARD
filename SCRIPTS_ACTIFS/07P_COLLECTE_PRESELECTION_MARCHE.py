@@ -72,4 +72,4 @@ def executer():
 if __name__=="__main__":
     executer()
 
-# reception HEAD controlee 2026-10-07
+# reception HEAD controlee 2026-10-07 - tentative 2
