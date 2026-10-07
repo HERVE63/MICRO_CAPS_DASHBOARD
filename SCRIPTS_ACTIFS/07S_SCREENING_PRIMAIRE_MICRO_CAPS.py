@@ -76,6 +76,10 @@ def executer():
                 lignes.append({
                     "Date_detection":date,"Societe":nom,"Ticker":ticker,
                     "Devise":devise,"Pays":pays,"Capitalisation_EUR":round(cap_eur,2),
+                    "Exchange":str(x.get("exchange") or "").strip(),
+                    "FullExchangeName":str(x.get("fullExchangeName") or "").strip(),
+                    "QuoteType":str(x.get("quoteType") or "").strip(),
+                    "UnderlyingSymbol":str(x.get("underlyingSymbol") or "").strip(),
                     "Source_detection":"Yahoo Finance / yfinance EquityQuery",
                     "Date_source":date,
                     "These_initiale":"Détection mécanique 50-300 MEUR ; qualification SSI requise.",
