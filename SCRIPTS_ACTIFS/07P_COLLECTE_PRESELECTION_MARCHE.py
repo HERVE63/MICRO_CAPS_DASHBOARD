@@ -11,7 +11,7 @@ import pandas as pd
 import yfinance as yf
 
 BASE=Path(__file__).resolve().parents[1]
-SRC=BASE/"DONNEES"/"CHASSE_CANDIDATS.csv"
+SRC=BASE/"DONNEES"/"SORTIE_SCREENER_CANDIDATS.csv"
 OUT=BASE/"DONNEES"/"PRESELECTION_VARIABLES_MARCHE.csv"
 
 def _series(frame, field, ticker):
@@ -23,9 +23,9 @@ def _series(frame, field, ticker):
         return pd.Series(dtype=float)
 
 def executer():
-    if not SRC.exists(): raise RuntimeError("CHASSE_CANDIDATS absent.")
+    if not SRC.exists(): raise RuntimeError("SORTIE_SCREENER_CANDIDATS absent.")
     u=pd.read_csv(SRC)
-    if u.empty: raise RuntimeError("CHASSE_CANDIDATS vide.")
+    if u.empty: raise RuntimeError("SORTIE_SCREENER_CANDIDATS vide.")
     if "Ticker" not in u.columns: raise RuntimeError("Ticker absent.")
     tickers=u["Ticker"].dropna().astype(str).str.strip()
     tickers=list(dict.fromkeys([x for x in tickers if x]))
@@ -72,4 +72,4 @@ def executer():
 if __name__=="__main__":
     executer()
 
-# reception HEAD controlee 2026-10-07 - tentative 3
+# 07P utilise uniquement le scan courant; CHASSE_CANDIDATS reste le registre historique append-only.
