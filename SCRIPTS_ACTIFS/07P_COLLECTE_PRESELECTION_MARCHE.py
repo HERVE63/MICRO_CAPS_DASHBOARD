@@ -72,4 +72,4 @@ def executer():
 if __name__=="__main__":
     executer()
 
-# 07P utilise uniquement le scan courant; reception audit listings 2026-10-07.
+# 07P utilise uniquement le scan courant; reception filtrage objectif etape 1.
