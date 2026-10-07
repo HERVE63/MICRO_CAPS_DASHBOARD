@@ -72,4 +72,4 @@ def executer():
 if __name__=="__main__":
     executer()
 
-# 07P utilise uniquement le scan courant; reception filtrage objectif etape 1.
+# 07P utilise uniquement le scan courant; audit cotations multiples branche.
