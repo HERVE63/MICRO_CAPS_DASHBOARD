@@ -1,6 +1,10 @@
 name: MICRO CAPS - CHASSE HEBDOMADAIRE
 on:
   workflow_dispatch:
+  push:
+    branches: [main]
+    paths:
+      - "SCRIPTS_ACTIFS/07P_COLLECTE_PRESELECTION_MARCHE.py"
   schedule:
     - cron: "15 20 * * 2"
     - cron: "15 21 * * 2"
