@@ -4,6 +4,7 @@ on:
   push:
     paths:
       - 'SCRIPTS_ACTIFS/07E_RESOLUTION_AMBIGUS_PAR_PREUVES.py'
+      - '.github/workflows/resolution_ambigus_microcaps.yml'
 permissions:
   contents: write
 jobs:
