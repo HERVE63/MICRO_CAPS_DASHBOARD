@@ -1,0 +1,27 @@
+name: MICRO CAPS - RESOLUTION AMBIGUS
+on:
+  workflow_dispatch:
+  push:
+    paths:
+      - 'SCRIPTS_ACTIFS/07E_RESOLUTION_AMBIGUS_PAR_PREUVES.py'
+permissions:
+  contents: write
+jobs:
+  resolution:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - run: pip install pandas
+      - name: Classer les preuves
+        run: python SCRIPTS_ACTIFS/07E_RESOLUTION_AMBIGUS_PAR_PREUVES.py
+      - name: Sauvegarder
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add DONNEES/RESOLUTION_AMBIGUS_PAR_PREUVES.csv DONNEES/SYNTHESE_RESOLUTION_AMBIGUS.csv
+          git diff --cached --quiet || git commit -m "Actualise resolution ambigus"
+          git pull --rebase origin main
+          git push origin main
