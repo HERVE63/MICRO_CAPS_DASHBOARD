@@ -36,6 +36,7 @@ jobs:
         if: steps.horaire.outputs.run == 'true'
         run: |
           python SCRIPTS_ACTIFS/07S_SCREENING_PRIMAIRE_MICRO_CAPS.py
+          python SCRIPTS_ACTIFS/07A_AUDIT_LISTINGS_MICRO_CAPS.py
           python SCRIPTS_ACTIFS/08S_ADAPTATEUR_CHASSEUR_MICRO_CAPS.py
           python SCRIPTS_ACTIFS/08A_IMPORT_SCREENER.py
           python SCRIPTS_ACTIFS/07P_COLLECTE_PRESELECTION_MARCHE.py
@@ -46,7 +47,7 @@ jobs:
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add DONNEES/SORTIE_CHASSEUR_EXISTANT.csv DONNEES/SORTIE_SCREENER_CANDIDATS.csv DONNEES/CHASSE_CANDIDATS.csv DONNEES/CONTROLE_ADAPTATEUR_CHASSEUR_MICRO_CAPS.csv DONNEES/CONTROLE_IMPORT_SCREENER.csv DONNEES/PRESELECTION_VARIABLES_MARCHE.csv DONNEES/CONTROLE_CHASSE_SSI.csv index.html
+          git add DONNEES/SORTIE_CHASSEUR_EXISTANT.csv DONNEES/SORTIE_SCREENER_CANDIDATS.csv DONNEES/CHASSE_CANDIDATS.csv DONNEES/CONTROLE_ADAPTATEUR_CHASSEUR_MICRO_CAPS.csv DONNEES/CONTROLE_IMPORT_SCREENER.csv DONNEES/PRESELECTION_VARIABLES_MARCHE.csv DONNEES/AUDIT_LISTINGS_MICRO_CAPS.csv DONNEES/CONTROLE_CHASSE_SSI.csv index.html
           if ! git diff --cached --quiet; then
             git commit -m "Chasse hebdomadaire MICRO CAPS"
             git pull --rebase origin main
