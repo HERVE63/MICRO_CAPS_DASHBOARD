@@ -19,7 +19,11 @@ for i,r in df.iterrows():
     isin=""; issuer_country=""; currency_info=""; exchange_info=""; err=""
     try:
         tk=yf.Ticker(t)
-        try:\n            isin=(tk.isin or "").strip()\n            if not isin:\n                # seconde tentative legere: cache/requete Yahoo peut etre transitoire\n                time.sleep(0.05); isin=(tk.isin or "").strip()
+        try:
+            isin=(tk.isin or "").strip()
+            if not isin:
+                # seconde tentative legere: cache/requete Yahoo peut etre transitoire
+                time.sleep(0.05); isin=(tk.isin or "").strip()
         except Exception as e: err+="ISIN:"+type(e).__name__+";"
         # L'identite ISIN est la preuve primaire. Les appels lourds tk.info ne sont
         # pas faits ici: pays/place proviennent deja du scan, et les cas ambigus
