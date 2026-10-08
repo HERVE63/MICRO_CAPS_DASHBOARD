@@ -36,7 +36,7 @@ def executer():
         for b,maximum in MAX.items():
             val=str(r["Note_"+b]).strip()
             preuve=str(r["Preuve_"+b]).strip()
-            if val.upper() in ("","MANQUANTE") or preuve.upper() in ("","MANQUANTE"):
+            if val.upper() in ("","MANQUANTE") or preuve.upper() in ("","MANQUANTE","A_COMPLETER","NON_VERIFIE","N/A"):
                 erreurs.append(b+": preuve ou note manquante");continue
             try:
                 note=float(val)
@@ -45,6 +45,8 @@ def executer():
                 notes.append(int(note))
             except ValueError:
                 raise RuntimeError("Note SSI hors bareme "+b+" : "+str(r["Ticker"]))
+        if elim=="NON" and str(r["Motif_eliminatoire"]).strip().upper() in ("","MANQUANTE"):
+            erreurs.append("preuve de verification des exclusions manquante")
         if elim=="A_VERIFIER":
             erreurs.append("filtre eliminatoire non verifie")
         if erreurs:
