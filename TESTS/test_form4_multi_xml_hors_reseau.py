@@ -16,7 +16,7 @@ def test():
  with TemporaryDirectory() as tmp:
   d=Path(tmp)
   pd.DataFrame([{"Ticker":"TEST","CIK":"0000001234","Accession":"0000001234-26-000001","Formulaire":"4"}]).to_csv(d/"PISTES_GOUVERNANCE_SEC_SSI.csv",index=False)
-  ownership=b'<ownershipDocument><reportingOwner><reportingOwnerId><rptOwnerName>Test</rptOwnerName></reportingOwnerId></reportingOwner><nonDerivativeTable><nonDerivativeTransaction><transactionCoding><transactionCode>P</transactionCode></transactionCoding></nonDerivativeTransaction></nonDerivativeTable></ownershipDocument>'
+  ownership=b'<ownershipDocument><issuer><issuerCik>0000001234</issuerCik></issuer><reportingOwner><reportingOwnerId><rptOwnerName>Test</rptOwnerName></reportingOwnerId></reportingOwner><nonDerivativeTable><nonDerivativeTransaction><transactionCoding><transactionCode>P</transactionCode></transactionCoding></nonDerivativeTransaction></nonDerivativeTable></ownershipDocument>'
   index=json.dumps({"directory":{"item":[{"name":"xbrl.xml"},{"name":"ownership.xml"}]}}).encode()
   def fake_urlopen(req,timeout=25):
    url=req.full_url
