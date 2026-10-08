@@ -4,6 +4,8 @@ B=Path(__file__).resolve().parent.parent; D=B/"DONNEES"
 SRC=D/"CANDIDATS_PRETS_SSI.csv"; OUT=D/"DOSSIERS_SSI_A_QUALIFIER.csv"; AUD=D/"AUDIT_DOSSIERS_SSI.csv"
 def executer():
  d=pd.read_csv(SRC)
+ if "Date_scan_fond" not in d.columns and "Date_scan" in d.columns:
+  d["Date_scan_fond"]=d["Date_scan"]
  if d.empty: raise RuntimeError("Aucun candidat pret SSI")
  # Les 7 blocs du SSI maître. Les variables observées sont exposées, aucune note n'est inventée.
  out=pd.DataFrame({
