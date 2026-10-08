@@ -5,6 +5,7 @@ BASE = Path(__file__).resolve().parent.parent
 CHASSE = BASE / "DONNEES" / "CHASSE_CANDIDATS.csv"
 REVUE = BASE / "DONNEES" / "REVUE_HEBDOMADAIRE_MCPA_IPS.csv"
 OUTPUT = BASE / "DONNEES" / "CONTROLE_CHASSE_SSI.csv"
+RESULTATS = BASE / "DONNEES" / "RESULTATS_SSI.csv"
 
 CHAMPS = [
     "Date_detection","Societe","Ticker","Devise","Pays",
@@ -36,11 +37,32 @@ def executer():
 
     # Aucun challenger ne peut entrer dans le comité sans trace de chasse.
     if len(challengers):
+        if not RESULTATS.exists():
+            erreurs.append("Resultats SSI documentes absents : challengers interdits.")
+            resultats = pd.DataFrame()
+        else:
+            resultats = pd.read_csv(RESULTATS, dtype=str, keep_default_na=False)
+            requis = {"Ticker","SSI","Statut_SSI"}
+            if not requis.issubset(resultats.columns) or resultats["Ticker"].duplicated().any():
+                erreurs.append("Registre SSI invalide ou tickers dupliques.")
+                resultats = pd.DataFrame()
+        admis = resultats.set_index("Ticker") if len(resultats) else pd.DataFrame()
         tickers_chasse = set(chasse["Ticker"].astype(str).str.upper().str.strip())
         for _, r in challengers.iterrows():
             t = str(r["Ticker"]).upper().strip()
             if t not in tickers_chasse:
                 erreurs.append(f"Challenger {t} absent du registre de chasse.")
+            if len(admis) == 0 or t not in admis.index:
+                erreurs.append(f"Challenger {t}: absence de resultat SSI officiel.")
+            else:
+                s = admis.loc[t]
+                if s["Statut_SSI"] != "ADMIS_SSI":
+                    erreurs.append(f"Challenger {t}: non admis au registre SSI.")
+                try:
+                    if float(s["SSI"]) < 65 or abs(float(s["SSI"])-float(r["SSI"])) > 0.001:
+                        erreurs.append(f"Challenger {t}: SSI divergent du registre officiel.")
+                except (ValueError, TypeError):
+                    erreurs.append(f"Challenger {t}: SSI officiel invalide.")
             try:
                 if float(r["SSI"]) < 65:
                     erreurs.append(f"Challenger {t}: SSI < 65, non admissible.")
