@@ -1,0 +1,26 @@
+name: MICRO CAPS - ENRICHISSEMENT SEC SSI
+on:
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  sec-ssi:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - run: pip install pandas
+      - name: Collecter les references SEC sans notation
+        env:
+          SEC_USER_AGENT: ${{ secrets.SEC_USER_AGENT }}
+        run: |
+          python SCRIPTS_ACTIFS/07T_ENRICHIR_PREUVES_SEC_EDGAR.py
+      - uses: actions/upload-artifact@v4
+        with:
+          name: preuves-sec-ssi
+          path: |
+            DONNEES/PREUVES_SEC_EDGAR_SSI.csv
+            DONNEES/AUDIT_PREUVES_SEC_SSI.csv
+          if-no-files-found: error
