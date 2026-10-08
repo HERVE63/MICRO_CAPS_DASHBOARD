@@ -15,3 +15,5 @@ ok.to_csv(D/"UNIVERS_INVESTISSABLE_MICRO_CAPS.csv",index=False)
 rej.to_csv(D/"EXCLUS_IDENTITE_MICRO_CAPS.csv",index=False)
 pd.DataFrame([{"Univers_detecte":len(x),"Univers_investissable_identite":len(ok),"Exclus_identite":len(rej),"Nouveaux_a_qualifier":int((ok.Etat_registre=="NOUVEAU_A_QUALIFIER").sum())}]).to_csv(D/"SYNTHESE_UNIVERS_INVESTISSABLE.csv",index=False)
 print("detecte",len(x),"investissable",len(ok),"exclus",len(rej),"nouveaux",int((ok.Etat_registre=="NOUVEAU_A_QUALIFIER").sum()))
+
+# validation production
