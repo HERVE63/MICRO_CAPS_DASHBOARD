@@ -1,0 +1,26 @@
+name: MICRO CAPS - COLLECTE FONDAMENTAUX
+on:
+  push:
+    paths:
+      - 'SCRIPTS_ACTIFS/07N_COLLECTE_FONDAMENTAUX_UNIVERSELLE.py'
+  workflow_dispatch:
+permissions:
+  contents: write
+jobs:
+  collecte:
+    runs-on: ubuntu-latest
+    timeout-minutes: 120
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - run: pip install pandas yfinance
+      - run: python SCRIPTS_ACTIFS/07N_COLLECTE_FONDAMENTAUX_UNIVERSELLE.py
+      - run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add DONNEES/FONDAMENTAUX_CANDIDATS_MICRO_CAPS.csv DONNEES/AUDIT_FONDAMENTAUX_CANDIDATS.csv
+          git diff --cached --quiet || git commit -m "Collecte fondamentaux candidats Micro Caps"
+          git pull --rebase origin main
+          git push origin main
