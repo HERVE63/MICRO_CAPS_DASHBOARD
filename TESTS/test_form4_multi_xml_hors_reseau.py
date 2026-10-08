@@ -29,5 +29,17 @@ def test():
   assert len(rows)==1
   assert rows[0]["Code_transaction"]=="P"
   assert rows[0]["Source_XML"].endswith("ownership.xml")
+  # Un CIK different dans le document officiel doit interdire l'attribution.
+  ownership_faux=ownership.replace(b"0000001234",b"0000009999")
+  def faux_urlopen(req,timeout=25):
+   if req.full_url.endswith("index.json"):return Reponse(index)
+   if req.full_url.endswith("xbrl.xml"):return Reponse(b"<xbrl/>")
+   if req.full_url.endswith("ownership.xml"):return Reponse(ownership_faux)
+   raise AssertionError(req.full_url)
+  with patch.object(mod,"D",d),patch.object(mod,"urlopen",side_effect=faux_urlopen),patch.object(mod.time,"sleep"),patch.dict(mod.os.environ,{"SEC_USER_AGENT":"Research contact@example.org"}):
+   refuse=mod.executer()
+  assert len(refuse)==0
+  audit=pd.read_csv(d/"AUDIT_TRANSACTIONS_DIRIGEANTS_SEC_SSI.csv")
+  assert audit.loc[0,"Statut"]=="CIK_EMETTEUR_FORM4_INCOHERENT"
   print("TEST FORM 4 MULTI XML OK")
 if __name__=="__main__":test()
