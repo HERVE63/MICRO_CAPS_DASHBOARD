@@ -19,7 +19,12 @@ def executer():
   "Au_dessus_MM200":d["Au_dessus_MM200"]
  })
  # Gouvernance/dilution et qualité documentaire ne peuvent pas être déduites des seuls champs actuels.
+ for bloc in ("B1","B2","B3","B4","B5","B6","B7"):
+  out["Note_"+bloc]="MANQUANTE"
+  out["Preuve_"+bloc]="MANQUANTE"
  out["SSI"]="MANQUANTE"; out["Statut_SSI"]="A_COMPLETER_PREUVES_SSI"
+ out["Decision_eliminatoire"]="A_VERIFIER"
+ out["Motif_eliminatoire"]="MANQUANTE"
  out.to_csv(OUT,index=False)
  pd.DataFrame([{"Dossiers_prets":len(out),"SSI_notes":0,"SSI_admis_65":0,"Statut":"COLLECTE_PREUVES_SSI_REQUISE"}]).to_csv(AUD,index=False)
  print("Dossiers SSI a qualifier",len(out))
