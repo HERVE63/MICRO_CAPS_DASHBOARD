@@ -1,0 +1,26 @@
+name: MICRO CAPS - MAJ REGISTRE CA OTC
+on:
+  push:
+    paths:
+      - 'SCRIPTS_ACTIFS/07H_MAJ_REGISTRE_CA_OTC.py'
+      - '.github/workflows/maj_registre_ca_otc.yml'
+  workflow_dispatch:
+permissions:
+  contents: write
+jobs:
+  maj:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - run: pip install pandas
+      - run: python SCRIPTS_ACTIFS/07H_MAJ_REGISTRE_CA_OTC.py
+      - run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add DONNEES/REGISTRE_IDENTITE_MICRO_CAPS.csv DONNEES/QUARANTAINE_IDENTITE_MICRO_CAPS.csv DONNEES/SYNTHESE_REGISTRE_APRES_CANADA_OTC.csv
+          git diff --cached --quiet || git commit -m "Actualise registre apres Canada OTC"
+          git pull --rebase origin main
+          git push origin main
