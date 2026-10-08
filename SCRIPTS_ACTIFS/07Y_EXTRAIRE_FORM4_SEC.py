@@ -74,6 +74,9 @@ def executer():
    if len(documents)!=1:
     audits.append({"Ticker":r["Ticker"],"Accession":acc,"Statut":"OWNERSHIP_XML_AMBIGU_OU_ABSENT","Transactions":0});continue
    url,contenu=documents[0]
+   emetteur_cik=texte(ET.fromstring(contenu),"issuer/issuerCik")
+   if not emetteur_cik.isdigit() or int(emetteur_cik)!=int(cik):
+    audits.append({"Ticker":r["Ticker"],"Accession":acc,"Statut":"CIK_EMETTEUR_FORM4_INCOHERENT","Transactions":0});continue
    transactions=analyser_xml(contenu)
    for t in transactions:rows.append({"Ticker":r["Ticker"],"CIK":cik,"Accession":acc,"Source_XML":url,**t,"Note_SSI_attribuee":"NON"})
    audits.append({"Ticker":r["Ticker"],"Accession":acc,"Statut":"TRANSACTIONS_A_VERIFIER","Transactions":len(transactions)})
