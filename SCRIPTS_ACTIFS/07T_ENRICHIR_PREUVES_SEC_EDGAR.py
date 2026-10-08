@@ -34,6 +34,9 @@ def executer():
   ticker=str(r["Ticker"]).strip()
   # Les suffixes .TO, .V, .L etc ne sont pas des identifiants SEC.
   candidats=mapping.get(ticker.upper(),set())
+  pays=str(r.get("Pays","")).strip().upper()
+  # SEC n est pas une preuve universelle: verifier la correspondance emetteur.
+  # Les tickers etrangers non apparies restent NON_COUVERT.
   item={"Ticker":ticker,"Societe":r.get("Societe",""),"Date_collecte_UTC":datetime.now(timezone.utc).isoformat(),
         "Source_registre":BASE+"/files/company_tickers.json",
         "CIK":"MANQUANTE","Statut_SEC":"NON_COUVERT","Depots": "[]","Nb_depots":0}
