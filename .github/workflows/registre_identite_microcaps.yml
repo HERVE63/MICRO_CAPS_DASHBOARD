@@ -1,0 +1,25 @@
+name: MICRO CAPS - REGISTRE IDENTITE
+on:
+  workflow_dispatch:
+  push:
+    paths:
+      - 'SCRIPTS_ACTIFS/07F_REGISTRE_IDENTITE_INCREMENTAL.py'
+      - '.github/workflows/registre_identite_microcaps.yml'
+permissions:
+  contents: write
+jobs:
+  registre:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with: {python-version: '3.11'}
+      - run: pip install pandas
+      - run: python SCRIPTS_ACTIFS/07F_REGISTRE_IDENTITE_INCREMENTAL.py
+      - run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add DONNEES/REGISTRE_IDENTITE_MICRO_CAPS.csv DONNEES/QUARANTAINE_IDENTITE_MICRO_CAPS.csv DONNEES/SYNTHESE_REGISTRE_IDENTITE.csv
+          git diff --cached --quiet || git commit -m "Actualise registre identite Micro Caps"
+          git pull --rebase origin main
+          git push origin main
