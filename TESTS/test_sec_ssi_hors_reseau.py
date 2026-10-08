@@ -28,7 +28,10 @@ def test():
   by=result.set_index("Ticker")
   assert by.loc["TEST","Statut_SEC"]=="A_VERIFIER_IDENTITE_ET_CONTENU"
   assert by.loc["TEST","Nb_depots"]==2
-  assert len(json.loads(by.loc["TEST","Depots"]))==2
+  depots=json.loads(by.loc["TEST","Depots"])
+  assert len(depots)==2
+  assert depots[0]["url_archive_officielle"]=="https://www.sec.gov/Archives/edgar/data/1234/0001/"
+  assert depots[0]["statut_preuve"]=="DOCUMENT_A_LIRE"
   assert by.loc["DUP","Statut_SEC"]=="IDENTITE_AMBIGUE"
   assert by.loc["UNKNOWN","Statut_SEC"]=="NON_COUVERT"
   assert (d/"AUDIT_PREUVES_SEC_SSI.csv").exists()
