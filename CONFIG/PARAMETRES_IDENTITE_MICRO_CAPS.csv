@@ -1,0 +1,9 @@
+Parametre,Valeur,Commentaire
+Mode_resolution,INCREMENTAL,Ne retraiter que les nouvelles cotations ou changements
+Blocage_pipeline,NON,Une ambiguite individuelle ne bloque jamais la chasse
+Cas_deja_resolus,REUTILISER_REGISTRE,Reutiliser la decision historique tant que les identifiants n'ont pas change
+Cas_nouveaux_ambigus,QUARANTAINE_IDENTITE,Exclus temporairement de la selection finale mais conserves et analyses automatiquement
+Cas_resolus,REINTEGRATION_AUTOMATIQUE,Rejoignent l'univers propre des la resolution suivante
+Historique,APPEND_ONLY,Conserver preuves dates decisions et changements
+Suppression_sur_nom_seul,INTERDITE,Aucune fusion ou suppression sur simple similarite de nom
+Echec_source_externe,FAIL_LOCAL,Le cas reste en quarantaine sans bloquer les autres valeurs
