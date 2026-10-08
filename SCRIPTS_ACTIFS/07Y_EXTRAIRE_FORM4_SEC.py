@@ -60,10 +60,21 @@ def executer():
    with urlopen(req,timeout=25) as response:index=load(response)
    files=index.get("directory",{}).get("item",[])
    xmls=[f["name"] for f in files if re.fullmatch(r"[A-Za-z0-9_.-]+\.xml",f.get("name","")) and f["name"].lower()!="filingsummary.xml"]
-   if len(xmls)!=1:
-    audits.append({"Ticker":r["Ticker"],"Accession":acc,"Statut":"XML_AMBIGU_OU_ABSENT","Transactions":0});continue
-   url=base+xmls[0]
-   transactions=analyser_xml(lire_xml(url,agent))
+   # Plusieurs XML peuvent coexister (pieces jointes, schemas): identifier le
+   # document ownershipDocument par son contenu, sans choisir au hasard.
+   documents=[]
+   for nom in xmls:
+    url=base+nom
+    try:
+     contenu=lire_xml(url,agent)
+     if ET.fromstring(contenu).tag=="ownershipDocument":
+      documents.append((url,contenu))
+    except (ET.ParseError,ValueError):
+     continue
+   if len(documents)!=1:
+    audits.append({"Ticker":r["Ticker"],"Accession":acc,"Statut":"OWNERSHIP_XML_AMBIGU_OU_ABSENT","Transactions":0});continue
+   url,contenu=documents[0]
+   transactions=analyser_xml(contenu)
    for t in transactions:rows.append({"Ticker":r["Ticker"],"CIK":cik,"Accession":acc,"Source_XML":url,**t,"Note_SSI_attribuee":"NON"})
    audits.append({"Ticker":r["Ticker"],"Accession":acc,"Statut":"TRANSACTIONS_A_VERIFIER","Transactions":len(transactions)})
   except Exception as exc:
