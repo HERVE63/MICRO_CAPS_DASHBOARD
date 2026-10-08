@@ -7,6 +7,8 @@ on:
       - "TESTS/test_companyfacts_sec_hors_reseau.py"
       - "TESTS/test_normalisation_sec_hors_reseau.py"
       - "TESTS/test_rapprochement_sec_ssi_hors_reseau.py"
+      - "TESTS/test_gouvernance_sec_hors_reseau.py"
+      - "SCRIPTS_ACTIFS/07X_INDEX_GOUVERNANCE_SEC.py"
       - "SCRIPTS_ACTIFS/07W_RAPPROCHER_PREUVES_SEC_SSI.py"
       - "SCRIPTS_ACTIFS/07V_NORMALISER_FAITS_SEC.py"
       - "SCRIPTS_ACTIFS/07U_COLLECTE_COMPANYFACTS_SEC.py"
@@ -30,3 +32,4 @@ jobs:
           python TESTS/test_companyfacts_sec_hors_reseau.py
           python TESTS/test_normalisation_sec_hors_reseau.py
           python TESTS/test_rapprochement_sec_ssi_hors_reseau.py
+          python TESTS/test_gouvernance_sec_hors_reseau.py
