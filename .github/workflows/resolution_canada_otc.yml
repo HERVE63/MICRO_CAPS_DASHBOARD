@@ -1,0 +1,25 @@
+name: MICRO CAPS - RESOLUTION CANADA OTC
+on:
+  workflow_dispatch:
+  push:
+    paths:
+      - 'SCRIPTS_ACTIFS/07G_RESOLUTION_CANADA_OTC.py'
+      - '.github/workflows/resolution_canada_otc.yml'
+permissions:
+  contents: write
+jobs:
+  resolution:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with: {python-version: '3.11'}
+      - run: pip install pandas
+      - run: python SCRIPTS_ACTIFS/07G_RESOLUTION_CANADA_OTC.py
+      - run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add DONNEES/RESOLUTION_CANADA_OTC.csv DONNEES/SYNTHESE_RESOLUTION_CANADA_OTC.csv
+          git diff --cached --quiet || git commit -m "Actualise resolution Canada OTC"
+          git pull --rebase origin main
+          git push origin main
