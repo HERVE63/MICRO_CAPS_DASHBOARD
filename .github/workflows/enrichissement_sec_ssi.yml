@@ -17,10 +17,13 @@ jobs:
           SEC_USER_AGENT: ${{ secrets.SEC_USER_AGENT }}
         run: |
           python SCRIPTS_ACTIFS/07T_ENRICHIR_PREUVES_SEC_EDGAR.py
+          python SCRIPTS_ACTIFS/07U_COLLECTE_COMPANYFACTS_SEC.py
       - uses: actions/upload-artifact@v4
         with:
           name: preuves-sec-ssi
           path: |
             DONNEES/PREUVES_SEC_EDGAR_SSI.csv
             DONNEES/AUDIT_PREUVES_SEC_SSI.csv
+            DONNEES/FAITS_FINANCIERS_SEC_SSI.csv
+            DONNEES/AUDIT_FAITS_FINANCIERS_SEC_SSI.csv
           if-no-files-found: error
