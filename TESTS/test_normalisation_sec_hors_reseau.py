@@ -21,7 +21,7 @@ def test():
    dict(base,Valeur="999",Date_depot="2026-03-02",Debut_periode="2025-01-01",Fin_periode="2025-06-30"),
    dict(base,Valeur="1",Date_depot="2026-03-03",Unite="shares")]
   pd.DataFrame(rows).to_csv(d/"FAITS_FINANCIERS_SEC_SSI.csv",index=False)
-  with patch.object(mod,"D",d),patch.object(mod,"SRC",d/"FAITS_FINANCIERS_SEC_SSI.csv"),patch.object(mod,"OUT",d/"FAITS_SEC_COMPARABLES_SSI.csv"),patch.object(mod,"AUD",d/"AUDIT_COMPARABILITE_SEC_SSI.csv"):
+  with patch.object(mod,"D",d),patch.object(mod,"SRC",d/"FAITS_FINANCIERS_SEC_SSI.csv"),patch.object(mod,"OUT",d/"FAITS_SEC_COMPARABLES_SSI.csv"),patch.object(mod,"AUD",d/"AUDIT_COMPARABILITE_SEC_SSI.csv"),patch.object(mod,"SRC",d/"FAITS_FINANCIERS_SEC_SSI.csv"),patch.object(mod,"OUT",d/"FAITS_SEC_COMPARABLES_SSI.csv"),patch.object(mod,"AUD",d/"AUDIT_COMPARABILITE_SEC_SSI.csv"):
    result=mod.executer()
   assert len(result)==1
   assert result.iloc[0]["Valeur"]=="110"
