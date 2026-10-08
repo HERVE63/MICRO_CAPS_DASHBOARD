@@ -9,6 +9,7 @@ on:
       - "TESTS/test_rapprochement_sec_ssi_hors_reseau.py"
       - "TESTS/test_gouvernance_sec_hors_reseau.py"
       - "TESTS/test_form4_sec_hors_reseau.py"
+      - "TESTS/test_form4_multi_xml_hors_reseau.py"
       - "SCRIPTS_ACTIFS/07Y_EXTRAIRE_FORM4_SEC.py"
       - "SCRIPTS_ACTIFS/07X_INDEX_GOUVERNANCE_SEC.py"
       - "SCRIPTS_ACTIFS/07W_RAPPROCHER_PREUVES_SEC_SSI.py"
@@ -36,3 +37,4 @@ jobs:
           python TESTS/test_rapprochement_sec_ssi_hors_reseau.py
           python TESTS/test_gouvernance_sec_hors_reseau.py
           python TESTS/test_form4_sec_hors_reseau.py
+          python TESTS/test_form4_multi_xml_hors_reseau.py
