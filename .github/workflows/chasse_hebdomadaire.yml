@@ -5,6 +5,7 @@ on:
     branches: [main]
     paths:
       - "SCRIPTS_ACTIFS/07P_COLLECTE_PRESELECTION_MARCHE.py"
+      - "SCRIPTS_ACTIFS/07K_UNIVERS_INVESTISSABLE_IDENTITE.py"
   schedule:
     - cron: "15 20 * * 2"
     - cron: "15 21 * * 2"
