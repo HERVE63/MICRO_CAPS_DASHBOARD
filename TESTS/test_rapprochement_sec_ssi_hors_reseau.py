@@ -27,7 +27,7 @@ def test():
    {"Ticker":"INCONNU","CIK":"0000003333","Concept":"Cash","Valeur":"5","Unite":"USD",
     "Fin_periode":"2025-12-31","Date_depot":"2026-02-01","Source_officielle":"https://data.sec.gov/c",
     "Statut_comparabilite":"FORMAT_PERIODE_PLAUSIBLE_A_VERIFIER"}]).to_csv(d/"FAITS_SEC_COMPARABLES_SSI.csv",index=False)
-  with patch.object(mod,"D",d):
+  with patch.object(mod,"D",d),patch.object(mod,"DOS",d/"DOSSIERS_SSI_A_QUALIFIER.csv"),patch.object(mod,"SEC",d/"PREUVES_SEC_EDGAR_SSI.csv"),patch.object(mod,"FACT",d/"FAITS_SEC_COMPARABLES_SSI.csv"),patch.object(mod,"OUT",d/"RAPPROCHEMENT_PREUVES_SEC_SSI.csv"),patch.object(mod,"AUD",d/"AUDIT_RAPPROCHEMENT_SEC_SSI.csv"):
    result=mod.executer()
   assert len(result)==1
   assert result[0]["Bloc_SSI_cible"]=="B1"
