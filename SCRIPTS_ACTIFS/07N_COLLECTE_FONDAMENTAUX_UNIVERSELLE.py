@@ -36,3 +36,5 @@ def executer():
     print("Fondamentaux",len(o),"OK",int(ok.sum()),"MANQUANTE",int((~ok).sum()))
     return o
 if __name__=="__main__": executer()
+
+# production
