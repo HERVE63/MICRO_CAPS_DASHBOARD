@@ -59,7 +59,10 @@ def executer():
      acc=recent.get("accessionNumber",[])
      dates=recent.get("filingDate",[])
      if i>=len(acc) or i>=len(dates): continue
-     depots.append({"form":form,"date":dates[i],"accession":acc[i]})
+     archive=BASE+"/Archives/edgar/data/"+str(int(cik))+"/"+acc[i].replace("-","")+"/"
+     depots.append({"form":form,"date":dates[i],"accession":acc[i],
+                    "url_archive_officielle":archive,
+                    "source":url,"statut_preuve":"DOCUMENT_A_LIRE"})
      if len(depots)>=30: break
     item["Depots"]=json.dumps(depots,ensure_ascii=False)
     item["Nb_depots"]=len(depots)
