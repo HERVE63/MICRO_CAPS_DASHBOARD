@@ -20,6 +20,7 @@ jobs:
           python SCRIPTS_ACTIFS/07U_COLLECTE_COMPANYFACTS_SEC.py
           python SCRIPTS_ACTIFS/07V_NORMALISER_FAITS_SEC.py
           python SCRIPTS_ACTIFS/07W_RAPPROCHER_PREUVES_SEC_SSI.py
+          python SCRIPTS_ACTIFS/07X_INDEX_GOUVERNANCE_SEC.py
       - uses: actions/upload-artifact@v4
         with:
           name: preuves-sec-ssi
@@ -32,4 +33,6 @@ jobs:
             DONNEES/AUDIT_COMPARABILITE_SEC_SSI.csv
             DONNEES/RAPPROCHEMENT_PREUVES_SEC_SSI.csv
             DONNEES/AUDIT_RAPPROCHEMENT_SEC_SSI.csv
+            DONNEES/PISTES_GOUVERNANCE_SEC_SSI.csv
+            DONNEES/AUDIT_GOUVERNANCE_SEC_SSI.csv
           if-no-files-found: error
