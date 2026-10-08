@@ -50,6 +50,8 @@ def executer():
     nom=str(sub.get("name","")).strip()
     # Ne pas associer les preuves si l'identite emetteur reste a confirmer.
     item["Nom_SEC"]=nom;item["Source_depots"]=url
+    item["CIK_verifie"]="NON"
+    item["Identite_a_confirmer"]="OUI"
     recent=sub.get("filings",{}).get("recent",{})
     depots=[]
     for i,form in enumerate(recent.get("form",[])):
