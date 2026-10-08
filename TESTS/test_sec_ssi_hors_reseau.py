@@ -23,7 +23,7 @@ def test():
  with TemporaryDirectory() as tmp:
   d=Path(tmp)
   pd.DataFrame([{"Ticker":"TEST","Societe":"Test Inc"},{"Ticker":"DUP","Societe":"Ambigue"},{"Ticker":"UNKNOWN","Societe":"Inconnue"}]).to_csv(d/"DOSSIERS_SSI_A_QUALIFIER.csv",index=False)
-  with patch.object(mod,"D",d),patch.object(mod,"lire_json",side_effect=faux_json),patch.object(mod.time,"sleep"),patch.dict(os.environ,{"SEC_USER_AGENT":"MicroCaps research contact@example.org"}):
+  with patch.object(mod,"D",d),patch.object(mod,"SRC",d/"DOSSIERS_SSI_A_QUALIFIER.csv"),patch.object(mod,"OUT",d/"PREUVES_SEC_EDGAR_SSI.csv"),patch.object(mod,"AUD",d/"AUDIT_PREUVES_SEC_SSI.csv"),patch.object(mod,"lire_json",side_effect=faux_json),patch.object(mod.time,"sleep"),patch.dict(os.environ,{"SEC_USER_AGENT":"MicroCaps research contact@example.org"}):
    result=mod.executer()
   by=result.set_index("Ticker")
   assert by.loc["TEST","Statut_SEC"]=="A_VERIFIER_IDENTITE_ET_CONTENU"
