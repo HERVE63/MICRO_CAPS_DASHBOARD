@@ -4,6 +4,8 @@ on:
     branches: [main]
     paths:
       - "TESTS/test_sec_ssi_hors_reseau.py"
+      - "TESTS/test_companyfacts_sec_hors_reseau.py"
+      - "SCRIPTS_ACTIFS/07U_COLLECTE_COMPANYFACTS_SEC.py"
       - "SCRIPTS_ACTIFS/07T_ENRICHIR_PREUVES_SEC_EDGAR.py"
       - ".github/workflows/test_sec_ssi.yml"
   workflow_dispatch:
@@ -19,4 +21,6 @@ jobs:
           python-version: "3.12"
       - run: pip install pandas
       - name: Test SEC hors reseau
-        run: python TESTS/test_sec_ssi_hors_reseau.py
+        run: |
+          python TESTS/test_sec_ssi_hors_reseau.py
+          python TESTS/test_companyfacts_sec_hors_reseau.py
