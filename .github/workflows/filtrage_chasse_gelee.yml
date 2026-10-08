@@ -1,0 +1,28 @@
+name: MICRO CAPS - FILTRAGE CHASSE GELEE
+on:
+  push:
+    paths:
+      - 'SCRIPTS_ACTIFS/07L_FILTRER_CHASSE_GELEE_20261007.py'
+      - '.github/workflows/filtrage_chasse_gelee.yml'
+  workflow_dispatch:
+permissions:
+  contents: write
+jobs:
+  filtrage:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - run: pip install pandas
+      - run: python SCRIPTS_ACTIFS/07L_FILTRER_CHASSE_GELEE_20261007.py
+      - run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add DONNEES/UNIVERS_NETTOYE_CHASSE_2026-10-07.csv DONNEES/REJETS_IDENTITE_CHASSE_2026-10-07.csv DONNEES/SYNTHESE_FILTRAGE_CHASSE_GELEE.csv
+          git diff --cached --quiet || git commit -m "Filtre chasse gelee 2026-10-07"
+          git pull --rebase origin main
+          git push origin main
