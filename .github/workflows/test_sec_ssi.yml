@@ -1,0 +1,22 @@
+name: MICRO CAPS - TEST SEC SSI
+on:
+  push:
+    branches: [main]
+    paths:
+      - "TESTS/test_sec_ssi_hors_reseau.py"
+      - "SCRIPTS_ACTIFS/07T_ENRICHIR_PREUVES_SEC_EDGAR.py"
+      - ".github/workflows/test_sec_ssi.yml"
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  tests:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - run: pip install pandas
+      - name: Test SEC hors reseau
+        run: python TESTS/test_sec_ssi_hors_reseau.py
