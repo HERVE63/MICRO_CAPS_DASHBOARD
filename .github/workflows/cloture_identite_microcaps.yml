@@ -1,0 +1,26 @@
+name: MICRO CAPS - CLOTURE IDENTITE
+on:
+  push:
+    paths:
+      - 'SCRIPTS_ACTIFS/07J_CLOTURE_IDENTITE_UNIVERS.py'
+      - '.github/workflows/cloture_identite_microcaps.yml'
+  workflow_dispatch:
+permissions:
+  contents: write
+jobs:
+  cloture:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - run: pip install pandas
+      - run: python SCRIPTS_ACTIFS/07J_CLOTURE_IDENTITE_UNIVERS.py
+      - run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add DONNEES/REGISTRE_IDENTITE_MICRO_CAPS.csv DONNEES/HORS_UNIVERS_IDENTITE_INSUFFISANTE.csv DONNEES/SYNTHESE_CLOTURE_IDENTITE.csv
+          git diff --cached --quiet || git commit -m "Cloture identite univers Micro Caps"
+          git pull --rebase origin main
+          git push origin main
