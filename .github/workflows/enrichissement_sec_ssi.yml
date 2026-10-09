@@ -1,41 +1,56 @@
 name: MICRO CAPS - ENRICHISSEMENT SEC SSI
 on:
+  push:
+    branches: [main]
+    paths:
+      - '.github/workflows/enrichissement_sec_ssi.yml'
   workflow_dispatch:
+    inputs:
+      offset:
+        description: 'Offset du lot US trié par ticker (aucune présélection économique)'
+        default: '0'
+      taille:
+        description: 'Nombre maximum de dossiers US dans ce lot'
+        default: '100'
 permissions:
-  contents: read
+  contents: write
+concurrency:
+  group: microcaps-sec-audit
+  cancel-in-progress: false
 jobs:
   sec-ssi:
     runs-on: ubuntu-latest
+    timeout-minutes: 90
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-python@v5
         with:
-          python-version: "3.12"
+          python-version: '3.12'
       - run: pip install pandas
-      - name: Collecter les references SEC sans notation
+      - name: Réception hors réseau avant collecte
+        run: python -B TESTS/executer_tests.py
+      - name: Collecte SEC isolée, preuves brutes et contrôle du secret
         env:
           SEC_USER_AGENT: ${{ secrets.SEC_USER_AGENT }}
-        run: |
-          python SCRIPTS_ACTIFS/07T_ENRICHIR_PREUVES_SEC_EDGAR.py
-          python SCRIPTS_ACTIFS/07U_COLLECTE_COMPANYFACTS_SEC.py
-          python SCRIPTS_ACTIFS/07V_NORMALISER_FAITS_SEC.py
-          python SCRIPTS_ACTIFS/07W_RAPPROCHER_PREUVES_SEC_SSI.py
-          python SCRIPTS_ACTIFS/07X_INDEX_GOUVERNANCE_SEC.py
-          python SCRIPTS_ACTIFS/07Y_EXTRAIRE_FORM4_SEC.py
-      - uses: actions/upload-artifact@v4
+          SEC_BATCH_OFFSET: ${{ inputs.offset || '0' }}
+          SEC_BATCH_SIZE: ${{ inputs.taille || '100' }}
+        run: python -B SCRIPTS_ACTIFS/07Z_EXECUTION_SEC_AUDITEE.py
+      - name: Conserver les audits y compris les échecs
+        if: always()
+        uses: actions/upload-artifact@v4
         with:
-          name: preuves-sec-ssi
-          path: |
-            DONNEES/PREUVES_SEC_EDGAR_SSI.csv
-            DONNEES/AUDIT_PREUVES_SEC_SSI.csv
-            DONNEES/FAITS_FINANCIERS_SEC_SSI.csv
-            DONNEES/AUDIT_FAITS_FINANCIERS_SEC_SSI.csv
-            DONNEES/FAITS_SEC_COMPARABLES_SSI.csv
-            DONNEES/AUDIT_COMPARABILITE_SEC_SSI.csv
-            DONNEES/RAPPROCHEMENT_PREUVES_SEC_SSI.csv
-            DONNEES/AUDIT_RAPPROCHEMENT_SEC_SSI.csv
-            DONNEES/PISTES_GOUVERNANCE_SEC_SSI.csv
-            DONNEES/AUDIT_GOUVERNANCE_SEC_SSI.csv
-            DONNEES/TRANSACTIONS_DIRIGEANTS_SEC_SSI.csv
-            DONNEES/AUDIT_TRANSACTIONS_DIRIGEANTS_SEC_SSI.csv
+          name: preuves-sec-ssi-${{ github.run_id }}-${{ github.run_attempt }}
+          path: AUDITS/
           if-no-files-found: error
+          retention-days: 90
+      - name: Sauvegarder les preuves sans modifier les entrées
+        if: always()
+        run: |
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add AUDITS/SEC AUDITS/TESTS
+          if ! git diff --cached --quiet; then
+            git commit -m 'Audit SEC SSI : preuves et statut effectif'
+            git pull --rebase origin main
+            git push origin main
+          fi

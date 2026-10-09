@@ -1,0 +1,99 @@
+"""Orchestration SEC isolée et archivée ; aucun dossier ni portefeuille n'est modifié.
+Le secret n'est jamais écrit. Les réponses brutes sont conservées avec SHA256.
+Une exécution bloquée produit aussi un manifeste ; elle n'est pas une collecte réussie.
+"""
+from pathlib import Path
+from datetime import datetime, timezone
+from io import BytesIO
+import hashlib, importlib.util, json, os, re, shutil, subprocess, sys, time
+from urllib.request import urlopen
+import pandas as pd
+BASE=Path(__file__).resolve().parents[1]
+MODULES=['07T_ENRICHIR_PREUVES_SEC_EDGAR.py','07U_COLLECTE_COMPANYFACTS_SEC.py',
+         '07V_NORMALISER_FAITS_SEC.py','07W_RAPPROCHER_PREUVES_SEC_SSI.py',
+         '07X_INDEX_GOUVERNANCE_SEC.py','07Y_EXTRAIRE_FORM4_SEC.py']
+def sha(p): return hashlib.sha256(p.read_bytes()).hexdigest()
+def protections():
+ return {str(p.relative_to(BASE)):sha(p) for folder in ['DONNEES','SAUVEGARDES']
+         for p in (BASE/folder).rglob('*') if p.is_file()}
+class Reponse(BytesIO):
+ def __enter__(self): return self
+ def __exit__(self,*args): self.close()
+def executer():
+ debut=datetime.now(timezone.utc)
+ run=os.getenv('GITHUB_RUN_ID',debut.strftime('%Y%m%dT%H%M%S%fZ'))
+ archive=BASE/'AUDITS/SEC'/('RUN_'+run+'_'+os.getenv('GITHUB_RUN_ATTEMPT','1'))
+ archive.mkdir(parents=True,exist_ok=False)
+ travail=archive/'DONNEES';travail.mkdir()
+ bruts=archive/'BRUTS';bruts.mkdir()
+ avant=protections()
+ manifest={'date_utc':debut.isoformat(),'date_limite':debut.date().isoformat(),
+           'commit':os.getenv('GITHUB_SHA') or subprocess.check_output(['git','rev-parse','HEAD'],cwd=BASE,text=True).strip(),
+           'statut':'EN_COURS','etapes':[],'notes_attribuees':0,'secret_contact_valide':False,
+           'portefeuilles_modifies':False,'collecte_exhaustive':False}
+ requetes=[];dernier=[0.0]
+ def collecter(req,timeout=25):
+  # Un plafond global de 4 requêtes/seconde, y compris les XML.
+  url=req.full_url
+  if not re.match(r'^https://(?:www\.sec\.gov|data\.sec\.gov)/',url):
+   raise ValueError('Source hors SEC')
+  time.sleep(max(0,.25-(time.monotonic()-dernier[0])))
+  dernier[0]=time.monotonic()
+  with urlopen(req,timeout=timeout) as resp: data=resp.read()
+  digest=hashlib.sha256(data).hexdigest();(bruts/(digest+'.bin')).write_bytes(data)
+  requetes.append({'url':url,'sha256':digest,'date_collecte_utc':datetime.now(timezone.utc).isoformat()})
+  return Reponse(data)
+ try:
+  for n in ['DOSSIERS_SSI_A_QUALIFIER.csv','UNIVERS_INVESTISSABLE_MICRO_CAPS.csv']:
+   shutil.copy2(BASE/'DONNEES'/n,travail/n)
+  # La collecte n'est pas limitée aux dossiers issus d'une source secondaire défaillante.
+  # Elle expose des pistes pour tout l'univers nettoyé ; aucune admission n'en découle.
+  u=pd.read_csv(travail/'UNIVERS_INVESTISSABLE_MICRO_CAPS.csv',dtype=str,keep_default_na=False)
+  manifest['univers_collecte']=len(u)
+  agent=os.getenv('SEC_USER_AGENT','').strip()
+  if not agent or '@' not in agent: raise RuntimeError('SEC_USER_AGENT_ABSENT_OU_INVALIDE')
+  manifest['secret_contact_valide']=True
+  # Lot technique déterministe : pas de présélection économique.
+  # Les non-américaines restent dans l'index ; les US sont traitées par lot repris via cache.
+  limite=int(os.getenv('SEC_BATCH_SIZE','100'))
+  if limite<=0: raise RuntimeError('SEC_BATCH_SIZE_INVALIDE')
+  us=u[u['Pays'].eq('USA')].sort_values('Ticker')
+  offset=int(os.getenv('SEC_BATCH_OFFSET','0'))
+  if offset<0: raise RuntimeError('SEC_BATCH_OFFSET_INVALIDE')
+  lot=us.iloc[offset:offset+limite]
+  scope=pd.concat([u[~u['Pays'].eq('USA')],lot],ignore_index=True)
+  scope.to_csv(travail/'UNIVERS_SEC_LOT.csv',index=False)
+  manifest.update({'dossiers_US':len(us),'offset_US':offset,'lot_US':len(lot),
+                   'US_non_traitees_ce_lot':len(us)-len(lot)})
+  for name in MODULES:
+   spec=importlib.util.spec_from_file_location(name[:-3],BASE/'SCRIPTS_ACTIFS'/name)
+   mod=importlib.util.module_from_spec(spec);spec.loader.exec_module(mod)
+   mod.D=travail
+   for attr in ['SRC','OUT','AUD','DOS','SEC','FACT']:
+    if hasattr(mod,attr): setattr(mod,attr,travail/getattr(mod,attr).name)
+   if name.startswith('07T_'): mod.SRC=travail/'UNIVERS_SEC_LOT.csv'
+   if hasattr(mod,'urlopen'): mod.urlopen=collecter
+   mod.executer()
+   manifest['etapes'].append({'module':name,'statut':'EXECUTE'})
+  sec=pd.read_csv(travail/'PREUVES_SEC_EDGAR_SSI.csv',keep_default_na=False)
+  manifest['statuts_SEC']=sec.Statut_SEC.value_counts().to_dict()
+  errors=sec.Statut_SEC.eq('ERREUR_SOURCE').sum()
+  for n in ['AUDIT_FAITS_FINANCIERS_SEC_SSI.csv','AUDIT_TRANSACTIONS_DIRIGEANTS_SEC_SSI.csv']:
+   a=pd.read_csv(travail/n,keep_default_na=False)
+   if 'Statut' in a: errors+=a.Statut.str.startswith('ERREUR').sum()
+  manifest['erreurs_sources']=int(errors)
+  manifest['statut']='COLLECTE_PARTIELLE_ERREURS_SOURCE' if errors else 'LOT_COLLECTE_A_VERIFIER'
+ except Exception as exc:
+  manifest['statut']='BLOQUE';manifest['blocage']=str(exc)
+ finally:
+  apres=protections()
+  differences=sorted(k for k in set(avant)|set(apres) if avant.get(k)!=apres.get(k))
+  manifest['integrite_entrees']='OK' if not differences else 'ECHEC'
+  manifest['fichiers_entrees_modifies']=differences
+  manifest['fin_utc']=datetime.now(timezone.utc).isoformat()
+  manifest['fichiers']={str(p.relative_to(archive)):sha(p) for p in archive.rglob('*') if p.is_file()}
+  (archive/'SOURCES_BRUTES.json').write_text(json.dumps(requetes,ensure_ascii=False,indent=2)+'\n')
+  (archive/'MANIFESTE.json').write_text(json.dumps(manifest,ensure_ascii=False,indent=2)+'\n')
+  print(json.dumps(manifest,ensure_ascii=False,indent=2),flush=True)
+ return 0 if manifest['statut']=='LOT_COLLECTE_A_VERIFIER' and not differences else 1
+if __name__=='__main__':sys.exit(executer())

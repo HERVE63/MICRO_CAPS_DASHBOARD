@@ -22,7 +22,8 @@ def executer():
     # Le comité applique ensuite les contrôles propres à MICRO CAPS :
     # provenance/admissibilité + SSI, revue MCPA/IPS, puis duel du prochain euro.
     # Les anciens modules expérimentaux 07B/07C ne font pas partie de ce chemin.
-    charger("07S_SCREENING_PRIMAIRE_MICRO_CAPS.py").executer()\n    charger("08S_ADAPTATEUR_CHASSEUR_MICRO_CAPS.py").executer()
+    charger("07S_SCREENING_PRIMAIRE_MICRO_CAPS.py").executer()
+    charger("08S_ADAPTATEUR_CHASSEUR_MICRO_CAPS.py").executer()
     charger("08A_IMPORT_SCREENER.py").executer()
     charger("08B_CONTROLE_CHASSE_SSI.py").executer()
     revue = charger("09_CONTROLE_REVUE_MCPA_IPS.py").executer()

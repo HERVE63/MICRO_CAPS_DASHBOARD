@@ -2,7 +2,8 @@ from pathlib import Path
 import pandas as pd
 
 BASE = Path(__file__).resolve().parent.parent
-ENTREE_NETTOYEE = BASE / "DONNEES" / "UNIVERS_INVESTISSABLE_MICRO_CAPS.csv"\nENTREE_BRUTE = BASE / "DONNEES" / "SORTIE_CHASSEUR_EXISTANT.csv"
+ENTREE_NETTOYEE = BASE / "DONNEES" / "UNIVERS_INVESTISSABLE_MICRO_CAPS.csv"
+ENTREE_BRUTE = BASE / "DONNEES" / "SORTIE_CHASSEUR_EXISTANT.csv"
 PARAMS = BASE / "CONFIG" / "PARAMETRES_SCE_MICRO_CAPS.csv"
 SORTIE = BASE / "DONNEES" / "SORTIE_SCREENER_CANDIDATS.csv"
 CONTROLE = BASE / "DONNEES" / "CONTROLE_ADAPTATEUR_CHASSEUR_MICRO_CAPS.csv"
@@ -32,6 +33,7 @@ def _parametres_capitalisation():
     return mini, maxi
 
 def executer():
+    ENTREE = ENTREE_NETTOYEE
     if not ENTREE.exists():
         raise RuntimeError("Sortie du chasseur existant absente.")
     src = pd.read_csv(ENTREE)

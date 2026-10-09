@@ -20,7 +20,7 @@ def test():
   pd.DataFrame([
    {"Ticker":"TEST","Societe":"Test Inc","CIK":"0000001234","Statut_SEC":"A_VERIFIER_IDENTITE_ET_CONTENU","Depots":json.dumps(depots)},
    {"Ticker":"NON","Societe":"Non couvert","CIK":"MANQUANTE","Statut_SEC":"NON_COUVERT","Depots":"[]"}]).to_csv(d/"PREUVES_SEC_EDGAR_SSI.csv",index=False)
-  with patch.object(mod,"D",d),patch.object(mod,"SRC",d/"PREUVES_SEC_EDGAR_SSI.csv"),patch.object(mod,"OUT",d/"PISTES_GOUVERNANCE_SEC_SSI.csv"),patch.object(mod,"AUD",d/"AUDIT_GOUVERNANCE_SEC_SSI.csv"),patch.object(mod,"SRC",d/"PREUVES_SEC_EDGAR_SSI.csv"),patch.object(mod,"OUT",d/"PISTES_GOUVERNANCE_SEC_SSI.csv"),patch.object(mod,"AUD",d/"AUDIT_GOUVERNANCE_SEC_SSI.csv"):rows=mod.executer()
+  with patch.object(mod,"D",d),patch.object(mod,"SRC",d/"PREUVES_SEC_EDGAR_SSI.csv"),patch.object(mod,"OUT",d/"PISTES_GOUVERNANCE_SEC_SSI.csv"),patch.object(mod,"AUD",d/"AUDIT_GOUVERNANCE_SEC_SSI.csv"),patch.object(mod,"AUD",d/"AUDIT_GOUVERNANCE_SEC_SSI.csv"):rows=mod.executer()
   assert len(rows)==2
   assert {r["Bloc_SSI_cible"] for r in rows}=={"B4","B4_B5"}
   assert all(r["Note_SSI_attribuee"]=="NON" for r in rows)

@@ -25,7 +25,7 @@ def test():
   pd.DataFrame([
    {"Ticker":"TEST","CIK":"0000001234","Statut_SEC":"A_VERIFIER_IDENTITE_ET_CONTENU"},
    {"Ticker":"UNKNOWN","CIK":"MANQUANTE","Statut_SEC":"NON_COUVERT"}]).to_csv(d/"PREUVES_SEC_EDGAR_SSI.csv",index=False)
-  with patch.object(mod,"D",d),patch.object(mod,"SRC",d/"PREUVES_SEC_EDGAR_SSI.csv"),patch.object(mod,"OUT",d/"FAITS_FINANCIERS_SEC_SSI.csv"),patch.object(mod,"AUD",d/"AUDIT_FAITS_FINANCIERS_SEC_SSI.csv"),patch.object(mod,"SRC",d/"PREUVES_SEC_EDGAR_SSI.csv"),patch.object(mod,"OUT",d/"FAITS_FINANCIERS_SEC_SSI.csv"),patch.object(mod,"AUD",d/"AUDIT_FAITS_FINANCIERS_SEC_SSI.csv"),patch.object(mod,"lire_json",side_effect=faux_json),patch.object(mod.time,"sleep"),patch.dict(os.environ,{"SEC_USER_AGENT":"Research contact@example.org"}):
+  with patch.object(mod,"D",d),patch.object(mod,"SRC",d/"PREUVES_SEC_EDGAR_SSI.csv"),patch.object(mod,"OUT",d/"FAITS_FINANCIERS_SEC_SSI.csv"),patch.object(mod,"AUD",d/"AUDIT_FAITS_FINANCIERS_SEC_SSI.csv"),patch.object(mod,"lire_json",side_effect=faux_json),patch.object(mod.time,"sleep"),patch.dict(os.environ,{"SEC_USER_AGENT":"Research contact@example.org"}):
    rows=mod.executer()
   assert len(rows)==2
   assert all(r["Unite"]=="USD" for r in rows)

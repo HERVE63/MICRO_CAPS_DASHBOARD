@@ -24,7 +24,7 @@ def test():
    if url.endswith("xbrl.xml"):return Reponse(b"<xbrl/>")
    if url.endswith("ownership.xml"):return Reponse(ownership)
    raise AssertionError(url)
-  with patch.object(mod,"D",d),patch.object(mod,"SRC",d/"PISTES_GOUVERNANCE_SEC_SSI.csv"),patch.object(mod,"OUT",d/"TRANSACTIONS_DIRIGEANTS_SEC_SSI.csv"),patch.object(mod,"AUD",d/"AUDIT_TRANSACTIONS_DIRIGEANTS_SEC_SSI.csv"),patch.object(mod,"SRC",d/"PISTES_GOUVERNANCE_SEC_SSI.csv"),patch.object(mod,"OUT",d/"TRANSACTIONS_DIRIGEANTS_SEC_SSI.csv"),patch.object(mod,"AUD",d/"AUDIT_TRANSACTIONS_DIRIGEANTS_SEC_SSI.csv"),patch.object(mod,"urlopen",side_effect=fake_urlopen),patch.object(mod.time,"sleep"),patch.dict(mod.os.environ,{"SEC_USER_AGENT":"Research contact@example.org"}):
+  with patch.object(mod,"D",d),patch.object(mod,"SRC",d/"PISTES_GOUVERNANCE_SEC_SSI.csv"),patch.object(mod,"OUT",d/"TRANSACTIONS_DIRIGEANTS_SEC_SSI.csv"),patch.object(mod,"AUD",d/"AUDIT_TRANSACTIONS_DIRIGEANTS_SEC_SSI.csv"),patch.object(mod,"urlopen",side_effect=fake_urlopen),patch.object(mod.time,"sleep"),patch.dict(mod.os.environ,{"SEC_USER_AGENT":"Research contact@example.org"}):
    rows=mod.executer()
   assert len(rows)==1
   assert rows[0]["Code_transaction"]=="P"
@@ -36,7 +36,7 @@ def test():
    if req.full_url.endswith("xbrl.xml"):return Reponse(b"<xbrl/>")
    if req.full_url.endswith("ownership.xml"):return Reponse(ownership_faux)
    raise AssertionError(req.full_url)
-  with patch.object(mod,"D",d),patch.object(mod,"SRC",d/"PISTES_GOUVERNANCE_SEC_SSI.csv"),patch.object(mod,"OUT",d/"TRANSACTIONS_DIRIGEANTS_SEC_SSI.csv"),patch.object(mod,"AUD",d/"AUDIT_TRANSACTIONS_DIRIGEANTS_SEC_SSI.csv"),patch.object(mod,"SRC",d/"PISTES_GOUVERNANCE_SEC_SSI.csv"),patch.object(mod,"OUT",d/"TRANSACTIONS_DIRIGEANTS_SEC_SSI.csv"),patch.object(mod,"AUD",d/"AUDIT_TRANSACTIONS_DIRIGEANTS_SEC_SSI.csv"),patch.object(mod,"urlopen",side_effect=faux_urlopen),patch.object(mod.time,"sleep"),patch.dict(mod.os.environ,{"SEC_USER_AGENT":"Research contact@example.org"}):
+  with patch.object(mod,"D",d),patch.object(mod,"SRC",d/"PISTES_GOUVERNANCE_SEC_SSI.csv"),patch.object(mod,"OUT",d/"TRANSACTIONS_DIRIGEANTS_SEC_SSI.csv"),patch.object(mod,"AUD",d/"AUDIT_TRANSACTIONS_DIRIGEANTS_SEC_SSI.csv"),patch.object(mod,"urlopen",side_effect=faux_urlopen),patch.object(mod.time,"sleep"),patch.dict(mod.os.environ,{"SEC_USER_AGENT":"Research contact@example.org"}):
    refuse=mod.executer()
   assert len(refuse)==0
   audit=pd.read_csv(d/"AUDIT_TRANSACTIONS_DIRIGEANTS_SEC_SSI.csv")
