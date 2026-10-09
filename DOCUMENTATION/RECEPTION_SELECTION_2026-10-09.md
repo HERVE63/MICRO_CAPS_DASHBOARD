@@ -60,3 +60,17 @@ Le workflow SEC lance d'abord la réception hors réseau, puis la collecte réel
 Pour lever le blocage SEC, renseigner dans les secrets Actions du dépôt `SEC_USER_AGENT` avec un nom de projet et un vrai contact courriel, puis relancer le workflow. Ne jamais coller le secret dans les scripts ou les journaux. Le lot actuel de cotations allemandes pourra rester non couvert par SEC : le secret n'est pas une preuve d'identité ni une source européenne.
 
 Compléter les sources/identités officielles et les preuves vérifiées avant notation SSI. Le moteur SCE-Discovery et son barème doivent être raccordés depuis leurs véritables sauvegardes ; son absence n'autorise pas à créer une méthode parallèle. Les scénarios 3/6 mois et WWWS doivent être présents dans une revue validée avant classement final et confrontation.
+
+## Réception finale GitHub effectivement contrôlée
+
+Commit de code : `08a5acc610226ad9525640c1202e4cd1aa0f48f5`.
+
+- **11 fichiers de tests hors réseau passent**, confirmés par les journaux du [run 37965994818](https://github.com/HERVE63/MICRO_CAPS_DASHBOARD/actions/runs/37965994818). Le test d'orchestration utilise des réponses factices : sa réussite n'est pas un enrichissement réel.
+- [Réception replay 37965994888](https://github.com/HERVE63/MICRO_CAPS_DASHBOARD/actions/runs/37965994888) : succès sur l'état réel actuel et son journal vide.
+- [Réception duel 37965994970](https://github.com/HERVE63/MICRO_CAPS_DASHBOARD/actions/runs/37965994970) : succès sur scénarios de test.
+- [Préparation SSI 37965994998](https://github.com/HERVE63/MICRO_CAPS_DASHBOARD/actions/runs/37965994998) : succès ; l'ancien fichier de dossiers est archivé et les notes/corrections préservées.
+- [Exécution opérationnelle 37965994849](https://github.com/HERVE63/MICRO_CAPS_DASHBOARD/actions/runs/37965994849) : tests réussis, SEC bloquée (secret non transmis), tentative du document hors SEC bloquée HTTP 403, bilan et sauvegardes réussis.
+
+Le [bilan réel](https://github.com/HERVE63/MICRO_CAPS_DASHBOARD/blob/main/AUDITS/SELECTION/20261009T172428548373Z/BILAN.json) confirme **1 361 dossiers / 0 admis SSI / 0 challenger validé / T0 OK / 0 opération**. Les Top20/Top5 sont vides, avec motifs documentés. Aucune sélection finale n'est déclarée achevée.
+
+Limites restantes : sources officielles et identités du lot à compléter, secret SEC indisponible au workflow, SCE-Discovery exécutable absent, revue MCPA/IPS vide, absence de qualification documentée permettant un classement. La collecte hors SEC fournit le raccordement testé et un audit d'échec réel ; elle ne fournit pas encore une couverture mondiale.
