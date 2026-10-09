@@ -21,6 +21,7 @@ BASE = Path(__file__).resolve().parent.parent
 SRC = BASE / "SCRIPTS_ACTIFS"
 
 ETAPES = [
+    ("T0", "Intégrité des références figées", SRC / "07AC_CONTROLER_T0.py"),
 
     (
         "03",

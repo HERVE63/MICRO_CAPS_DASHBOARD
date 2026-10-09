@@ -34,8 +34,10 @@ def executer():
    "CIK":f["CIK"],"Bloc_SSI_cible":bloc,"Concept":f["Concept"],"Valeur":f["Valeur"],
    "Unite":f["Unite"],"Fin_periode":f["Fin_periode"],"Date_depot":f["Date_depot"],
    "Source_officielle":f["Source_officielle"],"Statut_preuve":statut,
-   "Statut_comparabilite":f["Statut_comparabilite"],"Note_SSI_attribuee":"NON"})
- cols=["Ticker","Societe","CIK","Bloc_SSI_cible","Concept","Valeur","Unite","Fin_periode","Date_depot","Source_officielle","Statut_preuve","Statut_comparabilite","Note_SSI_attribuee"]
+   "Statut_comparabilite":f["Statut_comparabilite"],"Note_SSI_attribuee":"NON",
+   "Accession":f.get("Accession",""),"Tag_SEC":f.get("Tag_SEC",""),
+   "Debut_periode":f.get("Debut_periode",""),"Formulaire":f.get("Formulaire","")})
+ cols=["Ticker","Societe","CIK","Bloc_SSI_cible","Concept","Valeur","Unite","Fin_periode","Date_depot","Source_officielle","Statut_preuve","Statut_comparabilite","Note_SSI_attribuee","Accession","Tag_SEC","Debut_periode","Formulaire"]
  pd.DataFrame(rows,columns=cols).to_csv(OUT,index=False)
  pd.DataFrame([{"Dossiers_SSI":len(dossiers),"Faits_rapproches":len(rows),
   "Emetteurs_avec_faits":len({r["Ticker"] for r in rows}),"Notes_SSI_attribuees":0,

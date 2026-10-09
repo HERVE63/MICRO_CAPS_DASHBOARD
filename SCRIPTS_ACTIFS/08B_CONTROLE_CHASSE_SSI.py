@@ -1,5 +1,7 @@
 from pathlib import Path
 import pandas as pd
+import importlib.util
+from tempfile import TemporaryDirectory
 
 BASE = Path(__file__).resolve().parent.parent
 CHASSE = BASE / "DONNEES" / "CHASSE_CANDIDATS.csv"
@@ -46,6 +48,19 @@ def executer():
             if not requis.issubset(resultats.columns) or resultats["Ticker"].duplicated().any():
                 erreurs.append("Registre SSI invalide ou tickers dupliques.")
                 resultats = pd.DataFrame()
+        # Revalidation sur les preuves actuelles : un CSV RESULTATS_SSI édité ne suffit pas.
+        if len(resultats):
+            spec=importlib.util.spec_from_file_location("validation_ssi_comite",BASE/"SCRIPTS_ACTIFS/07R_VALIDER_NOTES_SSI.py")
+            m=importlib.util.module_from_spec(spec);spec.loader.exec_module(m)
+            try:
+                with TemporaryDirectory() as tmp:
+                    m.OUT=Path(tmp)/"RESULTATS_SSI.csv";m.AUD=Path(tmp)/"AUDIT_SSI.csv"
+                    actuel=m.executer().set_index("Ticker")
+                for _,rssi in resultats[resultats.Statut_SSI.eq("ADMIS_SSI")].iterrows():
+                    if rssi.Ticker not in actuel.index or actuel.loc[rssi.Ticker,"Statut_SSI"]!="ADMIS_SSI" or str(actuel.loc[rssi.Ticker,"SSI"])!=str(rssi.SSI):
+                        erreurs.append("Admission SSI périmée/non vérifiée : "+rssi.Ticker)
+            except Exception as exc:
+                erreurs.append("Revalidation des preuves SSI bloquée : "+str(exc))
         admis = resultats.set_index("Ticker") if len(resultats) else pd.DataFrame()
         tickers_chasse = set(chasse["Ticker"].astype(str).str.upper().str.strip())
         for _, r in challengers.iterrows():

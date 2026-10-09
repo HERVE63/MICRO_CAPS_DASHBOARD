@@ -4,7 +4,7 @@ Variable SEC_USER_AGENT requise: 'Projet Contact contact@example.org'.
 """
 from pathlib import Path
 from datetime import datetime, timezone
-import json, os, time
+import json, os, time, re
 from urllib.request import Request, urlopen
 import pandas as pd
 
@@ -47,6 +47,8 @@ def executer():
    url=DATA+"/submissions/CIK"+cik+".json"
    try:
     sub=lire_json(url,agent)
+    if str(sub.get("cik","")).zfill(10)!=cik:
+     raise ValueError("CIK_SUBMISSIONS_INCOHERENT")
     nom=str(sub.get("name","")).strip()
     # Ne pas associer les preuves si l'identite emetteur reste a confirmer.
     item["Nom_SEC"]=nom;item["Source_depots"]=url
@@ -59,6 +61,10 @@ def executer():
      acc=recent.get("accessionNumber",[])
      dates=recent.get("filingDate",[])
      if i>=len(acc) or i>=len(dates): continue
+     limite=os.getenv("MICRO_CAPS_AS_OF",datetime.now(timezone.utc).date().isoformat())
+     try: date_depot=datetime.strptime(dates[i],"%Y-%m-%d").date()
+     except (ValueError,TypeError):continue
+     if dates[i]>limite or not re.fullmatch(r"[0-9]{10}-[0-9]{2}-[0-9]{6}",acc[i]):continue
      archive=BASE+"/Archives/edgar/data/"+str(int(cik))+"/"+acc[i].replace("-","")+"/"
      depots.append({"form":form,"date":dates[i],"accession":acc[i],
                     "url_archive_officielle":archive,

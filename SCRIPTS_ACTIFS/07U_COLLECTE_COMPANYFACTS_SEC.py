@@ -33,7 +33,7 @@ def executer():
  rows=[]; audits=[]
  for _,r in d.iterrows():
   ticker=r["Ticker"]; cik=r.get("CIK","")
-  if r.get("Statut_SEC")!="A_VERIFIER_IDENTITE_ET_CONTENU" or not cik.isdigit():
+  if r.get("Statut_SEC") not in ("A_VERIFIER_IDENTITE_ET_CONTENU","IDENTITE_VERIFIEE") or not cik.isdigit():
    audits.append({"Ticker":ticker,"Statut":"NON_COUVERT_OU_IDENTITE_AMBIGUE","Nb_faits":0})
    continue
   url="https://data.sec.gov/api/xbrl/companyfacts/CIK"+cik.zfill(10)+".json"
@@ -52,6 +52,12 @@ def executer():
       for f in values:
        if f.get("form") not in ("10-K","10-Q","20-F","40-F"): continue
        if not f.get("filed") or not f.get("end") or "val" not in f: continue
+       limite=os.getenv("MICRO_CAPS_AS_OF",datetime.now(timezone.utc).date().isoformat())
+       try:
+        depot=datetime.strptime(f["filed"],"%Y-%m-%d").date()
+        fin=datetime.strptime(f["end"],"%Y-%m-%d").date()
+       except (ValueError,TypeError):continue
+       if f["filed"]>limite or fin>depot:continue
        rows.append({"Ticker":ticker,"CIK":cik,"Concept":concept,"Tag_SEC":tag,
         "Valeur":f["val"],"Unite":unit,"Debut_periode":f.get("start",""),
         "Fin_periode":f["end"],"Date_depot":f["filed"],

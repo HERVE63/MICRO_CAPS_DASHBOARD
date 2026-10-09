@@ -4,7 +4,8 @@ Sélectionne des observations FY et Q1-Q4 seulement si frame SEC explicite,
 unité homogène et dépôt daté. Les autres observations restent dans les faits bruts.
 """
 from pathlib import Path
-import re
+import re, os
+from datetime import datetime, timezone
 import pandas as pd
 
 D=Path(__file__).resolve().parents[1]/"DONNEES"
@@ -41,7 +42,9 @@ def executer():
  df.loc[instant,"Cadence"]="INSTANTANE"
  # Ne jamais mélanger USD, shares et autres unités, ni déduire un trimestre d'un cumul.
  unite=(df["Unite"].eq("USD") & df["Concept"].ne("Shares")) | (df["Unite"].eq("shares") & df["Concept"].eq("Shares"))
- admissible=(annuel | trimestriel | instant) & unite & df["Valeur_numerique"].notna()
+ limite=pd.Timestamp(os.getenv("MICRO_CAPS_AS_OF",datetime.now(timezone.utc).date().isoformat()))
+ connu=(df["Date_depot"]<=limite) & (df["Fin_periode"]<=df["Date_depot"])
+ admissible=(annuel | trimestriel | instant) & unite & df["Valeur_numerique"].notna() & connu
  df.loc[admissible,"Statut_comparabilite"]="FORMAT_PERIODE_PLAUSIBLE_A_VERIFIER"
  # Dépôts successifs: conserver la version la plus récente mais ne pas effacer les bruts.
  ok=df[admissible].copy()

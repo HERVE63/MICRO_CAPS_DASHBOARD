@@ -16,7 +16,7 @@ def faux_json(url,agent):
  if "company_tickers.json" in url:
   return {"0":{"ticker":"TEST","cik_str":1234},"1":{"ticker":"DUP","cik_str":1235},"2":{"ticker":"DUP","cik_str":1236}}
  if "CIK0000001234.json" in url:
-  return {"name":"TEST INC","filings":{"recent":{"form":["10-K","8-K","OTHER"],"filingDate":["2026-01-01","2026-02-01","2026-02-02"],"accessionNumber":["0001","0002","0003"]}}}
+  return {"cik":1234,"name":"TEST INC","filings":{"recent":{"form":["10-K","8-K","OTHER"],"filingDate":["2026-01-01","2026-02-01","2026-02-02"],"accessionNumber":["0000001234-26-000001","0000001234-26-000002","0000001234-26-000003"]}}}
  raise AssertionError("Unexpected URL: "+url)
 
 def test():
@@ -30,7 +30,7 @@ def test():
   assert by.loc["TEST","Nb_depots"]==2
   depots=json.loads(by.loc["TEST","Depots"])
   assert len(depots)==2
-  assert depots[0]["url_archive_officielle"]=="https://www.sec.gov/Archives/edgar/data/1234/0001/"
+  assert depots[0]["url_archive_officielle"]=="https://www.sec.gov/Archives/edgar/data/1234/000000123426000001/"
   assert depots[0]["statut_preuve"]=="DOCUMENT_A_LIRE"
   assert by.loc["DUP","Statut_SEC"]=="IDENTITE_AMBIGUE"
   assert by.loc["UNKNOWN","Statut_SEC"]=="NON_COUVERT"

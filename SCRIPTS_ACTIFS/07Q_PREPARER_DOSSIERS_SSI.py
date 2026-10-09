@@ -30,7 +30,24 @@ def executer():
  out["SSI"]="MANQUANTE"; out["Statut_SSI"]="A_COMPLETER_PREUVES_SSI"
  out["Decision_eliminatoire"]="A_VERIFIER"
  out["Motif_eliminatoire"]="MANQUANTE"
- out.to_csv(OUT,index=False)
+ # Conservation des champs humains par ticker. Aucune collecte ne remet les notes à zéro.
+ if OUT.exists():
+  ancien=pd.read_csv(OUT,dtype=str,keep_default_na=False)
+  if ancien["Ticker"].duplicated().any():raise RuntimeError("Ancien registre SSI dupliqué")
+  from datetime import datetime,timezone
+  archive=B/"AUDITS"/"DOSSIERS_SSI"/datetime.now(timezone.utc).strftime("%Y%m%dT%H%M%S%fZ")
+  archive.mkdir(parents=True,exist_ok=False)
+  import shutil
+  shutil.copy2(OUT,archive/OUT.name)
+  humains=[c for c in ancien if c.startswith(("Note_","Preuve_","Validation_","Correction_")) or c in ("Decision_eliminatoire","Motif_eliminatoire")]
+  reg=ancien.set_index("Ticker")
+  for c in humains:
+   if c not in out:out[c]="MANQUANTE"
+   mask=out["Ticker"].isin(reg.index)
+   out.loc[mask,c]=out.loc[mask,"Ticker"].map(reg[c])
+  # Les données collectées ne certifient jamais une admission antérieure.
+  out["SSI"]="MANQUANTE";out["Statut_SSI"]="A_REVALIDER_PREUVES_SSI"
+ tmp=OUT.with_suffix(".tmp");out.to_csv(tmp,index=False);tmp.replace(OUT)
  pd.DataFrame([{"Dossiers_prets":len(out),"SSI_notes":0,"SSI_admis_65":0,"Statut":"COLLECTE_PREUVES_SSI_REQUISE"}]).to_csv(AUD,index=False)
  print("Dossiers SSI a qualifier",len(out))
  return out

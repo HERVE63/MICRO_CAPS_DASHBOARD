@@ -3,6 +3,9 @@ on:
   push:
     branches: [main]
     paths:
+      - "TESTS/**"
+      - "SCRIPTS_ACTIFS/*.py"
+      - "CONFIG/*.csv"
       - "TESTS/test_sec_ssi_hors_reseau.py"
       - "TESTS/test_companyfacts_sec_hors_reseau.py"
       - "TESTS/test_normalisation_sec_hors_reseau.py"
@@ -29,12 +32,12 @@ jobs:
         with:
           python-version: "3.12"
       - run: pip install pandas
-      - name: Test SEC hors reseau
-        run: |
-          python TESTS/test_sec_ssi_hors_reseau.py
-          python TESTS/test_companyfacts_sec_hors_reseau.py
-          python TESTS/test_normalisation_sec_hors_reseau.py
-          python TESTS/test_rapprochement_sec_ssi_hors_reseau.py
-          python TESTS/test_gouvernance_sec_hors_reseau.py
-          python TESTS/test_form4_sec_hors_reseau.py
-          python TESTS/test_form4_multi_xml_hors_reseau.py
+      - name: Réception SEC et sécurité du pipeline hors réseau
+        run: python -B TESTS/executer_tests.py
+      - name: Archiver les résultats effectifs
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: tests-sec-ssi-${{ github.run_id }}
+          path: AUDITS/TESTS/
+          if-no-files-found: error

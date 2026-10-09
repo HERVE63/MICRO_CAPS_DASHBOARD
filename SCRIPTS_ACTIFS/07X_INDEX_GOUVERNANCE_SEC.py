@@ -3,7 +3,8 @@ Les formulaires 3/4/5 signalent des declarations; DEF 14A des documents
 de gouvernance. Aucun pourcentage, achat net ou note B4/B5 n'est deduit.
 """
 from pathlib import Path
-import json
+import json, os
+from datetime import datetime, timezone
 import pandas as pd
 D=Path(__file__).resolve().parents[1]/"DONNEES"
 SRC=D/"PREUVES_SEC_EDGAR_SSI.csv"
@@ -17,12 +18,15 @@ def executer():
   raise RuntimeError("Index SEC invalide")
  rows=[];anomalies=0
  for _,r in d.iterrows():
-  if r.get("Statut_SEC")!="A_VERIFIER_IDENTITE_ET_CONTENU":continue
+  if r.get("Statut_SEC") not in ("A_VERIFIER_IDENTITE_ET_CONTENU","IDENTITE_VERIFIEE"):continue
   try: depots=json.loads(r.get("Depots","[]"))
   except (ValueError,TypeError): anomalies+=1;continue
   if not isinstance(depots,list):anomalies+=1;continue
   for f in depots:
    if not isinstance(f,dict) or f.get("form") not in FORMES:continue
+   try:date_depot=datetime.strptime(f.get("date",""),"%Y-%m-%d").date()
+   except (ValueError,TypeError):anomalies+=1;continue
+   if f["date"]>os.getenv("MICRO_CAPS_AS_OF",datetime.now(timezone.utc).date().isoformat()):anomalies+=1;continue
    url=f.get("url_archive_officielle","")
    if not url.startswith("https://www.sec.gov/Archives/edgar/data/"):
     anomalies+=1;continue

@@ -119,6 +119,9 @@ def executer():
     module = importlib.util.module_from_spec(spec)
     spec.loader.exec_module(module)
     df = module.executer().copy()
+    guard_path=BASE/"SCRIPTS_ACTIFS/08B_CONTROLE_CHASSE_SSI.py"
+    gs=importlib.util.spec_from_file_location("controle_ssi_duel",guard_path)
+    gm=importlib.util.module_from_spec(gs);gs.loader.exec_module(gm);gm.executer()
     out = calculer_duels(df)
     out.to_csv(OUTPUT, index=False)
     print("Duels calcules :", len(out))

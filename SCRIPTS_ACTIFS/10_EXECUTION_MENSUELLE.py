@@ -29,8 +29,11 @@ def taux():
     return float(p.loc["Frais_achat","Valeur"])/100,float(p.loc["Frais_vente","Valeur"])/100
 
 def executer(dry_run=False):
+    charger("07AC_CONTROLER_T0.py").executer()
     maintenant=datetime.now(ZoneInfo("Europe/Paris"))
     force=os.getenv("MICRO_CAPS_FORCE_MENSUEL","0")=="1"
+    if force and not (dry_run or os.getenv("MICRO_CAPS_DRY_RUN","0")=="1"):
+        raise RuntimeError("Forçage hors fenêtre interdit sans exception grave documentée")
     if not force and not dernier_mardi(maintenant.date()):
         print("Hors fenêtre mensuelle : aucune opération.")
         return pd.DataFrame()
@@ -121,9 +124,14 @@ def executer(dry_run=False):
         print(f"DRY RUN : {len(ajout)} opération(s), journal inchangé.")
         return ajout
     nouveau=pd.concat([journal,ajout],ignore_index=True)
-    tmp=JOURNAL.with_suffix(".tmp"); nouveau.to_csv(tmp,index=False); tmp.replace(JOURNAL)
-    # Réception comptable immédiate : le replay doit accepter frais, cash et quantités.
-    charger("05C_REPLAY_PORTEFEUILLE_GERE.py").executer()
+    # Vérifier le journal candidat AVANT publication : un échec n'altère jamais le journal.
+    from tempfile import TemporaryDirectory
+    with TemporaryDirectory() as temp:
+        candidate=Path(temp)/"JOURNAL.csv";nouveau.to_csv(candidate,index=False)
+        recep=charger("05C_REPLAY_PORTEFEUILLE_GERE.py")
+        recep.JOURNAL=candidate;recep.OUTPUT=Path(temp)/"REPLAY.csv"
+        recep.executer()
+    tmp=JOURNAL.with_suffix(".tmp");nouveau.to_csv(tmp,index=False);tmp.replace(JOURNAL)
     print(f"Arbitrage mensuel journalisé : {len(ajout)} opération(s).")
     return ajout
 

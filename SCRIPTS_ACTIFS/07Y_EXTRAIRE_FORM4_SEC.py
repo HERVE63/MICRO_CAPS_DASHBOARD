@@ -7,6 +7,7 @@ from urllib.request import Request, urlopen
 from urllib.parse import urlparse
 import xml.etree.ElementTree as ET
 import re, os, time
+from datetime import datetime, timezone
 import pandas as pd
 
 D=Path(__file__).resolve().parents[1]/"DONNEES"
@@ -48,6 +49,13 @@ def executer():
  if "Formulaire" not in d or "Ticker" not in d:raise RuntimeError("Schema index invalide")
  rows=[];audits=[]
  for _,r in d[d["Formulaire"].eq("4")].iterrows():
+  limite=os.getenv("MICRO_CAPS_AS_OF",datetime.now(timezone.utc).date().isoformat())
+  if r.get("Date_depot",""):
+   try:datetime.strptime(r["Date_depot"],"%Y-%m-%d")
+   except (ValueError,TypeError):
+    audits.append({"Ticker":r["Ticker"],"Accession":r.get("Accession",""),"Statut":"DATE_DEPOT_INVALIDE","Transactions":0});continue
+   if r["Date_depot"]>limite:
+    audits.append({"Ticker":r["Ticker"],"Accession":r.get("Accession",""),"Statut":"DEPOT_POSTERIEUR_DATE_LIMITE","Transactions":0});continue
   cik=r.get("CIK","");acc=r.get("Accession","")
   if not cik.isdigit() or not ACC.fullmatch(acc):
    audits.append({"Ticker":r["Ticker"],"Accession":acc,"Statut":"IDENTIFIANT_INVALIDE","Transactions":0});continue
@@ -78,7 +86,14 @@ def executer():
    if not emetteur_cik.isdigit() or int(emetteur_cik)!=int(cik):
     audits.append({"Ticker":r["Ticker"],"Accession":acc,"Statut":"CIK_EMETTEUR_FORM4_INCOHERENT","Transactions":0});continue
    transactions=analyser_xml(contenu)
-   for t in transactions:rows.append({"Ticker":r["Ticker"],"CIK":cik,"Accession":acc,"Source_XML":url,**t,"Note_SSI_attribuee":"NON"})
+   for t in transactions:
+    date_t=t.get("Date_transaction","")
+    # Une date absente reste explicitement à vérifier, jamais inventée.
+    if date_t:
+     try:datetime.strptime(date_t,"%Y-%m-%d")
+     except (ValueError,TypeError):continue
+     if date_t>limite:continue
+    rows.append({"Ticker":r["Ticker"],"CIK":cik,"Accession":acc,"Source_XML":url,**t,"Note_SSI_attribuee":"NON"})
    audits.append({"Ticker":r["Ticker"],"Accession":acc,"Statut":"TRANSACTIONS_A_VERIFIER","Transactions":len(transactions)})
   except Exception as exc:
    audits.append({"Ticker":r["Ticker"],"Accession":acc,"Statut":"ERREUR_"+type(exc).__name__,"Transactions":0})

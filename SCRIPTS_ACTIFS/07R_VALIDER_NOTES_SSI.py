@@ -1,69 +1,37 @@
-"""SSI V1.0 — validation de sept notes documentées, sans notation inventée."""
+"""SSI V1.0 — sept notes sur preuves vérifiées, sans imputation."""
 from pathlib import Path
+from datetime import datetime, timezone
+import sys
 import pandas as pd
-
-D = Path(__file__).resolve().parent.parent / "DONNEES"
-SRC = D / "DOSSIERS_SSI_A_QUALIFIER.csv"
-OUT = D / "RESULTATS_SSI.csv"
-AUD = D / "AUDIT_SSI.csv"
-MAX = {"B1":20,"B2":15,"B3":15,"B4":20,"B5":10,"B6":10,"B7":10}
-VALIDES = {"NON","OUI","A_VERIFIER"}
-
+sys.path.insert(0,str(Path(__file__).resolve().parent))
+from preuves_ssi import MAX, registre, valider_dossier
+D=Path(__file__).resolve().parents[1]/'DONNEES'
+SRC=D/'DOSSIERS_SSI_A_QUALIFIER.csv';OUT=D/'RESULTATS_SSI.csv';AUD=D/'AUDIT_SSI.csv'
 def executer():
-    if not SRC.exists():
-        raise RuntimeError("Dossiers SSI absents")
-    df = pd.read_csv(SRC, dtype=str, keep_default_na=False)
-    if df.empty:
-        raise RuntimeError("Dossiers SSI vides")
-    if df["Ticker"].duplicated().any():
-        raise RuntimeError("Doublons ticker SSI : verifier identite")
-    for b in MAX:
-        for col in ("Note_"+b, "Preuve_"+b):
-            if col not in df.columns:
-                raise RuntimeError("Champ SSI manquant : "+col)
-    if "Decision_eliminatoire" not in df or "Motif_eliminatoire" not in df:
-        raise RuntimeError("Controle eliminatoire absent")
-    scores=[]; statuts=[]; motifs=[]
+    if not SRC.exists():raise RuntimeError('Dossiers SSI absents')
+    df=pd.read_csv(SRC,dtype=str,keep_default_na=False)
+    if df.empty or df.Ticker.duplicated().any():raise RuntimeError('Dossiers SSI vides/tickers dupliqués')
+    if not {'Decision_eliminatoire','Motif_eliminatoire',*[p+b for b in MAX for p in ['Note_','Preuve_']]}.issubset(df.columns):
+        raise RuntimeError('Schéma dossier SSI incomplet')
+    limite=datetime.now(timezone.utc);preuves=registre(D.parent,limite)
+    scores=[];statuts=[];motifs=[]
     for _,r in df.iterrows():
-        elim=str(r["Decision_eliminatoire"]).strip().upper()
-        if elim not in VALIDES:
-            raise RuntimeError("Decision eliminatoire invalide : "+str(r["Ticker"]))
-        if elim=="OUI":
-            if str(r["Motif_eliminatoire"]).strip().upper() in ("","MANQUANTE"):
-                raise RuntimeError("Elimination sans motif : "+str(r["Ticker"]))
-            scores.append("MANQUANTE");statuts.append("ELIMINE");motifs.append(r["Motif_eliminatoire"]);continue
-        notes=[]; erreurs=[]
-        for b,maximum in MAX.items():
-            val=str(r["Note_"+b]).strip()
-            preuve=str(r["Preuve_"+b]).strip()
-            if val.upper() in ("","MANQUANTE") or preuve.upper() in ("","MANQUANTE","A_COMPLETER","NON_VERIFIE","N/A"):
-                erreurs.append(b+": preuve ou note manquante");continue
-            try:
-                note=float(val)
-                if not note.is_integer() or not 0<=note<=maximum:
-                    raise ValueError()
-                notes.append(int(note))
-            except ValueError:
-                raise RuntimeError("Note SSI hors bareme "+b+" : "+str(r["Ticker"]))
-        if elim=="NON" and str(r["Motif_eliminatoire"]).strip().upper() in ("","MANQUANTE"):
-            erreurs.append("preuve de verification des exclusions manquante")
-        if elim=="A_VERIFIER":
-            erreurs.append("filtre eliminatoire non verifie")
+        notes,erreurs=valider_dossier(r,preuves,D.parent,limite)
+        # Une exclusion elle aussi doit avoir une référence vérifiée avant publication.
+        if r.Decision_eliminatoire=='OUI':
+            from preuves_ssi import verifier
+            z=preuves[preuves.ID_preuve.eq(r.Motif_eliminatoire)]
+            if len(z)==1 and not verifier(z.iloc[0],r.Ticker,'EXCLUSIONS',D.parent,limite):
+                scores.append('MANQUANTE');statuts.append('ELIMINE');motifs.append(r.Motif_eliminatoire);continue
         if erreurs:
-            scores.append("MANQUANTE");statuts.append("A_COMPLETER_PREUVES_SSI");motifs.append(" | ".join(erreurs))
+            scores.append('MANQUANTE');statuts.append('A_COMPLETER_PREUVES_SSI');motifs.append(' | '.join(erreurs))
         else:
-            total=sum(notes)
-            scores.append(str(total))
-            statuts.append("ADMIS_SSI" if total>=65 else "REFUSE_SSI")
-            motifs.append("Barème V1.0 vérifié")
-    df["SSI"]=scores;df["Statut_SSI"]=statuts;df["Motif_decision_SSI"]=motifs
-    df.to_csv(OUT,index=False)
-    pd.DataFrame([{"Dossiers":len(df),"Admis":sum(s=="ADMIS_SSI" for s in statuts),
-      "Refuses":sum(s=="REFUSE_SSI" for s in statuts),
-      "Elimines":sum(s=="ELIMINE" for s in statuts),
-      "Preuves_incompletes":sum(s=="A_COMPLETER_PREUVES_SSI" for s in statuts)}]).to_csv(AUD,index=False)
-    print("SSI:",pd.Series(statuts).value_counts().to_dict())
-    return df
-
-if __name__=="__main__":
-    executer()
+            total=sum(notes);scores.append(str(total));statuts.append('ADMIS_SSI' if total>=65 else 'REFUSE_SSI')
+            motifs.append('Sept blocs et exclusions vérifiés dans le registre de preuves')
+    df['SSI']=scores;df['Statut_SSI']=statuts;df['Motif_decision_SSI']=motifs
+    tmp=OUT.with_suffix('.tmp');df.to_csv(tmp,index=False);tmp.replace(OUT)
+    pd.DataFrame([{'Date_validation_UTC':limite.isoformat(),'Dossiers':len(df),
+        'Admis':statuts.count('ADMIS_SSI'),'Refuses':statuts.count('REFUSE_SSI'),
+        'Elimines':statuts.count('ELIMINE'),'Preuves_incompletes':statuts.count('A_COMPLETER_PREUVES_SSI')}]).to_csv(AUD,index=False)
+    print('SSI:',pd.Series(statuts).value_counts().to_dict());return df
+if __name__=='__main__':executer()

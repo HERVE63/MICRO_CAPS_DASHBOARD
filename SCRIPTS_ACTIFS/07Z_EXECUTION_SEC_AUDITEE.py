@@ -46,9 +46,8 @@ def executer():
  try:
   for n in ['DOSSIERS_SSI_A_QUALIFIER.csv','UNIVERS_INVESTISSABLE_MICRO_CAPS.csv']:
    shutil.copy2(BASE/'DONNEES'/n,travail/n)
-  # La collecte n'est pas limitée aux dossiers issus d'une source secondaire défaillante.
-  # Elle expose des pistes pour tout l'univers nettoyé ; aucune admission n'en découle.
-  u=pd.read_csv(travail/'UNIVERS_INVESTISSABLE_MICRO_CAPS.csv',dtype=str,keep_default_na=False)
+  # Périmètre de qualification figé : les dossiers retenus, sans nouvelle chasse.
+  u=pd.read_csv(travail/'DOSSIERS_SSI_A_QUALIFIER.csv',dtype=str,keep_default_na=False)
   manifest['univers_collecte']=len(u)
   agent=os.getenv('SEC_USER_AGENT','').strip()
   if not agent or '@' not in agent: raise RuntimeError('SEC_USER_AGENT_ABSENT_OU_INVALIDE')

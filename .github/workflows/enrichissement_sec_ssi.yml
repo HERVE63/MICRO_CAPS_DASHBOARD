@@ -35,6 +35,11 @@ jobs:
           SEC_BATCH_OFFSET: ${{ inputs.offset || '0' }}
           SEC_BATCH_SIZE: ${{ inputs.taille || '100' }}
         run: python -B SCRIPTS_ACTIFS/07Z_EXECUTION_SEC_AUDITEE.py
+      - name: Collecte officielle hors SEC et bilan de qualification
+        if: always()
+        run: |
+          python -B SCRIPTS_ACTIFS/07AA_COLLECTE_DOCUMENTS_OFFICIELS.py
+          python -B SCRIPTS_ACTIFS/07AB_BILAN_SELECTION_DOCUMENTEE.py
       - name: Conserver les audits y compris les échecs
         if: always()
         uses: actions/upload-artifact@v4
@@ -48,7 +53,7 @@ jobs:
         run: |
           git config user.name 'github-actions[bot]'
           git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
-          git add AUDITS/SEC AUDITS/TESTS
+          git add AUDITS/SEC AUDITS/TESTS AUDITS/SOURCES_OFFICIELLES AUDITS/SELECTION
           if ! git diff --cached --quiet; then
             git commit -m 'Audit SEC SSI : preuves et statut effectif'
             git pull --rebase origin main
