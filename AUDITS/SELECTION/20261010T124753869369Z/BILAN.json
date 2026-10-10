@@ -1,0 +1,53 @@
+{
+  "date_utc": "2026-10-10T12:47:54.207921+00:00",
+  "commit": "72b0876b0dcaf98156c7074d310692ee786c7787",
+  "dossiers": 1361,
+  "admis_SSI": 0,
+  "challengers_MCPA_valides": 0,
+  "selection_finale_validee": false,
+  "blocages": [
+    "AUCUN_DOSSIER_ADMIS_SSI_SUR_PREUVES_VERIFIEES",
+    "REVUE_MCPA_IPS_ABSENTE_OU_VIDE",
+    "MOTEUR_SCE_DISCOVERY_EXECUTABLE_NON_PRESENT"
+  ],
+  "integrite_T0": "OK",
+  "etat_initial": "OK",
+  "frais_achat": 0.025,
+  "frais_vente": 0.025,
+  "capital_reinvesti_apres_rotation_100_EUR": 95.1219512195122,
+  "perte_rotation_pct": 4.8780487804877986,
+  "journal_operations": 0,
+  "empreintes_protegees": {
+    "COHORTE_MICRO_CAPS_T0.csv": "3ac3edfad6b0accf1bc0744545f0f254e88b5ce044615022bbf9cfcec536a8c8",
+    "MICRO_CAPS_T0_GELE_2026-10-01.csv": "3ac3edfad6b0accf1bc0744545f0f254e88b5ce044615022bbf9cfcec536a8c8",
+    "ETAT_INITIAL_PORTEFEUILLE_GERE.csv": "c409d08d1861ef29f4494a3ac810141880fdde7f9f47cef2484f2a7be81ff359",
+    "JOURNAL_ARBITRAGES_GERE.csv": "8662c18842e2f06d8fabe714e5032a375b306102aee2691309ef9220e6b72e78"
+  },
+  "executions_SEC": [
+    {
+      "fichier": "AUDITS/SEC/RUN_37964548680_1/MANIFESTE.json",
+      "statut": "BLOQUE",
+      "secret_contact_valide": false,
+      "etapes_executees": 0
+    },
+    {
+      "fichier": "AUDITS/SEC/RUN_37965994849_1/MANIFESTE.json",
+      "statut": "BLOQUE",
+      "secret_contact_valide": false,
+      "etapes_executees": 0
+    },
+    {
+      "fichier": "AUDITS/SEC/RUN_38052884336_1/MANIFESTE.json",
+      "statut": "LOT_COLLECTE_A_VERIFIER",
+      "secret_contact_valide": true,
+      "etapes_executees": 6
+    },
+    {
+      "fichier": "AUDITS/SEC/RUN_38053200471_1/MANIFESTE.json",
+      "statut": "LOT_COLLECTE_A_VERIFIER",
+      "secret_contact_valide": true,
+      "etapes_executees": 6
+    }
+  ],
+  "remarque_couverture": "Pays est la zone de cotation ; ce champ ne prouve pas le pays de l’émetteur."
+}
