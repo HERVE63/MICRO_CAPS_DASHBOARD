@@ -1,0 +1,180 @@
+<?xml version="1.0"?>
+<ownershipDocument>
+
+    <schemaVersion>X0609</schemaVersion>
+
+    <documentType>4</documentType>
+
+    <periodOfReport>2026-07-21</periodOfReport>
+
+    <issuer>
+        <issuerCik>0001141197</issuerCik>
+        <issuerName>PEDEVCO CORP</issuerName>
+        <issuerTradingSymbol>PED</issuerTradingSymbol>
+        <issuerForeignTradingSymbol></issuerForeignTradingSymbol>
+    </issuer>
+
+    <reportingOwner>
+        <reportingOwnerId>
+            <rptOwnerCik>0002092580</rptOwnerCik>
+            <rptOwnerName>Long Robert Joseph</rptOwnerName>
+        </reportingOwnerId>
+        <reportingOwnerAddress>
+            <rptOwnerNonUSAddressFlag>false</rptOwnerNonUSAddressFlag>
+            <rptOwnerStreet1>575 N. DAIRY ASHFORD ENERGY CENTER II</rptOwnerStreet1>
+            <rptOwnerStreet2>SUITE 210</rptOwnerStreet2>
+            <rptOwnerCity>HOUSTON</rptOwnerCity>
+            <rptOwnerState>TX</rptOwnerState>
+            <rptOwnerZipCode>77079</rptOwnerZipCode>
+            <rptOwnerStateDescription></rptOwnerStateDescription>
+        </reportingOwnerAddress>
+        <reportingOwnerRelationship>
+            <isDirector>false</isDirector>
+            <isOfficer>true</isOfficer>
+            <isTenPercentOwner>false</isTenPercentOwner>
+            <isOther>false</isOther>
+            <officerTitle>CFO and Treasurer</officerTitle>
+        </reportingOwnerRelationship>
+    </reportingOwner>
+
+    <aff10b5One>false</aff10b5One>
+
+    <nonDerivativeTable>
+        <nonDerivativeHolding>
+            <securityTitle>
+                <value>Common Stock</value>
+            </securityTitle>
+            <postTransactionAmounts>
+                <sharesOwnedFollowingTransaction>
+                    <value>46308</value>
+                </sharesOwnedFollowingTransaction>
+            </postTransactionAmounts>
+            <ownershipNature>
+                <directOrIndirectOwnership>
+                    <value>D</value>
+                </directOrIndirectOwnership>
+            </ownershipNature>
+        </nonDerivativeHolding>
+    </nonDerivativeTable>
+
+    <derivativeTable>
+        <derivativeTransaction>
+            <securityTitle>
+                <value>Restricted Stock Unit</value>
+            </securityTitle>
+            <conversionOrExercisePrice>
+                <footnoteId id="F1"/>
+            </conversionOrExercisePrice>
+            <transactionDate>
+                <value>2026-07-21</value>
+            </transactionDate>
+            <transactionCoding>
+                <transactionFormType>4</transactionFormType>
+                <transactionCode>A</transactionCode>
+                <equitySwapInvolved>false</equitySwapInvolved>
+            </transactionCoding>
+            <transactionAmounts>
+                <transactionShares>
+                    <value>18050</value>
+                </transactionShares>
+                <transactionPricePerShare>
+                    <value>0.00</value>
+                </transactionPricePerShare>
+                <transactionAcquiredDisposedCode>
+                    <value>A</value>
+                </transactionAcquiredDisposedCode>
+            </transactionAmounts>
+            <exerciseDate>
+                <footnoteId id="F3"/>
+            </exerciseDate>
+            <expirationDate>
+                <footnoteId id="F3"/>
+            </expirationDate>
+            <underlyingSecurity>
+                <underlyingSecurityTitle>
+                    <value>Common Stock</value>
+                </underlyingSecurityTitle>
+                <underlyingSecurityShares>
+                    <value>18050</value>
+                </underlyingSecurityShares>
+            </underlyingSecurity>
+            <postTransactionAmounts>
+                <sharesOwnedFollowingTransaction>
+                    <value>18050</value>
+                </sharesOwnedFollowingTransaction>
+            </postTransactionAmounts>
+            <ownershipNature>
+                <directOrIndirectOwnership>
+                    <value>D</value>
+                </directOrIndirectOwnership>
+            </ownershipNature>
+        </derivativeTransaction>
+        <derivativeTransaction>
+            <securityTitle>
+                <value>Performance-Based Restricted Stock Unit</value>
+            </securityTitle>
+            <conversionOrExercisePrice>
+                <footnoteId id="F2"/>
+            </conversionOrExercisePrice>
+            <transactionDate>
+                <value>2026-07-21</value>
+            </transactionDate>
+            <transactionCoding>
+                <transactionFormType>4</transactionFormType>
+                <transactionCode>A</transactionCode>
+                <equitySwapInvolved>false</equitySwapInvolved>
+            </transactionCoding>
+            <transactionAmounts>
+                <transactionShares>
+                    <value>4010</value>
+                </transactionShares>
+                <transactionPricePerShare>
+                    <value>0.00</value>
+                </transactionPricePerShare>
+                <transactionAcquiredDisposedCode>
+                    <value>A</value>
+                </transactionAcquiredDisposedCode>
+            </transactionAmounts>
+            <exerciseDate>
+                <footnoteId id="F4"/>
+            </exerciseDate>
+            <expirationDate>
+                <footnoteId id="F4"/>
+            </expirationDate>
+            <underlyingSecurity>
+                <underlyingSecurityTitle>
+                    <value>Common Stock</value>
+                </underlyingSecurityTitle>
+                <underlyingSecurityShares>
+                    <value>4010</value>
+                    <footnoteId id="F5"/>
+                </underlyingSecurityShares>
+            </underlyingSecurity>
+            <postTransactionAmounts>
+                <sharesOwnedFollowingTransaction>
+                    <value>4010</value>
+                </sharesOwnedFollowingTransaction>
+            </postTransactionAmounts>
+            <ownershipNature>
+                <directOrIndirectOwnership>
+                    <value>D</value>
+                </directOrIndirectOwnership>
+            </ownershipNature>
+        </derivativeTransaction>
+    </derivativeTable>
+
+    <footnotes>
+        <footnote id="F1">Each Restricted Stock Unit represents the contingent right to receive, at vesting and upon settlement, one share of common stock.</footnote>
+        <footnote id="F2">Each Performance-Based Restricted Stock Unit represents the contingent right to receive, at vesting and upon settlement, shares of common stock of the Issuer. The actual number of shares issuable upon vesting may range from 0% to 200% of the target award based upon the level of achievement of the applicable performance criteria.</footnote>
+        <footnote id="F3">The Restricted Stock Units (RSUs) vest, if at all, at the rate of (i) 1/3 of the total number of RSUs on the one (1) year anniversary of the January 1, 2026 vesting commencement date (the &quot;VCD&quot;); (ii) 1/3 of the total number of RSUs on the two (2) year anniversary of the VCD; and (iii) 1/3 of the total number of RSUs on the three (3) year anniversary of the VCD, subject to the Reporting Person's continued service to the Company on such vesting dates, and subject to the terms and conditions of a Restricted Stock Unit Award Grant Agreement entered into between the Company and the Reporting Person. RSUs do not expire; they either vest or are forfeited prior to vesting date. Issued under the Issuer's 2021 Equity Incentive Plan.</footnote>
+        <footnote id="F4">The Performance-Based Restricted Stock Units (PBRSUs), which PBRSUs will be earned based on the performance metrics applicable to the Issuer's performance-based equity award program previously approved for management for the fiscal 2026 through fiscal 2028 performance period, which generally provide for the cliff-vesting of 100% of the PBRSUs on December 31, 2028, subject to the Reporting Person's continued service through that date and based on the Issuer's total shareholder return (&quot;TSR&quot;) over the period, with payout ranging from 0-200% of target based on relative TSR percentile ranking against a defined peer group, and further subject to the terms and conditions of a Performance-Based Restricted Stock Unit Award Grant Agreement entered into between the Issuer and the Reporting Person. PBRSUs do not expire; they either vest or are forfeited prior to vesting. Issued under the Issuer's 2021 Equity Incentive Plan.</footnote>
+        <footnote id="F5">The &quot;Target&quot; number of shares is reported. Possible payout ranges from 0% to 200%, based on the level of achievement of the applicable performance criteria during the applicable performance period.</footnote>
+    </footnotes>
+
+    <remarks>See the Power of Attorney filed as Exhibit 24 to the Form 3 filed by the Reporting Person on March 3, 2026.</remarks>
+
+    <ownerSignature>
+        <signatureName>/s/ Clark R. Moore, attorney-in-fact for Robert J. Long</signatureName>
+        <signatureDate>2026-07-23</signatureDate>
+    </ownerSignature>
+</ownershipDocument>

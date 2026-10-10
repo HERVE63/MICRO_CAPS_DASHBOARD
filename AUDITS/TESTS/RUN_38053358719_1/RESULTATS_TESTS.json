@@ -1,0 +1,443 @@
+{
+  "date_utc": "2026-10-10T12:49:26.734154+00:00",
+  "commit": "9f8777263fff4698dbdef007028ce1d5ef822dfa",
+  "empreintes_sources": {
+    "SCRIPTS_ACTIFS/09C_COMITE_HEBDOMADAIRE.py": "b89090485645e3c6c55818c62196f1f797a22c9fa7e2cc7d082ba45d79cf779e",
+    "SCRIPTS_ACTIFS/00_EXECUTION_QUOTIDIENNE_V3.py": "f4a3ba47beab70128f3c3e24d510e822efb3f20041bee8ec245132f4af8580a0",
+    "SCRIPTS_ACTIFS/03C_ACTIONS_CORPORATIVES.py": "2a9a9114d9896a7ea64d7c063c363911005f8336025b91935c78bc94d78fd0b3",
+    "SCRIPTS_ACTIFS/05C_REPLAY_PORTEFEUILLE_GERE.py": "43cf16bc6646b22a43766be6e14c7d855de5eb731be1fe2c92af248dbd4dc997",
+    "SCRIPTS_ACTIFS/07D_ENRICHIR_IDENTITE_COTATIONS.py": "4b259edc6c39c11583ce6088d42a7983d94cd9157d5565028d1a42577f16f650",
+    "SCRIPTS_ACTIFS/07H_MAJ_REGISTRE_CA_OTC.py": "bf5766c27d2583c283c620692e71ce6a276f0d1bea8fc94845513a25225e9726",
+    "SCRIPTS_ACTIFS/07J_CLOTURE_IDENTITE_UNIVERS.py": "36e3c2bea5d44901e0f66f35bbd3c2441f5a5b35c45f7fd77c57ce24e7b7000b",
+    "SCRIPTS_ACTIFS/07K_UNIVERS_INVESTISSABLE_IDENTITE.py": "d36cae37d13c58fcd2b5f712208d5dfadc2ee1d2f0a74aef6d4488134028f776",
+    "SCRIPTS_ACTIFS/07A_COLLECTE_SEC_US.py": "6df301dd870bd0fccc33a48383dd413c6024b38520f46c9e2ff8c8baf1a4cec7",
+    "SCRIPTS_ACTIFS/05_MOTEUR_PORTEFEUILLES.py": "d0d652c39a8ccb61bdf4dd9a7381965e3c71b45a3b00d375b4a7b93d2acfdd6a",
+    "SCRIPTS_ACTIFS/03_MOTEUR_CLOTURES_FX.py": "d6fc5ed0266dd641b9934c4276abcdca1b27237417a925f3f4e1114b3316025d",
+    "SCRIPTS_ACTIFS/07Q2_AUDIT_PREUVES_SSI.py": "85ec45044924da9b2d25164889101d3f1b47c04ceb8c6e8d8a28a898dfb63205",
+    "SCRIPTS_ACTIFS/07Y_EXTRAIRE_FORM4_SEC.py": "e9063a9949d8d1d5947b66ff141a559941903c89a93465a5f9b4c355c8b42a6c",
+    "SCRIPTS_ACTIFS/07B_AJOUT_HISTORIQUE.py": "a464cd5f105c64f46899989d24c1c5d9bd9711ea50740c1530f7e2fdb904e6bb",
+    "SCRIPTS_ACTIFS/07P_COLLECTE_PRESELECTION_MARCHE.py": "784b01ab74c4b7f5e993b147f4ef4035a38cd1bf92cd2195675bf899cd5f5df2",
+    "SCRIPTS_ACTIFS/03B_MOTEUR_FX_V3.py": "69d16ffb589133dde46c4ee6fcd22563268a018ab511e5ed2754eafd64490ed6",
+    "SCRIPTS_ACTIFS/09_CONTROLE_REVUE_MCPA_IPS.py": "5b8d95c8a105f120e5c963ebcf590ca0bf9fadc442e21df20d580765ede6184f",
+    "SCRIPTS_ACTIFS/07I_RESOLUTION_EUROPE_SECONDAIRES.py": "d632e135e9aeea1c933434d61872183232f9b22d5a88b9e8a70e7cdab1ac1643",
+    "SCRIPTS_ACTIFS/03A_MOTEUR_CLOTURES_V3.py": "7a053a22f7be7a944b823f41e5863b7adecf2ad27bd944beda03e70540eb7cb5",
+    "SCRIPTS_ACTIFS/07U_COLLECTE_COMPANYFACTS_SEC.py": "6d4f67bf53c2c4168cd11d0afe46ca4fed9451248dc69bcb95d8502952b3ebcd",
+    "SCRIPTS_ACTIFS/TEST_RECEPTION_09B.py": "d5481d65e30d51c5f30f785472bd5871c9fa93c695ed3b063c13c94c20469cd6",
+    "SCRIPTS_ACTIFS/preuves_ssi.py": "9376d552e42e6977913fc426a869ce362a5dc0bb44742b3d21ecfa0a0c0f17e0",
+    "SCRIPTS_ACTIFS/07W_RAPPROCHER_PREUVES_SEC_SSI.py": "4f372235c54821c9239c3547c953db6e2cfd4a40a65d0cd73c758fe6dc93264e",
+    "SCRIPTS_ACTIFS/07Z_EXECUTION_SEC_AUDITEE.py": "48bd0dbcd3a1299d2a4822596f412ddd7a61ee47bb6738743b63d0c33521fba6",
+    "SCRIPTS_ACTIFS/04_CONTROLE_QUALITE.py": "51b220d4afd4c68337ccb29aeb60431e560eaff315edea6aa1c244558513bcea",
+    "SCRIPTS_ACTIFS/07C_SCREENER_MICRO_CAPS.py": "1482fbb50afc6803b2e364922d284d9d17184d05961458dfb3adc04b8f7fc929",
+    "SCRIPTS_ACTIFS/08B_CONTROLE_CHASSE_SSI.py": "804a58baa62803d616379d1e15f47d2462ca51050da60fa0f3806443beeafeae",
+    "SCRIPTS_ACTIFS/07B_FILTRAGE_OBJECTIF_ETAPE1.py": "4060c2b1a11683e871167e16d0a72f05a8286cb8b5d1acd6b2215a09d7535f7f",
+    "SCRIPTS_ACTIFS/07O_CONTROLE_PRE_SSI.py": "550fd92c4cc0cfe69ccbc9091228922e7ab0c73b6161043b19848a2dc67e1a35",
+    "SCRIPTS_ACTIFS/07X_INDEX_GOUVERNANCE_SEC.py": "984ffb7fb8d8b49fe500aa1895ae82939068c33236dc2cc3d1b49b505fc84b2f",
+    "SCRIPTS_ACTIFS/06_BENCHMARKS.py": "20cc87ec725b7d48cb9d0faaacf7c4629113e46758eadf413b265c72d04b691a",
+    "SCRIPTS_ACTIFS/07C_RESOLUTION_COTATIONS_MULTIPLES.py": "8b56d93249f8b8553cedde9e41704a499b7f21457538f8e13185c32840c83e37",
+    "SCRIPTS_ACTIFS/07G_RESOLUTION_CANADA_OTC.py": "753168e539581ad6b309788bee7cd37a702b26d28c747e50071ad50c0e515244",
+    "SCRIPTS_ACTIFS/07L_FILTRER_CHASSE_GELEE_20261007.py": "27d8ae93255093ec1b07a7873c1419e57a1251a8a3ed089a9b3b2786576bc66a",
+    "SCRIPTS_ACTIFS/07A_GARDE_BARRIERE_JOURNEE.py": "5a75bf05f4d76e7155bf23d74b56bbce8e6220cd9334ccf0f0f327b4842e7cc5",
+    "SCRIPTS_ACTIFS/07S_SCREENING_PRIMAIRE_MICRO_CAPS.py": "a6a42cca844622828609e072ca0e3fc3fc70f925efe332c27832d4650acd0675",
+    "SCRIPTS_ACTIFS/07F_REGISTRE_IDENTITE_INCREMENTAL.py": "06b4062d2c8e8dc8abd56bb03fa7e81f6c4f8a707491403d57f00b24fa3d8cd3",
+    "SCRIPTS_ACTIFS/04B_MOTEUR_ECONOMIQUE_RESOLU.py": "b8d83ca5b2d4c617ce271525fd0cce415bd23994a56a6fea470866b5be811fa9",
+    "SCRIPTS_ACTIFS/07AB_BILAN_SELECTION_DOCUMENTEE.py": "493f93eea5677d749381daf464e36065c4d3a89cc873075a5141f2cbf2a4bb33",
+    "SCRIPTS_ACTIFS/07B_NORMALISER_FONDAMENTAUX.py": "cb8b9b2e971af969035009bf6c2a15c22b069170333f83916a232748b7e899cc",
+    "SCRIPTS_ACTIFS/07R_VALIDER_NOTES_SSI.py": "026697315304c425cb67ddb0508ccc2432136ef6e28cc00c8038a61d280f7618",
+    "SCRIPTS_ACTIFS/07T_ENRICHIR_PREUVES_SEC_EDGAR.py": "58b368c223c03fb816555fbe142484304ac6332e6dcf33909b750c26176d4138",
+    "SCRIPTS_ACTIFS/08S_ADAPTATEUR_CHASSEUR_MICRO_CAPS.py": "bb71228ae30bb1d31671b2756cae0ed7bf74a0e50891e84caa0ab2100ab632c4",
+    "SCRIPTS_ACTIFS/07AA_COLLECTE_DOCUMENTS_OFFICIELS.py": "b73dd05e57f3289006707dcdfe531e4b894c8995cc03db5ecb417ccf2f867ace",
+    "SCRIPTS_ACTIFS/07Q_PREPARER_DOSSIERS_SSI.py": "a65960d019875bc7dfc02e625a23020d9d84e4eb29b6cd6deb222d93fabaaf8c",
+    "SCRIPTS_ACTIFS/10_EXECUTION_MENSUELLE.py": "48cfcc2772811ceca9671d9460c0ea8cbe69734ce51e115b81d092254897f630",
+    "SCRIPTS_ACTIFS/05D_MOTEUR_PRIX_POSITIONS_NOUVELLES.py": "1c770d13907642ae17d591f42e0ab66ab385d42dbfb51e8595072dadfc6ab364",
+    "SCRIPTS_ACTIFS/07E_RESOLUTION_AMBIGUS_PAR_PREUVES.py": "36d41b46ee78d82cfc56faa4cd9ebb89ab993dc9e5a0806a3f0b607c9f780fbc",
+    "SCRIPTS_ACTIFS/07A_AUDIT_LISTINGS_MICRO_CAPS.py": "f4b9f406232bbd23d95e5b8aa566f17a20d802331c2e17e6e9d44da10f7356d8",
+    "SCRIPTS_ACTIFS/07M_PREPARER_FILTRES_OBJECTIFS.py": "1128e3a4e787c7f502e846bd58e5edc1013ce38d1711ce9a281b817c6149b80a",
+    "SCRIPTS_ACTIFS/08A_IMPORT_SCREENER.py": "3bffab01130f6f52d924febabd596c6b96894342d1a50ad7e65374d604f9dbef",
+    "SCRIPTS_ACTIFS/08_GENERER_DASHBOARD.py": "e10520410b1ea4be4d3a5c25d2785bb94f2a796e4e5de2b72064498307708dd4",
+    "SCRIPTS_ACTIFS/07V_NORMALISER_FAITS_SEC.py": "5c61bed04096284afe911740603b6a5bb0c5220de361385d6292cfd77b0d1200",
+    "SCRIPTS_ACTIFS/09B_DUEL_PROCHAIN_EURO.py": "dbd4159888e1628eb1b7ed9ee39bb3b88a81c7a0a5eea6b6fac0a36200c38bbf",
+    "SCRIPTS_ACTIFS/07AC_CONTROLER_T0.py": "433502770e1821d113d3825f95359205f9e7bc33c5ea85f9b3be3e99ec76414b",
+    "SCRIPTS_ACTIFS/07N_COLLECTE_FONDAMENTAUX_UNIVERSELLE.py": "fca3a7c8205fbc8fab36276fbc93f43041fcbacc4b9809a9fcb2a63d02469b8c",
+    "TESTS/test_sec_ssi_hors_reseau.py": "1c96d7e767e924a987ef5f7d756da1e71c7d28521dbd320c81325ff8c65ab373",
+    "TESTS/test_form4_sec_hors_reseau.py": "42d2e665a4c4e564963640946962ab957ef7edb4a90bb14fe9fa3edd5fbfb53a",
+    "TESTS/test_gouvernance_sec_hors_reseau.py": "bb702c61e935c5f50018cffcc162c7fb83ded3752817c56577b22fecc41ea2d7",
+    "TESTS/test_orchestration_sec_hors_reseau.py": "6836caaa8f1365357b4dfc4ab457fdeaaed1ac353e1260f7e4e238d5834e1b94",
+    "TESTS/test_form4_multi_xml_hors_reseau.py": "e7fa3b6fa7ff192c1870c8d3d2ff2ec26d8b5716f118f657409e4ab2e23c94dd",
+    "TESTS/test_rapprochement_sec_ssi_hors_reseau.py": "888d6368a21cb4859229f8b9136b8e2a9de56463d87ef5fa52b84ddd63aa9ea5",
+    "TESTS/test_sources_officielles_hors_reseau.py": "4110d26b5012a60fe1a3ed019625fcb0815bb1c4e6c022256e8300929b947dc3",
+    "TESTS/test_securite_pipeline_hors_reseau.py": "5b7adb3663277a2e36a03aa2ba0a2ad39d65c5b40f486e32eade5120d8dac87c",
+    "TESTS/test_normalisation_sec_hors_reseau.py": "df0410692a765d90a3c075706e909d7e40e623bccaa0c13a1f38c1d447c62977",
+    "TESTS/test_identite_sec_multicotation_hors_reseau.py": "4ad4ebd73f0876de0341f222bbe45cb44c100097387f0f7a45f18c805dc254de",
+    "TESTS/test_duels_prochain_euro_hors_reseau.py": "a6957736fa1b8936221c48afa9ad25ebfdc91e7bff0db685410afa2a8ae31377",
+    "TESTS/executer_tests.py": "34b0b042678489f664b34184094c0c688208094940295e2d8096b7f324bf57b6",
+    "TESTS/test_companyfacts_sec_hors_reseau.py": "8f051ec0bbfcefdd212455c6945f1c73c64d69ebef3248d63ff39ea21a2ccf6b",
+    "CONFIG/EMPREINTES_T0.json": "7d00cd63323dda9707583fd5720cd16ff921115902527abb1a8cabd377993de4",
+    "CONFIG/PARAMETRES_IDENTITE_MICRO_CAPS.csv": "c27fea09169f8bacda84db779512068ebf45a70b775ee33266b8c61db835543b",
+    "CONFIG/PARAMETRES_ARBITRAGE_MICRO_CAPS.csv": "c31f2281b67d10073525923a64a4d107593e538925f49e03db5a8093c8d4def8",
+    "CONFIG/DOCUMENTS_OFFICIELS_A_COLLECTER.csv": "5a28090fcb91967aa5b9f6988655d43e28798f4966f7075d59123cf1f5735249",
+    "CONFIG/SOURCES_FONDAMENTALES_AUTORISEES.csv": "20c51e23777dd5a940740d390046559005a62d3e9752e05260a4d1b0154d30d3",
+    "CONFIG/PARAMETRES_SCE_MICRO_CAPS.csv": "bab39f0c2de1a8b88ee696ef4c426b5baaa66f38dcf400955c3afd0b3f71e7fa",
+    "CONFIG/POINTS_ENTREE_OFFICIELS_NON_US.csv": "7894bc0078e3d17e9c27bf1a543418f31ec4d7b375c7af46a62dd51b147f23f1",
+    "CONFIG/PARAMETRES_PRESELECTION_MICRO_CAPS.csv": "76b6cbcf238b58af01dcdd96dd51482e79b4403fd0228f0aa43b1fc30a8c2602"
+  },
+  "controles": [
+    {
+      "controle": "syntaxe/00_EXECUTION_QUOTIDIENNE_V3.py",
+      "statut": "OK",
+      "detail": ""
+    },
+    {
+      "controle": "syntaxe/03A_MOTEUR_CLOTURES_V3.py",
+      "statut": "OK",
+      "detail": ""
+    },
+    {
+      "controle": "syntaxe/03B_MOTEUR_FX_V3.py",
+      "statut": "OK",
+      "detail": ""
+    },
+    {
+      "controle": "syntaxe/03C_ACTIONS_CORPORATIVES.py",
+      "statut": "OK",
+      "detail": ""
+    },
+    {
+      "controle": "syntaxe/03_MOTEUR_CLOTURES_FX.py",
+      "statut": "OK",
+      "detail": ""
+    },
+    {
+      "controle": "syntaxe/04B_MOTEUR_ECONOMIQUE_RESOLU.py",
+      "statut": "OK",
+      "detail": ""
+    },
+    {
+      "controle": "syntaxe/04_CONTROLE_QUALITE.py",
+      "statut": "OK",
+      "detail": ""
+    },
+    {
+      "controle": "syntaxe/05C_REPLAY_PORTEFEUILLE_GERE.py",
+      "statut": "OK",
+      "detail": ""
+    },
+    {
+      "controle": "syntaxe/05D_MOTEUR_PRIX_POSITIONS_NOUVELLES.py",
+      "statut": "OK",
+      "detail": ""
+    },
+    {
+      "controle": "syntaxe/05_MOTEUR_PORTEFEUILLES.py",
+      "statut": "OK",
+      "detail": ""
+    },
+    {
+      "controle": "syntaxe/06_BENCHMARKS.py",
+      "statut": "OK",
+      "detail": ""
+    },
+    {
+      "controle": "syntaxe/07AA_COLLECTE_DOCUMENTS_OFFICIELS.py",
+      "statut": "OK",
+      "detail": ""
+    },
+    {
+      "controle": "syntaxe/07AB_BILAN_SELECTION_DOCUMENTEE.py",
+      "statut": "OK",
+      "detail": ""
+    },
+    {
+      "controle": "syntaxe/07AC_CONTROLER_T0.py",
+      "statut": "OK",
+      "detail": ""
+    },
+    {
+      "controle": "syntaxe/07A_AUDIT_LISTINGS_MICRO_CAPS.py",
+      "statut": "OK",
+      "detail": ""
+    },
+    {
+      "controle": "syntaxe/07A_COLLECTE_SEC_US.py",
+      "statut": "OK",
+      "detail": ""
+    },
+    {
+      "controle": "syntaxe/07A_GARDE_BARRIERE_JOURNEE.py",
+      "statut": "OK",
+      "detail": ""
+    },
+    {
+      "controle": "syntaxe/07B_AJOUT_HISTORIQUE.py",
+      "statut": "OK",
+      "detail": ""
+    },
+    {
+      "controle": "syntaxe/07B_FILTRAGE_OBJECTIF_ETAPE1.py",
+      "statut": "OK",
+      "detail": ""
+    },
+    {
+      "controle": "syntaxe/07B_NORMALISER_FONDAMENTAUX.py",
+      "statut": "OK",
+      "detail": ""
+    },
+    {
+      "controle": "syntaxe/07C_RESOLUTION_COTATIONS_MULTIPLES.py",
+      "statut": "OK",
+      "detail": ""
+    },
+    {
+      "controle": "syntaxe/07C_SCREENER_MICRO_CAPS.py",
+      "statut": "OK",
+      "detail": ""
+    },
+    {
+      "controle": "syntaxe/07D_ENRICHIR_IDENTITE_COTATIONS.py",
+      "statut": "OK",
+      "detail": ""
+    },
+    {
+      "controle": "syntaxe/07E_RESOLUTION_AMBIGUS_PAR_PREUVES.py",
+      "statut": "OK",
+      "detail": ""
+    },
+    {
+      "controle": "syntaxe/07F_REGISTRE_IDENTITE_INCREMENTAL.py",
+      "statut": "OK",
+      "detail": ""
+    },
+    {
+      "controle": "syntaxe/07G_RESOLUTION_CANADA_OTC.py",
+      "statut": "OK",
+      "detail": ""
+    },
+    {
+      "controle": "syntaxe/07H_MAJ_REGISTRE_CA_OTC.py",
+      "statut": "OK",
+      "detail": ""
+    },
+    {
+      "controle": "syntaxe/07I_RESOLUTION_EUROPE_SECONDAIRES.py",
+      "statut": "OK",
+      "detail": ""
+    },
+    {
+      "controle": "syntaxe/07J_CLOTURE_IDENTITE_UNIVERS.py",
+      "statut": "OK",
+      "detail": ""
+    },
+    {
+      "controle": "syntaxe/07K_UNIVERS_INVESTISSABLE_IDENTITE.py",
+      "statut": "OK",
+      "detail": ""
+    },
+    {
+      "controle": "syntaxe/07L_FILTRER_CHASSE_GELEE_20261007.py",
+      "statut": "OK",
+      "detail": ""
+    },
+    {
+      "controle": "syntaxe/07M_PREPARER_FILTRES_OBJECTIFS.py",
+      "statut": "OK",
+      "detail": ""
+    },
+    {
+      "controle": "syntaxe/07N_COLLECTE_FONDAMENTAUX_UNIVERSELLE.py",
+      "statut": "OK",
+      "detail": ""
+    },
+    {
+      "controle": "syntaxe/07O_CONTROLE_PRE_SSI.py",
+      "statut": "OK",
+      "detail": ""
+    },
+    {
+      "controle": "syntaxe/07P_COLLECTE_PRESELECTION_MARCHE.py",
+      "statut": "OK",
+      "detail": ""
+    },
+    {
+      "controle": "syntaxe/07Q2_AUDIT_PREUVES_SSI.py",
+      "statut": "OK",
+      "detail": ""
+    },
+    {
+      "controle": "syntaxe/07Q_PREPARER_DOSSIERS_SSI.py",
+      "statut": "OK",
+      "detail": ""
+    },
+    {
+      "controle": "syntaxe/07R_VALIDER_NOTES_SSI.py",
+      "statut": "OK",
+      "detail": ""
+    },
+    {
+      "controle": "syntaxe/07S_SCREENING_PRIMAIRE_MICRO_CAPS.py",
+      "statut": "OK",
+      "detail": ""
+    },
+    {
+      "controle": "syntaxe/07T_ENRICHIR_PREUVES_SEC_EDGAR.py",
+      "statut": "OK",
+      "detail": ""
+    },
+    {
+      "controle": "syntaxe/07U_COLLECTE_COMPANYFACTS_SEC.py",
+      "statut": "OK",
+      "detail": ""
+    },
+    {
+      "controle": "syntaxe/07V_NORMALISER_FAITS_SEC.py",
+      "statut": "OK",
+      "detail": ""
+    },
+    {
+      "controle": "syntaxe/07W_RAPPROCHER_PREUVES_SEC_SSI.py",
+      "statut": "OK",
+      "detail": ""
+    },
+    {
+      "controle": "syntaxe/07X_INDEX_GOUVERNANCE_SEC.py",
+      "statut": "OK",
+      "detail": ""
+    },
+    {
+      "controle": "syntaxe/07Y_EXTRAIRE_FORM4_SEC.py",
+      "statut": "OK",
+      "detail": ""
+    },
+    {
+      "controle": "syntaxe/07Z_EXECUTION_SEC_AUDITEE.py",
+      "statut": "OK",
+      "detail": ""
+    },
+    {
+      "controle": "syntaxe/08A_IMPORT_SCREENER.py",
+      "statut": "OK",
+      "detail": ""
+    },
+    {
+      "controle": "syntaxe/08B_CONTROLE_CHASSE_SSI.py",
+      "statut": "OK",
+      "detail": ""
+    },
+    {
+      "controle": "syntaxe/08S_ADAPTATEUR_CHASSEUR_MICRO_CAPS.py",
+      "statut": "OK",
+      "detail": ""
+    },
+    {
+      "controle": "syntaxe/08_GENERER_DASHBOARD.py",
+      "statut": "OK",
+      "detail": ""
+    },
+    {
+      "controle": "syntaxe/09B_DUEL_PROCHAIN_EURO.py",
+      "statut": "OK",
+      "detail": ""
+    },
+    {
+      "controle": "syntaxe/09C_COMITE_HEBDOMADAIRE.py",
+      "statut": "OK",
+      "detail": ""
+    },
+    {
+      "controle": "syntaxe/09_CONTROLE_REVUE_MCPA_IPS.py",
+      "statut": "OK",
+      "detail": ""
+    },
+    {
+      "controle": "syntaxe/10_EXECUTION_MENSUELLE.py",
+      "statut": "OK",
+      "detail": ""
+    },
+    {
+      "controle": "syntaxe/TEST_RECEPTION_09B.py",
+      "statut": "OK",
+      "detail": ""
+    },
+    {
+      "controle": "syntaxe/preuves_ssi.py",
+      "statut": "OK",
+      "detail": ""
+    },
+    {
+      "controle": "test_companyfacts_sec_hors_reseau.py",
+      "statut": "OK",
+      "code_retour": 0,
+      "detail": "SEC companyfacts: 2 emetteurs 2 faits bruts; aucun SSI attribue\nTEST XBRL OK: 2 faits, unites, periodes, source, non-couverture\n"
+    },
+    {
+      "controle": "test_duels_prochain_euro_hors_reseau.py",
+      "statut": "OK",
+      "code_retour": 0,
+      "detail": "RECEPTION 09B OK\n"
+    },
+    {
+      "controle": "test_form4_multi_xml_hors_reseau.py",
+      "statut": "OK",
+      "code_retour": 0,
+      "detail": "Form 4: 1 transactions a verifier\nForm 4: 0 transactions a verifier\nTEST FORM 4 MULTI XML OK\n"
+    },
+    {
+      "controle": "test_form4_sec_hors_reseau.py",
+      "statut": "OK",
+      "code_retour": 0,
+      "detail": "TEST FORM 4 OK: XML, code, titres, dirigeant, statut non valide\n"
+    },
+    {
+      "controle": "test_gouvernance_sec_hors_reseau.py",
+      "statut": "OK",
+      "code_retour": 0,
+      "detail": "Gouvernance SEC: 2 pistes non verifiees\nTEST GOUVERNANCE OK: formulaires, URL, exclusion, pas de note\n"
+    },
+    {
+      "controle": "test_identite_sec_multicotation_hors_reseau.py",
+      "statut": "OK",
+      "code_retour": 0,
+      "detail": "SEC EDGAR {'NON_COUVERT': 2, 'A_VERIFIER_IDENTITE_ET_CONTENU': 1, 'PISTE_SEC_HORS_LOT': 1, 'IDENTITE_AMBIGUE': 1}\nMULTICOTATION SEC: noms exacts, ambiguïtés, alias, lot borné et identité non validée\n"
+    },
+    {
+      "controle": "test_normalisation_sec_hors_reseau.py",
+      "statut": "OK",
+      "code_retour": 0,
+      "detail": "SEC comparabilite: 1 / 4 faits conserves; SSI non calcule\nTEST NORMALISATION OK: periode, unite, doublon, provenance, aucune note SSI\n"
+    },
+    {
+      "controle": "test_orchestration_sec_hors_reseau.py",
+      "statut": "OK",
+      "code_retour": 0,
+      "detail": "SEC EDGAR {'A_VERIFIER_IDENTITE_ET_CONTENU': 1}\nSEC companyfacts: 1 emetteurs 1 faits bruts; aucun SSI attribue\nSEC comparabilite: 1 / 1 faits conserves; SSI non calcule\nRapprochement SEC SSI: 1 faits; zero score\nGouvernance SEC: 2 pistes non verifiees\nForm 4: 1 transactions a verifier\n{\n  \"date_utc\": \"2026-10-10T12:49:24.784673+00:00\",\n  \"date_limite\": \"2026-10-10\",\n  \"commit\": \"TEST_FIXTURE\",\n  \"statut\": \"LOT_COLLECTE_A_VERIFIER\",\n  \"etapes\": [\n    {\n      \"module\": \"07T_ENRICHIR_PREUVES_SEC_EDGAR.py\",\n      \"statut\": \"EXECUTE\"\n    },\n    {\n      \"module\": \"07U_COLLECTE_COMPANYFACTS_SEC.py\",\n      \"statut\": \"EXECUTE\"\n    },\n    {\n      \"module\": \"07V_NORMALISER_FAITS_SEC.py\",\n      \"statut\": \"EXECUTE\"\n    },\n    {\n      \"module\": \"07W_RAPPROCHER_PREUVES_SEC_SSI.py\",\n      \"statut\": \"EXECUTE\"\n    },\n    {\n      \"module\": \"07X_INDEX_GOUVERNANCE_SEC.py\",\n      \"statut\": \"EXECUTE\"\n    },\n    {\n      \"module\": \"07Y_EXTRAIRE_FORM4_SEC.py\",\n      \"statut\": \"EXECUTE\"\n    }\n  ],\n  \"notes_attribuees\": 0,\n  \"secret_contact_valide\": true,\n  \"portefeuilles_modifies\": false,\n  \"collecte_exhaustive\": false,\n  \"univers_collecte\": 1,\n  \"offset_pistes_SEC\": 0,\n  \"taille_max_lot_SEC\": 100,\n  \"statuts_SEC\": {\n    \"A_VERIFIER_IDENTITE_ET_CONTENU\": 1\n  },\n  \"pistes_SEC_uniques\": 1,\n  \"pistes_SEC_dans_lot\": 1,\n  \"pistes_SEC_hors_lot\": 0,\n  \"erreurs_sources\": 0,\n  \"integrite_entrees\": \"OK\",\n  \"fichiers_entrees_modifies\": [],\n  \"fin_utc\": \"2026-10-10T12:49:24.823641+00:00\",\n  \"fichiers\": {\n    \"BRUTS/fddaabacc527011f969462e2b5a26ff3f257a5772f98fc25b4729b05b7b815a7.bin\": \"fddaabacc527011f969462e2b5a26ff3f257a5772f98fc25b4729b05b7b815a7\",\n    \"BRUTS/50315a21975c0e3e1a0bb8d7d7d26f3db5faf472256e413b04f510683ec46a00.bin\": \"50315a21975c0e3e1a0bb8d7d7d26f3db5faf472256e413b04f510683ec46a00\",\n    \"BRUTS/e116dd2da06082be126ad7666715bfe2d470305f48fbfa091c7d3ad9931dd852.bin\": \"e116dd2da06082be126ad7666715bfe2d470305f48fbfa091c7d3ad9931dd852\",\n    \"BRUTS/969d8dfea0cd4c72e78d9d50fe5d4a4087af61213ed7f064d7cb7d0f7716f070.bin\": \"969d8dfea0cd4c72e78d9d50fe5d4a4087af61213ed7f064d7cb7d0f7716f070\",\n    \"BRUTS/bb6e5d193b73312f4b99f4f2a4572bf13ad11406459923a5a57ffbe865ce107d.bin\": \"bb6e5d193b73312f4b99f4f2a4572bf13ad11406459923a5a57ffbe865ce107d\",\n    \"DONNEES/AUDIT_RAPPROCHEMENT_SEC_SSI.csv\": \"f236be1c6095fadd863ab6acd77c9708fbf6f7879f7d8c5fbada6d08a31cfbd6\",\n    \"DONNEES/AUDIT_COMPARABILITE_SEC_SSI.csv\": \"6c22b936b9de6a06b7e4e60e2c3efe4073106b8e57d58116970a0bba5bf92aaf\",\n    \"DONNEES/AUDIT_TRANSACTIONS_DIRIGEANTS_SEC_SSI.csv\": \"445101291bd0141e41c0ff6e64f5728269cd87d5ad0660e900b3a5e5fac40a31\",\n    \"DONNEES/AUDIT_PREUVES_SEC_SSI.csv\": \"5c206a8bd99286da2c872ccde0733f190f680500da29feea2d989f0670af4e22\",\n    \"DONNEES/RAPPROCHEMENT_PREUVES_SEC_SSI.csv\": \"5f6ff8e8dccf107ad70658259af262721ed06d85445a1c53e4e8e66c84d47e24\",\n    \"DONNEES/UNIVERS_SEC_LOT.csv\": \"adf11893b386dbad7327553a5b4af6ca0388b8fe616cfb6d564e48c3d38d9e1f\",\n    \"DONNEES/PREUVES_SEC_EDGAR_SSI.csv\": \"6ef5e0577ba17a57fb7f459d8120063f72a51cb0e59256cd0137d8c88aae00a4\",\n    \"DONNEES/FAITS_FINANCIERS_SEC_SSI.csv\": \"bbd3d22f0a659503a31a88faf335f4d16327ec9ab543648e5f1d4b29afa8c6b2\",\n    \"DONNEES/AUDIT_FAITS_FINANCIERS_SEC_SSI.csv\": \"0061491e88cabc3f95c7db482eede9944ac1fe2d61466089c0b27200a7eb6ce2\",\n    \"DONNEES/FAITS_SEC_COMPARABLES_SSI.csv\": \"e5df7211d554766144714d53001b43d84925f3908432140e072b99e8187d2637\",\n    \"DONNEES/TRANSACTIONS_DIRIGEANTS_SEC_SSI.csv\": \"d40c7390652d5af2bef50512cf0728b2be8f68ad81046d792889b0e819d349bc\",\n    \"DONNEES/PISTES_GOUVERNANCE_SEC_SSI.csv\": \"83cb7ae5e0f21542ed544a936aa48c6d046268fd9a4cd7085cdcdae5901750dc\",\n    \"DONNEES/DOSSIERS_SSI_A_QUALIFIER.csv\": \"adf11893b386dbad7327553a5b4af6ca0388b8fe616cfb6d564e48c3d38d9e1f\",\n    \"DONNEES/AUDIT_GOUVERNANCE_SEC_SSI.csv\": \"6649127f02067ae9b88e13b35d644f51a0cb42bdcb67c8a566864215a25752be\",\n    \"DONNEES/UNIVERS_INVESTISSABLE_MICRO_CAPS.csv\": \"adf11893b386dbad7327553a5b4af6ca0388b8fe616cfb6d564e48c3d38d9e1f\"\n  }\n}\n{\n  \"date_utc\": \"2026-10-10T12:49:24.825852+00:00\",\n  \"date_limite\": \"2026-10-10\",\n  \"commit\": \"TEST_FIXTURE\",\n  \"statut\": \"BLOQUE\",\n  \"etapes\": [],\n  \"notes_attribuees\": 0,\n  \"secret_contact_valide\": false,\n  \"portefeuilles_modifies\": false,\n  \"collecte_exhaustive\": false,\n  \"univers_collecte\": 1,\n  \"blocage\": \"SEC_USER_AGENT_ABSENT_OU_INVALIDE\",\n  \"integrite_entrees\": \"OK\",\n  \"fichiers_entrees_modifies\": [],\n  \"fin_utc\": \"2026-10-10T12:49:24.826806+00:00\",\n  \"fichiers\": {\n    \"DONNEES/DOSSIERS_SSI_A_QUALIFIER.csv\": \"adf11893b386dbad7327553a5b4af6ca0388b8fe616cfb6d564e48c3d38d9e1f\",\n    \"DONNEES/UNIVERS_INVESTISSABLE_MICRO_CAPS.csv\": \"adf11893b386dbad7327553a5b4af6ca0388b8fe616cfb6d564e48c3d38d9e1f\"\n  }\n}\nORCHESTRATION SEC: six modules exécutés, bruts archivés, entrées intactes et secret absent bloquant (fixtures)\n"
+    },
+    {
+      "controle": "test_rapprochement_sec_ssi_hors_reseau.py",
+      "statut": "OK",
+      "code_retour": 0,
+      "detail": "Rapprochement SEC SSI: 1 faits; zero score\nTEST RAPPROCHEMENT OK: CIK coherent, bloc B1, aucune note, dossier intact\n"
+    },
+    {
+      "controle": "test_sec_ssi_hors_reseau.py",
+      "statut": "OK",
+      "code_retour": 0,
+      "detail": "SEC EDGAR {'A_VERIFIER_IDENTITE_ET_CONTENU': 1, 'IDENTITE_AMBIGUE': 1, 'NON_COUVERT': 1}\nTEST SEC OK: rapprochement, ambiguite, non-couverture, depots, audit\n"
+    },
+    {
+      "controle": "test_securite_pipeline_hors_reseau.py",
+      "statut": "OK",
+      "code_retour": 0,
+      "detail": "SSI: {'ADMIS_SSI': 1}\nSSI: {'REFUSE_SSI': 1}\nSSI: {'A_COMPLETER_PREUVES_SSI': 1}\nSSI: {'A_COMPLETER_PREUVES_SSI': 1}\nSSI: {'A_COMPLETER_PREUVES_SSI': 1}\nPREUVES: seuil 65/64, texte fictif, document modifié et date future contrôlés\nDossiers SSI a qualifier 1\nDossiers SSI a qualifier 1\nCONSERVATION: notes, preuves, corrections et archive précédente contrôlées\nIntégrité T0 SHA256 : OK\nCALENDRIER/FRAIS: 2,5% sur chaque côté, absence de forçage réel\nIntégrité T0 SHA256 : OK\nT0: modification de référence rejetée avant valorisation\nSEC comparabilite: 1 / 2 faits conserves; SSI non calcule\nSEC EDGAR {'ERREUR_SOURCE': 1}\nPIT/IDENTITE: dépôt postérieur exclu, CIK submissions divergent refusé\n"
+    },
+    {
+      "controle": "test_sources_officielles_hors_reseau.py",
+      "statut": "OK",
+      "code_retour": 0,
+      "detail": "{\"date_utc\": \"2026-10-10T12:49:26.679082+00:00\", \"documents_configures\": 1, \"documents_collectes\": 1, \"sources_bloquees\": 0, \"dossiers_sans_document_configure\": 0, \"notes_attribuees\": 0, \"couverture_complete\": false}\nSOURCES NON-US: archive brute, statut non validé, domaines/HTTPS/adresses publiques contrôlés\n"
+    },
+    {
+      "controle": "integrite_entrees",
+      "statut": "OK",
+      "detail": []
+    }
+  ],
+  "statut": "OK"
+}

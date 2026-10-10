@@ -1,0 +1,87 @@
+<?xml version="1.0"?>
+<ownershipDocument>
+
+    <schemaVersion>X0508</schemaVersion>
+
+    <documentType>4</documentType>
+
+    <periodOfReport>2025-12-24</periodOfReport>
+
+    <issuer>
+        <issuerCik>0001579157</issuerCik>
+        <issuerName>VINCE HOLDING CORP.</issuerName>
+        <issuerTradingSymbol>VNCE</issuerTradingSymbol>
+    </issuer>
+
+    <reportingOwner>
+        <reportingOwnerId>
+            <rptOwnerCik>0001581916</rptOwnerCik>
+            <rptOwnerName>Ulasewicz Eugenia</rptOwnerName>
+        </reportingOwnerId>
+        <reportingOwnerAddress>
+            <rptOwnerStreet1>C/O VINCE HOLDING CORP.</rptOwnerStreet1>
+            <rptOwnerStreet2>500 FIFTH AVENUE, 20TH FLOOR</rptOwnerStreet2>
+            <rptOwnerCity>NEW YORK</rptOwnerCity>
+            <rptOwnerState>NY</rptOwnerState>
+            <rptOwnerZipCode>10110</rptOwnerZipCode>
+            <rptOwnerStateDescription></rptOwnerStateDescription>
+        </reportingOwnerAddress>
+        <reportingOwnerRelationship>
+            <isDirector>true</isDirector>
+            <isOfficer>false</isOfficer>
+            <isTenPercentOwner>false</isTenPercentOwner>
+            <isOther>false</isOther>
+        </reportingOwnerRelationship>
+    </reportingOwner>
+
+    <aff10b5One>true</aff10b5One>
+
+    <nonDerivativeTable>
+        <nonDerivativeTransaction>
+            <securityTitle>
+                <value>Common Stock</value>
+            </securityTitle>
+            <transactionDate>
+                <value>2025-12-24</value>
+            </transactionDate>
+            <transactionCoding>
+                <transactionFormType>4</transactionFormType>
+                <transactionCode>S</transactionCode>
+                <equitySwapInvolved>false</equitySwapInvolved>
+                <footnoteId id="F1"/>
+            </transactionCoding>
+            <transactionAmounts>
+                <transactionShares>
+                    <value>11322</value>
+                </transactionShares>
+                <transactionPricePerShare>
+                    <value>4.34</value>
+                    <footnoteId id="F2"/>
+                </transactionPricePerShare>
+                <transactionAcquiredDisposedCode>
+                    <value>D</value>
+                </transactionAcquiredDisposedCode>
+            </transactionAmounts>
+            <postTransactionAmounts>
+                <sharesOwnedFollowingTransaction>
+                    <value>91513</value>
+                </sharesOwnedFollowingTransaction>
+            </postTransactionAmounts>
+            <ownershipNature>
+                <directOrIndirectOwnership>
+                    <value>D</value>
+                </directOrIndirectOwnership>
+            </ownershipNature>
+        </nonDerivativeTransaction>
+    </nonDerivativeTable>
+
+    <footnotes>
+        <footnote id="F1">These shares of common stock of Vince Holding Corp. (the &quot;Company&quot;) were sold pursuant to a Rule 10b5-1 trading plan adopted by the Reporting Person on September 23, 2025.</footnote>
+        <footnote id="F2">The trade was entered into on December 24, 2025. The sale price represents the weighted average sale price for multiple transactions reported on this line. The prices of the transactions ranged from $4.22 to $4.48. Upon request of the staff of the Securities and Exchange Commission, the Company or a stockholder of the Company, the Reporting Person will provide full information regarding the number of shares sold at each separate price.</footnote>
+    </footnotes>
+
+    <ownerSignature>
+        <signatureName>/s/ Akiko Okuma, by Power of Attorney</signatureName>
+        <signatureDate>2025-12-29</signatureDate>
+    </ownerSignature>
+</ownershipDocument>
