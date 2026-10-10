@@ -40,6 +40,15 @@ jobs:
         run: |
           python -B SCRIPTS_ACTIFS/07AA_COLLECTE_DOCUMENTS_OFFICIELS.py
           python -B SCRIPTS_ACTIFS/07AB_BILAN_SELECTION_DOCUMENTEE.py
+      - name: Isoler le compte rendu de cette exécution
+        if: always()
+        run: |
+          rapport="AUDITS/TESTS/RUN_${GITHUB_RUN_ID}_${GITHUB_RUN_ATTEMPT}"
+          if [ -f AUDITS/TESTS/RESULTATS_TESTS.json ]; then
+            mkdir -p "$rapport"
+            cp AUDITS/TESTS/RESULTATS_TESTS.json "$rapport/RESULTATS_TESTS.json"
+            git restore --worktree AUDITS/TESTS/RESULTATS_TESTS.json
+          fi
       - name: Conserver les audits y compris les échecs
         if: always()
         uses: actions/upload-artifact@v4
