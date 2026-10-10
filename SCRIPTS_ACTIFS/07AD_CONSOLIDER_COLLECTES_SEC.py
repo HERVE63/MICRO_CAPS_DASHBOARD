@@ -2,10 +2,17 @@
 from pathlib import Path
 from datetime import datetime,timezone
 import hashlib,json
+from decimal import Decimal,InvalidOperation
 import pandas as pd
 BASE=Path(__file__).resolve().parents[1]
 KEYS=['Ticker','CIK','Taxonomie_SEC','Concept','Tag_SEC','Unite','Debut_periode','Fin_periode','Date_depot','Accession']
 def empreinte(p):return hashlib.sha256(p.read_bytes()).hexdigest()
+def valeur_comparable(v):
+ try:
+  n=Decimal(str(v))
+  if n.is_finite():return format(n.normalize(),'f')
+ except InvalidOperation:pass
+ raise RuntimeError('VALEUR_SEC_NON_NUMERIQUE')
 def executer():
  scope=pd.read_csv(BASE/'DONNEES/DOSSIERS_SSI_A_QUALIFIER.csv',dtype=str,keep_default_na=False)
  if scope.Ticker.duplicated().any():raise RuntimeError('DOUBLON_DOSSIER')
@@ -34,11 +41,13 @@ def executer():
  conflits=pd.Series(dtype=int)
  # Une même observation peut figurer dans plusieurs archives ; aucune provenance n'est perdue.
  if not faits.empty:
-  versions=KEYS+['Valeur']
+  faits['Valeur_comparable']=faits.Valeur.map(valeur_comparable)
+  versions=KEYS+['Valeur_comparable']
   provenance=faits.groupby(versions,dropna=False)['Archive_source'].agg(lambda x:'|'.join(sorted(set(x)))).reset_index(name='Archives_sources')
-  conflits=faits.groupby(KEYS,dropna=False).Valeur.nunique()
+  representations=faits.groupby(versions,dropna=False)['Valeur'].agg(lambda x:'|'.join(sorted(set(x)))).reset_index(name='Representations_brutes')
+  conflits=faits.groupby(KEYS,dropna=False).Valeur_comparable.nunique()
   ambigues={k for k,n in conflits.items() if n>1}
-  faits=faits.drop_duplicates(versions).drop(columns='Archive_source').merge(provenance,on=versions,validate='one_to_one')
+  faits=faits.drop_duplicates(versions).drop(columns='Archive_source').merge(provenance,on=versions,validate='one_to_one').merge(representations,on=versions,validate='one_to_one')
   faits['Statut_observation']=faits.apply(lambda r:'VALEURS_DIVERGENTES_A_RELIRE' if tuple(r[k] for k in KEYS) in ambigues else 'BRUT_A_VERIFIER',axis=1)
  couverture=scope[['Ticker','Societe','Pays']].copy()
  counts=faits.groupby('Ticker').size() if not faits.empty else pd.Series(dtype=int)

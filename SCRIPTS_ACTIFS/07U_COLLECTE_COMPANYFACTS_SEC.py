@@ -76,11 +76,12 @@ def executer():
         count+=1
    audits.append({"Ticker":ticker,"Statut":"FAITS_BRUTS_A_VERIFIER" if count else "AUCUN_FAIT_US_GAAP_OU_IFRS","Nb_faits":count})
   except Exception as exc:
-   audits.append({"Ticker":ticker,"Statut":"ERREUR_SOURCE_"+type(exc).__name__,"Nb_faits":0})
+   audits.append({"Ticker":ticker,"Statut":"ERREUR_SOURCE_"+type(exc).__name__,"Nb_faits":0,
+                  "Code_HTTP":getattr(exc,'code',''),"CIK_demande":cik,"URL_source":url})
   time.sleep(0.15)
  columns=["Ticker","CIK","Concept","Tag_SEC","Taxonomie_SEC","Valeur","Unite","Debut_periode","Fin_periode","Date_depot","Formulaire","Accession","Exercice","Periode","Source_officielle","Date_collecte_UTC","Date_extraction_UTC","Statut_preuve"]
  pd.DataFrame(rows,columns=columns).to_csv(OUT,index=False)
- pd.DataFrame(audits,columns=["Ticker","Statut","Nb_faits"]).to_csv(AUD,index=False)
+ pd.DataFrame(audits,columns=["Ticker","Statut","Nb_faits","Code_HTTP","CIK_demande","URL_source"]).to_csv(AUD,index=False)
  print("SEC companyfacts:",len(audits),"emetteurs",len(rows),"faits bruts; aucun SSI attribue")
  return rows
 if __name__=="__main__": executer()

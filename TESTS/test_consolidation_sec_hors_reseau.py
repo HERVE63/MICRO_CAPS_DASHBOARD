@@ -12,7 +12,7 @@ def test():
   b=Path(tmp);(b/'DONNEES').mkdir()
   pd.DataFrame([{'Ticker':'A.F','Societe':'Fixture','Pays':'Allemagne'}]).to_csv(b/'DONNEES/DOSSIERS_SSI_A_QUALIFIER.csv',index=False)
   f={k:'' for k in m.KEYS};f.update(Ticker='A.F',CIK='0000000001',Taxonomie_SEC='ifrs-full',Concept='Assets',Tag_SEC='Assets',Unite='CAD',Fin_periode='2026-06-30',Date_depot='2026-08-01',Accession='0000000001-26-000001',Valeur='10')
-  for name,rows in [('RUN_A',[f]),('RUN_B',[f,dict(f,Valeur='20')])]:
+  for name,rows in [('RUN_A',[f]),('RUN_B',[dict(f,Valeur='10.0'),dict(f,Valeur='20')])]:
    a=b/'AUDITS/SEC'/name;(a/'DONNEES').mkdir(parents=True)
    pd.DataFrame(rows).to_csv(a/'DONNEES/FAITS_FINANCIERS_SEC_SSI.csv',index=False)
    pd.DataFrame([{'Ticker':'A.F','CIK':'0000000001'}]).to_csv(a/'DONNEES/PREUVES_SEC_EDGAR_SSI.csv',index=False)
@@ -26,6 +26,7 @@ def test():
   d=pd.read_csv(out)
   assert all(d.Statut_observation.eq('VALEURS_DIVERGENTES_A_RELIRE'))
   assert d.loc[d.Valeur.eq(10),'Archives_sources'].iloc[0]=='AUDITS/SEC/RUN_A|AUDITS/SEC/RUN_B'
+  assert d.loc[d.Valeur.eq(10),'Representations_brutes'].iloc[0]=='10|10.0'
   assert (b/'DONNEES/DOSSIERS_SSI_A_QUALIFIER.csv').read_bytes()==before
   (b/'AUDITS/SEC/RUN_A/DONNEES/FAITS_FINANCIERS_SEC_SSI.csv').write_bytes(b'CORROMPU')
   with patch.object(m,'BASE',b):
