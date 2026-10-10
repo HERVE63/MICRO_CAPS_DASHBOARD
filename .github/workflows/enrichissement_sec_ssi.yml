@@ -37,7 +37,7 @@ jobs:
           SEC_BATCH_OFFSET: ${{ inputs.offset || '0' }}
           SEC_BATCH_SIZE: ${{ inputs.taille || '300' }}
         run: python -B SCRIPTS_ACTIFS/07Z_EXECUTION_SEC_AUDITEE.py
-      - name: Collecte officielle hors SEC et bilan de qualification
+      - name: Collecte officielle, consolidation numérique contrôlée et bilan de qualification
         if: always()
         run: |
           python -B SCRIPTS_ACTIFS/07AA_COLLECTE_DOCUMENTS_OFFICIELS.py

@@ -46,7 +46,8 @@ def executer():
   try:
    obj=lire_json(url,agent)
    if str(obj.get("cik","")).zfill(10)!=cik.zfill(10):
-    audits.append({"Ticker":ticker,"Statut":"CIK_INCOHERENT","Nb_faits":0});continue
+    audits.append({"Ticker":ticker,"Statut":"CIK_INCOHERENT","Nb_faits":0,
+                   "CIK_demande":cik,"CIK_recu":str(obj.get('cik','')),"URL_source":url});continue
    count=0
    for taxonomie,table in [("us-gaap",TAGS),("ifrs-full",TAGS_IFRS)]:
     facts=obj.get("facts",{}).get(taxonomie,{})
@@ -81,7 +82,7 @@ def executer():
   time.sleep(0.15)
  columns=["Ticker","CIK","Concept","Tag_SEC","Taxonomie_SEC","Valeur","Unite","Debut_periode","Fin_periode","Date_depot","Formulaire","Accession","Exercice","Periode","Source_officielle","Date_collecte_UTC","Date_extraction_UTC","Statut_preuve"]
  pd.DataFrame(rows,columns=columns).to_csv(OUT,index=False)
- pd.DataFrame(audits,columns=["Ticker","Statut","Nb_faits","Code_HTTP","CIK_demande","URL_source"]).to_csv(AUD,index=False)
+ pd.DataFrame(audits,columns=["Ticker","Statut","Nb_faits","Code_HTTP","CIK_demande","CIK_recu","URL_source"]).to_csv(AUD,index=False)
  print("SEC companyfacts:",len(audits),"emetteurs",len(rows),"faits bruts; aucun SSI attribue")
  return rows
 if __name__=="__main__": executer()
