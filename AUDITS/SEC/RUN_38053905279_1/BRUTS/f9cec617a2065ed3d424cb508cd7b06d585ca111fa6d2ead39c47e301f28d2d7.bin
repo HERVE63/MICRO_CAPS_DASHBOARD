@@ -1,0 +1,100 @@
+<?xml version="1.0"?>
+<ownershipDocument>
+
+    <schemaVersion>X0609</schemaVersion>
+
+    <documentType>4</documentType>
+
+    <periodOfReport>2026-03-18</periodOfReport>
+
+    <issuer>
+        <issuerCik>0001337298</issuerCik>
+        <issuerName>FutureFuel Corp.</issuerName>
+        <issuerTradingSymbol>FF</issuerTradingSymbol>
+        <issuerForeignTradingSymbol></issuerForeignTradingSymbol>
+    </issuer>
+
+    <reportingOwner>
+        <reportingOwnerId>
+            <rptOwnerCik>0001933346</rptOwnerCik>
+            <rptOwnerName>Novelly Paul Anthony II</rptOwnerName>
+        </reportingOwnerId>
+        <reportingOwnerAddress>
+            <rptOwnerStreet1>C/O ST. ALBANS GLOBAL MANAGEMENT</rptOwnerStreet1>
+            <rptOwnerStreet2>8235 FORSYTH BOULEVARD, SUITE 900</rptOwnerStreet2>
+            <rptOwnerCity>CLAYTON</rptOwnerCity>
+            <rptOwnerState>MO</rptOwnerState>
+            <rptOwnerZipCode>63105</rptOwnerZipCode>
+            <rptOwnerStateDescription></rptOwnerStateDescription>
+        </reportingOwnerAddress>
+        <reportingOwnerRelationship>
+            <isDirector>1</isDirector>
+        </reportingOwnerRelationship>
+    </reportingOwner>
+
+    <aff10b5One>0</aff10b5One>
+
+    <derivativeTable>
+        <derivativeTransaction>
+            <securityTitle>
+                <value>Stock Options (Right to Buy)</value>
+                <footnoteId id="F1"/>
+            </securityTitle>
+            <conversionOrExercisePrice>
+                <value>3.77</value>
+            </conversionOrExercisePrice>
+            <transactionDate>
+                <value>2026-03-18</value>
+            </transactionDate>
+            <transactionCoding>
+                <transactionFormType>4</transactionFormType>
+                <transactionCode>A</transactionCode>
+                <equitySwapInvolved>0</equitySwapInvolved>
+            </transactionCoding>
+            <transactionAmounts>
+                <transactionShares>
+                    <value>10000</value>
+                </transactionShares>
+                <transactionPricePerShare>
+                    <value>0</value>
+                </transactionPricePerShare>
+                <transactionAcquiredDisposedCode>
+                    <value>A</value>
+                </transactionAcquiredDisposedCode>
+            </transactionAmounts>
+            <exerciseDate>
+                <value>2026-03-18</value>
+            </exerciseDate>
+            <expirationDate>
+                <value>2031-03-18</value>
+            </expirationDate>
+            <underlyingSecurity>
+                <underlyingSecurityTitle>
+                    <value>Common Stock</value>
+                </underlyingSecurityTitle>
+                <underlyingSecurityShares>
+                    <value>10000</value>
+                </underlyingSecurityShares>
+            </underlyingSecurity>
+            <postTransactionAmounts>
+                <sharesOwnedFollowingTransaction>
+                    <value>10000</value>
+                </sharesOwnedFollowingTransaction>
+            </postTransactionAmounts>
+            <ownershipNature>
+                <directOrIndirectOwnership>
+                    <value>D</value>
+                </directOrIndirectOwnership>
+            </ownershipNature>
+        </derivativeTransaction>
+    </derivativeTable>
+
+    <footnotes>
+        <footnote id="F1">The Stock Options were granted pursuant to the FutureFuel Corp. 2017 Omnibus Incentive Plan (the &quot;Plan&quot;), subject to the terms and conditions of the Plan and the applicable option agreement. The Stock Options may be exercised from March 18, 2026 until their expiration on March 18, 2031.</footnote>
+    </footnotes>
+
+    <ownerSignature>
+        <signatureName>/s/ P.A. Novelly II</signatureName>
+        <signatureDate>2026-03-19</signatureDate>
+    </ownerSignature>
+</ownershipDocument>

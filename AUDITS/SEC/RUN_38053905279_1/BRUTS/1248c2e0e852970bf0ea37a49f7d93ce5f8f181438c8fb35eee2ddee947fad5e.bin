@@ -1,0 +1,107 @@
+<?xml version="1.0"?>
+<ownershipDocument>
+
+    <schemaVersion>X0609</schemaVersion>
+
+    <documentType>4</documentType>
+
+    <periodOfReport>2026-07-01</periodOfReport>
+
+    <notSubjectToSection16>false</notSubjectToSection16>
+
+    <issuer>
+        <issuerCik>0001224133</issuerCik>
+        <issuerName>MARCHEX INC</issuerName>
+        <issuerTradingSymbol>MCHX</issuerTradingSymbol>
+        <issuerForeignTradingSymbol></issuerForeignTradingSymbol>
+    </issuer>
+
+    <reportingOwner>
+        <reportingOwnerId>
+            <rptOwnerCik>0001054568</rptOwnerCik>
+            <rptOwnerName>HOROWITZ RUSSELL C</rptOwnerName>
+        </reportingOwnerId>
+        <reportingOwnerAddress>
+            <rptOwnerNonUSAddressFlag>false</rptOwnerNonUSAddressFlag>
+            <rptOwnerStreet1>1448 NW MARKET ST</rptOwnerStreet1>
+            <rptOwnerStreet2>SUITE 500</rptOwnerStreet2>
+            <rptOwnerCity>SEATTLE</rptOwnerCity>
+            <rptOwnerState>WA</rptOwnerState>
+            <rptOwnerZipCode>98107</rptOwnerZipCode>
+            <rptOwnerStateDescription></rptOwnerStateDescription>
+        </reportingOwnerAddress>
+        <reportingOwnerRelationship>
+            <isDirector>true</isDirector>
+            <isOfficer>true</isOfficer>
+            <isTenPercentOwner>true</isTenPercentOwner>
+            <isOther>false</isOther>
+            <officerTitle>Chairman</officerTitle>
+        </reportingOwnerRelationship>
+    </reportingOwner>
+
+    <aff10b5One>false</aff10b5One>
+
+    <derivativeTable>
+        <derivativeTransaction>
+            <securityTitle>
+                <value>6.0% Convertible Debt (due 2028)</value>
+                <footnoteId id="F1"/>
+            </securityTitle>
+            <conversionOrExercisePrice>
+                <value>1.80</value>
+            </conversionOrExercisePrice>
+            <transactionDate>
+                <value>2026-07-01</value>
+            </transactionDate>
+            <transactionCoding>
+                <transactionFormType>4</transactionFormType>
+                <transactionCode>A</transactionCode>
+                <equitySwapInvolved>false</equitySwapInvolved>
+            </transactionCoding>
+            <transactionAmounts>
+                <transactionTotalValue>
+                    <value>4864865</value>
+                </transactionTotalValue>
+                <transactionPricePerShare>
+                    <value>4864865</value>
+                </transactionPricePerShare>
+                <transactionAcquiredDisposedCode>
+                    <value>A</value>
+                </transactionAcquiredDisposedCode>
+            </transactionAmounts>
+            <exerciseDate>
+                <value>2026-07-01</value>
+            </exerciseDate>
+            <expirationDate>
+                <value>2028-07-01</value>
+            </expirationDate>
+            <underlyingSecurity>
+                <underlyingSecurityTitle>
+                    <value>Class B Common Stock</value>
+                </underlyingSecurityTitle>
+                <underlyingSecurityShares>
+                    <value>2702703</value>
+                </underlyingSecurityShares>
+            </underlyingSecurity>
+            <postTransactionAmounts>
+                <valueOwnedFollowingTransaction>
+                    <value>4864865</value>
+                </valueOwnedFollowingTransaction>
+            </postTransactionAmounts>
+            <ownershipNature>
+                <directOrIndirectOwnership>
+                    <value>D</value>
+                </directOrIndirectOwnership>
+            </ownershipNature>
+        </derivativeTransaction>
+    </derivativeTable>
+
+    <footnotes>
+        <footnote id="F1">On July 1, 2026 (the &quot;Closing Date&quot;), Marchex, Inc. acquired 100% of the capital stock of privately-held Archenia, Inc. pursuant to a stock purchase agreement (&quot;SPA&quot;) where the reporting person acquired $4,864,865 in convertible debt from the issuer. The notes bear interest at 6%, are payable in three equal tranches on the 12-, 18- and 24-month anniversaries, and are convertible in whole or in part into shares of the issuer's Class B common stock at $1.80 per share. The SPA also provides that the reporting person will receive 972,973 additional shares for each of the first and second 12-month periods following the Closing Date, to the extent (1) Archenia's revenue or Adjusted EBITDA exceed such amounts for the 12-month period prior to the Closing Date, and (2) Archenia achieves certain specified integration or customer retention targets. The reporting person's right to receive the additional shares pursuant to this earn-out right became fixed and irrevocable on the Closing Date.</footnote>
+    </footnotes>
+
+    <ownerSignature>
+        <signatureName>/s/ Russell C. Horowitz</signatureName>
+        <signatureDate>2026-07-01</signatureDate>
+    </ownerSignature>
+</ownershipDocument>
