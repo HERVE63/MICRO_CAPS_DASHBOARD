@@ -13,6 +13,9 @@ MODULES=['07T_ENRICHIR_PREUVES_SEC_EDGAR.py','07U_COLLECTE_COMPANYFACTS_SEC.py',
          '07V_NORMALISER_FAITS_SEC.py','07W_RAPPROCHER_PREUVES_SEC_SSI.py',
          '07X_INDEX_GOUVERNANCE_SEC.py','07Y_EXTRAIRE_FORM4_SEC.py']
 def sha(p): return hashlib.sha256(p.read_bytes()).hexdigest()
+def commit_effectif():
+ try:return subprocess.check_output(['git','rev-parse','HEAD'],cwd=BASE,text=True,stderr=subprocess.DEVNULL).strip()
+ except subprocess.CalledProcessError:return 'INCONNU_HORS_DEPOT'
 def protections():
  return {str(p.relative_to(BASE)):sha(p) for folder in ['DONNEES','SAUVEGARDES']
          for p in (BASE/folder).rglob('*') if p.is_file()}
@@ -28,15 +31,32 @@ def executer():
  bruts=archive/'BRUTS';bruts.mkdir()
  avant=protections()
  manifest={'date_utc':debut.isoformat(),'date_limite':debut.date().isoformat(),
-           'commit':os.getenv('GITHUB_SHA') or subprocess.check_output(['git','rev-parse','HEAD'],cwd=BASE,text=True).strip(),
+           'commit':commit_effectif(),
+           'commit_declencheur':os.getenv('GITHUB_SHA',''),
            'statut':'EN_COURS','etapes':[],'notes_attribuees':0,'secret_contact_valide':False,
            'portefeuilles_modifies':False,'collecte_exhaustive':False}
- requetes=[];dernier=[0.0]
+ requetes=[];dernier=[0.0];cache={}
+ # Réutilisation uniquement des réponses du même jour UTC, sans supprimer les archives.
+ # Chaque réponse est recontrôlée par SHA256 avant lecture.
+ def charger_cache():
+  for index in sorted((BASE/'AUDITS/SEC').glob('RUN_*/SOURCES_BRUTES.json')):
+   for source in json.loads(index.read_text()):
+    date=datetime.fromisoformat(source['date_collecte_utc'])
+    if date.date()==debut.date() and date<=debut:
+     cache[source['url']]=(index.parent/'BRUTS'/(source['sha256']+'.bin'),source)
  def collecter(req,timeout=25):
   # Un plafond global de 4 requêtes/seconde, y compris les XML.
   url=req.full_url
   if not re.match(r'^https://(?:www\.sec\.gov|data\.sec\.gov)/',url):
    raise ValueError('Source hors SEC')
+  if url in cache:
+   chemin,source=cache[url]
+   if not chemin.exists() or sha(chemin)!=source['sha256']:
+    raise ValueError('CACHE_SEC_INTEGRITE_INVALIDE')
+   data=chemin.read_bytes();(bruts/(source['sha256']+'.bin')).write_bytes(data)
+   requetes.append(dict(source,archive_cache=str(chemin.parent.parent.relative_to(BASE)),
+                        date_relecture_utc=datetime.now(timezone.utc).isoformat()))
+   return Reponse(data)
   time.sleep(max(0,.25-(time.monotonic()-dernier[0])))
   dernier[0]=time.monotonic()
   with urlopen(req,timeout=timeout) as resp: data=resp.read()
@@ -44,6 +64,7 @@ def executer():
   requetes.append({'url':url,'sha256':digest,'date_collecte_utc':datetime.now(timezone.utc).isoformat()})
   return Reponse(data)
  try:
+  charger_cache()
   for n in ['DOSSIERS_SSI_A_QUALIFIER.csv','UNIVERS_INVESTISSABLE_MICRO_CAPS.csv']:
    shutil.copy2(BASE/'DONNEES'/n,travail/n)
   # Périmètre de qualification figé : les dossiers retenus, sans nouvelle chasse.
@@ -62,6 +83,7 @@ def executer():
   u.to_csv(travail/'UNIVERS_SEC_LOT.csv',index=False)
   manifest.update({'offset_pistes_SEC':offset,'taille_max_lot_SEC':limite})
   for name in MODULES:
+   print('SEC : démarrage '+name,flush=True)
    spec=importlib.util.spec_from_file_location(name[:-3],BASE/'SCRIPTS_ACTIFS'/name)
    mod=importlib.util.module_from_spec(spec);spec.loader.exec_module(mod)
    mod.D=travail
@@ -90,6 +112,8 @@ def executer():
   differences=sorted(k for k in set(avant)|set(apres) if avant.get(k)!=apres.get(k))
   manifest['integrite_entrees']='OK' if not differences else 'ECHEC'
   manifest['fichiers_entrees_modifies']=differences
+  manifest['reponses_reutilisees']=sum('archive_cache' in s for s in requetes)
+  manifest['reponses_reseau']=sum('archive_cache' not in s for s in requetes)
   manifest['fin_utc']=datetime.now(timezone.utc).isoformat()
   manifest['fichiers']={str(p.relative_to(archive)):sha(p) for p in archive.rglob('*') if p.is_file()}
   (archive/'SOURCES_BRUTES.json').write_text(json.dumps(requetes,ensure_ascii=False,indent=2)+'\n')

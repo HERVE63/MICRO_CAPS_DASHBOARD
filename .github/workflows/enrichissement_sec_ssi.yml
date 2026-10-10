@@ -8,7 +8,7 @@ on:
     inputs:
       offset:
         description: 'Offset des pistes SEC uniques triées par ticker de cotation'
-        default: '10'
+        default: '0'
       taille:
         description: 'Nombre maximum de pistes SEC dans ce lot technique'
         default: '300'
@@ -23,6 +23,8 @@ jobs:
     timeout-minutes: 90
     steps:
       - uses: actions/checkout@v4
+        with:
+          ref: main
       - uses: actions/setup-python@v5
         with:
           python-version: '3.12'
@@ -32,7 +34,7 @@ jobs:
       - name: Collecte SEC isolée, preuves brutes et contrôle du secret
         env:
           SEC_USER_AGENT: ${{ secrets.SEC_USER_AGENT }}
-          SEC_BATCH_OFFSET: ${{ inputs.offset || '10' }}
+          SEC_BATCH_OFFSET: ${{ inputs.offset || '0' }}
           SEC_BATCH_SIZE: ${{ inputs.taille || '300' }}
         run: python -B SCRIPTS_ACTIFS/07Z_EXECUTION_SEC_AUDITEE.py
       - name: Collecte officielle hors SEC et bilan de qualification

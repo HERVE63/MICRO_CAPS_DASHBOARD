@@ -38,6 +38,16 @@ def test():
   assert len(list((out/'BRUTS').glob('*')))==5
   assert {p.name:p.read_bytes() for p in (b/'DONNEES').glob('*')}==before
   assert len(pd.read_csv(out/'DONNEES/TRANSACTIONS_DIRIGEANTS_SEC_SSI.csv'))==1
+  with patch.object(m,'BASE',b),patch.object(m,'urlopen',side_effect=AssertionError('Réseau interdit pour relecture')),patch.object(m.time,'sleep'),patch.dict(m.os.environ,dict(env,GITHUB_RUN_ID='CACHE_FIXTURE')):
+   assert m.executer()==0
+  cached=json.loads((b/'AUDITS/SEC/RUN_CACHE_FIXTURE_1/MANIFESTE.json').read_text())
+  assert cached['reponses_reutilisees']==5 and cached['reponses_reseau']==0
+  source=json.loads((out/'SOURCES_BRUTES.json').read_text())[0]
+  (out/'BRUTS'/(source['sha256']+'.bin')).write_bytes(b'CORROMPU')
+  with patch.object(m,'BASE',b),patch.object(m,'urlopen',side_effect=AssertionError('Réseau interdit')),patch.dict(m.os.environ,dict(env,GITHUB_RUN_ID='CORRUPT_FIXTURE')):
+   assert m.executer()==1
+  corrupt=json.loads((b/'AUDITS/SEC/RUN_CORRUPT_FIXTURE_1/MANIFESTE.json').read_text())
+  assert corrupt['blocage']=='CACHE_SEC_INTEGRITE_INVALIDE'
   with patch.object(m,'BASE',b),patch.dict(m.os.environ,dict(env,GITHUB_RUN_ID='NO_SECRET',SEC_USER_AGENT='')):
    assert m.executer()==1
   blocked=json.loads((b/'AUDITS/SEC/RUN_NO_SECRET_1/MANIFESTE.json').read_text())

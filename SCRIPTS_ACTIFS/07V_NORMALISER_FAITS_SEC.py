@@ -19,6 +19,7 @@ def executer():
  df=pd.read_csv(SRC,dtype=str,keep_default_na=False)
  cols=["Ticker","CIK","Concept","Tag_SEC","Valeur","Unite","Debut_periode","Fin_periode","Date_depot","Formulaire","Accession","Exercice","Periode","Source_officielle","Date_collecte_UTC","Statut_preuve"]
  if any(c not in df for c in cols): raise RuntimeError("Schema XBRL incomplet")
+ if "Taxonomie_SEC" not in df: df["Taxonomie_SEC"]="us-gaap"
  if df.empty:
   pd.DataFrame(columns=cols+["Cadence","Statut_comparabilite"]).to_csv(OUT,index=False)
   pd.DataFrame([{"Faits_bruts":0,"Faits_retenus":0,"Faits_ecartes":0}]).to_csv(AUD,index=False)
@@ -41,14 +42,14 @@ def executer():
  df.loc[trimestriel,"Cadence"]="TRIMESTRIEL"
  df.loc[instant,"Cadence"]="INSTANTANE"
  # Ne jamais mélanger USD, shares et autres unités, ni déduire un trimestre d'un cumul.
- unite=(df["Unite"].eq("USD") & df["Concept"].ne("Shares")) | (df["Unite"].eq("shares") & df["Concept"].eq("Shares"))
+ unite=(df["Unite"].str.fullmatch(r"[A-Z]{3}") & df["Concept"].ne("Shares")) | (df["Unite"].eq("shares") & df["Concept"].eq("Shares"))
  limite=pd.Timestamp(os.getenv("MICRO_CAPS_AS_OF",datetime.now(timezone.utc).date().isoformat()))
  connu=(df["Date_depot"]<=limite) & (df["Fin_periode"]<=df["Date_depot"])
  admissible=(annuel | trimestriel | instant) & unite & df["Valeur_numerique"].notna() & connu
  df.loc[admissible,"Statut_comparabilite"]="FORMAT_PERIODE_PLAUSIBLE_A_VERIFIER"
  # Dépôts successifs: conserver la version la plus récente mais ne pas effacer les bruts.
  ok=df[admissible].copy()
- keys=["Ticker","CIK","Concept","Tag_SEC","Unite","Debut_periode","Fin_periode","Cadence"]
+ keys=["Ticker","CIK","Concept","Tag_SEC","Taxonomie_SEC","Unite","Debut_periode","Fin_periode","Cadence"]
  ok=ok.sort_values(["Date_depot","Accession"]).drop_duplicates(keys,keep="last")
  ok["Date_depot"]=ok["Date_depot"].dt.strftime("%Y-%m-%d")
  ok["Fin_periode"]=ok["Fin_periode"].dt.strftime("%Y-%m-%d")
