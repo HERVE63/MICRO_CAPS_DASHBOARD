@@ -53,17 +53,14 @@ def executer():
   if not agent or '@' not in agent: raise RuntimeError('SEC_USER_AGENT_ABSENT_OU_INVALIDE')
   manifest['secret_contact_valide']=True
   # Lot technique déterministe : pas de présélection économique.
-  # Les non-américaines restent dans l'index ; les US sont traitées par lot repris via cache.
+  # Le pays de cotation ne prouve pas le domicile de l'émetteur.
+  # 07T découvre les pistes dans le registre officiel et limite les appels par ticker.
   limite=int(os.getenv('SEC_BATCH_SIZE','100'))
   if limite<=0: raise RuntimeError('SEC_BATCH_SIZE_INVALIDE')
-  us=u[u['Pays'].eq('USA')].sort_values('Ticker')
   offset=int(os.getenv('SEC_BATCH_OFFSET','0'))
   if offset<0: raise RuntimeError('SEC_BATCH_OFFSET_INVALIDE')
-  lot=us.iloc[offset:offset+limite]
-  scope=pd.concat([u[~u['Pays'].eq('USA')],lot],ignore_index=True)
-  scope.to_csv(travail/'UNIVERS_SEC_LOT.csv',index=False)
-  manifest.update({'dossiers_US':len(us),'offset_US':offset,'lot_US':len(lot),
-                   'US_non_traitees_ce_lot':len(us)-len(lot)})
+  u.to_csv(travail/'UNIVERS_SEC_LOT.csv',index=False)
+  manifest.update({'offset_pistes_SEC':offset,'taille_max_lot_SEC':limite})
   for name in MODULES:
    spec=importlib.util.spec_from_file_location(name[:-3],BASE/'SCRIPTS_ACTIFS'/name)
    mod=importlib.util.module_from_spec(spec);spec.loader.exec_module(mod)
@@ -76,6 +73,10 @@ def executer():
    manifest['etapes'].append({'module':name,'statut':'EXECUTE'})
   sec=pd.read_csv(travail/'PREUVES_SEC_EDGAR_SSI.csv',keep_default_na=False)
   manifest['statuts_SEC']=sec.Statut_SEC.value_counts().to_dict()
+  audit=pd.read_csv(travail/'AUDIT_PREUVES_SEC_SSI.csv',keep_default_na=False).iloc[0]
+  manifest['pistes_SEC_uniques']=int(audit['Pistes_uniques'])
+  manifest['pistes_SEC_dans_lot']=int(audit['Pistes_dans_lot'])
+  manifest['pistes_SEC_hors_lot']=int(sec.Statut_SEC.eq('PISTE_SEC_HORS_LOT').sum())
   errors=sec.Statut_SEC.eq('ERREUR_SOURCE').sum()
   for n in ['AUDIT_FAITS_FINANCIERS_SEC_SSI.csv','AUDIT_TRANSACTIONS_DIRIGEANTS_SEC_SSI.csv']:
    a=pd.read_csv(travail/n,keep_default_na=False)

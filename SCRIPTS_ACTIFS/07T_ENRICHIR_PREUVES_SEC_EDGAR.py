@@ -4,7 +4,7 @@ Variable SEC_USER_AGENT requise: 'Projet Contact contact@example.org'.
 """
 from pathlib import Path
 from datetime import datetime, timezone
-import json, os, time, re
+import json, os, time, re, unicodedata
 from urllib.request import Request, urlopen
 import pandas as pd
 
@@ -18,6 +18,28 @@ FORMES={"10-K","10-K/A","10-Q","10-Q/A","8-K","DEF 14A","4","3","5","20-F","6-K"
 def lire_json(url,agent):
  req=Request(url,headers={"User-Agent":agent,"Accept":"application/json","Accept-Encoding":"identity"})
  with urlopen(req,timeout=25) as resp: return json.load(resp)
+def cle_nom(nom,libelle_cotation=False):
+ # Le libellé allemand contient parfois une lettre de classe après un grand espace.
+ # Nettoyage pour découverte seulement : aucune preuve d'identité n'en découle.
+ nom=str(nom).strip()
+ if libelle_cotation: nom=re.sub(r'\s{2,}[A-Z]$','',nom)
+ nom=unicodedata.normalize('NFKD',nom).encode('ascii','ignore').decode().upper()
+ return ' '.join(re.findall(r'[A-Z0-9]+',nom))
+def index_registre(reg):
+ tickers={};noms={}
+ for v in reg.values():
+  cik=str(v['cik_str']).zfill(10)
+  ticker=str(v.get('ticker','')).upper().strip()
+  if ticker:tickers.setdefault(ticker,set()).add(cik)
+  nom=cle_nom(v.get('title',''))
+  if nom:noms.setdefault(nom,set()).add(cik)
+ return tickers,noms
+def candidats_registre(r,tickers,noms):
+ ticker=str(r['Ticker']).strip().upper()
+ # Un code de cotation étranger ne devient jamais un code SEC en retirant son suffixe.
+ if ticker in tickers:return tickers[ticker],'TICKER_SEC_EXACT'
+ nom=cle_nom(r.get('Societe',''),True)
+ return noms.get(nom,set()),'NOM_EXACT_NORMALISE_PISTE'
 def executer():
  agent=os.environ.get("SEC_USER_AGENT","").strip()
  if not agent or "@" not in agent: raise RuntimeError("SEC_USER_AGENT explicite avec contact requis")
@@ -25,25 +47,34 @@ def executer():
  df=pd.read_csv(SRC,dtype=str,keep_default_na=False)
  if df.empty or df["Ticker"].duplicated().any(): raise RuntimeError("Dossiers SSI vides ou tickers dupliques")
  reg=lire_json(BASE+"/files/company_tickers.json",agent)
- mapping={}
- for v in reg.values():
-  ticker=str(v.get("ticker","")).upper().strip()
-  if ticker: mapping.setdefault(ticker,set()).add(str(v["cik_str"]).zfill(10))
+ mapping,noms=index_registre(reg)
+ eligibles=sorted(str(r['Ticker']).strip() for _,r in df.iterrows()
+                  if len(candidats_registre(r,mapping,noms)[0])==1)
+ offset=int(os.getenv('SEC_BATCH_OFFSET','0'));taille=int(os.getenv('SEC_BATCH_SIZE','100'))
+ if offset<0 or taille<=0:raise ValueError('LOT_SEC_INVALIDE')
+ lot=set(eligibles[offset:offset+taille])
  rows=[]
  for _,r in df.iterrows():
   ticker=str(r["Ticker"]).strip()
   # Les suffixes .TO, .V, .L etc ne sont pas des identifiants SEC.
-  candidats=mapping.get(ticker.upper(),set())
+  candidats,methode=candidats_registre(r,mapping,noms)
   pays=str(r.get("Pays","")).strip().upper()
   # SEC n est pas une preuve universelle: verifier la correspondance emetteur.
   # Les tickers etrangers non apparies restent NON_COUVERT.
   item={"Ticker":ticker,"Societe":r.get("Societe",""),"Date_collecte_UTC":datetime.now(timezone.utc).isoformat(),
         "Source_registre":BASE+"/files/company_tickers.json",
-        "CIK":"MANQUANTE","Statut_SEC":"NON_COUVERT","Depots": "[]","Nb_depots":0}
+        "CIK":"MANQUANTE","Statut_SEC":"NON_COUVERT","Depots": "[]","Nb_depots":0,
+        "Methode_rapprochement":methode,"CIK_verifie":"NON","Identite_a_confirmer":"OUI"}
   if len(candidats)>1:
    item["Statut_SEC"]="IDENTITE_AMBIGUE"
   elif len(candidats)==1:
    cik=next(iter(candidats));item["CIK"]=cik
+   records=[v for v in reg.values() if str(v['cik_str']).zfill(10)==cik]
+   item['Tickers_SEC']=';'.join(sorted({v.get('ticker','') for v in records}))
+   item['Nom_registre_SEC']=';'.join(sorted({v.get('title','') for v in records}))
+   if ticker not in lot:
+    item['Statut_SEC']='PISTE_SEC_HORS_LOT'
+    rows.append(item);continue
    url=DATA+"/submissions/CIK"+cik+".json"
    try:
     sub=lire_json(url,agent)
@@ -82,7 +113,8 @@ def executer():
  OUT.parent.mkdir(parents=True,exist_ok=True)
  out.to_csv(OUT,index=False)
  counts=out["Statut_SEC"].value_counts().to_dict()
- pd.DataFrame([{"Dossiers":len(out),**counts,"Scores_SSI_calcules":0}]).to_csv(AUD,index=False)
+ pd.DataFrame([{"Dossiers":len(out),**counts,"Pistes_uniques":len(eligibles),
+                "Pistes_dans_lot":len(lot),"Offset":offset,"Scores_SSI_calcules":0}]).to_csv(AUD,index=False)
  print("SEC EDGAR",counts)
  return out
 if __name__=="__main__": executer()
