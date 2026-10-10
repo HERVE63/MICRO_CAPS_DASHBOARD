@@ -1,0 +1,127 @@
+<?xml version="1.0"?>
+<ownershipDocument>
+
+    <schemaVersion>X0609</schemaVersion>
+
+    <documentType>4</documentType>
+
+    <periodOfReport>2026-06-23</periodOfReport>
+
+    <issuer>
+        <issuerCik>0001778129</issuerCik>
+        <issuerName>TerrAscend Corp.</issuerName>
+        <issuerTradingSymbol>TSNDF</issuerTradingSymbol>
+        <issuerForeignTradingSymbol></issuerForeignTradingSymbol>
+    </issuer>
+
+    <reportingOwner>
+        <reportingOwnerId>
+            <rptOwnerCik>0001254555</rptOwnerCik>
+            <rptOwnerName>SCHUTTER EDWARD J</rptOwnerName>
+        </reportingOwnerId>
+        <reportingOwnerAddress>
+            <rptOwnerNonUSAddressFlag>true</rptOwnerNonUSAddressFlag>
+            <rptOwnerStreet1>C/O TERRASCEND CORP.</rptOwnerStreet1>
+            <rptOwnerStreet2>77 CITY CENTRE DRIVE, SUITE 501</rptOwnerStreet2>
+            <rptOwnerCity>MISSISSAUGA</rptOwnerCity>
+            <rptOwnerNonUSStateTerritory>ONTARIO</rptOwnerNonUSStateTerritory>
+            <rptOwnerCountry>Z4</rptOwnerCountry>
+            <rptOwnerZipCode>L5B 1M5</rptOwnerZipCode>
+            <rptOwnerStateDescription>CANADA (FEDERAL LEVEL)</rptOwnerStateDescription>
+        </reportingOwnerAddress>
+        <reportingOwnerRelationship>
+            <isDirector>1</isDirector>
+            <isOfficer>0</isOfficer>
+            <isTenPercentOwner>0</isTenPercentOwner>
+            <isOther>0</isOther>
+        </reportingOwnerRelationship>
+    </reportingOwner>
+
+    <aff10b5One>0</aff10b5One>
+
+    <nonDerivativeTable>
+        <nonDerivativeHolding>
+            <securityTitle>
+                <value>Common Shares</value>
+            </securityTitle>
+            <postTransactionAmounts>
+                <sharesOwnedFollowingTransaction>
+                    <value>2451337</value>
+                    <footnoteId id="F1"/>
+                </sharesOwnedFollowingTransaction>
+            </postTransactionAmounts>
+            <ownershipNature>
+                <directOrIndirectOwnership>
+                    <value>D</value>
+                </directOrIndirectOwnership>
+            </ownershipNature>
+        </nonDerivativeHolding>
+    </nonDerivativeTable>
+
+    <derivativeTable>
+        <derivativeTransaction>
+            <securityTitle>
+                <value>Convertible Debentures</value>
+                <footnoteId id="F2"/>
+            </securityTitle>
+            <conversionOrExercisePrice>
+                <value>0.87</value>
+            </conversionOrExercisePrice>
+            <transactionDate>
+                <value>2026-06-23</value>
+            </transactionDate>
+            <transactionCoding>
+                <transactionFormType>4</transactionFormType>
+                <transactionCode>A</transactionCode>
+                <equitySwapInvolved>0</equitySwapInvolved>
+            </transactionCoding>
+            <transactionAmounts>
+                <transactionShares>
+                    <value>1000</value>
+                </transactionShares>
+                <transactionPricePerShare>
+                    <value>1000</value>
+                </transactionPricePerShare>
+                <transactionAcquiredDisposedCode>
+                    <value>A</value>
+                </transactionAcquiredDisposedCode>
+            </transactionAmounts>
+            <exerciseDate>
+                <value>2026-06-23</value>
+            </exerciseDate>
+            <expirationDate>
+                <value>2031-09-30</value>
+            </expirationDate>
+            <underlyingSecurity>
+                <underlyingSecurityTitle>
+                    <value>Common Shares</value>
+                </underlyingSecurityTitle>
+                <underlyingSecurityShares>
+                    <value>1149425</value>
+                    <footnoteId id="F3"/>
+                </underlyingSecurityShares>
+            </underlyingSecurity>
+            <postTransactionAmounts>
+                <sharesOwnedFollowingTransaction>
+                    <value>1000</value>
+                </sharesOwnedFollowingTransaction>
+            </postTransactionAmounts>
+            <ownershipNature>
+                <directOrIndirectOwnership>
+                    <value>D</value>
+                </directOrIndirectOwnership>
+            </ownershipNature>
+        </derivativeTransaction>
+    </derivativeTable>
+
+    <footnotes>
+        <footnote id="F1">The Reporting Person's Table I holdings have been updated to exclude 2,000 convertible debentures previously reported as being issued as common shares on June 23, 2023, which have matured and were repaid in full in cash.</footnote>
+        <footnote id="F2">Represents secured convertible debentures (the &quot;Debentures&quot;) of TerrAscend Corp. (the &quot;Company&quot;) having an aggregate principal amount of $1,000,000, purchased by the Reporting Person at a purchase price of $1,000 per Debenture in a private placement that closed on June 23, 2026. The Debentures mature on September 30, 2031 and bear interest at 8.00% per annum, payable quarterly in arrears in cash, provided that the Company may elect to pay all or any portion of such interest in kind by capitalizing it as additional principal. The Debentures are convertible at a conversion price of $0.87 per share pursuant to the terms set forth in the Debentures, as may be adjusted pursuant to the terms of the Debentures.</footnote>
+        <footnote id="F3">Calculated based on the $1,000,000 aggregate principal amount of Debentures divided by the $0.87 conversion price.</footnote>
+    </footnotes>
+
+    <ownerSignature>
+        <signatureName>/s/ Ari Unterman, Attorney-in-Fact</signatureName>
+        <signatureDate>2026-06-25</signatureDate>
+    </ownerSignature>
+</ownershipDocument>

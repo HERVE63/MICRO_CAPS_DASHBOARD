@@ -1,0 +1,108 @@
+<?xml version="1.0"?>
+<ownershipDocument>
+
+    <schemaVersion>X0508</schemaVersion>
+
+    <documentType>4</documentType>
+
+    <periodOfReport>2025-09-19</periodOfReport>
+
+    <notSubjectToSection16>0</notSubjectToSection16>
+
+    <issuer>
+        <issuerCik>0001463972</issuerCik>
+        <issuerName>Vuzix Corp</issuerName>
+        <issuerTradingSymbol>VUZI</issuerTradingSymbol>
+    </issuer>
+
+    <reportingOwner>
+        <reportingOwnerId>
+            <rptOwnerCik>0001427401</rptOwnerCik>
+            <rptOwnerName>Quanta Computer Inc.</rptOwnerName>
+        </reportingOwnerId>
+        <reportingOwnerAddress>
+            <rptOwnerStreet1>NO. 211, WEN HWA 2ND</rptOwnerStreet1>
+            <rptOwnerStreet2>KUEI SHAN</rptOwnerStreet2>
+            <rptOwnerCity>TAO YUAN</rptOwnerCity>
+            <rptOwnerState>F5</rptOwnerState>
+            <rptOwnerZipCode>33377</rptOwnerZipCode>
+            <rptOwnerStateDescription>TAIWAN</rptOwnerStateDescription>
+        </reportingOwnerAddress>
+        <reportingOwnerRelationship>
+            <isDirector>0</isDirector>
+            <isOfficer>0</isOfficer>
+            <isTenPercentOwner>1</isTenPercentOwner>
+            <isOther>0</isOther>
+            <officerTitle></officerTitle>
+            <otherText></otherText>
+        </reportingOwnerRelationship>
+    </reportingOwner>
+
+    <aff10b5One>0</aff10b5One>
+
+    <derivativeTable>
+        <derivativeTransaction>
+            <securityTitle>
+                <value>Series B Preferred Stock</value>
+            </securityTitle>
+            <conversionOrExercisePrice>
+                <value>2.1716</value>
+            </conversionOrExercisePrice>
+            <transactionDate>
+                <value>2025-09-19</value>
+            </transactionDate>
+            <deemedExecutionDate></deemedExecutionDate>
+            <transactionCoding>
+                <transactionFormType>4</transactionFormType>
+                <transactionCode>P</transactionCode>
+                <equitySwapInvolved>0</equitySwapInvolved>
+                <footnoteId id="F1"/>
+            </transactionCoding>
+            <transactionTimeliness></transactionTimeliness>
+            <transactionAmounts>
+                <transactionShares>
+                    <value>230242</value>
+                </transactionShares>
+                <transactionPricePerShare>
+                    <value>21.716</value>
+                </transactionPricePerShare>
+                <transactionAcquiredDisposedCode>
+                    <value>A</value>
+                </transactionAcquiredDisposedCode>
+            </transactionAmounts>
+            <exerciseDate>
+                <value>2025-09-19</value>
+            </exerciseDate>
+            <expirationDate>
+                <footnoteId id="F1"/>
+            </expirationDate>
+            <underlyingSecurity>
+                <underlyingSecurityTitle>
+                    <value>Common Stock</value>
+                </underlyingSecurityTitle>
+                <underlyingSecurityShares>
+                    <value>2302420</value>
+                </underlyingSecurityShares>
+            </underlyingSecurity>
+            <postTransactionAmounts>
+                <sharesOwnedFollowingTransaction>
+                    <value>230242</value>
+                </sharesOwnedFollowingTransaction>
+            </postTransactionAmounts>
+            <ownershipNature>
+                <directOrIndirectOwnership>
+                    <value>D</value>
+                </directOrIndirectOwnership>
+            </ownershipNature>
+        </derivativeTransaction>
+    </derivativeTable>
+
+    <footnotes>
+        <footnote id="F1">On September 19, 2025, Quanta Computer Inc. (&quot;Quanta&quot;) purchased 230,242 shares of the Issuer's Series B Preferred Stock at a purchase price of $21.716 per share under the third closing under the securities purchase agreement, dated September 3, 2024, between the Issuer and Quanta. Each share of Series B Preferred Stock is convertible into 10 shares of the Issuer's common stock.</footnote>
+    </footnotes>
+
+    <ownerSignature>
+        <signatureName>/s/ C.C. Leung</signatureName>
+        <signatureDate>2025-09-23</signatureDate>
+    </ownerSignature>
+</ownershipDocument>

@@ -1,0 +1,152 @@
+<?xml version="1.0"?>
+<ownershipDocument>
+
+    <schemaVersion>X0609</schemaVersion>
+
+    <documentType>4</documentType>
+
+    <periodOfReport>2026-06-30</periodOfReport>
+
+    <issuer>
+        <issuerCik>0001866501</issuerCik>
+        <issuerName>Wallbox N.V.</issuerName>
+        <issuerTradingSymbol>WBX</issuerTradingSymbol>
+        <issuerForeignTradingSymbol></issuerForeignTradingSymbol>
+    </issuer>
+
+    <reportingOwner>
+        <reportingOwnerId>
+            <rptOwnerCik>0002136308</rptOwnerCik>
+            <rptOwnerName>Aguera Pedro Alonso</rptOwnerName>
+        </reportingOwnerId>
+        <reportingOwnerAddress>
+            <rptOwnerNonUSAddressFlag>true</rptOwnerNonUSAddressFlag>
+            <rptOwnerStreet1>C/O WALLBOX N.V.</rptOwnerStreet1>
+            <rptOwnerStreet2>CARRER DEL FOC, 68</rptOwnerStreet2>
+            <rptOwnerCity>BARCELONA</rptOwnerCity>
+            <rptOwnerNonUSStateTerritory>SPAIN</rptOwnerNonUSStateTerritory>
+            <rptOwnerCountry>U3</rptOwnerCountry>
+            <rptOwnerZipCode>08038</rptOwnerZipCode>
+            <rptOwnerStateDescription>SPAIN</rptOwnerStateDescription>
+        </reportingOwnerAddress>
+        <reportingOwnerRelationship>
+            <isDirector>true</isDirector>
+            <isOfficer>false</isOfficer>
+            <isTenPercentOwner>false</isTenPercentOwner>
+            <isOther>false</isOther>
+        </reportingOwnerRelationship>
+    </reportingOwner>
+
+    <aff10b5One>false</aff10b5One>
+
+    <nonDerivativeTable>
+        <nonDerivativeTransaction>
+            <securityTitle>
+                <value>Class A Ordinary Shares</value>
+            </securityTitle>
+            <transactionDate>
+                <value>2026-06-30</value>
+            </transactionDate>
+            <transactionCoding>
+                <transactionFormType>4</transactionFormType>
+                <transactionCode>P</transactionCode>
+                <equitySwapInvolved>false</equitySwapInvolved>
+            </transactionCoding>
+            <transactionAmounts>
+                <transactionShares>
+                    <value>501361</value>
+                </transactionShares>
+                <transactionPricePerShare>
+                    <value>2.7216</value>
+                </transactionPricePerShare>
+                <transactionAcquiredDisposedCode>
+                    <value>A</value>
+                </transactionAcquiredDisposedCode>
+            </transactionAmounts>
+            <postTransactionAmounts>
+                <sharesOwnedFollowingTransaction>
+                    <value>1394705</value>
+                </sharesOwnedFollowingTransaction>
+            </postTransactionAmounts>
+            <ownershipNature>
+                <directOrIndirectOwnership>
+                    <value>I</value>
+                </directOrIndirectOwnership>
+                <natureOfOwnership>
+                    <value>Through AM Gestio, S.L.</value>
+                    <footnoteId id="F1"/>
+                </natureOfOwnership>
+            </ownershipNature>
+        </nonDerivativeTransaction>
+    </nonDerivativeTable>
+
+    <derivativeTable>
+        <derivativeTransaction>
+            <securityTitle>
+                <value>Warrant (Right to buy Class A Ordinary Shares)</value>
+            </securityTitle>
+            <conversionOrExercisePrice>
+                <value>2.75</value>
+                <footnoteId id="F2"/>
+            </conversionOrExercisePrice>
+            <transactionDate>
+                <value>2026-06-26</value>
+            </transactionDate>
+            <transactionCoding>
+                <transactionFormType>4</transactionFormType>
+                <transactionCode>P</transactionCode>
+                <equitySwapInvolved>false</equitySwapInvolved>
+            </transactionCoding>
+            <transactionAmounts>
+                <transactionShares>
+                    <value>250680</value>
+                </transactionShares>
+                <transactionPricePerShare>
+                    <footnoteId id="F3"/>
+                </transactionPricePerShare>
+                <transactionAcquiredDisposedCode>
+                    <value>A</value>
+                </transactionAcquiredDisposedCode>
+            </transactionAmounts>
+            <exerciseDate>
+                <value>2026-06-26</value>
+            </exerciseDate>
+            <expirationDate>
+                <value>2031-06-26</value>
+            </expirationDate>
+            <underlyingSecurity>
+                <underlyingSecurityTitle>
+                    <value>Class A Shares</value>
+                </underlyingSecurityTitle>
+                <underlyingSecurityShares>
+                    <value>250680</value>
+                </underlyingSecurityShares>
+            </underlyingSecurity>
+            <postTransactionAmounts>
+                <sharesOwnedFollowingTransaction>
+                    <value>250680</value>
+                </sharesOwnedFollowingTransaction>
+            </postTransactionAmounts>
+            <ownershipNature>
+                <directOrIndirectOwnership>
+                    <value>I</value>
+                </directOrIndirectOwnership>
+                <natureOfOwnership>
+                    <value>Through AM Gestio, S.L.</value>
+                    <footnoteId id="F1"/>
+                </natureOfOwnership>
+            </ownershipNature>
+        </derivativeTransaction>
+    </derivativeTable>
+
+    <footnotes>
+        <footnote id="F1">Mr. Alonso is a director and major shareholder of AM Gestio, S.L., and as such, maintains voting and investment discretion with respect to the Class A Shares. As a result, Mr. Alonso may be deemed to share beneficial ownership of the securities held of record by AM Gestio, S.L. The address of Am Gestio, S.L. is Rosello n 224, 3A, Barcelona, Spain.</footnote>
+        <footnote id="F2">This exercise price of this warrant is 2.40 euros. The amount shown above is based on the foreign exchange rate as of the date of this filing.</footnote>
+        <footnote id="F3">The Warrant was granted to the Warrantholder as consideration for its equity commitment. Issuance of the Warrant fully satisfied the Company's warrant-delivery obligation under the commitment letter dated April 8, 2026.</footnote>
+    </footnotes>
+
+    <ownerSignature>
+        <signatureName>/s/ Natalia Davi as Attorney-in-Fact for Pedro Alonso Aguera</signatureName>
+        <signatureDate>2026-07-02</signatureDate>
+    </ownerSignature>
+</ownershipDocument>

@@ -1,0 +1,110 @@
+<?xml version="1.0"?>
+<ownershipDocument>
+
+    <schemaVersion>X0609</schemaVersion>
+
+    <documentType>4</documentType>
+
+    <periodOfReport>2026-03-31</periodOfReport>
+
+    <issuer>
+        <issuerCik>0001790169</issuerCik>
+        <issuerName>ZeroStack Corp.</issuerName>
+        <issuerTradingSymbol>ZSTK</issuerTradingSymbol>
+        <issuerForeignTradingSymbol></issuerForeignTradingSymbol>
+    </issuer>
+
+    <reportingOwner>
+        <reportingOwnerId>
+            <rptOwnerCik>0002093136</rptOwnerCik>
+            <rptOwnerName>Heinrich Michael</rptOwnerName>
+        </reportingOwnerId>
+        <reportingOwnerAddress>
+            <rptOwnerNonUSAddressFlag>true</rptOwnerNonUSAddressFlag>
+            <rptOwnerStreet1>C/O ZEROSTACK CORP.</rptOwnerStreet1>
+            <rptOwnerStreet2>40 KING STREET W., SUITE 2400</rptOwnerStreet2>
+            <rptOwnerCity>TORONTO</rptOwnerCity>
+            <rptOwnerNonUSStateTerritory></rptOwnerNonUSStateTerritory>
+            <rptOwnerCountry>A6</rptOwnerCountry>
+            <rptOwnerZipCode>M5H 3Y2</rptOwnerZipCode>
+            <rptOwnerStateDescription>ONTARIO, CANADA</rptOwnerStateDescription>
+        </reportingOwnerAddress>
+        <reportingOwnerRelationship>
+            <isDirector>true</isDirector>
+            <isOfficer>true</isOfficer>
+            <isTenPercentOwner>false</isTenPercentOwner>
+            <isOther>false</isOther>
+            <officerTitle>Executive Chairman</officerTitle>
+        </reportingOwnerRelationship>
+    </reportingOwner>
+
+    <aff10b5One>false</aff10b5One>
+
+    <derivativeTable>
+        <derivativeTransaction>
+            <securityTitle>
+                <value>Convertible Promissory Note</value>
+            </securityTitle>
+            <conversionOrExercisePrice>
+                <value>33.34</value>
+            </conversionOrExercisePrice>
+            <transactionDate>
+                <value>2026-03-31</value>
+            </transactionDate>
+            <transactionCoding>
+                <transactionFormType>4</transactionFormType>
+                <transactionCode>J</transactionCode>
+                <equitySwapInvolved>false</equitySwapInvolved>
+                <footnoteId id="F1"/>
+            </transactionCoding>
+            <transactionAmounts>
+                <transactionShares>
+                    <value>4902220</value>
+                </transactionShares>
+                <transactionPricePerShare>
+                    <footnoteId id="F2"/>
+                </transactionPricePerShare>
+                <transactionAcquiredDisposedCode>
+                    <value>D</value>
+                </transactionAcquiredDisposedCode>
+            </transactionAmounts>
+            <exerciseDate>
+                <value>2025-10-23</value>
+            </exerciseDate>
+            <expirationDate>
+                <value>2035-09-22</value>
+            </expirationDate>
+            <underlyingSecurity>
+                <underlyingSecurityTitle>
+                    <value>Common Shares</value>
+                </underlyingSecurityTitle>
+                <underlyingSecurityShares>
+                    <value>4902220</value>
+                </underlyingSecurityShares>
+            </underlyingSecurity>
+            <postTransactionAmounts>
+                <sharesOwnedFollowingTransaction>
+                    <value>0</value>
+                </sharesOwnedFollowingTransaction>
+            </postTransactionAmounts>
+            <ownershipNature>
+                <directOrIndirectOwnership>
+                    <value>I</value>
+                </directOrIndirectOwnership>
+                <natureOfOwnership>
+                    <value>Held by Zero Gravity Labs Inc., a corporation owned and controlled by the Reporting Person</value>
+                </natureOfOwnership>
+            </ownershipNature>
+        </derivativeTransaction>
+    </derivativeTable>
+
+    <footnotes>
+        <footnote id="F1">On March 31, 2026, the Issuer entered into a note settlement agreement (the &quot;Note Settlement Agreement&quot;) with Zero Gravity Labs Inc., a Delaware corporation (&quot;0G&quot;) pursuant to which the convertible promissory note (the &quot;Note&quot;) issued to 0G pursuant to the securities purchase agreement dated September 22, 2025, as amended on October 9, 2025, by and between the Issuer and 0G was settled.  The Note Settlement Agreement provides that upon payment by the Issuer to 0G on or before March 31, 2026, of 50,000,000 Tokens (as defined in the Note), the Issuer shall be deemed to have paid the entire Principal (as defined in the Note) and Interest (as defined in the  Note) of the Note in full and the Issuer shall have no further obligations under the Note and the Note shall be deemed to be satisfied.</footnote>
+        <footnote id="F2">Represents issuance of convertible promissory note to Zero Gravity Labs Inc., a Delaware corporation owned and controlled by the Reporting Person, in the principal amount of 50,000,000 0G bitcoin tokens.</footnote>
+    </footnotes>
+
+    <ownerSignature>
+        <signatureName>/s/ Dany Vaiman as attorney-in-fact for Michael Heinrich</signatureName>
+        <signatureDate>2026-04-02</signatureDate>
+    </ownerSignature>
+</ownershipDocument>

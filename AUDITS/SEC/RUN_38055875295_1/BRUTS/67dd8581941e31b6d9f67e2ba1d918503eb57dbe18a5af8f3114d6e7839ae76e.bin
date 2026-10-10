@@ -1,0 +1,180 @@
+<?xml version="1.0"?>
+<ownershipDocument>
+
+    <schemaVersion>X0609</schemaVersion>
+
+    <documentType>4</documentType>
+
+    <periodOfReport>2026-08-11</periodOfReport>
+
+    <issuer>
+        <issuerCik>0001409375</issuerCik>
+        <issuerName>ORION ENERGY SYSTEMS, INC.</issuerName>
+        <issuerTradingSymbol>OESX</issuerTradingSymbol>
+        <issuerForeignTradingSymbol></issuerForeignTradingSymbol>
+    </issuer>
+
+    <reportingOwner>
+        <reportingOwnerId>
+            <rptOwnerCik>0001681065</rptOwnerCik>
+            <rptOwnerName>Green Scott A.</rptOwnerName>
+        </reportingOwnerId>
+        <reportingOwnerAddress>
+            <rptOwnerNonUSAddressFlag>false</rptOwnerNonUSAddressFlag>
+            <rptOwnerStreet1>2210 WOODLAND DRIVE</rptOwnerStreet1>
+            <rptOwnerStreet2></rptOwnerStreet2>
+            <rptOwnerCity>MANITOWOC</rptOwnerCity>
+            <rptOwnerState>WI</rptOwnerState>
+            <rptOwnerZipCode>54220</rptOwnerZipCode>
+            <rptOwnerStateDescription></rptOwnerStateDescription>
+        </reportingOwnerAddress>
+        <reportingOwnerRelationship>
+            <isDirector>false</isDirector>
+            <isOfficer>true</isOfficer>
+            <isTenPercentOwner>false</isTenPercentOwner>
+            <isOther>false</isOther>
+            <officerTitle>President and COO</officerTitle>
+        </reportingOwnerRelationship>
+    </reportingOwner>
+
+    <aff10b5One>false</aff10b5One>
+
+    <nonDerivativeTable>
+        <nonDerivativeTransaction>
+            <securityTitle>
+                <value>Common Stock</value>
+            </securityTitle>
+            <transactionDate>
+                <value>2026-08-11</value>
+            </transactionDate>
+            <transactionCoding>
+                <transactionFormType>4</transactionFormType>
+                <transactionCode>A</transactionCode>
+                <equitySwapInvolved>false</equitySwapInvolved>
+                <footnoteId id="F1"/>
+            </transactionCoding>
+            <transactionAmounts>
+                <transactionShares>
+                    <value>9000</value>
+                </transactionShares>
+                <transactionPricePerShare>
+                    <value>0</value>
+                </transactionPricePerShare>
+                <transactionAcquiredDisposedCode>
+                    <value>A</value>
+                </transactionAcquiredDisposedCode>
+            </transactionAmounts>
+            <postTransactionAmounts>
+                <sharesOwnedFollowingTransaction>
+                    <value>129678</value>
+                    <footnoteId id="F2"/>
+                </sharesOwnedFollowingTransaction>
+            </postTransactionAmounts>
+            <ownershipNature>
+                <directOrIndirectOwnership>
+                    <value>D</value>
+                </directOrIndirectOwnership>
+            </ownershipNature>
+        </nonDerivativeTransaction>
+    </nonDerivativeTable>
+
+    <derivativeTable>
+        <derivativeTransaction>
+            <securityTitle>
+                <value>Stock Options (right to buy)</value>
+            </securityTitle>
+            <conversionOrExercisePrice>
+                <value>19.75</value>
+            </conversionOrExercisePrice>
+            <transactionDate>
+                <value>2026-08-11</value>
+            </transactionDate>
+            <transactionCoding>
+                <transactionFormType>4</transactionFormType>
+                <transactionCode>A</transactionCode>
+                <equitySwapInvolved>false</equitySwapInvolved>
+            </transactionCoding>
+            <transactionAmounts>
+                <transactionShares>
+                    <value>17500</value>
+                </transactionShares>
+                <transactionPricePerShare>
+                    <value>0</value>
+                </transactionPricePerShare>
+                <transactionAcquiredDisposedCode>
+                    <value>A</value>
+                </transactionAcquiredDisposedCode>
+            </transactionAmounts>
+            <exerciseDate>
+                <footnoteId id="F3"/>
+            </exerciseDate>
+            <expirationDate>
+                <value>2036-08-11</value>
+            </expirationDate>
+            <underlyingSecurity>
+                <underlyingSecurityTitle>
+                    <value>Common Stock</value>
+                </underlyingSecurityTitle>
+                <underlyingSecurityShares>
+                    <value>17500</value>
+                </underlyingSecurityShares>
+            </underlyingSecurity>
+            <postTransactionAmounts>
+                <sharesOwnedFollowingTransaction>
+                    <value>17500</value>
+                </sharesOwnedFollowingTransaction>
+            </postTransactionAmounts>
+            <ownershipNature>
+                <directOrIndirectOwnership>
+                    <value>D</value>
+                </directOrIndirectOwnership>
+            </ownershipNature>
+        </derivativeTransaction>
+        <derivativeHolding>
+            <securityTitle>
+                <value>Stock Options (right to buy)</value>
+            </securityTitle>
+            <conversionOrExercisePrice>
+                <value>6</value>
+            </conversionOrExercisePrice>
+            <exerciseDate>
+                <footnoteId id="F4"/>
+            </exerciseDate>
+            <expirationDate>
+                <value>2035-07-17</value>
+            </expirationDate>
+            <underlyingSecurity>
+                <underlyingSecurityTitle>
+                    <value>Common Stock</value>
+                </underlyingSecurityTitle>
+                <underlyingSecurityShares>
+                    <value>12500</value>
+                </underlyingSecurityShares>
+            </underlyingSecurity>
+            <postTransactionAmounts>
+                <sharesOwnedFollowingTransaction>
+                    <value>12500</value>
+                    <footnoteId id="F5"/>
+                </sharesOwnedFollowingTransaction>
+            </postTransactionAmounts>
+            <ownershipNature>
+                <directOrIndirectOwnership>
+                    <value>D</value>
+                </directOrIndirectOwnership>
+            </ownershipNature>
+        </derivativeHolding>
+    </derivativeTable>
+
+    <footnotes>
+        <footnote id="F1">Restricted stock granted to the reporting person under the Orion Energy Systems, Inc. 2016 Omnibus Incentive Plan. The restricted stock vests and becomes exercisable with respect to 1/3 of the restricted stock on each of August 11, 2027, 2028 and 2029, respectively.</footnote>
+        <footnote id="F2">On August 22, 2025, the issuer effected a 1-for-10 reverse stock split of the issued and outstanding shares of its common stock. Upon effectiveness of the reverse stock split, every 10 shares of common stock was automatically converted into one share of common stock, resulting in the reporting person's beneficial ownership of 1,235,036 less shares of common stock held directly. Additionally, the amount of common stock beneficially owned by the reporting person, on a post reverse stock split basis, has been adjusted to reflect the forfeiture of 16,548 performance shares for which performance conditions were not met.</footnote>
+        <footnote id="F3">Option to buy shares of common stock granted to the reporting person under the Orion Energy Systems, Inc. 2016 Omnibus Incentive Plan. This option was granted August 11, 2026 and becomes exercisable, if at all, in three equal increments if the average closing sale price of Orion Energy Systems, Inc.'s common stock, for five consecutive trading days during the three calendar years immediately following the date of the grant, equals or exceeds $30.00, $40.00 and $50.00, respectively, provided Mr. Green remains in Orion Energy Systems, Inc.'s employment until the applicable vesting date.</footnote>
+        <footnote id="F4">Option to buy shares of common stock granted to the reporting person under the Orion Energy Systems, Inc. 2016 Omnibus Incentive Plan. This option was granted July 18, 2025 and becomes exercisable, if at all, in three equal increments if the average closing sale price of Orion Energy Systems, Inc.'s common stock, for five consecutive trading days during the three calendar years immediately following the date of the grant, equals or exceeds $30.00, $40.00 and $50.00, respectively, provided Mr. Brodin remains in Orion Energy Systems, Inc.'s employment until the applicable vesting date.</footnote>
+        <footnote id="F5">On August 22, 2025, the issuer effected a 1-for-10 reverse stock split of the issued and outstanding shares of its common stock. Upon effectiveness of the reverse stock split, every 10 shares of common stock was automatically converted into one share of common stock, and the number of shares subject to the reporting person's option was divided by 10, such that the option is exercisable for 112,500 less shares of common stock. Additionally, proportionate equitable adjustments were made to the exercise price of the option and the vesting requirements for the performance-vesting portion of the option.</footnote>
+    </footnotes>
+
+    <ownerSignature>
+        <signatureName>/s/ Garrett F. Bishop, Attorney-in-Fact for Scott A. Green</signatureName>
+        <signatureDate>2026-08-12</signatureDate>
+    </ownerSignature>
+</ownershipDocument>
