@@ -19,6 +19,7 @@ def executer():
  if not {"Ticker","CIK","Concept","Source_officielle","Date_depot","Fin_periode","Valeur","Unite","Statut_comparabilite"}.issubset(faits.columns):
   raise RuntimeError("Schema faits SEC incomplet")
  reg=sec.set_index("Ticker")
+ dossiers_index=dossiers.set_index("Ticker")
  admis=set(dossiers["Ticker"])
  rows=[]
  for _,f in faits.iterrows():
@@ -30,7 +31,7 @@ def executer():
   statut="A_VERIFIER_IDENTITE_ET_DOCUMENT"
   if identite.get("CIK_verifie","NON")=="OUI" and identite.get("Statut_SEC")=="IDENTITE_VERIFIEE":
    statut="A_VERIFIER_CONTENU_ET_PERIODE"
-  rows.append({"Ticker":ticker,"Societe":dossiers.set_index("Ticker").loc[ticker].get("Societe",""),
+  rows.append({"Ticker":ticker,"Societe":dossiers_index.loc[ticker].get("Societe",""),
    "CIK":f["CIK"],"Bloc_SSI_cible":bloc,"Concept":f["Concept"],"Valeur":f["Valeur"],
    "Unite":f["Unite"],"Fin_periode":f["Fin_periode"],"Date_depot":f["Date_depot"],
    "Source_officielle":f["Source_officielle"],"Statut_preuve":statut,

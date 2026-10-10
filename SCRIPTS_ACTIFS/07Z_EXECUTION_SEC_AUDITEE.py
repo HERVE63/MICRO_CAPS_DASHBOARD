@@ -5,6 +5,7 @@ Une exécution bloquée produit aussi un manifeste ; elle n'est pas une collecte
 from pathlib import Path
 from datetime import datetime, timezone
 from io import BytesIO
+from types import SimpleNamespace
 import hashlib, importlib.util, json, os, re, shutil, subprocess, sys, time
 from urllib.request import urlopen
 import pandas as pd
@@ -91,6 +92,8 @@ def executer():
     if hasattr(mod,attr): setattr(mod,attr,travail/getattr(mod,attr).name)
    if name.startswith('07T_'): mod.SRC=travail/'UNIVERS_SEC_LOT.csv'
    if hasattr(mod,'urlopen'): mod.urlopen=collecter
+   # Le collecteur central impose le débit réseau ; les relectures locales n'attendent pas.
+   if hasattr(mod,'time'):mod.time=SimpleNamespace(sleep=lambda secondes:None)
    mod.executer()
    manifest['etapes'].append({'module':name,'statut':'EXECUTE'})
   sec=pd.read_csv(travail/'PREUVES_SEC_EDGAR_SSI.csv',keep_default_na=False)
