@@ -1,0 +1,243 @@
+{
+  "version": "SSI_V1.0_OCTOBRE_2026",
+  "source": "MICRO CAPS – Dossier complet de transmission – V1.0 – Octobre 2026.pdf, pages 2–3",
+  "admission_minimum": 65,
+  "notation_automatique": false,
+  "blocs": {
+    "B1": {
+      "maximum": 20,
+      "classes": [
+        [
+          0,
+          5,
+          "critique"
+        ],
+        [
+          6,
+          10,
+          "fragile"
+        ],
+        [
+          11,
+          15,
+          "acceptable"
+        ],
+        [
+          16,
+          18,
+          "solide"
+        ],
+        [
+          19,
+          20,
+          "très solide"
+        ]
+      ],
+      "preuves": [
+        "cash",
+        "dette",
+        "échéances",
+        "besoin de financement",
+        "runway si non rentable"
+      ]
+    },
+    "B2": {
+      "maximum": 15,
+      "classes": [
+        [
+          0,
+          4,
+          "pertes sans amélioration"
+        ],
+        [
+          5,
+          8,
+          "amélioration faible"
+        ],
+        [
+          9,
+          11,
+          "trajectoire crédible"
+        ],
+        [
+          12,
+          15,
+          "rentable ou forte inflexion"
+        ]
+      ],
+      "preuves": [
+        "marge brute",
+        "EBITDA/EBIT",
+        "résultat",
+        "FCF",
+        "évolution"
+      ]
+    },
+    "B3": {
+      "maximum": 15,
+      "classes": [
+        [
+          0,
+          4,
+          "contraction structurelle"
+        ],
+        [
+          5,
+          8,
+          "stable"
+        ],
+        [
+          9,
+          11,
+          "croissance correcte"
+        ],
+        [
+          12,
+          15,
+          "croissance, commandes et récurrence fortes et cohérentes"
+        ]
+      ],
+      "preuves": [
+        "CA",
+        "croissance organique si disponible",
+        "récurrence",
+        "backlog",
+        "clients"
+      ]
+    },
+    "B4": {
+      "maximum": 20,
+      "classes": [
+        [
+          0,
+          4,
+          "faible ou mal aligné"
+        ],
+        [
+          5,
+          9,
+          "moins de 1 % sans achats significatifs"
+        ],
+        [
+          10,
+          13,
+          "1–2 % ou exposition significative"
+        ],
+        [
+          14,
+          17,
+          "2–10 %"
+        ],
+        [
+          18,
+          20,
+          "plus de 10 % ou exposition fondatrice exceptionnelle, gouvernance saine requise"
+        ]
+      ],
+      "preuves": [
+        "actions réellement détenues",
+        "valeur exposée",
+        "achats et ventes",
+        "distinction options et actions gratuites"
+      ]
+    },
+    "B5": {
+      "maximum": 10,
+      "classes": [
+        [
+          0,
+          2,
+          "dilution toxique ou gouvernance faible"
+        ],
+        [
+          3,
+          5,
+          "risque élevé"
+        ],
+        [
+          6,
+          7,
+          "acceptable"
+        ],
+        [
+          8,
+          10,
+          "discipline capitalistique"
+        ]
+      ],
+      "preuves": [
+        "historique émissions",
+        "options",
+        "rachats",
+        "rémunération",
+        "auditeur"
+      ]
+    },
+    "B6": {
+      "maximum": 10,
+      "classes": [
+        [
+          0,
+          3,
+          "comptes tardifs ou incomplets"
+        ],
+        [
+          4,
+          6,
+          "utilisables"
+        ],
+        [
+          7,
+          8,
+          "bons"
+        ],
+        [
+          9,
+          10,
+          "transparents, récents et réguliers"
+        ]
+      ],
+      "preuves": [
+        "comptes audités ou réglementés",
+        "fréquence",
+        "cohérence"
+      ]
+    },
+    "B7": {
+      "maximum": 10,
+      "classes": [
+        [
+          0,
+          3,
+          "impraticable"
+        ],
+        [
+          4,
+          6,
+          "faible mais praticable"
+        ],
+        [
+          7,
+          8,
+          "correcte"
+        ],
+        [
+          9,
+          10,
+          "bonne pour l’univers"
+        ]
+      ],
+      "preuves": [
+        "cotation reconnue",
+        "volumes et turnover",
+        "spread si disponible"
+      ]
+    }
+  },
+  "regles": [
+    "Ne pas choisir la moyenne d'une plage pour remplacer une preuve manquante.",
+    "La note exacte et sa justification doivent être vérifiées et référencées.",
+    "Une donnée majeure ou éliminatoire manquante bloque l'admission.",
+    "Les règles verrouillées actuelles de mandat, frais et arbitrage priment sur les anciens états documentaires."
+  ]
+}
