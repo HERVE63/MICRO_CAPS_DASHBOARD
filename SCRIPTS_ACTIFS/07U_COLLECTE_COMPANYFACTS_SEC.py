@@ -70,14 +70,15 @@ def executer():
          "Fin_periode":f["end"],"Date_depot":f["filed"],
          "Formulaire":f["form"],"Accession":f.get("accn",""),
          "Exercice":f.get("fy",""),"Periode":f.get("fp",""),
-         "Source_officielle":url,"Date_collecte_UTC":datetime.now(timezone.utc).isoformat(),
+         "Source_officielle":url,"Date_collecte_UTC":globals().get('DATES_SOURCES',{}).get(url,datetime.now(timezone.utc).isoformat()),
+         "Date_extraction_UTC":datetime.now(timezone.utc).isoformat(),
          "Statut_preuve":"A_VERIFIER_IDENTITE_ET_PERIODE"})
         count+=1
    audits.append({"Ticker":ticker,"Statut":"FAITS_BRUTS_A_VERIFIER" if count else "AUCUN_FAIT_US_GAAP_OU_IFRS","Nb_faits":count})
   except Exception as exc:
    audits.append({"Ticker":ticker,"Statut":"ERREUR_SOURCE_"+type(exc).__name__,"Nb_faits":0})
   time.sleep(0.15)
- columns=["Ticker","CIK","Concept","Tag_SEC","Taxonomie_SEC","Valeur","Unite","Debut_periode","Fin_periode","Date_depot","Formulaire","Accession","Exercice","Periode","Source_officielle","Date_collecte_UTC","Statut_preuve"]
+ columns=["Ticker","CIK","Concept","Tag_SEC","Taxonomie_SEC","Valeur","Unite","Debut_periode","Fin_periode","Date_depot","Formulaire","Accession","Exercice","Periode","Source_officielle","Date_collecte_UTC","Date_extraction_UTC","Statut_preuve"]
  pd.DataFrame(rows,columns=columns).to_csv(OUT,index=False)
  pd.DataFrame(audits,columns=["Ticker","Statut","Nb_faits"]).to_csv(AUD,index=False)
  print("SEC companyfacts:",len(audits),"emetteurs",len(rows),"faits bruts; aucun SSI attribue")

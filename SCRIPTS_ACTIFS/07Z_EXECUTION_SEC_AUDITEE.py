@@ -36,7 +36,7 @@ def executer():
            'commit_declencheur':os.getenv('GITHUB_SHA',''),
            'statut':'EN_COURS','etapes':[],'notes_attribuees':0,'secret_contact_valide':False,
            'portefeuilles_modifies':False,'collecte_exhaustive':False}
- requetes=[];dernier=[0.0];cache={}
+ requetes=[];dernier=[0.0];cache={};dates_sources={}
  # Réutilisation uniquement des réponses du même jour UTC, sans supprimer les archives.
  # Chaque réponse est recontrôlée par SHA256 avant lecture.
  def charger_cache():
@@ -55,6 +55,7 @@ def executer():
    if not chemin.exists() or sha(chemin)!=source['sha256']:
     raise ValueError('CACHE_SEC_INTEGRITE_INVALIDE')
    data=chemin.read_bytes();(bruts/(source['sha256']+'.bin')).write_bytes(data)
+   dates_sources[url]=source['date_collecte_utc']
    requetes.append(dict(source,archive_cache=str(chemin.parent.parent.relative_to(BASE)),
                         date_relecture_utc=datetime.now(timezone.utc).isoformat()))
    return Reponse(data)
@@ -62,7 +63,8 @@ def executer():
   dernier[0]=time.monotonic()
   with urlopen(req,timeout=timeout) as resp: data=resp.read()
   digest=hashlib.sha256(data).hexdigest();(bruts/(digest+'.bin')).write_bytes(data)
-  requetes.append({'url':url,'sha256':digest,'date_collecte_utc':datetime.now(timezone.utc).isoformat()})
+  dates_sources[url]=datetime.now(timezone.utc).isoformat()
+  requetes.append({'url':url,'sha256':digest,'date_collecte_utc':dates_sources[url]})
   return Reponse(data)
  try:
   charger_cache()
@@ -88,6 +90,7 @@ def executer():
    spec=importlib.util.spec_from_file_location(name[:-3],BASE/'SCRIPTS_ACTIFS'/name)
    mod=importlib.util.module_from_spec(spec);spec.loader.exec_module(mod)
    mod.D=travail
+   mod.DATES_SOURCES=dates_sources
    for attr in ['SRC','OUT','AUD','DOS','SEC','FACT']:
     if hasattr(mod,attr): setattr(mod,attr,travail/getattr(mod,attr).name)
    if name.startswith('07T_'): mod.SRC=travail/'UNIVERS_SEC_LOT.csv'

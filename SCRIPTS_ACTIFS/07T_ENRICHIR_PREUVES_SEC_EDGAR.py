@@ -61,7 +61,7 @@ def executer():
   pays=str(r.get("Pays","")).strip().upper()
   # SEC n est pas une preuve universelle: verifier la correspondance emetteur.
   # Les tickers etrangers non apparies restent NON_COUVERT.
-  item={"Ticker":ticker,"Societe":r.get("Societe",""),"Date_collecte_UTC":datetime.now(timezone.utc).isoformat(),
+  item={"Ticker":ticker,"Societe":r.get("Societe",""),"Date_collecte_UTC":globals().get('DATES_SOURCES',{}).get(BASE+'/files/company_tickers.json',datetime.now(timezone.utc).isoformat()),
         "Source_registre":BASE+"/files/company_tickers.json",
         "CIK":"MANQUANTE","Statut_SEC":"NON_COUVERT","Depots": "[]","Nb_depots":0,
         "Methode_rapprochement":methode,"CIK_verifie":"NON","Identite_a_confirmer":"OUI"}
@@ -78,6 +78,7 @@ def executer():
    url=DATA+"/submissions/CIK"+cik+".json"
    try:
     sub=lire_json(url,agent)
+    item['Date_collecte_UTC']=globals().get('DATES_SOURCES',{}).get(url,datetime.now(timezone.utc).isoformat())
     if str(sub.get("cik","")).zfill(10)!=cik:
      raise ValueError("CIK_SUBMISSIONS_INCOHERENT")
     nom=str(sub.get("name","")).strip()

@@ -42,6 +42,9 @@ def test():
    assert m.executer()==0
   cached=json.loads((b/'AUDITS/SEC/RUN_CACHE_FIXTURE_1/MANIFESTE.json').read_text())
   assert cached['reponses_reutilisees']==5 and cached['reponses_reseau']==0
+  premier=pd.read_csv(out/'DONNEES/FAITS_FINANCIERS_SEC_SSI.csv')
+  relecture=pd.read_csv(b/'AUDITS/SEC/RUN_CACHE_FIXTURE_1/DONNEES/FAITS_FINANCIERS_SEC_SSI.csv')
+  assert premier.Date_collecte_UTC.tolist()==relecture.Date_collecte_UTC.tolist()
   source=json.loads((out/'SOURCES_BRUTES.json').read_text())[0]
   (out/'BRUTS'/(source['sha256']+'.bin')).write_bytes(b'CORROMPU')
   with patch.object(m,'BASE',b),patch.object(m,'urlopen',side_effect=AssertionError('Réseau interdit')),patch.dict(m.os.environ,dict(env,GITHUB_RUN_ID='CORRUPT_FIXTURE')):
