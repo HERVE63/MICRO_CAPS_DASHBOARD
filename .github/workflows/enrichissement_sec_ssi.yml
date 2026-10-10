@@ -41,6 +41,7 @@ jobs:
         if: always()
         run: |
           python -B SCRIPTS_ACTIFS/07AA_COLLECTE_DOCUMENTS_OFFICIELS.py
+          python -B SCRIPTS_ACTIFS/07AD_CONSOLIDER_COLLECTES_SEC.py
           python -B SCRIPTS_ACTIFS/07AB_BILAN_SELECTION_DOCUMENTEE.py
       - name: Isoler le compte rendu de cette exécution
         if: always()
@@ -64,7 +65,7 @@ jobs:
         run: |
           git config user.name 'github-actions[bot]'
           git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
-          git add AUDITS/SEC AUDITS/TESTS AUDITS/SOURCES_OFFICIELLES AUDITS/SELECTION
+          git add AUDITS/SEC AUDITS/SEC_CONSOLIDE AUDITS/TESTS AUDITS/SOURCES_OFFICIELLES AUDITS/SELECTION
           if ! git diff --cached --quiet; then
             git commit -m 'Audit SEC SSI : preuves et statut effectif'
             git pull --rebase origin main
