@@ -1,0 +1,66 @@
+{
+  "date_utc": "2026-10-10T12:41:52.087476+00:00",
+  "date_limite": "2026-10-10",
+  "commit": "0a43a707c910abaf960294d3ca4f4804d3cf1ff8",
+  "statut": "LOT_COLLECTE_A_VERIFIER",
+  "etapes": [
+    {
+      "module": "07T_ENRICHIR_PREUVES_SEC_EDGAR.py",
+      "statut": "EXECUTE"
+    },
+    {
+      "module": "07U_COLLECTE_COMPANYFACTS_SEC.py",
+      "statut": "EXECUTE"
+    },
+    {
+      "module": "07V_NORMALISER_FAITS_SEC.py",
+      "statut": "EXECUTE"
+    },
+    {
+      "module": "07W_RAPPROCHER_PREUVES_SEC_SSI.py",
+      "statut": "EXECUTE"
+    },
+    {
+      "module": "07X_INDEX_GOUVERNANCE_SEC.py",
+      "statut": "EXECUTE"
+    },
+    {
+      "module": "07Y_EXTRAIRE_FORM4_SEC.py",
+      "statut": "EXECUTE"
+    }
+  ],
+  "notes_attribuees": 0,
+  "secret_contact_valide": true,
+  "portefeuilles_modifies": false,
+  "collecte_exhaustive": false,
+  "univers_collecte": 1361,
+  "dossiers_US": 0,
+  "offset_US": 0,
+  "lot_US": 0,
+  "US_non_traitees_ce_lot": 0,
+  "statuts_SEC": {
+    "NON_COUVERT": 1361
+  },
+  "erreurs_sources": 0,
+  "integrite_entrees": "OK",
+  "fichiers_entrees_modifies": [],
+  "fin_utc": "2026-10-10T12:41:52.635633+00:00",
+  "fichiers": {
+    "BRUTS/a9595d33a34615553ee706c95458fff0bb9fec9642a9d61710f3e5dbd45ca23e.bin": "a9595d33a34615553ee706c95458fff0bb9fec9642a9d61710f3e5dbd45ca23e",
+    "DONNEES/AUDIT_RAPPROCHEMENT_SEC_SSI.csv": "19bd05c319e56fd448fffd488b82e63cdbd7432e4939401b971a39f020d80468",
+    "DONNEES/AUDIT_COMPARABILITE_SEC_SSI.csv": "39d7c255bd79e89d80aa01020e3b3e38ab5e95a03b0ca64515d6fdc29ae90f4c",
+    "DONNEES/AUDIT_TRANSACTIONS_DIRIGEANTS_SEC_SSI.csv": "97369fca202be10bd12ae26a282db6e346025fbc1aee9488673badec4a67870d",
+    "DONNEES/AUDIT_PREUVES_SEC_SSI.csv": "f09158ed87b83e91a019f3ec9a22ebd93d65ee2c9dab407e20d30999e5e19787",
+    "DONNEES/RAPPROCHEMENT_PREUVES_SEC_SSI.csv": "12304a3f0dda855aa81d56941dc28a0267c2f6a844542429e7e8d588e92a824b",
+    "DONNEES/UNIVERS_SEC_LOT.csv": "da5f194c5399027b714129d40cca710f77e8921250977c3b364d30659691101e",
+    "DONNEES/PREUVES_SEC_EDGAR_SSI.csv": "5b789452719e47d6fbf8a8529e87f7c9b0ffdb2d2d046a1074d9f9bcda463a88",
+    "DONNEES/FAITS_FINANCIERS_SEC_SSI.csv": "a0cf429e8a15e8c25deb59a2f12a4880fa4990a7e5658972b91e4d34eedc5c05",
+    "DONNEES/AUDIT_FAITS_FINANCIERS_SEC_SSI.csv": "290543b26bde233da6d473f48774e4f34c29aa38ca5040d284e7b6dc93eb10b1",
+    "DONNEES/FAITS_SEC_COMPARABLES_SSI.csv": "85bedb9e4ca9e685765af19262cecdf4f5fdd98562cf3b39cdb7e08e202de010",
+    "DONNEES/TRANSACTIONS_DIRIGEANTS_SEC_SSI.csv": "3566826fabfb8d4697a3810346f9edddd21c5924d96efa80b3e788504d50123b",
+    "DONNEES/PISTES_GOUVERNANCE_SEC_SSI.csv": "53cdd1b261a457502bf88813097c441a70e00ba25a03955d17ce0ceaa4de100f",
+    "DONNEES/DOSSIERS_SSI_A_QUALIFIER.csv": "da5f194c5399027b714129d40cca710f77e8921250977c3b364d30659691101e",
+    "DONNEES/AUDIT_GOUVERNANCE_SEC_SSI.csv": "b7ccb01b7772a79f95bc75a0d84b83e23d5943db8c8743e559b4b7d0d0d7b11a",
+    "DONNEES/UNIVERS_INVESTISSABLE_MICRO_CAPS.csv": "29ed72fe996bdbe61231650faaffdc6b990b4db3298a6cd9272c35c7726d8ca9"
+  }
+}
