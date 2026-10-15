@@ -152,6 +152,16 @@ def index_cik_sec(registre):
   ticker=str(r.get('ticker','')).upper();cik=str(r.get('cik_str','')).zfill(10)
   if ticker and cik.isdigit():index.setdefault(ticker,set()).add(cik)
  return index
+def resoudre_cik(code,fournisseur,mapping):
+ possibles=mapping.get(code.upper(),set())
+ f=str(fournisseur or '').strip()
+ f=f.zfill(10) if f.isdigit() and 0<int(f)<10**10 else ''
+ if len(possibles)==1:
+  cik=next(iter(possibles))
+  if f and f!=cik:raise RuntimeError('CIK_FOURNISSEUR_REGISTRE_SEC_DIVERGENT')
+  return cik,'TICKER_EXACT_REGISTRE_SEC'
+ if not possibles and f:return f,'CIK_FOURNISSEUR_A_VERIFIER'
+ return None,'CIK_NON_RESOLU_OU_AMBIGU'
 def compter_faits(obj,cik,asof):
  if str(obj.get('cik','')).zfill(10)!=str(cik).zfill(10):return {'Statut_companyfacts':'CIK_COMPANYFACTS_INCOHERENT','Nb_faits_financiers':0}
  spec=importlib.util.spec_from_file_location('tags_sec_us',BASE/'SCRIPTS_ACTIFS/07U_COLLECTE_COMPANYFACTS_SEC.py')
@@ -232,19 +242,16 @@ def executer():
      except RuntimeError as exc:
       if 'QUOTA_' in str(exc):raise
       row['Statut_fondamentaux_EODHD']=str(exc);g={};f={}
-    possibles=mapping.get(code.upper(),set())
-    fournisseur=str(g.get('CIK') or '').zfill(10)
-    if len(possibles)==1:
-     cik=next(iter(possibles));methode='TICKER_EXACT_REGISTRE_SEC'
-     if fournisseur.isdigit() and fournisseur!=cik:raise RuntimeError('CIK_FOURNISSEUR_REGISTRE_SEC_DIVERGENT')
-    elif not possibles and fournisseur.isdigit() and int(fournisseur)>0:cik=fournisseur;methode='CIK_FOURNISSEUR_A_VERIFIER'
-    else:
+    cik,methode=resoudre_cik(code,g.get('CIK'),mapping)
+    if cik is None:
      row.update(Statut_origine='CIK_NON_RESOLU_OU_AMBIGU',Statut_companyfacts='IDENTITE_A_COMPLETER',Nb_faits_financiers=0)
      dossiers.append(row);continue
     origine=profil_sec(cik,agent,client,profils)
     row.update(CIK=cik,Methode_CIK=methode,ISIN=g.get('ISIN') or r['ISIN_catalogue'],Fondamentaux_EODHD_presents=bool(f.get('Financials')),**origine)
     row['Lien_ticker_CIK']='CONCORDANCE_EXACTE_SEC' if code.upper() in [str(t).upper() for t in origine.get('Tickers_SEC',[])] else 'A_VERIFIER'
-    if origine.get('Statut_origine')=='PISTE_US_CONCORDANTE':
+    # Collecter aussi les dépôts des émetteurs étrangers ou d'origine à clarifier.
+    # Leur origine n'est pas un motif pour perdre des comptes disponibles sur le marché US.
+    if origine.get('Statut_origine')!='CIK_INCOHERENT':
      if cik not in faits_par_cik:
       url='https://data.sec.gov/api/xbrl/companyfacts/CIK'+cik+'.json'
       try:
@@ -263,7 +270,7 @@ def executer():
    if len(dossiers)%100==0:print('EODHD :',len(dossiers),'/',len(candidats),'dossiers traités',flush=True)
   client.archiver('DOSSIERS_EODHD_A_VERIFIER',dossiers)
   # Métadonnées des preuves SEC, sans données financières EODHD en clair.
-  cols=['Ticker_US','CIK','Nom_SEC','Methode_CIK','Statut_origine','Lien_ticker_CIK','Statut_companyfacts','Nb_faits_financiers','Dernier_depot_financier','Source_origine_URL','Source_companyfacts_URL']
+  cols=['Ticker_US','CIK','Nom_SEC','Methode_CIK','Statut_origine','Lien_ticker_CIK','Statut_companyfacts','Nb_faits_financiers','Dernier_depot_financier','Source_origine_URL','Source_companyfacts_URL','Statut_collecte','Type_erreur_SEC','Erreur_source']
   pd.DataFrame(dossiers).reindex(columns=cols).to_csv(out/'COUVERTURE_PREUVES_SEC.csv',index=False)
   us={r['CIK'] for r in dossiers if r.get('Statut_origine')=='PISTE_US_CONCORDANTE'}
   couverts={r['CIK'] for r in dossiers if r.get('Statut_origine')=='PISTE_US_CONCORDANTE' and r.get('Nb_faits_financiers',0)>0}
@@ -272,7 +279,9 @@ def executer():
    pistes_emetteurs_US=sum(r.get('Statut_origine')=='PISTE_US_CONCORDANTE' for r in dossiers),
    emetteurs_US_distincts=len(us),emetteurs_US_avec_faits_SEC=len(couverts),
    faits_SEC_bruts=sum(r.get('Nb_faits_financiers',0) for r in faits_par_cik.values()),
-   seuil_US_50pct=math.ceil(len(us)*.5),cible_US_90pct=math.ceil(len(us)*.9),SSI_evaluables_valides=0,
+   seuil_US_50pct=math.ceil(len(us)*.5) if us else None,cible_US_90pct=math.ceil(len(us)*.9) if us else None,SSI_evaluables_valides=0,
+   echecs_collecte_identite=sum(bool(r.get('Statut_collecte')) or r.get('Statut_origine')=='SOURCE_SEC_A_COMPLETER' for r in dossiers),
+   selection_finale_autorisee=False,
    repartition_origine={k:int(v) for k,v in pd.Series([r.get('Statut_origine','COLLECTE_INCOMPLETE') for r in dossiers],dtype=str).value_counts().items()},
    recensement_termine=True,statut='RECENSEMENT_FOURNISSEUR_TERMINE_IDENTITES_ET_PREUVES_A_VERIFIER')
  except Exception as exc:
@@ -286,4 +295,4 @@ def executer():
   (out/'MANIFESTE.json').write_text(json.dumps(bilan,ensure_ascii=False,indent=2)+'\n')
  print(json.dumps(bilan,ensure_ascii=False));return bilan
 if __name__=='__main__':
- b=executer();sys.exit(0 if b['recensement_termine'] and not b.get('echecs_fondamentaux') else 1)
+ b=executer();sys.exit(0 if b['recensement_termine'] and not b.get('echecs_fondamentaux') and not b.get('echecs_collecte_identite') else 1)

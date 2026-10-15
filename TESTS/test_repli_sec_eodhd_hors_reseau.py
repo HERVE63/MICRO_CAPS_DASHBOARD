@@ -8,6 +8,13 @@ m=importlib.util.module_from_spec(s);s.loader.exec_module(m)
 def test():
  mapping=m.index_cik_sec({'0':{'ticker':'AP','cik_str':1},'1':{'ticker':'AP','cik_str':2},'2':{'ticker':'P','cik_str':3}})
  assert mapping['AP']=={'0000000001','0000000002'} and mapping['P']=={'0000000003'}
+ for absent in [None,'','0','0000000000']:
+  assert m.resoudre_cik('P',absent,mapping)==('0000000003','TICKER_EXACT_REGISTRE_SEC')
+ assert m.resoudre_cik('AP',None,mapping)[0] is None
+ assert m.resoudre_cik('INCONNU',None,mapping)[0] is None
+ try:m.resoudre_cik('P','2',mapping)
+ except RuntimeError as e:assert 'DIVERGENT' in str(e)
+ else:raise AssertionError('Conflit CIK réel ignoré')
  values=[{'form':'10-Q','filed':'2026-08-01','end':'2026-06-30','val':10},
          {'form':'10-Q','filed':'2026-11-01','end':'2026-09-30','val':20},
          {'form':'10-Q','filed':'2026-08-01','end':'2026-12-31','val':30}]
