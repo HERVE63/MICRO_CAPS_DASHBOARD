@@ -13,7 +13,7 @@ jobs:
       - uses: actions/checkout@v4
       - name: Vérifier la disponibilité de la clé sans l'afficher
         env:
-          EODHD_API_KEY: ${{ secrets.EODHD_API_KEY }}
+          EODHD_API_KEY: ${{ secrets.EODHD_API_KEY || secrets.EODH_API_KEY }}
         run: |
           python - <<'PY'
           import os,json,pathlib,datetime
