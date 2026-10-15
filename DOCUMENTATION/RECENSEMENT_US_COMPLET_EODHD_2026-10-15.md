@@ -39,6 +39,8 @@ Le workflow [38763331997](https://github.com/HERVE63/MICRO_CAPS_DASHBOARD/action
 
 La variable portant ce nom est référencée par le workflow CPI, consulté en lecture seule. Aucun fichier ni secret de CPI n'a été modifié. Un secret GitHub chiffré d'un autre dépôt ne peut pas être relu par ce connecteur pour le recopier.
 
+Le [lancement réel 38764364040](https://github.com/HERVE63/MICRO_CAPS_DASHBOARD/actions/runs/38764364040) exécute le code publié : **18 fichiers de tests réussis**, contrôle de chiffrement réussi, puis arrêt explicite `EODHD_API_KEY_ABSENTE_DU_DEPOT_MICRO_CAPS`. Le T0 et les entrées sont contrôlés avec succès ; les audits sont sauvegardés malgré cet arrêt. Le bilan effectif est `AUDITS/RECENSEMENT_US_EODHD/20261015T155458468548Z/MANIFESTE.json`. Le workflow autonome de [tests 38764364129](https://github.com/HERVE63/MICRO_CAPS_DASHBOARD/actions/runs/38764364129) est également réussi. Le test de pagination porte sur 1 400 titres fictifs, explicitement des données de test ; ce n'est pas un résultat de recensement du marché.
+
 Pour ouvrir l'accès au collecteur prêt à exécuter, ajouter la clé existante en secret de dépôt `EODHD_API_KEY` dans MICRO_CAPS_DASHBOARD, puis lancer le workflow **MICRO CAPS - RECENSEMENT US COMPLET EODHD**. La clé ne doit pas être collée dans la conversation.
 
 ## Couverture scientifique
