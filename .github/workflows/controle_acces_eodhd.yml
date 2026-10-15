@@ -1,0 +1,34 @@
+name: MICRO CAPS - CONTROLE ACCES EODHD
+on:
+  push:
+    branches: [main]
+    paths: ['.github/workflows/controle_acces_eodhd.yml']
+  workflow_dispatch:
+permissions:
+  contents: write
+jobs:
+  acces:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Vérifier la disponibilité de la clé sans l'afficher
+        env:
+          EODHD_API_KEY: ${{ secrets.EODHD_API_KEY }}
+        run: |
+          python - <<'PY'
+          import os,json,pathlib,datetime
+          key=os.environ.get('EODHD_API_KEY','').strip()
+          out=pathlib.Path('AUDITS/ACCES_EODHD')/('RUN_'+os.environ['GITHUB_RUN_ID'])
+          out.mkdir(parents=True,exist_ok=False)
+          result={'date_utc':datetime.datetime.now(datetime.timezone.utc).isoformat(),'secret_EODHD_API_KEY_disponible':bool(key),'cle_affichee':False,'CPI_modifie':False,'recensement_execute':False}
+          (out/'STATUT.json').write_text(json.dumps(result,indent=2)+'\n')
+          print(json.dumps(result))
+          PY
+      - name: Sauvegarder uniquement le statut non sensible
+        run: |
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add AUDITS/ACCES_EODHD
+          git commit -m 'Contrôle de disponibilité EODHD dans MICRO CAPS'
+          git pull --rebase origin main
+          git push origin main
