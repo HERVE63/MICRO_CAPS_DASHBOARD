@@ -65,7 +65,7 @@ def executer():
     obj=json.loads(f.read_bytes());adr=obj.get('addresses',{}).get('business',{}) or {}
     row.update(Statut_origine=classer(obj,cik),Nom_SEC=obj.get('name',''),
        Etat_immatriculation_SEC=obj.get('stateOfIncorporation',''),Etat_adresse_activite_SEC=adr.get('stateOrCountry',''),
-       Tickers_SEC='|'.join(obj.get('tickers',[])),SIC=obj.get('sic',''),Source_URL=src['url'],
+       Tickers_SEC='|'.join(obj.get('tickers',[])),SIC=str(obj.get('sic') or ''),Secteur_SEC=obj.get('sicDescription',''),Source_URL=src['url'],
        Date_source_UTC=src['date_collecte_utc'],Fichier_brut=str(f.relative_to(BASE)),SHA256=src['sha256'])
     bruts[str(f.relative_to(BASE))]=src['sha256']
   rows.append(row)
@@ -78,8 +78,11 @@ def executer():
  result.to_csv(out/'COUVERTURE_ORIGINE_1361.csv',index=False)
  us.to_csv(out/'PISTES_US_PAR_COTATION.csv',index=False)
  emit.to_csv(out/'UNIVERS_US_PROVISOIRE.csv',index=False)
+ secteurs=emit.groupby(['SIC','Secteur_SEC'],dropna=False).agg(Emetteurs_pistes=('CIK','size'),Evaluables_SSI=('SSI_evaluable','sum')).reset_index()
+ secteurs['Couverture_SSI_pct']=100*secteurs.Evaluables_SSI/secteurs.Emetteurs_pistes
+ secteurs.to_csv(out/'COUVERTURE_SECTORIELLE_US.csv',index=False)
  bilan={'date_utc':now.isoformat(),'commit':subprocess.check_output(['git','rev-parse','HEAD'],cwd=BASE,text=True).strip(),
-  'dossiers_initials':len(d),'index_SEC_source':str(idx.relative_to(BASE)),
+  'dossiers_initials':len(d),'index_SEC_source':str(idx.relative_to(BASE)),'source_script_SHA256':sha(Path(__file__)),
   'repartition_origine':result.Statut_origine.value_counts().to_dict(),'cotations_pistes_US':len(us),
   'emetteurs_US_provisoires':n,'emetteurs_US_evaluables_SSI':valid,
   'seuil_minimum_US_50pct':math.ceil(n*.5),'cible_US_90pct':math.ceil(n*.9),

@@ -54,7 +54,8 @@ def executer():
   choix=choisir(obj,limite)
   for form,selection in choix.items():
    row={'CIK':r.CIK,'Ticker_cotation':r.Ticker_cotation,'Nom_SEC':r.Nom_SEC,'Formulaire':form,
-        'Statut_identite':'A_VERIFIER_COTATION_EMETTEUR','Notes_attribuees':0,'Source_profil':r.Fichier_brut}
+        'Statut_identite':'A_VERIFIER_COTATION_EMETTEUR','Notes_attribuees':0,'Source_profil':r.Fichier_brut,
+        'Profil_SHA256':r.SHA256,'Date_profil_UTC':r.get('Date_source_UTC','')}
    if selection is None:
     row.update(Statut='DOCUMENT_NON_REFERENCE_DANS_INDEX');rows.append(row);continue
    row.update(selection)
@@ -99,7 +100,7 @@ def executer():
  couverture['Trois_documents_collectes']=couverture[FORMES].all(axis=1)
  couverture['SSI_evaluable']=False # Ce collecteur ne vérifie ni les notes ni le registre de preuves.
  couverture.to_csv(out/'COUVERTURE_DOCUMENTAIRE_US.csv',index=False)
- bilan={'date_utc':now.isoformat(),'date_limite':limite,'univers_source':str(p.relative_to(BASE)),
+ bilan={'date_utc':now.isoformat(),'date_limite':limite,'univers_source':str(p.relative_to(BASE)),'source_script_SHA256':sha(Path(__file__)),
   'emetteurs_US_provisoires':len(us),'documents_attendus':len(us)*len(FORMES),
   'documents_collectes':int(docs.Statut.eq('DOCUMENT_COLLECTE_A_VERIFIER').sum()),
   'sources_bloquees':int(docs.Statut.eq('BLOQUE_SOURCE').sum()),

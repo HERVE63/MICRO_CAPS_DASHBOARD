@@ -29,6 +29,9 @@ jobs:
         env:
           SEC_USER_AGENT: ${{ secrets.SEC_USER_AGENT }}
         run: python -B SCRIPTS_ACTIFS/07AF_COLLECTER_DOCUMENTS_US.py
+      - name: Contrôler les dates, empreintes et CIK dans les documents
+        if: always()
+        run: python -B SCRIPTS_ACTIFS/07AG_CONTROLER_DOCUMENTS_US.py
       - name: Contrôle du T0
         if: always()
         run: |
@@ -42,6 +45,7 @@ jobs:
           path: |
             AUDITS/UNIVERS_US/
             AUDITS/DOCUMENTS_US/
+            AUDITS/CONTROLE_DOCUMENTS_US/
             AUDITS/TESTS/RESULTATS_TESTS.json
           retention-days: 90
       - name: Sauvegarder les audits sans modifier les dossiers
@@ -55,8 +59,8 @@ jobs:
           fi
           git config user.name 'github-actions[bot]'
           git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
-          mkdir -p AUDITS/UNIVERS_US AUDITS/DOCUMENTS_US
-          git add AUDITS/UNIVERS_US AUDITS/DOCUMENTS_US AUDITS/TESTS
+          mkdir -p AUDITS/UNIVERS_US AUDITS/DOCUMENTS_US AUDITS/CONTROLE_DOCUMENTS_US
+          git add AUDITS/UNIVERS_US AUDITS/DOCUMENTS_US AUDITS/CONTROLE_DOCUMENTS_US AUDITS/TESTS
           if ! git diff --cached --quiet; then
             git commit -m 'Audit du premier univers US et documents primaires collectés'
             git pull --rebase origin main

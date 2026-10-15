@@ -14,9 +14,15 @@ Sur ce premier périmètre provisoire de 172 émetteurs, le minimum de 50 % corr
 
 Les index SEC archivés référencent les trois types de documents pour les 172 pistes : 10-K (annuel), 10-Q (trimestriel), DEF 14A (gouvernance, actionnariat et rémunérations). **Une référence ne prouve pas un téléchargement réussi.**
 
+**Réception effective :** le [workflow 38759384293](https://github.com/HERVE63/MICRO_CAPS_DASHBOARD/actions/runs/38759384293) s'est terminé avec succès le 15 octobre : **516 documents sur 516 collectés**, zéro source bloquée, trois pièces pour chacun des 172 émetteurs provisoires. Les 16 fichiers de tests ont passé la réception avant collecte ; le contrôle du T0 et l'absence de modification des dossiers et sauvegardes ont réussi. Le commit de sauvegarde est `c408242`.
+
+Les pièces sont conservées dans `AUDITS/DOCUMENTS_US/20261015T152042462891Z/` (manifestes, audit CSV et fichiers bruts). Le périmètre exécuté est dans `AUDITS/UNIVERS_US/20261015T152040768212Z/`. Les profils utilisés proviennent des réponses SEC datées du 10 octobre ; les dates des documents restent celles de leurs dépôts. Ce premier passage ne revendique pas un index SEC rafraîchi au 15 octobre.
+
 Le module `07AF_COLLECTER_DOCUMENTS_US.py` sélectionne le dépôt le plus récent de chaque type, uniquement parmi les dates connues à la date de collecte. Les noms de documents et accessions proviennent du profil SEC brut dont l'empreinte et le CIK sont contrôlés. Il télécharge les fichiers primaires avec le contact SEC du dépôt, limite les requêtes, contrôle les redirections et refuse les pages de blocage. Chaque réponse est conservée avec SHA-256, URL, date de dépôt, date de collecte, CIK et statut. Les fichiers déjà archivés sont réutilisés après vérification de leur empreinte, en conservant leur date originale.
 
 Le workflow `univers_us_documente.yml` exécute réellement les tests, le cadrage puis la collecte ; il contrôle le T0 et l'absence de modification des dossiers et sauvegardes. Les audits sont conservés même en cas d'échec. Un refus de source garde une trace et fait échouer l'étape de collecte.
+
+Le contrôle `07AG_CONTROLER_DOCUMENTS_US.py` vérifie ensuite les empreintes, les dates et le CIK iXBRL quand il figure dans le document. Un CIK absent dans un proxy reste à relire ; il n'est pas transformé en concordance. Une concordance du CIK du dépôt ne valide toujours pas la cotation allemande ni les notes SSI. L'âge des dépôts est conservé pour la revue de fraîcheur, sans seuil d'exclusion inventé.
 
 ## Mesures à ne pas confondre
 
