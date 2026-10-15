@@ -1,0 +1,64 @@
+name: MICRO CAPS - PREMIER UNIVERS US DOCUMENTE
+on:
+  push:
+    branches: [main]
+    paths: ['.github/workflows/univers_us_documente.yml']
+  workflow_dispatch:
+permissions:
+  contents: write
+concurrency:
+  group: microcaps-us-documente
+  cancel-in-progress: false
+jobs:
+  documents-us:
+    runs-on: ubuntu-latest
+    timeout-minutes: 90
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: main
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - run: pip install pandas
+      - name: Tests hors réseau et intégrité des entrées
+        run: python -B TESTS/executer_tests.py
+      - name: Cadrer les pistes US sans valider les identités
+        run: python -B SCRIPTS_ACTIFS/07AE_CADRER_UNIVERS_US.py
+      - name: Archiver les rapports annuels, trimestriels et de gouvernance
+        env:
+          SEC_USER_AGENT: ${{ secrets.SEC_USER_AGENT }}
+        run: python -B SCRIPTS_ACTIFS/07AF_COLLECTER_DOCUMENTS_US.py
+      - name: Contrôle du T0
+        if: always()
+        run: |
+          python -B SCRIPTS_ACTIFS/07AC_CONTROLER_T0.py
+          git diff --exit-code -- DONNEES SAUVEGARDES
+      - name: Préserver les résultats même en cas d'échec
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: univers-us-${{ github.run_id }}-${{ github.run_attempt }}
+          path: |
+            AUDITS/UNIVERS_US/
+            AUDITS/DOCUMENTS_US/
+            AUDITS/TESTS/RESULTATS_TESTS.json
+          retention-days: 90
+      - name: Sauvegarder les audits sans modifier les dossiers
+        if: always()
+        run: |
+          rapport="AUDITS/TESTS/RUN_${GITHUB_RUN_ID}_${GITHUB_RUN_ATTEMPT}"
+          if [ -f AUDITS/TESTS/RESULTATS_TESTS.json ]; then
+            mkdir -p "$rapport"
+            cp AUDITS/TESTS/RESULTATS_TESTS.json "$rapport/RESULTATS_TESTS.json"
+            git restore --worktree AUDITS/TESTS/RESULTATS_TESTS.json
+          fi
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          mkdir -p AUDITS/UNIVERS_US AUDITS/DOCUMENTS_US
+          git add AUDITS/UNIVERS_US AUDITS/DOCUMENTS_US AUDITS/TESTS
+          if ! git diff --cached --quiet; then
+            git commit -m 'Audit du premier univers US et documents primaires collectés'
+            git pull --rebase origin main
+            git push origin main
+          fi
