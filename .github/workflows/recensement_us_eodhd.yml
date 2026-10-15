@@ -27,7 +27,7 @@ jobs:
         run: python -B TESTS/verifier_chiffrement_eodhd.py
       - name: Recensement catalogue américain complet et fondamentaux
         env:
-          EODHD_API_KEY: ${{ secrets.EODHD_API_KEY }}
+          EODHD_API_KEY: ${{ secrets.EODHD_API_KEY || secrets.EODH_API_KEY }}
           SEC_USER_AGENT: ${{ secrets.SEC_USER_AGENT }}
         run: python -B SCRIPTS_ACTIFS/07AH_RECENSER_MICROCAPS_US_EODHD.py
       - name: Intégrité du T0 et des dossiers
