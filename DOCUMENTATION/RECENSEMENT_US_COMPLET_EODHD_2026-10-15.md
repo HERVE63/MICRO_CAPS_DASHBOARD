@@ -13,8 +13,10 @@ L'objectif est de recenser l'ensemble des microcaps du marché américain dispos
 3. Obtient le dernier cours EUR/USD disponible avant le jour de collecte et conserve sa date. La tranche de **50 à 300 M€** est convertie en USD pour interroger le fournisseur, puis contrôlée de nouveau en EUR dossier par dossier.
 4. Interroge le screener sur toute la tranche. Une requête saturant 1 000 résultats est subdivisée en tranches de capitalisation disjointes, jusqu'à obtenir des pages terminales. Aucun plafond 172, Top100 ou Top1000 n'est accepté comme recensement exhaustif. Les doublons de pagination et la saturation d'une valeur unique bloquent l'achèvement.
 5. Contrôle les types d'instruments, devises, dates et capitalisations. Les cas ambigus restent distincts des rejets financiers ; aucun filtre de rentabilité, croissance ou momentum arbitraire n'est ajouté au recensement.
-6. Collecte les fondamentaux complets des candidats avec l'abonnement, si les droits et quotas le permettent, et contrôle le code du titre retourné. Une absence de droit HTTP 401/403 arrête la collecte plutôt que de répéter le même refus sur tous les titres.
+6. Contrôle l'accès aux fondamentaux EODHD avec AAPL.US, puis collecte les fondamentaux complets des candidats si les droits et quotas le permettent. Un refus HTTP 401/403 sur ce contrôle déclenche le repli vers la SEC, sans répéter le refus sur tous les titres.
 7. Distingue **marché de cotation US** et **origine de l'émetteur**. Le champ EODHD `General.CountryName` décrit le pays de la place selon le glossaire fournisseur : il ne valide donc pas l'origine américaine. Les CIK disponibles sont rapprochés des profils officiels SEC ; immatriculation, adresse et type d'émetteur sont contrôlés avec le module d'origine déjà testé. Les cas sans preuve restent à clarifier.
+8. Rapproche les tickers du registre officiel SEC, sans recherche approximative ni exclusion fondée sur une lettre du ticker. Un CIK fournisseur vide ou nul n'est pas une contradiction ; un CIK positif réellement divergent bloque le rapprochement. Les `companyfacts` sont recherchés pour tous les CIK résolus, y compris les émetteurs étrangers ou d'origine à préciser.
+9. Après la collecte, `07AI_RACCORDER_COMPTES_US_SSI.py` relit les seules archives financières officielles SEC, vérifie leurs empreintes et réutilise réellement 07U, 07V et 07W : extraction, contrôle des périodes/unités et rapprochement documentaire avec les blocs SSI. Les sorties sont isolées dans `AUDITS/QUALIFICATION_US/`. Les candidats non documentés restent dans le tableau de couverture. Aucun fichier de données de production, preuve humaine ou portefeuille n'est écrasé.
 
 Les fondamentaux EODHD sont une source fournisseur secondaire. Leur collecte ne vérifie pas automatiquement les sept blocs SSI, ne transforme pas un pourcentage d'insiders en dirigeants investis vérifiés et ne produit aucune admission.
 
@@ -33,30 +35,33 @@ Références techniques primaires :
 - https://eodhd.com/financial-apis/user-api
 - https://eodhd.com/financial-apis/api-limits
 
-## Contrôle d'accès effectivement exécuté
+## Contrôles d'accès et recensement effectivement exécutés
 
-Le workflow [38763331997](https://github.com/HERVE63/MICRO_CAPS_DASHBOARD/actions/runs/38763331997) confirme : **`EODHD_API_KEY` n'est pas disponible dans MICRO_CAPS_DASHBOARD**. Le statut est sauvegardé dans `AUDITS/ACCES_EODHD/RUN_38763331997/STATUT.json`. Aucun résultat EODHD ni nombre total de microcaps US n'est donc annoncé à ce stade.
+Le blocage initial de clé absente est conservé dans [38763331997](https://github.com/HERVE63/MICRO_CAPS_DASHBOARD/actions/runs/38763331997) et `AUDITS/ACCES_EODHD/RUN_38763331997/STATUT.json`. L'exécution [38764364040](https://github.com/HERVE63/MICRO_CAPS_DASHBOARD/actions/runs/38764364040) avait effectivement passé 18 fichiers de tests puis arrêté le collecteur sur cette absence. Ces anciens échecs ne décrivent plus l'état d'accès actuel.
 
-La variable portant ce nom est référencée par le workflow CPI, consulté en lecture seule. Aucun fichier ni secret de CPI n'a été modifié. Un secret GitHub chiffré d'un autre dépôt ne peut pas être relu par ce connecteur pour le recopier.
+Le secret créé dans MICRO_CAPS porte le nom `EODH_API_KEY`. Les deux workflows d'accès et de collecte acceptent désormais ce nom ainsi que `EODHD_API_KEY`, tout en transmettant au script la variable canonique `EODHD_API_KEY`. La première clé correspondait à une limite de 20 appels ; après remplacement par l'utilisateur, l'abonnement renvoie une limite de **100 000 crédits par jour**. Aucun fichier ni secret CPI ou Assurance-Vie n'a été modifié.
 
-Le [lancement réel 38764364040](https://github.com/HERVE63/MICRO_CAPS_DASHBOARD/actions/runs/38764364040) exécute le code publié : **18 fichiers de tests réussis**, contrôle de chiffrement réussi, puis arrêt explicite `EODHD_API_KEY_ABSENTE_DU_DEPOT_MICRO_CAPS`. Le T0 et les entrées sont contrôlés avec succès ; les audits sont sauvegardés malgré cet arrêt. Le bilan effectif est `AUDITS/RECENSEMENT_US_EODHD/20261015T155458468548Z/MANIFESTE.json`. Le workflow autonome de [tests 38764364129](https://github.com/HERVE63/MICRO_CAPS_DASHBOARD/actions/runs/38764364129) est également réussi. Le test de pagination porte sur 1 400 titres fictifs, explicitement des données de test ; ce n'est pas un résultat de recensement du marché.
+La deuxième tentative de [38770708991](https://github.com/HERVE63/MICRO_CAPS_DASHBOARD/actions/runs/38770708991), audit `20261015T165157408909Z`, a effectivement recensé :
 
-Pour ouvrir l'accès au collecteur prêt à exécuter, ajouter la clé existante en secret de dépôt `EODHD_API_KEY` dans MICRO_CAPS_DASHBOARD, puis lancer le workflow **MICRO CAPS - RECENSEMENT US COMPLET EODHD**. La clé ne doit pas être collée dans la conversation.
+| Contrôle | Résultat observé |
+|---|---:|
+| Inscriptions du catalogue US actif EODHD, tous instruments | 50 997 |
+| Actions ordinaires du catalogue | 17 805 |
+| Résultats du screener dans les tranches interrogées | 2 674 |
+| Cotations ordinaires conservées dans la tranche 50–300 M€ | **2 490** |
+| Cas hors bande ou à revoir | 184 |
+| EUR/USD utilisé | 1,11945 au 14 octobre 2026 |
+
+Ces nombres constituent un recensement fournisseur au 15 octobre, **pas une reconstitution de l'univers au T0 du 1er octobre**, ni un nombre d'émetteurs américains uniques validés. Les classes d'actions et les origines restent à rapprocher. Les 184 cas écartés du périmètre mécanique ne sont pas des rejets pour mauvaise qualité financière.
+
+L'API des fondamentaux EODHD renvoie HTTP 403, confirmé également sur le contrôle AAPL.US. Ce droit d'accès n'est donc pas supposé acquis malgré la limite de 100 000 crédits. La SEC reste la source officielle de repli, sans achat d'extension d'abonnement.
+
+L'exécution [38773567471](https://github.com/HERVE63/MICRO_CAPS_DASHBOARD/actions/runs/38773567471) a fini techniquement en vert mais produit **zéro dossier SEC** : un CIK fournisseur manquant était transformé en zéro puis comparé à tort au CIK officiel. Ce résultat est invalidé comme preuve d'enrichissement. La correction `f81076835584705e5813e94522b91e79e5ece917` ajoute la régression correspondante, rend les erreurs visibles et empêche ces erreurs d'identité de produire un succès silencieux. La reprise effective est [38774469065](https://github.com/HERVE63/MICRO_CAPS_DASHBOARD/actions/runs/38774469065).
+
+Le raccordement est publié dans `ea3cf8f5fb31179fc69b7d2754fcfc6c78a2a5d9`. La réception [38775166167](https://github.com/HERVE63/MICRO_CAPS_DASHBOARD/actions/runs/38775166167) passe effectivement les **20 fichiers de tests hors réseau**. Le test de pagination utilise 1 400 titres fictifs : il contrôle le programme et ne compte pas comme données de marché.
 
 ## Couverture scientifique
 
 Les dénominateurs seront les nombres réellement recensés, dédoublonnés et contrôlés, pas les 172 du pilote. Le minimum de 50 % et la cible de 90 % concernent des dossiers effectivement évaluables au SSI. Le nombre de réponses fournisseur, de fichiers téléchargés ou de candidats dans la tranche ne constitue pas cette couverture vérifiée.
 
 Le catalogue et le screener du fournisseur ne démontrent pas à eux seuls que toutes les sociétés américaines publiant des comptes sont couvertes. Les trous de capitalisation, les origines inconnues et les cotations non rapprochées restent à auditer. Une sélection mondiale ou américaine complète ne sera pas proclamée à partir d'un résultat tronqué ou partiel.
-
-## Vérification après ajout de la clé — 15 octobre 2026, 16:39 UTC
-
-La capture utilisateur montre un secret nommé `EODH_API_KEY`. Le workflow accepte désormais ce nom comme alias du nom standard `EODHD_API_KEY`, sans changer la valeur ni modifier CPI. Le [lancement 38770708991](https://github.com/HERVE63/MICRO_CAPS_DASHBOARD/actions/runs/38770708991) confirme `secret_disponible: true` et une réponse authentifiée de l'API compte EODHD. Cette réponse indique `subscriptionType: free`, `dailyRateLimit: 20`, avec dernière date d'utilisation annoncée `2026-09-08`. Pour cette clé, les droits payants ne sont donc pas reconnus. Aucun achat ni dépassement n'est engagé ; le recensement s'arrête avant téléchargement du catalogue. Le T0 reste intact. La prochaine vérification concerne le compte et la clé associés à l'abonnement payant existant, pas une nouvelle méthode ni un nouvel abonnement imposé.
-
-## Accès payant rétabli et premier dénombrement effectif — 16:52 UTC
-
-Après remplacement de la clé, la nouvelle tentative du [workflow 38770708991](https://github.com/HERVE63/MICRO_CAPS_DASHBOARD/actions/runs/38770708991) confirme un abonnement **monthly**, avec **100 000 appels par jour**. Le catalogue US comporte **50 997 cotations, dont 17 805 actions ordinaires**. Le screener renvoie **2 674 lignes**, dont **2 490 cotations ordinaires dans la tranche 50–300 M€** après les contrôles, et **184 cas à revoir ou hors bande**. La pagination est complète après subdivisions, sans plafond 172 ou 1 000. Le FX de référence est EUR/USD **1,11945 au 14 octobre 2026**.
-
-Il s'agit de cotations aux États-Unis, pas encore d'un nombre certifié d'émetteurs d'origine américaine. Un refus HTTP 403 de l'accès aux fondamentaux interrompt ensuite cette première tentative. La collecte est donc étendue aux sources SEC officielles : rapprochement exact des tickers avec le registre CIK, profils d'origine et companyfacts des pistes US. Un contrôle séparé AAPL distingue un refus général de droits fournisseur d'un cas propre à un seul titre. Les données de marché EODHD déjà acquises sont réutilisées ; aucun achat de formule supplémentaire n'est engagé.
-
-Les réponses sources nouvellement acquises sont conservées dans leurs octets HTTP d'origine, compressées avant chiffrement pour éviter de gonfler les archives. Le déchiffrement reste compatible avec les premières archives non compressées. Les métadonnées des preuves SEC et les comptes de couverture peuvent être publiés sans exposer les valeurs financières du fournisseur. Aucun SSI ni classement n'est validé par ces opérations.
