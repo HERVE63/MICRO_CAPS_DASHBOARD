@@ -163,7 +163,7 @@ def resoudre_cik(code,fournisseur,mapping):
  if not possibles and f:return f,'CIK_FOURNISSEUR_A_VERIFIER'
  return None,'CIK_NON_RESOLU_OU_AMBIGU'
 def compter_faits(obj,cik,asof):
- if str(obj.get('cik','')).zfill(10)!=str(cik).zfill(10):return {'Statut_companyfacts':'CIK_COMPANYFACTS_INCOHERENT','Nb_faits_financiers':0}
+ if str(obj.get('cik','')).zfill(10)!=str(cik).zfill(10):return {'Statut_companyfacts':'CIK_COMPANYFACTS_INCOHERENT','Nb_faits_financiers':0,'CIK_companyfacts_recu':str(obj.get('cik','')).zfill(10)}
  spec=importlib.util.spec_from_file_location('tags_sec_us',BASE/'SCRIPTS_ACTIFS/07U_COLLECTE_COMPANYFACTS_SEC.py')
  mod=importlib.util.module_from_spec(spec);spec.loader.exec_module(mod)
  count=0;depots=[]
@@ -270,7 +270,7 @@ def executer():
    if len(dossiers)%100==0:print('EODHD :',len(dossiers),'/',len(candidats),'dossiers traités',flush=True)
   client.archiver('DOSSIERS_EODHD_A_VERIFIER',dossiers)
   # Métadonnées des preuves SEC, sans données financières EODHD en clair.
-  cols=['Ticker_US','CIK','Nom_SEC','Methode_CIK','Statut_origine','Lien_ticker_CIK','Statut_companyfacts','Nb_faits_financiers','Dernier_depot_financier','Source_origine_URL','Source_companyfacts_URL','Statut_collecte','Type_erreur_SEC','Erreur_source']
+  cols=['Ticker_US','CIK','Nom_SEC','Methode_CIK','Statut_origine','Lien_ticker_CIK','Statut_companyfacts','CIK_companyfacts_recu','Nb_faits_financiers','Dernier_depot_financier','Source_origine_URL','Source_companyfacts_URL','Statut_collecte','Type_erreur_SEC','Erreur_source']
   pd.DataFrame(dossiers).reindex(columns=cols).to_csv(out/'COUVERTURE_PREUVES_SEC.csv',index=False)
   us={r['CIK'] for r in dossiers if r.get('Statut_origine')=='PISTE_US_CONCORDANTE'}
   couverts={r['CIK'] for r in dossiers if r.get('Statut_origine')=='PISTE_US_CONCORDANTE' and r.get('Nb_faits_financiers',0)>0}
@@ -280,7 +280,7 @@ def executer():
    emetteurs_US_distincts=len(us),emetteurs_US_avec_faits_SEC=len(couverts),
    faits_SEC_bruts=sum(r.get('Nb_faits_financiers',0) for r in faits_par_cik.values()),
    seuil_US_50pct=math.ceil(len(us)*.5) if us else None,cible_US_90pct=math.ceil(len(us)*.9) if us else None,SSI_evaluables_valides=0,
-   echecs_collecte_identite=sum(bool(r.get('Statut_collecte')) or r.get('Statut_origine')=='SOURCE_SEC_A_COMPLETER' for r in dossiers),
+   echecs_collecte_identite=sum(bool(r.get('Statut_collecte')) or r.get('Statut_origine') in ['SOURCE_SEC_A_COMPLETER','CIK_INCOHERENT'] or r.get('Statut_companyfacts')=='CIK_COMPANYFACTS_INCOHERENT' for r in dossiers),
    selection_finale_autorisee=False,
    repartition_origine={k:int(v) for k,v in pd.Series([r.get('Statut_origine','COLLECTE_INCOMPLETE') for r in dossiers],dtype=str).value_counts().items()},
    recensement_termine=True,statut='RECENSEMENT_FOURNISSEUR_TERMINE_IDENTITES_ET_PREUVES_A_VERIFIER')

@@ -20,7 +20,9 @@ def test():
          {'form':'10-Q','filed':'2026-08-01','end':'2026-12-31','val':30}]
  obj={'cik':1234,'facts':{'us-gaap':{'Assets':{'units':{'USD':values}}}}}
  assert m.compter_faits(obj,'0000001234','2026-10-15')['Nb_faits_financiers']==1
- assert m.compter_faits(obj,'0000009999','2026-10-15')['Statut_companyfacts']=='CIK_COMPANYFACTS_INCOHERENT'
+ anomalie=m.compter_faits(obj,'0000009999','2026-10-15')
+ assert anomalie['Statut_companyfacts']=='CIK_COMPANYFACTS_INCOHERENT'
+ assert anomalie['CIK_companyfacts_recu']=='0000001234' and anomalie['Nb_faits_financiers']==0
  raw=b'{ "cik" : 1234, "test" : 1 }'
  class Response:
   def __enter__(self):return self
