@@ -1,0 +1,867 @@
+[
+  {
+    "route": "user",
+    "parametres": {},
+    "date_collecte_utc": "2026-10-15T17:00:28.400560+00:00",
+    "cout_estime": 1
+  },
+  {
+    "route": "exchange-symbol-list/US",
+    "parametres": {
+      "delisted": 0
+    },
+    "date_collecte_utc": "2026-10-15T16:51:58.352812+00:00",
+    "cout_estime": 0,
+    "archive_chiffree": "REPONSE_00001.enc.json",
+    "archive_source": "AUDITS/RECENSEMENT_US_EODHD/20261015T165157408909Z/REPONSE_00001.enc.json",
+    "date_relecture_utc": "2026-10-15T17:00:28.875400+00:00"
+  },
+  {
+    "route": "eod/EURUSD.FOREX",
+    "parametres": {
+      "from": "2026-10-01",
+      "to": "2026-10-14",
+      "period": "d",
+      "order": "a"
+    },
+    "date_collecte_utc": "2026-10-15T16:51:58.579048+00:00",
+    "cout_estime": 0,
+    "archive_chiffree": "REPONSE_00002.enc.json",
+    "archive_source": "AUDITS/RECENSEMENT_US_EODHD/20261015T165157408909Z/REPONSE_00002.enc.json",
+    "date_relecture_utc": "2026-10-15T17:00:28.886313+00:00"
+  },
+  {
+    "route": "screener",
+    "parametres": {
+      "filters": "[[\"exchange\",\"=\",\"us\"],[\"market_capitalization\",\">=\",55972500],[\"market_capitalization\",\"<=\",335835000]]",
+      "sort": "market_capitalization.asc",
+      "limit": 100,
+      "offset": 0
+    },
+    "date_collecte_utc": "2026-10-15T16:51:58.981039+00:00",
+    "cout_estime": 0,
+    "archive_chiffree": "REPONSE_00003.enc.json",
+    "archive_source": "AUDITS/RECENSEMENT_US_EODHD/20261015T165157408909Z/REPONSE_00003.enc.json",
+    "date_relecture_utc": "2026-10-15T17:00:28.888529+00:00"
+  },
+  {
+    "route": "screener",
+    "parametres": {
+      "filters": "[[\"exchange\",\"=\",\"us\"],[\"market_capitalization\",\">=\",55972500],[\"market_capitalization\",\"<=\",335835000]]",
+      "sort": "market_capitalization.asc",
+      "limit": 100,
+      "offset": 100
+    },
+    "date_collecte_utc": "2026-10-15T16:51:59.318258+00:00",
+    "cout_estime": 0,
+    "archive_chiffree": "REPONSE_00004.enc.json",
+    "archive_source": "AUDITS/RECENSEMENT_US_EODHD/20261015T165157408909Z/REPONSE_00004.enc.json",
+    "date_relecture_utc": "2026-10-15T17:00:28.890579+00:00"
+  },
+  {
+    "route": "screener",
+    "parametres": {
+      "filters": "[[\"exchange\",\"=\",\"us\"],[\"market_capitalization\",\">=\",55972500],[\"market_capitalization\",\"<=\",335835000]]",
+      "sort": "market_capitalization.asc",
+      "limit": 100,
+      "offset": 200
+    },
+    "date_collecte_utc": "2026-10-15T16:51:59.598589+00:00",
+    "cout_estime": 0,
+    "archive_chiffree": "REPONSE_00005.enc.json",
+    "archive_source": "AUDITS/RECENSEMENT_US_EODHD/20261015T165157408909Z/REPONSE_00005.enc.json",
+    "date_relecture_utc": "2026-10-15T17:00:28.892774+00:00"
+  },
+  {
+    "route": "screener",
+    "parametres": {
+      "filters": "[[\"exchange\",\"=\",\"us\"],[\"market_capitalization\",\">=\",55972500],[\"market_capitalization\",\"<=\",335835000]]",
+      "sort": "market_capitalization.asc",
+      "limit": 100,
+      "offset": 300
+    },
+    "date_collecte_utc": "2026-10-15T16:51:59.957544+00:00",
+    "cout_estime": 0,
+    "archive_chiffree": "REPONSE_00006.enc.json",
+    "archive_source": "AUDITS/RECENSEMENT_US_EODHD/20261015T165157408909Z/REPONSE_00006.enc.json",
+    "date_relecture_utc": "2026-10-15T17:00:28.894899+00:00"
+  },
+  {
+    "route": "screener",
+    "parametres": {
+      "filters": "[[\"exchange\",\"=\",\"us\"],[\"market_capitalization\",\">=\",55972500],[\"market_capitalization\",\"<=\",335835000]]",
+      "sort": "market_capitalization.asc",
+      "limit": 100,
+      "offset": 400
+    },
+    "date_collecte_utc": "2026-10-15T16:52:00.204600+00:00",
+    "cout_estime": 0,
+    "archive_chiffree": "REPONSE_00007.enc.json",
+    "archive_source": "AUDITS/RECENSEMENT_US_EODHD/20261015T165157408909Z/REPONSE_00007.enc.json",
+    "date_relecture_utc": "2026-10-15T17:00:28.897062+00:00"
+  },
+  {
+    "route": "screener",
+    "parametres": {
+      "filters": "[[\"exchange\",\"=\",\"us\"],[\"market_capitalization\",\">=\",55972500],[\"market_capitalization\",\"<=\",335835000]]",
+      "sort": "market_capitalization.asc",
+      "limit": 100,
+      "offset": 500
+    },
+    "date_collecte_utc": "2026-10-15T16:52:00.485220+00:00",
+    "cout_estime": 0,
+    "archive_chiffree": "REPONSE_00008.enc.json",
+    "archive_source": "AUDITS/RECENSEMENT_US_EODHD/20261015T165157408909Z/REPONSE_00008.enc.json",
+    "date_relecture_utc": "2026-10-15T17:00:28.899193+00:00"
+  },
+  {
+    "route": "screener",
+    "parametres": {
+      "filters": "[[\"exchange\",\"=\",\"us\"],[\"market_capitalization\",\">=\",55972500],[\"market_capitalization\",\"<=\",335835000]]",
+      "sort": "market_capitalization.asc",
+      "limit": 100,
+      "offset": 600
+    },
+    "date_collecte_utc": "2026-10-15T16:52:00.768819+00:00",
+    "cout_estime": 0,
+    "archive_chiffree": "REPONSE_00009.enc.json",
+    "archive_source": "AUDITS/RECENSEMENT_US_EODHD/20261015T165157408909Z/REPONSE_00009.enc.json",
+    "date_relecture_utc": "2026-10-15T17:00:28.901376+00:00"
+  },
+  {
+    "route": "screener",
+    "parametres": {
+      "filters": "[[\"exchange\",\"=\",\"us\"],[\"market_capitalization\",\">=\",55972500],[\"market_capitalization\",\"<=\",335835000]]",
+      "sort": "market_capitalization.asc",
+      "limit": 100,
+      "offset": 700
+    },
+    "date_collecte_utc": "2026-10-15T16:52:01.115911+00:00",
+    "cout_estime": 0,
+    "archive_chiffree": "REPONSE_00010.enc.json",
+    "archive_source": "AUDITS/RECENSEMENT_US_EODHD/20261015T165157408909Z/REPONSE_00010.enc.json",
+    "date_relecture_utc": "2026-10-15T17:00:28.903467+00:00"
+  },
+  {
+    "route": "screener",
+    "parametres": {
+      "filters": "[[\"exchange\",\"=\",\"us\"],[\"market_capitalization\",\">=\",55972500],[\"market_capitalization\",\"<=\",335835000]]",
+      "sort": "market_capitalization.asc",
+      "limit": 100,
+      "offset": 800
+    },
+    "date_collecte_utc": "2026-10-15T16:52:01.349230+00:00",
+    "cout_estime": 0,
+    "archive_chiffree": "REPONSE_00011.enc.json",
+    "archive_source": "AUDITS/RECENSEMENT_US_EODHD/20261015T165157408909Z/REPONSE_00011.enc.json",
+    "date_relecture_utc": "2026-10-15T17:00:28.905600+00:00"
+  },
+  {
+    "route": "screener",
+    "parametres": {
+      "filters": "[[\"exchange\",\"=\",\"us\"],[\"market_capitalization\",\">=\",55972500],[\"market_capitalization\",\"<=\",335835000]]",
+      "sort": "market_capitalization.asc",
+      "limit": 100,
+      "offset": 900
+    },
+    "date_collecte_utc": "2026-10-15T16:52:01.687223+00:00",
+    "cout_estime": 0,
+    "archive_chiffree": "REPONSE_00012.enc.json",
+    "archive_source": "AUDITS/RECENSEMENT_US_EODHD/20261015T165157408909Z/REPONSE_00012.enc.json",
+    "date_relecture_utc": "2026-10-15T17:00:28.907781+00:00"
+  },
+  {
+    "route": "screener",
+    "parametres": {
+      "filters": "[[\"exchange\",\"=\",\"us\"],[\"market_capitalization\",\">=\",55972500],[\"market_capitalization\",\"<=\",195903750]]",
+      "sort": "market_capitalization.asc",
+      "limit": 100,
+      "offset": 0
+    },
+    "date_collecte_utc": "2026-10-15T16:52:01.983563+00:00",
+    "cout_estime": 0,
+    "archive_chiffree": "REPONSE_00013.enc.json",
+    "archive_source": "AUDITS/RECENSEMENT_US_EODHD/20261015T165157408909Z/REPONSE_00013.enc.json",
+    "date_relecture_utc": "2026-10-15T17:00:28.909943+00:00"
+  },
+  {
+    "route": "screener",
+    "parametres": {
+      "filters": "[[\"exchange\",\"=\",\"us\"],[\"market_capitalization\",\">=\",55972500],[\"market_capitalization\",\"<=\",195903750]]",
+      "sort": "market_capitalization.asc",
+      "limit": 100,
+      "offset": 100
+    },
+    "date_collecte_utc": "2026-10-15T16:52:02.281807+00:00",
+    "cout_estime": 0,
+    "archive_chiffree": "REPONSE_00014.enc.json",
+    "archive_source": "AUDITS/RECENSEMENT_US_EODHD/20261015T165157408909Z/REPONSE_00014.enc.json",
+    "date_relecture_utc": "2026-10-15T17:00:28.911960+00:00"
+  },
+  {
+    "route": "screener",
+    "parametres": {
+      "filters": "[[\"exchange\",\"=\",\"us\"],[\"market_capitalization\",\">=\",55972500],[\"market_capitalization\",\"<=\",195903750]]",
+      "sort": "market_capitalization.asc",
+      "limit": 100,
+      "offset": 200
+    },
+    "date_collecte_utc": "2026-10-15T16:52:02.692228+00:00",
+    "cout_estime": 0,
+    "archive_chiffree": "REPONSE_00015.enc.json",
+    "archive_source": "AUDITS/RECENSEMENT_US_EODHD/20261015T165157408909Z/REPONSE_00015.enc.json",
+    "date_relecture_utc": "2026-10-15T17:00:28.914109+00:00"
+  },
+  {
+    "route": "screener",
+    "parametres": {
+      "filters": "[[\"exchange\",\"=\",\"us\"],[\"market_capitalization\",\">=\",55972500],[\"market_capitalization\",\"<=\",195903750]]",
+      "sort": "market_capitalization.asc",
+      "limit": 100,
+      "offset": 300
+    },
+    "date_collecte_utc": "2026-10-15T16:52:03.138942+00:00",
+    "cout_estime": 0,
+    "archive_chiffree": "REPONSE_00016.enc.json",
+    "archive_source": "AUDITS/RECENSEMENT_US_EODHD/20261015T165157408909Z/REPONSE_00016.enc.json",
+    "date_relecture_utc": "2026-10-15T17:00:28.916247+00:00"
+  },
+  {
+    "route": "screener",
+    "parametres": {
+      "filters": "[[\"exchange\",\"=\",\"us\"],[\"market_capitalization\",\">=\",55972500],[\"market_capitalization\",\"<=\",195903750]]",
+      "sort": "market_capitalization.asc",
+      "limit": 100,
+      "offset": 400
+    },
+    "date_collecte_utc": "2026-10-15T16:52:03.384159+00:00",
+    "cout_estime": 0,
+    "archive_chiffree": "REPONSE_00017.enc.json",
+    "archive_source": "AUDITS/RECENSEMENT_US_EODHD/20261015T165157408909Z/REPONSE_00017.enc.json",
+    "date_relecture_utc": "2026-10-15T17:00:28.918507+00:00"
+  },
+  {
+    "route": "screener",
+    "parametres": {
+      "filters": "[[\"exchange\",\"=\",\"us\"],[\"market_capitalization\",\">=\",55972500],[\"market_capitalization\",\"<=\",195903750]]",
+      "sort": "market_capitalization.asc",
+      "limit": 100,
+      "offset": 500
+    },
+    "date_collecte_utc": "2026-10-15T16:52:03.710607+00:00",
+    "cout_estime": 0,
+    "archive_chiffree": "REPONSE_00018.enc.json",
+    "archive_source": "AUDITS/RECENSEMENT_US_EODHD/20261015T165157408909Z/REPONSE_00018.enc.json",
+    "date_relecture_utc": "2026-10-15T17:00:28.920681+00:00"
+  },
+  {
+    "route": "screener",
+    "parametres": {
+      "filters": "[[\"exchange\",\"=\",\"us\"],[\"market_capitalization\",\">=\",55972500],[\"market_capitalization\",\"<=\",195903750]]",
+      "sort": "market_capitalization.asc",
+      "limit": 100,
+      "offset": 600
+    },
+    "date_collecte_utc": "2026-10-15T16:52:03.985743+00:00",
+    "cout_estime": 0,
+    "archive_chiffree": "REPONSE_00019.enc.json",
+    "archive_source": "AUDITS/RECENSEMENT_US_EODHD/20261015T165157408909Z/REPONSE_00019.enc.json",
+    "date_relecture_utc": "2026-10-15T17:00:28.922803+00:00"
+  },
+  {
+    "route": "screener",
+    "parametres": {
+      "filters": "[[\"exchange\",\"=\",\"us\"],[\"market_capitalization\",\">=\",55972500],[\"market_capitalization\",\"<=\",195903750]]",
+      "sort": "market_capitalization.asc",
+      "limit": 100,
+      "offset": 700
+    },
+    "date_collecte_utc": "2026-10-15T16:52:04.281932+00:00",
+    "cout_estime": 0,
+    "archive_chiffree": "REPONSE_00020.enc.json",
+    "archive_source": "AUDITS/RECENSEMENT_US_EODHD/20261015T165157408909Z/REPONSE_00020.enc.json",
+    "date_relecture_utc": "2026-10-15T17:00:28.924873+00:00"
+  },
+  {
+    "route": "screener",
+    "parametres": {
+      "filters": "[[\"exchange\",\"=\",\"us\"],[\"market_capitalization\",\">=\",55972500],[\"market_capitalization\",\"<=\",195903750]]",
+      "sort": "market_capitalization.asc",
+      "limit": 100,
+      "offset": 800
+    },
+    "date_collecte_utc": "2026-10-15T16:52:04.555170+00:00",
+    "cout_estime": 0,
+    "archive_chiffree": "REPONSE_00021.enc.json",
+    "archive_source": "AUDITS/RECENSEMENT_US_EODHD/20261015T165157408909Z/REPONSE_00021.enc.json",
+    "date_relecture_utc": "2026-10-15T17:00:28.926987+00:00"
+  },
+  {
+    "route": "screener",
+    "parametres": {
+      "filters": "[[\"exchange\",\"=\",\"us\"],[\"market_capitalization\",\">=\",55972500],[\"market_capitalization\",\"<=\",195903750]]",
+      "sort": "market_capitalization.asc",
+      "limit": 100,
+      "offset": 900
+    },
+    "date_collecte_utc": "2026-10-15T16:52:04.841256+00:00",
+    "cout_estime": 0,
+    "archive_chiffree": "REPONSE_00022.enc.json",
+    "archive_source": "AUDITS/RECENSEMENT_US_EODHD/20261015T165157408909Z/REPONSE_00022.enc.json",
+    "date_relecture_utc": "2026-10-15T17:00:28.929146+00:00"
+  },
+  {
+    "route": "screener",
+    "parametres": {
+      "filters": "[[\"exchange\",\"=\",\"us\"],[\"market_capitalization\",\">=\",55972500],[\"market_capitalization\",\"<=\",125938125]]",
+      "sort": "market_capitalization.asc",
+      "limit": 100,
+      "offset": 0
+    },
+    "date_collecte_utc": "2026-10-15T16:52:05.168351+00:00",
+    "cout_estime": 0,
+    "archive_chiffree": "REPONSE_00023.enc.json",
+    "archive_source": "AUDITS/RECENSEMENT_US_EODHD/20261015T165157408909Z/REPONSE_00023.enc.json",
+    "date_relecture_utc": "2026-10-15T17:00:28.931302+00:00"
+  },
+  {
+    "route": "screener",
+    "parametres": {
+      "filters": "[[\"exchange\",\"=\",\"us\"],[\"market_capitalization\",\">=\",55972500],[\"market_capitalization\",\"<=\",125938125]]",
+      "sort": "market_capitalization.asc",
+      "limit": 100,
+      "offset": 100
+    },
+    "date_collecte_utc": "2026-10-15T16:52:05.464488+00:00",
+    "cout_estime": 0,
+    "archive_chiffree": "REPONSE_00024.enc.json",
+    "archive_source": "AUDITS/RECENSEMENT_US_EODHD/20261015T165157408909Z/REPONSE_00024.enc.json",
+    "date_relecture_utc": "2026-10-15T17:00:28.933338+00:00"
+  },
+  {
+    "route": "screener",
+    "parametres": {
+      "filters": "[[\"exchange\",\"=\",\"us\"],[\"market_capitalization\",\">=\",55972500],[\"market_capitalization\",\"<=\",125938125]]",
+      "sort": "market_capitalization.asc",
+      "limit": 100,
+      "offset": 200
+    },
+    "date_collecte_utc": "2026-10-15T16:52:05.833421+00:00",
+    "cout_estime": 0,
+    "archive_chiffree": "REPONSE_00025.enc.json",
+    "archive_source": "AUDITS/RECENSEMENT_US_EODHD/20261015T165157408909Z/REPONSE_00025.enc.json",
+    "date_relecture_utc": "2026-10-15T17:00:28.935535+00:00"
+  },
+  {
+    "route": "screener",
+    "parametres": {
+      "filters": "[[\"exchange\",\"=\",\"us\"],[\"market_capitalization\",\">=\",55972500],[\"market_capitalization\",\"<=\",125938125]]",
+      "sort": "market_capitalization.asc",
+      "limit": 100,
+      "offset": 300
+    },
+    "date_collecte_utc": "2026-10-15T16:52:06.063638+00:00",
+    "cout_estime": 0,
+    "archive_chiffree": "REPONSE_00026.enc.json",
+    "archive_source": "AUDITS/RECENSEMENT_US_EODHD/20261015T165157408909Z/REPONSE_00026.enc.json",
+    "date_relecture_utc": "2026-10-15T17:00:28.937705+00:00"
+  },
+  {
+    "route": "screener",
+    "parametres": {
+      "filters": "[[\"exchange\",\"=\",\"us\"],[\"market_capitalization\",\">=\",55972500],[\"market_capitalization\",\"<=\",125938125]]",
+      "sort": "market_capitalization.asc",
+      "limit": 100,
+      "offset": 400
+    },
+    "date_collecte_utc": "2026-10-15T16:52:06.402855+00:00",
+    "cout_estime": 0,
+    "archive_chiffree": "REPONSE_00027.enc.json",
+    "archive_source": "AUDITS/RECENSEMENT_US_EODHD/20261015T165157408909Z/REPONSE_00027.enc.json",
+    "date_relecture_utc": "2026-10-15T17:00:28.939815+00:00"
+  },
+  {
+    "route": "screener",
+    "parametres": {
+      "filters": "[[\"exchange\",\"=\",\"us\"],[\"market_capitalization\",\">=\",55972500],[\"market_capitalization\",\"<=\",125938125]]",
+      "sort": "market_capitalization.asc",
+      "limit": 100,
+      "offset": 500
+    },
+    "date_collecte_utc": "2026-10-15T16:52:06.730409+00:00",
+    "cout_estime": 0,
+    "archive_chiffree": "REPONSE_00028.enc.json",
+    "archive_source": "AUDITS/RECENSEMENT_US_EODHD/20261015T165157408909Z/REPONSE_00028.enc.json",
+    "date_relecture_utc": "2026-10-15T17:00:28.941960+00:00"
+  },
+  {
+    "route": "screener",
+    "parametres": {
+      "filters": "[[\"exchange\",\"=\",\"us\"],[\"market_capitalization\",\">=\",55972500],[\"market_capitalization\",\"<=\",125938125]]",
+      "sort": "market_capitalization.asc",
+      "limit": 100,
+      "offset": 600
+    },
+    "date_collecte_utc": "2026-10-15T16:52:06.974574+00:00",
+    "cout_estime": 0,
+    "archive_chiffree": "REPONSE_00029.enc.json",
+    "archive_source": "AUDITS/RECENSEMENT_US_EODHD/20261015T165157408909Z/REPONSE_00029.enc.json",
+    "date_relecture_utc": "2026-10-15T17:00:28.944082+00:00"
+  },
+  {
+    "route": "screener",
+    "parametres": {
+      "filters": "[[\"exchange\",\"=\",\"us\"],[\"market_capitalization\",\">=\",55972500],[\"market_capitalization\",\"<=\",125938125]]",
+      "sort": "market_capitalization.asc",
+      "limit": 100,
+      "offset": 700
+    },
+    "date_collecte_utc": "2026-10-15T16:52:07.248064+00:00",
+    "cout_estime": 0,
+    "archive_chiffree": "REPONSE_00030.enc.json",
+    "archive_source": "AUDITS/RECENSEMENT_US_EODHD/20261015T165157408909Z/REPONSE_00030.enc.json",
+    "date_relecture_utc": "2026-10-15T17:00:28.946165+00:00"
+  },
+  {
+    "route": "screener",
+    "parametres": {
+      "filters": "[[\"exchange\",\"=\",\"us\"],[\"market_capitalization\",\">=\",55972500],[\"market_capitalization\",\"<=\",125938125]]",
+      "sort": "market_capitalization.asc",
+      "limit": 100,
+      "offset": 800
+    },
+    "date_collecte_utc": "2026-10-15T16:52:07.570719+00:00",
+    "cout_estime": 0,
+    "archive_chiffree": "REPONSE_00031.enc.json",
+    "archive_source": "AUDITS/RECENSEMENT_US_EODHD/20261015T165157408909Z/REPONSE_00031.enc.json",
+    "date_relecture_utc": "2026-10-15T17:00:28.948279+00:00"
+  },
+  {
+    "route": "screener",
+    "parametres": {
+      "filters": "[[\"exchange\",\"=\",\"us\"],[\"market_capitalization\",\">=\",55972500],[\"market_capitalization\",\"<=\",125938125]]",
+      "sort": "market_capitalization.asc",
+      "limit": 100,
+      "offset": 900
+    },
+    "date_collecte_utc": "2026-10-15T16:52:07.881008+00:00",
+    "cout_estime": 0,
+    "archive_chiffree": "REPONSE_00032.enc.json",
+    "archive_source": "AUDITS/RECENSEMENT_US_EODHD/20261015T165157408909Z/REPONSE_00032.enc.json",
+    "date_relecture_utc": "2026-10-15T17:00:28.950430+00:00"
+  },
+  {
+    "route": "screener",
+    "parametres": {
+      "filters": "[[\"exchange\",\"=\",\"us\"],[\"market_capitalization\",\">=\",55972500],[\"market_capitalization\",\"<=\",90955312]]",
+      "sort": "market_capitalization.asc",
+      "limit": 100,
+      "offset": 0
+    },
+    "date_collecte_utc": "2026-10-15T16:52:08.180940+00:00",
+    "cout_estime": 0,
+    "archive_chiffree": "REPONSE_00033.enc.json",
+    "archive_source": "AUDITS/RECENSEMENT_US_EODHD/20261015T165157408909Z/REPONSE_00033.enc.json",
+    "date_relecture_utc": "2026-10-15T17:00:28.952642+00:00"
+  },
+  {
+    "route": "screener",
+    "parametres": {
+      "filters": "[[\"exchange\",\"=\",\"us\"],[\"market_capitalization\",\">=\",55972500],[\"market_capitalization\",\"<=\",90955312]]",
+      "sort": "market_capitalization.asc",
+      "limit": 100,
+      "offset": 100
+    },
+    "date_collecte_utc": "2026-10-15T16:52:08.442344+00:00",
+    "cout_estime": 0,
+    "archive_chiffree": "REPONSE_00034.enc.json",
+    "archive_source": "AUDITS/RECENSEMENT_US_EODHD/20261015T165157408909Z/REPONSE_00034.enc.json",
+    "date_relecture_utc": "2026-10-15T17:00:28.954678+00:00"
+  },
+  {
+    "route": "screener",
+    "parametres": {
+      "filters": "[[\"exchange\",\"=\",\"us\"],[\"market_capitalization\",\">=\",55972500],[\"market_capitalization\",\"<=\",90955312]]",
+      "sort": "market_capitalization.asc",
+      "limit": 100,
+      "offset": 200
+    },
+    "date_collecte_utc": "2026-10-15T16:52:08.783311+00:00",
+    "cout_estime": 0,
+    "archive_chiffree": "REPONSE_00035.enc.json",
+    "archive_source": "AUDITS/RECENSEMENT_US_EODHD/20261015T165157408909Z/REPONSE_00035.enc.json",
+    "date_relecture_utc": "2026-10-15T17:00:28.956821+00:00"
+  },
+  {
+    "route": "screener",
+    "parametres": {
+      "filters": "[[\"exchange\",\"=\",\"us\"],[\"market_capitalization\",\">=\",55972500],[\"market_capitalization\",\"<=\",90955312]]",
+      "sort": "market_capitalization.asc",
+      "limit": 100,
+      "offset": 300
+    },
+    "date_collecte_utc": "2026-10-15T16:52:09.114434+00:00",
+    "cout_estime": 0,
+    "archive_chiffree": "REPONSE_00036.enc.json",
+    "archive_source": "AUDITS/RECENSEMENT_US_EODHD/20261015T165157408909Z/REPONSE_00036.enc.json",
+    "date_relecture_utc": "2026-10-15T17:00:28.958969+00:00"
+  },
+  {
+    "route": "screener",
+    "parametres": {
+      "filters": "[[\"exchange\",\"=\",\"us\"],[\"market_capitalization\",\">=\",55972500],[\"market_capitalization\",\"<=\",90955312]]",
+      "sort": "market_capitalization.asc",
+      "limit": 100,
+      "offset": 400
+    },
+    "date_collecte_utc": "2026-10-15T16:52:09.354661+00:00",
+    "cout_estime": 0,
+    "archive_chiffree": "REPONSE_00037.enc.json",
+    "archive_source": "AUDITS/RECENSEMENT_US_EODHD/20261015T165157408909Z/REPONSE_00037.enc.json",
+    "date_relecture_utc": "2026-10-15T17:00:28.961109+00:00"
+  },
+  {
+    "route": "screener",
+    "parametres": {
+      "filters": "[[\"exchange\",\"=\",\"us\"],[\"market_capitalization\",\">=\",55972500],[\"market_capitalization\",\"<=\",90955312]]",
+      "sort": "market_capitalization.asc",
+      "limit": 100,
+      "offset": 500
+    },
+    "date_collecte_utc": "2026-10-15T16:52:09.809731+00:00",
+    "cout_estime": 0,
+    "archive_chiffree": "REPONSE_00038.enc.json",
+    "archive_source": "AUDITS/RECENSEMENT_US_EODHD/20261015T165157408909Z/REPONSE_00038.enc.json",
+    "date_relecture_utc": "2026-10-15T17:00:28.963257+00:00"
+  },
+  {
+    "route": "screener",
+    "parametres": {
+      "filters": "[[\"exchange\",\"=\",\"us\"],[\"market_capitalization\",\">=\",55972500],[\"market_capitalization\",\"<=\",90955312]]",
+      "sort": "market_capitalization.asc",
+      "limit": 100,
+      "offset": 600
+    },
+    "date_collecte_utc": "2026-10-15T16:52:09.997786+00:00",
+    "cout_estime": 0,
+    "archive_chiffree": "REPONSE_00039.enc.json",
+    "archive_source": "AUDITS/RECENSEMENT_US_EODHD/20261015T165157408909Z/REPONSE_00039.enc.json",
+    "date_relecture_utc": "2026-10-15T17:00:28.964121+00:00"
+  },
+  {
+    "route": "screener",
+    "parametres": {
+      "filters": "[[\"exchange\",\"=\",\"us\"],[\"market_capitalization\",\">=\",90955313],[\"market_capitalization\",\"<=\",125938125]]",
+      "sort": "market_capitalization.asc",
+      "limit": 100,
+      "offset": 0
+    },
+    "date_collecte_utc": "2026-10-15T16:52:10.355803+00:00",
+    "cout_estime": 0,
+    "archive_chiffree": "REPONSE_00040.enc.json",
+    "archive_source": "AUDITS/RECENSEMENT_US_EODHD/20261015T165157408909Z/REPONSE_00040.enc.json",
+    "date_relecture_utc": "2026-10-15T17:00:28.966233+00:00"
+  },
+  {
+    "route": "screener",
+    "parametres": {
+      "filters": "[[\"exchange\",\"=\",\"us\"],[\"market_capitalization\",\">=\",90955313],[\"market_capitalization\",\"<=\",125938125]]",
+      "sort": "market_capitalization.asc",
+      "limit": 100,
+      "offset": 100
+    },
+    "date_collecte_utc": "2026-10-15T16:52:10.637000+00:00",
+    "cout_estime": 0,
+    "archive_chiffree": "REPONSE_00041.enc.json",
+    "archive_source": "AUDITS/RECENSEMENT_US_EODHD/20261015T165157408909Z/REPONSE_00041.enc.json",
+    "date_relecture_utc": "2026-10-15T17:00:28.968315+00:00"
+  },
+  {
+    "route": "screener",
+    "parametres": {
+      "filters": "[[\"exchange\",\"=\",\"us\"],[\"market_capitalization\",\">=\",90955313],[\"market_capitalization\",\"<=\",125938125]]",
+      "sort": "market_capitalization.asc",
+      "limit": 100,
+      "offset": 200
+    },
+    "date_collecte_utc": "2026-10-15T16:52:10.918387+00:00",
+    "cout_estime": 0,
+    "archive_chiffree": "REPONSE_00042.enc.json",
+    "archive_source": "AUDITS/RECENSEMENT_US_EODHD/20261015T165157408909Z/REPONSE_00042.enc.json",
+    "date_relecture_utc": "2026-10-15T17:00:28.970464+00:00"
+  },
+  {
+    "route": "screener",
+    "parametres": {
+      "filters": "[[\"exchange\",\"=\",\"us\"],[\"market_capitalization\",\">=\",90955313],[\"market_capitalization\",\"<=\",125938125]]",
+      "sort": "market_capitalization.asc",
+      "limit": 100,
+      "offset": 300
+    },
+    "date_collecte_utc": "2026-10-15T16:52:11.242960+00:00",
+    "cout_estime": 0,
+    "archive_chiffree": "REPONSE_00043.enc.json",
+    "archive_source": "AUDITS/RECENSEMENT_US_EODHD/20261015T165157408909Z/REPONSE_00043.enc.json",
+    "date_relecture_utc": "2026-10-15T17:00:28.972631+00:00"
+  },
+  {
+    "route": "screener",
+    "parametres": {
+      "filters": "[[\"exchange\",\"=\",\"us\"],[\"market_capitalization\",\">=\",90955313],[\"market_capitalization\",\"<=\",125938125]]",
+      "sort": "market_capitalization.asc",
+      "limit": 100,
+      "offset": 400
+    },
+    "date_collecte_utc": "2026-10-15T16:52:11.509588+00:00",
+    "cout_estime": 0,
+    "archive_chiffree": "REPONSE_00044.enc.json",
+    "archive_source": "AUDITS/RECENSEMENT_US_EODHD/20261015T165157408909Z/REPONSE_00044.enc.json",
+    "date_relecture_utc": "2026-10-15T17:00:28.973736+00:00"
+  },
+  {
+    "route": "screener",
+    "parametres": {
+      "filters": "[[\"exchange\",\"=\",\"us\"],[\"market_capitalization\",\">=\",125938126],[\"market_capitalization\",\"<=\",195903750]]",
+      "sort": "market_capitalization.asc",
+      "limit": 100,
+      "offset": 0
+    },
+    "date_collecte_utc": "2026-10-15T16:52:11.802750+00:00",
+    "cout_estime": 0,
+    "archive_chiffree": "REPONSE_00045.enc.json",
+    "archive_source": "AUDITS/RECENSEMENT_US_EODHD/20261015T165157408909Z/REPONSE_00045.enc.json",
+    "date_relecture_utc": "2026-10-15T17:00:28.976127+00:00"
+  },
+  {
+    "route": "screener",
+    "parametres": {
+      "filters": "[[\"exchange\",\"=\",\"us\"],[\"market_capitalization\",\">=\",125938126],[\"market_capitalization\",\"<=\",195903750]]",
+      "sort": "market_capitalization.asc",
+      "limit": 100,
+      "offset": 100
+    },
+    "date_collecte_utc": "2026-10-15T16:52:12.136339+00:00",
+    "cout_estime": 0,
+    "archive_chiffree": "REPONSE_00046.enc.json",
+    "archive_source": "AUDITS/RECENSEMENT_US_EODHD/20261015T165157408909Z/REPONSE_00046.enc.json",
+    "date_relecture_utc": "2026-10-15T17:00:28.978206+00:00"
+  },
+  {
+    "route": "screener",
+    "parametres": {
+      "filters": "[[\"exchange\",\"=\",\"us\"],[\"market_capitalization\",\">=\",125938126],[\"market_capitalization\",\"<=\",195903750]]",
+      "sort": "market_capitalization.asc",
+      "limit": 100,
+      "offset": 200
+    },
+    "date_collecte_utc": "2026-10-15T16:52:12.428594+00:00",
+    "cout_estime": 0,
+    "archive_chiffree": "REPONSE_00047.enc.json",
+    "archive_source": "AUDITS/RECENSEMENT_US_EODHD/20261015T165157408909Z/REPONSE_00047.enc.json",
+    "date_relecture_utc": "2026-10-15T17:00:28.980283+00:00"
+  },
+  {
+    "route": "screener",
+    "parametres": {
+      "filters": "[[\"exchange\",\"=\",\"us\"],[\"market_capitalization\",\">=\",125938126],[\"market_capitalization\",\"<=\",195903750]]",
+      "sort": "market_capitalization.asc",
+      "limit": 100,
+      "offset": 300
+    },
+    "date_collecte_utc": "2026-10-15T16:52:12.712558+00:00",
+    "cout_estime": 0,
+    "archive_chiffree": "REPONSE_00048.enc.json",
+    "archive_source": "AUDITS/RECENSEMENT_US_EODHD/20261015T165157408909Z/REPONSE_00048.enc.json",
+    "date_relecture_utc": "2026-10-15T17:00:28.982313+00:00"
+  },
+  {
+    "route": "screener",
+    "parametres": {
+      "filters": "[[\"exchange\",\"=\",\"us\"],[\"market_capitalization\",\">=\",125938126],[\"market_capitalization\",\"<=\",195903750]]",
+      "sort": "market_capitalization.asc",
+      "limit": 100,
+      "offset": 400
+    },
+    "date_collecte_utc": "2026-10-15T16:52:13.079747+00:00",
+    "cout_estime": 0,
+    "archive_chiffree": "REPONSE_00049.enc.json",
+    "archive_source": "AUDITS/RECENSEMENT_US_EODHD/20261015T165157408909Z/REPONSE_00049.enc.json",
+    "date_relecture_utc": "2026-10-15T17:00:28.984410+00:00"
+  },
+  {
+    "route": "screener",
+    "parametres": {
+      "filters": "[[\"exchange\",\"=\",\"us\"],[\"market_capitalization\",\">=\",125938126],[\"market_capitalization\",\"<=\",195903750]]",
+      "sort": "market_capitalization.asc",
+      "limit": 100,
+      "offset": 500
+    },
+    "date_collecte_utc": "2026-10-15T16:52:13.321500+00:00",
+    "cout_estime": 0,
+    "archive_chiffree": "REPONSE_00050.enc.json",
+    "archive_source": "AUDITS/RECENSEMENT_US_EODHD/20261015T165157408909Z/REPONSE_00050.enc.json",
+    "date_relecture_utc": "2026-10-15T17:00:28.986427+00:00"
+  },
+  {
+    "route": "screener",
+    "parametres": {
+      "filters": "[[\"exchange\",\"=\",\"us\"],[\"market_capitalization\",\">=\",125938126],[\"market_capitalization\",\"<=\",195903750]]",
+      "sort": "market_capitalization.asc",
+      "limit": 100,
+      "offset": 600
+    },
+    "date_collecte_utc": "2026-10-15T16:52:13.709403+00:00",
+    "cout_estime": 0,
+    "archive_chiffree": "REPONSE_00051.enc.json",
+    "archive_source": "AUDITS/RECENSEMENT_US_EODHD/20261015T165157408909Z/REPONSE_00051.enc.json",
+    "date_relecture_utc": "2026-10-15T17:00:28.987142+00:00"
+  },
+  {
+    "route": "screener",
+    "parametres": {
+      "filters": "[[\"exchange\",\"=\",\"us\"],[\"market_capitalization\",\">=\",195903751],[\"market_capitalization\",\"<=\",335835000]]",
+      "sort": "market_capitalization.asc",
+      "limit": 100,
+      "offset": 0
+    },
+    "date_collecte_utc": "2026-10-15T16:52:14.204535+00:00",
+    "cout_estime": 0,
+    "archive_chiffree": "REPONSE_00052.enc.json",
+    "archive_source": "AUDITS/RECENSEMENT_US_EODHD/20261015T165157408909Z/REPONSE_00052.enc.json",
+    "date_relecture_utc": "2026-10-15T17:00:28.989572+00:00"
+  },
+  {
+    "route": "screener",
+    "parametres": {
+      "filters": "[[\"exchange\",\"=\",\"us\"],[\"market_capitalization\",\">=\",195903751],[\"market_capitalization\",\"<=\",335835000]]",
+      "sort": "market_capitalization.asc",
+      "limit": 100,
+      "offset": 100
+    },
+    "date_collecte_utc": "2026-10-15T16:52:14.439005+00:00",
+    "cout_estime": 0,
+    "archive_chiffree": "REPONSE_00053.enc.json",
+    "archive_source": "AUDITS/RECENSEMENT_US_EODHD/20261015T165157408909Z/REPONSE_00053.enc.json",
+    "date_relecture_utc": "2026-10-15T17:00:28.991758+00:00"
+  },
+  {
+    "route": "screener",
+    "parametres": {
+      "filters": "[[\"exchange\",\"=\",\"us\"],[\"market_capitalization\",\">=\",195903751],[\"market_capitalization\",\"<=\",335835000]]",
+      "sort": "market_capitalization.asc",
+      "limit": 100,
+      "offset": 200
+    },
+    "date_collecte_utc": "2026-10-15T16:52:14.714916+00:00",
+    "cout_estime": 0,
+    "archive_chiffree": "REPONSE_00054.enc.json",
+    "archive_source": "AUDITS/RECENSEMENT_US_EODHD/20261015T165157408909Z/REPONSE_00054.enc.json",
+    "date_relecture_utc": "2026-10-15T17:00:28.993870+00:00"
+  },
+  {
+    "route": "screener",
+    "parametres": {
+      "filters": "[[\"exchange\",\"=\",\"us\"],[\"market_capitalization\",\">=\",195903751],[\"market_capitalization\",\"<=\",335835000]]",
+      "sort": "market_capitalization.asc",
+      "limit": 100,
+      "offset": 300
+    },
+    "date_collecte_utc": "2026-10-15T16:52:15.330002+00:00",
+    "cout_estime": 0,
+    "archive_chiffree": "REPONSE_00055.enc.json",
+    "archive_source": "AUDITS/RECENSEMENT_US_EODHD/20261015T165157408909Z/REPONSE_00055.enc.json",
+    "date_relecture_utc": "2026-10-15T17:00:28.995929+00:00"
+  },
+  {
+    "route": "screener",
+    "parametres": {
+      "filters": "[[\"exchange\",\"=\",\"us\"],[\"market_capitalization\",\">=\",195903751],[\"market_capitalization\",\"<=\",335835000]]",
+      "sort": "market_capitalization.asc",
+      "limit": 100,
+      "offset": 400
+    },
+    "date_collecte_utc": "2026-10-15T16:52:15.642901+00:00",
+    "cout_estime": 0,
+    "archive_chiffree": "REPONSE_00056.enc.json",
+    "archive_source": "AUDITS/RECENSEMENT_US_EODHD/20261015T165157408909Z/REPONSE_00056.enc.json",
+    "date_relecture_utc": "2026-10-15T17:00:28.998088+00:00"
+  },
+  {
+    "route": "screener",
+    "parametres": {
+      "filters": "[[\"exchange\",\"=\",\"us\"],[\"market_capitalization\",\">=\",195903751],[\"market_capitalization\",\"<=\",335835000]]",
+      "sort": "market_capitalization.asc",
+      "limit": 100,
+      "offset": 500
+    },
+    "date_collecte_utc": "2026-10-15T16:52:15.870158+00:00",
+    "cout_estime": 0,
+    "archive_chiffree": "REPONSE_00057.enc.json",
+    "archive_source": "AUDITS/RECENSEMENT_US_EODHD/20261015T165157408909Z/REPONSE_00057.enc.json",
+    "date_relecture_utc": "2026-10-15T17:00:29.000213+00:00"
+  },
+  {
+    "route": "screener",
+    "parametres": {
+      "filters": "[[\"exchange\",\"=\",\"us\"],[\"market_capitalization\",\">=\",195903751],[\"market_capitalization\",\"<=\",335835000]]",
+      "sort": "market_capitalization.asc",
+      "limit": 100,
+      "offset": 600
+    },
+    "date_collecte_utc": "2026-10-15T16:52:16.174552+00:00",
+    "cout_estime": 0,
+    "archive_chiffree": "REPONSE_00058.enc.json",
+    "archive_source": "AUDITS/RECENSEMENT_US_EODHD/20261015T165157408909Z/REPONSE_00058.enc.json",
+    "date_relecture_utc": "2026-10-15T17:00:29.002392+00:00"
+  },
+  {
+    "route": "screener",
+    "parametres": {
+      "filters": "[[\"exchange\",\"=\",\"us\"],[\"market_capitalization\",\">=\",195903751],[\"market_capitalization\",\"<=\",335835000]]",
+      "sort": "market_capitalization.asc",
+      "limit": 100,
+      "offset": 700
+    },
+    "date_collecte_utc": "2026-10-15T16:52:16.484130+00:00",
+    "cout_estime": 0,
+    "archive_chiffree": "REPONSE_00059.enc.json",
+    "archive_source": "AUDITS/RECENSEMENT_US_EODHD/20261015T165157408909Z/REPONSE_00059.enc.json",
+    "date_relecture_utc": "2026-10-15T17:00:29.004467+00:00"
+  },
+  {
+    "route": "screener",
+    "parametres": {
+      "filters": "[[\"exchange\",\"=\",\"us\"],[\"market_capitalization\",\">=\",195903751],[\"market_capitalization\",\"<=\",335835000]]",
+      "sort": "market_capitalization.asc",
+      "limit": 100,
+      "offset": 800
+    },
+    "date_collecte_utc": "2026-10-15T16:52:16.797483+00:00",
+    "cout_estime": 0,
+    "archive_chiffree": "REPONSE_00060.enc.json",
+    "archive_source": "AUDITS/RECENSEMENT_US_EODHD/20261015T165157408909Z/REPONSE_00060.enc.json",
+    "date_relecture_utc": "2026-10-15T17:00:29.006494+00:00"
+  },
+  {
+    "route": "screener",
+    "parametres": {
+      "filters": "[[\"exchange\",\"=\",\"us\"],[\"market_capitalization\",\">=\",195903751],[\"market_capitalization\",\"<=\",335835000]]",
+      "sort": "market_capitalization.asc",
+      "limit": 100,
+      "offset": 900
+    },
+    "date_collecte_utc": "2026-10-15T16:52:17.052526+00:00",
+    "cout_estime": 0,
+    "archive_chiffree": "REPONSE_00061.enc.json",
+    "archive_source": "AUDITS/RECENSEMENT_US_EODHD/20261015T165157408909Z/REPONSE_00061.enc.json",
+    "date_relecture_utc": "2026-10-15T17:00:29.008141+00:00"
+  },
+  {
+    "route": "SEC:https://www.sec.gov/files/company_tickers.json",
+    "parametres": {},
+    "date_collecte_utc": "2026-10-15T17:00:29.194648+00:00",
+    "cout_estime": 0,
+    "representation": "OCTETS_HTTP_ORIGINAUX",
+    "archive_chiffree": "REPONSE_00062.enc.json"
+  }
+]
