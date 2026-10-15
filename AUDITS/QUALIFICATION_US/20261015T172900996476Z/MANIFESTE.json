@@ -1,0 +1,28 @@
+{
+  "date_utc": "2026-10-15T17:31:11.571892+00:00",
+  "date_limite_information": "2026-10-15",
+  "source_recensement": "AUDITS/RECENSEMENT_US_EODHD/20261015T170647372738Z",
+  "SHA256_manifeste_source": "203a5309446eb48cfdded760a7209eaa6ed90fb2607552842c9c2f6ef8748a17",
+  "source_script_SHA256": "dcc8828bfa460b13d914479efc167a9c3950c3d892faff55bf859c98d2732ef9",
+  "cotations_recensees": 2490,
+  "emetteurs_comptes_traites": 1260,
+  "cotations_avec_faits_comparables": 1267,
+  "volumes": {
+    "BRUTS": 659443,
+    "COMPARABLES": 256100,
+    "RAPPROCHEMENT": 256100
+  },
+  "SSI_evaluables_valides": 0,
+  "admissions_SSI": 0,
+  "notes_SSI_attribuees": 0,
+  "selection_finale_autorisee": false,
+  "appels_reseau": 0,
+  "statut": "RACCORDEMENT_07U_07V_07W_EXECUTE_PREUVES_NON_VALIDEES",
+  "manques": "Identité à confirmer ; B4, gouvernance B5, qualité B6 et liquidité B7 restent à documenter ; B1/B2/B3 à vérifier.",
+  "fichiers": {
+    "COMPARABLES.csv.gz": "bd02c84edc4724032fe9cdf2a8bab162b8ed389f64ca0f9724bf064b43657f1a",
+    "BRUTS.csv.gz": "74372cdd93e2a0cfc029f5c52e4f7f71440e7688ca9b30ea4e85032aec5833c6",
+    "RAPPROCHEMENT.csv.gz": "ba2da3adb572c2d9f67700a041602923a41864931743edbe17b108e161c5f741",
+    "COUVERTURE_QUALIFICATION_US.csv": "1020ce762ef8a5c8d3ce733838df1164e9feb88f973140f42174f79f2d6b40b9"
+  }
+}
