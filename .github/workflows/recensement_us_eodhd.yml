@@ -25,7 +25,7 @@ jobs:
         run: python -B TESTS/executer_tests.py
       - name: Protection des archives fournisseur
         run: python -B TESTS/verifier_chiffrement_eodhd.py
-      - name: Recensement catalogue américain complet et fondamentaux
+      - name: Recensement complet et preuves SEC avec repli fournisseur
         env:
           EODHD_API_KEY: ${{ secrets.EODHD_API_KEY || secrets.EODH_API_KEY }}
           SEC_USER_AGENT: ${{ secrets.SEC_USER_AGENT }}
