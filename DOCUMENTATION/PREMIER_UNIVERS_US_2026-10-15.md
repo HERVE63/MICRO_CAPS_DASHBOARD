@@ -24,6 +24,20 @@ Le workflow `univers_us_documente.yml` exécute réellement les tests, le cadrag
 
 Le contrôle `07AG_CONTROLER_DOCUMENTS_US.py` vérifie ensuite les empreintes, les dates et le CIK iXBRL quand il figure dans le document. Un CIK absent dans un proxy reste à relire ; il n'est pas transformé en concordance. Une concordance du CIK du dépôt ne valide toujours pas la cotation allemande ni les notes SSI. L'âge des dépôts est conservé pour la revue de fraîcheur, sans seuil d'exclusion inventé.
 
+Les relectures locale et [GitHub 38760717623](https://github.com/HERVE63/MICRO_CAPS_DASHBOARD/actions/runs/38760717623), terminée avec succès, des **516 fichiers authentiques sauvegardés** vérifient toutes les empreintes et les dates : **498 CIK iXBRL concordants, zéro divergent, 18 absents**. Les 18 absences concernent des DEF 14A et restent à relire. Les **17 fichiers de tests**, incluant la reprise sans réseau, la conservation de la date de collecte, le refus d'un cache altéré et la distinction entre CIK absent/multiple/concordant, passent dans [GitHub Actions 38760718258](https://github.com/HERVE63/MICRO_CAPS_DASHBOARD/actions/runs/38760718258).
+
+La deuxième exécution sauvegarde le contrôle dans `AUDITS/CONTROLE_DOCUMENTS_US/20261015T153002852798Z/` et les pièces réutilisées dans `AUDITS/DOCUMENTS_US/20261015T152954158149Z/`. Le contrôle du T0 et l'absence de modification des dossiers et sauvegardes réussissent de nouveau. Le cadrage actualisé produit aussi `COUVERTURE_SECTORIELLE_US.csv` dans son archive `AUDITS/UNIVERS_US/` : les activités SIC et les données de secteur manquantes restent visibles, sans quota ni note supplémentaire inventés. Le commit de sauvegarde est `2673bea`.
+
+## Fraîcheur : résultat à ne pas masquer
+
+| Type | Dépôts datés de 2026 | Dépôt le plus ancien du lot |
+|---|---:|---|
+| 10-K | 163 / 172 | 2025-06-23 |
+| 10-Q | 171 / 172 | 2024-11-14 |
+| DEF 14A | 153 / 172 | 2013-10-10 |
+
+**146 émetteurs sur 172** ont les trois dépôts datés de 2026. C'est un indicateur descriptif de fraîcheur, pas une règle SSI nouvelle et pas une preuve de complétude : les périodes, amendements et autres types de dépôt restent à examiner. Un ancien DEF 14A ne prouve pas l'absence de toute communication récente ni, à lui seul, une mauvaise gouvernance. Les pièces anciennes nécessitent une recherche complémentaire et un contrôle de l'identité/statut actuel de l'émetteur.
+
 ## Mesures à ne pas confondre
 
 1. Piste d'origine US concordante.
