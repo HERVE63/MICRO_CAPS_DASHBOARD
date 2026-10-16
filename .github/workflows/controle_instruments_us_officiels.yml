@@ -1,0 +1,55 @@
+name: MICRO CAPS - CONTROLE INSTRUMENTS US OFFICIELS
+on:
+  workflow_dispatch:
+  push:
+    branches: [main]
+    paths: ['.github/workflows/controle_instruments_us_officiels.yml']
+permissions:
+  contents: write
+concurrency:
+  group: microcaps-instruments-us-officiels
+  cancel-in-progress: false
+jobs:
+  controle:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: main
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - run: pip install pandas
+      - name: Tests hors réseau
+        run: python -B TESTS/executer_tests.py
+      - name: Confronter les types d'instruments aux répertoires officiels
+        run: python -B SCRIPTS_ACTIFS/07AK_CONTROLER_INSTRUMENTS_US_OFFICIELS.py
+      - name: Vérifier le T0 et les entrées
+        if: always()
+        run: |
+          python -B SCRIPTS_ACTIFS/07AC_CONTROLER_T0.py
+          git diff --exit-code -- DONNEES SAUVEGARDES
+      - name: Préserver les résultats
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: instruments-us-${{ github.run_id }}-${{ github.run_attempt }}
+          path: AUDITS/INSTRUMENTS_US_OFFICIELS/
+      - name: Sauvegarder le contrôle sans modifier les dossiers
+        if: always()
+        run: |
+          rapport="AUDITS/TESTS/RUN_${GITHUB_RUN_ID}_${GITHUB_RUN_ATTEMPT}"
+          mkdir -p "$rapport" AUDITS/INSTRUMENTS_US_OFFICIELS
+          if [ -f AUDITS/TESTS/RESULTATS_TESTS.json ]; then
+            cp AUDITS/TESTS/RESULTATS_TESTS.json "$rapport/RESULTATS_TESTS.json"
+            git restore --worktree AUDITS/TESTS/RESULTATS_TESTS.json
+          fi
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add AUDITS/INSTRUMENTS_US_OFFICIELS AUDITS/TESTS
+          if ! git diff --cached --quiet; then
+            git commit -m 'Contrôle officiel des instruments US : sources et cas à vérifier'
+            git pull --rebase origin main
+            git push origin main
+          fi
