@@ -1,0 +1,33 @@
+{
+  "date_utc": "2026-10-16T13:36:36.725505+00:00",
+  "date_limite_information": "2026-10-15",
+  "source_recensement": "AUDITS/RECENSEMENT_US_EODHD/20261015T170647372738Z",
+  "SHA256_manifeste_source": "203a5309446eb48cfdded760a7209eaa6ed90fb2607552842c9c2f6ef8748a17",
+  "source_script_SHA256": "247efbe16927fd75f2c32dd52fd5e5785b3591c45b69505895ae995f84bc70cd",
+  "modules_SHA256": {
+    "07U_COLLECTE_COMPANYFACTS_SEC.py": "42e134af28cc7caf0c4309968c227a3c6be0156bde8100daed08407bbfafba7f",
+    "07V_NORMALISER_FAITS_SEC.py": "f8539a25f419d924aa2e00b15192ad8487726d89fdb595a961198fcadd6a1852",
+    "07W_RAPPROCHER_PREUVES_SEC_SSI.py": "acbac3a4c56a276222360e7ece1ffed5c42fee0cb14478792bde7e7254393d2e"
+  },
+  "cotations_recensees": 2490,
+  "emetteurs_comptes_traites": 1322,
+  "cotations_avec_faits_comparables": 1267,
+  "volumes": {
+    "BRUTS": 850004,
+    "COMPARABLES": 321999,
+    "RAPPROCHEMENT": 321999
+  },
+  "SSI_evaluables_valides": 0,
+  "admissions_SSI": 0,
+  "notes_SSI_attribuees": 0,
+  "selection_finale_autorisee": false,
+  "appels_reseau": 0,
+  "statut": "RACCORDEMENT_07U_07V_07W_EXECUTE_PREUVES_NON_VALIDEES",
+  "manques": "Identité à confirmer ; B4, gouvernance B5, qualité B6 et liquidité B7 restent à documenter ; B1/B2/B3 à vérifier.",
+  "fichiers": {
+    "COMPARABLES.csv.gz": "e14bbc6a4dbf8fe05cb53065bd9a3590866dbfd124775228bdf13bc224ee6880",
+    "BRUTS.csv.gz": "3662590e5b8c5e0ba208054b7e8dca40b9e653a09a5d5645d7e5e91d572f983a",
+    "RAPPROCHEMENT.csv.gz": "dd2eb2c40f656db873588022485ac2accb3b1d4323a7f9f0de0f5d4fc87f758c",
+    "COUVERTURE_QUALIFICATION_US.csv": "9e7b38196af519de2728551a12780bd400fbd47e96670930fb5ea29a202df2b2"
+  }
+}
