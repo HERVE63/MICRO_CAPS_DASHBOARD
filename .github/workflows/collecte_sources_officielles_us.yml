@@ -1,0 +1,57 @@
+name: MICRO CAPS - SOURCES OFFICIELLES US
+on:
+  workflow_dispatch:
+  push:
+    branches: [main]
+    paths: ['.github/workflows/collecte_sources_officielles_us.yml']
+permissions:
+  contents: write
+concurrency:
+  group: microcaps-sources-officielles-us
+  cancel-in-progress: false
+jobs:
+  collecte:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: main
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - run: pip install pandas
+      - name: Réception hors réseau
+        run: python -B TESTS/executer_tests.py
+      - name: Collecter les publications officielles manquantes à la SEC
+        run: |
+          couverture=$(python -c "from pathlib import Path; print(sorted(Path('AUDITS/PROFILS_SEC_UNIVERS_US').glob('*/TOUTES_COTATIONS_RECENSEES.csv'))[-1])")
+          python -B SCRIPTS_ACTIFS/07AA_COLLECTE_DOCUMENTS_OFFICIELS.py --registre CONFIG/DOCUMENTS_OFFICIELS_US_A_COLLECTER.csv --couverture "$couverture"
+      - name: Vérifier l'intégrité du T0 et des dossiers
+        if: always()
+        run: |
+          python -B SCRIPTS_ACTIFS/07AC_CONTROLER_T0.py
+          git diff --exit-code -- DONNEES SAUVEGARDES
+      - name: Préserver les sources, dates inconnues et limites de couverture
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: sources-officielles-us-${{ github.run_id }}-${{ github.run_attempt }}
+          path: AUDITS/SOURCES_OFFICIELLES/
+      - name: Sauvegarder les résultats effectifs
+        if: always()
+        run: |
+          rapport="AUDITS/TESTS/RUN_${GITHUB_RUN_ID}_${GITHUB_RUN_ATTEMPT}"
+          mkdir -p "$rapport" AUDITS/SOURCES_OFFICIELLES
+          if [ -f AUDITS/TESTS/RESULTATS_TESTS.json ]; then
+            cp AUDITS/TESTS/RESULTATS_TESTS.json "$rapport/RESULTATS_TESTS.json"
+            git restore --worktree AUDITS/TESTS/RESULTATS_TESTS.json
+          fi
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add AUDITS/SOURCES_OFFICIELLES AUDITS/TESTS
+          if ! git diff --cached --quiet; then
+            git commit -m 'Sources officielles US hors SEC : bruts horodatés et dates non inventées'
+            git pull --rebase origin main
+            git push origin main
+          fi
