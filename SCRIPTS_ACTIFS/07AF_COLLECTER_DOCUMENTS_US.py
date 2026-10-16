@@ -6,11 +6,14 @@ from datetime import datetime,timezone
 from urllib.request import Request,build_opener,HTTPRedirectHandler
 from urllib.parse import urlparse
 from urllib.error import HTTPError
-import hashlib,json,os,re,time,sys
+import gzip,hashlib,json,os,re,time,sys
 import pandas as pd
 BASE=Path(__file__).resolve().parents[1]
 FORMES=['10-K','10-Q','DEF 14A']
 def sha(p):return hashlib.sha256(p.read_bytes()).hexdigest()
+def lire_document(p):
+ data=p.read_bytes()
+ return gzip.decompress(data) if p.suffix=='.gz' else data
 def url_document(cik,acc,doc):
  if not cik.isdigit() or not re.fullmatch(r'\d{10}-\d{2}-\d{6}',acc):raise ValueError('IDENTIFIANT_SEC_INVALIDE')
  if not doc or not re.fullmatch(r'[A-Za-z0-9_./-]+',doc) or doc.startswith('/') or '..' in PurePosixPath(doc).parts:raise ValueError('DOCUMENT_SEC_INVALIDE')
@@ -30,13 +33,17 @@ class RedirectionsSEC(HTTPRedirectHandler):
   u=urlparse(newurl)
   if u.scheme!='https' or u.hostname not in ['www.sec.gov','sec.gov','data.sec.gov'] or u.username or u.password or u.port not in (None,443):raise ValueError('REDIRECTION_HORS_SEC')
   return super().redirect_request(req,fp,code,msg,headers,newurl)
-def executer():
+def executer(univers_source=None,compression=False):
  agent=os.getenv('SEC_USER_AGENT','').strip()
  if '@' not in agent:raise RuntimeError('SEC_USER_AGENT_ABSENT_OU_INVALIDE')
  now=datetime.now(timezone.utc);limite=now.date().isoformat()
- candidats=sorted((BASE/'AUDITS/UNIVERS_US').glob('*/MANIFESTE.json'))
- if not candidats:raise RuntimeError('UNIVERS_US_ABSENT')
- mp=candidats[-1];m=json.loads(mp.read_text());p=mp.parent/'UNIVERS_US_PROVISOIRE.csv'
+ if univers_source is None:
+  candidats=sorted((BASE/'AUDITS/UNIVERS_US').glob('*/MANIFESTE.json'))
+  if not candidats:raise RuntimeError('UNIVERS_US_ABSENT')
+  mp=candidats[-1];p=mp.parent/'UNIVERS_US_PROVISOIRE.csv'
+ else:
+  p=Path(univers_source);mp=p.parent/'MANIFESTE.json'
+ m=json.loads(mp.read_text())
  if m['fichiers'].get(p.name)!=sha(p):raise RuntimeError('UNIVERS_US_CORROMPU')
  us=pd.read_csv(p,dtype=str,keep_default_na=False)
  if us.CIK.duplicated().any():raise RuntimeError('DOUBLON_EMETTEUR_US')
@@ -44,8 +51,13 @@ def executer():
  cache={};rows=[];dernier=0.;opener=build_opener(RedirectionsSEC())
  for old in sorted((BASE/'AUDITS/DOCUMENTS_US').glob('*/AUDIT_DOCUMENTS.csv')):
   if old.parent==out:continue
+  if not (old.parent/'MANIFESTE.json').exists():continue
+  old_manifest=json.loads((old.parent/'MANIFESTE.json').read_text())
+  if old_manifest.get('fichiers',{}).get(old.name)!=sha(old):raise RuntimeError('AUDIT_DOCUMENT_US_CACHE_CORROMPU')
   for r in pd.read_csv(old,dtype=str,keep_default_na=False).to_dict('records'):
-   if r.get('Statut')=='DOCUMENT_COLLECTE_A_VERIFIER':cache[r['Source_URL']]=r
+   if r.get('Statut')=='DOCUMENT_COLLECTE_A_VERIFIER':
+    r['_SHA256_archive_manifeste']=old_manifest.get('fichiers',{}).get(Path(r['Fichier_brut']).name)
+    cache[r['Source_URL']]=r
  for n,(_,r) in enumerate(us.iterrows(),1):
   src=BASE/r.Fichier_brut
   if sha(src)!=r.SHA256:raise RuntimeError('PROFIL_US_CORROMPU')
@@ -63,8 +75,11 @@ def executer():
     url=url_document(r.CIK,selection['Accession'],selection['Document_primaire']);row['Source_URL']=url
     if url in cache:
      c=cache[url];f=BASE/c['Fichier_brut']
-     if sha(f)!=c['SHA256']:raise RuntimeError('DOCUMENT_US_CACHE_CORROMPU')
-     data=f.read_bytes();date=c['Date_collecte_UTC'];ctype=c.get('Type_contenu','');final=c.get('URL_finale',url)
+     if c.get('_SHA256_archive_manifeste')!=sha(f):raise RuntimeError('DOCUMENT_US_CACHE_CORROMPU')
+     if c.get('SHA256_archive') and sha(f)!=c['SHA256_archive']:raise RuntimeError('DOCUMENT_US_CACHE_CORROMPU')
+     data=lire_document(f)
+     if hashlib.sha256(data).hexdigest()!=c['SHA256']:raise RuntimeError('DOCUMENT_US_CACHE_CORROMPU')
+     date=c['Date_collecte_UTC'];ctype=c.get('Type_contenu','');final=c.get('URL_finale',url)
      row['Reutilise']='OUI'
     else:
      for essai in range(3):
@@ -82,8 +97,9 @@ def executer():
     # Une page de refus HTTP 200 n'est pas un dépôt.
     titre=data[:8000].decode('utf-8',errors='ignore').lower()
     if any(t in titre for t in ['your request originates from an undeclared automated tool','request rate threshold exceeded','access denied']):raise ValueError('PAGE_REFUS_SEC')
-    h=hashlib.sha256(data).hexdigest();f=out/(h+'.bin');f.write_bytes(data)
+    h=hashlib.sha256(data).hexdigest();f=out/(h+('.bin.gz' if compression else '.bin'));f.write_bytes(gzip.compress(data,mtime=0) if compression else data)
     row.update(Statut='DOCUMENT_COLLECTE_A_VERIFIER',SHA256=h,Fichier_brut=str(f.relative_to(BASE)),Date_collecte_UTC=date,
+               SHA256_archive=sha(f),Compression='gzip' if compression else 'aucune',
                Date_extraction_UTC=datetime.now(timezone.utc).isoformat(),Type_contenu=ctype,URL_finale=final)
    except Exception as exc:
     if 'CORROMPU' in str(exc):raise

@@ -1,4 +1,4 @@
-name: MICRO CAPS - PREMIER UNIVERS US DOCUMENTE
+name: MICRO CAPS - DOCUMENTS UNIVERS US RECENSE
 on:
   push:
     branches: [main]
@@ -20,18 +20,14 @@ jobs:
       - uses: actions/setup-python@v5
         with:
           python-version: '3.12'
-      - run: pip install pandas
+      - run: pip install pandas cryptography
       - name: Tests hors réseau et intégrité des entrées
         run: python -B TESTS/executer_tests.py
-      - name: Cadrer les pistes US sans valider les identités
-        run: python -B SCRIPTS_ACTIFS/07AE_CADRER_UNIVERS_US.py
-      - name: Archiver les rapports annuels, trimestriels et de gouvernance
+      - name: Raccorder tout le recensement US aux pièces réglementaires et contrôler les documents
         env:
           SEC_USER_AGENT: ${{ secrets.SEC_USER_AGENT }}
-        run: python -B SCRIPTS_ACTIFS/07AF_COLLECTER_DOCUMENTS_US.py
-      - name: Contrôler les dates, empreintes et CIK dans les documents
-        if: always()
-        run: python -B SCRIPTS_ACTIFS/07AG_CONTROLER_DOCUMENTS_US.py
+          EODHD_API_KEY: ${{ secrets.EODHD_API_KEY || secrets.EODH_API_KEY }}
+        run: python -u -B SCRIPTS_ACTIFS/07AJ_ETENDRE_DOCUMENTS_SEC_UNIVERS_US.py
       - name: Contrôle du T0
         if: always()
         run: |
@@ -43,7 +39,7 @@ jobs:
         with:
           name: univers-us-${{ github.run_id }}-${{ github.run_attempt }}
           path: |
-            AUDITS/UNIVERS_US/
+            AUDITS/PROFILS_SEC_UNIVERS_US/
             AUDITS/DOCUMENTS_US/
             AUDITS/CONTROLE_DOCUMENTS_US/
             AUDITS/TESTS/RESULTATS_TESTS.json
@@ -59,10 +55,10 @@ jobs:
           fi
           git config user.name 'github-actions[bot]'
           git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
-          mkdir -p AUDITS/UNIVERS_US AUDITS/DOCUMENTS_US AUDITS/CONTROLE_DOCUMENTS_US
-          git add AUDITS/UNIVERS_US AUDITS/DOCUMENTS_US AUDITS/CONTROLE_DOCUMENTS_US AUDITS/TESTS
+          mkdir -p AUDITS/PROFILS_SEC_UNIVERS_US AUDITS/DOCUMENTS_US AUDITS/CONTROLE_DOCUMENTS_US
+          git add AUDITS/PROFILS_SEC_UNIVERS_US AUDITS/DOCUMENTS_US AUDITS/CONTROLE_DOCUMENTS_US AUDITS/TESTS
           if ! git diff --cached --quiet; then
-            git commit -m 'Audit du premier univers US et documents primaires collectés'
+            git commit -m 'Documents SEC du recensement US : profils, pièces et contrôles sauvegardés'
             git pull --rebase origin main
             git push origin main
           fi

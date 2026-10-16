@@ -1,7 +1,7 @@
 """Intégrité, dates et CIK iXBRL des pièces US. Pas de validation SSI implicite."""
 from pathlib import Path
 from datetime import datetime,timezone
-import hashlib,json,sys
+import gzip,hashlib,json,sys
 import pandas as pd
 from html.parser import HTMLParser
 BASE=Path(__file__).resolve().parents[1]
@@ -29,13 +29,15 @@ def executer():
   row.update(Statut_identite_cotation='A_VERIFIER',Qualification_SSI='NON_EFFECTUEE')
   if r.Statut!='DOCUMENT_COLLECTE_A_VERIFIER':row['Controle_document']='NON_COLLECTE';rows.append(row);continue
   raw=BASE/r.Fichier_brut
-  if sha(raw)!=r.SHA256 or m['fichiers'].get(raw.name)!=r.SHA256:raise RuntimeError('DOCUMENT_US_SHA256_DIVERGENT')
+  archive_sha=sha(raw)
+  data=gzip.decompress(raw.read_bytes()) if raw.suffix=='.gz' else raw.read_bytes()
+  if hashlib.sha256(data).hexdigest()!=r.SHA256 or m['fichiers'].get(raw.name)!=archive_sha:raise RuntimeError('DOCUMENT_US_SHA256_DIVERGENT')
+  if r.get('SHA256_archive','') and r.SHA256_archive!=archive_sha:raise RuntimeError('DOCUMENT_US_ARCHIVE_SHA256_DIVERGENT')
   depot=datetime.strptime(r.Date_depot,'%Y-%m-%d').date()
   if depot>now.date() or r.Date_depot>m['date_limite']:raise RuntimeError('DEPOT_FUTUR_US')
   if datetime.fromisoformat(r.Date_collecte_UTC)>now:raise RuntimeError('COLLECTE_FUTURE_US')
   row['Age_depot_jours']=(now.date()-depot).days
   # Un âge élevé est signalé pour revue, sans inventer un seuil d'exclusion.
-  data=raw.read_bytes()
   found=cik_document(data) if not data.startswith(b'%PDF') else set()
   row['CIK_document']='|'.join(sorted(found))
   row['Controle_document']='CIK_XBRL_CONCORDANT' if found=={r.CIK} else 'CIK_XBRL_DIVERGENT' if found else 'CIK_XBRL_ABSENT_A_RELIRE'
