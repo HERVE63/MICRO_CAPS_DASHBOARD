@@ -1,0 +1,17 @@
+{
+  "version": "MICRO_CAPS_SCE_DISCOVERY_RELEVE_2026-10-16",
+  "source": "Fiche_maitre_SCE20260812_v1.1_CONSOLIDEE_2026-08-12.docx, pages 1-2",
+  "source_architecture": "Fiche_Architecture_Globale_Veille_Chasse_Selection_MCPA_IPS_SCE_Discovery_v1.0_2026-08-12.docx, pages 2-3",
+  "source_lue_le": "2026-10-16",
+  "ordre_deterministe": "SHA-256(\"SCE20260812 | ticker | ISIN\")",
+  "ticker_entree": "Ticker_US exact du recensement, suffixe de cotation conservé",
+  "dedoublonnage": "ISIN ; une cotation principale non démontrée reste à vérifier",
+  "taille_mandat_MICRO_CAPS_EUR": [50000000, 300000000],
+  "exclusions_maitres": ["ETF", "fonds", "preferred", "warrant", "unit", "right", "SPAC identifiable"],
+  "panel_experimental_25_modifie": false,
+  "quotas_experimentaux_transposes": false,
+  "score_SCE_invente": false,
+  "presel_financiere_subjective": false,
+  "admission_automatique": false,
+  "precaution": "Un checksum ISIN ou un libellé de cotation ne valide pas à lui seul l'identité. L'ordre de contrôle n'est pas un classement d'investissement."
+}
