@@ -48,7 +48,7 @@ def executer():
  d=pd.read_csv(SRC,dtype=str,keep_default_na=False)
  if "Formulaire" not in d or "Ticker" not in d:raise RuntimeError("Schema index invalide")
  rows=[];audits=[]
- for _,r in d[d["Formulaire"].eq("4")].iterrows():
+ for _,r in d[d["Formulaire"].isin(["4","4/A"])].iterrows():
   limite=os.getenv("MICRO_CAPS_AS_OF",datetime.now(timezone.utc).date().isoformat())
   if r.get("Date_depot",""):
    try:datetime.strptime(r["Date_depot"],"%Y-%m-%d")

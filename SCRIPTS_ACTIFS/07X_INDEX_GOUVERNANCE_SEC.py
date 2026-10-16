@@ -11,6 +11,7 @@ SRC=D/"PREUVES_SEC_EDGAR_SSI.csv"
 OUT=D/"PISTES_GOUVERNANCE_SEC_SSI.csv"
 AUD=D/"AUDIT_GOUVERNANCE_SEC_SSI.csv"
 FORMES={"3":"B4","4":"B4","5":"B4","DEF 14A":"B4_B5","10-K":"B5","10-K/A":"B5","20-F":"B5","40-F":"B5"}
+FORMES.update({'3/A':'B4','4/A':'B4','5/A':'B4','DEFA14A':'B4_B5'})
 def executer():
  if not SRC.exists():raise RuntimeError("Index SEC absent")
  d=pd.read_csv(SRC,dtype=str,keep_default_na=False)

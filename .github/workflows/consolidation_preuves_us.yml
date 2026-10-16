@@ -1,0 +1,59 @@
+name: MICRO CAPS - MATRICE PREUVES US
+on:
+  workflow_dispatch:
+  push:
+    branches: [main]
+    paths: ['.github/workflows/consolidation_preuves_us.yml']
+  workflow_run:
+    workflows: ['MICRO CAPS - DOCUMENTS UNIVERS US RECENSE']
+    types: [completed]
+    branches: [main]
+permissions:
+  contents: write
+concurrency:
+  group: microcaps-matrice-preuves-us
+  cancel-in-progress: false
+jobs:
+  matrice:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: main
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - run: pip install pandas
+      - name: Réception hors réseau
+        run: python -B TESTS/executer_tests.py
+      - name: Raccorder les pièces, les comptes, SCE et les index B4-B5
+        run: python -B SCRIPTS_ACTIFS/07AM_CONSOLIDER_PREUVES_US.py
+      - name: Vérifier l'intégrité du T0 et des dossiers
+        if: always()
+        run: |
+          python -B SCRIPTS_ACTIFS/07AC_CONTROLER_T0.py
+          git diff --exit-code -- DONNEES SAUVEGARDES
+      - name: Préserver la matrice et les limites de couverture
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: matrice-preuves-us-${{ github.run_id }}-${{ github.run_attempt }}
+          path: AUDITS/MATRICE_PREUVES_US/
+      - name: Sauvegarder les résultats effectifs
+        if: always()
+        run: |
+          rapport="AUDITS/TESTS/RUN_${GITHUB_RUN_ID}_${GITHUB_RUN_ATTEMPT}"
+          mkdir -p "$rapport" AUDITS/MATRICE_PREUVES_US
+          if [ -f AUDITS/TESTS/RESULTATS_TESTS.json ]; then
+            cp AUDITS/TESTS/RESULTATS_TESTS.json "$rapport/RESULTATS_TESTS.json"
+            git restore --worktree AUDITS/TESTS/RESULTATS_TESTS.json
+          fi
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add AUDITS/MATRICE_PREUVES_US AUDITS/TESTS
+          if ! git diff --cached --quiet; then
+            git commit -m 'Matrice des preuves US et index gouvernance : état réel sans notes inventées'
+            git pull --rebase origin main
+            git push origin main
+          fi
