@@ -30,6 +30,24 @@ def dernier(dossier):
  p=sorted((BASE/'AUDITS'/dossier).glob('*/MANIFESTE.json'))
  if not p:raise RuntimeError('SOURCE_ABSENTE:'+dossier)
  return p[-1],json.loads(p[-1].read_text())
+def sources_ir(util,univers):
+ # Dernière collecte du registre US uniquement ; les anciennes collectes non-US
+ # ne doivent jamais se substituer à ce périmètre.
+ for mp in sorted((BASE/'AUDITS/SOURCES_OFFICIELLES').glob('*/MANIFESTE.json'),reverse=True):
+  meta=json.loads(mp.read_text())
+  if Path(meta.get('registre_source','')).name!='DOCUMENTS_OFFICIELS_US_A_COLLECTER.csv':continue
+  if meta.get('couverture_source_SHA256')!=sha(univers):raise RuntimeError('PERIMETRE_IR_US_INCOHERENT')
+  docs=pd.read_csv(util.verifier_fichier(mp.parent,meta,'AUDIT_DOCUMENTS.csv'),dtype=str,keep_default_na=False)
+  result={}
+  for _,r in docs.iterrows():
+   if r.Statut!='DOCUMENT_COLLECTE_A_VERIFIER':continue
+   raw=(BASE/r.Fichier_brut).resolve()
+   if raw.parent!=mp.parent.resolve():raise RuntimeError('CHEMIN_SOURCE_IR_INVALIDE')
+   util.verifier_fichier(mp.parent,meta,raw.name)
+   if sha(raw)!=r.SHA256:raise RuntimeError('EMPREINTE_DOCUMENT_IR_INCOHERENTE')
+   result.setdefault(r.Ticker,[]).append(r.to_dict())
+  return result,mp
+ return {},None
 def executer():
  util=charger('07AI_RACCORDER_COMPTES_US_SSI.py');x=charger('07X_INDEX_GOUVERNANCE_SEC.py')
  pp,pm=dernier('PROFILS_SEC_UNIVERS_US');dp,dm=dernier('DOCUMENTS_US')
@@ -70,12 +88,15 @@ def executer():
  pieces={}
  for _,r in docs.iterrows():
   if r.Statut=='DOCUMENT_COLLECTE_A_VERIFIER':pieces.setdefault(r.CIK,set()).add(r.Formulaire)
+ ir,ip=sources_ir(util,pp.parent/'TOUTES_COTATIONS_RECENSEES.csv')
  matrice=[]
  for _,r in tous.iterrows():
   ticker=r.Ticker_US;f=finances.loc[ticker] if ticker in finances.index else {};s=ssi.loc[ticker] if ticker in ssi.index else {}
   o=ordre.loc[ticker] if ticker in ordre.index else {}
   c=controles[controles.CIK.eq(r.CIK)]
   p=pieces.get(r.CIK,set())
+  autres=ir.get(ticker,[])
+  if any(q.get('Identifiant_emetteur')!='CIK:'+r.CIK for q in autres):raise RuntimeError('CIK_SOURCE_IR_INCOHERENT')
   matrice.append({'Ticker':ticker,'CIK':r.CIK,'Statut_origine':r.Statut_origine,
     'Statut_instrument':o.get('Statut_instrument','VOIR_CONTROLE_INSTRUMENTS_US'),
     'Faits_comparables':f.get('Faits_comparables','0'),'Concepts_financiers':f.get('Concepts_comparables',''),
@@ -83,6 +104,10 @@ def executer():
     'Rapport_10K_collecte':'OUI' if '10-K' in p else 'NON',
     'Rapport_10Q_collecte':'OUI' if '10-Q' in p else 'NON',
     'Proxy_DEF14A_collecte':'OUI' if 'DEF 14A' in p else 'NON',
+    'Documents_IR_collectes_a_verifier':sum(q.get('Nature_document')!='INDEX_DOCUMENTAIRE_PAS_COMPTES' for q in autres),
+    'Index_IR_sans_comptes':sum(q.get('Nature_document')=='INDEX_DOCUMENTAIRE_PAS_COMPTES' for q in autres),
+    'Sources_IR':';'.join(q.get('Source_URL','') for q in autres),
+    'Dates_publication_IR':'|'.join(q.get('Date_publication','') or 'INCONNUE' for q in autres),
     'Documents_CIK_concordants':int(c.Controle_document.eq('CIK_XBRL_CONCORDANT').sum()),
     'Documents_CIK_divergents':int(c.Controle_document.eq('CIK_XBRL_DIVERGENT').sum()),
     'Documents_CIK_absent_a_relire':int(c.Controle_document.eq('CIK_XBRL_ABSENT_A_RELIRE').sum()),
@@ -94,9 +119,11 @@ def executer():
     'Candidat_selection_autorise':'OUI' if s.get('SCE_valide')=='OUI' and s.get('Statut_SSI')=='ADMIS_SSI' else 'NON'})
  result=pd.DataFrame(matrice);result.to_csv(out/'MATRICE_PREUVES_SSI_US.csv',index=False)
  bilan={'date_utc':datetime.now(timezone.utc).isoformat(),'source_script_SHA256':sha(Path(__file__)),
-  'sources':{str(p.relative_to(BASE)):sha(p) for p in (pp,dp,fp,sp,cp)},'cotations_conservees':len(result),
+  'sources':{str(p.relative_to(BASE)):sha(p) for p in (pp,dp,fp,sp,cp,ip) if p is not None},'cotations_conservees':len(result),
   'emetteurs_profils_distincts':len(profils),'pistes_gouvernance':len(gouvernance),
   'Form4_references_non_extraits':sum(forms4.values()),
+  'documents_IR_hors_index_a_verifier':int(result.Documents_IR_collectes_a_verifier.sum()),
+  'index_IR_sans_comptes':int(result.Index_IR_sans_comptes.sum()),
   'cotations_avec_trois_documents':int((result.Rapport_10K_collecte.eq('OUI')&result.Rapport_10Q_collecte.eq('OUI')&result.Proxy_DEF14A_collecte.eq('OUI')).sum()),
   'notes_SSI_attribuees_par_ce_module':0,'candidats_selection_autorises':int(result.Candidat_selection_autorise.eq('OUI').sum()),
   'statut':'MATRICE_PREUVES_ET_INDEX_GOUVERNANCE_EXECUTES_CONTENU_A_QUALIFIER',

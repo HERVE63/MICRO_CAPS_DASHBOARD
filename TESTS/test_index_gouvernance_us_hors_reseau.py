@@ -43,11 +43,23 @@ def test():
   manifeste(a,{'source_recensement':'AUDITS/RECENSEMENT_US_EODHD/FIXTURE/MANIFESTE.json'})
   pd.DataFrame([{'CIK':'0000000001','Controle_document':'CIK_XBRL_CONCORDANT'}]).to_csv(c/'CONTROLES_DOCUMENTS.csv',index=False)
   manifeste(c,{'archive_source':str((d/'MANIFESTE.json').relative_to(root))})
+  ir=dossier('SOURCES_OFFICIELLES');doc=ir/'fixture.bin';doc.write_bytes(b'ANNUAL REPORT TEST FIXTURE')
+  pd.DataFrame([{'Ticker':'FIXTURE.US','Identifiant_emetteur':'CIK:0000000001','Statut':'DOCUMENT_COLLECTE_A_VERIFIER',
+    'Nature_document':'COMPTES_ANNUELS_AUDITES','Fichier_brut':str(doc.relative_to(root)),
+    'SHA256':hashlib.sha256(doc.read_bytes()).hexdigest(),'Source_URL':'https://issuer.example/annual.pdf','Date_publication':''}]).to_csv(ir/'AUDIT_DOCUMENTS.csv',index=False)
+  manifeste(ir,{'registre_source':'CONFIG/DOCUMENTS_OFFICIELS_US_A_COLLECTER.csv',
+    'couverture_source_SHA256':hashlib.sha256((p/'TOUTES_COTATIONS_RECENSEES.csv').read_bytes()).hexdigest()})
   chargeur=m.charger
   def lire_module(nom):
    with patch.object(m,'BASE',Path(__file__).resolve().parents[1]):return chargeur(nom)
   with patch.object(m,'BASE',root),patch.object(m,'charger',side_effect=lire_module):bilan=m.executer()
   assert bilan['cotations_conservees']==2 and bilan['cotations_avec_trois_documents']==1
   assert bilan['Form4_references_non_extraits']==1 and bilan['candidats_selection_autorises']==0
+  assert bilan['documents_IR_hors_index_a_verifier']==1 and bilan['index_IR_sans_comptes']==0
+  doc.write_bytes(b'CORRUPTED FIXTURE')
+  with patch.object(m,'BASE',root),patch.object(m,'charger',side_effect=lire_module):
+   try:m.sources_ir(lire_module('07AI_RACCORDER_COMPTES_US_SSI.py'),p/'TOUTES_COTATIONS_RECENSEES.csv')
+   except RuntimeError as exc:assert 'EMPREINTE_SOURCE_INCOHERENTE' in str(exc)
+   else:raise AssertionError('Document IR corrompu accepté')
  print('Gouvernance US : plus de 30 références conservées, dates futures écartées, parsing incomplet bloqué, aucune transaction inventée')
 if __name__=='__main__':test()

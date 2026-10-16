@@ -26,7 +26,7 @@ jobs:
       - name: Collecter les publications officielles manquantes à la SEC
         run: |
           couverture=$(python -c "from pathlib import Path; print(sorted(Path('AUDITS/PROFILS_SEC_UNIVERS_US').glob('*/TOUTES_COTATIONS_RECENSEES.csv'))[-1])")
-          python -B SCRIPTS_ACTIFS/07AA_COLLECTE_DOCUMENTS_OFFICIELS.py --registre CONFIG/DOCUMENTS_OFFICIELS_US_A_COLLECTER.csv --couverture "$couverture"
+          python -B SCRIPTS_ACTIFS/07AA_COLLECTE_DOCUMENTS_OFFICIELS.py --registre CONFIG/DOCUMENTS_OFFICIELS_US_A_COLLECTER.csv --couverture "$couverture" --exiger-complet
       - name: Vérifier l'intégrité du T0 et des dossiers
         if: always()
         run: |

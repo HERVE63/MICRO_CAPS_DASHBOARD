@@ -75,6 +75,6 @@ def executer(registre=None, couverture_source=None):
     (out/'MANIFESTE.json').write_text(json.dumps(manifest,ensure_ascii=False,indent=2)+'\n')
     print(json.dumps(manifest,ensure_ascii=False));return rows
 if __name__=='__main__':
-    parser=argparse.ArgumentParser();parser.add_argument('--registre');parser.add_argument('--couverture')
+    parser=argparse.ArgumentParser();parser.add_argument('--registre');parser.add_argument('--couverture');parser.add_argument('--exiger-complet',action='store_true')
     args=parser.parse_args();resultats=executer(args.registre,args.couverture)
-    if any(r['Statut']=='BLOQUE_SOURCE' for r in resultats):raise SystemExit(1)
+    if args.exiger_complet and any(r['Statut']=='BLOQUE_SOURCE' for r in resultats):raise SystemExit(1)
