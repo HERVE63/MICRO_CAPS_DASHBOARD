@@ -8,6 +8,8 @@ FACT=D/"FAITS_SEC_COMPARABLES_SSI.csv"
 OUT=D/"RAPPROCHEMENT_PREUVES_SEC_SSI.csv"
 AUD=D/"AUDIT_RAPPROCHEMENT_SEC_SSI.csv"
 BLOCS={"Cash":"B1","Assets":"B1","Liabilities":"B1","OperatingIncome":"B2","NetIncome":"B2","OperatingCashFlow":"B2","Revenues":"B3","Shares":"B5"}
+BLOCS.update(DebtCurrent='B1',LongTermDebtCurrent='B1',LongTermDebtNoncurrent='B1',
+             GrossProfit='B2',CapitalExpenditure='B2',ShareBasedCompensation='B5')
 def executer():
  for p in (DOS,SEC,FACT):
   if not p.exists():raise RuntimeError("Fichier requis absent: "+p.name)

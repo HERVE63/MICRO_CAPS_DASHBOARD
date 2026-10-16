@@ -13,7 +13,7 @@ SRC=D/"FAITS_FINANCIERS_SEC_SSI.csv"
 OUT=D/"FAITS_SEC_COMPARABLES_SSI.csv"
 AUD=D/"AUDIT_COMPARABILITE_SEC_SSI.csv"
 FRAME=re.compile(r"^CY[0-9]{4}(?:Q[1-4])?$")
-FLUX={"Revenues","OperatingIncome","NetIncome","OperatingCashFlow"}
+FLUX={"Revenues","OperatingIncome","NetIncome","OperatingCashFlow","GrossProfit","CapitalExpenditure","ShareBasedCompensation"}
 def executer():
  if not SRC.exists(): raise RuntimeError("Faits SEC absents")
  df=pd.read_csv(SRC,dtype=str,keep_default_na=False)

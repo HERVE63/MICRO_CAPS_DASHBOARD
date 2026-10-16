@@ -85,7 +85,7 @@ def executer(source=None):
     out.mkdir(parents=True,exist_ok=False)
     groupes={}
     for r in candidats:
-        if r.get('Statut_companyfacts')=='FAITS_BRUTS_A_VERIFIER': groupes.setdefault(r['CIK'],[]).append(r)
+        if r.get('Statut_companyfacts') in ('FAITS_BRUTS_A_VERIFIER','AUCUN_FAIT_RETENU'): groupes.setdefault(r['CIK'],[]).append(r)
     couverture=[]; totaux={k:0 for k in ('BRUTS','COMPARABLES','RAPPROCHEMENT')}; premieres=set()
     for cik,rows in groupes.items():
         url='https://data.sec.gov/api/xbrl/companyfacts/CIK'+cik+'.json'
@@ -117,6 +117,8 @@ def executer(source=None):
         'source_recensement':str(source.relative_to(BASE)),
         'SHA256_manifeste_source':hashlib.sha256((source/'MANIFESTE.json').read_bytes()).hexdigest(),
         'source_script_SHA256':hashlib.sha256(Path(__file__).read_bytes()).hexdigest(),
+        'modules_SHA256':{nom:hashlib.sha256((BASE/'SCRIPTS_ACTIFS'/nom).read_bytes()).hexdigest() for nom in
+            ('07U_COLLECTE_COMPANYFACTS_SEC.py','07V_NORMALISER_FAITS_SEC.py','07W_RAPPROCHER_PREUVES_SEC_SSI.py')},
         'cotations_recensees':len(candidats),'emetteurs_comptes_traites':len(groupes),
         'cotations_avec_faits_comparables':sum(int(r['Faits_comparables'])>0 for r in couverture),
         'volumes':totaux,'SSI_evaluables_valides':0,'admissions_SSI':0,'notes_SSI_attribuees':0,

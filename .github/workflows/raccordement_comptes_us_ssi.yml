@@ -1,6 +1,9 @@
 name: MICRO CAPS - RACCORDEMENT COMPTES US SSI
 on:
   workflow_dispatch:
+  push:
+    branches: [main]
+    paths: ['.github/workflows/raccordement_comptes_us_ssi.yml']
   workflow_run:
     workflows: ['MICRO CAPS - RECENSEMENT US COMPLET EODHD']
     types: [completed]

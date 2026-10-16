@@ -20,6 +20,13 @@ TAGS={
  "NetIncome":["NetIncomeLoss"],
  "OperatingCashFlow":["NetCashProvidedByUsedInOperatingActivities"],
  "Shares":["CommonStockSharesOutstanding"],
+ # Composantes distinctes : ne jamais les sommer implicitement (recouvrements possibles).
+ "DebtCurrent":["DebtCurrent"],
+ "LongTermDebtCurrent":["LongTermDebtCurrent"],
+ "LongTermDebtNoncurrent":["LongTermDebtNoncurrent"],
+ "GrossProfit":["GrossProfit"],
+ "CapitalExpenditure":["PaymentsToAcquirePropertyPlantAndEquipment"],
+ "ShareBasedCompensation":["ShareBasedCompensation"],
 }
 TAGS_IFRS={
  "Revenues":["Revenue"], "Cash":["CashAndCashEquivalents"],
