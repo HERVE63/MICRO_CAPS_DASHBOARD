@@ -1,0 +1,42 @@
+{
+  "date_utc": "2026-10-16T13:27:47.713233+00:00",
+  "source_recensement": "AUDITS/RECENSEMENT_US_EODHD/20261015T170647372738Z/MANIFESTE.json",
+  "source_manifeste_SHA256": "203a5309446eb48cfdded760a7209eaa6ed90fb2607552842c9c2f6ef8748a17",
+  "source_script_SHA256": "132caf41f2589b3432137e00c2acd57de9b3a3ee687d26749245a87edd82583a",
+  "cotations_controlees": 2490,
+  "repartition_instruments": {
+    "ABSENT_REPERTOIRES_LISTES_OTC_OU_IDENTITE_A_COMPLETER": 1297,
+    "ACTION_ORDINAIRE_LIBELLE_OFFICIEL": 1105,
+    "REPRESENTATION_DEPOSITAIRE_A_VERIFIER": 53,
+    "TYPE_A_VERIFIER": 26,
+    "UNITES_A_VERIFIER": 6,
+    "AUTRE_INSTRUMENT_NON_ORDINAIRE": 3
+  },
+  "sources": [
+    {
+      "url": "https://www.nasdaqtrader.com/dynamic/SymDir/nasdaqlisted.txt",
+      "creation_fichier_heure_source": "1016202609:16",
+      "date_collecte_utc": "2026-10-16T13:27:46.995305+00:00",
+      "SHA256_octets_source": "24b9cf19c519f285983ce0724d6a0e447c4134053e4c14fded421c5a6fc73421",
+      "SHA256_archive": "a407ae19e3e710e71564c8aca5e36e2bb666d028bede1cac89cc5a829d69952e",
+      "lignes": 5634
+    },
+    {
+      "url": "https://www.nasdaqtrader.com/dynamic/SymDir/otherlisted.txt",
+      "creation_fichier_heure_source": "1016202609:16",
+      "date_collecte_utc": "2026-10-16T13:27:47.666405+00:00",
+      "SHA256_octets_source": "a8c3982c9d16214bb39c7d0628b6c9ac7902fbc0180a9bc762288dd22276eced",
+      "SHA256_archive": "539690e967999ed4c4371eb7748c4218c7d4b43ec0c707150fefb0e56c35a500",
+      "lignes": 7674
+    }
+  ],
+  "identites_emetteurs_validees": 0,
+  "notes_SSI_attribuees": 0,
+  "admissions_SSI": 0,
+  "statut": "CONTROLE_LIBELLES_OFFICIELS_SANS_ADMISSION_SSI",
+  "fichiers": {
+    "otherlisted.txt.gz": "539690e967999ed4c4371eb7748c4218c7d4b43ec0c707150fefb0e56c35a500",
+    "nasdaqlisted.txt.gz": "a407ae19e3e710e71564c8aca5e36e2bb666d028bede1cac89cc5a829d69952e",
+    "CONTROLE_INSTRUMENTS_US.csv": "ec4ee3b653865ae3e9a718fe56b48c0ff21b38cca9703ebef24096fc8f437b4d"
+  }
+}
