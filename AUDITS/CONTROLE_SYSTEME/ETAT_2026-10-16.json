@@ -1,0 +1,39 @@
+{
+  "date_controle": "2026-10-16",
+  "statut_global": "NON_OPERATIONNEL_BOUT_EN_BOUT",
+  "preuves": {
+    "production_quotidienne": {
+      "dernier_run": "38825318824",
+      "conclusion_job": "success",
+      "execution_moteur": "skipped",
+      "generation_dashboard": "skipped"
+    },
+    "tableau_de_bord": {
+      "date_derniere_seance_affichee": "2026-10-05",
+      "challengers_qualifies": 0
+    },
+    "selection": {
+      "dossiers_prets_SSI": 1361,
+      "notes_SSI": 0,
+      "admis_SSI": 0,
+      "revue_hebdomadaire": "entete_uniquement",
+      "selection_finale_validee": false
+    },
+    "chasse": {
+      "candidats_detectes": 19857,
+      "controle_chasse": "OK"
+    },
+    "t0": {
+      "dernier_audit_selection": "2026-10-10",
+      "integrite": "OK"
+    }
+  },
+  "blocages": [
+    "Planification quotidienne: les runs reussissent sans executer les etapes metier (verrou horaire trop strict).",
+    "Aucun SSI admis et aucune revue MCPA/IPS remplie.",
+    "Aucun challenger valide dans le tableau de bord.",
+    "Absence de preuve d'un parcours complet chasse-selection-duel-arbitrage prospectif."
+  ],
+  "decision": "NE_PAS_CREER_SAUVEGARDE_MICROCAPS_TOTAL_SYSTEME",
+  "protections": "Aucun historique officiel, coffre maitre, CPI ou ETF Assurance-Vie modifie."
+}
