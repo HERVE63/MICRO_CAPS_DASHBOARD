@@ -45,6 +45,11 @@ def test():
     # Exécution complète : le candidat non documenté reste dans le dénominateur.
     with TemporaryDirectory() as tmp:
         root=Path(tmp);source=root/'AUDITS/RECENSEMENT_US_EODHD/FIXTURE';source.mkdir(parents=True)
+        # Le manifeste doit tracer les vrais modules utilisés, également dans le
+        # répertoire de test isolé qui remplace la racine des données.
+        (root/'SCRIPTS_ACTIFS').mkdir()
+        for nom in ('07U_COLLECTE_COMPANYFACTS_SEC.py','07V_NORMALISER_FAITS_SEC.py','07W_RAPPROCHER_PREUVES_SEC_SSI.py'):
+            (root/'SCRIPTS_ACTIFS'/nom).write_bytes((Path(__file__).resolve().parents[1]/'SCRIPTS_ACTIFS'/nom).read_bytes())
         import pandas as pd
         pd.DataFrame([dict(row,Statut_companyfacts='FAITS_BRUTS_A_VERIFIER'),
                       {'Ticker_US':'MANQUANTE.US','CIK':'','Statut_companyfacts':'IDENTITE_A_COMPLETER'}]).to_csv(source/'COUVERTURE_PREUVES_SEC.csv',index=False)
