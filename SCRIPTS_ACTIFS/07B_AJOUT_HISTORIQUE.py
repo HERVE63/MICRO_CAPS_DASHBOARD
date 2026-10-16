@@ -96,6 +96,8 @@ def executer():
             for raison in controle["raisons"]:
                 print(" -", raison)
 
+        if statut != "DEJA_PRESENTE":
+            raise RuntimeError("JOURNEE_NON_ADMISSIBLE : " + " ; ".join(controle["raisons"]))
         return False
 
     # --------------------------------------------------------
