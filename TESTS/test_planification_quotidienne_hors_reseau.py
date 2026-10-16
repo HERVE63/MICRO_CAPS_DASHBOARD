@@ -23,6 +23,14 @@ def test():
     try:m.decider('schedule','inconnu')
     except ValueError:pass
     else:raise AssertionError('Un réveil inconnu ne doit pas passer silencieusement')
+    # Le mardi reste le déclencheur ; un retard après minuit ne supprime pas la chasse.
+    for date,bon,mauvais in [('2026-10-21T00:30:00+00:00','15 20 * * 2','15 21 * * 2'),
+                             ('2026-10-28T00:30:00+00:00','15 21 * * 2','15 20 * * 2')]:
+        assert m.decider('schedule',bon,datetime.fromisoformat(date),mode='HEBDOMADAIRE')['run']
+        assert not m.decider('schedule',mauvais,datetime.fromisoformat(date),mode='HEBDOMADAIRE')['run']
+    try:m.decider('schedule',m.ETE,mode='HEBDOMADAIRE')
+    except ValueError:pass
+    else:raise AssertionError('Un cron quotidien ne doit pas activer la chasse hebdomadaire')
     b=charger('07B_AJOUT_HISTORIQUE.py')
     with patch.object(b.gate,'controler',return_value={'statut':'EN_ATTENTE','date_candidate':'2026-10-15','raisons':['preuve manquante']}):
         try:b.executer()

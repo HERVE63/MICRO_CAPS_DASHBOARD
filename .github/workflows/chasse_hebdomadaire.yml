@@ -15,16 +15,17 @@ jobs:
   chasse:
     runs-on: ubuntu-latest
     steps:
-      - name: Verrou mardi 22h15 Europe Paris
+      - uses: actions/checkout@v4
+        with:
+          ref: main
+          sparse-checkout: SCRIPTS_ACTIFS/00A_PLANIFICATION_QUOTIDIENNE.py
+          sparse-checkout-cone-mode: false
+      - name: Choisir le réveil du mardi sans exiger une arrivée à la minute exacte
         id: horaire
-        shell: bash
-        run: |
-          if [ "${{ github.event_name }}" = "workflow_dispatch" ] || [ "${{ github.event_name }}" = "push" ]; then
-            echo "run=true" >> "$GITHUB_OUTPUT"
-          else
-            H=$(TZ=Europe/Paris date +%u-%H:%M)
-            [ "$H" = "2-22:15" ] && echo "run=true" >> "$GITHUB_OUTPUT" || echo "run=false" >> "$GITHUB_OUTPUT"
-          fi
+        env:
+          MICRO_CAPS_CRON: ${{ github.event.schedule }}
+          MICRO_CAPS_PLANIFICATION_MODE: HEBDOMADAIRE
+        run: python3 -B SCRIPTS_ACTIFS/00A_PLANIFICATION_QUOTIDIENNE.py
       - if: steps.horaire.outputs.run == 'true'
         uses: actions/checkout@v4
       - if: steps.horaire.outputs.run == 'true'
