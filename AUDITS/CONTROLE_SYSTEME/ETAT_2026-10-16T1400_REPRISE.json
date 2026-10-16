@@ -1,0 +1,54 @@
+{
+  "date_redaction_utc": "2026-10-16T14:01:33.709760+00:00",
+  "nature": "BILAN_DE_REPRISE_SANS_MODIFICATION_DES_AUDITS_ANTERIEURS",
+  "bilan": "DOCUMENTATION/BILAN_REPRISE_OPERATIONNELLE_2026-10-16.md",
+  "production": {
+    "execution": 38905484741,
+    "statut": "SUCCES",
+    "seance": "2026-10-15",
+    "positions": 40,
+    "anomalies_qualite": 0,
+    "T0_SHA256_avant_apres": "CONFORME",
+    "portefeuille_temoin_eur": 3887.505145688508,
+    "portefeuille_gere_eur": 3887.505145688508,
+    "historique_octobre_6_14": "NON_RECONSTITUE_RETROSPECTIVEMENT"
+  },
+  "selection": {
+    "statut": "NON_TERMINEE_PREUVES_ET_NOTES_A_VALIDER",
+    "cotations_recensees": 2490,
+    "CIK_distincts": 1444,
+    "cotations_faits_comparables": 1267,
+    "documents_SEC_archives": 2949,
+    "emetteurs_avec_3_documents": 829,
+    "alertes_CIK_documentaires": 12,
+    "alertes_levees": 0,
+    "documents_IR_collectes_hors_index": 5,
+    "index_IR_collecte_sans_comptes": 1,
+    "admis_SSI": 0,
+    "candidats_selection_autorises": 0,
+    "classement_final_valide": false,
+    "couverture_50_ou_90_pourcent_dossiers_complets_demontree": false
+  },
+  "preuves_execution": {
+    "documents_SEC": 38906284085,
+    "finances_tentative_2": 38908413602,
+    "SCE_instruments": 38907888613,
+    "IR": 38911447302,
+    "matrice_raccordement_IR": 38911923459,
+    "tests_26_fichiers": 38912257459
+  },
+  "limites": [
+    "Collecte SEC élargie en échec contrôlé : 12 téléchargements bloqués et 12 alertes documentaires de CIK.",
+    "Les 210995 références Form 4 ne sont pas des transactions extraites et vérifiées.",
+    "Identités, détentions, liquidité et sept notes SSI restent à valider.",
+    "Recensement US complet à déclenchement manuel ; automatisation de bout en bout non achevée.",
+    "Aucune sélection MCPA/IPS ou décision mensuelle réelle validée."
+  ],
+  "regles": {
+    "CPI_et_ETF_AV": "HORS_PERIMETRE_INCHANGES",
+    "coffre_maitre_immuable_V3": "INCHANGE",
+    "frais_achat": 0.025,
+    "frais_vente": 0.025,
+    "arbitrage": "MENSUEL_SAUF_EXCEPTION_GRAVE_DOCUMENTEE"
+  }
+}
