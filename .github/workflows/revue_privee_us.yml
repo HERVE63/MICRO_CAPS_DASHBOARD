@@ -1,0 +1,51 @@
+name: MICRO CAPS - REVUE PRIVEE US
+on:
+  workflow_dispatch:
+  push:
+    branches: [main]
+    paths: ['.github/workflows/revue_privee_us.yml', 'CONFIG/CLE_PUBLIQUE_REVUE_PRIVEE_US.json']
+permissions:
+  contents: write
+concurrency:
+  group: microcaps-revue-privee-us
+  cancel-in-progress: false
+jobs:
+  revue:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: main
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - run: pip install pandas cryptography
+      - name: Tests hors réseau
+        run: python -B TESTS/executer_tests.py
+      - name: Préparer une enveloppe privée sans appel fournisseur
+        env:
+          EODHD_API_KEY: ${{ secrets.EODHD_API_KEY || secrets.EODH_API_KEY }}
+        run: python -B SCRIPTS_ACTIFS/07AQ_PREPARER_REVUE_PRIVEE_US.py
+      - name: Vérifier le T0 et les entrées
+        if: always()
+        run: |
+          python -B SCRIPTS_ACTIFS/07AC_CONTROLER_T0.py
+          git diff --exit-code -- DONNEES SAUVEGARDES CONFIG
+      - name: Sauvegarder uniquement les enveloppes chiffrées et les contrôles
+        if: always()
+        run: |
+          rapport="AUDITS/TESTS/RUN_${GITHUB_RUN_ID}_${GITHUB_RUN_ATTEMPT}"
+          mkdir -p "$rapport" AUDITS/REVUE_PRIVEE_US
+          if [ -f AUDITS/TESTS/RESULTATS_TESTS.json ]; then
+            cp AUDITS/TESTS/RESULTATS_TESTS.json "$rapport/RESULTATS_TESTS.json"
+            git restore --worktree AUDITS/TESTS/RESULTATS_TESTS.json
+          fi
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add AUDITS/REVUE_PRIVEE_US AUDITS/TESTS
+          if ! git diff --cached --quiet; then
+            git commit -m 'Revue US : données sous enveloppe chiffrée, aucune note automatique'
+            git pull --rebase origin main
+            git push origin main
+          fi
