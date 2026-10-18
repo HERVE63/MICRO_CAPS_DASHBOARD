@@ -1,0 +1,21 @@
+{
+  "date_utc": "2026-10-18T14:08:09.102280+00:00",
+  "type": "CORRECTION_DOCUMENTEE_SANS_EFFACEMENT_ARCHIVE",
+  "source_invalidee_partiellement": "AUDITS/MARCHE_US_EODHD/20261018T134037757645Z/MANIFESTE.json",
+  "source_script_SHA256": "2a703e6ea5d0ab5251ae6b13fb45ebb3bae792db85134b4133478fc20ed1304c",
+  "champs_invalides": [
+    "Volume_monetaire_median_63s_USD",
+    "Volume_monetaire_63s_disponible"
+  ],
+  "motif": "EODHD fournit close brut et volume ajusté des splits. Leur produit sans correction des unités historiques n'est pas un volume monétaire homogène.",
+  "champs_historiques_conserves": "cours ajustés, dates et momentum ne sont pas affectés par cette correction",
+  "correction": "Reconstituer le volume non ajusté à chaque date en divisant le volume fourni par le produit des ratios de splits postérieurs jusqu'à la date de collecte, puis multiplier par close brut.",
+  "sources_documentaires": [
+    "https://eodhd.com/financial-apis/api-for-historical-data-and-volumes",
+    "https://eodhd.com/financial-apis/api-splits-dividends"
+  ],
+  "nouvelle_execution": 39133897615,
+  "modification_positions": false,
+  "notes_SSI_attribuees": 0,
+  "archive_originale_preservee": true
+}

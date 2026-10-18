@@ -1,0 +1,58 @@
+{
+  "date_utc": "2026-10-18T14:09:48.781069+00:00",
+  "objet": "COMPLEMENTS_REELS_DOSSIERS_US",
+  "objectif_initial_SSI_complet": 0.5,
+  "cotations_recensees": 2490,
+  "date_reference_marche": "2026-10-16",
+  "marche": {
+    "run": 39133897615,
+    "statut": "SUCCESS",
+    "cotations_tentees": 2490,
+    "cours_ancre": 2474,
+    "quatre_momentum": 2106,
+    "volume_mediane_63s_corrige_splits": 2402,
+    "reserve_credits_autres_outils": 10000,
+    "donnees_licenciees_chiffrees": true
+  },
+  "gouvernance": {
+    "run": 39133010038,
+    "statut": "SUCCESS",
+    "proxies_avec_passages": 650,
+    "passages": 2867,
+    "emetteurs_passage_groupe_dirigeant": 583,
+    "detention_personnelle_nette_validee": false
+  },
+  "sources_secondaires": {
+    "registre": "AUDITS/RECHERCHE_COMPLEMENTS_US/2026-10-18_LOT_ORDRE_SCE/SOURCES_SECONDAIRES_CONSULTEES.csv",
+    "pages_consultees_ou_bloquees": 6,
+    "lecture_authentifiee_supposee": false
+  },
+  "observations_primaires": 6,
+  "tests": {
+    "run": 39133897619,
+    "statut": "SUCCESS",
+    "fichiers_test_reussis": 28
+  },
+  "raccordement_matrice": {
+    "run": 39134487981,
+    "statut": "SUCCESS",
+    "dossier": "AUDITS/MATRICE_PREUVES_US/20261018T140728373220Z"
+  },
+  "integrite": {
+    "T0": "CONTROLE_SHA256_REUSSI",
+    "registre_corrections_humaines_SHA256": "9e99fa04b635770737d0306662be3ca8e5ad451fe2096e94e3cb922158aaebef",
+    "CPI_et_ETF_AV_modifies": false,
+    "coffre_maitre_immuable_V3_modifie": false
+  },
+  "qualification": {
+    "notes_SSI_nouvelles": 0,
+    "candidats_selection_autorises": 0,
+    "couverture_50_pourcent_SSI_complet_demontree": false,
+    "selection_finale_terminee": false
+  },
+  "correction": {
+    "archive_initiale_preservee": true,
+    "produit_close_volume_sans_splits_invalide": true
+  },
+  "rapport": "DOCUMENTATION/COMPLETION_DOSSIERS_US_2026-10-18.md"
+}
