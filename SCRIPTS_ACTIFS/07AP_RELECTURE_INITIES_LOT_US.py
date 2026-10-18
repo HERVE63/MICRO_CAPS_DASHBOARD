@@ -6,6 +6,7 @@ from pathlib import Path
 from datetime import datetime,timezone
 from io import BytesIO
 from urllib.request import Request,build_opener
+from urllib.error import HTTPError,URLError
 from urllib.parse import urlparse
 import gzip,hashlib,importlib.util,json,os,re,time
 import pandas as pd
@@ -19,18 +20,38 @@ class Reponse(BytesIO):
 class ClientSEC:
  def __init__(self,out,agent):
   if '@' not in agent:raise RuntimeError('CONTACT_SEC_INVALIDE')
-  self.out=out;self.agent=agent;self.sources=[];self.dernier=0.;self.opener=build_opener(charger('07AF_COLLECTER_DOCUMENTS_US.py').RedirectionsSEC())
+  self.out=out;self.agent=agent;self.sources=[];self.dernier=0.;self.cache={}
+  for mp in sorted((BASE/'AUDITS/RELECTURE_INITIES_US').glob('*/MANIFESTE.json')):
+   meta=json.loads(mp.read_text());idx=mp.parent/'BRUTS/SOURCES_HTTP.json'
+   if not idx.exists() or meta.get('fichiers',{}).get('BRUTS/SOURCES_HTTP.json')!=sha(idx):raise RuntimeError('CACHE_SOURCES_SEC_CORROMPU')
+   for source in json.loads(idx.read_text()):
+    if source['URL'].startswith('https://www.sec.gov/Archives/edgar/data/') and not source['URL'].endswith('/index.json'):self.cache[source['URL']]=source
+  self.opener=build_opener(charger('07AF_COLLECTER_DOCUMENTS_US.py').RedirectionsSEC())
  def open(self,req,timeout=35):
   url=req.full_url;u=urlparse(url)
   if u.scheme!='https' or u.username or u.password or u.port not in (None,443):raise ValueError('URL_SEC_INVALIDE')
   if not ((u.hostname=='data.sec.gov' and re.fullmatch(r'/submissions/(?:CIK\d{10}|CIK\d{10}-submissions-\d+)\.json',u.path)) or (u.hostname=='www.sec.gov' and re.fullmatch(r'/Archives/edgar/data/\d+/\d{18}/[A-Za-z0-9_.-]+',u.path))):raise ValueError('URL_HORS_PERIMETRE_SEC')
-  time.sleep(max(0,.3-(time.monotonic()-self.dernier)));self.dernier=time.monotonic()
-  with self.opener.open(Request(url,headers={'User-Agent':self.agent,'Accept-Encoding':'identity'}),timeout=timeout) as response:data=response.read(30_000_001)
+  ancien=self.cache.get(url)
+  if ancien:
+   p=(BASE/ancien['Fichier_brut']).resolve()
+   if BASE.resolve() not in p.parents or not p.is_file() or sha(p)!=ancien['SHA256_archive']:raise RuntimeError('CACHE_DOCUMENT_SEC_CORROMPU')
+   data=gzip.decompress(p.read_bytes())
+   if hashlib.sha256(data).hexdigest()!=ancien['SHA256_brut']:raise RuntimeError('CACHE_CONTENU_SEC_CORROMPU')
+  else:
+   for essai in range(3):
+    time.sleep(max(0,.3-(time.monotonic()-self.dernier)));self.dernier=time.monotonic()
+    try:
+     with self.opener.open(Request(url,headers={'User-Agent':self.agent,'Accept-Encoding':'identity'}),timeout=timeout) as response:data=response.read(30_000_001)
+     break
+    except (TimeoutError,URLError) as exc:
+     if isinstance(exc,HTTPError) and exc.code not in (429,500,502,503,504):raise
+     if essai==2:raise
+     time.sleep(2*(essai+1))
   if not data or len(data)>30_000_000:raise ValueError('REPONSE_SEC_TAILLE_INVALIDE')
   debut=data[:8000].lower()
   if any(x in debut for x in (b'undeclared automated tool',b'request rate threshold exceeded',b'access denied')):raise ValueError('PAGE_REFUS_SEC')
   digest=hashlib.sha256(data).hexdigest();p=self.out/(digest+'.bin.gz');p.write_bytes(gzip.compress(data,mtime=0))
-  self.sources.append({'URL':url,'Date_collecte_UTC':datetime.now(timezone.utc).isoformat(),'SHA256_brut':digest,'SHA256_archive':sha(p),'Fichier_brut':str(p.relative_to(BASE))})
+  self.sources.append({'URL':url,'Date_collecte_UTC':ancien['Date_collecte_UTC'] if ancien else datetime.now(timezone.utc).isoformat(),'Reutilise':'OUI' if ancien else 'NON','Date_reutilisation_UTC':datetime.now(timezone.utc).isoformat() if ancien else '', 'SHA256_brut':digest,'SHA256_archive':sha(p),'Fichier_brut':str(p.relative_to(BASE))})
   (self.out/'SOURCES_HTTP.json').write_text(json.dumps(self.sources,ensure_ascii=False,indent=2)+'\n')
   return Reponse(data)
 def depots(obj,limite):
@@ -102,7 +123,7 @@ def executer():
  from types import SimpleNamespace
  y.time=SimpleNamespace(sleep=lambda n:None)
  rows=y.executer();audit=pd.read_csv(y.AUD,dtype=str,keep_default_na=False)
- bilan={'date_utc':now.isoformat(),'date_debut_depots':debut,'date_limite_depots':limite,'source_lot':str(source.relative_to(BASE)),'source_lot_SHA256':sha(source),'source_script_SHA256':sha(Path(__file__)),'module_07Y_SHA256':sha(BASE/'SCRIPTS_ACTIFS/07Y_EXTRAIRE_FORM4_SEC.py'),'emetteurs_lot':len(lot),'profils_concordants':len(profils),'profils_en_erreur':len(erreurs),'depots_form4_indexes':len(index),'transactions_non_derivees_extraites':len(rows),'repartition_controles':audit.Statut.value_counts().to_dict(),'reponses_HTTP_archivees':len(client.sources),'notes_SSI_attribuees':0,'detentions_actuelles_reconstituees':False,'historique_depuis_2026_complet_valide':False,'fichiers':{str(p.relative_to(out)):sha(p) for p in out.rglob('*') if p.is_file()}}
+ bilan={'date_utc':now.isoformat(),'date_debut_depots':debut,'date_limite_depots':limite,'source_lot':str(source.relative_to(BASE)),'source_lot_SHA256':sha(source),'source_script_SHA256':sha(Path(__file__)),'module_07Y_SHA256':sha(BASE/'SCRIPTS_ACTIFS/07Y_EXTRAIRE_FORM4_SEC.py'),'emetteurs_lot':len(lot),'profils_concordants':len(profils),'profils_en_erreur':len(erreurs),'depots_form4_indexes':len(index),'transactions_non_derivees_extraites':len(rows),'repartition_controles':audit.Statut.value_counts().to_dict(),'reponses_HTTP_archivees':len(client.sources),'reponses_reutilisees':sum(r.get('Reutilise')=='OUI' for r in client.sources),'notes_SSI_attribuees':0,'detentions_actuelles_reconstituees':False,'historique_depuis_2026_complet_valide':False,'fichiers':{str(p.relative_to(out)):sha(p) for p in out.rglob('*') if p.is_file()}}
  (out/'MANIFESTE.json').write_text(json.dumps(bilan,ensure_ascii=False,indent=2)+'\n');print(json.dumps({k:v for k,v in bilan.items() if k!='fichiers'},ensure_ascii=False))
  return bilan
 if __name__=='__main__':
