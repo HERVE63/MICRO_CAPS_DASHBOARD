@@ -6,7 +6,7 @@ from pathlib import Path
 from urllib.request import Request, urlopen
 from urllib.parse import urlparse
 import xml.etree.ElementTree as ET
-import re, os, time
+import json, re, os, time
 from datetime import datetime, timezone
 import pandas as pd
 
@@ -18,15 +18,29 @@ ACC=re.compile(r"^[0-9]{10}-[0-9]{2}-[0-9]{6}$")
 def texte(node,path):
  el=node.find(path)
  return (el.text or "").strip() if el is not None else ""
+EXTRA_COLS=['Numero_ligne_XML','Titre_valeur','CIK_declarants','Nombre_declarants','Qualites_declarants_JSON','Plan_10b5_1_declare','Nature_detention_indirecte','Footnotes_ligne_JSON','Footnotes_document_JSON','Date_originale_amendement']
 def analyser_xml(xml):
  root=ET.fromstring(xml)
  if root.tag!="ownershipDocument":raise ValueError("Document non ownershipDocument")
  noms=[texte(x,"rptOwnerName") for x in root.findall("./reportingOwner/reportingOwnerId")]
+ owners=[]
+ for o in root.findall('./reportingOwner'):
+  owners.append({'CIK':texte(o,'reportingOwnerId/rptOwnerCik'),'Nom':texte(o,'reportingOwnerId/rptOwnerName'),
+   'isDirector':texte(o,'reportingOwnerRelationship/isDirector'),'isOfficer':texte(o,'reportingOwnerRelationship/isOfficer'),
+   'isTenPercentOwner':texte(o,'reportingOwnerRelationship/isTenPercentOwner'),'officerTitle':texte(o,'reportingOwnerRelationship/officerTitle')})
+ footnotes={z.attrib.get('id',''):''.join(z.itertext()).strip() for z in root.findall('./footnotes/footnote')}
  rows=[]
- for x in root.findall("./nonDerivativeTable/nonDerivativeTransaction"):
+ for numero,x in enumerate(root.findall("./nonDerivativeTable/nonDerivativeTransaction"),1):
   code=texte(x,"transactionCoding/transactionCode")
   if not code:continue
-  rows.append({"Dirigeants_declares":"; ".join(n for n in noms if n),
+  refs=[z.attrib.get('id','') for z in x.findall('.//footnoteId')]
+  rows.append({'Numero_ligne_XML':numero,'Titre_valeur':texte(x,'securityTitle/value'),
+   'CIK_declarants':'|'.join(o['CIK'] for o in owners),'Nombre_declarants':len(owners),
+   'Qualites_declarants_JSON':json.dumps(owners,ensure_ascii=False),
+   'Plan_10b5_1_declare':texte(root,'aff10b5One'),'Nature_detention_indirecte':texte(x,'ownershipNature/natureOfOwnership/value'),
+   'Footnotes_ligne_JSON':json.dumps({k:footnotes.get(k,'REFERENCE_ABSENTE') for k in refs},ensure_ascii=False),
+   'Footnotes_document_JSON':json.dumps(footnotes,ensure_ascii=False),
+   'Date_originale_amendement':texte(root,'dateOfOriginalSubmission'),"Dirigeants_declares":"; ".join(n for n in noms if n),
    "Date_transaction":texte(x,"transactionDate/value"),
    "Code_transaction":code,"Acquisition_cession":texte(x,"transactionAmounts/transactionAcquiredDisposedCode/value"),
    "Titres_transaction":texte(x,"transactionAmounts/transactionShares/value"),
@@ -86,6 +100,7 @@ def executer():
    if not emetteur_cik.isdigit() or int(emetteur_cik)!=int(cik):
     audits.append({"Ticker":r["Ticker"],"Accession":acc,"Statut":"CIK_EMETTEUR_FORM4_INCOHERENT","Transactions":0});continue
    transactions=analyser_xml(contenu)
+   avant=len(rows)
    for t in transactions:
     date_t=t.get("Date_transaction","")
     # Une date absente reste explicitement à vérifier, jamais inventée.
@@ -94,12 +109,12 @@ def executer():
      except (ValueError,TypeError):continue
      if date_t>limite:continue
     rows.append({"Ticker":r["Ticker"],"CIK":cik,"Accession":acc,"Source_XML":url,**t,"Note_SSI_attribuee":"NON"})
-   audits.append({"Ticker":r["Ticker"],"Accession":acc,"Statut":"TRANSACTIONS_A_VERIFIER","Transactions":len(transactions)})
+   audits.append({"Ticker":r["Ticker"],"Accession":acc,"Statut":"TRANSACTIONS_A_VERIFIER","Transactions":len(rows)-avant})
   except Exception as exc:
    audits.append({"Ticker":r["Ticker"],"Accession":acc,"Statut":"ERREUR_"+type(exc).__name__,"Transactions":0})
   time.sleep(0.15)
  cols=["Ticker","CIK","Accession","Source_XML","Dirigeants_declares","Date_transaction","Code_transaction","Acquisition_cession","Titres_transaction","Prix_par_titre","Titres_apres_transaction","Detention_directe_indirecte","Statut_interpretation","Note_SSI_attribuee"]
- pd.DataFrame(rows,columns=cols).to_csv(OUT,index=False)
+ pd.DataFrame(rows,columns=cols+EXTRA_COLS).to_csv(OUT,index=False)
  pd.DataFrame(audits,columns=["Ticker","Accession","Statut","Transactions"]).to_csv(AUD,index=False)
  print("Form 4:",len(rows),"transactions a verifier")
  return rows
