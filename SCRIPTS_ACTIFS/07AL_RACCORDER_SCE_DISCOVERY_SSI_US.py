@@ -53,13 +53,23 @@ def ordonner(dossiers,instruments):
  classes=sorted((r for r in rows if r['Hash_SCE']),key=lambda r:(r['Hash_SCE'],r['Ticker']))
  for rang,r in enumerate(classes,1):r['Rang_controle_SCE']=rang
  return sorted(rows,key=lambda r:(not bool(r['Hash_SCE']),r['Hash_SCE'],r['Ticker']))
-def dossiers_ssi(ordre,humains):
+def dossiers_ssi(ordre,humains,documentaires=None):
  if humains.Ticker.duplicated().any():raise RuntimeError('REGISTRE_HUMAIN_US_DUPLIQUE')
  reg=humains.set_index('Ticker');rows=[]
+ docs={}
+ if documentaires is not None:
+  if set(documentaires.columns)!={'Ticker','Decision_eliminatoire','Motif_eliminatoire'} or documentaires.Ticker.duplicated().any():
+   raise RuntimeError('REGISTRE_DOCUMENTAIRE_SCHEMA_INVALIDE')
+  if not documentaires.Decision_eliminatoire.eq('OUI').all():raise RuntimeError('REVUE_DOCUMENTAIRE_LIMITEE_AUX_EXCLUSIONS')
+  inconnus=set(documentaires.Ticker)-{r['Ticker'] for r in ordre}
+  if inconnus:raise RuntimeError('REVUE_DOCUMENTAIRE_HORS_UNIVERS')
+  docs=documentaires.set_index('Ticker').to_dict('index')
  for r in ordre:
   d={k:r[k] for k in ('Ticker','Societe','CIK','Statut_SCE','SCE_valide','Rang_controle_SCE')}
   d.update(Decision_eliminatoire='A_VERIFIER',Motif_eliminatoire='MANQUANTE')
   for b in range(1,8):d['Note_B'+str(b)]='MANQUANTE';d['Preuve_B'+str(b)]='MANQUANTE'
+  if r['Ticker'] in docs:d.update(docs[r['Ticker']])
+  # Les corrections humaines explicites priment ; aucune collecte n'écrit ces registres.
   if r['Ticker'] in reg.index:
    for k,v in reg.loc[r['Ticker']].items():
     if k.startswith(('Note_','Preuve_','Validation_','Correction_')) or k in ('Decision_eliminatoire','Motif_eliminatoire'):
@@ -87,14 +97,17 @@ def executer():
  pd.DataFrame(ordre).to_csv(out/'ORDRE_CONTROLES_SCE.csv',index=False)
  ledger=BASE/'CONFIG/QUALIFICATIONS_SSI_US_HUMAINES.csv';avant=sha(ledger)
  humains=pd.read_csv(ledger,dtype=str,keep_default_na=False)
- dossiers_ssi(ordre,humains).to_csv(out/'DOSSIERS_SSI_A_QUALIFIER.csv',index=False)
+ documentaire=BASE/'CONFIG/EXCLUSIONS_US_REVUES_DOCUMENTAIRES.csv'
+ revue=pd.read_csv(documentaire,dtype=str,keep_default_na=False) if documentaire.exists() else None
+ documentaire_sha=sha(documentaire) if documentaire.exists() else None
+ dossiers_ssi(ordre,humains,revue).to_csv(out/'DOSSIERS_SSI_A_QUALIFIER.csv',index=False)
  ssi=charger('07R_VALIDER_NOTES_SSI.py');ssi.SRC=out/'DOSSIERS_SSI_A_QUALIFIER.csv'
  ssi.OUT=out/'RESULTATS_SSI.csv';ssi.AUD=out/'AUDIT_SSI.csv';result=ssi.executer()
  if sha(ledger)!=avant:raise RuntimeError('REGISTRE_HUMAIN_MODIFIE')
  bilan={'date_utc':datetime.now(timezone.utc).isoformat(),'source_recensement':str(mp.relative_to(BASE)),
   'source_instruments':str(ip.relative_to(BASE)),'source_script_SHA256':sha(Path(__file__)),
   'protocole_SHA256':sha(BASE/'CONFIG/PROTOCOLE_SCE_DISCOVERY_MICROCAPS.json'),
-  'registre_humain_SHA256':avant,'cotations_conservees':len(ordre),
+  'registre_documentaire_SHA256':documentaire_sha,'registre_humain_SHA256':avant,'cotations_conservees':len(ordre),
   'ISIN_checksum_valides':sum(r['ISIN_present_checksum_valide']=='OUI' for r in ordre),
   'doublons_ISIN_cotations':sum(r['Doublons_ISIN']>1 for r in ordre),
   'SCE_valides':0,'repartition_SSI':result.Statut_SSI.value_counts().to_dict(),

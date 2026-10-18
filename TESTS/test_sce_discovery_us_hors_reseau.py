@@ -26,5 +26,14 @@ def test():
  try:m.dossiers_ssi(ordre,pd.concat([humains,humains]))
  except RuntimeError as e:assert 'DUPLIQUE' in str(e)
  else:raise AssertionError('Registre humain ambigu accepté')
+ doc=pd.DataFrame([{'Ticker':'SECOND.US','Decision_eliminatoire':'OUI','Motif_eliminatoire':'PREUVE_EXCLUSION'}])
+ q=m.dossiers_ssi(ordre,humains,doc).set_index('Ticker')
+ assert q.loc['SECOND.US','Decision_eliminatoire']=='OUI' and q.loc['SECOND.US','Note_B4']=='MANQUANTE'
+ correction=pd.DataFrame([{'Ticker':'SECOND.US','Decision_eliminatoire':'NON','Motif_eliminatoire':'CORRECTION_HUMAINE'}])
+ assert m.dossiers_ssi(ordre,correction,doc).set_index('Ticker').loc['SECOND.US','Decision_eliminatoire']=='NON'
+ for mauvais in [doc.assign(Note_B4='20'),doc.assign(Decision_eliminatoire='NON'),doc.assign(Ticker='INCONNU.US')]:
+  try:m.dossiers_ssi(ordre,humains,mauvais)
+  except RuntimeError:pass
+  else:raise AssertionError('Revue documentaire trop permissive')
  print('SCE maître : ordre indépendant du fournisseur, dénominateur, ISIN, doublons et champs humains conservés sans note inventée')
 if __name__=='__main__':test()

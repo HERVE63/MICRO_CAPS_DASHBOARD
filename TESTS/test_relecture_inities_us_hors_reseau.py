@@ -41,5 +41,14 @@ def test():
   for r in sources:
    path=root/r['Fichier_brut'];assert hashlib.sha256(path.read_bytes()).hexdigest()==r['SHA256_archive'];assert hashlib.sha256(gzip.decompress(path.read_bytes())).hexdigest()==r['SHA256_brut']
   data=pd.read_csv(out/'TRANSACTIONS_FORM4_LOT.csv');assert data.loc[0,'Nombre_declarants']==1 and data.loc[0,'Note_SSI_attribuee']=='NON'
+  am=m.charger('07AM_CONSOLIDER_PREUVES_US.py');util=m.charger('07AI_RACCORDER_COMPTES_US_SSI.py')
+  with patch.object(am,'BASE',root):
+   mapping,mp=am.lot_inities(util)
+   assert mapping['FIXTURE.US']['lignes']==1 and mapping['FIXTURE.US']['CIK']=='0000001234'
+   with (out/'TRANSACTIONS_FORM4_LOT.csv').open('a') as f:f.write('corruption')
+   try:am.lot_inities(util)
+   except RuntimeError:pass
+   else:raise AssertionError('Lot Form 4 corrompu raccordé à la matrice')
+
  print('Relecture lot : profils CIK/ticker, XML et index hashés, fonctions des déclarants, déclarations conjointes et notes de bas de page préservés, aucune note SSI')
 if __name__=='__main__':test()

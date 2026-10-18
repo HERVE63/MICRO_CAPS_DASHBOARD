@@ -60,6 +60,19 @@ def complement(util,dossier,fichier,univers):
  if dossier=='MARCHE_US_EODHD' and not meta.get('volumes_monetaires_corriges_splits'):
   d['Volume_monetaire_63s_disponible']='NON'
  return d.set_index('Ticker').to_dict('index'),mp
+def lot_inities(util):
+ fichiers=sorted((BASE/'AUDITS/RELECTURE_INITIES_US').glob('*/MANIFESTE.json'))
+ if not fichiers:return {},None
+ mp=fichiers[-1];meta=json.loads(mp.read_text())
+ if meta.get('profils_en_erreur') or any(k!='TRANSACTIONS_A_VERIFIER' for k in meta.get('repartition_controles',{})):
+  raise RuntimeError('LOT_INITIES_INCOMPLET_OU_AMBIGU')
+ profils=pd.read_csv(util.verifier_fichier(mp.parent,meta,'PROFILS_ACTUALISES.csv'),dtype=str,keep_default_na=False)
+ transactions=pd.read_csv(util.verifier_fichier(mp.parent,meta,'TRANSACTIONS_FORM4_LOT.csv'),dtype=str,keep_default_na=False)
+ if profils.Ticker.duplicated().any() or len(profils)!=meta['emetteurs_lot'] or len(transactions)!=meta['transactions_non_derivees_extraites']:
+  raise RuntimeError('LOT_INITIES_DECOMPTE_DIVERGENT')
+ mapping=profils.set_index('Ticker').CIK.to_dict()
+ if any(mapping.get(r.Ticker)!=r.CIK for _,r in transactions.iterrows()):raise RuntimeError('LOT_INITIES_CIK_DIVERGENT')
+ return {t:{'CIK':c,'lignes':int(transactions.Ticker.eq(t).sum()),'date_limite':meta['date_limite_depots']} for t,c in mapping.items()},mp
 def executer():
  util=charger('07AI_RACCORDER_COMPTES_US_SSI.py');x=charger('07X_INDEX_GOUVERNANCE_SEC.py')
  pp,pm=dernier('PROFILS_SEC_UNIVERS_US');dp,dm=dernier('DOCUMENTS_US')
@@ -103,11 +116,13 @@ def executer():
  ir,ip=sources_ir(util,pp.parent/'TOUTES_COTATIONS_RECENSEES.csv')
  marche,mp=complement(util,'MARCHE_US_EODHD','COUVERTURE_MARCHE_US.csv',pp.parent/'TOUTES_COTATIONS_RECENSEES.csv')
  passages,gp=complement(util,'PASSAGES_GOUVERNANCE_US','COUVERTURE_PASSAGES_US.csv',pp.parent/'TOUTES_COTATIONS_RECENSEES.csv')
+ inities,yp=lot_inities(util)
  matrice=[]
  for _,r in tous.iterrows():
   ticker=r.Ticker_US;f=finances.loc[ticker] if ticker in finances.index else {};s=ssi.loc[ticker] if ticker in ssi.index else {}
   o=ordre.loc[ticker] if ticker in ordre.index else {}
-  hist=marche.get(ticker,{});gov=passages.get(ticker,{})
+  hist=marche.get(ticker,{});gov=passages.get(ticker,{});initie=inities.get(ticker,{})
+  if initie and initie['CIK']!=r.CIK:raise RuntimeError('LOT_INITIES_HORS_IDENTITE_UNIVERS')
   c=controles[controles.CIK.eq(r.CIK)]
   p=pieces.get(r.CIK,set())
   autres=ir.get(ticker,[])
@@ -126,7 +141,9 @@ def executer():
     'Documents_CIK_concordants':int(c.Controle_document.eq('CIK_XBRL_CONCORDANT').sum()),
     'Documents_CIK_divergents':int(c.Controle_document.eq('CIK_XBRL_DIVERGENT').sum()),
     'Documents_CIK_absent_a_relire':int(c.Controle_document.eq('CIK_XBRL_ABSENT_A_RELIRE').sum()),
-    'Form4_references_dans_index':forms4.get(r.CIK,0),'Form4_contenu':'A_EXTRAIRE_ET_VERIFIER',
+    'Form4_references_dans_index':forms4.get(r.CIK,0),'Form4_contenu':'LOT_2026_EXTRAIT_INTERPRETATION_PARTIELLE' if initie else 'A_EXTRAIRE_ET_VERIFIER',
+    'Form4_lignes_lot_extraites':initie.get('lignes',0),'Form4_date_limite_depots_lot':initie.get('date_limite',''),
+    'Form4_detentions_actuelles_reconstituees':'NON',
     'Statut_B1_B2_B3':'DONNEES_A_VERIFIER','Statut_B4_B5':'DOCUMENTS_ET_TRANSACTIONS_A_VERIFIER',
     'Statut_B6':'CONTENU_ET_REGULARITE_A_VERIFIER',
     'Statut_B7':'VOLUMES_RECUS_TURNOVER_SPREAD_ET_IDENTITE_A_VERIFIER' if hist.get('Volume_monetaire_63s_disponible')=='OUI' else 'VOLUMES_ET_SPREAD_A_DOCUMENTER',
@@ -142,9 +159,12 @@ def executer():
     'Candidat_selection_autorise':'OUI' if s.get('SCE_valide')=='OUI' and s.get('Statut_SSI')=='ADMIS_SSI' else 'NON'})
  result=pd.DataFrame(matrice);result.to_csv(out/'MATRICE_PREUVES_SSI_US.csv',index=False)
  bilan={'date_utc':datetime.now(timezone.utc).isoformat(),'source_script_SHA256':sha(Path(__file__)),
-  'sources':{str(p.relative_to(BASE)):sha(p) for p in (pp,dp,fp,sp,cp,ip,mp,gp) if p is not None},'cotations_conservees':len(result),
+  'sources':{str(p.relative_to(BASE)):sha(p) for p in (pp,dp,fp,sp,cp,ip,mp,gp,yp) if p is not None},'cotations_conservees':len(result),
   'emetteurs_profils_distincts':len(profils),'pistes_gouvernance':len(gouvernance),
+  # L'index historique global ne se confond pas avec les 216 dépôts du lot 2026.
   'Form4_references_non_extraits':sum(forms4.values()),
+  'Form4_sens_compteur_historique':'REFERENCES_GLOBALES_NON_RAPPROCHEES_DU_LOT_2026',
+  'Form4_cotations_avec_lot_extrait':len(inities),'Form4_lignes_lot_extraites':sum(q['lignes'] for q in inities.values()),
   'documents_IR_hors_index_a_verifier':int(result.Documents_IR_collectes_a_verifier.sum()),
   'index_IR_sans_comptes':int(result.Index_IR_sans_comptes.sum()),
   'cotations_volumes_63s_disponibles':int(result.Volumes_monetaires_63s_disponibles.eq('OUI').sum()),

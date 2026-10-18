@@ -5,7 +5,7 @@ on:
     branches: [main]
     paths: ['.github/workflows/consolidation_preuves_us.yml']
   workflow_run:
-    workflows: ['MICRO CAPS - DOCUMENTS UNIVERS US RECENSE', 'MICRO CAPS - SOURCES OFFICIELLES US', 'MICRO CAPS - COMPLEMENT MARCHE US EODHD', 'MICRO CAPS - PASSAGES GOUVERNANCE US']
+    workflows: ['MICRO CAPS - DOCUMENTS UNIVERS US RECENSE', 'MICRO CAPS - SOURCES OFFICIELLES US', 'MICRO CAPS - COMPLEMENT MARCHE US EODHD', 'MICRO CAPS - PASSAGES GOUVERNANCE US', 'MICRO CAPS - RELECTURE INITIES LOT US']
     types: [completed]
     branches: [main]
 permissions:
@@ -27,6 +27,10 @@ jobs:
       - run: pip install pandas cryptography
       - name: Réception hors réseau
         run: python -B TESTS/executer_tests.py
+      - name: Réappliquer les revues documentaires et corrections humaines au SSI
+        env:
+          EODHD_API_KEY: ${{ secrets.EODHD_API_KEY || secrets.EODH_API_KEY }}
+        run: python -B SCRIPTS_ACTIFS/07AL_RACCORDER_SCE_DISCOVERY_SSI_US.py
       - name: Raccorder les pièces, les comptes, SCE et les index B4-B5
         run: python -B SCRIPTS_ACTIFS/07AM_CONSOLIDER_PREUVES_US.py
       - name: Vérifier l'intégrité du T0 et des dossiers
@@ -39,7 +43,9 @@ jobs:
         uses: actions/upload-artifact@v4
         with:
           name: matrice-preuves-us-${{ github.run_id }}-${{ github.run_attempt }}
-          path: AUDITS/MATRICE_PREUVES_US/
+          path: |
+            AUDITS/MATRICE_PREUVES_US/
+            AUDITS/SCE_DISCOVERY_US/
       - name: Sauvegarder les résultats effectifs
         if: always()
         run: |
@@ -51,7 +57,7 @@ jobs:
           fi
           git config user.name 'github-actions[bot]'
           git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
-          git add AUDITS/MATRICE_PREUVES_US AUDITS/TESTS
+          git add AUDITS/MATRICE_PREUVES_US AUDITS/SCE_DISCOVERY_US AUDITS/TESTS
           if ! git diff --cached --quiet; then
             git commit -m 'Matrice des preuves US et index gouvernance : état réel sans notes inventées'
             git pull --rebase origin main

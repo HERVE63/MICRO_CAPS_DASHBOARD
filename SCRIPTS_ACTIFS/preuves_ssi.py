@@ -1,6 +1,6 @@
 """Validation des preuves SSI : références vérifiées, fichiers bruts et dates.
-La collecte ne valide jamais sa propre preuve. Le registre est une entrée humaine
-append-only ; une correction référence l'ID remplacé et laisse l'historique intact.
+La collecte ne valide jamais sa propre preuve. Le registre reçoit des revues indépendantes identifiées
+append-only (humain ou assistant explicitement nommé) ; une correction référence l'ID remplacé et laisse l'historique intact.
 """
 from pathlib import Path
 from datetime import datetime, timezone
