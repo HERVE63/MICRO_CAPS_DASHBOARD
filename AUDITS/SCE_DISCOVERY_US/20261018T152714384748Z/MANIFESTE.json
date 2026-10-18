@@ -1,0 +1,27 @@
+{
+  "date_utc": "2026-10-18T15:27:15.956521+00:00",
+  "source_recensement": "AUDITS/RECENSEMENT_US_EODHD/20261015T170647372738Z/MANIFESTE.json",
+  "source_instruments": "AUDITS/INSTRUMENTS_US_OFFICIELS/20261016T132746785552Z/MANIFESTE.json",
+  "source_script_SHA256": "bda5aa5785b20eddaad974b22d99aee8f7855f8789d9f025f194455b6ba14069",
+  "protocole_SHA256": "ae046f17ecd7b97eb3bc5ba189f30124d72d7b122e5b5e68b1fea308e6926e1a",
+  "notes_documentaires_SHA256": "a355cd6ca161923e0516d05d15d76b006b24bd4617ad22729cec40b8edb091ec",
+  "registre_documentaire_SHA256": "d506b63c040b35da775cb310df946c3358c63a0a318a057c521039f98ff08320",
+  "registre_humain_SHA256": "9e99fa04b635770737d0306662be3ca8e5ad451fe2096e94e3cb922158aaebef",
+  "cotations_conservees": 2490,
+  "ISIN_checksum_valides": 1650,
+  "doublons_ISIN_cotations": 2,
+  "SCE_valides": 0,
+  "repartition_SSI": {
+    "A_COMPLETER_PREUVES_SSI": 2486,
+    "ELIMINE": 4
+  },
+  "selection_finale_autorisee": false,
+  "panel_SCE_experimental_modifie": false,
+  "statut": "ORDRE_SCE_MAITRE_APPLIQUE_IDENTITES_ET_PREUVES_A_COMPLETER",
+  "fichiers": {
+    "ORDRE_CONTROLES_SCE.csv": "134e58a4835ef9f388f956a1003b7b377f123ce26bf3ca67c8a16e75d2bf04c7",
+    "AUDIT_SSI.csv": "7e7176ccea34b6b68a3f3198b1721a734668abdb16c8298ab7efcd5437e9a2c1",
+    "RESULTATS_SSI.csv": "4a56fe4966e7f214d20c880af135561adbea9fb9d55da64db73cbbc67a43d068",
+    "DOSSIERS_SSI_A_QUALIFIER.csv": "76aefa0d835c9928e0732f140956e246885104e606070ff3a993436730765252"
+  }
+}
