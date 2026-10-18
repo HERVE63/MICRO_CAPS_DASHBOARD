@@ -84,10 +84,10 @@ def executer():
    for q in rows:
     if q['Formulaire'] not in ('8-K','8-K/A') or q['Date_depot']<'2026-07-01':continue
     row={'Ticker':r.Ticker,'CIK':r.CIK,**q,'Source_URL':af.url_document(r.CIK,q['Accession'],q['Document_primaire']),'Statut':'NOUVELLE_INFORMATION_A_LIRE_AVANT_EXCLUSION_OU_NOTE','Description_blank_check':'NON_TESTEE'}
-    if obj.get('sic')=='6770':
-     with client.open(Request(row['Source_URL'])) as response:data=response.read()
-     text=g.texte_brut(data);p=out/(r.CIK+'_'+q['Accession']+'.txt.gz');p.write_bytes(gzip.compress(text.encode(),mtime=0))
-     row.update(Texte_normalise=str(p.relative_to(BASE)),SHA256_brut=hashlib.sha256(data).hexdigest(),Statut='8K_BLANK_CHECK_COLLECTE_A_RELIRE')
+    # Tous les émetteurs : une annonce postérieure peut modifier bilan, gouvernance ou identité.
+    with client.open(Request(row['Source_URL'])) as response:data=response.read()
+    text=g.texte_brut(data);p=out/(r.CIK+'_'+q['Accession']+'.txt.gz');p.write_bytes(gzip.compress(text.encode(),mtime=0))
+    row.update(Texte_normalise=str(p.relative_to(BASE)),SHA256_brut=hashlib.sha256(data).hexdigest(),Statut='8K_LOT_COLLECTE_A_RELIRE')
     documents.append(row)
   except Exception as exc:
    erreurs.append({'Ticker':r.Ticker,'CIK':r.CIK,'Erreur':type(exc).__name__+': '+str(exc)});print(r.Ticker,'SOURCE_A_COMPLETER',type(exc).__name__,flush=True)

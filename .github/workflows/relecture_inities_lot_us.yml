@@ -23,7 +23,7 @@ jobs:
       - run: pip install pandas cryptography
       - name: Réception hors réseau
         run: python -B TESTS/executer_tests.py
-      - name: Actualiser les profils et extraire les XML Form 4 du lot SCE
+      - name: Actualiser les profils, toutes les annonces 8-K et les XML Form 4 du lot SCE
         env:
           SEC_USER_AGENT: ${{ secrets.SEC_USER_AGENT }}
         run: python -B SCRIPTS_ACTIFS/07AP_RELECTURE_INITIES_LOT_US.py
