@@ -31,6 +31,20 @@ def test():
   with patch.object(m,'D',d),patch.object(m,'SRC',d/'DOSSIERS_SSI_A_QUALIFIER.csv'),patch.object(m,'OUT',d/'RESULTATS_SSI.csv'),patch.object(m,'AUD',d/'AUDIT_SSI.csv'):
    result=m.executer()
   assert result.iloc[0].SSI=='MANQUANTE' and result.iloc[0].Statut_SSI=='A_COMPLETER_PREUVES_SSI'
+  # Le refus par plafond exige identité SCE et contrôle négatif des exclusions prouvés.
+  ex=rows[0].copy();ex.update(ID_preuve='FIX_EX',Bloc='EXCLUSIONS',Note='');identites=[]
+  for i in range(2):
+   ident=ex.copy();ident.update(ID_preuve='FIX_ID_'+str(i),Bloc='IDENTITE_SCE',Source_URL='https://example.org/identite/'+str(i));identites.append(ident)
+  preuves=pd.concat([preuves,pd.DataFrame([ex,*identites])],ignore_index=True)
+  preuves.to_csv(d/'REGISTRE_PREUVES_SSI.csv',index=False)
+  dossier.update(SCE_valide='OUI',Preuves_identite_SCE='FIX_ID_0|FIX_ID_1',Decision_eliminatoire='NON',Motif_eliminatoire='FIX_EX')
+  pd.DataFrame([dossier]).to_csv(d/'DOSSIERS_SSI_A_QUALIFIER.csv',index=False)
+  with patch.object(m,'D',d),patch.object(m,'SRC',d/'DOSSIERS_SSI_A_QUALIFIER.csv'),patch.object(m,'OUT',d/'RESULTATS_SSI.csv'),patch.object(m,'AUD',d/'AUDIT_SSI.csv'):
+   result=m.executer()
+  assert result.iloc[0].Statut_SSI=='REFUSE_SSI_PLAFOND_VERIFIE' and result.iloc[0].SSI=='MANQUANTE'
+  dossier['Motif_eliminatoire']='ABSENTE';pd.DataFrame([dossier]).to_csv(d/'DOSSIERS_SSI_A_QUALIFIER.csv',index=False)
+  with patch.object(m,'D',d),patch.object(m,'SRC',d/'DOSSIERS_SSI_A_QUALIFIER.csv'),patch.object(m,'OUT',d/'RESULTATS_SSI.csv'),patch.object(m,'AUD',d/'AUDIT_SSI.csv'):
+   assert m.executer().iloc[0].Statut_SSI=='A_COMPLETER_PREUVES_SSI'
   raw.write_bytes(b'CORROMPU');assert bilan_blocs_documentes(r,preuves,root)['Nombre_blocs_SSI_documentes']==0
   # Le raccordement accepte les notes documentaires sans effacer une correction humaine.
   al=charger('07AL_RACCORDER_SCE_DISCOVERY_SSI_US.py')

@@ -80,7 +80,7 @@ def appliquer_revues(ordre,revues,preuves,base,recensement_sha,limite=None):
    if bloc=='IDENTITE_SCE' and (len(z)<2 or z.Source_URL.nunique()<2):erreurs.append('DEUX_SOURCES_IDENTITE_REQUISES')
   if erreurs:
    r['Motifs']+=';'+';'.join(sorted(set(erreurs)));continue
-  r.update(SCE_valide='OUI',Statut_SCE='IDENTITE_EXCLUSIONS_VERIFIEES',Motifs='REVUE_PRIMAIRE_IDENTIFIEE',Preuve_controle_exclusions=v.Preuve_exclusions)
+  r.update(SCE_valide='OUI',Statut_SCE='IDENTITE_EXCLUSIONS_VERIFIEES',Motifs='REVUE_PRIMAIRE_IDENTIFIEE',Preuve_controle_exclusions=v.Preuve_exclusions,Preuves_identite_SCE=v.Preuves_identite)
  return ordre
 def dossiers_ssi(ordre,humains,documentaires=None,notes_documentaires=None):
  if humains.Ticker.duplicated().any():raise RuntimeError('REGISTRE_HUMAIN_US_DUPLIQUE')
@@ -105,6 +105,7 @@ def dossiers_ssi(ordre,humains,documentaires=None,notes_documentaires=None):
   docs=documentaires.set_index('Ticker').to_dict('index')
  for r in ordre:
   d={k:r[k] for k in ('Ticker','Societe','CIK','Statut_SCE','SCE_valide','Rang_controle_SCE')}
+  d['Preuves_identite_SCE']=r.get('Preuves_identite_SCE','MANQUANTE')
   d.update(Decision_eliminatoire='NON' if r['SCE_valide']=='OUI' else 'A_VERIFIER',Motif_eliminatoire=r.get('Preuve_controle_exclusions','MANQUANTE'))
   for b in range(1,8):d['Note_B'+str(b)]='MANQUANTE';d['Preuve_B'+str(b)]='MANQUANTE'
   if r['Ticker'] in notes:d.update({k:v for k,v in notes[r['Ticker']].items() if str(v).strip()})

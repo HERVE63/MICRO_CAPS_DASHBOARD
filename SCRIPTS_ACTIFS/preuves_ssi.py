@@ -61,6 +61,17 @@ def verifier(r,ticker,bloc,base,limite=None):
         except ValueError:errors.append('note invalide/hors barème')
     return errors
 
+def verifier_identite_sce(r,d,base,limite=None):
+    erreurs=[]
+    if r.get('SCE_valide')!='OUI':return ['contrôles SCE non validés']
+    ids=[x.strip() for x in str(r.get('Preuves_identite_SCE','')).split('|') if x.strip()]
+    z=d[d.ID_preuve.isin(ids)];cik=str(r.get('CIK','')).strip()
+    if len(ids)<2 or len(ids)!=len(set(ids)) or len(z)!=len(ids) or z.Source_URL.nunique()<2:erreurs.append('deux preuves identité SCE requises')
+    for _,p in z.iterrows():
+        erreurs.extend(verifier(p,r.Ticker,'IDENTITE_SCE',base,limite))
+        if not cik or p.Identifiant_emetteur!='CIK:'+cik:erreurs.append('identité SCE divergente du dossier')
+    return erreurs
+
 def valider_dossier(r,d,base,limite=None):
     errors=[];notes=[];identifiants=set()
     for bloc in MAX:
@@ -80,7 +91,7 @@ def valider_dossier(r,d,base,limite=None):
     if len(identifiants)>1:errors.append('identité émetteur divergente entre blocs')
     cik=str(r.get('CIK','')).strip()
     if cik and any(x!='CIK:'+cik for x in identifiants):errors.append('identité des preuves différente du CIK du dossier')
-    if 'SCE_valide' in r and r.SCE_valide!='OUI':errors.append('contrôles SCE non validés')
+    if 'SCE_valide' in r:errors.extend(verifier_identite_sce(r,d,base,limite))
     decision=str(r.get('Decision_eliminatoire','')).upper().strip()
     if decision!='NON':errors.append('exclusions non vérifiées')
     ids=str(r.get('Motif_eliminatoire','')).split('|')
