@@ -53,6 +53,35 @@ def ordonner(dossiers,instruments):
  classes=sorted((r for r in rows if r['Hash_SCE']),key=lambda r:(r['Hash_SCE'],r['Ticker']))
  for rang,r in enumerate(classes,1):r['Rang_controle_SCE']=rang
  return sorted(rows,key=lambda r:(not bool(r['Hash_SCE']),r['Hash_SCE'],r['Ticker']))
+def appliquer_revues(ordre,revues,preuves,base,recensement_sha,limite=None):
+ """Une revue primaire identifiée lève les contrôles ; aucune collecte ne s'auto-valide."""
+ from preuves_ssi import verifier
+ if revues.Ticker.duplicated().any():raise RuntimeError('REVUES_IDENTITE_DUPLIQUEES')
+ index={r['Ticker']:r for r in ordre}
+ for _,v in revues.iterrows():
+  if v.Ticker not in index:raise RuntimeError('REVUE_IDENTITE_HORS_UNIVERS')
+  r=index[v.Ticker];erreurs=[]
+  if v.Recensement_SHA256!=recensement_sha:erreurs.append('REVUE_RECENSEMENT_DIFFERENT')
+  if v.CIK!=r['CIK'] or not re.fullmatch(r'[0-9]{10}',v.CIK):erreurs.append('CIK_REVUE_DIVERGENT')
+  if not isin_valide(v.ISIN) or hashlib.sha256(v.ISIN.encode()).hexdigest()!=r['ISIN_SHA256']:erreurs.append('ISIN_REVUE_DIVERGENT')
+  if v.Statut_revue!='VERIFIEE':erreurs.append('REVUE_NON_VERIFIEE')
+  if r['Doublons_ISIN']!=1:erreurs.append('DOUBLON_ISIN')
+  # Une revue primaire explicite peut documenter une action OTC absente des répertoires Nasdaq.
+  permis={'ACTION_ORDINAIRE_LIBELLE_OFFICIEL','ABSENT_REPERTOIRES_LISTES_OTC_OU_IDENTITE_A_COMPLETER'}
+  if r['Statut_instrument'] not in permis:erreurs.append('INSTRUMENT_NON_ORDINAIRE_OU_NON_CONTROLE')
+  motifs=r['Motifs'].split(';')
+  if any(x in motifs for x in ['HORS_MANDAT_CAPITALISATION','CAPITALISATION_A_COMPLETER','LIEN_TICKER_CIK_A_COMPLETER']):erreurs.append('CONTROLE_DUR_NON_RESOLU')
+  for champ,bloc in [('Preuves_identite','IDENTITE_SCE'),('Preuve_exclusions','EXCLUSIONS')]:
+   ids=v[champ].split('|');z=preuves[preuves.ID_preuve.isin(ids)]
+   if not ids or len(ids)!=len(set(ids)) or len(z)!=len(ids):erreurs.append('PREUVES_REVUE_ABSENTES')
+   for _,q in z.iterrows():
+    erreurs.extend(verifier(q,v.Ticker,bloc,base,limite))
+    if q.Identifiant_emetteur!='CIK:'+v.CIK:erreurs.append('IDENTITE_PREUVE_DIVERGENTE')
+   if bloc=='IDENTITE_SCE' and (len(z)<2 or z.Source_URL.nunique()<2):erreurs.append('DEUX_SOURCES_IDENTITE_REQUISES')
+  if erreurs:
+   r['Motifs']+=';'+';'.join(sorted(set(erreurs)));continue
+  r.update(SCE_valide='OUI',Statut_SCE='IDENTITE_EXCLUSIONS_VERIFIEES',Motifs='REVUE_PRIMAIRE_IDENTIFIEE',Preuve_controle_exclusions=v.Preuve_exclusions)
+ return ordre
 def dossiers_ssi(ordre,humains,documentaires=None,notes_documentaires=None):
  if humains.Ticker.duplicated().any():raise RuntimeError('REGISTRE_HUMAIN_US_DUPLIQUE')
  reg=humains.set_index('Ticker');rows=[]
@@ -76,7 +105,7 @@ def dossiers_ssi(ordre,humains,documentaires=None,notes_documentaires=None):
   docs=documentaires.set_index('Ticker').to_dict('index')
  for r in ordre:
   d={k:r[k] for k in ('Ticker','Societe','CIK','Statut_SCE','SCE_valide','Rang_controle_SCE')}
-  d.update(Decision_eliminatoire='A_VERIFIER',Motif_eliminatoire='MANQUANTE')
+  d.update(Decision_eliminatoire='NON' if r['SCE_valide']=='OUI' else 'A_VERIFIER',Motif_eliminatoire=r.get('Preuve_controle_exclusions','MANQUANTE'))
   for b in range(1,8):d['Note_B'+str(b)]='MANQUANTE';d['Preuve_B'+str(b)]='MANQUANTE'
   if r['Ticker'] in notes:d.update({k:v for k,v in notes[r['Ticker']].items() if str(v).strip()})
   if r['Ticker'] in docs:d.update(docs[r['Ticker']])
@@ -103,6 +132,10 @@ def executer():
  ins=pd.read_csv(p,dtype=str,keep_default_na=False)
  if ins.Ticker_US.duplicated().any():raise RuntimeError('INSTRUMENTS_DUPLIQUES')
  ordre=ordonner(dossiers,ins.set_index('Ticker_US').to_dict('index'))
+ identite_path=BASE/'CONFIG/REVUES_IDENTITE_SCE_US.csv'
+ if identite_path.exists():
+  from preuves_ssi import registre
+  ordre=appliquer_revues(ordre,pd.read_csv(identite_path,dtype=str,keep_default_na=False),registre(BASE),BASE,sha(mp))
  out=BASE/'AUDITS/SCE_DISCOVERY_US'/datetime.now(timezone.utc).strftime('%Y%m%dT%H%M%S%fZ')
  out.mkdir(parents=True,exist_ok=False)
  pd.DataFrame(ordre).to_csv(out/'ORDRE_CONTROLES_SCE.csv',index=False)
@@ -125,7 +158,7 @@ def executer():
   'notes_documentaires_SHA256':notes_sha,'registre_documentaire_SHA256':documentaire_sha,'registre_humain_SHA256':avant,'cotations_conservees':len(ordre),
   'ISIN_checksum_valides':sum(r['ISIN_present_checksum_valide']=='OUI' for r in ordre),
   'doublons_ISIN_cotations':sum(r['Doublons_ISIN']>1 for r in ordre),
-  'SCE_valides':0,'repartition_SSI':result.Statut_SSI.value_counts().to_dict(),
+  'identites_revues_SHA256':sha(identite_path) if identite_path.exists() else None,'SCE_valides':sum(r['SCE_valide']=='OUI' for r in ordre),'repartition_SSI':result.Statut_SSI.value_counts().to_dict(),
   'selection_finale_autorisee':False,'panel_SCE_experimental_modifie':False,
   'statut':'ORDRE_SCE_MAITRE_APPLIQUE_IDENTITES_ET_PREUVES_A_COMPLETER',
   'fichiers':{p.name:sha(p) for p in out.iterdir() if p.is_file()}}
