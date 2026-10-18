@@ -1,0 +1,57 @@
+name: MICRO CAPS - COMPLEMENT MARCHE US EODHD
+on:
+  workflow_dispatch:
+  push:
+    branches: [main]
+    paths: ['.github/workflows/complement_marche_us_eodhd.yml']
+permissions:
+  contents: write
+concurrency:
+  group: microcaps-marche-us-eodhd
+  cancel-in-progress: false
+jobs:
+  collecte:
+    runs-on: ubuntu-latest
+    timeout-minutes: 75
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: main
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - run: pip install pandas cryptography
+      - name: Réception hors réseau
+        run: python -B TESTS/executer_tests.py
+      - name: Compléter les historiques de toutes les cotations US recensées
+        env:
+          EODHD_API_KEY: ${{ secrets.EODHD_API_KEY || secrets.EODH_API_KEY }}
+        run: python -B SCRIPTS_ACTIFS/07AN_COMPLETER_MARCHE_US_EODHD.py
+      - name: Vérifier l'intégrité du T0 et des dossiers
+        if: always()
+        run: |
+          python -B SCRIPTS_ACTIFS/07AC_CONTROLER_T0.py
+          git diff --exit-code -- DONNEES SAUVEGARDES
+      - name: Préserver les sources, dates inconnues et limites de couverture
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: marche-us-eodhd-${{ github.run_id }}-${{ github.run_attempt }}
+          path: AUDITS/MARCHE_US_EODHD/
+      - name: Sauvegarder les résultats effectifs
+        if: always()
+        run: |
+          rapport="AUDITS/TESTS/RUN_${GITHUB_RUN_ID}_${GITHUB_RUN_ATTEMPT}"
+          mkdir -p "$rapport" AUDITS/MARCHE_US_EODHD
+          if [ -f AUDITS/TESTS/RESULTATS_TESTS.json ]; then
+            cp AUDITS/TESTS/RESULTATS_TESTS.json "$rapport/RESULTATS_TESTS.json"
+            git restore --worktree AUDITS/TESTS/RESULTATS_TESTS.json
+          fi
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add AUDITS/MARCHE_US_EODHD AUDITS/TESTS
+          if ! git diff --cached --quiet; then
+            git commit -m 'Historiques US EODHD : couverture mesurée et données chiffrées'
+            git pull --rebase origin main
+            git push origin main
+          fi
