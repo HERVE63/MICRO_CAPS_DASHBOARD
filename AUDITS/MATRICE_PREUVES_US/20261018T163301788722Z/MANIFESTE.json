@@ -1,0 +1,44 @@
+{
+  "date_utc": "2026-10-18T16:33:20.823346+00:00",
+  "source_script_SHA256": "fd1d520aa9614eb33d30c7ef938978fc927c4ebe9a387901de97b7aec8674d29",
+  "sources": {
+    "AUDITS/PROFILS_SEC_UNIVERS_US/20261016T131514662655Z/MANIFESTE.json": "9803eb290d7a9825fcdb7f0ec0cd5671c98979af6b6607e1df4b7fda8f92e97e",
+    "AUDITS/DOCUMENTS_US/20261016T131516748536Z/MANIFESTE.json": "936e1dfa501348cc2f3f45520f2b60266348208fd83c9836b2328b0af41462c6",
+    "AUDITS/QUALIFICATION_US/20261016T133357809981Z/MANIFESTE.json": "5dd3c8cd34e9c55384336910377776297c2fa08e158be4a49b411af4e895bf5c",
+    "AUDITS/SCE_DISCOVERY_US/20261018T163259392136Z/MANIFESTE.json": "48033dc3d16c109ef323ff983a741b77f9eae482c3862f13cbd5dbdcdc8b916c",
+    "AUDITS/CONTROLE_DOCUMENTS_US/20261016T132954549228Z/MANIFESTE.json": "8bc10f9ad570e651d0de08391ecc85ebe786fc0fb67969b70dd3af48b2bdfc2a",
+    "AUDITS/SOURCES_OFFICIELLES/20261018T135006446830Z/MANIFESTE.json": "29e679c339831d5243791b4176838d88f6995f7b8992fe9e3098740da77b3a8d",
+    "AUDITS/MARCHE_US_EODHD/20261018T135934886533Z/MANIFESTE.json": "7c2917913b2ea2be0766124266eee63753d88d0e8baad107491874b2a2db3e59",
+    "AUDITS/PASSAGES_GOUVERNANCE_US/20261018T134724190032Z/MANIFESTE.json": "3ac52daaf659bacccb3433d989d7cd2870ecdc73598cac62b797c5c9a3aa640b",
+    "AUDITS/RELECTURE_INITIES_US/20261018T162934451450Z/MANIFESTE.json": "682a61d31ec2218de7aecf3feaafed32f1419cd60597b2393cd24677e6dff249"
+  },
+  "cotations_conservees": 2490,
+  "emetteurs_profils_distincts": 1444,
+  "pistes_gouvernance": 272782,
+  "Form4_references_non_extraits": 210995,
+  "Form4_sens_compteur_historique": "REFERENCES_GLOBALES_NON_RAPPROCHEES_DU_LOT_2026",
+  "dossiers_avec_blocs_SSI_documentes": 4,
+  "blocs_SSI_documentes": 25,
+  "Form4_lots_sources": {
+    "AUDITS/RELECTURE_INITIES_US/20261018T152021256178Z/MANIFESTE.json": "d980c64b249a91f0b75c69ca8e4e5e079816640a77efc9b6987fe6ade873a32e",
+    "AUDITS/RELECTURE_INITIES_US/20261018T162934451450Z/MANIFESTE.json": "682a61d31ec2218de7aecf3feaafed32f1419cd60597b2393cd24677e6dff249"
+  },
+  "Form4_cotations_avec_lot_extrait": 24,
+  "Form4_lignes_lot_extraites": 531,
+  "documents_IR_hors_index_a_verifier": 5,
+  "index_IR_sans_comptes": 1,
+  "cotations_volumes_63s_disponibles": 2402,
+  "cotations_momentum_1_3_6_12_disponibles": 2106,
+  "cotations_passages_detention_groupe": 583,
+  "cotations_avec_trois_documents": 842,
+  "notes_SSI_attribuees_par_ce_module": 0,
+  "candidats_selection_autorises": 1,
+  "statut": "MATRICE_PREUVES_ET_INDEX_GOUVERNANCE_EXECUTES_CONTENU_A_QUALIFIER",
+  "fichiers": {
+    "COMPLETUDE_INDEX.csv": "a2f0f747b27beb0e071feb2fca574eb7ab4224d5d0fc9f4e3d32d3a2ade7cda4",
+    "PISTES_GOUVERNANCE_SEC_SSI.csv.gz": "4b94d2ab513065fb27be6abd4a8a3ac936fa2d164bbfa35ef8baf51a3d0e640d",
+    "INDEX_SEC_GOUVERNANCE.csv.gz": "a55e30c966724aaeeb3ac6d66ceaf7c40b07728a53f18e40026147d902be06d6",
+    "AUDIT_GOUVERNANCE_SEC_SSI.csv": "4594a8cd24e1bffd1dd20ebaf7ee243e1121b80061b9dcd057fe278096ca7c80",
+    "MATRICE_PREUVES_SSI_US.csv": "509f69eeb836eb1a899b1f9564d93a228f4c953edb82f01be125a894399f029a"
+  }
+}
