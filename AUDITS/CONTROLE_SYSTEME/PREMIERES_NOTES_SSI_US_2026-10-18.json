@@ -1,0 +1,32 @@
+{
+  "date_verification_UTC": "2026-10-18T15:31:35.438312+00:00",
+  "commit_code": "4bf5c7167d0f834e97d5c31b592e18af34fc27b8",
+  "commit_correction_libelle": "6a5b79712745e0d4c98562afc6d1d53323b16119",
+  "collecte_initialement_echouee_run": 39139511115,
+  "motif_echec": "TimeoutError sur un XML Form 4 ; 215 dépôts traités sur216, consolidation bloquée",
+  "reprise_collecte_run": 39139925778,
+  "reprise_collecte_conclusion": "success",
+  "consolidation_finale_run": 39140662021,
+  "consolidation_finale_job": 117714242442,
+  "consolidation_conclusion": "success",
+  "tests_ci_run": 39140662040,
+  "tests_ci_conclusion": "success",
+  "fichiers_tests_archives": 30,
+  "cotations_conservees": 2490,
+  "dossiers_avec_blocs_documentes": 3,
+  "blocs_documentes": 11,
+  "admis_SSI": 0,
+  "eliminations_SPAC": 4,
+  "historique_epreuves_et_correction_preserves": true,
+  "registre_humain_SHA256": "9e99fa04b635770737d0306662be3ca8e5ad451fe2096e94e3cb922158aaebef",
+  "registre_preuves_SHA256": "7b76116327da02b6cece38e58135d8cd80b17847b9df8e47fff8075d40738a7b",
+  "fichier_matrice_relu": "AUDITS/MATRICE_PREUVES_US/20261018T153000025501Z/MATRICE_PREUVES_SSI_US.csv",
+  "matrice_SHA256": "3c73333844249edca276ee1040d72172c329468df6920bd6c3c4bddcd3023aa9",
+  "plafonds_conditionnels_pas_scores_totaux": {
+    "NUS.US": 66,
+    "PLAY.US": 64,
+    "DTIL.US": 82
+  },
+  "T0_integrite": "OK selon journal de consolidation",
+  "objectif_50pct_SSI_complets_atteint": false
+}

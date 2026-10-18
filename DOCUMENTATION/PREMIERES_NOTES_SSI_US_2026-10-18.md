@@ -53,3 +53,9 @@ Le seuil de 50 % de dossiers entièrement évaluables n’est pas atteint. Ce pr
 ## Précision de libellé conservée dans l’historique
 
 Une justification NUS désignait improprement les 251,802 MUSD d’actifs courants moins passifs courants comme un « BFR net ». Il s’agit du fonds de roulement courant. Une preuve de remplacement identifiée corrige ce seul libellé ; le montant et B1 = 13 restent inchangés. L’ancien enregistrement n’est pas réécrit. Les notes initiales et leur première réception GitHub restent archivées.
+
+## Réception de production effectivement contrôlée
+
+La [consolidation finale 39140662021](https://github.com/HERVE63/MICRO_CAPS_DASHBOARD/actions/runs/39140662021) et la [réception SEC SSI 39140662040](https://github.com/HERVE63/MICRO_CAPS_DASHBOARD/actions/runs/39140662040) sont terminées avec succès. Les 30 fichiers de tests sont archivés avec statut OK. Le CSV sauvegardé et son empreinte ont été relus : 2 490 cotations, 11 blocs sur trois dossiers, quatre exclusions SPAC et aucun candidat autorisé. Le résultat SSI référence bien la preuve corrigée NUS. Le journal confirme l’intégrité SHA256 du T0.
+
+La matrice contrôlée est `AUDITS/MATRICE_PREUVES_US/20261018T153000025501Z/MATRICE_PREUVES_SSI_US.csv`. Les contrôles de remplacement de preuve, de reprise SEC et de priorité des corrections humaines sont opérationnels. Il reste à terminer les blocs et identités manquants, étendre la qualification, puis seulement passer aux admissions SSI et au moteur MCPA/IPS.
