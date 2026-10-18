@@ -53,10 +53,20 @@ def ordonner(dossiers,instruments):
  classes=sorted((r for r in rows if r['Hash_SCE']),key=lambda r:(r['Hash_SCE'],r['Ticker']))
  for rang,r in enumerate(classes,1):r['Rang_controle_SCE']=rang
  return sorted(rows,key=lambda r:(not bool(r['Hash_SCE']),r['Hash_SCE'],r['Ticker']))
-def dossiers_ssi(ordre,humains,documentaires=None):
+def dossiers_ssi(ordre,humains,documentaires=None,notes_documentaires=None):
  if humains.Ticker.duplicated().any():raise RuntimeError('REGISTRE_HUMAIN_US_DUPLIQUE')
  reg=humains.set_index('Ticker');rows=[]
  docs={}
+ notes={}
+ if notes_documentaires is not None:
+  attendus={'Ticker',*[p+'B'+str(n) for n in range(1,8) for p in ('Note_','Preuve_')]}
+  if set(notes_documentaires.columns)!=attendus or notes_documentaires.Ticker.duplicated().any():raise RuntimeError('NOTES_DOCUMENTAIRES_SCHEMA_INVALIDE')
+  if set(notes_documentaires.Ticker)-{r['Ticker'] for r in ordre}:raise RuntimeError('NOTES_DOCUMENTAIRES_HORS_UNIVERS')
+  for _,q in notes_documentaires.iterrows():
+   for n in range(1,8):
+    note=str(q['Note_B'+str(n)]).strip();preuve=str(q['Preuve_B'+str(n)]).strip()
+    if bool(note)!=bool(preuve):raise RuntimeError('NOTE_DOCUMENTAIRE_SANS_PREUVE_OU_INVERSEMENT')
+  notes=notes_documentaires.set_index('Ticker').to_dict('index')
  if documentaires is not None:
   if set(documentaires.columns)!={'Ticker','Decision_eliminatoire','Motif_eliminatoire'} or documentaires.Ticker.duplicated().any():
    raise RuntimeError('REGISTRE_DOCUMENTAIRE_SCHEMA_INVALIDE')
@@ -68,6 +78,7 @@ def dossiers_ssi(ordre,humains,documentaires=None):
   d={k:r[k] for k in ('Ticker','Societe','CIK','Statut_SCE','SCE_valide','Rang_controle_SCE')}
   d.update(Decision_eliminatoire='A_VERIFIER',Motif_eliminatoire='MANQUANTE')
   for b in range(1,8):d['Note_B'+str(b)]='MANQUANTE';d['Preuve_B'+str(b)]='MANQUANTE'
+  if r['Ticker'] in notes:d.update({k:v for k,v in notes[r['Ticker']].items() if str(v).strip()})
   if r['Ticker'] in docs:d.update(docs[r['Ticker']])
   # Les corrections humaines explicites priment ; aucune collecte n'écrit ces registres.
   if r['Ticker'] in reg.index:
@@ -100,14 +111,18 @@ def executer():
  documentaire=BASE/'CONFIG/EXCLUSIONS_US_REVUES_DOCUMENTAIRES.csv'
  revue=pd.read_csv(documentaire,dtype=str,keep_default_na=False) if documentaire.exists() else None
  documentaire_sha=sha(documentaire) if documentaire.exists() else None
- dossiers_ssi(ordre,humains,revue).to_csv(out/'DOSSIERS_SSI_A_QUALIFIER.csv',index=False)
+ notes_path=BASE/'CONFIG/NOTES_SSI_US_REVUES_DOCUMENTAIRES.csv'
+ notes=pd.read_csv(notes_path,dtype=str,keep_default_na=False) if notes_path.exists() else None
+ notes_sha=sha(notes_path) if notes_path.exists() else None
+ dossiers_ssi(ordre,humains,revue,notes).to_csv(out/'DOSSIERS_SSI_A_QUALIFIER.csv',index=False)
  ssi=charger('07R_VALIDER_NOTES_SSI.py');ssi.SRC=out/'DOSSIERS_SSI_A_QUALIFIER.csv'
  ssi.OUT=out/'RESULTATS_SSI.csv';ssi.AUD=out/'AUDIT_SSI.csv';result=ssi.executer()
  if sha(ledger)!=avant:raise RuntimeError('REGISTRE_HUMAIN_MODIFIE')
+ if notes_path.exists() and sha(notes_path)!=notes_sha:raise RuntimeError('REGISTRE_NOTES_DOCUMENTAIRES_MODIFIE')
  bilan={'date_utc':datetime.now(timezone.utc).isoformat(),'source_recensement':str(mp.relative_to(BASE)),
   'source_instruments':str(ip.relative_to(BASE)),'source_script_SHA256':sha(Path(__file__)),
   'protocole_SHA256':sha(BASE/'CONFIG/PROTOCOLE_SCE_DISCOVERY_MICROCAPS.json'),
-  'registre_documentaire_SHA256':documentaire_sha,'registre_humain_SHA256':avant,'cotations_conservees':len(ordre),
+  'notes_documentaires_SHA256':notes_sha,'registre_documentaire_SHA256':documentaire_sha,'registre_humain_SHA256':avant,'cotations_conservees':len(ordre),
   'ISIN_checksum_valides':sum(r['ISIN_present_checksum_valide']=='OUI' for r in ordre),
   'doublons_ISIN_cotations':sum(r['Doublons_ISIN']>1 for r in ordre),
   'SCE_valides':0,'repartition_SSI':result.Statut_SSI.value_counts().to_dict(),

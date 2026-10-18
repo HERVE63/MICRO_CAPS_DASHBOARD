@@ -1,0 +1,31 @@
+{
+  "date_revue_UTC": "2026-10-18T15:22:29.963829+00:00",
+  "dossiers": 3,
+  "blocs_notes": 11,
+  "preuves_ajoutees": 15,
+  "registre_avant_SHA256": "7b94e54506a9b8eeb7277907a182817e79f21175e1cccd3129b47955be64b058",
+  "registre_apres_SHA256": "862dc7655add0f1b84ec96a9f4dd213581feb1390205d957b6860720655010f0",
+  "notation_automatique": false,
+  "auteur": "Codex — assistant",
+  "validation_humaine_revendiquee": false,
+  "admissions_SSI": 0,
+  "regle_plafond": "somme des notes prouvées + maximum des blocs non encore prouvés ; arithmétique conditionnelle, pas une note globale ni une décision d’admission",
+  "fichiers": {
+    "NOTES_ET_JUSTIFICATIONS.csv": "ec74483683ab91b38e50409d5fe01e2393d148a1f5afa85a840635c9e7c546a8",
+    "AUDIT_SSI_CONTROLE_LOCAL.csv": "79af4d3d2e78363898e3f181a17d35591da108fac0ffd369337574b20c295d24",
+    "BLOCS_VALIDES_CONTROLE_LOCAL.csv": "f6f3c1a47533ebf8bbe6620d8b355f5ad12453b644dd5c6a803b04a1997c3adb",
+    "RESULTATS_TESTS_LOCAUX.json": "af88c9151bfe2015c3f3c5ffc74198df68b95682de8372967e123021debc39ea",
+    "FAITS_FINANCIERS_RECONCILIES.csv": "3c7b9cbe78ac149dee3987c69aa8e1b2d266dbedeb25c7f8edef51ec58c651fc",
+    "REVUE_ANNONCES_POSTERIEURES.csv": "c2f42089c18dc4e7f8756cb77266e45ff2091b15ad8800cf048836161b2f7154"
+  },
+  "controle_local_effectif": {
+    "cotations": 2490,
+    "blocs_documentes": 11,
+    "eliminations": 4,
+    "admis": 0
+  },
+  "reprise_collecte_success_run": 39139925778,
+  "manifeste_reprise_SHA256": "d980c64b249a91f0b75c69ca8e4e5e079816640a77efc9b6987fe6ade873a32e",
+  "annonces_8K_relues": 9,
+  "ancien_registre_prefixe_octets_conserve": true
+}

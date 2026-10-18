@@ -88,3 +88,28 @@ def valider_dossier(r,d,base,limite=None):
             errors.extend('EXCLUSIONS: '+x for x in verifier(p,r.Ticker,'EXCLUSIONS',base,limite))
             if identifiants and p.Identifiant_emetteur not in identifiants:errors.append('identité exclusions divergente')
     return notes,errors
+
+def bilan_blocs_documentes(r,d,base,limite=None):
+    """Décompte partiel, jamais une note SSI imputée ni une admission.
+    Le plafond ne remplace pas les contrôles d'identité/SCE ou les exclusions.
+    """
+    notes={}
+    for bloc,maximum in MAX.items():
+        ids=[v.strip() for v in str(r.get('Preuve_'+bloc,'')).split('|') if v.strip()]
+        if not ids or len(ids)!=len(set(ids)) or any(manquant(v) for v in ids):continue
+        preuves=d[d.ID_preuve.isin(ids)]
+        if len(preuves)!=len(ids):continue
+        if any(verifier(p,r.Ticker,bloc,base,limite) for _,p in preuves.iterrows()):continue
+        cik=str(r.get('CIK','')).strip()
+        if cik and any(p.Identifiant_emetteur!='CIK:'+cik for _,p in preuves.iterrows()):continue
+        try:
+            n=float(r.get('Note_'+bloc,''))
+            if not math.isfinite(n) or not n.is_integer() or not 0<=n<=maximum:continue
+            if any(float(v)!=n for v in preuves.Note):continue
+        except (ValueError,TypeError):continue
+        notes[bloc]=int(n)
+    points=sum(notes.values());maximum=sum(MAX[b] for b in notes)
+    return {'Blocs_SSI_documentes':'|'.join(notes),'Nombre_blocs_SSI_documentes':len(notes),
+            'Points_sur_blocs_documentes':points,'Maximum_blocs_documentes':maximum,
+            'Plafond_SSI_si_blocs_restants_maximaux':points+100-maximum,
+            'Portee_plafond':'ARITHMETIQUE_CONDITIONNELLE_AUX_NOTES_DOCUMENTEES_PAS_ADMISSION'}

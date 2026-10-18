@@ -155,6 +155,11 @@ def executer():
     'Passages_droits_60_jours':gov.get('DROITS_A_60_JOURS','0'),
     'Passages_dilution_remuneration':gov.get('DILUTION_REMUNERATION','0'),
     'Statut_SCE':s.get('Statut_SCE','A_COMPLETER'),'SCE_valide':s.get('SCE_valide','NON'),
+    'Blocs_SSI_documentes':s.get('Blocs_SSI_documentes',''),
+    'Nombre_blocs_SSI_documentes':s.get('Nombre_blocs_SSI_documentes','0'),
+    'Points_sur_blocs_documentes':s.get('Points_sur_blocs_documentes','0'),
+    'Maximum_blocs_documentes':s.get('Maximum_blocs_documentes','0'),
+    'Plafond_SSI_si_blocs_restants_maximaux':s.get('Plafond_SSI_si_blocs_restants_maximaux','100'),
     'SSI':s.get('SSI','MANQUANTE'),'Statut_SSI':s.get('Statut_SSI','A_COMPLETER_PREUVES_SSI'),
     'Candidat_selection_autorise':'OUI' if s.get('SCE_valide')=='OUI' and s.get('Statut_SSI')=='ADMIS_SSI' else 'NON'})
  result=pd.DataFrame(matrice);result.to_csv(out/'MATRICE_PREUVES_SSI_US.csv',index=False)
@@ -164,6 +169,8 @@ def executer():
   # L'index historique global ne se confond pas avec les 216 dépôts du lot 2026.
   'Form4_references_non_extraits':sum(forms4.values()),
   'Form4_sens_compteur_historique':'REFERENCES_GLOBALES_NON_RAPPROCHEES_DU_LOT_2026',
+  'dossiers_avec_blocs_SSI_documentes':int(pd.to_numeric(result.Nombre_blocs_SSI_documentes).gt(0).sum()),
+  'blocs_SSI_documentes':int(pd.to_numeric(result.Nombre_blocs_SSI_documentes).sum()),
   'Form4_cotations_avec_lot_extrait':len(inities),'Form4_lignes_lot_extraites':sum(q['lignes'] for q in inities.values()),
   'documents_IR_hors_index_a_verifier':int(result.Documents_IR_collectes_a_verifier.sum()),
   'index_IR_sans_comptes':int(result.Index_IR_sans_comptes.sum()),

@@ -50,5 +50,21 @@ def test():
    except RuntimeError:pass
    else:raise AssertionError('Lot Form 4 corrompu raccordé à la matrice')
 
+  # Les XML archivés sont réutilisés avec leur date réelle ; les profils restent frais.
+  nouveau=root/'REPRISE/BRUTS';nouveau.mkdir(parents=True)
+  class Interdit:
+   def open(self,*a,**kw):raise AssertionError('HTTP sur XML déjà archivé')
+  with patch.object(m,'BASE',root),patch.object(m,'charger',side_effect=charger),patch.object(m,'build_opener',return_value=Interdit()):
+   client=m.ClientSEC(nouveau,'TEST contact@example.org')
+   url='https://www.sec.gov/Archives/edgar/data/1234/000000123426000001/ownership.xml'
+   with client.open(m.Request(url)) as response:assert response.read()==xml
+   assert client.sources[0]['Reutilise']=='OUI' and client.sources[0]['Date_collecte_UTC']==next(r['Date_collecte_UTC'] for r in sources if r['URL']==url)
+   with patch.object(client.opener,'open',side_effect=[TimeoutError('EXEMPLE interruption'),m.Reponse(b'{}')]) as calls,patch.object(m.time,'sleep'):
+    with client.open(m.Request('https://data.sec.gov/submissions/CIK0000009999.json')) as response:assert response.read()==b'{}'
+    assert calls.call_count==2 and client.sources[-1]['Reutilise']=='NON'
+   original=root/client.cache[url]['Fichier_brut'];original.write_bytes(b'CORROMPU')
+   try:client.open(m.Request(url))
+   except RuntimeError as exc:assert 'CORROMPU' in str(exc)
+   else:raise AssertionError('Cache XML corrompu réutilisé')
  print('Relecture lot : profils CIK/ticker, XML et index hashés, fonctions des déclarants, déclarations conjointes et notes de bas de page préservés, aucune note SSI')
 if __name__=='__main__':test()

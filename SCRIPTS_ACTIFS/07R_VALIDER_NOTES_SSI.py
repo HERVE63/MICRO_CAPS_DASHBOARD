@@ -4,7 +4,7 @@ from datetime import datetime, timezone
 import sys
 import pandas as pd
 sys.path.insert(0,str(Path(__file__).resolve().parent))
-from preuves_ssi import MAX, registre, valider_dossier
+from preuves_ssi import MAX, registre, valider_dossier, bilan_blocs_documentes
 D=Path(__file__).resolve().parents[1]/'DONNEES'
 SRC=D/'DOSSIERS_SSI_A_QUALIFIER.csv';OUT=D/'RESULTATS_SSI.csv';AUD=D/'AUDIT_SSI.csv'
 def executer():
@@ -14,8 +14,9 @@ def executer():
     if not {'Decision_eliminatoire','Motif_eliminatoire',*[p+b for b in MAX for p in ['Note_','Preuve_']]}.issubset(df.columns):
         raise RuntimeError('Schéma dossier SSI incomplet')
     limite=datetime.now(timezone.utc);preuves=registre(D.parent,limite)
-    scores=[];statuts=[];motifs=[]
+    scores=[];statuts=[];motifs=[];partiels=[]
     for _,r in df.iterrows():
+        partiels.append(bilan_blocs_documentes(r,preuves,D.parent,limite))
         notes,erreurs=valider_dossier(r,preuves,D.parent,limite)
         # Une exclusion elle aussi doit avoir une référence vérifiée avant publication.
         if r.Decision_eliminatoire=='OUI':
@@ -29,6 +30,7 @@ def executer():
             total=sum(notes);scores.append(str(total));statuts.append('ADMIS_SSI' if total>=65 else 'REFUSE_SSI')
             motifs.append('Sept blocs et exclusions vérifiés dans le registre de preuves')
     df['SSI']=scores;df['Statut_SSI']=statuts;df['Motif_decision_SSI']=motifs
+    for champ in partiels[0]:df[champ]=[p[champ] for p in partiels]
     tmp=OUT.with_suffix('.tmp');df.to_csv(tmp,index=False);tmp.replace(OUT)
     pd.DataFrame([{'Date_validation_UTC':limite.isoformat(),'Dossiers':len(df),
         'Admis':statuts.count('ADMIS_SSI'),'Refuses':statuts.count('REFUSE_SSI'),

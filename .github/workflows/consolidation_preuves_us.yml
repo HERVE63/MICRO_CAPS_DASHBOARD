@@ -3,7 +3,7 @@ on:
   workflow_dispatch:
   push:
     branches: [main]
-    paths: ['.github/workflows/consolidation_preuves_us.yml']
+    paths: ['.github/workflows/consolidation_preuves_us.yml', 'CONFIG/NOTES_SSI_US_REVUES_DOCUMENTAIRES.csv', 'CONFIG/EXCLUSIONS_US_REVUES_DOCUMENTAIRES.csv', 'CONFIG/QUALIFICATIONS_SSI_US_HUMAINES.csv', 'DONNEES/REGISTRE_PREUVES_SSI.csv']
   workflow_run:
     workflows: ['MICRO CAPS - DOCUMENTS UNIVERS US RECENSE', 'MICRO CAPS - SOURCES OFFICIELLES US', 'MICRO CAPS - COMPLEMENT MARCHE US EODHD', 'MICRO CAPS - PASSAGES GOUVERNANCE US', 'MICRO CAPS - RELECTURE INITIES LOT US']
     types: [completed]
