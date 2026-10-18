@@ -30,7 +30,20 @@ def serie(data,limite):
    return v
   records.append({'date':d,'adjusted_close':nombre('adjusted_close',True),'close':nombre('close',True),'volume':nombre('volume')})
  return sorted(records,key=lambda r:r['date'])
-def mesurer(data,reference,indice=None):
+def ratios_splits(data,limite):
+ if not isinstance(data,list):raise ValueError('SPLITS_SCHEMA_INVALIDE')
+ result=[];seen=set()
+ for r in data:
+  d=r.get('date','');datetime.strptime(d,'%Y-%m-%d')
+  if d>limite:raise ValueError('SPLIT_FUTUR')
+  if d in seen:raise ValueError('SPLIT_DATE_DUPLIQUEE')
+  seen.add(d);ratio=str(r.get('split',''))
+  if not re.fullmatch(r'[0-9]+(?:\.[0-9]+)?/[0-9]+(?:\.[0-9]+)?',ratio):raise ValueError('RATIO_SPLIT_INVALIDE')
+  a,b=map(float,ratio.split('/'))
+  if not math.isfinite(a) or not math.isfinite(b) or a<=0 or b<=0:raise ValueError('RATIO_SPLIT_INVALIDE')
+  result.append((d,a/b))
+ return result
+def mesurer(data,reference,indice=None,splits=None,date_collecte=None):
  rows=serie(data,reference);prix=[r for r in rows if r['adjusted_close'] is not None]
  r={'Date_reference':reference,'Seances_recues':len(rows),'Seances_ajustees':len(prix),
     'Spread':'MANQUANT_NON_FOURNI_PAR_HISTORIQUE_EOD','Turnover_capital':'MANQUANT_DENOMINATEUR_ACTIONS_A_VERIFIER',
@@ -55,7 +68,15 @@ def mesurer(data,reference,indice=None):
  recent=rows[-63:];valid=[q for q in recent if q['close'] is not None and q['volume'] is not None]
  r['Seances_volume_63s']=len(valid)
  if len(recent)==63 and len(valid)==63:
-  r['Volume_monetaire_median_63s_USD']=float(pd.Series([q['close']*q['volume'] for q in valid]).median())
+  if splits is not None:
+   events=ratios_splits(splits,date_collecte or reference);values=[]
+   for q in valid:
+    facteur=math.prod(ratio for d,ratio in events if d>q['date'])
+    if not math.isfinite(facteur) or facteur<=0:raise ValueError('PRODUIT_RATIOS_SPLITS_INVALIDE')
+    values.append(q['close']*q['volume']/facteur)
+   r['Volume_monetaire_median_63s_USD']=float(pd.Series(values).median())
+   r['Statut_volume_monetaire']='CORRIGE_EVENEMENTS_SPLITS_FOURNIS'
+  else:r['Statut_volume_monetaire']='MANQUANT_CORRECTION_SPLITS_REQUISE'
   r['Volume_titres_median_63s']=float(pd.Series([q['volume'] for q in valid]).median())
   r['Seances_volume_nul_63s']=sum(q['volume']==0 for q in valid)
  r['Statut']='MESURES_A_VERIFIER_IDENTITE_ET_LIQUIDITE'
@@ -74,19 +95,19 @@ def executer():
  if taille<=0:raise RuntimeError('TAILLE_LOT_INVALIDE')
  key=os.getenv('EODHD_API_KEY','').strip()
  if not key:raise RuntimeError('EODHD_API_KEY_ABSENTE')
- client=ah.Client(key,out);rows=[];metrics=[];fatal='';ref='';index=[]
+ client=ah.Client(key,out,intervalle=.15);rows=[];metrics=[];fatal='';ref='';index=[]
  bilan={'date_utc':now.isoformat(),'source_univers':str(univers.relative_to(BASE)),'source_univers_SHA256':sha(univers),
   'source_script_SHA256':sha(Path(__file__)),'dependances_SHA256':{p:sha(BASE/'SCRIPTS_ACTIFS'/p) for p in ('07AH_RECENSER_MICROCAPS_US_EODHD.py','07AI_RACCORDER_COMPTES_US_SSI.py')},
-  'cotations_recensees':len(u),'notes_attribuees':0,'T0_modifie':False,'selection_terminee':False,
+  'volumes_monetaires_corriges_splits':True,'cotations_recensees':len(u),'notes_attribuees':0,'T0_modifie':False,'selection_terminee':False,
   'formules':{'momentum':'cours_ajuste(ancre)/cours_ajuste(dernier<=ancre-moism)-1 ; base et ancre publiées',
    'force_relative':'ratio des facteurs de performance action/SP500 aux mêmes dates',
-   'volume_monetaire':'médiane de close brut x volume fourni sur 63 séances complètes'},
+   'volume_monetaire':'médiane(close brut x volume ajusté splits / produit ratios splits postérieurs) sur 63 séances complètes'},
   'reference_indice':'GSPC.INDX','limite_force_relative':'ACTION_AJUSTEE_DIVIDENDES_VS_SP500_INDICE_PRIX : pas une comparaison total-return homogène ; aucune note automatique','usage_retrospectif_T0':'INTERDIT_SANS_ARCHIVE_POINT_IN_TIME','reserve_credits_autres_outils':10000}
  try:
   usage=client.get('user',archive=False)
   used=int(usage.get('apiRequests') or 0) if str(usage.get('apiRequestsDate',''))[:10]==now.date().isoformat() else 0
   client.budget=min(5000,max(0,int(usage.get('dailyRateLimit') or 0)-used-10000))
-  if client.budget<min(taille,len(u))+2:raise RuntimeError('QUOTA_INSUFFISANT_RESERVE_AUTRES_OUTILS')
+  if client.budget<2*min(taille,len(u))+2:raise RuntimeError('QUOTA_INSUFFISANT_RESERVE_AUTRES_OUTILS')
   # La dernière séance du S&P500 devient l'ancre commune, y compris le dimanche.
   fin=(now-timedelta(days=1)).date().isoformat();debut=(now-timedelta(days=410)).date().isoformat()
   params={'from':debut,'to':fin,'period':'d','order':'a'}
@@ -99,19 +120,31 @@ def executer():
    row={'Ticker':t,'Date_reference':ref,'Notes_attribuees':0,'Statut_B7':'A_VERIFIER_VOLUMES_TURNOVER_SPREAD','Statut_collecte':'HORS_LOT_TECHNIQUE'}
    if n<taille and not fatal:
     try:
-     data=client.get('eod/'+t,params);m=mesurer(data,ref,index);metrics.append(dict(Ticker=t,**m))
+     data=client.get('eod/'+t,params);archive_histoire=client.index[-1].get('archive_chiffree','')
+     m=mesurer(data,ref,index)
+     if m.get('Statut')=='MESURES_A_VERIFIER_IDENTITE_ET_LIQUIDITE' and m.get('Seances_volume_63s')==63:
+      try:
+       evenements=client.get('splits/'+t,{'from':debut,'to':now.date().isoformat()})
+       m=mesurer(data,ref,index,evenements,now.date().isoformat())
+      except Exception as exc:
+       m['Erreur_splits']=str(exc) if isinstance(exc,(RuntimeError,ValueError)) else type(exc).__name__
+       if any(c in m['Erreur_splits'] for c in ('EODHD_HTTP_401','EODHD_HTTP_402','EODHD_HTTP_403','EODHD_HTTP_429','QUOTA_')):fatal=m['Erreur_splits']
+     metrics.append(dict(Ticker=t,**m))
      row.update({'Statut_collecte':m['Statut'],'Date_dernier_cours':m.get('Date_dernier_cours',''),
        'Seances_recues':m['Seances_recues'],'Seances_ajustees':m['Seances_ajustees'],
        'Momentum_1_3_6_12_disponibles':'OUI' if all('Momentum_'+str(k)+'m_pct' in m for k in (1,3,6,12)) else 'NON',
        'Volume_monetaire_63s_disponible':'OUI' if 'Volume_monetaire_median_63s_USD' in m else 'NON',
        'Force_relative_1_3_6_12_disponible':'OUI' if all('Force_relative_SP500_'+str(k)+'m_pct' in m for k in (1,3,6,12)) else 'NON',
-       'Archive_historique_chiffree':client.index[-1].get('archive_chiffree','')})
+       'Volume_titres_63s_disponible':'OUI' if 'Volume_titres_median_63s' in m else 'NON',
+       'Correction_splits':m.get('Statut_volume_monetaire','NON_APPLICABLE'),
+       'Archive_historique_chiffree':archive_histoire})
     except Exception as exc:
      motif=str(exc) if isinstance(exc,(RuntimeError,ValueError)) else type(exc).__name__
      row.update(Statut_collecte='BLOQUE_SOURCE_OU_DONNEES',Motif=motif)
      if any(code in motif for code in ('EODHD_HTTP_401','EODHD_HTTP_402','EODHD_HTTP_403','EODHD_HTTP_429','QUOTA_')):fatal=motif
    elif fatal:row['Statut_collecte']='NON_TENTE_APRES_ERREUR_ACCES_OU_QUOTA'
    rows.append(row)
+   if (n+1)%100==0:print('Historique US : '+str(n+1)+'/'+str(len(tickers))+' lignes traitées ; aucune note attribuée',flush=True)
   if fatal:raise RuntimeError(fatal)
  except Exception as exc:
   fatal=str(exc) if isinstance(exc,(ValueError,RuntimeError)) else type(exc).__name__

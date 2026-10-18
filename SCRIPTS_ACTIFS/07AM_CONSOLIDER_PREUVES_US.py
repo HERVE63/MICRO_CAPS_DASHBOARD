@@ -57,6 +57,8 @@ def complement(util,dossier,fichier,univers):
  if 'Ticker' not in d or d.Ticker.duplicated().any():raise RuntimeError('COMPLEMENT_US_IDENTITES_DUPLIQUEES')
  attendu=pd.read_csv(univers,dtype=str,keep_default_na=False)
  if set(d.Ticker)!=set(attendu.Ticker_US):raise RuntimeError('COMPLEMENT_US_UNIVERS_TRONQUE')
+ if dossier=='MARCHE_US_EODHD' and not meta.get('volumes_monetaires_corriges_splits'):
+  d['Volume_monetaire_63s_disponible']='NON'
  return d.set_index('Ticker').to_dict('index'),mp
 def executer():
  util=charger('07AI_RACCORDER_COMPTES_US_SSI.py');x=charger('07X_INDEX_GOUVERNANCE_SEC.py')

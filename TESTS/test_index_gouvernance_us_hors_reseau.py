@@ -52,7 +52,7 @@ def test():
   comp=dossier('MARCHE_US_EODHD')
   pd.DataFrame([{'Ticker':'FIXTURE.US','Volume_monetaire_63s_disponible':'OUI'},
                 {'Ticker':'INCONNU.US','Volume_monetaire_63s_disponible':'NON'}]).to_csv(comp/'COUVERTURE_MARCHE_US.csv',index=False)
-  manifeste(comp,{'source_univers_SHA256':hashlib.sha256((p/'TOUTES_COTATIONS_RECENSEES.csv').read_bytes()).hexdigest()})
+  manifeste(comp,{'volumes_monetaires_corriges_splits':True,'source_univers_SHA256':hashlib.sha256((p/'TOUTES_COTATIONS_RECENSEES.csv').read_bytes()).hexdigest()})
   chargeur=m.charger
   def lire_module(nom):
    with patch.object(m,'BASE',Path(__file__).resolve().parents[1]):return chargeur(nom)

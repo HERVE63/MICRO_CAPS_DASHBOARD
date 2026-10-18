@@ -11,7 +11,7 @@ def test():
  dates=pd.bdate_range('2025-09-01','2026-10-16')
  data=[{'date':d.strftime('%Y-%m-%d'),'close':20,'adjusted_close':10+i/100,'volume':100} for i,d in enumerate(dates)]
  index=[dict(r,adjusted_close=100) for r in data]
- a=m.mesurer(data,'2026-10-16',index)
+ a=m.mesurer(data,'2026-10-16',index,[])
  for k in (1,3,6,12):
   cible=(pd.Timestamp('2026-10-16')-pd.DateOffset(months=k)).strftime('%Y-%m-%d')
   base=[r for r in data if r['date']<=cible][-1]
@@ -20,6 +20,12 @@ def test():
   assert abs(a['Force_relative_SP500_'+str(k)+'m_pct']-attendu)<1e-10
  assert a['Volume_monetaire_median_63s_USD']==2000 # 20*100, jamais adjusted_close*100.
  assert a['Notes_attribuees']==0 and a['Spread'].startswith('MANQUANT')
+ assert 'Volume_monetaire_median_63s_USD' not in m.mesurer(data,'2026-10-16',index)
+ splitdata=[dict(r,close=100 if r['date']<'2026-10-01' else 50,volume=200) for r in data]
+ corrected=m.mesurer(splitdata,'2026-10-16',index,[{'date':'2026-10-01','split':'2.000000/1.000000'}])
+ assert corrected['Volume_monetaire_median_63s_USD']==10000
+ reverse=[dict(r,close=1 if r['date']<'2026-10-01' else 10,volume=10) for r in data]
+ assert m.mesurer(reverse,'2026-10-16',index,[{'date':'2026-10-01','split':'1.000000/10.000000'}])['Volume_monetaire_median_63s_USD']==100
  assert 'Momentum_1m_pct' not in m.mesurer(data[:-1],'2026-10-16',index)
  assert m.mesurer([], '2026-10-16')['Statut']=='HISTORIQUE_AJUSTE_ABSENT'
  missing=[dict(r) for r in data];missing[-1]['volume']=None
@@ -40,7 +46,7 @@ def test():
   class Client(original):
    def get(self,path,params=None,**kwargs):
     if path=='user':return {'dailyRateLimit':100000,'apiRequests':0}
-    obj=index if path=='eod/GSPC.INDX' else data
+    obj=[] if path.startswith('splits/') else index if path=='eod/GSPC.INDX' else data
     name=self.archiver('REPONSE_'+str(len(self.index)).zfill(5),obj)
     self.index.append({'route':path,'archive_chiffree':name})
     (self.out/'INDEX_REQUETES.json').write_text(json.dumps(self.index));return obj
@@ -62,5 +68,5 @@ def test():
   encrypted=json.loads((out/'METRIQUES_MARCHE_US.enc.json').read_text())
   decoded=json.loads(ah.dechiffrer(encrypted,'TEST_KEY_NOT_SECRET'))
   assert decoded[0]['Ticker']=='AAA.US' and decoded[0]['Volume_monetaire_median_63s_USD']==2000
- print('Marché US : ancre commune, horizons calendaires, prix ajustés, volume brut, absences et archives chiffrées OK')
+ print('Marché US : ancre commune, horizons calendaires, prix ajustés, splits et reverse-splits, absences et archives chiffrées OK')
 if __name__=='__main__':test()

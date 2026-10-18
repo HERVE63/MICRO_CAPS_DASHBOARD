@@ -28,7 +28,9 @@ def dechiffrer(obj,key):
 class AucuneRedirection(HTTPRedirectHandler):
  def redirect_request(self,*a,**k):raise RuntimeError('REDIRECTION_EODHD_REFUSEE')
 class Client:
- def __init__(self,key,out):
+ def __init__(self,key,out,intervalle=.3):
+  if intervalle<.1:raise ValueError('CADENCE_API_TROP_ELEVEE')
+  self.intervalle=intervalle
   self.key=key;self.out=out;self.index=[];self.cout=0;self.budget=5;self.dernier=0;self.cache={}
   today=datetime.now(timezone.utc).date().isoformat()
   for p in sorted(out.parent.glob('*/INDEX_REQUETES.json')):
@@ -50,7 +52,7 @@ class Client:
    self.index.append(dict(r,archive_chiffree=nom,archive_source=str(p.relative_to(BASE)),date_relecture_utc=datetime.now(timezone.utc).isoformat(),cout_estime=0))
    return data
   if self.cout+cout>self.budget:raise RuntimeError('QUOTA_RESERVE_CPI_ATTEINT_REPRISE_NECESSAIRE')
-  self.cout+=cout;time.sleep(max(0,.3-(time.monotonic()-self.dernier)));self.dernier=time.monotonic()
+  self.cout+=cout;time.sleep(max(0,self.intervalle-(time.monotonic()-self.dernier)));self.dernier=time.monotonic()
   query=dict(params or {},api_token=self.key,fmt='json')
   # La clé est uniquement transmise à EODHD et n'entre jamais dans l'audit.
   req=Request('https://eodhd.com/api/'+path+'?'+urlencode(query),headers={'Accept':'application/json','User-Agent':'MICRO_CAPS scientific research'})
@@ -80,7 +82,7 @@ class Client:
    nom=self.archiver('REPONSE_'+str(len(self.index)).zfill(5),data,raw=raw)
    item=dict(r,archive_chiffree=nom,archive_source=str(p.relative_to(BASE)),date_relecture_utc=datetime.now(timezone.utc).isoformat())
   else:
-   time.sleep(max(0,.3-(time.monotonic()-self.dernier)));self.dernier=time.monotonic()
+   time.sleep(max(0,self.intervalle-(time.monotonic()-self.dernier)));self.dernier=time.monotonic()
    try:
     with build_opener(AucuneRedirection()).open(Request(url,headers={'User-Agent':agent,'Accept-Encoding':'identity'}),timeout=35) as response:raw=response.read(40_000_001)
    except HTTPError as exc:raise RuntimeError('SEC_HTTP_'+str(exc.code)) from None
