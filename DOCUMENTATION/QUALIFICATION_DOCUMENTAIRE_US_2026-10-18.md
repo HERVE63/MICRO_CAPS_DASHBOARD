@@ -45,3 +45,9 @@ La fenêtre concerne les dépôts du 1er janvier au 18 octobre 2026. L’exhaust
 La consolidation réapplique 07AL puis le validateur SSI, et raccorde les 12 profils / 259 lignes Form 4 à la matrice globale avec une couverture partielle explicite. Les 210 995 références de l’ancien index global ne sont pas confondues avec ces dépôts extraits. Les corrections humaines, le T0 et les données de portefeuille restent protégés.
 
 Aucune admission SSI, note MCPA ou sélection finale n’est créée. Les principaux travaux restants sont l’actualisation des détentions, les blocs financiers et de gouvernance sur preuves relues, les identités encore incomplètes et l’extension de cette qualification au reste de l’univers. Le seuil de 50 % de dossiers entièrement évaluables reste à atteindre.
+
+## Réception du raccordement GitHub
+
+La [consolidation 39136730106](https://github.com/HERVE63/MICRO_CAPS_DASHBOARD/actions/runs/39136730106) et la [réception SEC SSI 39136730159](https://github.com/HERVE63/MICRO_CAPS_DASHBOARD/actions/runs/39136730159) ont terminé avec succès. Les 29 fichiers de tests ont été exécutés avec statut OK. Le journal confirme l’intégrité SHA256 du T0 et la sauvegarde du commit de résultats `65ddad1c`.
+
+Le CSV de production `AUDITS/MATRICE_PREUVES_US/20261018T143709855366Z/MATRICE_PREUVES_SSI_US.csv` a été relu après sauvegarde : 2 490 cotations, exactement les quatre SPAC attendues éliminées, 2 486 dossiers incomplets, zéro candidat autorisé, 259 lignes Form 4 raccordées sur le lot de 12. Empreinte du registre humain inchangée. Le seuil de 50 % de dossiers entièrement évaluables n’est toujours pas atteint.
