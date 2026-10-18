@@ -45,6 +45,12 @@ def test():
   with patch.object(am,'BASE',root):
    mapping,mp=am.lot_inities(util)
    assert mapping['FIXTURE.US']['lignes']==1 and mapping['FIXTURE.US']['CIK']=='0000001234'
+   # Un nouveau lot ne supprime pas les émetteurs du lot précédent.
+   second=out.parent/'ZZZZ_LOT_02';shutil.copytree(out,second)
+   for nom in ['PROFILS_ACTUALISES.csv','TRANSACTIONS_FORM4_LOT.csv']:
+    table=pd.read_csv(second/nom,dtype=str,keep_default_na=False);table['Ticker']='AUTRE.US';table['CIK']='0000004321';table.to_csv(second/nom,index=False)
+   meta=json.loads((second/'MANIFESTE.json').read_text());meta['source_lot_SHA256']='LOT_02_FIXTURE';meta['fichiers']={str(p.relative_to(second)):hashlib.sha256(p.read_bytes()).hexdigest() for p in second.rglob('*') if p.is_file() and p.name!='MANIFESTE.json'};(second/'MANIFESTE.json').write_text(json.dumps(meta))
+   mapping,_=am.lot_inities(util);assert set(mapping)=={'FIXTURE.US','AUTRE.US'} and mapping['AUTRE.US']['CIK']=='0000004321'
    with (out/'TRANSACTIONS_FORM4_LOT.csv').open('a') as f:f.write('corruption')
    try:am.lot_inities(util)
    except RuntimeError:pass

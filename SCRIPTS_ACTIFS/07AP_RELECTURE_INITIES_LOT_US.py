@@ -65,7 +65,8 @@ def depots(obj,limite):
 
 def executer():
  now=datetime.now(timezone.utc);limite=now.date().isoformat();debut='2026-01-01'
- source=BASE/'AUDITS/RECHERCHE_COMPLEMENTS_US/2026-10-18_LOT_ORDRE_SCE/LOT_PRIORISATION.csv'
+ source=(BASE/os.getenv('SOURCE_LOT_SCE','AUDITS/RECHERCHE_COMPLEMENTS_US/2026-10-18_LOT_ORDRE_SCE/LOT_PRIORISATION.csv')).resolve()
+ if (BASE/'AUDITS/RECHERCHE_COMPLEMENTS_US').resolve() not in source.parents or source.name!='LOT_PRIORISATION.csv':raise RuntimeError('CHEMIN_LOT_SCE_INTERDIT')
  sm=json.loads((source.parent/'MANIFESTE.json').read_text())
  if sm['fichiers'].get(source.name)!=sha(source):raise RuntimeError('LOT_SCE_CORROMPU')
  lot=pd.read_csv(source,dtype=str,keep_default_na=False)
@@ -94,7 +95,7 @@ def executer():
     if q['Accession'] in seen:continue
     seen.add(q['Accession']);index.append({'Ticker':r.Ticker,'CIK':r.CIK,**q})
    # Actualiser la description d'activité et les nouvelles informations après le 10-Q.
-   for form in ('10-Q','10-K','DEF 14A'):
+   for form in ('10-Q','10-K','DEF 14A','20-F','40-F'):
     qs=[q for q in rows if q['Formulaire']==form]
     if not qs:continue
     q=max(qs,key=lambda q:(q['Date_depot'],q['Accession']))
@@ -103,7 +104,7 @@ def executer():
     text=g.texte_brut(data);p=out/(r.CIK+'_'+form.replace(' ','_')+'.txt.gz');p.write_bytes(gzip.compress(text.encode(),mtime=0))
     documents.append({'Ticker':r.Ticker,'CIK':r.CIK,**q,'Source_URL':docurl,'SHA256_brut':hashlib.sha256(data).hexdigest(),'Texte_normalise':str(p.relative_to(BASE)),'Description_blank_check':'OUI' if re.search(r'\bblank[ -]check company\b',text,re.I) else 'NON_REPEREE','Statut':'CONTENU_A_RELIRE_AUCUNE_EXCLUSION_AUTOMATIQUE'})
    for q in rows:
-    if q['Formulaire'] not in ('8-K','8-K/A') or q['Date_depot']<'2026-07-01':continue
+    if q['Formulaire'] not in ('8-K','8-K/A','6-K','6-K/A') or q['Date_depot']<'2026-07-01':continue
     row={'Ticker':r.Ticker,'CIK':r.CIK,**q,'Source_URL':af.url_document(r.CIK,q['Accession'],q['Document_primaire']),'Statut':'NOUVELLE_INFORMATION_A_LIRE_AVANT_EXCLUSION_OU_NOTE','Description_blank_check':'NON_TESTEE'}
     # Tous les émetteurs : une annonce postérieure peut modifier bilan, gouvernance ou identité.
     with client.open(Request(row['Source_URL'])) as response:data=response.read()

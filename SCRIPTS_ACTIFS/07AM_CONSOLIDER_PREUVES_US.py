@@ -63,16 +63,26 @@ def complement(util,dossier,fichier,univers):
 def lot_inities(util):
  fichiers=sorted((BASE/'AUDITS/RELECTURE_INITIES_US').glob('*/MANIFESTE.json'))
  if not fichiers:return {},None
- mp=fichiers[-1];meta=json.loads(mp.read_text())
- if meta.get('profils_en_erreur') or any(k!='TRANSACTIONS_A_VERIFIER' for k in meta.get('repartition_controles',{})):
-  raise RuntimeError('LOT_INITIES_INCOMPLET_OU_AMBIGU')
- profils=pd.read_csv(util.verifier_fichier(mp.parent,meta,'PROFILS_ACTUALISES.csv'),dtype=str,keep_default_na=False)
- transactions=pd.read_csv(util.verifier_fichier(mp.parent,meta,'TRANSACTIONS_FORM4_LOT.csv'),dtype=str,keep_default_na=False)
- if profils.Ticker.duplicated().any() or len(profils)!=meta['emetteurs_lot'] or len(transactions)!=meta['transactions_non_derivees_extraites']:
-  raise RuntimeError('LOT_INITIES_DECOMPTE_DIVERGENT')
- mapping=profils.set_index('Ticker').CIK.to_dict()
- if any(mapping.get(r.Ticker)!=r.CIK for _,r in transactions.iterrows()):raise RuntimeError('LOT_INITIES_CIK_DIVERGENT')
- return {t:{'CIK':c,'lignes':int(transactions.Ticker.eq(t).sum()),'date_limite':meta['date_limite_depots']} for t,c in mapping.items()},mp
+ # Dernière tentative de chaque lot : une collecte d'un nouveau lot ne fait pas
+ # disparaître les précédents ; une tentative partielle n'est jamais masquée.
+ lots={}
+ for mp in fichiers:
+  meta=json.loads(mp.read_text());cle=meta.get('source_lot_SHA256') or meta.get('source_lot') or 'LOT_HISTORIQUE'
+  lots[cle]=(mp,meta)
+ result={}
+ for mp,meta in sorted(lots.values()):
+  if meta.get('profils_en_erreur') or any(k!='TRANSACTIONS_A_VERIFIER' for k in meta.get('repartition_controles',{})):
+   raise RuntimeError('LOT_INITIES_INCOMPLET_OU_AMBIGU')
+  profils=pd.read_csv(util.verifier_fichier(mp.parent,meta,'PROFILS_ACTUALISES.csv'),dtype=str,keep_default_na=False)
+  transactions=pd.read_csv(util.verifier_fichier(mp.parent,meta,'TRANSACTIONS_FORM4_LOT.csv'),dtype=str,keep_default_na=False)
+  if profils.Ticker.duplicated().any() or len(profils)!=meta['emetteurs_lot'] or len(transactions)!=meta['transactions_non_derivees_extraites']:
+   raise RuntimeError('LOT_INITIES_DECOMPTE_DIVERGENT')
+  mapping=profils.set_index('Ticker').CIK.to_dict()
+  if any(mapping.get(r.Ticker)!=r.CIK for _,r in transactions.iterrows()):raise RuntimeError('LOT_INITIES_CIK_DIVERGENT')
+  for t,c in mapping.items():
+   if t in result and result[t]['CIK']!=c:raise RuntimeError('LOT_INITIES_IDENTITE_CHANGEANTE')
+   result[t]={'CIK':c,'lignes':int(transactions.Ticker.eq(t).sum()),'date_limite':meta['date_limite_depots'],'manifeste':str(mp.relative_to(BASE)),'manifeste_SHA256':sha(mp)}
+ return result,fichiers[-1]
 def executer():
  util=charger('07AI_RACCORDER_COMPTES_US_SSI.py');x=charger('07X_INDEX_GOUVERNANCE_SEC.py')
  pp,pm=dernier('PROFILS_SEC_UNIVERS_US');dp,dm=dernier('DOCUMENTS_US')
@@ -171,7 +181,7 @@ def executer():
   'Form4_sens_compteur_historique':'REFERENCES_GLOBALES_NON_RAPPROCHEES_DU_LOT_2026',
   'dossiers_avec_blocs_SSI_documentes':int(pd.to_numeric(result.Nombre_blocs_SSI_documentes).gt(0).sum()),
   'blocs_SSI_documentes':int(pd.to_numeric(result.Nombre_blocs_SSI_documentes).sum()),
-  'Form4_cotations_avec_lot_extrait':len(inities),'Form4_lignes_lot_extraites':sum(q['lignes'] for q in inities.values()),
+  'Form4_lots_sources':{q['manifeste']:q['manifeste_SHA256'] for q in inities.values()},'Form4_cotations_avec_lot_extrait':len(inities),'Form4_lignes_lot_extraites':sum(q['lignes'] for q in inities.values()),
   'documents_IR_hors_index_a_verifier':int(result.Documents_IR_collectes_a_verifier.sum()),
   'index_IR_sans_comptes':int(result.Index_IR_sans_comptes.sum()),
   'cotations_volumes_63s_disponibles':int(result.Volumes_monetaires_63s_disponibles.eq('OUI').sum()),
