@@ -48,6 +48,16 @@ def sources_ir(util,univers):
    result.setdefault(r.Ticker,[]).append(r.to_dict())
   return result,mp
  return {},None
+def complement(util,dossier,fichier,univers):
+ fichiers=sorted((BASE/'AUDITS'/dossier).glob('*/MANIFESTE.json'))
+ if not fichiers:return {},None
+ mp=fichiers[-1];meta=json.loads(mp.read_text())
+ if meta.get('source_univers_SHA256')!=sha(univers):raise RuntimeError('PERIMETRE_COMPLEMENT_US_INCOHERENT:'+dossier)
+ d=pd.read_csv(util.verifier_fichier(mp.parent,meta,fichier),dtype=str,keep_default_na=False)
+ if 'Ticker' not in d or d.Ticker.duplicated().any():raise RuntimeError('COMPLEMENT_US_IDENTITES_DUPLIQUEES')
+ attendu=pd.read_csv(univers,dtype=str,keep_default_na=False)
+ if set(d.Ticker)!=set(attendu.Ticker_US):raise RuntimeError('COMPLEMENT_US_UNIVERS_TRONQUE')
+ return d.set_index('Ticker').to_dict('index'),mp
 def executer():
  util=charger('07AI_RACCORDER_COMPTES_US_SSI.py');x=charger('07X_INDEX_GOUVERNANCE_SEC.py')
  pp,pm=dernier('PROFILS_SEC_UNIVERS_US');dp,dm=dernier('DOCUMENTS_US')
@@ -89,10 +99,13 @@ def executer():
  for _,r in docs.iterrows():
   if r.Statut=='DOCUMENT_COLLECTE_A_VERIFIER':pieces.setdefault(r.CIK,set()).add(r.Formulaire)
  ir,ip=sources_ir(util,pp.parent/'TOUTES_COTATIONS_RECENSEES.csv')
+ marche,mp=complement(util,'MARCHE_US_EODHD','COUVERTURE_MARCHE_US.csv',pp.parent/'TOUTES_COTATIONS_RECENSEES.csv')
+ passages,gp=complement(util,'PASSAGES_GOUVERNANCE_US','COUVERTURE_PASSAGES_US.csv',pp.parent/'TOUTES_COTATIONS_RECENSEES.csv')
  matrice=[]
  for _,r in tous.iterrows():
   ticker=r.Ticker_US;f=finances.loc[ticker] if ticker in finances.index else {};s=ssi.loc[ticker] if ticker in ssi.index else {}
   o=ordre.loc[ticker] if ticker in ordre.index else {}
+  hist=marche.get(ticker,{});gov=passages.get(ticker,{})
   c=controles[controles.CIK.eq(r.CIK)]
   p=pieces.get(r.CIK,set())
   autres=ir.get(ticker,[])
@@ -113,17 +126,28 @@ def executer():
     'Documents_CIK_absent_a_relire':int(c.Controle_document.eq('CIK_XBRL_ABSENT_A_RELIRE').sum()),
     'Form4_references_dans_index':forms4.get(r.CIK,0),'Form4_contenu':'A_EXTRAIRE_ET_VERIFIER',
     'Statut_B1_B2_B3':'DONNEES_A_VERIFIER','Statut_B4_B5':'DOCUMENTS_ET_TRANSACTIONS_A_VERIFIER',
-    'Statut_B6':'CONTENU_ET_REGULARITE_A_VERIFIER','Statut_B7':'VOLUMES_ET_SPREAD_A_DOCUMENTER',
+    'Statut_B6':'CONTENU_ET_REGULARITE_A_VERIFIER',
+    'Statut_B7':'VOLUMES_RECUS_TURNOVER_SPREAD_ET_IDENTITE_A_VERIFIER' if hist.get('Volume_monetaire_63s_disponible')=='OUI' else 'VOLUMES_ET_SPREAD_A_DOCUMENTER',
+    'Statut_collecte_marche':hist.get('Statut_collecte','NON_EXECUTEE'),
+    'Date_reference_marche':hist.get('Date_reference',''),
+    'Momentum_1_3_6_12_disponibles':hist.get('Momentum_1_3_6_12_disponibles','NON'),
+    'Volumes_monetaires_63s_disponibles':hist.get('Volume_monetaire_63s_disponible','NON'),
+    'Passages_detention_groupe':gov.get('DETENTION_GROUPE','0'),
+    'Passages_droits_60_jours':gov.get('DROITS_A_60_JOURS','0'),
+    'Passages_dilution_remuneration':gov.get('DILUTION_REMUNERATION','0'),
     'Statut_SCE':s.get('Statut_SCE','A_COMPLETER'),'SCE_valide':s.get('SCE_valide','NON'),
     'SSI':s.get('SSI','MANQUANTE'),'Statut_SSI':s.get('Statut_SSI','A_COMPLETER_PREUVES_SSI'),
     'Candidat_selection_autorise':'OUI' if s.get('SCE_valide')=='OUI' and s.get('Statut_SSI')=='ADMIS_SSI' else 'NON'})
  result=pd.DataFrame(matrice);result.to_csv(out/'MATRICE_PREUVES_SSI_US.csv',index=False)
  bilan={'date_utc':datetime.now(timezone.utc).isoformat(),'source_script_SHA256':sha(Path(__file__)),
-  'sources':{str(p.relative_to(BASE)):sha(p) for p in (pp,dp,fp,sp,cp,ip) if p is not None},'cotations_conservees':len(result),
+  'sources':{str(p.relative_to(BASE)):sha(p) for p in (pp,dp,fp,sp,cp,ip,mp,gp) if p is not None},'cotations_conservees':len(result),
   'emetteurs_profils_distincts':len(profils),'pistes_gouvernance':len(gouvernance),
   'Form4_references_non_extraits':sum(forms4.values()),
   'documents_IR_hors_index_a_verifier':int(result.Documents_IR_collectes_a_verifier.sum()),
   'index_IR_sans_comptes':int(result.Index_IR_sans_comptes.sum()),
+  'cotations_volumes_63s_disponibles':int(result.Volumes_monetaires_63s_disponibles.eq('OUI').sum()),
+  'cotations_momentum_1_3_6_12_disponibles':int(result.Momentum_1_3_6_12_disponibles.eq('OUI').sum()),
+  'cotations_passages_detention_groupe':int(pd.to_numeric(result.Passages_detention_groupe).gt(0).sum()),
   'cotations_avec_trois_documents':int((result.Rapport_10K_collecte.eq('OUI')&result.Rapport_10Q_collecte.eq('OUI')&result.Proxy_DEF14A_collecte.eq('OUI')).sum()),
   'notes_SSI_attribuees_par_ce_module':0,'candidats_selection_autorises':int(result.Candidat_selection_autorise.eq('OUI').sum()),
   'statut':'MATRICE_PREUVES_ET_INDEX_GOUVERNANCE_EXECUTES_CONTENU_A_QUALIFIER',

@@ -49,12 +49,17 @@ def test():
     'SHA256':hashlib.sha256(doc.read_bytes()).hexdigest(),'Source_URL':'https://issuer.example/annual.pdf','Date_publication':''}]).to_csv(ir/'AUDIT_DOCUMENTS.csv',index=False)
   manifeste(ir,{'registre_source':'CONFIG/DOCUMENTS_OFFICIELS_US_A_COLLECTER.csv',
     'couverture_source_SHA256':hashlib.sha256((p/'TOUTES_COTATIONS_RECENSEES.csv').read_bytes()).hexdigest()})
+  comp=dossier('MARCHE_US_EODHD')
+  pd.DataFrame([{'Ticker':'FIXTURE.US','Volume_monetaire_63s_disponible':'OUI'},
+                {'Ticker':'INCONNU.US','Volume_monetaire_63s_disponible':'NON'}]).to_csv(comp/'COUVERTURE_MARCHE_US.csv',index=False)
+  manifeste(comp,{'source_univers_SHA256':hashlib.sha256((p/'TOUTES_COTATIONS_RECENSEES.csv').read_bytes()).hexdigest()})
   chargeur=m.charger
   def lire_module(nom):
    with patch.object(m,'BASE',Path(__file__).resolve().parents[1]):return chargeur(nom)
   with patch.object(m,'BASE',root),patch.object(m,'charger',side_effect=lire_module):bilan=m.executer()
   assert bilan['cotations_conservees']==2 and bilan['cotations_avec_trois_documents']==1
   assert bilan['Form4_references_non_extraits']==1 and bilan['candidats_selection_autorises']==0
+  assert bilan['cotations_volumes_63s_disponibles']==1 and bilan['cotations_passages_detention_groupe']==0
   assert bilan['documents_IR_hors_index_a_verifier']==1 and bilan['index_IR_sans_comptes']==0
   doc.write_bytes(b'CORRUPTED FIXTURE')
   with patch.object(m,'BASE',root),patch.object(m,'charger',side_effect=lire_module):
