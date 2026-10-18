@@ -49,3 +49,7 @@ Les notes documentaires sont stockées séparément des corrections humaines. Le
 Le contrôle local effectif a conservé les 2 490 cotations, les quatre exclusions SPAC antérieures et les 11 blocs documentés, sans aucune admission. Trente fichiers de tests ont été exécutés localement avec succès. Les tests couvrent notamment : preuve corrompue refusée, CIK divergent écarté du décompte partiel, note ne concordant pas avec sa preuve refusée, priorité humaine, absence d’admission par simple plafond, cache SEC corrompu refusé et reprise après timeout.
 
 Le seuil de 50 % de dossiers entièrement évaluables n’est pas atteint. Ce premier lot documente le passage à la notation ; il ne clôt pas la qualification de l’univers ni la confrontation aux 40 titulaires.
+
+## Précision de libellé conservée dans l’historique
+
+Une justification NUS désignait improprement les 251,802 MUSD d’actifs courants moins passifs courants comme un « BFR net ». Il s’agit du fonds de roulement courant. Une preuve de remplacement identifiée corrige ce seul libellé ; le montant et B1 = 13 restent inchangés. L’ancien enregistrement n’est pas réécrit. Les notes initiales et leur première réception GitHub restent archivées.
