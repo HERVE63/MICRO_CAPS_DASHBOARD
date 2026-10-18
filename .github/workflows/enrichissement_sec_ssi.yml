@@ -1,9 +1,5 @@
 name: MICRO CAPS - ENRICHISSEMENT SEC SSI
 on:
-  push:
-    branches: [main]
-    paths:
-      - '.github/workflows/enrichissement_sec_ssi.yml'
   workflow_dispatch:
     inputs:
       offset:
@@ -28,7 +24,7 @@ jobs:
       - uses: actions/setup-python@v5
         with:
           python-version: '3.12'
-      - run: pip install pandas
+      - run: pip install pandas cryptography
       - name: Réception hors réseau avant collecte
         run: python -B TESTS/executer_tests.py
       - name: Collecte SEC isolée, preuves brutes et contrôle du secret

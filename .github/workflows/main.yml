@@ -48,7 +48,7 @@ jobs:
         with:
           python-version: '3.12'
       - name: Installer les dependances
-        run: pip install pandas numpy yfinance pandas_market_calendars
+        run: pip install pandas numpy yfinance pandas_market_calendars cryptography
       - name: Réception hors réseau
         run: python -B TESTS/executer_tests.py
       - name: Executer MICRO CAPS V3

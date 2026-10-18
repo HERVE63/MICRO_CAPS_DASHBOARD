@@ -21,6 +21,7 @@ def executer():
         rows.append({'controle': p.name, 'statut': 'OK' if r.returncode == 0 else 'ECHEC',
                      'code_retour': r.returncode, 'detail': r.stdout+r.stderr})
         print(p.name, rows[-1]['statut'], flush=True)
+        if r.returncode != 0:print(rows[-1]['detail'],flush=True)
     apres = empreintes()
     changes = sorted(k for k in set(avant)|set(apres) if avant.get(k) != apres.get(k))
     rows.append({'controle': 'integrite_entrees', 'statut': 'ECHEC' if changes else 'OK', 'detail': changes})

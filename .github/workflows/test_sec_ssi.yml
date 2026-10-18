@@ -31,7 +31,7 @@ jobs:
       - uses: actions/setup-python@v5
         with:
           python-version: "3.12"
-      - run: pip install pandas
+      - run: pip install pandas cryptography
       - name: Réception SEC et sécurité du pipeline hors réseau
         run: python -B TESTS/executer_tests.py
       - name: Archiver les résultats effectifs
