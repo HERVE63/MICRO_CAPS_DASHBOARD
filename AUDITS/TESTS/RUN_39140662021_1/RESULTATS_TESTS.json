@@ -1,0 +1,667 @@
+{
+  "date_utc": "2026-10-18T15:29:57.700747+00:00",
+  "commit": "6a5b79712745e0d4c98562afc6d1d53323b16119",
+  "empreintes_sources": {
+    "SCRIPTS_ACTIFS/09C_COMITE_HEBDOMADAIRE.py": "b89090485645e3c6c55818c62196f1f797a22c9fa7e2cc7d082ba45d79cf779e",
+    "SCRIPTS_ACTIFS/00A_PLANIFICATION_QUOTIDIENNE.py": "fd1c7a0ce3b04e333a67a32401b14e586cdd28ccb767b10a78a2d21566b452d7",
+    "SCRIPTS_ACTIFS/00_EXECUTION_QUOTIDIENNE_V3.py": "f4a3ba47beab70128f3c3e24d510e822efb3f20041bee8ec245132f4af8580a0",
+    "SCRIPTS_ACTIFS/03C_ACTIONS_CORPORATIVES.py": "2a9a9114d9896a7ea64d7c063c363911005f8336025b91935c78bc94d78fd0b3",
+    "SCRIPTS_ACTIFS/05C_REPLAY_PORTEFEUILLE_GERE.py": "43cf16bc6646b22a43766be6e14c7d855de5eb731be1fe2c92af248dbd4dc997",
+    "SCRIPTS_ACTIFS/07D_ENRICHIR_IDENTITE_COTATIONS.py": "4b259edc6c39c11583ce6088d42a7983d94cd9157d5565028d1a42577f16f650",
+    "SCRIPTS_ACTIFS/07H_MAJ_REGISTRE_CA_OTC.py": "bf5766c27d2583c283c620692e71ce6a276f0d1bea8fc94845513a25225e9726",
+    "SCRIPTS_ACTIFS/07AM_CONSOLIDER_PREUVES_US.py": "d0830ac6a80ddbd34544648d7fc969342100eca459606ae97c0c63d012215ce8",
+    "SCRIPTS_ACTIFS/07J_CLOTURE_IDENTITE_UNIVERS.py": "36e3c2bea5d44901e0f66f35bbd3c2441f5a5b35c45f7fd77c57ce24e7b7000b",
+    "SCRIPTS_ACTIFS/07AD_CONSOLIDER_COLLECTES_SEC.py": "4c1ecbc0ffd189d3a970dbd69d2de0f2b6f35f6e491013ca21ac4f37b9a9c2c2",
+    "SCRIPTS_ACTIFS/07K_UNIVERS_INVESTISSABLE_IDENTITE.py": "d36cae37d13c58fcd2b5f712208d5dfadc2ee1d2f0a74aef6d4488134028f776",
+    "SCRIPTS_ACTIFS/07AE_VERROU_HORAIRE_ACTIONS.py": "7829e06c1e2f34eb3e8cc7fb0afcbd604a332f0522eeaf7d879849b1c4fdb391",
+    "SCRIPTS_ACTIFS/07A_COLLECTE_SEC_US.py": "6df301dd870bd0fccc33a48383dd413c6024b38520f46c9e2ff8c8baf1a4cec7",
+    "SCRIPTS_ACTIFS/07AE_CADRER_UNIVERS_US.py": "b38c4d19accc1ba6e92e2a6dbacb812c5d9f38aac9b4e57dc336b62ce892a00f",
+    "SCRIPTS_ACTIFS/05_MOTEUR_PORTEFEUILLES.py": "d0d652c39a8ccb61bdf4dd9a7381965e3c71b45a3b00d375b4a7b93d2acfdd6a",
+    "SCRIPTS_ACTIFS/07AK_CONTROLER_INSTRUMENTS_US_OFFICIELS.py": "132caf41f2589b3432137e00c2acd57de9b3a3ee687d26749245a87edd82583a",
+    "SCRIPTS_ACTIFS/03_MOTEUR_CLOTURES_FX.py": "d6fc5ed0266dd641b9934c4276abcdca1b27237417a925f3f4e1114b3316025d",
+    "SCRIPTS_ACTIFS/07AL_RACCORDER_SCE_DISCOVERY_SSI_US.py": "bda5aa5785b20eddaad974b22d99aee8f7855f8789d9f025f194455b6ba14069",
+    "SCRIPTS_ACTIFS/07Q2_AUDIT_PREUVES_SSI.py": "85ec45044924da9b2d25164889101d3f1b47c04ceb8c6e8d8a28a898dfb63205",
+    "SCRIPTS_ACTIFS/07Y_EXTRAIRE_FORM4_SEC.py": "c784bf5ec2b398aa16a2d7aa589a3802d15ee130d167c8013877f38dc2bd35a8",
+    "SCRIPTS_ACTIFS/07B_AJOUT_HISTORIQUE.py": "6a330c6872fe4955a97a6006a04dca45c1d471cd3218939a18c84927adf72848",
+    "SCRIPTS_ACTIFS/07AI_RACCORDER_COMPTES_US_SSI.py": "247efbe16927fd75f2c32dd52fd5e5785b3591c45b69505895ae995f84bc70cd",
+    "SCRIPTS_ACTIFS/07AP_RELECTURE_INITIES_LOT_US.py": "efdc555ed5a690ca8e99c9473953b258190a561a4e3d73871b94a493ae71c0a3",
+    "SCRIPTS_ACTIFS/07P_COLLECTE_PRESELECTION_MARCHE.py": "784b01ab74c4b7f5e993b147f4ef4035a38cd1bf92cd2195675bf899cd5f5df2",
+    "SCRIPTS_ACTIFS/03B_MOTEUR_FX_V3.py": "69d16ffb589133dde46c4ee6fcd22563268a018ab511e5ed2754eafd64490ed6",
+    "SCRIPTS_ACTIFS/09_CONTROLE_REVUE_MCPA_IPS.py": "5b8d95c8a105f120e5c963ebcf590ca0bf9fadc442e21df20d580765ede6184f",
+    "SCRIPTS_ACTIFS/07I_RESOLUTION_EUROPE_SECONDAIRES.py": "d632e135e9aeea1c933434d61872183232f9b22d5a88b9e8a70e7cdab1ac1643",
+    "SCRIPTS_ACTIFS/03A_MOTEUR_CLOTURES_V3.py": "7a053a22f7be7a944b823f41e5863b7adecf2ad27bd944beda03e70540eb7cb5",
+    "SCRIPTS_ACTIFS/07U_COLLECTE_COMPANYFACTS_SEC.py": "42e134af28cc7caf0c4309968c227a3c6be0156bde8100daed08407bbfafba7f",
+    "SCRIPTS_ACTIFS/TEST_RECEPTION_09B.py": "d5481d65e30d51c5f30f785472bd5871c9fa93c695ed3b063c13c94c20469cd6",
+    "SCRIPTS_ACTIFS/preuves_ssi.py": "a2f14f935b2714f934b2ecbc0a204b9c595c4a11d1ef34a59505e481c64bf7cf",
+    "SCRIPTS_ACTIFS/07W_RAPPROCHER_PREUVES_SEC_SSI.py": "acbac3a4c56a276222360e7ece1ffed5c42fee0cb14478792bde7e7254393d2e",
+    "SCRIPTS_ACTIFS/07AG_CONTROLER_DOCUMENTS_US.py": "88383134a5253e12f144db1cd8728745e503a75a7a825aa6281aa8a783a509d5",
+    "SCRIPTS_ACTIFS/07Z_EXECUTION_SEC_AUDITEE.py": "42dce4b4c315f0510ecf27e474a538b2befc2850cff0f08c888b7143e6e920d9",
+    "SCRIPTS_ACTIFS/04_CONTROLE_QUALITE.py": "51b220d4afd4c68337ccb29aeb60431e560eaff315edea6aa1c244558513bcea",
+    "SCRIPTS_ACTIFS/07C_SCREENER_MICRO_CAPS.py": "1482fbb50afc6803b2e364922d284d9d17184d05961458dfb3adc04b8f7fc929",
+    "SCRIPTS_ACTIFS/08B_CONTROLE_CHASSE_SSI.py": "804a58baa62803d616379d1e15f47d2462ca51050da60fa0f3806443beeafeae",
+    "SCRIPTS_ACTIFS/07B_FILTRAGE_OBJECTIF_ETAPE1.py": "4060c2b1a11683e871167e16d0a72f05a8286cb8b5d1acd6b2215a09d7535f7f",
+    "SCRIPTS_ACTIFS/07O_CONTROLE_PRE_SSI.py": "550fd92c4cc0cfe69ccbc9091228922e7ab0c73b6161043b19848a2dc67e1a35",
+    "SCRIPTS_ACTIFS/07X_INDEX_GOUVERNANCE_SEC.py": "9296031a3c133726f816c4eecc137e2ceee211d82c5ead1fd6cd97c01da376f8",
+    "SCRIPTS_ACTIFS/07AJ_ETENDRE_DOCUMENTS_SEC_UNIVERS_US.py": "811d2ff338495b47aa64dfcd978b6703f09d6c67ee22c8ec6aef508d0bc10a81",
+    "SCRIPTS_ACTIFS/07AF_COLLECTER_DOCUMENTS_US.py": "2e3aca43f76a4efbec9df6737d76cda5986b4c868d294e5ec05c921414367f8b",
+    "SCRIPTS_ACTIFS/06_BENCHMARKS.py": "20cc87ec725b7d48cb9d0faaacf7c4629113e46758eadf413b265c72d04b691a",
+    "SCRIPTS_ACTIFS/07C_RESOLUTION_COTATIONS_MULTIPLES.py": "8b56d93249f8b8553cedde9e41704a499b7f21457538f8e13185c32840c83e37",
+    "SCRIPTS_ACTIFS/07AH_RECENSER_MICROCAPS_US_EODHD.py": "fa069eabd9f6488eaf098c0a1831524de2cc659588a3bbe7ca8daedbed07eeed",
+    "SCRIPTS_ACTIFS/07G_RESOLUTION_CANADA_OTC.py": "753168e539581ad6b309788bee7cd37a702b26d28c747e50071ad50c0e515244",
+    "SCRIPTS_ACTIFS/07L_FILTRER_CHASSE_GELEE_20261007.py": "27d8ae93255093ec1b07a7873c1419e57a1251a8a3ed089a9b3b2786576bc66a",
+    "SCRIPTS_ACTIFS/07A_GARDE_BARRIERE_JOURNEE.py": "5a75bf05f4d76e7155bf23d74b56bbce8e6220cd9334ccf0f0f327b4842e7cc5",
+    "SCRIPTS_ACTIFS/07S_SCREENING_PRIMAIRE_MICRO_CAPS.py": "a6a42cca844622828609e072ca0e3fc3fc70f925efe332c27832d4650acd0675",
+    "SCRIPTS_ACTIFS/07F_REGISTRE_IDENTITE_INCREMENTAL.py": "06b4062d2c8e8dc8abd56bb03fa7e81f6c4f8a707491403d57f00b24fa3d8cd3",
+    "SCRIPTS_ACTIFS/07AO_PASSAGES_GOUVERNANCE_US.py": "ab1f4d5115c3d7e1b90de1e405744c40a41f1c6f4bc6e0e7e4a972d849234ec9",
+    "SCRIPTS_ACTIFS/04B_MOTEUR_ECONOMIQUE_RESOLU.py": "b8d83ca5b2d4c617ce271525fd0cce415bd23994a56a6fea470866b5be811fa9",
+    "SCRIPTS_ACTIFS/07AB_BILAN_SELECTION_DOCUMENTEE.py": "493f93eea5677d749381daf464e36065c4d3a89cc873075a5141f2cbf2a4bb33",
+    "SCRIPTS_ACTIFS/07B_NORMALISER_FONDAMENTAUX.py": "cb8b9b2e971af969035009bf6c2a15c22b069170333f83916a232748b7e899cc",
+    "SCRIPTS_ACTIFS/07R_VALIDER_NOTES_SSI.py": "36e799821db746a6edb6dc7df2e1cccb249749444b8ae0609cdda4ee69dfffbe",
+    "SCRIPTS_ACTIFS/07T_ENRICHIR_PREUVES_SEC_EDGAR.py": "df6120c1612b0bea5d4c056596c288d4604f2a9e074cca9842a33d08225131d5",
+    "SCRIPTS_ACTIFS/08S_ADAPTATEUR_CHASSEUR_MICRO_CAPS.py": "bb71228ae30bb1d31671b2756cae0ed7bf74a0e50891e84caa0ab2100ab632c4",
+    "SCRIPTS_ACTIFS/07AN_COMPLETER_MARCHE_US_EODHD.py": "aa33e9c73062754c774526f414fce8bcf4fb1d8ba4c5793b2e913cb73d584fbc",
+    "SCRIPTS_ACTIFS/07AA_COLLECTE_DOCUMENTS_OFFICIELS.py": "0523cd724eeac0dcd533a3e209727d740de9bb353ffbe794786dbb1dbf1752a8",
+    "SCRIPTS_ACTIFS/07Q_PREPARER_DOSSIERS_SSI.py": "a65960d019875bc7dfc02e625a23020d9d84e4eb29b6cd6deb222d93fabaaf8c",
+    "SCRIPTS_ACTIFS/10_EXECUTION_MENSUELLE.py": "48cfcc2772811ceca9671d9460c0ea8cbe69734ce51e115b81d092254897f630",
+    "SCRIPTS_ACTIFS/05D_MOTEUR_PRIX_POSITIONS_NOUVELLES.py": "1c770d13907642ae17d591f42e0ab66ab385d42dbfb51e8595072dadfc6ab364",
+    "SCRIPTS_ACTIFS/07E_RESOLUTION_AMBIGUS_PAR_PREUVES.py": "36d41b46ee78d82cfc56faa4cd9ebb89ab993dc9e5a0806a3f0b607c9f780fbc",
+    "SCRIPTS_ACTIFS/07A_AUDIT_LISTINGS_MICRO_CAPS.py": "f4b9f406232bbd23d95e5b8aa566f17a20d802331c2e17e6e9d44da10f7356d8",
+    "SCRIPTS_ACTIFS/07M_PREPARER_FILTRES_OBJECTIFS.py": "1128e3a4e787c7f502e846bd58e5edc1013ce38d1711ce9a281b817c6149b80a",
+    "SCRIPTS_ACTIFS/08A_IMPORT_SCREENER.py": "3bffab01130f6f52d924febabd596c6b96894342d1a50ad7e65374d604f9dbef",
+    "SCRIPTS_ACTIFS/08_GENERER_DASHBOARD.py": "e10520410b1ea4be4d3a5c25d2785bb94f2a796e4e5de2b72064498307708dd4",
+    "SCRIPTS_ACTIFS/07V_NORMALISER_FAITS_SEC.py": "f8539a25f419d924aa2e00b15192ad8487726d89fdb595a961198fcadd6a1852",
+    "SCRIPTS_ACTIFS/09B_DUEL_PROCHAIN_EURO.py": "dbd4159888e1628eb1b7ed9ee39bb3b88a81c7a0a5eea6b6fac0a36200c38bbf",
+    "SCRIPTS_ACTIFS/07AC_CONTROLER_T0.py": "433502770e1821d113d3825f95359205f9e7bc33c5ea85f9b3be3e99ec76414b",
+    "SCRIPTS_ACTIFS/07N_COLLECTE_FONDAMENTAUX_UNIVERSELLE.py": "fca3a7c8205fbc8fab36276fbc93f43041fcbacc4b9809a9fcb2a63d02469b8c",
+    "TESTS/test_notes_documentaires_ssi_hors_reseau.py": "39aa3ef90fe0cbb2e62e0797fecf0c6f5289ca58395f1b092dd747666998aee0",
+    "TESTS/test_sec_ssi_hors_reseau.py": "1c96d7e767e924a987ef5f7d756da1e71c7d28521dbd320c81325ff8c65ab373",
+    "TESTS/test_passages_gouvernance_us_hors_reseau.py": "ad2998a58770ec06ef1fe8f567b9963eea4b46675152e510342b43452f4e98b4",
+    "TESTS/test_form4_sec_hors_reseau.py": "42d2e665a4c4e564963640946962ab957ef7edb4a90bb14fe9fa3edd5fbfb53a",
+    "TESTS/test_ifrs_devises_sec_hors_reseau.py": "453241dc8c74b3ffdf863cbc983ed2f3a14bb7ee3f0b88b18d2f832718323f53",
+    "TESTS/test_gouvernance_sec_hors_reseau.py": "bb702c61e935c5f50018cffcc162c7fb83ded3752817c56577b22fecc41ea2d7",
+    "TESTS/test_univers_us_hors_reseau.py": "e03c58ac1d03099dcb0a8e2fc6d8ad07173936a97951e72ebb2c7f5757cd3732",
+    "TESTS/test_extension_documents_us_hors_reseau.py": "424f99932923ac66ba8d6150b7e001a1048f9cac0188621417427d1f3f274b58",
+    "TESTS/test_orchestration_sec_hors_reseau.py": "082c24745d53fcb8e0edba4516cfbb62a3c3117e73f52f22728a95c09b575550",
+    "TESTS/test_form4_multi_xml_hors_reseau.py": "e7fa3b6fa7ff192c1870c8d3d2ff2ec26d8b5716f118f657409e4ab2e23c94dd",
+    "TESTS/test_rapprochement_sec_ssi_hors_reseau.py": "888d6368a21cb4859229f8b9136b8e2a9de56463d87ef5fa52b84ddd63aa9ea5",
+    "TESTS/test_sources_officielles_hors_reseau.py": "bd2069bd53f1ddb94ba7b09309e851ee331b44990e743181157dfb8d6e5e0129",
+    "TESTS/test_postes_financiers_ssi_hors_reseau.py": "1ed771f097132030b4eabaf49178963105c71c95d67d9d5eb84eddb3ea011d79",
+    "TESTS/verifier_chiffrement_eodhd.py": "6725f56c5e83ac2fec0a42dd7137a23bdba9de0fd394ec5b9c94fa9afccc14b5",
+    "TESTS/test_securite_pipeline_hors_reseau.py": "5b7adb3663277a2e36a03aa2ba0a2ad39d65c5b40f486e32eade5120d8dac87c",
+    "TESTS/test_normalisation_sec_hors_reseau.py": "df0410692a765d90a3c075706e909d7e40e623bccaa0c13a1f38c1d447c62977",
+    "TESTS/test_identite_sec_multicotation_hors_reseau.py": "4ad4ebd73f0876de0341f222bbe45cb44c100097387f0f7a45f18c805dc254de",
+    "TESTS/test_instruments_officiels_us_hors_reseau.py": "f105a873053f05985df1ee1e0d231a656b28a08b1a99a5bd9f92cddbabfba68d",
+    "TESTS/test_recensement_us_eodhd_hors_reseau.py": "dcebaa64b79bb96161a825dca4decae779a6b3da956db603f613f7d210a8b188",
+    "TESTS/test_documents_us_hors_reseau.py": "d8bd9ac9738f639caa4ae3a19d46cd302666aaccddcabbb5e03db4d1fb8233a3",
+    "TESTS/test_relecture_inities_us_hors_reseau.py": "f4f718d54e63b57a1d14d7eb1abbce3922454c4a7ecef9fd52c4748df6223790",
+    "TESTS/test_repli_sec_eodhd_hors_reseau.py": "66a4407079881434ebc2dee1fcfb261e451ed35fad166a610cb37428ef2de316",
+    "TESTS/test_sce_discovery_us_hors_reseau.py": "3b34de774db756fcb343ed1fdc4bc966d2473400affd2072a6425f214659334e",
+    "TESTS/test_marche_us_eodhd_hors_reseau.py": "7e96afef4922de6cb21f45fed01a593e431042534fe71181166920fb16e6b42e",
+    "TESTS/test_index_gouvernance_us_hors_reseau.py": "0d1996f575089c5b8da942852495b410c458bbb30554e42f658669df4a5f32f3",
+    "TESTS/test_planification_quotidienne_hors_reseau.py": "ebdf0a55d3e47c4d7f4816095098b56ac18dbf42ea2601d02c3b1a09310a1490",
+    "TESTS/test_duels_prochain_euro_hors_reseau.py": "a6957736fa1b8936221c48afa9ad25ebfdc91e7bff0db685410afa2a8ae31377",
+    "TESTS/executer_tests.py": "a9573ec9e866050ccb71af9855e16a9933867b29f4f7e6a751e99c0961e674b4",
+    "TESTS/test_raccordement_comptes_us_hors_reseau.py": "81ab2d9ede6ef0ee73c70bf6cb448ddc02dfbc7236151e88abd70f30d663aadb",
+    "TESTS/test_controle_documents_us_hors_reseau.py": "842d3905ad22d1497cae2c70b6804ac1efe7519e466fcf7dc8aed094e5f37d9e",
+    "TESTS/test_companyfacts_sec_hors_reseau.py": "8f051ec0bbfcefdd212455c6945f1c73c64d69ebef3248d63ff39ea21a2ccf6b",
+    "TESTS/test_consolidation_sec_hors_reseau.py": "0b1c6fed54710a70fc256f7f14e08aa4b1b094f40a51b712884c258a273afa52",
+    "CONFIG/NOTES_SSI_US_REVUES_DOCUMENTAIRES.csv": "d3b691f1684bbcf7afb46b2f247b93863e4d135aa839832a41dabdc28d04b299",
+    "CONFIG/EMPREINTES_T0.json": "7d00cd63323dda9707583fd5720cd16ff921115902527abb1a8cabd377993de4",
+    "CONFIG/PISTES_IDENTITE_SOURCES_OFFICIELLES.csv": "550799a7388483a7010ffb5838c9246c31ee29b9c5833c3f3fa4cfecc4f5261d",
+    "CONFIG/PARAMETRES_IDENTITE_MICRO_CAPS.csv": "c27fea09169f8bacda84db779512068ebf45a70b775ee33266b8c61db835543b",
+    "CONFIG/PARAMETRES_ARBITRAGE_MICRO_CAPS.csv": "c31f2281b67d10073525923a64a4d107593e538925f49e03db5a8093c8d4def8",
+    "CONFIG/DOCUMENTS_OFFICIELS_A_COLLECTER.csv": "5a28090fcb91967aa5b9f6988655d43e28798f4966f7075d59123cf1f5735249",
+    "CONFIG/BAREME_SSI_V1_0.json": "eaf4264e9a7d84f0937a8673804798c715457652bf118b37696ecea7b9b79244",
+    "CONFIG/SOURCES_FONDAMENTALES_AUTORISEES.csv": "20c51e23777dd5a940740d390046559005a62d3e9752e05260a4d1b0154d30d3",
+    "CONFIG/PARAMETRES_SCE_MICRO_CAPS.csv": "bab39f0c2de1a8b88ee696ef4c426b5baaa66f38dcf400955c3afd0b3f71e7fa",
+    "CONFIG/POINTS_ENTREE_OFFICIELS_NON_US.csv": "7894bc0078e3d17e9c27bf1a543418f31ec4d7b375c7af46a62dd51b147f23f1",
+    "CONFIG/DOCUMENTS_OFFICIELS_US_A_COLLECTER.csv": "7e817617d252fdf001b203bc8a54e2406eff01ffc41de3d881a88ec366cae8b1",
+    "CONFIG/PROTOCOLE_SCE_DISCOVERY_MICROCAPS.json": "ae046f17ecd7b97eb3bc5ba189f30124d72d7b122e5b5e68b1fea308e6926e1a",
+    "CONFIG/EXCLUSIONS_US_REVUES_DOCUMENTAIRES.csv": "d506b63c040b35da775cb310df946c3358c63a0a318a057c521039f98ff08320",
+    "CONFIG/PARAMETRES_PRESELECTION_MICRO_CAPS.csv": "76b6cbcf238b58af01dcdd96dd51482e79b4403fd0228f0aa43b1fc30a8c2602",
+    "CONFIG/QUALIFICATIONS_SSI_US_HUMAINES.csv": "9e99fa04b635770737d0306662be3ca8e5ad451fe2096e94e3cb922158aaebef"
+  },
+  "controles": [
+    {
+      "controle": "syntaxe/00A_PLANIFICATION_QUOTIDIENNE.py",
+      "statut": "OK",
+      "detail": ""
+    },
+    {
+      "controle": "syntaxe/00_EXECUTION_QUOTIDIENNE_V3.py",
+      "statut": "OK",
+      "detail": ""
+    },
+    {
+      "controle": "syntaxe/03A_MOTEUR_CLOTURES_V3.py",
+      "statut": "OK",
+      "detail": ""
+    },
+    {
+      "controle": "syntaxe/03B_MOTEUR_FX_V3.py",
+      "statut": "OK",
+      "detail": ""
+    },
+    {
+      "controle": "syntaxe/03C_ACTIONS_CORPORATIVES.py",
+      "statut": "OK",
+      "detail": ""
+    },
+    {
+      "controle": "syntaxe/03_MOTEUR_CLOTURES_FX.py",
+      "statut": "OK",
+      "detail": ""
+    },
+    {
+      "controle": "syntaxe/04B_MOTEUR_ECONOMIQUE_RESOLU.py",
+      "statut": "OK",
+      "detail": ""
+    },
+    {
+      "controle": "syntaxe/04_CONTROLE_QUALITE.py",
+      "statut": "OK",
+      "detail": ""
+    },
+    {
+      "controle": "syntaxe/05C_REPLAY_PORTEFEUILLE_GERE.py",
+      "statut": "OK",
+      "detail": ""
+    },
+    {
+      "controle": "syntaxe/05D_MOTEUR_PRIX_POSITIONS_NOUVELLES.py",
+      "statut": "OK",
+      "detail": ""
+    },
+    {
+      "controle": "syntaxe/05_MOTEUR_PORTEFEUILLES.py",
+      "statut": "OK",
+      "detail": ""
+    },
+    {
+      "controle": "syntaxe/06_BENCHMARKS.py",
+      "statut": "OK",
+      "detail": ""
+    },
+    {
+      "controle": "syntaxe/07AA_COLLECTE_DOCUMENTS_OFFICIELS.py",
+      "statut": "OK",
+      "detail": ""
+    },
+    {
+      "controle": "syntaxe/07AB_BILAN_SELECTION_DOCUMENTEE.py",
+      "statut": "OK",
+      "detail": ""
+    },
+    {
+      "controle": "syntaxe/07AC_CONTROLER_T0.py",
+      "statut": "OK",
+      "detail": ""
+    },
+    {
+      "controle": "syntaxe/07AD_CONSOLIDER_COLLECTES_SEC.py",
+      "statut": "OK",
+      "detail": ""
+    },
+    {
+      "controle": "syntaxe/07AE_CADRER_UNIVERS_US.py",
+      "statut": "OK",
+      "detail": ""
+    },
+    {
+      "controle": "syntaxe/07AE_VERROU_HORAIRE_ACTIONS.py",
+      "statut": "OK",
+      "detail": ""
+    },
+    {
+      "controle": "syntaxe/07AF_COLLECTER_DOCUMENTS_US.py",
+      "statut": "OK",
+      "detail": ""
+    },
+    {
+      "controle": "syntaxe/07AG_CONTROLER_DOCUMENTS_US.py",
+      "statut": "OK",
+      "detail": ""
+    },
+    {
+      "controle": "syntaxe/07AH_RECENSER_MICROCAPS_US_EODHD.py",
+      "statut": "OK",
+      "detail": ""
+    },
+    {
+      "controle": "syntaxe/07AI_RACCORDER_COMPTES_US_SSI.py",
+      "statut": "OK",
+      "detail": ""
+    },
+    {
+      "controle": "syntaxe/07AJ_ETENDRE_DOCUMENTS_SEC_UNIVERS_US.py",
+      "statut": "OK",
+      "detail": ""
+    },
+    {
+      "controle": "syntaxe/07AK_CONTROLER_INSTRUMENTS_US_OFFICIELS.py",
+      "statut": "OK",
+      "detail": ""
+    },
+    {
+      "controle": "syntaxe/07AL_RACCORDER_SCE_DISCOVERY_SSI_US.py",
+      "statut": "OK",
+      "detail": ""
+    },
+    {
+      "controle": "syntaxe/07AM_CONSOLIDER_PREUVES_US.py",
+      "statut": "OK",
+      "detail": ""
+    },
+    {
+      "controle": "syntaxe/07AN_COMPLETER_MARCHE_US_EODHD.py",
+      "statut": "OK",
+      "detail": ""
+    },
+    {
+      "controle": "syntaxe/07AO_PASSAGES_GOUVERNANCE_US.py",
+      "statut": "OK",
+      "detail": ""
+    },
+    {
+      "controle": "syntaxe/07AP_RELECTURE_INITIES_LOT_US.py",
+      "statut": "OK",
+      "detail": ""
+    },
+    {
+      "controle": "syntaxe/07A_AUDIT_LISTINGS_MICRO_CAPS.py",
+      "statut": "OK",
+      "detail": ""
+    },
+    {
+      "controle": "syntaxe/07A_COLLECTE_SEC_US.py",
+      "statut": "OK",
+      "detail": ""
+    },
+    {
+      "controle": "syntaxe/07A_GARDE_BARRIERE_JOURNEE.py",
+      "statut": "OK",
+      "detail": ""
+    },
+    {
+      "controle": "syntaxe/07B_AJOUT_HISTORIQUE.py",
+      "statut": "OK",
+      "detail": ""
+    },
+    {
+      "controle": "syntaxe/07B_FILTRAGE_OBJECTIF_ETAPE1.py",
+      "statut": "OK",
+      "detail": ""
+    },
+    {
+      "controle": "syntaxe/07B_NORMALISER_FONDAMENTAUX.py",
+      "statut": "OK",
+      "detail": ""
+    },
+    {
+      "controle": "syntaxe/07C_RESOLUTION_COTATIONS_MULTIPLES.py",
+      "statut": "OK",
+      "detail": ""
+    },
+    {
+      "controle": "syntaxe/07C_SCREENER_MICRO_CAPS.py",
+      "statut": "OK",
+      "detail": ""
+    },
+    {
+      "controle": "syntaxe/07D_ENRICHIR_IDENTITE_COTATIONS.py",
+      "statut": "OK",
+      "detail": ""
+    },
+    {
+      "controle": "syntaxe/07E_RESOLUTION_AMBIGUS_PAR_PREUVES.py",
+      "statut": "OK",
+      "detail": ""
+    },
+    {
+      "controle": "syntaxe/07F_REGISTRE_IDENTITE_INCREMENTAL.py",
+      "statut": "OK",
+      "detail": ""
+    },
+    {
+      "controle": "syntaxe/07G_RESOLUTION_CANADA_OTC.py",
+      "statut": "OK",
+      "detail": ""
+    },
+    {
+      "controle": "syntaxe/07H_MAJ_REGISTRE_CA_OTC.py",
+      "statut": "OK",
+      "detail": ""
+    },
+    {
+      "controle": "syntaxe/07I_RESOLUTION_EUROPE_SECONDAIRES.py",
+      "statut": "OK",
+      "detail": ""
+    },
+    {
+      "controle": "syntaxe/07J_CLOTURE_IDENTITE_UNIVERS.py",
+      "statut": "OK",
+      "detail": ""
+    },
+    {
+      "controle": "syntaxe/07K_UNIVERS_INVESTISSABLE_IDENTITE.py",
+      "statut": "OK",
+      "detail": ""
+    },
+    {
+      "controle": "syntaxe/07L_FILTRER_CHASSE_GELEE_20261007.py",
+      "statut": "OK",
+      "detail": ""
+    },
+    {
+      "controle": "syntaxe/07M_PREPARER_FILTRES_OBJECTIFS.py",
+      "statut": "OK",
+      "detail": ""
+    },
+    {
+      "controle": "syntaxe/07N_COLLECTE_FONDAMENTAUX_UNIVERSELLE.py",
+      "statut": "OK",
+      "detail": ""
+    },
+    {
+      "controle": "syntaxe/07O_CONTROLE_PRE_SSI.py",
+      "statut": "OK",
+      "detail": ""
+    },
+    {
+      "controle": "syntaxe/07P_COLLECTE_PRESELECTION_MARCHE.py",
+      "statut": "OK",
+      "detail": ""
+    },
+    {
+      "controle": "syntaxe/07Q2_AUDIT_PREUVES_SSI.py",
+      "statut": "OK",
+      "detail": ""
+    },
+    {
+      "controle": "syntaxe/07Q_PREPARER_DOSSIERS_SSI.py",
+      "statut": "OK",
+      "detail": ""
+    },
+    {
+      "controle": "syntaxe/07R_VALIDER_NOTES_SSI.py",
+      "statut": "OK",
+      "detail": ""
+    },
+    {
+      "controle": "syntaxe/07S_SCREENING_PRIMAIRE_MICRO_CAPS.py",
+      "statut": "OK",
+      "detail": ""
+    },
+    {
+      "controle": "syntaxe/07T_ENRICHIR_PREUVES_SEC_EDGAR.py",
+      "statut": "OK",
+      "detail": ""
+    },
+    {
+      "controle": "syntaxe/07U_COLLECTE_COMPANYFACTS_SEC.py",
+      "statut": "OK",
+      "detail": ""
+    },
+    {
+      "controle": "syntaxe/07V_NORMALISER_FAITS_SEC.py",
+      "statut": "OK",
+      "detail": ""
+    },
+    {
+      "controle": "syntaxe/07W_RAPPROCHER_PREUVES_SEC_SSI.py",
+      "statut": "OK",
+      "detail": ""
+    },
+    {
+      "controle": "syntaxe/07X_INDEX_GOUVERNANCE_SEC.py",
+      "statut": "OK",
+      "detail": ""
+    },
+    {
+      "controle": "syntaxe/07Y_EXTRAIRE_FORM4_SEC.py",
+      "statut": "OK",
+      "detail": ""
+    },
+    {
+      "controle": "syntaxe/07Z_EXECUTION_SEC_AUDITEE.py",
+      "statut": "OK",
+      "detail": ""
+    },
+    {
+      "controle": "syntaxe/08A_IMPORT_SCREENER.py",
+      "statut": "OK",
+      "detail": ""
+    },
+    {
+      "controle": "syntaxe/08B_CONTROLE_CHASSE_SSI.py",
+      "statut": "OK",
+      "detail": ""
+    },
+    {
+      "controle": "syntaxe/08S_ADAPTATEUR_CHASSEUR_MICRO_CAPS.py",
+      "statut": "OK",
+      "detail": ""
+    },
+    {
+      "controle": "syntaxe/08_GENERER_DASHBOARD.py",
+      "statut": "OK",
+      "detail": ""
+    },
+    {
+      "controle": "syntaxe/09B_DUEL_PROCHAIN_EURO.py",
+      "statut": "OK",
+      "detail": ""
+    },
+    {
+      "controle": "syntaxe/09C_COMITE_HEBDOMADAIRE.py",
+      "statut": "OK",
+      "detail": ""
+    },
+    {
+      "controle": "syntaxe/09_CONTROLE_REVUE_MCPA_IPS.py",
+      "statut": "OK",
+      "detail": ""
+    },
+    {
+      "controle": "syntaxe/10_EXECUTION_MENSUELLE.py",
+      "statut": "OK",
+      "detail": ""
+    },
+    {
+      "controle": "syntaxe/TEST_RECEPTION_09B.py",
+      "statut": "OK",
+      "detail": ""
+    },
+    {
+      "controle": "syntaxe/preuves_ssi.py",
+      "statut": "OK",
+      "detail": ""
+    },
+    {
+      "controle": "test_companyfacts_sec_hors_reseau.py",
+      "statut": "OK",
+      "code_retour": 0,
+      "detail": "SEC companyfacts: 2 emetteurs 2 faits bruts; aucun SSI attribue\nTEST XBRL OK: 2 faits, unites, periodes, source, non-couverture\n"
+    },
+    {
+      "controle": "test_consolidation_sec_hors_reseau.py",
+      "statut": "OK",
+      "code_retour": 0,
+      "detail": "{\"archives_controlees\": 2, \"observations_brutes_distinctes\": 2, \"dossiers_avec_faits\": 1, \"dossiers\": 1, \"observations_valeurs_divergentes\": 1, \"notes_attribuees\": 0, \"identites_validees_automatiquement\": 0, \"statut\": \"BRUTS_CONSOLIDES_A_VERIFIER\"}\nCONSOLIDATION SEC: provenance complète, valeurs divergentes conservées, corruption refusée\n"
+    },
+    {
+      "controle": "test_controle_documents_us_hors_reseau.py",
+      "statut": "OK",
+      "code_retour": 0,
+      "detail": "CONTROLE DOCUMENTS US: CIK unique, multiple, absent et balisé distingués\n"
+    },
+    {
+      "controle": "test_documents_us_hors_reseau.py",
+      "statut": "OK",
+      "code_retour": 0,
+      "detail": "Documents US: 1 / 1 émetteurs traités\n{\"date_utc\": \"2026-10-18T15:29:44.985825+00:00\", \"date_limite\": \"2026-10-18\", \"univers_source\": \"AUDITS/UNIVERS_US/20261015/UNIVERS_US_PROVISOIRE.csv\", \"source_script_SHA256\": \"2e3aca43f76a4efbec9df6737d76cda5986b4c868d294e5ec05c921414367f8b\", \"emetteurs_US_provisoires\": 1, \"documents_attendus\": 3, \"documents_collectes\": 2, \"sources_bloquees\": 0, \"emetteurs_trois_documents_collectes\": 0, \"notes_attribuees\": 0, \"identites_validees_automatiquement\": 0, \"qualification_SSI_effectuee\": false, \"statut\": \"DOCUMENTS_BRUTS_A_VERIFIER\", \"fichiers\": {\"ebe69c8869c74ebe3797f074060d899d1d206114207b76323386e6c657cc8225.bin\": \"ebe69c8869c74ebe3797f074060d899d1d206114207b76323386e6c657cc8225\", \"AUDIT_DOCUMENTS.csv\": \"308a9204000e20b6f183e475c7ef0770e74b6989e739ec8fc388650aad2931b0\", \"COUVERTURE_DOCUMENTAIRE_US.csv\": \"18e4a7b4a89d393aff2951943896eeb6654a4439489980a437cda55f5148eadc\"}}\nDocuments US: 1 / 1 émetteurs traités\n{\"date_utc\": \"2026-10-18T15:29:45.003453+00:00\", \"date_limite\": \"2026-10-18\", \"univers_source\": \"AUDITS/UNIVERS_US/20261015/UNIVERS_US_PROVISOIRE.csv\", \"source_script_SHA256\": \"2e3aca43f76a4efbec9df6737d76cda5986b4c868d294e5ec05c921414367f8b\", \"emetteurs_US_provisoires\": 1, \"documents_attendus\": 3, \"documents_collectes\": 2, \"sources_bloquees\": 0, \"emetteurs_trois_documents_collectes\": 0, \"notes_attribuees\": 0, \"identites_validees_automatiquement\": 0, \"qualification_SSI_effectuee\": false, \"statut\": \"DOCUMENTS_BRUTS_A_VERIFIER\", \"fichiers\": {\"ebe69c8869c74ebe3797f074060d899d1d206114207b76323386e6c657cc8225.bin\": \"ebe69c8869c74ebe3797f074060d899d1d206114207b76323386e6c657cc8225\", \"AUDIT_DOCUMENTS.csv\": \"40829c39c27040b9a50f409b130383a3115820eaf22781d9777d6aad3ea8e2e7\", \"COUVERTURE_DOCUMENTAIRE_US.csv\": \"18e4a7b4a89d393aff2951943896eeb6654a4439489980a437cda55f5148eadc\"}}\nDOCUMENTS US: dépôt connu, date limite, chemins et redirections contrôlés\n"
+    },
+    {
+      "controle": "test_duels_prochain_euro_hors_reseau.py",
+      "statut": "OK",
+      "code_retour": 0,
+      "detail": "RECEPTION 09B OK\n"
+    },
+    {
+      "controle": "test_extension_documents_us_hors_reseau.py",
+      "statut": "OK",
+      "code_retour": 0,
+      "detail": "{\"date_utc\": \"2026-10-18T15:29:45.881211+00:00\", \"source_recensement\": \"AUDITS/RECENSEMENT_US_EODHD/FIXTURE\", \"source_manifeste_SHA256\": \"1ca559409337cbd747ebc28730920d7111e90744f8bb553ef4ee088f864c4316\", \"source_script_SHA256\": \"811d2ff338495b47aa64dfcd978b6703f09d6c67ee22c8ec6aef508d0bc10a81\", \"cotations_recensees\": 3, \"profils_distincts_prepares\": 1, \"cotations_avec_profil\": 2, \"anomalies_identite\": 0, \"origines\": {\"PISTE_US_CONCORDANTE\": 1}, \"notes_SSI_attribuees\": 0, \"statut\": \"PROFILS_SEC_PREPARES_DOCUMENTS_ET_IDENTITES_A_VERIFIER\", \"fichiers\": {\"UNIVERS_SEC_COTATIONS_US.csv\": \"868a6ec33cd8b83028e5b587d1609086c3f7a067e63d3ef8a57bb16764671250\", \"TOUTES_COTATIONS_RECENSEES.csv\": \"f9029c9831e8f5c36b3b51a8ab364d89991734ee51593284a4aad5b55a8c7785\", \"ANOMALIES_PROFILS.csv\": \"0948db6810b83336e14c5d81cec0007c56c6c699b298dc217bd1bfe815d30cf1\", \"CIK0000000001.json\": \"212e5b561164979ce83bed98e053e30b19a92b4bc78206ba57f5e216b22b8e1c\"}}\n{\"date_utc\": \"2026-10-18T15:29:45.893926+00:00\", \"source_script_SHA256\": \"88383134a5253e12f144db1cd8728745e503a75a7a825aa6281aa8a783a509d5\", \"archive_source\": \"AUDITS/DOCUMENTS_US/FIXTURE/MANIFESTE.json\", \"documents_controles\": 1, \"repartition_controles\": {\"CIK_XBRL_CONCORDANT\": 1}, \"integrite_fichiers\": \"OK\", \"dates_non_futures\": \"OK\", \"identites_cotation_validees\": 0, \"notes_attribuees\": 0, \"statut\": \"CONTROLES_DOCUMENTAIRES_SANS_ADMISSION_SSI\", \"fichiers\": {\"CONTROLES_DOCUMENTS.csv\": \"2e4594d45cc7b6773ebe44d0a119491e97f940ed202a18b260105f06760da690\"}}\nExtension documentaire : dénominateur conservé, classes dédoublonnées, profils SEC et archives gzip/anciennes contrôlés\n"
+    },
+    {
+      "controle": "test_form4_multi_xml_hors_reseau.py",
+      "statut": "OK",
+      "code_retour": 0,
+      "detail": "Form 4: 1 transactions a verifier\nForm 4: 0 transactions a verifier\nTEST FORM 4 MULTI XML OK\n"
+    },
+    {
+      "controle": "test_form4_sec_hors_reseau.py",
+      "statut": "OK",
+      "code_retour": 0,
+      "detail": "TEST FORM 4 OK: XML, code, titres, dirigeant, statut non valide\n"
+    },
+    {
+      "controle": "test_gouvernance_sec_hors_reseau.py",
+      "statut": "OK",
+      "code_retour": 0,
+      "detail": "Gouvernance SEC: 2 pistes non verifiees\nTEST GOUVERNANCE OK: formulaires, URL, exclusion, pas de note\n"
+    },
+    {
+      "controle": "test_identite_sec_multicotation_hors_reseau.py",
+      "statut": "OK",
+      "code_retour": 0,
+      "detail": "SEC EDGAR {'NON_COUVERT': 2, 'A_VERIFIER_IDENTITE_ET_CONTENU': 1, 'PISTE_SEC_HORS_LOT': 1, 'IDENTITE_AMBIGUE': 1}\nMULTICOTATION SEC: noms exacts, ambiguïtés, alias, lot borné et identité non validée\n"
+    },
+    {
+      "controle": "test_ifrs_devises_sec_hors_reseau.py",
+      "statut": "OK",
+      "code_retour": 0,
+      "detail": "SEC companyfacts: 1 emetteurs 4 faits bruts; aucun SSI attribue\nSEC comparabilite: 3 / 4 faits conserves; SSI non calcule\nIFRS/DEVISES SEC: normes distinctes, CAD conservé, futur et pure exclus, actions émises non assimilées aux actions en circulation\n"
+    },
+    {
+      "controle": "test_index_gouvernance_us_hors_reseau.py",
+      "statut": "OK",
+      "code_retour": 0,
+      "detail": "Gouvernance SEC: 1 pistes non verifiees\n{\"date_utc\": \"2026-10-18T15:29:48.795968+00:00\", \"source_script_SHA256\": \"d0830ac6a80ddbd34544648d7fc969342100eca459606ae97c0c63d012215ce8\", \"sources\": {\"AUDITS/PROFILS_SEC_UNIVERS_US/FIXTURE/MANIFESTE.json\": \"af915f9ab155d0eb6dece3783de22f7c1febdd10ff5c904c699106ce3e2a21a8\", \"AUDITS/DOCUMENTS_US/FIXTURE/MANIFESTE.json\": \"7eadeff958e189641063d7b3df5eaed4bc4e7eab48f2ffb73b78b73d4519cce8\", \"AUDITS/QUALIFICATION_US/FIXTURE/MANIFESTE.json\": \"bb827808e0c0c5ed8e5139b262bdf2eea01038b6312b1fba0e899233190d2acb\", \"AUDITS/SCE_DISCOVERY_US/FIXTURE/MANIFESTE.json\": \"4bc317e85bda2ca4e68d9eea126a583f5a655fcf7e3c94792d34b38efd1ed87b\", \"AUDITS/CONTROLE_DOCUMENTS_US/FIXTURE/MANIFESTE.json\": \"5aceb5f9e390c7840f40f1262c604a03b4e28bbf52320cc2b0b612a32144f791\", \"AUDITS/SOURCES_OFFICIELLES/FIXTURE/MANIFESTE.json\": \"3b64a08d343d4bcfb1c79568f527a40373f0c19c75377bbebc44d2a78980c42c\", \"AUDITS/MARCHE_US_EODHD/FIXTURE/MANIFESTE.json\": \"862e520c7e59255726ed1fd9998ece2663e02cf54a5e5e8b45a5b37e0614d921\"}, \"cotations_conservees\": 2, \"emetteurs_profils_distincts\": 1, \"pistes_gouvernance\": 1, \"Form4_references_non_extraits\": 1, \"Form4_sens_compteur_historique\": \"REFERENCES_GLOBALES_NON_RAPPROCHEES_DU_LOT_2026\", \"dossiers_avec_blocs_SSI_documentes\": 0, \"blocs_SSI_documentes\": 0, \"Form4_cotations_avec_lot_extrait\": 0, \"Form4_lignes_lot_extraites\": 0, \"documents_IR_hors_index_a_verifier\": 1, \"index_IR_sans_comptes\": 0, \"cotations_volumes_63s_disponibles\": 1, \"cotations_momentum_1_3_6_12_disponibles\": 0, \"cotations_passages_detention_groupe\": 0, \"cotations_avec_trois_documents\": 1, \"notes_SSI_attribuees_par_ce_module\": 0, \"candidats_selection_autorises\": 0, \"statut\": \"MATRICE_PREUVES_ET_INDEX_GOUVERNANCE_EXECUTES_CONTENU_A_QUALIFIER\", \"fichiers\": {\"COMPLETUDE_INDEX.csv\": \"c8ccd8b77168ec98890dc66bb16def007753daec0190a89848926969987c6c5f\", \"PISTES_GOUVERNANCE_SEC_SSI.csv.gz\": \"a2b5492d41c7f3b3c6b1eabc3abd3d89dfe64321a87ae34567929a14409453a7\", \"INDEX_SEC_GOUVERNANCE.csv.gz\": \"bb4786772b2e790bfcb16e30085d988c7ffc940bc30c83fd5d443e6b3af5cf56\", \"AUDIT_GOUVERNANCE_SEC_SSI.csv\": \"4456eef48ab474fbef75033a2981bcd45e6860b3df932b360f2270da1ad2c2bf\", \"MATRICE_PREUVES_SSI_US.csv\": \"4c3c1ea53a8b79937bd6002f6390b1e81ce7ef4d6e74f2702b284ab139f75f7c\"}}\nGouvernance US : plus de 30 références conservées, dates futures écartées, parsing incomplet bloqué, aucune transaction inventée\n"
+    },
+    {
+      "controle": "test_instruments_officiels_us_hors_reseau.py",
+      "statut": "OK",
+      "code_retour": 0,
+      "detail": "Instruments officiels : actions finissant par P, dette, préférences, ADR, unités et absences sans rejet financier contrôlés\n"
+    },
+    {
+      "controle": "test_marche_us_eodhd_hors_reseau.py",
+      "statut": "OK",
+      "code_retour": 0,
+      "detail": "{\"date_utc\": \"2026-10-18T12:00:00+00:00\", \"source_univers\": \"AUDITS/PROFILS_SEC_UNIVERS_US/TEST/TOUTES_COTATIONS_RECENSEES.csv\", \"source_univers_SHA256\": \"e14fe09d2d00db55b547b883abe1b00fef642478af3aec5155cabe9f59b6a516\", \"source_script_SHA256\": \"aa33e9c73062754c774526f414fce8bcf4fb1d8ba4c5793b2e913cb73d584fbc\", \"dependances_SHA256\": {\"07AH_RECENSER_MICROCAPS_US_EODHD.py\": \"fa069eabd9f6488eaf098c0a1831524de2cc659588a3bbe7ca8daedbed07eeed\", \"07AI_RACCORDER_COMPTES_US_SSI.py\": \"247efbe16927fd75f2c32dd52fd5e5785b3591c45b69505895ae995f84bc70cd\"}, \"volumes_monetaires_corriges_splits\": true, \"cotations_recensees\": 2, \"notes_attribuees\": 0, \"T0_modifie\": false, \"selection_terminee\": false, \"formules\": {\"momentum\": \"cours_ajuste(ancre)/cours_ajuste(dernier<=ancre-moism)-1 ; base et ancre publiées\", \"force_relative\": \"ratio des facteurs de performance action/SP500 aux mêmes dates\", \"volume_monetaire\": \"médiane(close brut x volume ajusté splits / produit ratios splits postérieurs) sur 63 séances complètes\"}, \"reference_indice\": \"GSPC.INDX\", \"limite_force_relative\": \"ACTION_AJUSTEE_DIVIDENDES_VS_SP500_INDICE_PRIX : pas une comparaison total-return homogène ; aucune note automatique\", \"usage_retrospectif_T0\": \"INTERDIT_SANS_ARCHIVE_POINT_IN_TIME\", \"reserve_credits_autres_outils\": 10000, \"date_reference\": \"2026-10-16\", \"cotations_tentees\": 1, \"historiques_avec_cours_reference\": 1, \"momentum_1_3_6_12_disponibles\": 1, \"volumes_monetaires_63s_disponibles\": 1, \"force_relative_1_3_6_12_disponible\": 1, \"requetes_credits_estimes\": 0, \"erreur_bloquante\": \"\", \"collecte_tous_dossiers_tentee\": false, \"fichiers\": {\"REPONSE_00001.enc.json\": \"3d1c339e43b4f5820d1cbd25634abd1d280f1ebc05dfd7eea3dead80d8a35940\", \"INDEX_REQUETES.json\": \"8e221e4cd6052e03d9844b9accadeb1766bf3f6c1c531553d2154a1cf39b6716\", \"METRIQUES_MARCHE_US.enc.json\": \"e1593fca90a620df8fb5b1fe36b9a46079a3f9d89be68e1abaea3a88f6b85b20\", \"REPONSE_00000.enc.json\": \"c5ffc724b319d13e5b36fc28382d2774d8267c4ffcda84ee83f04cba0d37c516\", \"COUVERTURE_MARCHE_US.csv\": \"daa169a0a17216a46478bce5f27e92bc58459879440256c021d3656f2180c0ae\", \"REPONSE_00002.enc.json\": \"039b7497e21935f5ef1a8f99688f20493545c553eaad18d3935afbec63706e3d\"}}\nMarché US : ancre commune, horizons calendaires, prix ajustés, splits et reverse-splits, absences et archives chiffrées OK\n"
+    },
+    {
+      "controle": "test_normalisation_sec_hors_reseau.py",
+      "statut": "OK",
+      "code_retour": 0,
+      "detail": "SEC comparabilite: 1 / 4 faits conserves; SSI non calcule\nTEST NORMALISATION OK: periode, unite, doublon, provenance, aucune note SSI\n"
+    },
+    {
+      "controle": "test_notes_documentaires_ssi_hors_reseau.py",
+      "statut": "OK",
+      "code_retour": 0,
+      "detail": "SSI: {'A_COMPLETER_PREUVES_SSI': 1}\nNotes partielles : preuves/CIK/empreintes concordants, plafond sans admission, correction humaine prioritaire\n"
+    },
+    {
+      "controle": "test_orchestration_sec_hors_reseau.py",
+      "statut": "OK",
+      "code_retour": 0,
+      "detail": "SEC : démarrage 07T_ENRICHIR_PREUVES_SEC_EDGAR.py\nSEC EDGAR {'A_VERIFIER_IDENTITE_ET_CONTENU': 1}\nSEC : démarrage 07U_COLLECTE_COMPANYFACTS_SEC.py\nSEC companyfacts: 1 emetteurs 1 faits bruts; aucun SSI attribue\nSEC : démarrage 07V_NORMALISER_FAITS_SEC.py\nSEC comparabilite: 1 / 1 faits conserves; SSI non calcule\nSEC : démarrage 07W_RAPPROCHER_PREUVES_SEC_SSI.py\nRapprochement SEC SSI: 1 faits; zero score\nSEC : démarrage 07X_INDEX_GOUVERNANCE_SEC.py\nGouvernance SEC: 2 pistes non verifiees\nSEC : démarrage 07Y_EXTRAIRE_FORM4_SEC.py\nForm 4: 1 transactions a verifier\n{\n  \"date_utc\": \"2026-10-18T15:29:51.238357+00:00\",\n  \"date_limite\": \"2026-10-18\",\n  \"commit\": \"INCONNU_HORS_DEPOT\",\n  \"commit_declencheur\": \"TEST_FIXTURE\",\n  \"statut\": \"LOT_COLLECTE_A_VERIFIER\",\n  \"etapes\": [\n    {\n      \"module\": \"07T_ENRICHIR_PREUVES_SEC_EDGAR.py\",\n      \"statut\": \"EXECUTE\"\n    },\n    {\n      \"module\": \"07U_COLLECTE_COMPANYFACTS_SEC.py\",\n      \"statut\": \"EXECUTE\"\n    },\n    {\n      \"module\": \"07V_NORMALISER_FAITS_SEC.py\",\n      \"statut\": \"EXECUTE\"\n    },\n    {\n      \"module\": \"07W_RAPPROCHER_PREUVES_SEC_SSI.py\",\n      \"statut\": \"EXECUTE\"\n    },\n    {\n      \"module\": \"07X_INDEX_GOUVERNANCE_SEC.py\",\n      \"statut\": \"EXECUTE\"\n    },\n    {\n      \"module\": \"07Y_EXTRAIRE_FORM4_SEC.py\",\n      \"statut\": \"EXECUTE\"\n    }\n  ],\n  \"notes_attribuees\": 0,\n  \"secret_contact_valide\": true,\n  \"portefeuilles_modifies\": false,\n  \"collecte_exhaustive\": false,\n  \"univers_collecte\": 1,\n  \"offset_pistes_SEC\": 0,\n  \"taille_max_lot_SEC\": 100,\n  \"statuts_SEC\": {\n    \"A_VERIFIER_IDENTITE_ET_CONTENU\": 1\n  },\n  \"pistes_SEC_uniques\": 1,\n  \"pistes_SEC_dans_lot\": 1,\n  \"pistes_SEC_hors_lot\": 0,\n  \"erreurs_sources\": 0,\n  \"integrite_entrees\": \"OK\",\n  \"fichiers_entrees_modifies\": [],\n  \"reponses_reutilisees\": 0,\n  \"reponses_reseau\": 5,\n  \"fin_utc\": \"2026-10-18T15:29:51.303443+00:00\",\n  \"fichiers\": {\n    \"BRUTS/fddaabacc527011f969462e2b5a26ff3f257a5772f98fc25b4729b05b7b815a7.bin\": \"fddaabacc527011f969462e2b5a26ff3f257a5772f98fc25b4729b05b7b815a7\",\n    \"BRUTS/50315a21975c0e3e1a0bb8d7d7d26f3db5faf472256e413b04f510683ec46a00.bin\": \"50315a21975c0e3e1a0bb8d7d7d26f3db5faf472256e413b04f510683ec46a00\",\n    \"BRUTS/e116dd2da06082be126ad7666715bfe2d470305f48fbfa091c7d3ad9931dd852.bin\": \"e116dd2da06082be126ad7666715bfe2d470305f48fbfa091c7d3ad9931dd852\",\n    \"BRUTS/969d8dfea0cd4c72e78d9d50fe5d4a4087af61213ed7f064d7cb7d0f7716f070.bin\": \"969d8dfea0cd4c72e78d9d50fe5d4a4087af61213ed7f064d7cb7d0f7716f070\",\n    \"BRUTS/bb6e5d193b73312f4b99f4f2a4572bf13ad11406459923a5a57ffbe865ce107d.bin\": \"bb6e5d193b73312f4b99f4f2a4572bf13ad11406459923a5a57ffbe865ce107d\",\n    \"DONNEES/AUDIT_RAPPROCHEMENT_SEC_SSI.csv\": \"f236be1c6095fadd863ab6acd77c9708fbf6f7879f7d8c5fbada6d08a31cfbd6\",\n    \"DONNEES/AUDIT_COMPARABILITE_SEC_SSI.csv\": \"6c22b936b9de6a06b7e4e60e2c3efe4073106b8e57d58116970a0bba5bf92aaf\",\n    \"DONNEES/AUDIT_TRANSACTIONS_DIRIGEANTS_SEC_SSI.csv\": \"445101291bd0141e41c0ff6e64f5728269cd87d5ad0660e900b3a5e5fac40a31\",\n    \"DONNEES/AUDIT_PREUVES_SEC_SSI.csv\": \"5c206a8bd99286da2c872ccde0733f190f680500da29feea2d989f0670af4e22\",\n    \"DONNEES/RAPPROCHEMENT_PREUVES_SEC_SSI.csv\": \"49653e0086bb5cf053310220b409f9eb9982078dad5551cf0d73ff2b11f3cacf\",\n    \"DONNEES/UNIVERS_SEC_LOT.csv\": \"adf11893b386dbad7327553a5b4af6ca0388b8fe616cfb6d564e48c3d38d9e1f\",\n    \"DONNEES/PREUVES_SEC_EDGAR_SSI.csv\": \"dbd32ea24b49389f5cdd99a2856ce5d5be4d51ad79ced6431c34f37075c9a0f6\",\n    \"DONNEES/FAITS_FINANCIERS_SEC_SSI.csv\": \"83837030f0506220b4b32a5f1f9f4d5f1bf13242701fc2dd398840a97fcf859f\",\n    \"DONNEES/AUDIT_FAITS_FINANCIERS_SEC_SSI.csv\": \"9468fc9b40868ee93ce6b25916ff4113d83329af7cf367acfb1a76fbd53490dc\",\n    \"DONNEES/FAITS_SEC_COMPARABLES_SSI.csv\": \"1f44e59ea99708ca3eafc0cec3206757a20dc7219fc8e6f6308be1a7452cb330\",\n    \"DONNEES/TRANSACTIONS_DIRIGEANTS_SEC_SSI.csv\": \"bb080f0f86e0eb399ebdcec1d1818f1bb959fdd36de59d30e5aeb66031b5212f\",\n    \"DONNEES/PISTES_GOUVERNANCE_SEC_SSI.csv\": \"83cb7ae5e0f21542ed544a936aa48c6d046268fd9a4cd7085cdcdae5901750dc\",\n    \"DONNEES/DOSSIERS_SSI_A_QUALIFIER.csv\": \"adf11893b386dbad7327553a5b4af6ca0388b8fe616cfb6d564e48c3d38d9e1f\",\n    \"DONNEES/AUDIT_GOUVERNANCE_SEC_SSI.csv\": \"6649127f02067ae9b88e13b35d644f51a0cb42bdcb67c8a566864215a25752be\",\n    \"DONNEES/UNIVERS_INVESTISSABLE_MICRO_CAPS.csv\": \"adf11893b386dbad7327553a5b4af6ca0388b8fe616cfb6d564e48c3d38d9e1f\"\n  }\n}\nSEC : démarrage 07T_ENRICHIR_PREUVES_SEC_EDGAR.py\nSEC EDGAR {'A_VERIFIER_IDENTITE_ET_CONTENU': 1}\nSEC : démarrage 07U_COLLECTE_COMPANYFACTS_SEC.py\nSEC companyfacts: 1 emetteurs 1 faits bruts; aucun SSI attribue\nSEC : démarrage 07V_NORMALISER_FAITS_SEC.py\nSEC comparabilite: 1 / 1 faits conserves; SSI non calcule\nSEC : démarrage 07W_RAPPROCHER_PREUVES_SEC_SSI.py\nRapprochement SEC SSI: 1 faits; zero score\nSEC : démarrage 07X_INDEX_GOUVERNANCE_SEC.py\nGouvernance SEC: 2 pistes non verifiees\nSEC : démarrage 07Y_EXTRAIRE_FORM4_SEC.py\nForm 4: 1 transactions a verifier\n{\n  \"date_utc\": \"2026-10-18T15:29:51.307458+00:00\",\n  \"date_limite\": \"2026-10-18\",\n  \"commit\": \"INCONNU_HORS_DEPOT\",\n  \"commit_declencheur\": \"TEST_FIXTURE\",\n  \"statut\": \"LOT_COLLECTE_A_VERIFIER\",\n  \"etapes\": [\n    {\n      \"module\": \"07T_ENRICHIR_PREUVES_SEC_EDGAR.py\",\n      \"statut\": \"EXECUTE\"\n    },\n    {\n      \"module\": \"07U_COLLECTE_COMPANYFACTS_SEC.py\",\n      \"statut\": \"EXECUTE\"\n    },\n    {\n      \"module\": \"07V_NORMALISER_FAITS_SEC.py\",\n      \"statut\": \"EXECUTE\"\n    },\n    {\n      \"module\": \"07W_RAPPROCHER_PREUVES_SEC_SSI.py\",\n      \"statut\": \"EXECUTE\"\n    },\n    {\n      \"module\": \"07X_INDEX_GOUVERNANCE_SEC.py\",\n      \"statut\": \"EXECUTE\"\n    },\n    {\n      \"module\": \"07Y_EXTRAIRE_FORM4_SEC.py\",\n      \"statut\": \"EXECUTE\"\n    }\n  ],\n  \"notes_attribuees\": 0,\n  \"secret_contact_valide\": true,\n  \"portefeuilles_modifies\": false,\n  \"collecte_exhaustive\": false,\n  \"univers_collecte\": 1,\n  \"offset_pistes_SEC\": 0,\n  \"taille_max_lot_SEC\": 100,\n  \"statuts_SEC\": {\n    \"A_VERIFIER_IDENTITE_ET_CONTENU\": 1\n  },\n  \"pistes_SEC_uniques\": 1,\n  \"pistes_SEC_dans_lot\": 1,\n  \"pistes_SEC_hors_lot\": 0,\n  \"erreurs_sources\": 0,\n  \"integrite_entrees\": \"OK\",\n  \"fichiers_entrees_modifies\": [],\n  \"reponses_reutilisees\": 5,\n  \"reponses_reseau\": 0,\n  \"fin_utc\": \"2026-10-18T15:29:51.353058+00:00\",\n  \"fichiers\": {\n    \"BRUTS/fddaabacc527011f969462e2b5a26ff3f257a5772f98fc25b4729b05b7b815a7.bin\": \"fddaabacc527011f969462e2b5a26ff3f257a5772f98fc25b4729b05b7b815a7\",\n    \"BRUTS/50315a21975c0e3e1a0bb8d7d7d26f3db5faf472256e413b04f510683ec46a00.bin\": \"50315a21975c0e3e1a0bb8d7d7d26f3db5faf472256e413b04f510683ec46a00\",\n    \"BRUTS/e116dd2da06082be126ad7666715bfe2d470305f48fbfa091c7d3ad9931dd852.bin\": \"e116dd2da06082be126ad7666715bfe2d470305f48fbfa091c7d3ad9931dd852\",\n    \"BRUTS/969d8dfea0cd4c72e78d9d50fe5d4a4087af61213ed7f064d7cb7d0f7716f070.bin\": \"969d8dfea0cd4c72e78d9d50fe5d4a4087af61213ed7f064d7cb7d0f7716f070\",\n    \"BRUTS/bb6e5d193b73312f4b99f4f2a4572bf13ad11406459923a5a57ffbe865ce107d.bin\": \"bb6e5d193b73312f4b99f4f2a4572bf13ad11406459923a5a57ffbe865ce107d\",\n    \"DONNEES/AUDIT_RAPPROCHEMENT_SEC_SSI.csv\": \"f236be1c6095fadd863ab6acd77c9708fbf6f7879f7d8c5fbada6d08a31cfbd6\",\n    \"DONNEES/AUDIT_COMPARABILITE_SEC_SSI.csv\": \"6c22b936b9de6a06b7e4e60e2c3efe4073106b8e57d58116970a0bba5bf92aaf\",\n    \"DONNEES/AUDIT_TRANSACTIONS_DIRIGEANTS_SEC_SSI.csv\": \"445101291bd0141e41c0ff6e64f5728269cd87d5ad0660e900b3a5e5fac40a31\",\n    \"DONNEES/AUDIT_PREUVES_SEC_SSI.csv\": \"5c206a8bd99286da2c872ccde0733f190f680500da29feea2d989f0670af4e22\",\n    \"DONNEES/RAPPROCHEMENT_PREUVES_SEC_SSI.csv\": \"49653e0086bb5cf053310220b409f9eb9982078dad5551cf0d73ff2b11f3cacf\",\n    \"DONNEES/UNIVERS_SEC_LOT.csv\": \"adf11893b386dbad7327553a5b4af6ca0388b8fe616cfb6d564e48c3d38d9e1f\",\n    \"DONNEES/PREUVES_SEC_EDGAR_SSI.csv\": \"dbd32ea24b49389f5cdd99a2856ce5d5be4d51ad79ced6431c34f37075c9a0f6\",\n    \"DONNEES/FAITS_FINANCIERS_SEC_SSI.csv\": \"c83c8ac2df6924f5e6ba66b99b1ec3366c2ffc17a93e86d8d025adb57544c5ad\",\n    \"DONNEES/AUDIT_FAITS_FINANCIERS_SEC_SSI.csv\": \"9468fc9b40868ee93ce6b25916ff4113d83329af7cf367acfb1a76fbd53490dc\",\n    \"DONNEES/FAITS_SEC_COMPARABLES_SSI.csv\": \"884ed94b97a3bcedbbf6ac9401c33d5c68aad4f20ef3bbbaca7536c0ca0efc90\",\n    \"DONNEES/TRANSACTIONS_DIRIGEANTS_SEC_SSI.csv\": \"bb080f0f86e0eb399ebdcec1d1818f1bb959fdd36de59d30e5aeb66031b5212f\",\n    \"DONNEES/PISTES_GOUVERNANCE_SEC_SSI.csv\": \"83cb7ae5e0f21542ed544a936aa48c6d046268fd9a4cd7085cdcdae5901750dc\",\n    \"DONNEES/DOSSIERS_SSI_A_QUALIFIER.csv\": \"adf11893b386dbad7327553a5b4af6ca0388b8fe616cfb6d564e48c3d38d9e1f\",\n    \"DONNEES/AUDIT_GOUVERNANCE_SEC_SSI.csv\": \"6649127f02067ae9b88e13b35d644f51a0cb42bdcb67c8a566864215a25752be\",\n    \"DONNEES/UNIVERS_INVESTISSABLE_MICRO_CAPS.csv\": \"adf11893b386dbad7327553a5b4af6ca0388b8fe616cfb6d564e48c3d38d9e1f\"\n  }\n}\nSEC : démarrage 07T_ENRICHIR_PREUVES_SEC_EDGAR.py\n{\n  \"date_utc\": \"2026-10-18T15:29:51.357978+00:00\",\n  \"date_limite\": \"2026-10-18\",\n  \"commit\": \"INCONNU_HORS_DEPOT\",\n  \"commit_declencheur\": \"TEST_FIXTURE\",\n  \"statut\": \"BLOQUE\",\n  \"etapes\": [],\n  \"notes_attribuees\": 0,\n  \"secret_contact_valide\": true,\n  \"portefeuilles_modifies\": false,\n  \"collecte_exhaustive\": false,\n  \"univers_collecte\": 1,\n  \"offset_pistes_SEC\": 0,\n  \"taille_max_lot_SEC\": 100,\n  \"blocage\": \"CACHE_SEC_INTEGRITE_INVALIDE\",\n  \"integrite_entrees\": \"OK\",\n  \"fichiers_entrees_modifies\": [],\n  \"reponses_reutilisees\": 0,\n  \"reponses_reseau\": 0,\n  \"fin_utc\": \"2026-10-18T15:29:51.364150+00:00\",\n  \"fichiers\": {\n    \"DONNEES/UNIVERS_SEC_LOT.csv\": \"adf11893b386dbad7327553a5b4af6ca0388b8fe616cfb6d564e48c3d38d9e1f\",\n    \"DONNEES/DOSSIERS_SSI_A_QUALIFIER.csv\": \"adf11893b386dbad7327553a5b4af6ca0388b8fe616cfb6d564e48c3d38d9e1f\",\n    \"DONNEES/UNIVERS_INVESTISSABLE_MICRO_CAPS.csv\": \"adf11893b386dbad7327553a5b4af6ca0388b8fe616cfb6d564e48c3d38d9e1f\"\n  }\n}\n{\n  \"date_utc\": \"2026-10-18T15:29:51.365360+00:00\",\n  \"date_limite\": \"2026-10-18\",\n  \"commit\": \"INCONNU_HORS_DEPOT\",\n  \"commit_declencheur\": \"TEST_FIXTURE\",\n  \"statut\": \"BLOQUE\",\n  \"etapes\": [],\n  \"notes_attribuees\": 0,\n  \"secret_contact_valide\": false,\n  \"portefeuilles_modifies\": false,\n  \"collecte_exhaustive\": false,\n  \"univers_collecte\": 1,\n  \"blocage\": \"SEC_USER_AGENT_ABSENT_OU_INVALIDE\",\n  \"integrite_entrees\": \"OK\",\n  \"fichiers_entrees_modifies\": [],\n  \"reponses_reutilisees\": 0,\n  \"reponses_reseau\": 0,\n  \"fin_utc\": \"2026-10-18T15:29:51.368303+00:00\",\n  \"fichiers\": {\n    \"DONNEES/DOSSIERS_SSI_A_QUALIFIER.csv\": \"adf11893b386dbad7327553a5b4af6ca0388b8fe616cfb6d564e48c3d38d9e1f\",\n    \"DONNEES/UNIVERS_INVESTISSABLE_MICRO_CAPS.csv\": \"adf11893b386dbad7327553a5b4af6ca0388b8fe616cfb6d564e48c3d38d9e1f\"\n  }\n}\nORCHESTRATION SEC: six modules exécutés, bruts archivés, entrées intactes et secret absent bloquant (fixtures)\n"
+    },
+    {
+      "controle": "test_passages_gouvernance_us_hors_reseau.py",
+      "statut": "OK",
+      "code_retour": 0,
+      "detail": "Passages gouvernance : groupe et droits conservés avec contexte, ancrages reproductibles, aucun score ni détention personnelle inventée\n"
+    },
+    {
+      "controle": "test_planification_quotidienne_hors_reseau.py",
+      "statut": "OK",
+      "code_retour": 0,
+      "detail": "==============================================================================================\n📚 MICRO CAPS — AJOUT HISTORIQUE V3\n==============================================================================================\nDate candidate : 2026-10-15\nGarde-barrière : EN_ATTENTE\n\n⛔ AUCUNE ÉCRITURE.\nMotif : journée non admissible.\n - preuve manquante\n==============================================================================================\n📚 MICRO CAPS — AJOUT HISTORIQUE V3\n==============================================================================================\nDate candidate : 2026-10-15\nGarde-barrière : DEJA_PRESENTE\n\n⛔ AUCUNE ÉCRITURE.\nMotif : cette date existe déjà dans l'historique.\nPlanification : retards, été/hiver, reprise manuelle et arrêt des journées non admissibles OK\n"
+    },
+    {
+      "controle": "test_postes_financiers_ssi_hors_reseau.py",
+      "statut": "OK",
+      "code_retour": 0,
+      "detail": "Postes SSI : composantes de dette distinctes, flux avec durée, pas de total ni FCF inventé, aucun score\n"
+    },
+    {
+      "controle": "test_raccordement_comptes_us_hors_reseau.py",
+      "statut": "OK",
+      "code_retour": 0,
+      "detail": "{\"date_utc\": \"2026-10-18T15:29:53.135612+00:00\", \"date_limite_information\": \"2026-10-15\", \"source_recensement\": \"AUDITS/RECENSEMENT_US_EODHD/FIXTURE\", \"SHA256_manifeste_source\": \"c35f80f1988a42acb1fb07b21a49ecf7bb5756ebb62b9837aa44a5f5ac112e47\", \"source_script_SHA256\": \"247efbe16927fd75f2c32dd52fd5e5785b3591c45b69505895ae995f84bc70cd\", \"modules_SHA256\": {\"07U_COLLECTE_COMPANYFACTS_SEC.py\": \"42e134af28cc7caf0c4309968c227a3c6be0156bde8100daed08407bbfafba7f\", \"07V_NORMALISER_FAITS_SEC.py\": \"f8539a25f419d924aa2e00b15192ad8487726d89fdb595a961198fcadd6a1852\", \"07W_RAPPROCHER_PREUVES_SEC_SSI.py\": \"acbac3a4c56a276222360e7ece1ffed5c42fee0cb14478792bde7e7254393d2e\"}, \"cotations_recensees\": 2, \"emetteurs_comptes_traites\": 1, \"cotations_avec_faits_comparables\": 1, \"volumes\": {\"BRUTS\": 2, \"COMPARABLES\": 2, \"RAPPROCHEMENT\": 2}, \"SSI_evaluables_valides\": 0, \"admissions_SSI\": 0, \"notes_SSI_attribuees\": 0, \"selection_finale_autorisee\": false, \"appels_reseau\": 0, \"statut\": \"RACCORDEMENT_07U_07V_07W_EXECUTE_PREUVES_NON_VALIDEES\", \"manques\": \"Identité à confirmer ; B4, gouvernance B5, qualité B6 et liquidité B7 restent à documenter ; B1/B2/B3 à vérifier.\", \"fichiers\": {\"COMPARABLES.csv.gz\": \"9174b029d8a2401b584246ef84b6b4cea359b307cedfadb19e4a4efb1d63bdd7\", \"BRUTS.csv.gz\": \"d7f2a8e15c9b93268bab26de85c3db2718f5e9f62563d9c839b8b3227c23e0a7\", \"RAPPROCHEMENT.csv.gz\": \"8a8fea945684c94fac7806caa6512b8f43f8b82fc898e3f41e8fc7a43c94080b\", \"COUVERTURE_QUALIFICATION_US.csv\": \"587276f8d7c22087ca02e43da66d7a834147db39c145a7e0aa78f58ecf78ea7a\"}}\nRaccordement réel 07U/07V/07W : périodes, provenance, archives, absence de notes et chemins isolés contrôlés\n"
+    },
+    {
+      "controle": "test_rapprochement_sec_ssi_hors_reseau.py",
+      "statut": "OK",
+      "code_retour": 0,
+      "detail": "Rapprochement SEC SSI: 1 faits; zero score\nTEST RAPPROCHEMENT OK: CIK coherent, bloc B1, aucune note, dossier intact\n"
+    },
+    {
+      "controle": "test_recensement_us_eodhd_hors_reseau.py",
+      "statut": "OK",
+      "code_retour": 0,
+      "detail": "{\"date_utc\": \"2026-10-18T15:29:54.110981+00:00\", \"secret_disponible\": false, \"source_script_SHA256\": \"fa069eabd9f6488eaf098c0a1831524de2cc659588a3bbe7ca8daedbed07eeed\", \"perimetre\": \"CATALOGUE_COMPLET_COTATIONS_US_EODHD_50_300_MEUR\", \"depend_des_172\": false, \"recensement_termine\": false, \"origine_US_verifiee\": false, \"notes_SSI_attribuees\": 0, \"positions_modifiees\": false, \"statut\": \"BLOQUE_OU_PARTIEL\", \"blocage\": \"EODHD_API_KEY_ABSENTE_DU_DEPOT_MICRO_CAPS\", \"fichiers\": {}}\nEODHD US: 1400 résultats sans troncature, saturation refusée, bornes EUR, types, dates et absence de clé contrôlés\n"
+    },
+    {
+      "controle": "test_relecture_inities_us_hors_reseau.py",
+      "statut": "OK",
+      "code_retour": 0,
+      "detail": "Profils du lot : 1/1\nForm 4: 1 transactions a verifier\n{\"date_utc\": \"2026-10-18T15:29:54.623547+00:00\", \"date_debut_depots\": \"2026-01-01\", \"date_limite_depots\": \"2026-10-18\", \"source_lot\": \"AUDITS/RECHERCHE_COMPLEMENTS_US/2026-10-18_LOT_ORDRE_SCE/LOT_PRIORISATION.csv\", \"source_lot_SHA256\": \"132df9daeff61d60a948ad53378c74391698643011a89a37cc3dcf3e72675d38\", \"source_script_SHA256\": \"efdc555ed5a690ca8e99c9473953b258190a561a4e3d73871b94a493ae71c0a3\", \"module_07Y_SHA256\": \"c784bf5ec2b398aa16a2d7aa589a3802d15ee130d167c8013877f38dc2bd35a8\", \"emetteurs_lot\": 1, \"profils_concordants\": 1, \"profils_en_erreur\": 0, \"depots_form4_indexes\": 1, \"transactions_non_derivees_extraites\": 1, \"repartition_controles\": {\"TRANSACTIONS_A_VERIFIER\": 1}, \"reponses_HTTP_archivees\": 3, \"reponses_reutilisees\": 0, \"notes_SSI_attribuees\": 0, \"detentions_actuelles_reconstituees\": false, \"historique_depuis_2026_complet_valide\": false}\nRelecture lot : profils CIK/ticker, XML et index hashés, fonctions des déclarants, déclarations conjointes et notes de bas de page préservés, aucune note SSI\n"
+    },
+    {
+      "controle": "test_repli_sec_eodhd_hors_reseau.py",
+      "statut": "OK",
+      "code_retour": 0,
+      "detail": "REPLI SEC: ambiguïtés de ticker, CIK, dates futures, octets source et absence de clé dans les requêtes SEC contrôlés\n"
+    },
+    {
+      "controle": "test_sce_discovery_us_hors_reseau.py",
+      "statut": "OK",
+      "code_retour": 0,
+      "detail": "SCE maître : ordre indépendant du fournisseur, dénominateur, ISIN, doublons et champs humains conservés sans note inventée\n"
+    },
+    {
+      "controle": "test_sec_ssi_hors_reseau.py",
+      "statut": "OK",
+      "code_retour": 0,
+      "detail": "SEC EDGAR {'A_VERIFIER_IDENTITE_ET_CONTENU': 1, 'IDENTITE_AMBIGUE': 1, 'NON_COUVERT': 1}\nTEST SEC OK: rapprochement, ambiguite, non-couverture, depots, audit\n"
+    },
+    {
+      "controle": "test_securite_pipeline_hors_reseau.py",
+      "statut": "OK",
+      "code_retour": 0,
+      "detail": "SSI: {'ADMIS_SSI': 1}\nSSI: {'REFUSE_SSI': 1}\nSSI: {'A_COMPLETER_PREUVES_SSI': 1}\nSSI: {'A_COMPLETER_PREUVES_SSI': 1}\nSSI: {'A_COMPLETER_PREUVES_SSI': 1}\nPREUVES: seuil 65/64, texte fictif, document modifié et date future contrôlés\nDossiers SSI a qualifier 1\nDossiers SSI a qualifier 1\nCONSERVATION: notes, preuves, corrections et archive précédente contrôlées\nIntégrité T0 SHA256 : OK\nCALENDRIER/FRAIS: 2,5% sur chaque côté, absence de forçage réel\nIntégrité T0 SHA256 : OK\nT0: modification de référence rejetée avant valorisation\nSEC comparabilite: 1 / 2 faits conserves; SSI non calcule\nSEC EDGAR {'ERREUR_SOURCE': 1}\nPIT/IDENTITE: dépôt postérieur exclu, CIK submissions divergent refusé\n"
+    },
+    {
+      "controle": "test_sources_officielles_hors_reseau.py",
+      "statut": "OK",
+      "code_retour": 0,
+      "detail": "{\"date_utc\": \"2026-10-18T15:29:57.241092+00:00\", \"documents_configures\": 1, \"documents_collectes\": 1, \"sources_bloquees\": 0, \"dossiers_sans_document_configure\": 0, \"notes_attribuees\": 0, \"couverture_complete\": false, \"dossiers_univers\": 1, \"registre_source\": \"/tmp/tmpegfnym8g/CONFIG/DOCUMENTS.csv\", \"couverture_source\": \"/tmp/tmpegfnym8g/DONNEES/DOSSIERS_SSI_A_QUALIFIER.csv\", \"registre_SHA256\": \"4196daa65a8d1fd0465f393aec9c2fe03f512f7d5f7815952ebf4556f17267f6\", \"couverture_source_SHA256\": \"ed0e8b0c7677debf984f7bea6f5f6d262c162d4df74b856c740437b69d97b15b\", \"publications_dates_inconnues\": 0, \"fichiers\": {\"AUDIT_DOCUMENTS.csv\": \"aba888be4107d96df4b17806810927f3c2ab303ba8d8d26572a693f04f34d538\", \"COUVERTURE.csv\": \"58f7ea0ee732cd19901a17dd685110b45d522ec5d76356444fccec7fb6c3d61d\", \"75dba45368aa60ec771d1f0032460ad873cf2bf8072a4f94ff045ad03e78af95.bin\": \"75dba45368aa60ec771d1f0032460ad873cf2bf8072a4f94ff045ad03e78af95\"}}\n{\"date_utc\": \"2026-10-18T15:29:57.251099+00:00\", \"documents_configures\": 1, \"documents_collectes\": 1, \"sources_bloquees\": 0, \"dossiers_sans_document_configure\": 1, \"notes_attribuees\": 0, \"couverture_complete\": false, \"dossiers_univers\": 2, \"registre_source\": \"/tmp/tmpegfnym8g/CONFIG/DOCUMENTS.csv\", \"couverture_source\": \"/tmp/tmpegfnym8g/univers.csv\", \"registre_SHA256\": \"0c287524ef86685ea2352d6748ae7396ae455edc9a9bd5f1ce59af2316a2b52c\", \"couverture_source_SHA256\": \"84fd27c4546de8dedb792fb80bb717ad548a7053e466976ab224344c641ce418\", \"publications_dates_inconnues\": 1, \"fichiers\": {\"AUDIT_DOCUMENTS.csv\": \"2e7e2e667b1129934fe129776d5f14250e6f63b2eafd1a1c0b098b167754f72d\", \"COUVERTURE.csv\": \"b15688076e03c6db679a59b5ba73e82232873d9d63843af40faf6b19d9492fda\", \"75dba45368aa60ec771d1f0032460ad873cf2bf8072a4f94ff045ad03e78af95.bin\": \"75dba45368aa60ec771d1f0032460ad873cf2bf8072a4f94ff045ad03e78af95\"}}\n{\"date_utc\": \"2026-10-18T15:29:57.258500+00:00\", \"documents_configures\": 1, \"documents_collectes\": 0, \"sources_bloquees\": 1, \"dossiers_sans_document_configure\": 1, \"notes_attribuees\": 0, \"couverture_complete\": false, \"dossiers_univers\": 2, \"registre_source\": \"/tmp/tmpegfnym8g/CONFIG/DOCUMENTS.csv\", \"couverture_source\": \"/tmp/tmpegfnym8g/univers.csv\", \"registre_SHA256\": \"7defd984bad32d5dc4e304e2a7cc507d29b4b1019f530668a732e1c324febb93\", \"couverture_source_SHA256\": \"84fd27c4546de8dedb792fb80bb717ad548a7053e466976ab224344c641ce418\", \"publications_dates_inconnues\": 0, \"fichiers\": {\"AUDIT_DOCUMENTS.csv\": \"efe7f5de6bf4d356ab4d7bfb7222e8cd2ef1a3457a9a35cb1fda6aed06c5c26c\", \"COUVERTURE.csv\": \"b15688076e03c6db679a59b5ba73e82232873d9d63843af40faf6b19d9492fda\"}}\n{\"date_utc\": \"2026-10-18T15:29:57.264789+00:00\", \"documents_configures\": 1, \"documents_collectes\": 0, \"sources_bloquees\": 1, \"dossiers_sans_document_configure\": 1, \"notes_attribuees\": 0, \"couverture_complete\": false, \"dossiers_univers\": 2, \"registre_source\": \"/tmp/tmpegfnym8g/CONFIG/DOCUMENTS.csv\", \"couverture_source\": \"/tmp/tmpegfnym8g/univers.csv\", \"registre_SHA256\": \"d1500e2be8e1d003a0c5894f8c510a5b450d37d34fbceeefd15c6268009d0783\", \"couverture_source_SHA256\": \"84fd27c4546de8dedb792fb80bb717ad548a7053e466976ab224344c641ce418\", \"publications_dates_inconnues\": 0, \"fichiers\": {\"AUDIT_DOCUMENTS.csv\": \"a04ea7f29f1f34db23ddb1755ccc3f793fb7bc25002fdae32622e777fb686d31\", \"COUVERTURE.csv\": \"b15688076e03c6db679a59b5ba73e82232873d9d63843af40faf6b19d9492fda\"}}\n{\"date_utc\": \"2026-10-18T15:29:57.271891+00:00\", \"documents_configures\": 1, \"documents_collectes\": 0, \"sources_bloquees\": 1, \"dossiers_sans_document_configure\": 1, \"notes_attribuees\": 0, \"couverture_complete\": false, \"dossiers_univers\": 2, \"registre_source\": \"/tmp/tmpegfnym8g/CONFIG/DOCUMENTS.csv\", \"couverture_source\": \"/tmp/tmpegfnym8g/univers.csv\", \"registre_SHA256\": \"9d8de2a03ce2cd2107512ad9a499f8bb03103b7d896e7f074a4e87e016198d41\", \"couverture_source_SHA256\": \"84fd27c4546de8dedb792fb80bb717ad548a7053e466976ab224344c641ce418\", \"publications_dates_inconnues\": 0, \"fichiers\": {\"AUDIT_DOCUMENTS.csv\": \"1b90f1088fd22637c8a0b139cde5081aad184f6c9ab985ce2109f46b9fd263c0\", \"COUVERTURE.csv\": \"b15688076e03c6db679a59b5ba73e82232873d9d63843af40faf6b19d9492fda\"}}\nSOURCES NON-US: archive brute, statut non validé, domaines/HTTPS/adresses publiques contrôlés\n"
+    },
+    {
+      "controle": "test_univers_us_hors_reseau.py",
+      "statut": "OK",
+      "code_retour": 0,
+      "detail": "UNIVERS US: immatriculation et activité concordantes, cas mixtes/absents/CIK refusés\n"
+    },
+    {
+      "controle": "integrite_entrees",
+      "statut": "OK",
+      "detail": []
+    }
+  ],
+  "statut": "OK"
+}
