@@ -1,0 +1,30 @@
+{
+  "date_utc": "2026-10-18T16:17:44.813012+00:00",
+  "source_recensement": "AUDITS/RECENSEMENT_US_EODHD/20261015T170647372738Z/MANIFESTE.json",
+  "source_instruments": "AUDITS/INSTRUMENTS_US_OFFICIELS/20261016T132746785552Z/MANIFESTE.json",
+  "source_script_SHA256": "eb60b68d0e087e043442de75881c9058335ec3d333e181a46a29cc814dd0a4d1",
+  "protocole_SHA256": "ae046f17ecd7b97eb3bc5ba189f30124d72d7b122e5b5e68b1fea308e6926e1a",
+  "notes_documentaires_SHA256": "e9f1f9955e2c587c58666e8b0f2740fa7ee69d4d1795581cc46ba7ce6318ce48",
+  "registre_documentaire_SHA256": "d506b63c040b35da775cb310df946c3358c63a0a318a057c521039f98ff08320",
+  "registre_humain_SHA256": "9e99fa04b635770737d0306662be3ca8e5ad451fe2096e94e3cb922158aaebef",
+  "cotations_conservees": 2490,
+  "ISIN_checksum_valides": 1650,
+  "doublons_ISIN_cotations": 2,
+  "identites_revues_SHA256": "e6720a5d7bb86559fc94fbdf1b84d4ee90743a1ed8495a588df9799a459d4c84",
+  "SCE_valides": 4,
+  "repartition_SSI": {
+    "A_COMPLETER_PREUVES_SSI": 2484,
+    "ELIMINE": 4,
+    "ADMIS_SSI": 1,
+    "REFUSE_SSI": 1
+  },
+  "selection_finale_autorisee": false,
+  "panel_SCE_experimental_modifie": false,
+  "statut": "ORDRE_SCE_MAITRE_APPLIQUE_IDENTITES_ET_PREUVES_A_COMPLETER",
+  "fichiers": {
+    "ORDRE_CONTROLES_SCE.csv": "c35aca0a986072b05f90ae0b12df96123828491122a5383feae6d6060a425985",
+    "AUDIT_SSI.csv": "e7192597c7d98309cb18daab2d5cf622ebb0df6a06d29e9eaff98d8a6c12337d",
+    "RESULTATS_SSI.csv": "bbf60d64ae624b507e51d1ee67cada53d1d9771a5212485eeded62be25bb986c",
+    "DOSSIERS_SSI_A_QUALIFIER.csv": "9113a23cd16ac9e3cf7222de137d374bab8476a70e50a9137589110cf7f0863a"
+  }
+}
