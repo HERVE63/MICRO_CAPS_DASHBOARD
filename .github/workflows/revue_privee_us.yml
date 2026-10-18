@@ -3,7 +3,7 @@ on:
   workflow_dispatch:
   push:
     branches: [main]
-    paths: ['.github/workflows/revue_privee_us.yml', 'CONFIG/CLE_PUBLIQUE_REVUE_PRIVEE_US.json']
+    paths: ['.github/workflows/revue_privee_us.yml', 'CONFIG/CLE_PUBLIQUE_REVUE_PRIVEE_US.json', 'SCRIPTS_ACTIFS/07AQ_PREPARER_REVUE_PRIVEE_US.py']
 permissions:
   contents: write
 concurrency:
