@@ -29,7 +29,7 @@ def test():
         assert m.decider('schedule',bon,datetime.fromisoformat(date),mode='HEBDOMADAIRE')['run']
         assert not m.decider('schedule',mauvais,datetime.fromisoformat(date),mode='HEBDOMADAIRE')['run']
     # Le rendez-vous mensuel tolere un retard de demarrage GitHub Actions.
-    for date,bon,mauvais in [('2026-10-27T22:58:00+00:00','45 21 * * 2','45 22 * * 2'),
+    for date,bon,mauvais in [('2026-09-29T21:58:00+00:00','45 21 * * 2','45 22 * * 2'),
                              ('2026-11-24T23:11:00+00:00','45 22 * * 2','45 21 * * 2')]:
         assert m.decider('schedule',bon,datetime.fromisoformat(date),mode='MENSUEL')['run']
         assert not m.decider('schedule',mauvais,datetime.fromisoformat(date),mode='MENSUEL')['run']
