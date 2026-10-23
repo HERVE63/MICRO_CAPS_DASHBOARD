@@ -13,6 +13,7 @@ def decider(evenement, cron='', maintenant=None, mode='QUOTIDIEN'):
     paris = maintenant.astimezone(ZoneInfo('Europe/Paris'))
     if mode=='QUOTIDIEN':ete,hiver=ETE,HIVER
     elif mode=='HEBDOMADAIRE':ete,hiver='15 20 * * 2','15 21 * * 2'
+    elif mode=='MENSUEL':ete,hiver='45 21 * * 2','45 22 * * 2'
     else:raise ValueError('MODE_PLANIFICATION_INCONNU')
     attendu = ete if paris.utcoffset().total_seconds()==7200 else hiver
     if evenement in ('workflow_dispatch','push'):
