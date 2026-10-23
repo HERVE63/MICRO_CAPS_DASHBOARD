@@ -10,18 +10,24 @@ jobs:
   arbitrage:
     runs-on: ubuntu-latest
     steps:
-      - name: Verrou mardi 23h45 Europe Paris
+      - uses: actions/checkout@v4
+        with:
+          ref: main
+          sparse-checkout: SCRIPTS_ACTIFS/00A_PLANIFICATION_QUOTIDIENNE.py
+          sparse-checkout-cone-mode: false
+      - name: Vérifier le réveil mensuel sans dépendre de la minute réelle
         id: horaire
-        shell: bash
-        run: |
-          if [ "${{ github.event_name }}" = "workflow_dispatch" ]; then
-            echo "run=true" >> "$GITHUB_OUTPUT"
-          else
-            H=$(TZ=Europe/Paris date +%u-%H:%M)
-            [ "$H" = "2-23:45" ] && echo "run=true" >> "$GITHUB_OUTPUT" || echo "run=false" >> "$GITHUB_OUTPUT"
-          fi
+        env:
+          MICRO_CAPS_CRON: ${{ github.event.schedule }}
+          MICRO_CAPS_PLANIFICATION_MODE: MENSUEL
+        run: python3 -B SCRIPTS_ACTIFS/00A_PLANIFICATION_QUOTIDIENNE.py
       - if: steps.horaire.outputs.run == 'true'
         uses: actions/checkout@v4
+      - name: Désactiver le checkout partiel pour la chaîne mensuelle
+        if: steps.horaire.outputs.run == 'true'
+        run: |
+          git sparse-checkout disable
+          test -f SCRIPTS_ACTIFS/10_EXECUTION_MENSUELLE.py
       - if: steps.horaire.outputs.run == 'true'
         uses: actions/setup-python@v5
         with:
