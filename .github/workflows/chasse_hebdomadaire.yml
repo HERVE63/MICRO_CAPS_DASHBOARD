@@ -6,6 +6,7 @@ on:
     paths:
       - "SCRIPTS_ACTIFS/07P_COLLECTE_PRESELECTION_MARCHE.py"
       - "SCRIPTS_ACTIFS/07K_UNIVERS_INVESTISSABLE_IDENTITE.py"
+      - ".github/workflows/chasse_hebdomadaire.yml"
   schedule:
     - cron: "15 20 * * 2"
     - cron: "15 21 * * 2"
@@ -28,6 +29,12 @@ jobs:
         run: python3 -B SCRIPTS_ACTIFS/00A_PLANIFICATION_QUOTIDIENNE.py
       - if: steps.horaire.outputs.run == 'true'
         uses: actions/checkout@v4
+      - name: Restaurer tous les scripts apres le checkout partiel de planification
+        if: steps.horaire.outputs.run == 'true'
+        run: |
+          git sparse-checkout disable
+          test -f SCRIPTS_ACTIFS/07S_SCREENING_PRIMAIRE_MICRO_CAPS.py
+          test -f SCRIPTS_ACTIFS/08_GENERER_DASHBOARD.py
       - if: steps.horaire.outputs.run == 'true'
         uses: actions/setup-python@v5
         with:
