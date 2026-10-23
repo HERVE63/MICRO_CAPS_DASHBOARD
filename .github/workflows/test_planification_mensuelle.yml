@@ -1,0 +1,22 @@
+name: MICRO CAPS - TEST PLANIFICATION MENSUELLE
+on:
+  push:
+    branches: [main]
+    paths:
+      - "SCRIPTS_ACTIFS/00A_PLANIFICATION_QUOTIDIENNE.py"
+      - "TESTS/test_reveil_mensuel_hors_reseau.py"
+      - ".github/workflows/arbitrage_mensuel.yml"
+      - ".github/workflows/test_planification_mensuelle.yml"
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  planification:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Valider le reveil mensuel sans toucher aux portefeuilles
+        run: python -B TESTS/test_reveil_mensuel_hors_reseau.py
