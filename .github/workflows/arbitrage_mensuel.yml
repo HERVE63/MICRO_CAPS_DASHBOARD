@@ -6,6 +6,9 @@ on:
     - cron: "45 22 * * 2"
 permissions:
   contents: write
+concurrency:
+  group: microcaps-production-quotidienne
+  cancel-in-progress: false
 jobs:
   arbitrage:
     runs-on: ubuntu-latest
@@ -44,9 +47,12 @@ jobs:
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add DONNEES HISTORIQUE index.html
+          git add DONNEES HISTORIQUE index.html APPLICATION/index.html
           if ! git diff --cached --quiet; then
             git commit -m "Arbitrage mensuel MICRO CAPS"
+            # Les sorties non retenues ne doivent pas bloquer le rebase.
+            # Ne modifie aucun coffre maître ni historique officiel hors commit validé.
+            git restore --worktree .
             git pull --rebase origin main
             git push
           fi
