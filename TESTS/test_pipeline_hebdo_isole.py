@@ -51,9 +51,17 @@ def executer():
         candidats = pd.read_csv(base / "DONNEES/CANDIDATS_PRETS_SSI.csv",
                                 dtype=str, keep_default_na=False)
         assert not candidats.empty
+        assert len(candidats) >= 2
         ticker_test = candidats.iloc[0]["Ticker"]
+        ticker_source = candidats.iloc[1]["Ticker"]
+        # Un CIK issu de la collecte ne doit pas perdre ses zéros initiaux.
+        candidats["CIK"] = ""
+        candidats.loc[candidats.Ticker.eq(ticker_source), "CIK"] = "0000000456"
+        candidats.to_csv(base / "DONNEES/CANDIDATS_PRETS_SSI.csv", index=False)
         anciens = pd.read_csv(base / "DONNEES/DOSSIERS_SSI_A_QUALIFIER.csv",
                               dtype=str, keep_default_na=False)
+        # Second ticker sans annotation antérieure : reprendre le CIK source.
+        anciens = anciens.loc[anciens.Ticker.ne(ticker_source)].copy()
         if not anciens.Ticker.eq(ticker_test).any():
             ajout = {c: "" for c in anciens.columns}
             ajout["Ticker"] = ticker_test
@@ -97,6 +105,7 @@ def executer():
         assert cible.iloc[0]["SCE_valide"] == "OUI"
         assert cible.iloc[0]["CIK"] == "0000000123"
         assert cible.iloc[0]["Preuves_identite_SCE"] == "PREUVE_TEST_1|PREUVE_TEST_2"
+        assert nouveaux.loc[nouveaux.Ticker.eq(ticker_source), "CIK"].iloc[0] == "0000000456"
         assert resultat.loc[resultat.Ticker.eq(ticker_test), "Statut_SSI"].iloc[0] != "ADMIS_SSI"
         for _, ligne in nouveaux.iterrows():
             if ligne.Ticker in annotations:
@@ -104,8 +113,26 @@ def executer():
                     assert str(ligne[c]) == str(attendu), (ligne.Ticker, c)
         assert list((base / "AUDITS/DOSSIERS_SSI").glob("*/DOSSIERS_SSI_A_QUALIFIER.csv")), (
             "La préparation doit archiver l'ancien registre avant remplacement")
-        print("CHAINE SSI ISOLEE OK :",
-              len(nouveaux), "dossiers, aucune admission sans preuve brute")
+        # Incident de collecte : plus aucun candidat admissible. Le registre actif
+        # doit être vidé (pas d'admission périmée), mais archivé sans perte.
+        ancien_contenu = (base / "DONNEES/DOSSIERS_SSI_A_QUALIFIER.csv").read_bytes()
+        archives_avant = set((base / "AUDITS/DOSSIERS_SSI").glob("*/DOSSIERS_SSI_A_QUALIFIER.csv"))
+        candidats.iloc[0:0].to_csv(base / "DONNEES/CANDIDATS_PRETS_SSI.csv", index=False)
+        p = subprocess.run([sys.executable, str(base / "SCRIPTS_ACTIFS/07Q_PREPARER_DOSSIERS_SSI.py")],
+                           cwd=base, text=True, capture_output=True)
+        assert p.returncode == 0, (p.stdout, p.stderr)
+        archives_apres = set((base / "AUDITS/DOSSIERS_SSI").glob("*/DOSSIERS_SSI_A_QUALIFIER.csv"))
+        nouvelles_archives = archives_apres - archives_avant
+        assert len(nouvelles_archives) == 1
+        assert next(iter(nouvelles_archives)).read_bytes() == ancien_contenu
+        assert pd.read_csv(base / "DONNEES/DOSSIERS_SSI_A_QUALIFIER.csv").empty
+        p = subprocess.run([sys.executable, str(base / "SCRIPTS_ACTIFS/07R_VALIDER_NOTES_SSI.py")],
+                           cwd=base, text=True, capture_output=True)
+        assert p.returncode == 0, (p.stdout, p.stderr)
+        assert pd.read_csv(base / "DONNEES/RESULTATS_SSI.csv").empty
+        assert int(pd.read_csv(base / "DONNEES/AUDIT_SSI.csv").Dossiers.iloc[0]) == 0
+        print("CHAINE SSI ISOLEE OK :", len(nouveaux),
+              "dossiers, CIK préservé, cohorte vide archivée, aucune admission sans preuve brute")
 
     assert {str(p): sha(p) for p in originaux} == avant, (
         "Une entrée versionnée a été modifiée")
