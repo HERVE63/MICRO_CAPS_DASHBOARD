@@ -52,6 +52,28 @@ jobs:
               lignes=list(csv.DictReader(f))
           assert len(lignes)==40 and len({r['ID_position'] for r in lignes})==40
           assert all(r['Statut_SSI']=='EN_ATTENTE_DATA' and r['Statut_MCPA']=='EN_ATTENTE_DATA' for r in lignes)
+          # Contrôle indépendant du point-in-time : jamais de fait publié à T0
+          # ou après T0 dans les faits considérés disponibles à l'origine.
+          with pathlib.Path('DONNEES/COHORTE_MICRO_CAPS_T0.csv').open(encoding='utf-8-sig',newline='') as f:
+              cohorte=list(csv.DictReader(f))
+          assert len(cohorte)==40
+          dates={((r['Ticker_cotation']+'.US') if r['Pays']=='USA' and not r['Ticker_cotation'].endswith('.US') else r['Ticker_cotation']):r['Date_T0'] for r in cohorte}
+          compte={t:0 for t in dates}
+          with (sortie/'FAITS_SEC_BRUTS_CONSOLIDES.csv').open(newline='') as f:
+              for fait in csv.DictReader(f):
+                  statut=fait['Statut_disponibilite_T0']
+                  t=fait['Ticker']
+                  if t not in dates:
+                      assert statut=='HORS_COHORTE_T0',(t,statut)
+                  elif statut=='DISPONIBLE_AVANT_T0':
+                      assert fait['Statut_chronologie']=='OK' and fait['Date_depot']<dates[t],fait
+                      compte[t]+=1
+                  elif statut=='POSTERIEUR_OU_JOUR_T0':
+                      assert fait['Statut_chronologie']=='OK' and fait['Date_depot']>=dates[t],fait
+                  else:
+                      assert statut=='CHRONOLOGIE_NON_VALIDEE',fait
+          assert all(int(r['Nb_faits_disponibles_T0'])==compte[r['Ticker']] for r in lignes)
+          assert sum(compte.values())==bilan['observations_disponibles_avant_T0']
           empreintes={p.name:hashlib.sha256(p.read_bytes()).hexdigest() for p in sorted(sortie.glob('*')) if p.is_file()}
           (sortie/'SHA256_RESULTATS.json').write_text(json.dumps(empreintes,indent=2,sort_keys=True)+'\n')
           print('CONSOLIDATION REELLE :',json.dumps(bilan,ensure_ascii=False),flush=True)
