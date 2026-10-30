@@ -25,7 +25,7 @@ jobs:
       - uses: actions/setup-python@v5
         with:
           python-version: "3.12"
-      - run: pip install pandas numpy pytest
+      - run: pip install pandas numpy pytest requests
       - name: Tester import sur copie temporaire sans modifier le depot
         run: |
           python - <<'PY'
