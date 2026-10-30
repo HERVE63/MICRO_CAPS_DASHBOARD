@@ -77,6 +77,12 @@ def executer():
   conflit=(~nouveau_cik.str.strip().str.upper().isin(absents)
            & ~anciens_cik.astype(str).str.strip().str.upper().isin(absents)
            & nouveau_cik.str.strip().ne(anciens_cik.astype(str).str.strip()))
+  # La quarantaine reste active après les régénérations suivantes : le fait
+  # que le nouveau CIK ait remplacé l'ancien ne prouve PAS la résolution
+  # indépendante de la collision initiale.
+  deja_bloques=(out.loc[mask,"Ticker"].map(reg["Conflit_identite_CIK"]).eq("OUI")
+                if "Conflit_identite_CIK" in reg else pd.Series(False,index=out.index[mask]))
+  conflit=conflit | deja_bloques
   if conflit.any():
    indices=anciens_cik.index[conflit]
    for c in humains:
