@@ -14,4 +14,9 @@ jobs:
         with:
           python-version: '3.11'
       - run: python -m pip install pandas pytest
+      - run: python SCRIPTS_ACTIFS/09C_AUDIT_RACCORDEMENT_TITULAIRES.py
+      - uses: actions/upload-artifact@v4
+        with:
+          name: audit-raccordement-titulaires
+          path: DONNEES/AUDIT_RACCORDEMENT_40_TITULAIRES.csv
       - run: python -m pytest -q tests/test_replay_05c_isolation_smoke.py tests/test_replay_05c_sale_purchase_isolated.py
