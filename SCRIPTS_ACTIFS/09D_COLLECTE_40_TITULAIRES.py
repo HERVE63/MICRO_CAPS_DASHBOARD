@@ -9,6 +9,7 @@ from datetime import datetime, timezone
 BASE=Path(__file__).resolve().parents[1]
 SRC=BASE/"DONNEES/ETAT_INITIAL_PORTEFEUILLE_GERE.csv"
 OUT=BASE/"DONNEES/COLLECTE_DIRECTE_40_TITULAIRES.csv"
+HIST=BASE/"AUDITS/HISTORIQUE_COLLECTES_HEBDOMADAIRES"
 API=os.environ.get("EODHD_API_TOKEN") or os.environ.get("EODHD_API_KEY")
 def collecter():
     positions=pd.read_csv(SRC,dtype={"Ticker":str})
@@ -49,6 +50,13 @@ def collecter():
         records.append(row)
     OUT.parent.mkdir(exist_ok=True,parents=True)
     pd.DataFrame(records).to_csv(OUT,index=False)
+    HIST.mkdir(parents=True,exist_ok=True)
+    stamp=datetime.now(timezone.utc).strftime("%Y%m%dT%H%M%SZ")
+    pd.DataFrame(records).to_csv(HIST/f"COLLECTE_40_{stamp}.csv",index=False)
+    if not API:
+        raise RuntimeError("EODHD_API_TOKEN ou EODHD_API_KEY absent : revue non validable")
+    if any(x["Statut"] != "DONNEES_RECUES" for x in records):
+        raise RuntimeError("Collecte incomplete : revue non validable; voir rapport CSV")
     print(pd.DataFrame(records).Statut.value_counts().to_string())
     return records
 if __name__=="__main__":
