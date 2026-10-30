@@ -13,7 +13,17 @@ jobs:
       - uses: actions/setup-python@v5
         with:
           python-version: '3.11'
-      - run: python -m pip install pandas pytest
+      - run: python -m pip install pandas pytest requests
+      - name: Collecter les fondamentaux EODHD des 40 titulaires
+        env:
+          EODHD_API_TOKEN: \${{ secrets.EODHD_API_TOKEN }}
+          EODHD_API_KEY: \${{ secrets.EODHD_API_KEY }}
+        run: python SCRIPTS_ACTIFS/09D_COLLECTE_40_TITULAIRES.py
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: collecte-directe-40
+          path: DONNEES/COLLECTE_DIRECTE_40_TITULAIRES.csv
       - run: python SCRIPTS_ACTIFS/09C_AUDIT_RACCORDEMENT_TITULAIRES.py
       - uses: actions/upload-artifact@v4
         with:
