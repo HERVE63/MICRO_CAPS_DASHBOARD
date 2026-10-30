@@ -52,7 +52,8 @@ jobs:
             git commit -m "Arbitrage mensuel MICRO CAPS"
             # Les sorties non retenues ne doivent pas bloquer le rebase.
             # Ne modifie aucun coffre maître ni historique officiel hors commit validé.
-            git restore --worktree .
+            git reset --hard HEAD
+            git clean -fd
             git pull --rebase origin main
             git push
           fi
