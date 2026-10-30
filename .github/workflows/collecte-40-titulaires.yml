@@ -1,6 +1,11 @@
 name: Collecte directe des 40 titulaires
 on:
   workflow_dispatch:
+  push:
+    branches: [repair/microcaps-chain-20261030]
+    paths: ['.github/workflows/collecte-40-titulaires.yml']
+permissions:
+  contents: read
 jobs:
   collecter:
     runs-on: ubuntu-latest
@@ -12,7 +17,7 @@ jobs:
       - run: python -m pip install pandas requests
       - name: Collecte EODHD
         env:
-          EODHD_API_TOKEN: ${{ secrets.EODH_API_KEY }}
+          EODHD_API_TOKEN: ${{ secrets.EODHD_API_KEY || secrets.EODH_API_KEY }}
         run: python SCRIPTS_ACTIFS/09D_COLLECTE_40_TITULAIRES.py
       - uses: actions/upload-artifact@v4
         if: always()
