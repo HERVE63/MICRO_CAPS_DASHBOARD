@@ -11,7 +11,7 @@ def executer():
    raise RuntimeError("Date des fondamentaux manquante : aucune date inventee")
  if "Momentum_12m_pct" not in d.columns: d["Momentum_12m_pct"]=pd.NA
  if d.empty:
-  colonnes=["Ticker","SSI","Statut_SSI","Decision_eliminatoire","Motif_eliminatoire"]
+  colonnes=["Ticker","CIK","SCE_valide","Preuves_identite_SCE","SSI","Statut_SSI","Decision_eliminatoire","Motif_eliminatoire"]
   for b in ("B1","B2","B3","B4","B5","B6","B7"):
    colonnes.extend(["Note_"+b,"Preuve_"+b])
   pd.DataFrame(columns=colonnes).to_csv(OUT,index=False)
@@ -35,6 +35,11 @@ def executer():
  for bloc in ("B1","B2","B3","B4","B5","B6","B7"):
   out["Note_"+bloc]="MANQUANTE"
   out["Preuve_"+bloc]="MANQUANTE"
+ # Le contrôle SCE exige deux preuves indépendantes et un CIK.
+ # Le ticker ou Yahoo ne suffisent pas à valider l'identité.
+ out["CIK"]=d["CIK"].astype(str) if "CIK" in d.columns else "MANQUANTE"
+ out["SCE_valide"]="NON"
+ out["Preuves_identite_SCE"]="MANQUANTE"
  out["SSI"]="MANQUANTE"; out["Statut_SSI"]="A_COMPLETER_PREUVES_SSI"
  out["Decision_eliminatoire"]="A_VERIFIER"
  out["Motif_eliminatoire"]="MANQUANTE"
@@ -47,7 +52,7 @@ def executer():
   archive.mkdir(parents=True,exist_ok=False)
   import shutil
   shutil.copy2(OUT,archive/OUT.name)
-  humains=[c for c in ancien if c.startswith(("Note_","Preuve_","Validation_","Correction_")) or c in ("Decision_eliminatoire","Motif_eliminatoire")]
+  humains=[c for c in ancien if c.startswith(("Note_","Preuve_","Validation_","Correction_")) or c in ("Decision_eliminatoire","Motif_eliminatoire","CIK","SCE_valide","Preuves_identite_SCE")]
   reg=ancien.set_index("Ticker")
   for c in humains:
    if c not in out:out[c]="MANQUANTE"
