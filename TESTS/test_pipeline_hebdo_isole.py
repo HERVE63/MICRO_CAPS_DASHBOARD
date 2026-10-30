@@ -62,6 +62,7 @@ def executer():
         anciens.loc[masque, "CIK"] = "0000000123"
         anciens.loc[masque, "SCE_valide"] = "OUI"
         anciens.loc[masque, "Preuves_identite_SCE"] = "PREUVE_TEST_1|PREUVE_TEST_2"
+        anciens = anciens.fillna("")
         anciens.to_csv(base / "DONNEES/DOSSIERS_SSI_A_QUALIFIER.csv", index=False)
         annotations = {}
         for _, ligne in anciens.iterrows():
