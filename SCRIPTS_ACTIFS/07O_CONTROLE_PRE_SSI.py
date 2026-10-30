@@ -19,6 +19,7 @@ def executer():
  # Les champs facultatifs sont conserves vides, jamais inventes.
  for c in ["EBITDA","FCF","Croissance_CA","Marge_brute","Source_fondamentaux","Date_scan","Date_scan_fond"]:
   if c not in x.columns: x[c]=pd.NA
+ x["Date_scan_fond"]=x["Date_scan_fond"].fillna(x["Date_scan"])
  complete=x[req].notna().all(axis=1)
  # Filtres d'élimination stricts uniquement quand les données permettent de les constater.
  no_activity=x["CA_TTM"].fillna(0).le(0) & x["CA_TTM"].notna()
