@@ -7,6 +7,19 @@ import pandas as pd
 BASE=Path(__file__).resolve().parents[1]
 KEYS=['Ticker','CIK','Taxonomie_SEC','Concept','Tag_SEC','Unite','Debut_periode','Fin_periode','Date_depot','Accession']
 def empreinte(p):return hashlib.sha256(p.read_bytes()).hexdigest()
+def cik_normalise(v):
+ s=str(v).strip()
+ return str(int(s)).zfill(10) if s.isdigit() else ''
+def verifier_manifest_consolidation(dossier):
+ dossier=Path(dossier)
+ manifeste=json.loads((dossier/'MANIFESTE.json').read_text())
+ attendu=manifeste.get('fichiers_sha256',{})
+ if set(attendu)!={'FAITS_SEC_BRUTS_CONSOLIDES.csv','COUVERTURE.csv','COUVERTURE_TITULAIRES.csv'}:
+  raise RuntimeError('MANIFESTE_CONSOLIDATION_INCOMPLET')
+ for nom,sha in attendu.items():
+  p=dossier/nom
+  if not p.is_file() or empreinte(p)!=sha:raise RuntimeError('SORTIE_CONSOLIDATION_SHA256_DIVERGENT:'+nom)
+ return manifeste
 def valeur_comparable(v):
  try:
   n=Decimal(str(v))
@@ -53,7 +66,7 @@ def executer():
    s=pd.read_csv(idx,dtype=str,keep_default_na=False)
    for _,r in s.iterrows():
     if r.Ticker in set(scope.Ticker) and str(r.get('CIK','')).isdigit():
-     identites.setdefault(r.Ticker,set()).add(r.CIK)
+     identites.setdefault(r.Ticker,set()).add(cik_normalise(r.CIK))
   archives.append(str(p.parent.relative_to(BASE)))
  # Archives historiques US du module 07U/07V/07W : reutiliser les BRUTS SEC
  # et leur index de couverture sans promouvoir une piste en preuve validee.
@@ -72,7 +85,7 @@ def executer():
   scope_us=set(scope.Ticker)
   for _,r in index_us[index_us.Ticker_US.isin(scope_us)].iterrows():
    if str(r.CIK).isdigit():
-    identites.setdefault(r.Ticker_US,set()).add(r.CIK)
+    identites.setdefault(r.Ticker_US,set()).add(cik_normalise(r.CIK))
   for bloc in pd.read_csv(bruts,compression='gzip',dtype=str,keep_default_na=False,chunksize=100000):
    if 'Taxonomie_SEC' not in bloc:bloc['Taxonomie_SEC']='us-gaap'
    if not set(KEYS+['Valeur']).issubset(bloc.columns):
@@ -86,6 +99,11 @@ def executer():
  conflits=pd.Series(dtype=int)
  # Une même observation peut figurer dans plusieurs archives ; aucune provenance n'est perdue.
  if not faits.empty:
+  # Les CIK présents dans les faits sont des pistes indépendantes des index.
+  # Un index et un fait portant des CIK différents doivent être signalés.
+  for ticker,cik in faits[['Ticker','CIK']].itertuples(index=False,name=None):
+   normalise=cik_normalise(cik)
+   if normalise:identites.setdefault(ticker,set()).add(normalise)
   faits['Valeur_comparable']=faits.Valeur.map(valeur_comparable)
   versions=KEYS+['Valeur_comparable']
   provenance=faits.groupby(versions,dropna=False)['Archive_source'].agg(lambda x:'|'.join(sorted(set(x)))).reset_index(name='Archives_sources')
@@ -115,7 +133,10 @@ def executer():
         'notes_attribuees':0,'identites_validees_automatiquement':0,
         'titulaires_couverts':len(couverture_titulaires),
         'titulaires_avec_pistes_SEC':int(couverture_titulaires.Nb_faits_bruts.gt(0).sum()) if len(couverture_titulaires) else 0,'statut':'BRUTS_CONSOLIDES_A_VERIFIER'}
+ bilan['fichiers_sha256']={p.name:empreinte(p) for p in out.iterdir() if p.is_file()}
+ bilan['manifestes_sources_sha256']={str((BASE/rel/'MANIFESTE.json').relative_to(BASE)):empreinte(BASE/rel/'MANIFESTE.json') for rel in archives+archives_qualification}
  (out/'MANIFESTE.json').write_text(json.dumps(bilan,ensure_ascii=False,indent=2)+'\n')
+ verifier_manifest_consolidation(out)
  print(json.dumps({k:v for k,v in bilan.items() if k!='archives_sources'},ensure_ascii=False),flush=True)
  return bilan
 if __name__=='__main__':executer()
