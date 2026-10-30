@@ -46,7 +46,7 @@ def collecter():
                       "QuarterlyEarningsGrowthYOY":h.get("QuarterlyEarningsGrowthYOY"),
                       "BalanceSheetPeriods":len(b),"CashFlowPeriods":len(cf)})
             except Exception as exc:
-                row["Erreur"]=str(exc)[:200]
+                row["Erreur"]=type(exc).__name__ + (f" HTTP_{exc.response.status_code}" if isinstance(exc, requests.HTTPError) and exc.response is not None else "")
         records.append(row)
     OUT.parent.mkdir(exist_ok=True,parents=True)
     pd.DataFrame(records).to_csv(OUT,index=False)
