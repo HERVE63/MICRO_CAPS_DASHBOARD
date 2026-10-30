@@ -12,7 +12,7 @@ def test():
   b=Path(tmp);(b/'DONNEES').mkdir()
   pd.DataFrame([{'Ticker':'A.F','Societe':'Fixture','Pays':'Allemagne'}]).to_csv(b/'DONNEES/DOSSIERS_SSI_A_QUALIFIER.csv',index=False)
   f={k:'' for k in m.KEYS};f.update(Ticker='A.F',CIK='0000000001',Taxonomie_SEC='ifrs-full',Concept='Assets',Tag_SEC='Assets',Unite='CAD',Fin_periode='2026-06-30',Date_depot='2026-08-01',Accession='0000000001-26-000001',Valeur='10')
-  for name,rows in [('RUN_A',[f]),('RUN_B',[dict(f,Valeur='10.0'),dict(f,Valeur='20')])]:
+  for name,rows in [('RUN_A',[f]),('RUN_B',[dict(f,Valeur='10.0'),dict(f,Valeur='20'),dict(f,CIK='0000000002',Valeur='50')])]:
    a=b/'AUDITS/SEC'/name;(a/'DONNEES').mkdir(parents=True)
    pd.DataFrame(rows).to_csv(a/'DONNEES/FAITS_FINANCIERS_SEC_SSI.csv',index=False)
    pd.DataFrame([{'Ticker':'A.F','CIK':'0000000001'}]).to_csv(a/'DONNEES/PREUVES_SEC_EDGAR_SSI.csv',index=False)
@@ -34,23 +34,35 @@ def test():
   before=(b/'DONNEES/DOSSIERS_SSI_A_QUALIFIER.csv').read_bytes()
   with patch.object(m,'BASE',b):result=m.executer()
   assert result['archives_controlees']==2 and result['archives_qualification_us_controlees']==1
-  assert result['observations_brutes_distinctes']==3
+  assert result['observations_brutes_distinctes']==4
   assert result['observations_valeurs_divergentes']==1 and result['notes_attribuees']==0
   out=next((b/'AUDITS/SEC_CONSOLIDE').glob('*/FAITS_SEC_BRUTS_CONSOLIDES.csv'))
   d=pd.read_csv(out)
-  assert all(d.loc[d.Ticker.eq('A.F'),'Statut_observation'].eq('VALEURS_DIVERGENTES_A_RELIRE'))
+  assert d.loc[d.Ticker.eq('A.F') & d.CIK.astype(str).str.zfill(10).eq('0000000001'),'Statut_observation'].eq('VALEURS_DIVERGENTES_A_RELIRE').all()
   assert d.loc[d.Ticker.eq('INFU.US'),'Statut_observation'].iloc[0]=='BRUT_A_VERIFIER'
   assert d.loc[d.Valeur.eq(10),'Archives_sources'].iloc[0]=='AUDITS/SEC/RUN_A|AUDITS/SEC/RUN_B'
   assert d.loc[d.Valeur.eq(10),'Representations_brutes'].iloc[0]=='10|10.0'
   couverture=pd.read_csv(out.parent/'COUVERTURE_TITULAIRES.csv',dtype={'CIK_pistes':str})
   assert len(couverture)==40
-  assert couverture.loc[couverture.ID_position.eq(1),'Nb_faits_bruts'].iloc[0]==2
+  assert couverture.loc[couverture.ID_position.eq(1),'Nb_faits_bruts'].iloc[0]==3
+  assert couverture.loc[couverture.ID_position.eq(1),'Statut_identite'].iloc[0]=='IDENTITE_DIVERGENTE_A_RELIRE'
+  assert couverture.loc[couverture.ID_position.eq(1),'CIK_pistes'].iloc[0]=='0000000001|0000000002'
   assert couverture.loc[couverture.ID_position.eq(2),'Ticker'].iloc[0]=='INFU.US'
   assert couverture.loc[couverture.ID_position.eq(2),'Nb_faits_bruts'].iloc[0]==1
   assert str(couverture.loc[couverture.ID_position.eq(2),'CIK_pistes'].iloc[0]).zfill(10)=='0000000022'
   assert couverture.Statut_SSI.eq('EN_ATTENTE_DATA').all()
   assert couverture.Statut_MCPA.eq('EN_ATTENTE_DATA').all()
   assert result['titulaires_couverts']==40 and result['titulaires_avec_pistes_SEC']==2
+  manifeste=m.verifier_manifest_consolidation(out.parent)
+  assert len(manifeste['fichiers_sha256'])==3
+  assert len(manifeste['manifestes_sources_sha256'])==3
+  original=out.read_bytes()
+  out.write_bytes(b'CORROMPU')
+  try:m.verifier_manifest_consolidation(out.parent)
+  except RuntimeError as e:assert 'SORTIE_CONSOLIDATION_SHA256_DIVERGENT' in str(e)
+  else:raise AssertionError('Sortie consolidee corrompue acceptee')
+  out.write_bytes(original)
+  m.verifier_manifest_consolidation(out.parent)
   assert (b/'DONNEES/DOSSIERS_SSI_A_QUALIFIER.csv').read_bytes()==before
   contenu_us=us_bruts.read_bytes()
   us_bruts.write_bytes(b'CORROMPU')
