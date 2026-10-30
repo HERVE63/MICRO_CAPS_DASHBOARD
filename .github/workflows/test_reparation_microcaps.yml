@@ -96,6 +96,15 @@ jobs:
               shutil.copy2(root/'SCRIPTS_ACTIFS/07Q_PREPARER_DOSSIERS_SSI.py',t/'SCRIPTS_ACTIFS')
               shutil.copy2(root/'SCRIPTS_ACTIFS/07Q2_AUDIT_PREUVES_SSI.py',t/'SCRIPTS_ACTIFS')
               shutil.copy2(root/'DONNEES/CANDIDATS_PRETS_SSI.csv',t/'DONNEES')
+              # Fixture de test : identite CIK explicitement presente dans la
+              # nouvelle source. Sans CIK source, 07Q doit effacer les anciennes
+              # annotations plutot que les reattribuer par simple ticker.
+              import pandas as pd
+              fixture=t/'DONNEES/CANDIDATS_PRETS_SSI.csv'
+              candidats=pd.read_csv(fixture,dtype=str,keep_default_na=False)
+              assert not candidats.empty
+              candidats.loc[candidats.index[0],'CIK']='0000000123'
+              candidats.to_csv(fixture,index=False)
               script=t/'SCRIPTS_ACTIFS/07Q_PREPARER_DOSSIERS_SSI.py'
               subprocess.run([sys.executable,str(script)],check=True)
               out=t/'DONNEES/DOSSIERS_SSI_A_QUALIFIER.csv'
