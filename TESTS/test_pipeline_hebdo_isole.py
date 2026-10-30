@@ -78,10 +78,12 @@ def executer():
         # admission ne doit être produite sur des références non vérifiables.
         assert not resultat.Statut_SSI.eq("ADMIS_SSI").any()
         assert {"CIK", "SCE_valide", "Preuves_identite_SCE"}.issubset(nouveaux.columns)
-        assert nouveaux.loc[0, "SCE_valide"] == "OUI"
-        assert nouveaux.loc[0, "CIK"] == "0000000123"
-        assert nouveaux.loc[0, "Preuves_identite_SCE"] == "PREUVE_TEST_1|PREUVE_TEST_2"
-        assert resultat.loc[0, "Statut_SSI"] != "ADMIS_SSI"
+        cible = nouveaux.loc[nouveaux.Ticker.eq(anciens.loc[0, "Ticker"])]
+        assert len(cible) == 1, "Dossier de test absent après préparation"
+        assert cible.iloc[0]["SCE_valide"] == "OUI"
+        assert cible.iloc[0]["CIK"] == "0000000123"
+        assert cible.iloc[0]["Preuves_identite_SCE"] == "PREUVE_TEST_1|PREUVE_TEST_2"
+        assert resultat.loc[resultat.Ticker.eq(anciens.loc[0, "Ticker"]), "Statut_SSI"].iloc[0] != "ADMIS_SSI"
         for _, ligne in nouveaux.iterrows():
             if ligne.Ticker in annotations:
                 for c, attendu in annotations[ligne.Ticker].items():
