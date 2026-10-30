@@ -63,6 +63,7 @@ jobs:
           python SCRIPTS_ACTIFS/07O_CONTROLE_PRE_SSI.py
           # Regenerer les dossiers SSI en conservant les annotations humaines historiques.
           python SCRIPTS_ACTIFS/07Q_PREPARER_DOSSIERS_SSI.py
+          python SCRIPTS_ACTIFS/07Q2_AUDIT_PREUVES_SSI.py
           python SCRIPTS_ACTIFS/07R_VALIDER_NOTES_SSI.py
           python SCRIPTS_ACTIFS/08B_CONTROLE_CHASSE_SSI.py
           # Confrontation virtuelle : simulation obligatoire avant toute activation d ecriture.
