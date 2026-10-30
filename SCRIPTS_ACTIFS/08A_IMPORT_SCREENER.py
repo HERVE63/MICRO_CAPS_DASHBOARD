@@ -31,9 +31,12 @@ def executer():
     if erreurs:
         raise RuntimeError("Import screener bloque : " + " | ".join(erreurs[:20]))
 
-    ancien = pd.read_csv(CHASSE) if CHASSE.exists() else pd.DataFrame(columns=REQUIS)
-    if CHASSE.exists() and ancien.empty and CHASSE.stat().st_size == 0:
-        raise RuntimeError("Registre chasse corrompu : fichier de taille nulle.")
+    # Un registre vide est réinitialisable depuis la sortie validée du screener.
+    # Un registre non vide reste conservé pour ne pas perdre les détections historiques.
+    ancien = (pd.read_csv(CHASSE) if CHASSE.exists() and CHASSE.stat().st_size > 0
+              else pd.DataFrame(columns=REQUIS))
+    if not ancien.empty and not set(REQUIS).issubset(ancien.columns):
+        raise RuntimeError("Registre historique chasse : schema invalide.")
     tout = pd.concat([ancien, src[REQUIS]], ignore_index=True)
     tout = tout.drop_duplicates(subset=["Ticker","Date_detection"], keep="first")
     temporaire = CHASSE.with_suffix(".csv.tmp")
