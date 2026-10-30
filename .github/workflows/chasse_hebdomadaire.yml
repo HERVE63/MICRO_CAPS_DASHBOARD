@@ -56,6 +56,7 @@ jobs:
           python SCRIPTS_ACTIFS/08S_ADAPTATEUR_CHASSEUR_MICRO_CAPS.py
           python SCRIPTS_ACTIFS/08A_IMPORT_SCREENER.py
           python SCRIPTS_ACTIFS/07P_COLLECTE_PRESELECTION_MARCHE.py
+          # Les dossiers SSI historiques restent intacts ; la validation les relit sans notes imputées.
           python SCRIPTS_ACTIFS/07R_VALIDER_NOTES_SSI.py
           python SCRIPTS_ACTIFS/08B_CONTROLE_CHASSE_SSI.py
           python SCRIPTS_ACTIFS/08_GENERER_DASHBOARD.py
