@@ -2,6 +2,7 @@
 from pathlib import Path
 from datetime import datetime, timezone
 import sys
+import re
 import pandas as pd
 sys.path.insert(0,str(Path(__file__).resolve().parent))
 from preuves_ssi import MAX, registre, valider_dossier, bilan_blocs_documentes, verifier_identite_sce
@@ -38,6 +39,16 @@ def executer():
             scores.append('MANQUANTE')
             statuts.append('EN_ATTENTE_DATA_IDENTITE_CIK')
             motifs.append('Collision CIK non levee par verification independante : notation et admission interdites')
+            continue
+        # Une identite SEC absente ou malformee ne peut pas etre admise
+        # par des notes anciennes ou par un appel de validateur incomplet.
+        # Conserver un statut EN_ATTENTE_DATA explicite pour chaque dossier,
+        # sans interrompre la validation des autres lignes.
+        cik=str(r.get('CIK','')).strip()
+        if not re.fullmatch(r'[0-9]{10}',cik):
+            scores.append('MANQUANTE')
+            statuts.append('EN_ATTENTE_DATA_IDENTITE_CIK')
+            motifs.append('CIK source absent ou invalide : identite emetteur non certifiee ; notation interdite')
             continue
         notes,erreurs=valider_dossier(r,preuves,D.parent,limite)
         # Une exclusion elle aussi doit avoir une référence vérifiée avant publication.
