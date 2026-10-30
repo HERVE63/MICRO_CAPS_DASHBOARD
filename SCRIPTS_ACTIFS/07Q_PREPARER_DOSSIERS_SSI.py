@@ -9,7 +9,13 @@ def executer():
    d["Date_scan_fond"]=d["Date_scan"]
   else:
    raise RuntimeError("Date des fondamentaux manquante : aucune date inventee")
- if d.empty: raise RuntimeError("Aucun candidat pret SSI")
+ if d.empty:
+  colonnes=["Ticker","SSI","Statut_SSI","Decision_eliminatoire","Motif_eliminatoire"]
+  for b in ("B1","B2","B3","B4","B5","B6","B7"):
+   colonnes.extend(["Note_"+b,"Preuve_"+b])
+  pd.DataFrame(columns=colonnes).to_csv(OUT,index=False)
+  pd.DataFrame([{"Dossiers_prets":0,"SSI_notes":0,"SSI_admis_65":0,"Statut":"EN_ATTENTE_DATA"}]).to_csv(AUD,index=False)
+  return pd.DataFrame(columns=colonnes)
  # Les 7 blocs du SSI maître. Les variables observées sont exposées, aucune note n'est inventée.
  out=pd.DataFrame({
   "Ticker":d["Ticker"],"Societe":d["Societe"],"Pays":d["Pays"],"Capitalisation_EUR":d["Capitalisation_EUR"],
