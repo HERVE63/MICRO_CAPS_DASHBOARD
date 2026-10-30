@@ -26,6 +26,31 @@ def valeur_comparable(v):
   if n.is_finite():return format(n.normalize(),'f')
  except InvalidOperation:pass
  raise RuntimeError('VALEUR_SEC_NON_NUMERIQUE')
+def verifier_chronologie_sec(faits, reference_utc=None):
+ """Contrôle les dates de chaque observation sans supprimer les bruts ni inventer de preuve.
+
+ Debut_periode facultatif (concept SEC instantané) ; fin de période et date
+ de dépôt indispensables pour exploiter chronologiquement un fait.
+ """
+ reference=pd.Timestamp(reference_utc) if reference_utc is not None else pd.Timestamp.now(tz='UTC')
+ if reference.tzinfo is None:raise ValueError('REFERENCE_UTC_SANS_FUSEAU')
+ reference=reference.tz_convert('UTC').normalize().tz_localize(None)
+ debut=faits['Debut_periode'].astype(str).str.strip()
+ fin=faits['Fin_periode'].astype(str).str.strip()
+ depot=faits['Date_depot'].astype(str).str.strip()
+ d0=pd.to_datetime(debut,format='%Y-%m-%d',errors='coerce')
+ d1=pd.to_datetime(fin,format='%Y-%m-%d',errors='coerce')
+ d2=pd.to_datetime(depot,format='%Y-%m-%d',errors='coerce')
+ statut=pd.Series('OK',index=faits.index,dtype=object)
+ def marquer(masque,motif):
+  statut.loc[masque & statut.eq('OK')]=motif
+ marquer(fin.eq('') | depot.eq(''),'DATE_OBLIGATOIRE_ABSENTE')
+ marquer((debut.ne('') & d0.isna()) | (fin.ne('') & d1.isna()) | (depot.ne('') & d2.isna()),'FORMAT_DATE_INVALIDE')
+ marquer(debut.ne('') & d0.gt(d1),'PERIODE_INVERSEE')
+ marquer(d2.lt(d1),'DEPOT_AVANT_FIN_PERIODE')
+ marquer(d2.gt(reference),'DEPOT_POSTERIEUR_REFERENCE')
+ return statut
+
 def executer():
  scope=pd.read_csv(BASE/'DONNEES/DOSSIERS_SSI_A_QUALIFIER.csv',dtype=str,keep_default_na=False)
  if scope.Ticker.duplicated().any():raise RuntimeError('DOUBLON_DOSSIER')
@@ -112,13 +137,16 @@ def executer():
   ambigues={k for k,n in conflits.items() if n>1}
   faits=faits.drop_duplicates(versions).drop(columns='Archive_source').merge(provenance,on=versions,validate='one_to_one').merge(representations,on=versions,validate='one_to_one')
   faits['Statut_observation']=faits.apply(lambda r:'VALEURS_DIVERGENTES_A_RELIRE' if tuple(r[k] for k in KEYS) in ambigues else 'BRUT_A_VERIFIER',axis=1)
+  faits['Statut_chronologie']=verifier_chronologie_sec(faits)
  couverture=scope[['Ticker','Societe','Pays']].copy()
  counts=faits.groupby('Ticker').size() if not faits.empty else pd.Series(dtype=int)
  couverture['Nb_faits_bruts']=couverture.Ticker.map(counts).fillna(0).astype(int)
+ utilisables=faits.loc[faits.Statut_chronologie.eq('OK')].groupby('Ticker').size() if not faits.empty else pd.Series(dtype=int)
+ couverture['Nb_faits_chronologie_OK']=couverture.Ticker.map(utilisables).fillna(0).astype(int)
  couverture['CIK_pistes']=couverture.Ticker.map(lambda t:'|'.join(sorted(identites.get(t,set()))))
  couverture['Statut_identite']=couverture.Ticker.map(lambda t:'IDENTITE_DIVERGENTE_A_RELIRE' if len(identites.get(t,set()))>1 else 'A_VERIFIER')
  couverture_titulaires=titulaires[['ID_position','Ticker','Societe','Pays']].merge(
-  couverture[['Ticker','Nb_faits_bruts','CIK_pistes','Statut_identite']],on='Ticker',how='left',validate='one_to_one')
+  couverture[['Ticker','Nb_faits_bruts','Nb_faits_chronologie_OK','CIK_pistes','Statut_identite']],on='Ticker',how='left',validate='one_to_one')
  if len(titulaires) and (len(couverture_titulaires)!=40 or couverture_titulaires.Nb_faits_bruts.isna().any()):
   raise RuntimeError('COUVERTURE_TITULAIRES_INCOMPLETE')
  couverture_titulaires['Statut_SSI']='EN_ATTENTE_DATA'
@@ -130,6 +158,7 @@ def executer():
  bilan={'archives_controlees':len(archives),'archives_qualification_us_controlees':len(archives_qualification),'archives_sources':archives+archives_qualification,'observations_brutes_distinctes':len(faits),
         'dossiers_avec_faits':int(couverture.Nb_faits_bruts.gt(0).sum()),'dossiers':len(scope),
         'observations_valeurs_divergentes':int(conflits.gt(1).sum()),
+        'observations_chronologie_non_validee':int(faits.Statut_chronologie.ne('OK').sum()) if not faits.empty else 0,
         'notes_attribuees':0,'identites_validees_automatiquement':0,
         'titulaires_couverts':len(couverture_titulaires),
         'titulaires_avec_pistes_SEC':int(couverture_titulaires.Nb_faits_bruts.gt(0).sum()) if len(couverture_titulaires) else 0,'statut':'BRUTS_CONSOLIDES_A_VERIFIER'}
