@@ -15,7 +15,7 @@ jobs:
     steps:
       - uses: actions/checkout@v4
         with:
-          ref: main
+          ref: ${{ github.ref_name }}
       - uses: actions/setup-python@v5
         with:
           python-version: "3.12"
@@ -47,6 +47,6 @@ jobs:
           git add AUDITS/DOSSIERS_SSI index.html APPLICATION/index.html
           if ! git diff --cached --quiet; then
             git commit -m "Qualification SSI incrementale : observations datees sans note imputee"
-            git pull --rebase origin main
-            git push origin main
+            git pull --rebase origin "$GITHUB_REF_NAME"
+            git push origin "HEAD:$GITHUB_REF_NAME"
           fi
