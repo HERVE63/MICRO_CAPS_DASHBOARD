@@ -41,14 +41,27 @@ def executer():
         for n in DONNEES:
             shutil.copy2(ROOT / "DONNEES" / n, base / "DONNEES" / n)
 
+        # Le filtre 07O peut changer la cohorte : choisir un ticker réellement
+        # présent dans sa sortie, puis injecter des annotations dans l'ancien
+        # registre temporaire afin de tester 07Q sans hypothèse d'ordre.
+        for n in SCRIPTS[:2]:
+            p = subprocess.run([sys.executable, str(base / "SCRIPTS_ACTIFS" / n)],
+                               cwd=base, text=True, capture_output=True)
+            assert p.returncode == 0, (n, p.stdout[-1200:], p.stderr[-1200:])
+        candidats = pd.read_csv(base / "DONNEES/CANDIDATS_PRETS_SSI.csv",
+                                dtype=str, keep_default_na=False)
+        assert not candidats.empty
+        ticker_test = candidats.iloc[0]["Ticker"]
         anciens = pd.read_csv(base / "DONNEES/DOSSIERS_SSI_A_QUALIFIER.csv",
                               dtype=str, keep_default_na=False)
-        # Régression : les preuves d'identité SCE et le CIK doivent survivre
-        # à 07Q, sans être considérés comme validés en l'absence des bruts.
-        assert not anciens.empty
-        anciens.loc[0, "CIK"] = "0000000123"
-        anciens.loc[0, "SCE_valide"] = "OUI"
-        anciens.loc[0, "Preuves_identite_SCE"] = "PREUVE_TEST_1|PREUVE_TEST_2"
+        if not anciens.Ticker.eq(ticker_test).any():
+            ajout = {c: "" for c in anciens.columns}
+            ajout["Ticker"] = ticker_test
+            anciens = pd.concat([anciens, pd.DataFrame([ajout])], ignore_index=True)
+        masque = anciens.Ticker.eq(ticker_test)
+        anciens.loc[masque, "CIK"] = "0000000123"
+        anciens.loc[masque, "SCE_valide"] = "OUI"
+        anciens.loc[masque, "Preuves_identite_SCE"] = "PREUVE_TEST_1|PREUVE_TEST_2"
         anciens.to_csv(base / "DONNEES/DOSSIERS_SSI_A_QUALIFIER.csv", index=False)
         annotations = {}
         for _, ligne in anciens.iterrows():
@@ -58,7 +71,7 @@ def executer():
                             "CIK", "SCE_valide", "Preuves_identite_SCE")}
             annotations[ligne["Ticker"]] = champs
 
-        for n in SCRIPTS[:4]:
+        for n in SCRIPTS[2:4]:
             p = subprocess.run([sys.executable, str(base / "SCRIPTS_ACTIFS" / n)],
                                cwd=base, text=True, capture_output=True)
             assert p.returncode == 0, (n, p.stdout[-1200:], p.stderr[-1200:])
@@ -78,12 +91,12 @@ def executer():
         # admission ne doit être produite sur des références non vérifiables.
         assert not resultat.Statut_SSI.eq("ADMIS_SSI").any()
         assert {"CIK", "SCE_valide", "Preuves_identite_SCE"}.issubset(nouveaux.columns)
-        cible = nouveaux.loc[nouveaux.Ticker.eq(anciens.loc[0, "Ticker"])]
+        cible = nouveaux.loc[nouveaux.Ticker.eq(ticker_test)]
         assert len(cible) == 1, "Dossier de test absent après préparation"
         assert cible.iloc[0]["SCE_valide"] == "OUI"
         assert cible.iloc[0]["CIK"] == "0000000123"
         assert cible.iloc[0]["Preuves_identite_SCE"] == "PREUVE_TEST_1|PREUVE_TEST_2"
-        assert resultat.loc[resultat.Ticker.eq(anciens.loc[0, "Ticker"]), "Statut_SSI"].iloc[0] != "ADMIS_SSI"
+        assert resultat.loc[resultat.Ticker.eq(ticker_test), "Statut_SSI"].iloc[0] != "ADMIS_SSI"
         for _, ligne in nouveaux.iterrows():
             if ligne.Ticker in annotations:
                 for c, attendu in annotations[ligne.Ticker].items():
