@@ -10,7 +10,13 @@ SRC=D/'DOSSIERS_SSI_A_QUALIFIER.csv';OUT=D/'RESULTATS_SSI.csv';AUD=D/'AUDIT_SSI.
 def executer():
     if not SRC.exists():raise RuntimeError('Dossiers SSI absents')
     df=pd.read_csv(SRC,dtype=str,keep_default_na=False)
-    if df.empty or df.Ticker.duplicated().any():raise RuntimeError('Dossiers SSI vides/tickers dupliqués')
+    if df.Ticker.duplicated().any():raise RuntimeError('Tickers SSI dupliqués')
+    if df.empty:
+        df['Motif_decision_SSI']=pd.Series(dtype=str)
+        df.to_csv(OUT,index=False)
+        pd.DataFrame([{'Date_validation_UTC':datetime.now(timezone.utc).isoformat(),'Dossiers':0,'Admis':0,'Refuses':0,'Refuses_plafond_sans_score_total':0,'Elimines':0,'Preuves_incompletes':0}]).to_csv(AUD,index=False)
+        print('SSI: aucun nouveau dossier qualifiable')
+        return df
     if not {'Decision_eliminatoire','Motif_eliminatoire',*[p+b for b in MAX for p in ['Note_','Preuve_']]}.issubset(df.columns):
         raise RuntimeError('Schéma dossier SSI incomplet')
     limite=datetime.now(timezone.utc);preuves=registre(D.parent,limite)
