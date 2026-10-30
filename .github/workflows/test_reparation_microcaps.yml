@@ -84,6 +84,7 @@ jobs:
           if p.returncode != 1:
               raise AssertionError('Le dispositif incomplet ne doit pas autoriser la sauvegarde')
           d=json.loads(p.stdout)
+          print('AUDIT_DIAGNOSTIC:',json.dumps(d,ensure_ascii=False),flush=True)
           assert d['sauvegarde_autorisee'] is False
           assert d['etapes']['chasse']['statut']=='BLOQUE'
           assert 'SOURCE_ABSENTE_OU_VIDE' in d['etapes']['chasse']['motif']
