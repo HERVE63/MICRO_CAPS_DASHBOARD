@@ -1,11 +1,6 @@
 name: Collecte directe des 40 titulaires
 on:
   workflow_dispatch:
-  push:
-    branches: [repair/microcaps-chain-20261030]
-    paths:
-      - 'SCRIPTS_ACTIFS/09D_COLLECTE_40_TITULAIRES.py'
-      - '.github/workflows/collecte-40-titulaires.yml'
 jobs:
   collecter:
     runs-on: ubuntu-latest
