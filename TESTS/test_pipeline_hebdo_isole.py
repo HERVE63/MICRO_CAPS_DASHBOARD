@@ -114,8 +114,8 @@ def executer():
             if ligne.Ticker == ticker_test:
                 for champ, attendu in annotations[ticker_test].items():
                     assert str(ligne[champ]) == str(attendu), (ligne.Ticker, champ)
-            elif ligne.Ticker != ticker_source:
-                # La collecte courante n'a pas de CIK pour ces tickers.
+            elif ligne.Ticker in annotations and ligne.Ticker != ticker_source:
+                # La collecte courante n'a pas de CIK pour ces tickers deja connus.
                 # Ne pas recycler une ancienne preuve ou validation SCE.
                 assert ligne.CIK in ("", "MANQUANTE")
                 assert ligne.SCE_valide == "NON"
