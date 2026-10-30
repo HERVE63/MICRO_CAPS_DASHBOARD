@@ -48,8 +48,8 @@ def qualification():
     # historique SEC susceptible de provenir d'une autre cohorte.
     dossiers = lire_csv(D / "DOSSIERS_SSI_A_QUALIFIER.csv")
     resultats = lire_csv(D / "RESULTATS_SSI.csv")
-    if not dossiers or not resultats:
-        raise RuntimeError("SSI_COURANT_VIDE")
+    if not dossiers and not resultats:
+        return {"dossiers_prepares":0,"resultats_courants":0,"dossiers_qualifies":0,"admis_SSI":0,"en_attente":0,"etat":"AUCUN_NOUVEAU_CANDIDAT"}
     if not {"Ticker", "Statut_SSI"}.issubset(resultats[0]):
         raise RuntimeError("SCHEMA_SSI_COURANT_INCOMPLET")
     td = [r.get("Ticker", "").strip() for r in dossiers]
@@ -65,7 +65,7 @@ def qualification():
             "en_attente": len(resultats) - len(qualifies)}
     # Une absence de preuves ne vaut jamais qualification.
     if not qualifies:
-        raise RuntimeError("AUCUN_DOSSIER_SSI_VERIFIE:" + json.dumps(info, ensure_ascii=False))
+        info["etat"]="QUALIFICATION_EN_ATTENTE"
     return info
 
 def revue():
@@ -75,7 +75,7 @@ def revue():
     if len(titulaires) != 40:
         raise RuntimeError("REVUE_TITULAIRES_INCOMPLETE:" + str(len(titulaires)))
     if not candidats:
-        raise RuntimeError("AUCUN_CHALLENGER_MCPA_DOCUMENTE")
+        return {"titulaires":len(titulaires),"challengers":0,"etat":"AUCUN_CHALLENGER_QUALIFIE"}
     for r in candidats:
         if float(r["SSI"]) < 65 or float(r["MCPA"]) < 80:
             raise RuntimeError("CHALLENGER_SOUS_SEUIL:" + r["Ticker"])
