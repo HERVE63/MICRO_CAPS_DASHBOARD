@@ -44,29 +44,28 @@ def chasse():
     return {"detections": len(lignes), "tickers_distincts": len({x["Ticker"] for x in lignes})}
 
 def qualification():
-    p = D / "DOSSIERS_SSI_A_QUALIFIER.csv"
-    dossiers = lire_csv(p)
-    manifeste = sorted((BASE / "AUDITS/SCE_DISCOVERY_US").glob("*/MANIFESTE.json"))
-    if not manifeste:
-        raise RuntimeError("AUCUN_RESULTAT_SSI_ARCHIVE")
-    mpath = manifeste[-1]
-    m = json.loads(mpath.read_text(encoding="utf-8"))
-    rpath = mpath.parent / "RESULTATS_SSI.csv"
-    empreinte = hashlib.sha256(rpath.read_bytes()).hexdigest()
-    if m.get("fichiers", {}).get("RESULTATS_SSI.csv") != empreinte:
-        raise RuntimeError("RESULTATS_SSI_ARCHIVE_ALTERES")
-    resultats = lire_csv(rpath)
-    if len(resultats) != int(m["cotations_conservees"]):
-        raise RuntimeError("COUVERTURE_SSI_DIVERGENTE")
-    admis = [x for x in resultats if x.get("Statut_SSI") == "ADMIS_SSI"]
-    complets = sum(x.get("Statut_SSI") in ("ADMIS_SSI", "REFUSE_SSI") for x in resultats)
-    couverture = complets / len(resultats)
-    info = {"dossiers_prepares": len(dossiers), "univers_SSI_US": len(resultats),
-            "dossiers_complets": complets, "admis_SSI": len(admis),
-            "couverture_pct": round(100 * couverture, 3),
-            "manifest_source": str(mpath.relative_to(BASE))}
-    if couverture < .5:
-        raise RuntimeError("COUVERTURE_SSI_INSUFFISANTE:" + json.dumps(info, ensure_ascii=False))
+    # Controle les resultats courants produits par 07R, et non une archive
+    # historique SEC susceptible de provenir d'une autre cohorte.
+    dossiers = lire_csv(D / "DOSSIERS_SSI_A_QUALIFIER.csv")
+    resultats = lire_csv(D / "RESULTATS_SSI.csv")
+    if not dossiers or not resultats:
+        raise RuntimeError("SSI_COURANT_VIDE")
+    if not {"Ticker", "Statut_SSI"}.issubset(resultats[0]):
+        raise RuntimeError("SCHEMA_SSI_COURANT_INCOMPLET")
+    td = [r.get("Ticker", "").strip() for r in dossiers]
+    tr = [r.get("Ticker", "").strip() for r in resultats]
+    if len(td) != len(set(td)) or len(tr) != len(set(tr)):
+        raise RuntimeError("DOUBLONS_SSI_COURANT")
+    if set(td) != set(tr):
+        raise RuntimeError("SSI_COURANT_NON_ALIGNE_DOSSIERS")
+    admis = [r for r in resultats if r["Statut_SSI"] == "ADMIS_SSI"]
+    qualifies = [r for r in resultats if r["Statut_SSI"] in ("ADMIS_SSI", "REFUSE_SSI")]
+    info = {"dossiers_prepares": len(dossiers), "resultats_courants": len(resultats),
+            "dossiers_qualifies": len(qualifies), "admis_SSI": len(admis),
+            "en_attente": len(resultats) - len(qualifies)}
+    # Une absence de preuves ne vaut jamais qualification.
+    if not qualifies:
+        raise RuntimeError("AUCUN_DOSSIER_SSI_VERIFIE:" + json.dumps(info, ensure_ascii=False))
     return info
 
 def revue():
