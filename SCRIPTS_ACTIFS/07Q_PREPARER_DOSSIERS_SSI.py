@@ -2,8 +2,17 @@ from pathlib import Path
 import pandas as pd
 B=Path(__file__).resolve().parent.parent; D=B/"DONNEES"
 SRC=D/"CANDIDATS_PRETS_SSI.csv"; OUT=D/"DOSSIERS_SSI_A_QUALIFIER.csv"; AUD=D/"AUDIT_DOSSIERS_SSI.csv"
+def archiver_registre():
+ """Sauvegarde toute version précédente, y compris avant une cohorte vide."""
+ if not OUT.exists():return
+ from datetime import datetime,timezone
+ import shutil
+ archive=B/"AUDITS"/"DOSSIERS_SSI"/datetime.now(timezone.utc).strftime("%Y%m%dT%H%M%S%fZ")
+ archive.mkdir(parents=True,exist_ok=False)
+ shutil.copy2(OUT,archive/OUT.name)
 def executer():
- d=pd.read_csv(SRC)
+ # Les CIK sont des identifiants, pas des nombres : conserver leurs zéros initiaux.
+ d=pd.read_csv(SRC,dtype={"Ticker":str,"CIK":str},keep_default_na=False)
  if "Date_scan_fond" not in d.columns:
   if "Date_scan" in d.columns:
    d["Date_scan_fond"]=d["Date_scan"]
@@ -14,6 +23,7 @@ def executer():
   colonnes=["Ticker","CIK","SCE_valide","Preuves_identite_SCE","SSI","Statut_SSI","Decision_eliminatoire","Motif_eliminatoire"]
   for b in ("B1","B2","B3","B4","B5","B6","B7"):
    colonnes.extend(["Note_"+b,"Preuve_"+b])
+  archiver_registre()
   pd.DataFrame(columns=colonnes).to_csv(OUT,index=False)
   pd.DataFrame([{"Dossiers_prets":0,"SSI_notes":0,"SSI_admis_65":0,"Statut":"EN_ATTENTE_DATA"}]).to_csv(AUD,index=False)
   return pd.DataFrame(columns=colonnes)
@@ -47,11 +57,7 @@ def executer():
  if OUT.exists():
   ancien=pd.read_csv(OUT,dtype=str,keep_default_na=False)
   if ancien["Ticker"].duplicated().any():raise RuntimeError("Ancien registre SSI dupliqué")
-  from datetime import datetime,timezone
-  archive=B/"AUDITS"/"DOSSIERS_SSI"/datetime.now(timezone.utc).strftime("%Y%m%dT%H%M%S%fZ")
-  archive.mkdir(parents=True,exist_ok=False)
-  import shutil
-  shutil.copy2(OUT,archive/OUT.name)
+  archiver_registre()
   humains=[c for c in ancien if c.startswith(("Note_","Preuve_","Validation_","Correction_")) or c in ("Decision_eliminatoire","Motif_eliminatoire","CIK","SCE_valide","Preuves_identite_SCE")]
   reg=ancien.set_index("Ticker")
   for c in humains:
