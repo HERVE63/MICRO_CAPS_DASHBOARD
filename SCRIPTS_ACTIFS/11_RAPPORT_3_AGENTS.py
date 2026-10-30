@@ -18,6 +18,7 @@ def n(x):
 
 def executer():
     chasse=rows("SORTIE_SCREENER_CANDIDATS.csv")
+    registre_chasse=rows("CHASSE_CANDIDATS.csv")
     fond=rows("FONDAMENTAUX_CANDIDATS_MICRO_CAPS.csv")
     prets=rows("CANDIDATS_PRETS_SSI.csv")
     attentes=rows("CANDIDATS_SSI_DONNEES_MANQUANTES.csv")
@@ -34,7 +35,9 @@ def executer():
     titulaires=[r for r in revue if r.get("Type","").upper()=="TITULAIRE"]
     challengers=[r for r in revue if r.get("Type","").upper()=="CHALLENGER"]
     operations=[r for r in journal if r.get("Statut_operation","").upper() in {"EXECUTEE","EXECUTE","EXÉCUTÉE","EXÉCUTÉ"}]
-    a1={"detections":len(chasse),"fondamentaux_recenses":len(fond),
+    a1={"detections_scan_courant":len(chasse),"registre_historique":len(registre_chasse),
+        "tickers_distincts_historique":len({r.get("Ticker") for r in registre_chasse}),
+        "fondamentaux_recenses":len(fond),
         "fondamentaux_OK":sum(r.get("Statut_fondamentaux")=="OK" for r in fond),
         "fondamentaux_manquants":sum(r.get("Statut_fondamentaux")=="MANQUANTE" for r in fond),
         "prets_a_documenter_SSI":len(prets),"en_attente_ou_exclus":len(attentes),
