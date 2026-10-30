@@ -122,10 +122,10 @@ def collecter():
     print("COLLECTE_40_PREUVES_PRIMAIRES=0; ARBITRAGE_INTERDIT")
     if os.environ.get("GITHUB_STEP_SUMMARY"):
         with open(os.environ["GITHUB_STEP_SUMMARY"], "a", encoding="utf-8") as f:
-            f.write("### Collecte EODHD : observations non certifiées\\n\\n")
+            f.write("### Collecte EODHD : observations non certifiées\n\n")
             f.write("40 lignes traitées ; preuves primaires validées : **0** ; "
-                    "SSI/MCPA et arbitrages : **non autorisés**.\\n\\n")
-            f.write("Statuts : " + json.dumps(compte, ensure_ascii=False) + "\\n")
+                    "SSI/MCPA et arbitrages : **non autorisés**.\n\n")
+            f.write("Statuts : " + json.dumps(compte, ensure_ascii=False) + "\n")
     return records
 
 
