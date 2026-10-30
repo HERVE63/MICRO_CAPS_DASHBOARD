@@ -56,6 +56,9 @@ def executer():
         ticker_source = candidats.iloc[1]["Ticker"]
         # Un CIK issu de la collecte ne doit pas perdre ses zéros initiaux.
         candidats["CIK"] = ""
+        # Identite presente dans la collecte : seules ces annotations peuvent
+        # etre preservees. Les autres tickers restent en attente d'identite.
+        candidats.loc[candidats.Ticker.eq(ticker_test), "CIK"] = "0000000123"
         candidats.loc[candidats.Ticker.eq(ticker_source), "CIK"] = "0000000456"
         candidats.to_csv(base / "DONNEES/CANDIDATS_PRETS_SSI.csv", index=False)
         anciens = pd.read_csv(base / "DONNEES/DOSSIERS_SSI_A_QUALIFIER.csv",
@@ -108,20 +111,17 @@ def executer():
         assert nouveaux.loc[nouveaux.Ticker.eq(ticker_source), "CIK"].iloc[0] == "0000000456"
         assert resultat.loc[resultat.Ticker.eq(ticker_test), "Statut_SSI"].iloc[0] != "ADMIS_SSI"
         for _, ligne in nouveaux.iterrows():
-            if ligne.Ticker in annotations:
-                for c, attendu in annotations[ligne.Ticker].items():
-                    if c == "CIK":
-                        # La nouvelle source fait autorité si son CIK est connu.
-                        # Deux valeurs absentes ("", MANQUANTE) sont équivalentes.
-                        nouveau = candidats.loc[candidats.Ticker.eq(ligne.Ticker), "CIK"].iloc[0]
-                        absents = {"", "MANQUANTE", "NAN", "NONE", "N/A"}
-                        attendu_cik = nouveau if str(nouveau).strip().upper() not in absents else attendu
-                        if str(attendu_cik).strip().upper() in absents:
-                            assert str(ligne[c]).strip().upper() in absents, (ligne.Ticker, c)
-                        else:
-                            assert str(ligne[c]) == str(attendu_cik), (ligne.Ticker, c)
-                    else:
-                        assert str(ligne[c]) == str(attendu), (ligne.Ticker, c)
+            if ligne.Ticker == ticker_test:
+                for champ, attendu in annotations[ticker_test].items():
+                    assert str(ligne[champ]) == str(attendu), (ligne.Ticker, champ)
+            elif ligne.Ticker != ticker_source:
+                # La collecte courante n'a pas de CIK pour ces tickers.
+                # Ne pas recycler une ancienne preuve ou validation SCE.
+                assert ligne.CIK in ("", "MANQUANTE")
+                assert ligne.SCE_valide == "NON"
+                assert ligne.Statut_SSI == "EN_ATTENTE_DATA_IDENTITE_CIK"
+                assert all(ligne[champ] == "MANQUANTE" for champ in nouveaux.columns
+                           if champ.startswith(("Note_", "Preuve_")))
         assert list((base / "AUDITS/DOSSIERS_SSI").glob("*/DOSSIERS_SSI_A_QUALIFIER.csv")), (
             "La préparation doit archiver l'ancien registre avant remplacement")
         # Incident de collecte : plus aucun candidat admissible. Le registre actif
