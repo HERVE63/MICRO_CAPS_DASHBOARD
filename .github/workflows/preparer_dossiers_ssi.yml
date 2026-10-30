@@ -1,8 +1,10 @@
 name: MICRO CAPS - PREPARER DOSSIERS SSI
 on:
   push:
+    branches: [repair/microcaps-chain-20261030]
     paths:
       - 'SCRIPTS_ACTIFS/07Q_PREPARER_DOSSIERS_SSI.py'
+      - '.github/workflows/preparer_dossiers_ssi.yml'
   workflow_dispatch:
 permissions:
   contents: write
@@ -17,12 +19,19 @@ jobs:
         with:
           python-version: '3.11'
       - run: pip install pandas
-      - run: python SCRIPTS_ACTIFS/07Q_PREPARER_DOSSIERS_SSI.py
-      - if: github.ref_name == 'main'
+      - name: Regenerer dossiers et valider uniquement les preuves existantes
+        run: |
+          python -B SCRIPTS_ACTIFS/07Q_PREPARER_DOSSIERS_SSI.py
+          python -B SCRIPTS_ACTIFS/07Q2_AUDIT_PREUVES_SSI.py
+          python -B SCRIPTS_ACTIFS/07R_VALIDER_NOTES_SSI.py
+          python -B SCRIPTS_ACTIFS/08B_CONTROLE_CHASSE_SSI.py
+      - if: github.ref_name == 'repair/microcaps-chain-20261030'
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
           git add DONNEES/DOSSIERS_SSI_A_QUALIFIER.csv DONNEES/AUDIT_DOSSIERS_SSI.csv AUDITS/DOSSIERS_SSI
+          git add DONNEES/PLAN_COLLECTE_PREUVES_SSI.csv DONNEES/AUDIT_COLLECTE_PREUVES_SSI.csv
+          git add DONNEES/RESULTATS_SSI.csv DONNEES/AUDIT_SSI.csv DONNEES/CONTROLE_CHASSE_SSI.csv
           git diff --cached --quiet || git commit -m "Prepare dossiers SSI Micro Caps"
           git pull --rebase origin "$GITHUB_REF_NAME"
           git push origin "HEAD:$GITHUB_REF_NAME"
