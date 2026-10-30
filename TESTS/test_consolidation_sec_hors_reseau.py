@@ -18,6 +18,11 @@ def test():
    pd.DataFrame([{'Ticker':'A.F','CIK':'0000000001'}]).to_csv(a/'DONNEES/PREUVES_SEC_EDGAR_SSI.csv',index=False)
    hashes={str(p.relative_to(a)):hashlib.sha256(p.read_bytes()).hexdigest() for p in (a/'DONNEES').glob('*')}
    (a/'MANIFESTE.json').write_text(json.dumps({'fichiers':hashes}))
+  # Quarante titulaires reels en forme, dont un ticker US sans faits :
+  # le raccordement doit les couvrir sans leur inventer de note.
+  cohort=[{'ID_ligne':str(i),'Ticker_cotation':('A.F' if i==1 else 'INFU' if i==2 else 'X'+str(i)+'.F'),
+           'Societe':'Titulaire '+str(i),'Pays':'USA' if i==2 else 'Allemagne'} for i in range(1,41)]
+  pd.DataFrame(cohort).to_csv(b/'DONNEES/COHORTE_MICRO_CAPS_T0.csv',index=False)
   before=(b/'DONNEES/DOSSIERS_SSI_A_QUALIFIER.csv').read_bytes()
   with patch.object(m,'BASE',b):result=m.executer()
   assert result['archives_controlees']==2 and result['observations_brutes_distinctes']==2
@@ -27,6 +32,14 @@ def test():
   assert all(d.Statut_observation.eq('VALEURS_DIVERGENTES_A_RELIRE'))
   assert d.loc[d.Valeur.eq(10),'Archives_sources'].iloc[0]=='AUDITS/SEC/RUN_A|AUDITS/SEC/RUN_B'
   assert d.loc[d.Valeur.eq(10),'Representations_brutes'].iloc[0]=='10|10.0'
+  couverture=pd.read_csv(out.parent/'COUVERTURE_TITULAIRES.csv')
+  assert len(couverture)==40
+  assert couverture.loc[couverture.ID_position.eq(1),'Nb_faits_bruts'].iloc[0]==2
+  assert couverture.loc[couverture.ID_position.eq(2),'Ticker'].iloc[0]=='INFU.US'
+  assert couverture.loc[couverture.ID_position.eq(2),'Nb_faits_bruts'].iloc[0]==0
+  assert couverture.Statut_SSI.eq('EN_ATTENTE_DATA').all()
+  assert couverture.Statut_MCPA.eq('EN_ATTENTE_DATA').all()
+  assert result['titulaires_couverts']==40 and result['titulaires_avec_pistes_SEC']==1
   assert (b/'DONNEES/DOSSIERS_SSI_A_QUALIFIER.csv').read_bytes()==before
   (b/'AUDITS/SEC/RUN_A/DONNEES/FAITS_FINANCIERS_SEC_SSI.csv').write_bytes(b'CORROMPU')
   with patch.object(m,'BASE',b):
