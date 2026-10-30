@@ -54,14 +54,14 @@ def test():
             avant = src.read_bytes()
             preuve["Identifiant_emetteur"] = identifiant
             reg = pd.DataFrame([preuve])
-            with patch.object(m, "registre", return_value=reg), \\
-                 patch.object(m, "valider_dossier", return_value=([], ["blocs incomplets"])), \\
+            with patch.object(m, "registre", return_value=reg), \
+                 patch.object(m, "valider_dossier", return_value=([], ["blocs incomplets"])), \
                  patch.object(m, "bilan_blocs_documentes", return_value={
                      "Nombre_blocs_SSI_documentes": 0,
                      "Plafond_SSI_si_blocs_restants_maximaux": 100
-                 }), \\
+                 }), \
                  patch.object(m, "verifier_identite_sce",
-                              return_value=[] if sce_valide else ["SCE non prouve"]), \\
+                              return_value=[] if sce_valide else ["SCE non prouve"]), \
                  patch("preuves_ssi.verifier", return_value=[]):
                 m.executer()
             assert src.read_bytes() == avant, "Le registre source ne doit pas etre modifie"
