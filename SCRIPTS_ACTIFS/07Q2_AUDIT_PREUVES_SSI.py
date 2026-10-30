@@ -29,7 +29,11 @@ def manquant(v):
 def executer():
  if not SRC.exists(): raise RuntimeError("Dossiers SSI absents")
  df=pd.read_csv(SRC,dtype=str,keep_default_na=False)
- if df.empty: raise RuntimeError("Dossiers SSI vides")
+ if df.empty:
+  pd.DataFrame(columns=["Ticker","Societe","Bloc_SSI","Variables_absentes","Preuve_validee","Note_presente","Preuves_complementaires_requises","Source_actuelle","Date_source_actuelle","Statut"]).to_csv(OUT,index=False)
+  pd.DataFrame([{"Dossiers":0,"Blocs_a_auditer":0,"Blocs_avec_variables_absentes":0,"Statut":"EN_ATTENTE_DATA"}]).to_csv(AUD,index=False)
+  print("Plan de collecte SSI : aucun dossier nouveau")
+  return pd.DataFrame()
  if df["Ticker"].duplicated().any(): raise RuntimeError("Tickers dupliques: identite a resoudre")
  rows=[]
  for _,r in df.iterrows():
