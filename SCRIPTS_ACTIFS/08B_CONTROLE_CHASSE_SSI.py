@@ -23,6 +23,8 @@ def executer():
         raise RuntimeError("Colonnes chasse absentes : " + ", ".join(absents))
 
     erreurs = []
+    if chasse.empty:
+        erreurs.append("Registre de chasse vide : aucune qualification de bout en bout possible.")
     if len(chasse):
         if chasse.duplicated(subset=["Ticker","Date_detection"]).any():
             erreurs.append("Doublon ticker/date dans la chasse.")
