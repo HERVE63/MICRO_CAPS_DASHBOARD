@@ -76,8 +76,9 @@ def executer():
   # émetteur est toujours celui du ticker. Ne jamais réutiliser son CIK
   # ni ses notes/preuves humaines par simple correspondance de ticker.
   source_cik_absent=nouveau_cik.str.strip().str.upper().isin(absents)
+  ancien_cik_absent=anciens_cik.astype(str).str.strip().str.upper().isin(absents)
   conflit=(~source_cik_absent
-           & ~anciens_cik.astype(str).str.strip().str.upper().isin(absents)
+           & ~ancien_cik_absent
            & nouveau_cik.str.strip().ne(anciens_cik.astype(str).str.strip()))
   # La quarantaine reste active après les régénérations suivantes : le fait
   # que le nouveau CIK ait remplacé l'ancien ne prouve PAS la résolution
@@ -85,9 +86,13 @@ def executer():
   deja_bloques=(out.loc[mask,"Ticker"].map(reg["Conflit_identite_CIK"]).eq("OUI")
                 if "Conflit_identite_CIK" in reg else pd.Series(False,index=out.index[mask]))
   conflit=conflit | deja_bloques
+  # Un ancien dossier sans CIK ne peut pas transmettre ses annotations au
+  # nouveau CIK par la seule concordance du ticker. Purger les annotations,
+  # sans qualifier de collision une identite historique simplement inconnue.
+  a_purger=conflit | source_cik_absent | ancien_cik_absent
   a_isoler=conflit | source_cik_absent
-  if a_isoler.any():
-   indices=anciens_cik.index[a_isoler]
+  if a_purger.any():
+   indices=anciens_cik.index[a_purger]
    for c in humains:
     out.loc[indices,c]="MANQUANTE"
    out.loc[indices,"SCE_valide"]="NON"
@@ -99,6 +104,10 @@ def executer():
   # Les données collectées ne certifient jamais une admission antérieure.
   out["SSI"]="MANQUANTE";out["Statut_SSI"]="A_REVALIDER_PREUVES_SSI"
   if a_isoler.any():out.loc[anciens_cik.index[a_isoler],"Statut_SSI"]="EN_ATTENTE_DATA_IDENTITE_CIK"
+ # Y compris pour les nouveaux tickers absents de tout registre precedent :
+ # un CIK non renseigne impose EN_ATTENTE_DATA, jamais une qualification.
+ cik_absent=out["CIK"].astype(str).str.strip().str.upper().isin({"","MANQUANTE","NAN","NONE","N/A"})
+ out.loc[cik_absent,"Statut_SSI"]="EN_ATTENTE_DATA_IDENTITE_CIK"
  tmp=OUT.with_suffix(".tmp");out.to_csv(tmp,index=False);tmp.replace(OUT)
  pd.DataFrame([{"Dossiers_prets":len(out),"SSI_notes":0,"SSI_admis_65":0,
                 "Conflits_CIK":int(out["Conflit_identite_CIK"].eq("OUI").sum()),
