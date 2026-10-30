@@ -44,7 +44,15 @@ def executer():
         if r.Decision_eliminatoire=='OUI':
             from preuves_ssi import verifier
             z=preuves[preuves.ID_preuve.eq(r.Motif_eliminatoire)]
-            if len(z)==1 and not verifier(z.iloc[0],r.Ticker,'EXCLUSIONS',D.parent,limite):
+            # Une preuve d'exclusion rattachee au ticker seul ne suffit pas :
+            # une collision de cotations peut viser un AUTRE emetteur.
+            # Identite SCE independamment verifiee + CIK exact obligatoires.
+            cik=str(r.get('CIK','')).strip()
+            preuve_exclusion=(z.iloc[0] if len(z)==1 else None)
+            if (preuve_exclusion is not None and cik
+                and preuve_exclusion.Identifiant_emetteur=='CIK:'+cik
+                and not verifier_identite_sce(r,preuves,D.parent,limite)
+                and not verifier(preuve_exclusion,r.Ticker,'EXCLUSIONS',D.parent,limite)):
                 scores.append('MANQUANTE');statuts.append('ELIMINE');motifs.append(r.Motif_eliminatoire);continue
         if erreurs and r.get('SCE_valide','NON')=='OUI' and r.Decision_eliminatoire=='NON' and partiels[-1]['Plafond_SSI_si_blocs_restants_maximaux']<65:
             from preuves_ssi import verifier
