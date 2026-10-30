@@ -59,7 +59,23 @@ def executer():
         assert int(audit.loc[0, "Identites_CIK_en_quarantaine"]) == 1
         assert int(audit.loc[0, "Admis"]) == 1
         assert dossier.read_bytes() == avant, "07R ne doit pas modifier le registre source"
-    print("07R OK : collision CIK bloquee, dossier sain poursuivi, audit et source preserves")
+        # Une ancienne cohorte sans champs d'identite ne doit jamais contourner
+        # verifier_identite_sce() ou le verrou Conflit_identite_CIK.
+        sortie_avant = module.OUT.read_bytes()
+        audit_avant = module.AUD.read_bytes()
+        for champ in ("CIK", "SCE_valide", "Preuves_identite_SCE", "Conflit_identite_CIK"):
+            pd.DataFrame(lignes).drop(columns=[champ]).to_csv(dossier, index=False)
+            try:
+                module.executer()
+            except RuntimeError as exc:
+                assert "Schema dossier SSI incomplet" in str(exc), (champ, str(exc))
+                assert champ in str(exc), (champ, str(exc))
+            else:
+                raise AssertionError("07R a accepte un dossier sans " + champ)
+            assert module.OUT.read_bytes() == sortie_avant, "Sortie modifiee malgre schema invalide"
+            assert module.AUD.read_bytes() == audit_avant, "Audit modifie malgre schema invalide"
+        dossier.write_bytes(avant)
+    print("07R OK : collision bloquee, schema SCE/CIK obligatoire, sorties preservees")
 
 if __name__ == "__main__":
     executer()
