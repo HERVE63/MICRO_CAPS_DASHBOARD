@@ -59,6 +59,7 @@ jobs:
           # Reconcilier la nouvelle chasse et les fondamentaux effectivement disponibles.
           # Les nouveaux tickers sans fondamentaux restent en attente : aucune imputation.
           python SCRIPTS_ACTIFS/07M_PREPARER_FILTRES_OBJECTIFS.py
+          python SCRIPTS_ACTIFS/07N2_COLLECTE_FONDAMENTAUX_INCREMENTALE.py
           python SCRIPTS_ACTIFS/07O_CONTROLE_PRE_SSI.py
           # Regenerer les dossiers SSI en conservant les annotations humaines historiques.
           python SCRIPTS_ACTIFS/07Q_PREPARER_DOSSIERS_SSI.py
