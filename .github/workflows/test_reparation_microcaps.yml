@@ -41,6 +41,8 @@ jobs:
               with (t/'DONNEES/CHASSE_CANDIDATS.csv').open() as f:
                   assert len(list(csv.DictReader(f)))==1
           PY
+      - name: Verifier integrite du registre historique et ses 31352 detections
+        run: python -B TESTS/test_integrite_registre_chasse_hors_reseau.py
       - name: Tester preparation SSI sur copie isolee et preservation des preuves
         run: |
           python - <<'PY'
