@@ -74,8 +74,18 @@ def executer():
                 raise AssertionError("07R a accepte un dossier sans " + champ)
             assert module.OUT.read_bytes() == sortie_avant, "Sortie modifiee malgre schema invalide"
             assert module.AUD.read_bytes() == audit_avant, "Audit modifie malgre schema invalide"
+        # Defense en profondeur : le validateur commun ne doit pas sauter
+        # l'identite SCE lorsqu'il est invoque sans passer par 07R.
+        sans_sce = pd.Series({
+            "Ticker": "SANS_SCE", "CIK": "0000000123",
+            "Decision_eliminatoire": "NON", "Motif_eliminatoire": "MANQUANTE",
+            **{"Preuve_" + b: "MANQUANTE" for b in "B1 B2 B3 B4 B5 B6 B7".split()},
+        })
+        _, erreurs = module.valider_dossier(
+            sans_sce, pd.DataFrame(columns=["ID_preuve"]), Path(temp))
+        assert "contrôles SCE non validés" in erreurs, erreurs
         dossier.write_bytes(avant)
-    print("07R OK : collision bloquee, schema SCE/CIK obligatoire, sorties preservees")
+    print("07R OK : collision bloquee, schema SCE/CIK et validateur commun proteges")
 
 if __name__ == "__main__":
     executer()
