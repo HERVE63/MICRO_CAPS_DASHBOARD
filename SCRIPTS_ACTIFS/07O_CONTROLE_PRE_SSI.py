@@ -29,7 +29,7 @@ def executer():
  ready=x[x["Statut_pre_SSI"].eq("PRET_SSI")].copy()
  hold=x[~x["Statut_pre_SSI"].eq("PRET_SSI")].copy()
  ready.to_csv(OUT,index=False); hold.to_csv(HOLD,index=False)
- pd.DataFrame([{"Univers_marche_OK":len(x),"Prets_SSI":len(ready),"Donnees_manquantes":int((x["Statut_pre_SSI"]=="DONNEES_INDISPENSABLES_MANQUANTES").sum()),"Elimination_activite_nulle":int((x["Statut_pre_SSI"]=="ELIMINATION_ACTIVITE_NULLE").sum()),"SSI_calcule":"NON"}]).to_csv(AUD,index=False)
+ pd.DataFrame([{"Univers_marche_OK":len(x),"Prets_SSI":len(ready),"Donnees_manquantes":int((x["Statut_pre_SSI"]=="EN_ATTENTE_DATA").sum()),"Elimination_activite_nulle":int((x["Statut_pre_SSI"]=="ELIMINATION_ACTIVITE_NULLE").sum()),"SSI_calcule":"NON"}]).to_csv(AUD,index=False)
  print("prets SSI",len(ready),"retenus/manquants",len(hold))
  return ready
 if __name__=="__main__": executer()
