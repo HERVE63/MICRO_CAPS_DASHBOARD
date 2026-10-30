@@ -23,6 +23,7 @@ def executer():
     prets=rows("CANDIDATS_PRETS_SSI.csv")
     attentes=rows("CANDIDATS_SSI_DONNEES_MANQUANTES.csv")
     preuves=rows("REGISTRE_PREUVES_SSI.csv")
+    plan_preuves=rows("PLAN_COLLECTE_PREUVES_SSI.csv")
     resultats=rows("RESULTATS_SSI.csv")
     revue=rows("REVUE_HEBDOMADAIRE_MCPA_IPS.csv")
     duels=rows("DUELS_PROCHAIN_EURO.csv")
@@ -42,7 +43,9 @@ def executer():
         "fondamentaux_manquants":sum(r.get("Statut_fondamentaux")=="MANQUANTE" for r in fond),
         "prets_a_documenter_SSI":len(prets),"en_attente_ou_exclus":len(attentes),
         "prets_volume_median_positif":sum(n(r.get("Volume_monetaire_median_63s_local"))>0 for r in prets)}
-    a2={"preuves_en_registre":len(preuves),"candidats_avec_au_moins_une_preuve":len(avec_preuves),
+    a2={"preuves_en_registre":len(preuves),
+        "blocs_preuves_a_documenter":len(plan_preuves),
+        "blocs_variables_absentes":sum(bool(r.get("Variables_absentes")) for r in plan_preuves),"candidats_avec_au_moins_une_preuve":len(avec_preuves),
         "resultats_SSI":len(resultats),"admis_SSI":len(qualifies),
         "challengers_MCPA_documentes":len(challengers),
         "statut":"AUCUN_ADMIS_VERIFIE" if not qualifies else "ADMISSIONS_A_CONFRONTER"}
