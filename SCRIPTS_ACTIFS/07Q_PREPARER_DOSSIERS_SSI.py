@@ -9,6 +9,7 @@ def executer():
    d["Date_scan_fond"]=d["Date_scan"]
   else:
    raise RuntimeError("Date des fondamentaux manquante : aucune date inventee")
+ if "Momentum_12m_pct" not in d.columns: d["Momentum_12m_pct"]=pd.NA
  if d.empty:
   colonnes=["Ticker","SSI","Statut_SSI","Decision_eliminatoire","Motif_eliminatoire"]
   for b in ("B1","B2","B3","B4","B5","B6","B7"):
@@ -27,6 +28,7 @@ def executer():
   "B6_source":d["Source_fondamentaux"],"B6_date":d["Date_scan_fond"],
   "B7_volume_local":d["Volume_monetaire_median_63s_local"],
   "Momentum_3m_pct":d["Momentum_3m_pct"],"Momentum_6m_pct":d["Momentum_6m_pct"],
+  "Momentum_12m_pct":d["Momentum_12m_pct"],
   "Au_dessus_MM200":d["Au_dessus_MM200"]
  })
  # Gouvernance/dilution et qualité documentaire ne peuvent pas être déduites des seuls champs actuels.
