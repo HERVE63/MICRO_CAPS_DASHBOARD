@@ -24,8 +24,23 @@ def test_chronologie():
  except ValueError as e:assert 'REFERENCE_UTC' in str(e)
  else:raise AssertionError('Référence sans fuseau acceptée')
 
+def test_disponibilite_t0():
+ # Pas de biais d'anticipation : une publication du jour T0 est exclue.
+ d=pd.DataFrame([
+  {'Ticker':'INFU.US','Date_depot':'2026-09-30','Statut_chronologie':'OK'},
+  {'Ticker':'INFU.US','Date_depot':'2026-10-01','Statut_chronologie':'OK'},
+  {'Ticker':'INFU.US','Date_depot':'2026-10-20','Statut_chronologie':'OK'},
+  {'Ticker':'INFU.US','Date_depot':'invalide','Statut_chronologie':'FORMAT_DATE_INVALIDE'},
+  {'Ticker':'AUTRE','Date_depot':'2026-09-01','Statut_chronologie':'OK'}])
+ statut=m.verifier_disponibilite_t0(d,{'INFU.US':'2026-10-01'})
+ assert statut.tolist()==['DISPONIBLE_AVANT_T0','POSTERIEUR_OU_JOUR_T0','POSTERIEUR_OU_JOUR_T0','CHRONOLOGIE_NON_VALIDEE','HORS_COHORTE_T0'],statut.tolist()
+ try:m.verifier_disponibilite_t0(d,{'INFU.US':'2026-13-99'})
+ except RuntimeError as e:assert 'DATE_T0_INVALIDE' in str(e)
+ else:raise AssertionError('Date T0 malformée acceptée')
+
 def test():
  test_chronologie()
+ test_disponibilite_t0()
  with TemporaryDirectory() as tmp:
   b=Path(tmp);(b/'DONNEES').mkdir()
   pd.DataFrame([{'Ticker':'A.F','Societe':'Fixture','Pays':'Allemagne'}]).to_csv(b/'DONNEES/DOSSIERS_SSI_A_QUALIFIER.csv',index=False)
@@ -39,7 +54,7 @@ def test():
   # Quarante titulaires reels en forme, dont un ticker US sans faits :
   # le raccordement doit les couvrir sans leur inventer de note.
   cohort=[{'ID_ligne':str(i),'Ticker_cotation':('A.F' if i==1 else 'INFU' if i==2 else 'X'+str(i)+'.F'),
-           'Societe':'Titulaire '+str(i),'Pays':'USA' if i==2 else 'Allemagne'} for i in range(1,41)]
+           'Societe':'Titulaire '+str(i),'Pays':'USA' if i==2 else 'Allemagne','Date_T0':'2026-10-01'} for i in range(1,41)]
   pd.DataFrame(cohort).to_csv(b/'DONNEES/COHORTE_MICRO_CAPS_T0.csv',index=False)
   # Reutilisation de la qualification US 07U, avec verification SHA256.
   us=b/'AUDITS/QUALIFICATION_US/20261016T000000Z'
@@ -70,6 +85,10 @@ def test():
   assert str(couverture.loc[couverture.ID_position.eq(2),'CIK_pistes'].iloc[0]).zfill(10)=='0000000022'
   assert couverture.Nb_faits_chronologie_OK.loc[couverture.ID_position.eq(1)].iloc[0]==3
   assert couverture.Nb_faits_chronologie_OK.loc[couverture.ID_position.eq(2)].iloc[0]==1
+  assert couverture.Nb_faits_disponibles_T0.loc[couverture.ID_position.eq(1)].iloc[0]==3
+  assert couverture.Nb_faits_disponibles_T0.loc[couverture.ID_position.eq(2)].iloc[0]==1
+  assert result['observations_disponibles_avant_T0']==4
+  assert result['observations_post_T0']==0
   assert result['observations_chronologie_non_validee']==0
   assert couverture.Statut_SSI.eq('EN_ATTENTE_DATA').all()
   assert couverture.Statut_MCPA.eq('EN_ATTENTE_DATA').all()
