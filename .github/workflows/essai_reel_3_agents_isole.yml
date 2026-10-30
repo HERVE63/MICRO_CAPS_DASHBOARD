@@ -17,6 +17,7 @@ jobs:
         with:
           python-version: "3.12"
       - run: pip install pandas numpy yfinance cryptography
+      - run: python -c 'import pandas; print("Pandas", pandas.__version__)'
       - name: Integrite du T0 avant essai
         run: python -B SCRIPTS_ACTIFS/07AC_CONTROLER_T0.py
       - name: Agent 1 collecte incrementale sur 10 tickers en espace ephemere
