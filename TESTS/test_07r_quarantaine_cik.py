@@ -23,8 +23,11 @@ def executer():
         data.mkdir()
         dossier = data / "DOSSIERS_SSI_A_QUALIFIER.csv"
         lignes = []
-        for ticker, conflit in [("COLLISION", "OUI"), ("SAIN", "NON")]:
-            ligne = dict(Ticker=ticker, CIK="0000000123",
+        for ticker, conflit, cik in [("COLLISION", "OUI", "0000000123"),
+                                      ("SAIN", "NON", "0000000123"),
+                                      ("SANS_CIK", "NON", ""),
+                                      ("CIK_INVALIDE", "NON", "123")]:
+            ligne = dict(Ticker=ticker, CIK=cik,
                          SCE_valide="OUI", Preuves_identite_SCE="ID1|ID2",
                          Decision_eliminatoire="NON", Motif_eliminatoire="EXCLUSION1",
                          Conflit_identite_CIK=conflit)
@@ -52,11 +55,14 @@ def executer():
         resultat = pd.read_csv(module.OUT, dtype=str, keep_default_na=False).set_index("Ticker")
         assert resultat.loc["COLLISION", "SSI"] == "MANQUANTE"
         assert resultat.loc["COLLISION", "Statut_SSI"] == "EN_ATTENTE_DATA_IDENTITE_CIK"
+        for ticker in ("SANS_CIK", "CIK_INVALIDE"):
+            assert resultat.loc[ticker, "SSI"] == "MANQUANTE"
+            assert resultat.loc[ticker, "Statut_SSI"] == "EN_ATTENTE_DATA_IDENTITE_CIK"
         assert resultat.loc["SAIN", "SSI"] == "70"
         assert resultat.loc["SAIN", "Statut_SSI"] == "ADMIS_SSI"
-        assert appeles == ["SAIN"], "Le dossier en quarantaine ne doit meme pas etre note"
+        assert appeles == ["SAIN"], "Les dossiers sans CIK valide ou en collision ne doivent pas etre notes"
         audit = pd.read_csv(module.AUD)
-        assert int(audit.loc[0, "Identites_CIK_en_quarantaine"]) == 1
+        assert int(audit.loc[0, "Identites_CIK_en_quarantaine"]) == 3
         assert int(audit.loc[0, "Admis"]) == 1
         assert dossier.read_bytes() == avant, "07R ne doit pas modifier le registre source"
         # Une ancienne cohorte sans champs d'identite ne doit jamais contourner
@@ -117,7 +123,7 @@ def executer():
                 dossier_direct, preuves_simulees, Path(temp))
             assert any("collision CIK" in e for e in erreurs), erreurs
         dossier.write_bytes(avant)
-    print("07R OK : collision bloquee, schema SCE/CIK et validateur commun proteges")
+    print("07R OK : collision, CIK absent/invalide, schema SCE et validateur proteges")
 
 if __name__ == "__main__":
     executer()
