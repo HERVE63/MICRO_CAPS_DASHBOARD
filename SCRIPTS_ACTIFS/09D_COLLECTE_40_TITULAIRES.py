@@ -109,6 +109,8 @@ def collecter():
     synthese = {
         "debut_UTC": debut, "fin_UTC": datetime.now(timezone.utc).isoformat(),
         "nombre_positions": len(records), "statuts": compte,
+        "codes_http": dict(Counter(str(x.get("HTTP_statut", "AUCUN")) for x in records)),
+        "types_erreur": dict(Counter(x.get("Erreur_type", "AUCUNE") for x in records)),
         "observations_fournisseur": compte.get("OBSERVATION_FOURNISSEUR_NON_CERTIFIEE", 0),
         "preuves_primaires_validees": 0, "scores_attribues": 0,
         "revue_MCPA_validee": False, "arbitrage_autorise": False,
@@ -119,6 +121,8 @@ def collecter():
         synthese, indent=2, ensure_ascii=False, sort_keys=True
     ).encode("utf-8"))
     print("COLLECTE_40_STATUTS " + json.dumps(compte, ensure_ascii=False, sort_keys=True))
+    print("COLLECTE_40_HTTP " + json.dumps(synthese["codes_http"], sort_keys=True))
+    print("COLLECTE_40_ERREURS " + json.dumps(synthese["types_erreur"], sort_keys=True))
     print("COLLECTE_40_PREUVES_PRIMAIRES=0; ARBITRAGE_INTERDIT")
     if os.environ.get("GITHUB_STEP_SUMMARY"):
         with open(os.environ["GITHUB_STEP_SUMMARY"], "a", encoding="utf-8") as f:
