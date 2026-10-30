@@ -68,6 +68,7 @@ def executer():
         execu.JOURNAL = journal
         execu.REVUE = revue
         execu.PARAMS = params
+        execu.COUVERTURE = tmp / "COUVERTURE_ARBITRAGE_GERE.csv"
         prix = SimpleNamespace(derniere_cloture_validee=lambda ticker, date: {"cours_cloture": 10.0})
         fx = SimpleNamespace(tous_les_fx=lambda date: {k: {"fx_vers_eur": 1.0}
                             for k in ("USD", "EUR", "GBP", "CAD", "SEK", "NOK", "CHF")})
@@ -87,6 +88,16 @@ def executer():
         ancien_force = os.environ.get("MICRO_CAPS_FORCE_MENSUEL")
         os.environ["MICRO_CAPS_FORCE_MENSUEL"] = "1"
         try:
+            # Sans revue valide : 40 lignes explicites EN_ATTENTE_DATA, zero ordre.
+            pd.DataFrame(columns=r.columns).to_csv(revue, index=False)
+            vide = execu.executer(dry_run=True)
+            assert vide.empty
+            couverture = pd.read_csv(execu.COUVERTURE)
+            assert len(couverture) == 40
+            assert set(couverture.Statut_MCPA) == {"EN_ATTENTE_DATA"}
+            assert set(couverture.Operation_virtuelle) == {"NON"}
+            assert journal.read_bytes() == original_journal
+            r.to_csv(revue, index=False)
             operations = execu.executer(dry_run=True)
             assert len(operations) == 2, operations
             assert list(operations.Type_operation) == ["SORTIE", "ENTREE"]
