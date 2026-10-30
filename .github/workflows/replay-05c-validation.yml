@@ -25,7 +25,9 @@ jobs:
         if: always()
         with:
           name: collecte-directe-40
-          path: |\n            DONNEES/COLLECTE_DIRECTE_40_TITULAIRES.csv\n            AUDITS/HISTORIQUE_COLLECTES_HEBDOMADAIRES/COLLECTE_40_*/
+          path: |
+            DONNEES/COLLECTE_DIRECTE_40_TITULAIRES.csv
+            AUDITS/HISTORIQUE_COLLECTES_HEBDOMADAIRES/COLLECTE_40_*/
       - run: python SCRIPTS_ACTIFS/09C_AUDIT_RACCORDEMENT_TITULAIRES.py
       - uses: actions/upload-artifact@v4
         with:
