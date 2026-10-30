@@ -49,7 +49,7 @@ jobs:
               t=pathlib.Path(d)
               (t/'SCRIPTS_ACTIFS').mkdir()
               (t/'DONNEES').mkdir()
-              shutil.copy2(root/'SCRIPTS_ACTIFS/07Q_PREPARER_DOSSIERS_SSI.py',t/'SCRIPTS_ACTIFS')
+              shutil.copy2(root/'SCRIPTS_ACTIFS/07Q_PREPARER_DOSSIERS_SSI.py SCRIPTS_ACTIFS/07Q2_AUDIT_PREUVES_SSI.py',t/'SCRIPTS_ACTIFS')
               shutil.copy2(root/'DONNEES/CANDIDATS_PRETS_SSI.csv',t/'DONNEES')
               script=t/'SCRIPTS_ACTIFS/07Q_PREPARER_DOSSIERS_SSI.py'
               subprocess.run([sys.executable,str(script)],check=True)
