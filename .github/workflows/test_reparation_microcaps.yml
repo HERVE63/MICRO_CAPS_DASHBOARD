@@ -85,8 +85,8 @@ jobs:
               raise AssertionError('Le dispositif incomplet ne doit pas autoriser la sauvegarde')
           d=json.loads(p.stdout)
           assert d['sauvegarde_autorisee'] is False
-          assert d['etapes']['chasse']['statut']=='OK'
-          assert d['etapes']['chasse']['detections'] > 0
+          assert d['etapes']['chasse']['statut']=='BLOQUE'
+          assert d['etapes']['chasse']['detections'] == 0
           assert d['etapes']['portefeuilles_et_benchmarks']['statut']=='OK'
           assert d['etapes']['qualification_SSI']['statut']=='BLOQUE'
           assert d['etapes']['revue_MCPA_IPS']['statut']=='BLOQUE'
@@ -110,6 +110,8 @@ jobs:
               dest.mkdir(parents=True)
               shutil.copy2(manifests[-1],dest/'MANIFESTE.json')
               script=t/'SCRIPTS_ACTIFS/08_GENERER_DASHBOARD.py'
+              # Le registre versionne est vide : reconstruire un exemple strictement isole.
+              (t/'DONNEES/CHASSE_CANDIDATS.csv').write_text('Date_detection,Societe,Ticker,Devise,Pays,Source_detection,Date_source,These_initiale,Statut_chasse\n2026-10-30,Test,TEST,USD,USA,TEST,2026-10-30,Test,DETECTE\n')
               p=subprocess.run([sys.executable,str(script)],capture_output=True,text=True)
               assert p.returncode==0,(p.stdout,p.stderr)
               page=(t/'index.html').read_text()
