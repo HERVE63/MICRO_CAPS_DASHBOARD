@@ -33,6 +33,12 @@ def executer():
                 if pd.isna(r[c]) or str(r[c]).strip() == "":
                     erreurs.append(f"Ligne {i+1}: {c} manquant.")
 
+    if not RESULTATS.exists():
+        erreurs.append("Validation SSI non exécutée : RESULTATS_SSI.csv absent.")
+    else:
+        audit_ssi = pd.read_csv(RESULTATS, dtype=str, keep_default_na=False)
+        if audit_ssi.empty or "Statut_SSI" not in audit_ssi.columns:
+            erreurs.append("Résultats SSI vides ou sans statut.")
     revue = pd.read_csv(REVUE) if REVUE.exists() else pd.DataFrame()
     challengers = (
         revue[revue["Type"].astype(str).str.upper().eq("CHALLENGER")]
