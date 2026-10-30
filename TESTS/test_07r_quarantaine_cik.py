@@ -84,6 +84,38 @@ def executer():
         _, erreurs = module.valider_dossier(
             sans_sce, pd.DataFrame(columns=["ID_preuve"]), Path(temp))
         assert "contrôles SCE non validés" in erreurs, erreurs
+        # Defense en profondeur : un appel DIRECT au validateur commun ne
+        # doit pas accepter une collision CIK, meme avec toutes les preuves
+        # simulées comme valides. Les notes ci-dessous sont des fixtures de
+        # test uniquement, sans rapport avec des societes ou des scores reels.
+        lignes_preuves = [
+            {"ID_preuve": ident, "Source_URL": "https://source.example/" + ident,
+             "Identifiant_emetteur": "CIK:0000000123", "Note": "1"}
+            for ident in ["SCE1", "SCE2", "EX1", "B1P", "B2P", "B3P",
+                          "B4P", "B5P", "B6P", "B7P"]
+        ]
+        preuves_simulees = pd.DataFrame(lignes_preuves)
+        dossier_direct = pd.Series({
+            "Ticker": "FIXTURE", "CIK": "0000000123",
+            "SCE_valide": "OUI", "Preuves_identite_SCE": "SCE1|SCE2",
+            "Conflit_identite_CIK": "NON",
+            "Decision_eliminatoire": "NON", "Motif_eliminatoire": "EX1",
+            **{"Note_" + b: "1" for b in "B1 B2 B3 B4 B5 B6 B7".split()},
+            **{"Preuve_" + b: b + "P" for b in "B1 B2 B3 B4 B5 B6 B7".split()},
+        })
+        with patch("preuves_ssi.verifier", return_value=[]):
+            notes, erreurs = module.valider_dossier(
+                dossier_direct, preuves_simulees, Path(temp))
+            assert notes == [1] * 7 and not erreurs, (notes, erreurs)
+            for statut in ("OUI", "", "INCONNU"):
+                dossier_direct["Conflit_identite_CIK"] = statut
+                _, erreurs = module.valider_dossier(
+                    dossier_direct, preuves_simulees, Path(temp))
+                assert any("collision CIK" in e for e in erreurs), (statut, erreurs)
+            dossier_direct.drop(labels=["Conflit_identite_CIK"], inplace=True)
+            _, erreurs = module.valider_dossier(
+                dossier_direct, preuves_simulees, Path(temp))
+            assert any("collision CIK" in e for e in erreurs), erreurs
         dossier.write_bytes(avant)
     print("07R OK : collision bloquee, schema SCE/CIK et validateur commun proteges")
 
