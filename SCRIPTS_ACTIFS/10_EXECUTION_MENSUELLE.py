@@ -49,8 +49,11 @@ def executer(dry_run=False):
     journal=pd.read_csv(JOURNAL)
     replay=charger("05C_REPLAY_PORTEFEUILLE_GERE.py").executer()
     positions=replay["positions"]
-    if float(replay["cash"])>0.01:
-        raise RuntimeError("Cash antérieur non alloué : exécution mensuelle bloquée.")
+    # Le cash residuel legitime ne doit pas bloquer les rotations des positions.
+    # Seul le produit net des ventes du jour est realloue automatiquement.
+    cash_preexistant=float(replay["cash"])
+    if not __import__("math").isfinite(cash_preexistant) or cash_preexistant < -1e-8:
+        raise RuntimeError("Cash du replay invalide ou negatif : arbitrage bloque.")
 
     px=charger("03A_MOTEUR_CLOTURES_V3.py")
     fxm=charger("03B_MOTEUR_FX_V3.py")
