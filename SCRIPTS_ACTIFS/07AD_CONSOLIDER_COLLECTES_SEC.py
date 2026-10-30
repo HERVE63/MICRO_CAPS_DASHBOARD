@@ -16,6 +16,24 @@ def valeur_comparable(v):
 def executer():
  scope=pd.read_csv(BASE/'DONNEES/DOSSIERS_SSI_A_QUALIFIER.csv',dtype=str,keep_default_na=False)
  if scope.Ticker.duplicated().any():raise RuntimeError('DOUBLON_DOSSIER')
+ scope=scope[['Ticker','Societe','Pays']].copy()
+ scope['Origine']='CANDIDAT_SSI'
+ titulaires=pd.DataFrame(columns=['ID_position','Ticker','Societe','Pays'])
+ cohorte=BASE/'DONNEES/COHORTE_MICRO_CAPS_T0.csv'
+ if cohorte.exists():
+  c=pd.read_csv(cohorte,dtype=str,keep_default_na=False,encoding='utf-8-sig')
+  champs={'ID_ligne','Ticker_cotation','Societe','Pays'}
+  if not champs.issubset(c.columns) or len(c)!=40 or c.ID_ligne.duplicated().any() or c.Ticker_cotation.duplicated().any():
+   raise RuntimeError('COHORTE_T0_40_INVALIDE')
+  titulaires=c[['ID_ligne','Ticker_cotation','Societe','Pays']].rename(columns={'ID_ligne':'ID_position','Ticker_cotation':'Ticker'}).copy()
+  if titulaires.Ticker.str.strip().eq('').any():raise RuntimeError('TICKER_TITULAIRE_ABSENT')
+  # La seule normalisation explicite est le suffixe .US des archives SEC ;
+  # aucun rapprochement approximatif de noms ou de places de cotation.
+  titulaires.loc[titulaires.Pays.eq('USA'),'Ticker']=titulaires.loc[titulaires.Pays.eq('USA'),'Ticker'].map(lambda x:x if x.endswith('.US') else x+'.US')
+  if titulaires.Ticker.duplicated().any():raise RuntimeError('TICKER_TITULAIRE_AMBIGU')
+  t=titulaires[['Ticker','Societe','Pays']].copy();t['Origine']='TITULAIRE'
+  scope=pd.concat([scope,t],ignore_index=True)
+  scope=scope.groupby('Ticker',as_index=False,sort=False).agg({'Societe':'first','Pays':'first','Origine':lambda x:'|'.join(sorted(set(x)))})
  lignes=[];archives=[];identites={}
  for p in sorted((BASE/'AUDITS/SEC').glob('RUN_*/MANIFESTE.json')):
   manifest=json.loads(p.read_text());src=p.parent/'DONNEES/FAITS_FINANCIERS_SEC_SSI.csv'
@@ -54,13 +72,22 @@ def executer():
  couverture['Nb_faits_bruts']=couverture.Ticker.map(counts).fillna(0).astype(int)
  couverture['CIK_pistes']=couverture.Ticker.map(lambda t:'|'.join(sorted(identites.get(t,set()))))
  couverture['Statut_identite']=couverture.Ticker.map(lambda t:'IDENTITE_DIVERGENTE_A_RELIRE' if len(identites.get(t,set()))>1 else 'A_VERIFIER')
+ couverture_titulaires=titulaires[['ID_position','Ticker','Societe','Pays']].merge(
+  couverture[['Ticker','Nb_faits_bruts','CIK_pistes','Statut_identite']],on='Ticker',how='left',validate='one_to_one')
+ if len(titulaires) and (len(couverture_titulaires)!=40 or couverture_titulaires.Nb_faits_bruts.isna().any()):
+  raise RuntimeError('COUVERTURE_TITULAIRES_INCOMPLETE')
+ couverture_titulaires['Statut_SSI']='EN_ATTENTE_DATA'
+ couverture_titulaires['Statut_MCPA']='EN_ATTENTE_DATA'
  out=BASE/'AUDITS/SEC_CONSOLIDE'/datetime.now(timezone.utc).strftime('%Y%m%dT%H%M%S%fZ');out.mkdir(parents=True,exist_ok=False)
  faits.to_csv(out/'FAITS_SEC_BRUTS_CONSOLIDES.csv',index=False)
  couverture.to_csv(out/'COUVERTURE.csv',index=False)
+ couverture_titulaires.to_csv(out/'COUVERTURE_TITULAIRES.csv',index=False)
  bilan={'archives_controlees':len(archives),'archives_sources':archives,'observations_brutes_distinctes':len(faits),
         'dossiers_avec_faits':int(couverture.Nb_faits_bruts.gt(0).sum()),'dossiers':len(scope),
         'observations_valeurs_divergentes':int(conflits.gt(1).sum()),
-        'notes_attribuees':0,'identites_validees_automatiquement':0,'statut':'BRUTS_CONSOLIDES_A_VERIFIER'}
+        'notes_attribuees':0,'identites_validees_automatiquement':0,
+        'titulaires_couverts':len(couverture_titulaires),
+        'titulaires_avec_pistes_SEC':int(couverture_titulaires.Nb_faits_bruts.gt(0).sum()) if len(couverture_titulaires) else 0,'statut':'BRUTS_CONSOLIDES_A_VERIFIER'}
  (out/'MANIFESTE.json').write_text(json.dumps(bilan,ensure_ascii=False,indent=2)+'\n')
  print(json.dumps({k:v for k,v in bilan.items() if k!='archives_sources'},ensure_ascii=False),flush=True)
  return bilan
