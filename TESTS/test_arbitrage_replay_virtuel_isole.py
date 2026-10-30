@@ -106,6 +106,20 @@ def executer():
             assert len(etat["positions"]) == 41 and abs(etat["cash"]) < 0.01
             assert (etat["positions"].Ticker == "TEST_ONLY").sum() == 1
             assert init.read_bytes() == original_initial
+            # Rotation inter-portefeuille : renforcer un titulaire, sans nouveau challenger.
+            journal.write_bytes(original_journal)
+            r[r.Type == "TITULAIRE"].to_csv(revue, index=False)
+            intra = execu.executer(dry_run=True)
+            assert len(intra) == 2 and list(intra.Type_operation) == ["SORTIE", "RENFORCEMENT"]
+            assert str(intra.iloc[1].ID_ligne_entrante) == destination
+            pd.concat([pd.read_csv(journal), intra], ignore_index=True).to_csv(journal, index=False)
+            etat_intra = replay.executer()
+            assert etat_intra["nb_actives"] == 39 and etat_intra["nb_sorties"] == 1
+            q0 = float(positions.loc[positions.ID_position.astype(str) == destination, "Quantite"].iloc[0])
+            q1 = float(etat_intra["positions"].loc[etat_intra["positions"].ID_position.astype(str) == destination, "Quantite"].iloc[0])
+            assert q1 > q0 and abs(etat_intra["cash"]) < .01
+            assert init.read_bytes() == original_initial
+            r.to_csv(revue, index=False)
             # Cash preexistant positif : pas de blocage, mais pas d'investissement fictif de ce cash.
             journal.write_bytes(original_journal)
             execu.charger = lambda nom: (
