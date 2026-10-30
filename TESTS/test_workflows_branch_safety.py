@@ -7,6 +7,8 @@ FICHIERS = (
     "fondamentaux_incrementaux_microcaps.yml",
     "arbitrage_mensuel.yml",
     "controle_pre_ssi_microcaps.yml",
+    "preparation_filtres_microcaps.yml",
+    "preparer_dossiers_ssi.yml",
 )
 
 
