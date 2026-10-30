@@ -19,6 +19,9 @@ def verifier():
         raise RuntimeError("BLOQUE : chasse vide malgré une exécution déclarée réussie")
     if not all(x.get("Ticker", "").strip() for x in chasse):
         raise RuntimeError("BLOQUE : tickers absents dans la chasse")
+    dossiers = lire("DOSSIERS_SSI_A_QUALIFIER.csv")
+    if not dossiers:
+        raise RuntimeError("BLOQUE : aucun dossier SSI préparé")
     ssi = lire("RESULTATS_SSI.csv")
     admis = {r["Ticker"].strip().upper(): r for r in ssi
              if r.get("Statut_SSI") == "ADMIS_SSI" and
