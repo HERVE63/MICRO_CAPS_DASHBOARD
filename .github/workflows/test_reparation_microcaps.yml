@@ -86,7 +86,7 @@ jobs:
           d=json.loads(p.stdout)
           assert d['sauvegarde_autorisee'] is False
           assert d['etapes']['chasse']['statut']=='BLOQUE'
-          assert d['etapes']['chasse']['detections'] == 0
+          assert 'SOURCE_ABSENTE_OU_VIDE' in d['etapes']['chasse']['motif']
           assert d['etapes']['portefeuilles_et_benchmarks']['statut']=='OK'
           assert d['etapes']['qualification_SSI']['statut']=='BLOQUE'
           assert d['etapes']['revue_MCPA_IPS']['statut']=='BLOQUE'
