@@ -152,6 +152,41 @@ def executer():
                 assert "negatif" in str(exc)
             else:
                 raise AssertionError("Cash negatif non rejete")
+            # Aucun RENFORCER ni SONDE admissible : 09B décide CASH.
+            # 10 doit journaliser UNIQUEMENT la vente ; 05C conserve le cash.
+            execu.charger = charger
+            journal.write_bytes(original_journal)
+            cash_revue = r[r.Type == "TITULAIRE"].copy()
+            cash_revue.loc[cash_revue.ID_position != source, "Decision"] = "CONSERVER"
+            cash_revue.to_csv(revue, index=False)
+            cash_duel = duel.calculer_duels(cash_revue)
+            assert len(cash_duel) == 1 and cash_duel.iloc[0].Statut_duel == "CASH"
+            cash_ops = execu.executer(dry_run=True)
+            assert len(cash_ops) == 1 and cash_ops.iloc[0].Type_operation == "SORTIE"
+            assert journal.read_bytes() == original_journal
+            pd.concat([pd.read_csv(journal), cash_ops], ignore_index=True).to_csv(journal, index=False)
+            etat_cash = replay.executer()
+            assert etat_cash["nb_actives"] == 39 and etat_cash["nb_sorties"] == 1
+            assert abs(etat_cash["cash"] - net) < 1e-8
+            assert init.read_bytes() == original_initial
+            # Répartition incohérente : le module 10 doit refuser l'exécution.
+            journal.write_bytes(original_journal)
+            r.to_csv(revue, index=False)
+            vrai_duel = duel.calculer_duels(r)
+            faux_duel = vrai_duel.copy()
+            faux_duel.loc[:, "Part_allocation"] = 0.5
+            def charger_invalide(nom):
+                if nom == "09B_DUEL_PROCHAIN_EURO.py":
+                    return SimpleNamespace(executer=lambda: faux_duel)
+                return charger(nom)
+            execu.charger = charger_invalide
+            try:
+                execu.executer(dry_run=True)
+            except RuntimeError as exc:
+                assert "Répartition non équilibrée" in str(exc)
+            else:
+                raise AssertionError("Repartition incoherente non rejetee")
+            assert journal.read_bytes() == original_journal
         finally:
             if ancien_force is None:
                 os.environ.pop("MICRO_CAPS_FORCE_MENSUEL", None)
