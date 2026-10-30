@@ -89,7 +89,7 @@ def executer():
     out = pd.DataFrame([{
         "Nb_candidats_chasse": len(chasse),
         "Nb_challengers_revue": len(challengers),
-        "Statut": "OK" if not erreurs else "BLOQUE",
+        "Statut": ("BLOQUE" if erreurs else "OK" if len(challengers) else "CHASSE_OK_QUALIFICATION_EN_ATTENTE"),
         "Nb_erreurs": len(erreurs),
         "Erreurs": " | ".join(erreurs)
     }])
@@ -98,6 +98,8 @@ def executer():
         raise RuntimeError("Chasse/SSI bloquee : " + " | ".join(erreurs[:20]))
     print(f"Chasse controlee : {len(chasse)} candidat(s).")
     print(f"Challengers admis en revue : {len(challengers)}.")
+    if not len(challengers):
+        print("Qualification SSI/MCPA non terminee : chasse operationnelle, chaine de selection incomplete.")
     return out
 
 if __name__ == "__main__":
