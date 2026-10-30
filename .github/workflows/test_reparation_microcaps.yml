@@ -123,7 +123,7 @@ jobs:
           PY
       - name: Verifier syntaxe modules corriges
         run: |
-          python -m py_compile SCRIPTS_ACTIFS/07P_COLLECTE_PRESELECTION_MARCHE.py SCRIPTS_ACTIFS/07M_PREPARER_FILTRES_OBJECTIFS.py SCRIPTS_ACTIFS/07Q_PREPARER_DOSSIERS_SSI.py SCRIPTS_ACTIFS/08A_IMPORT_SCREENER.py SCRIPTS_ACTIFS/08B_CONTROLE_CHASSE_SSI.py SCRIPTS_ACTIFS/08C_AUDIT_CHAINE_COMPLETE.py SCRIPTS_ACTIFS/08_GENERER_DASHBOARD.py SCRIPTS_ACTIFS/07N2_COLLECTE_FONDAMENTAUX_INCREMENTALE.py SCRIPTS_ACTIFS/11_RAPPORT_3_AGENTS.py
+          python -m py_compile SCRIPTS_ACTIFS/07P_COLLECTE_PRESELECTION_MARCHE.py SCRIPTS_ACTIFS/07M_PREPARER_FILTRES_OBJECTIFS.py SCRIPTS_ACTIFS/07Q_PREPARER_DOSSIERS_SSI.py SCRIPTS_ACTIFS/08A_IMPORT_SCREENER.py SCRIPTS_ACTIFS/08B_CONTROLE_CHASSE_SSI.py SCRIPTS_ACTIFS/08C_AUDIT_CHAINE_COMPLETE.py SCRIPTS_ACTIFS/08_GENERER_DASHBOARD.py SCRIPTS_ACTIFS/07N2_COLLECTE_FONDAMENTAUX_INCREMENTALE.py SCRIPTS_ACTIFS/11_RAPPORT_3_AGENTS.py SCRIPTS_ACTIFS/09D_COLLECTE_40_TITULAIRES.py
       - name: Tester regles de duel 09B egalite et ex-aequo
         run: python -B TESTS/test_duels_prochain_euro_hors_reseau.py
       - name: Tester arbitrage virtuel 09B 10 et replay 05C sur copies isolees
@@ -138,7 +138,7 @@ jobs:
         run: python -B TESTS/test_pipeline_hebdo_isole.py
       - name: Tester collision identite CIK et quarantaine SSI 07Q
         run: python -B TESTS/test_07q_collision_identite_cik.py
-      - name: Tester la reutilisation SEC_BRIDGE sans faux CIK ni notes
+      - name: Tester 09D collecte EODHD partielle et empreintes hors reseau\n        run: python -B TESTS/test_09d_collecte_non_bloquante.py\n      - name: Tester la reutilisation SEC_BRIDGE sans faux CIK ni notes
         run: python -B TESTS/test_pistes_sec_bridge_non_certifiees.py
       - name: Tester 07R quarantaine CIK meme en presence de notes apparemment valides
         run: python -B TESTS/test_07r_quarantaine_cik.py
