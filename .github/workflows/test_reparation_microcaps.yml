@@ -40,6 +40,33 @@ jobs:
               with (t/'DONNEES/CHASSE_CANDIDATS.csv').open() as f:
                   assert len(list(csv.DictReader(f)))==1
           PY
+      - name: Tester preparation SSI sur copie isolee et preservation des preuves
+        run: |
+          python - <<'PY'
+          import tempfile,shutil,pathlib,subprocess,sys,csv
+          root=pathlib.Path.cwd()
+          with tempfile.TemporaryDirectory() as d:
+              t=pathlib.Path(d)
+              (t/'SCRIPTS_ACTIFS').mkdir()
+              (t/'DONNEES').mkdir()
+              shutil.copy2(root/'SCRIPTS_ACTIFS/07Q_PREPARER_DOSSIERS_SSI.py',t/'SCRIPTS_ACTIFS')
+              shutil.copy2(root/'DONNEES/CANDIDATS_PRETS_SSI.csv',t/'DONNEES')
+              script=t/'SCRIPTS_ACTIFS/07Q_PREPARER_DOSSIERS_SSI.py'
+              subprocess.run([sys.executable,str(script)],check=True)
+              out=t/'DONNEES/DOSSIERS_SSI_A_QUALIFIER.csv'
+              with out.open(newline='') as f: rows=list(csv.DictReader(f))
+              assert rows and all(r['Note_B1']=='MANQUANTE' for r in rows)
+              rows[0]['Note_B1']='12'
+              rows[0]['Preuve_B1']='PREUVE_TEST_NON_CERTIFIEE'
+              with out.open('w',newline='') as f:
+                  w=csv.DictWriter(f,fieldnames=rows[0].keys());w.writeheader();w.writerows(rows)
+              subprocess.run([sys.executable,str(script)],check=True)
+              with out.open(newline='') as f: apres=list(csv.DictReader(f))
+              assert apres[0]['Note_B1']=='12'
+              assert apres[0]['Preuve_B1']=='PREUVE_TEST_NON_CERTIFIEE'
+              assert apres[0]['Statut_SSI']=='A_REVALIDER_PREUVES_SSI'
+              print('07Q: donnees reconstruites, annotations conservees, aucune admission inventee')
+          PY
       - name: Verifier syntaxe modules corriges
         run: |
           python -m py_compile SCRIPTS_ACTIFS/08A_IMPORT_SCREENER.py SCRIPTS_ACTIFS/08B_CONTROLE_CHASSE_SSI.py SCRIPTS_ACTIFS/08C_AUDIT_CHAINE_COMPLETE.py SCRIPTS_ACTIFS/08_GENERER_DASHBOARD.py SCRIPTS_ACTIFS/07N2_COLLECTE_FONDAMENTAUX_INCREMENTALE.py
