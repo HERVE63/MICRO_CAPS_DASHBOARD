@@ -58,6 +58,7 @@ def executer():
                 "Nb_seances_1a":n,"Dernier_cours_local":last,
                 "Volume_monetaire_median_63s_local":med,
                 "Momentum_3m_pct":mom(63),"Momentum_6m_pct":mom(126),
+                "Momentum_12m_pct":mom(252),
                 "MM200":ma200,
                 "Au_dessus_MM200":(bool(last>ma200) if last is not None and ma200 is not None else None),
                 "Source_marche":"Yahoo Finance / yfinance - historique quotidien 1 an",
