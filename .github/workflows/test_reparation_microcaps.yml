@@ -120,6 +120,8 @@ jobs:
         run: python -B TESTS/test_arbitrage_replay_virtuel_isole.py
       - name: Verifier isolation des workflows sur la branche declencheuse
         run: python -B TESTS/test_workflows_branch_safety.py
+      - name: Tester consolidation archives SEC et couverture 40 titulaires sans notation
+        run: python -B TESTS/test_consolidation_sec_hors_reseau.py
       - name: Tester la collecte incrementale sans acces reseau
         run: python -B TESTS/test_fondamentaux_incrementaux.py
       - name: Tester le raccordement 07M 07O 07Q 07R sans réseau ni mutation
