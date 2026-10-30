@@ -15,6 +15,7 @@ jobs:
             SCRIPTS_ACTIFS
             DONNEES
             AUDITS/SCE_DISCOVERY_US
+            TESTS
           sparse-checkout-cone-mode: true
       - uses: actions/setup-python@v5
         with:
@@ -41,6 +42,8 @@ jobs:
       - name: Verifier syntaxe modules corriges
         run: |
           python -m py_compile SCRIPTS_ACTIFS/08A_IMPORT_SCREENER.py SCRIPTS_ACTIFS/08B_CONTROLE_CHASSE_SSI.py SCRIPTS_ACTIFS/08C_AUDIT_CHAINE_COMPLETE.py SCRIPTS_ACTIFS/08_GENERER_DASHBOARD.py
+      - name: Tester le raccordement 07M 07O 07Q 07R sans réseau ni mutation
+        run: python -B TESTS/test_pipeline_hebdo_isole.py
       - name: Audit de completude attendu BLOQUE tant que SSI et MCPA ne sont pas qualifies
         run: |
           python - <<'PY'
