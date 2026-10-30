@@ -15,7 +15,7 @@ jobs:
     steps:
       - uses: actions/checkout@v4
         with:
-          ref: main
+          ref: ${{ github.ref_name }}
           sparse-checkout: SCRIPTS_ACTIFS/00A_PLANIFICATION_QUOTIDIENNE.py
           sparse-checkout-cone-mode: false
       - name: Vérifier le réveil mensuel sans dépendre de la minute réelle
@@ -54,6 +54,6 @@ jobs:
             # Ne modifie aucun coffre maître ni historique officiel hors commit validé.
             git reset --hard HEAD
             git clean -fd
-            git pull --rebase origin main
-            git push
+            git pull --rebase origin "$GITHUB_REF_NAME"
+            git push origin "HEAD:$GITHUB_REF_NAME"
           fi
