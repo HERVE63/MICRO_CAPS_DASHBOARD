@@ -30,6 +30,7 @@ jobs:
         run: |
           python -B SCRIPTS_ACTIFS/07O_CONTROLE_PRE_SSI.py
           python -B SCRIPTS_ACTIFS/07Q_PREPARER_DOSSIERS_SSI.py
+          python -B SCRIPTS_ACTIFS/07Q2_AUDIT_PREUVES_SSI.py
           python -B SCRIPTS_ACTIFS/07R_VALIDER_NOTES_SSI.py
       - name: Agent 3 audit confrontation sans ecriture du journal
         run: |
