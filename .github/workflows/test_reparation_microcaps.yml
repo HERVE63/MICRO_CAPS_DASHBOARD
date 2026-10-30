@@ -1,6 +1,8 @@
 name: MICRO CAPS - TEST REPARATION ISOLE
 on:
   workflow_dispatch:
+  pull_request:
+    branches: [main]
 permissions:
   contents: read
 jobs:
@@ -33,3 +35,21 @@ jobs:
       - name: Verifier syntaxe modules corriges
         run: |
           python -m py_compile SCRIPTS_ACTIFS/08A_IMPORT_SCREENER.py SCRIPTS_ACTIFS/08B_CONTROLE_CHASSE_SSI.py SCRIPTS_ACTIFS/08C_AUDIT_CHAINE_COMPLETE.py SCRIPTS_ACTIFS/08_GENERER_DASHBOARD.py
+      - name: Audit de completude attendu BLOQUE tant que SSI et MCPA ne sont pas qualifies
+        run: |
+          python - <<'PY'
+          import json,subprocess,sys
+          p=subprocess.run([sys.executable,'SCRIPTS_ACTIFS/08C_AUDIT_CHAINE_COMPLETE.py'],capture_output=True,text=True)
+          if p.returncode != 1:
+              raise AssertionError('Le dispositif incomplet ne doit pas autoriser la sauvegarde')
+          d=json.loads(p.stdout)
+          assert d['sauvegarde_autorisee'] is False
+          assert d['etapes']['chasse']['statut']=='OK'
+          assert d['etapes']['portefeuilles_et_benchmarks']['statut']=='OK'
+          assert d['etapes']['qualification_SSI']['statut']=='BLOQUE'
+          assert d['etapes']['revue_MCPA_IPS']['statut']=='BLOQUE'
+          print('AUDIT FAIL-CLOSED VERIFIE :',d['blocages'])
+          PY
+      - name: Confirmer absence de mutation des historiques et donnees
+        run: |
+          test -z "$(git status --porcelain -- DONNEES HISTORIQUE AUDITS index.html APPLICATION/index.html)"
