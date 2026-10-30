@@ -1,0 +1,47 @@
+name: MICRO CAPS - ESSAI REEL 3 AGENTS ISOLE
+on:
+  workflow_dispatch:
+  push:
+    branches: [repair/microcaps-chain-20261030]
+    paths:
+      - ".github/workflows/essai_reel_3_agents_isole.yml"
+permissions:
+  contents: read
+jobs:
+  essai:
+    runs-on: ubuntu-latest
+    timeout-minutes: 45
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - run: pip install pandas numpy yfinance cryptography
+      - name: Integrite du T0 avant essai
+        run: python -B SCRIPTS_ACTIFS/07AC_CONTROLER_T0.py
+      - name: Agent 1 collecte incrementale sur 10 tickers en espace ephemere
+        env:
+          MICRO_CAPS_FONDAMENTAUX_BATCH_SIZE: "10"
+        run: |
+          python -B SCRIPTS_ACTIFS/07M_PREPARER_FILTRES_OBJECTIFS.py
+          python -B SCRIPTS_ACTIFS/07N2_COLLECTE_FONDAMENTAUX_INCREMENTALE.py
+      - name: Agent 2 filtrage SSI sur preuves sans notes inventees
+        run: |
+          python -B SCRIPTS_ACTIFS/07O_CONTROLE_PRE_SSI.py
+          python -B SCRIPTS_ACTIFS/07Q_PREPARER_DOSSIERS_SSI.py
+          python -B SCRIPTS_ACTIFS/07R_VALIDER_NOTES_SSI.py
+      - name: Agent 3 audit confrontation sans ecriture du journal
+        run: |
+          python -B SCRIPTS_ACTIFS/11_RAPPORT_3_AGENTS.py
+          python -B SCRIPTS_ACTIFS/07AC_CONTROLER_T0.py
+          test -z "$(git status --porcelain -- CONFIG HISTORIQUE)"
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: audit-3-agents-essai-isole
+          path: |
+            DONNEES/AUDIT_CHAINE_3_AGENTS.json
+            DONNEES/AUDIT_FONDAMENTAUX_INCREMENTAL.csv
+            DONNEES/AUDIT_PRE_SSI.csv
+            DONNEES/AUDIT_SSI.csv
+          if-no-files-found: warn
