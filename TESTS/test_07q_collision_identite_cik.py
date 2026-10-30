@@ -56,7 +56,19 @@ def executer():
         archives = list((base / "AUDITS/DOSSIERS_SSI").glob("*/DOSSIERS_SSI_A_QUALIFIER.csv"))
         assert len(archives) == 1
         assert pd.read_csv(archives[0], dtype=str, keep_default_na=False).loc[1, "CIK"] == "0000000456"
-        print("07Q OK : CIK conservé si absent, collision isolée, 2 autres dossiers poursuivis, archive intacte")
+        # Une seconde régénération ne doit pas blanchir la collision initiale :
+        # le CIK source et le CIK actif sont désormais identiques, mais
+        # aucune preuve indépendante n'a été apportée pour lever le blocage.
+        p2 = subprocess.run([sys.executable, str(base / "SCRIPTS_ACTIFS/07Q_PREPARER_DOSSIERS_SSI.py")],
+                            cwd=base, text=True, capture_output=True)
+        assert p2.returncode == 0, (p2.stdout, p2.stderr)
+        deuxieme = pd.read_csv(base / "DONNEES/DOSSIERS_SSI_A_QUALIFIER.csv",
+                               dtype=str, keep_default_na=False).set_index("Ticker")
+        assert deuxieme.loc["COLLISION", "Conflit_identite_CIK"] == "OUI"
+        assert deuxieme.loc["COLLISION", "Statut_SSI"] == "EN_ATTENTE_DATA_IDENTITE_CIK"
+        assert deuxieme.loc["COLLISION", "Preuve_B1"] == "MANQUANTE"
+        assert len(deuxieme) == 3
+        print("07Q OK : collision CIK isolée, quarantaine persistante, 2 autres dossiers poursuivis")
 
 if __name__ == "__main__":
     executer()
