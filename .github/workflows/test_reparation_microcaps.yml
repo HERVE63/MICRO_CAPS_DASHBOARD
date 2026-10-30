@@ -130,6 +130,10 @@ jobs:
         run: python -B TESTS/test_07q_collision_identite_cik.py
       - name: Tester 07R quarantaine CIK meme en presence de notes apparemment valides
         run: python -B TESTS/test_07r_quarantaine_cik.py
+      - name: Tester 07R exclusion CIK et preuves SCE avant toute elimination
+        run: python -B TESTS/test_07r_exclusion_identite_cik.py
+      - name: Tester SSI documentaire et plafond avec schema SCE strict
+        run: python -B TESTS/test_notes_documentaires_ssi_hors_reseau.py
       - name: Audit de completude attendu BLOQUE tant que SSI et MCPA ne sont pas qualifies
         run: |
           python - <<'PY'
