@@ -32,9 +32,16 @@ def executer():
         raise RuntimeError("Import screener bloque : " + " | ".join(erreurs[:20]))
 
     ancien = pd.read_csv(CHASSE) if CHASSE.exists() else pd.DataFrame(columns=REQUIS)
+    if CHASSE.exists() and ancien.empty and CHASSE.stat().st_size == 0:
+        raise RuntimeError("Registre chasse corrompu : fichier de taille nulle.")
     tout = pd.concat([ancien, src[REQUIS]], ignore_index=True)
     tout = tout.drop_duplicates(subset=["Ticker","Date_detection"], keep="first")
-    tout.to_csv(CHASSE, index=False)
+    temporaire = CHASSE.with_suffix(".csv.tmp")
+    tout.to_csv(temporaire, index=False)
+    if pd.read_csv(temporaire).empty:
+        temporaire.unlink(missing_ok=True)
+        raise RuntimeError("Import bloque : sortie chasse vide.")
+    temporaire.replace(CHASSE)
 
     pd.DataFrame([{
         "Nb_entree": len(src),
