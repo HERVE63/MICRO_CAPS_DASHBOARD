@@ -21,6 +21,8 @@ if not chall.empty:
     chall["SSI_num"]=pd.to_numeric(chall["SSI"],errors="coerce")
     chall=chall[chall["SSI_num"]>=65].sort_values(["MCPA_num","SSI_num"],ascending=False).head(20)
 detected=len(C)
+if detected == 0:
+    raise RuntimeError("Publication dashboard bloquee : registre CHASSE_CANDIDATS vide ou illisible.")
 qualif_attente=max(detected-len(chall),0)
 bad=Q[Q["Statut_qualite"]!="OK"].copy()
 valid=len(bad)==0
