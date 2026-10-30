@@ -1,0 +1,35 @@
+name: MICRO CAPS - TEST REPARATION ISOLE
+on:
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - run: pip install pandas numpy
+      - name: Tester import sur copie temporaire sans modifier le depot
+        run: |
+          python - <<'PY'
+          import tempfile, shutil, pathlib, subprocess, sys, csv
+          root=pathlib.Path.cwd()
+          with tempfile.TemporaryDirectory() as d:
+              t=pathlib.Path(d)
+              (t/'SCRIPTS_ACTIFS').mkdir()
+              (t/'DONNEES').mkdir()
+              shutil.copy(root/'SCRIPTS_ACTIFS/08A_IMPORT_SCREENER.py',t/'SCRIPTS_ACTIFS')
+              with (t/'DONNEES/SORTIE_SCREENER_CANDIDATS.csv').open('w',newline='') as f:
+                  w=csv.writer(f);w.writerow(['Date_detection','Societe','Ticker','Devise','Pays','Source_detection','Date_source','These_initiale','Statut_chasse'])
+                  w.writerow(['2026-10-30','Test','TEST','USD','USA','TEST','2026-10-30','Test','DETECTE'])
+              (t/'DONNEES/CHASSE_CANDIDATS.csv').write_text('')
+              subprocess.run([sys.executable,str(t/'SCRIPTS_ACTIFS/08A_IMPORT_SCREENER.py')],check=True)
+              with (t/'DONNEES/CHASSE_CANDIDATS.csv').open() as f:
+                  assert len(list(csv.DictReader(f)))==1
+          PY
+      - name: Verifier syntaxe modules corriges
+        run: |
+          python -m py_compile SCRIPTS_ACTIFS/08A_IMPORT_SCREENER.py SCRIPTS_ACTIFS/08B_CONTROLE_CHASSE_SSI.py SCRIPTS_ACTIFS/08C_AUDIT_CHAINE_COMPLETE.py SCRIPTS_ACTIFS/08_GENERER_DASHBOARD.py
