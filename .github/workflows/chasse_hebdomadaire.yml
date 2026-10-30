@@ -65,6 +65,8 @@ jobs:
           python SCRIPTS_ACTIFS/07Q_PREPARER_DOSSIERS_SSI.py
           python SCRIPTS_ACTIFS/07R_VALIDER_NOTES_SSI.py
           python SCRIPTS_ACTIFS/08B_CONTROLE_CHASSE_SSI.py
+          # Confrontation virtuelle : simulation obligatoire avant toute activation d ecriture.
+          MICRO_CAPS_ARBITRAGE_HEBDO=1 MICRO_CAPS_DRY_RUN=1 python SCRIPTS_ACTIFS/10_EXECUTION_MENSUELLE.py
           python SCRIPTS_ACTIFS/08_GENERER_DASHBOARD.py
           python SCRIPTS_ACTIFS/11_RAPPORT_3_AGENTS.py
       - name: Sauvegarder la chasse
