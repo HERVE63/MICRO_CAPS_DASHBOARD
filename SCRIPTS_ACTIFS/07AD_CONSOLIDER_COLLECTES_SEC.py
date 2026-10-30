@@ -51,16 +51,42 @@ def verifier_chronologie_sec(faits, reference_utc=None):
  marquer(d2.gt(reference),'DEPOT_POSTERIEUR_REFERENCE')
  return statut
 
+def verifier_disponibilite_t0(faits, dates_t0):
+ """Sépare les faits connus AVANT T0 des faits publiés après T0.
+
+ La date de dépôt SEC est une date de publication observable, pas la fin de
+ période comptable. Une publication datée du jour T0 reste exclue par prudence
+ (heure intrajournalière inconnue). Aucun fait n'est noté automatiquement.
+ """
+ dates={}
+ for ticker,jour in dates_t0.items():
+  if not isinstance(jour,str) or len(jour)!=10 or pd.isna(pd.to_datetime(jour,format='%Y-%m-%d',errors='coerce')):
+   raise RuntimeError('DATE_T0_INVALIDE:'+str(ticker))
+  dates[str(ticker)]=pd.Timestamp(jour)
+ statut=pd.Series('HORS_COHORTE_T0',index=faits.index,dtype=object)
+ for ticker,jour in dates.items():
+  mask=faits.Ticker.eq(ticker)
+  if not mask.any():continue
+  chron=faits.loc[mask,'Statut_chronologie']
+  depot=pd.to_datetime(faits.loc[mask,'Date_depot'],format='%Y-%m-%d',errors='coerce')
+  statut.loc[mask]='CHRONOLOGIE_NON_VALIDEE'
+  ok=chron.eq('OK') & depot.notna()
+  statut.loc[mask & ok.reindex(faits.index,fill_value=False)]='POSTERIEUR_OU_JOUR_T0'
+  avant=ok & depot.lt(jour)
+  statut.loc[avant.index[avant]]='DISPONIBLE_AVANT_T0'
+ return statut
+
 def executer():
  scope=pd.read_csv(BASE/'DONNEES/DOSSIERS_SSI_A_QUALIFIER.csv',dtype=str,keep_default_na=False)
  if scope.Ticker.duplicated().any():raise RuntimeError('DOUBLON_DOSSIER')
  scope=scope[['Ticker','Societe','Pays']].copy()
  scope['Origine']='CANDIDAT_SSI'
  titulaires=pd.DataFrame(columns=['ID_position','Ticker','Societe','Pays'])
+ dates_t0={}
  cohorte=BASE/'DONNEES/COHORTE_MICRO_CAPS_T0.csv'
  if cohorte.exists():
   c=pd.read_csv(cohorte,dtype=str,keep_default_na=False,encoding='utf-8-sig')
-  champs={'ID_ligne','Ticker_cotation','Societe','Pays'}
+  champs={'ID_ligne','Ticker_cotation','Societe','Pays','Date_T0'}
   if not champs.issubset(c.columns) or len(c)!=40 or c.ID_ligne.duplicated().any() or c.Ticker_cotation.duplicated().any():
    raise RuntimeError('COHORTE_T0_40_INVALIDE')
   titulaires=c[['ID_ligne','Ticker_cotation','Societe','Pays']].rename(columns={'ID_ligne':'ID_position','Ticker_cotation':'Ticker'}).copy()
@@ -69,6 +95,8 @@ def executer():
   # aucun rapprochement approximatif de noms ou de places de cotation.
   titulaires.loc[titulaires.Pays.eq('USA'),'Ticker']=titulaires.loc[titulaires.Pays.eq('USA'),'Ticker'].map(lambda x:x if x.endswith('.US') else x+'.US')
   if titulaires.Ticker.duplicated().any():raise RuntimeError('TICKER_TITULAIRE_AMBIGU')
+  dates_t0=dict(zip(titulaires.Ticker,c.Date_T0.astype(str)))
+  if len(dates_t0)!=40:raise RuntimeError('DATES_T0_TITULAIRES_INCOMPLETES')
   t=titulaires[['Ticker','Societe','Pays']].copy();t['Origine']='TITULAIRE'
   scope=pd.concat([scope,t],ignore_index=True)
   scope=scope.groupby('Ticker',as_index=False,sort=False).agg({'Societe':'first','Pays':'first','Origine':lambda x:'|'.join(sorted(set(x)))})
@@ -138,15 +166,18 @@ def executer():
   faits=faits.drop_duplicates(versions).drop(columns='Archive_source').merge(provenance,on=versions,validate='one_to_one').merge(representations,on=versions,validate='one_to_one')
   faits['Statut_observation']=faits.apply(lambda r:'VALEURS_DIVERGENTES_A_RELIRE' if tuple(r[k] for k in KEYS) in ambigues else 'BRUT_A_VERIFIER',axis=1)
   faits['Statut_chronologie']=verifier_chronologie_sec(faits)
+  faits['Statut_disponibilite_T0']=verifier_disponibilite_t0(faits,dates_t0)
  couverture=scope[['Ticker','Societe','Pays']].copy()
  counts=faits.groupby('Ticker').size() if not faits.empty else pd.Series(dtype=int)
  couverture['Nb_faits_bruts']=couverture.Ticker.map(counts).fillna(0).astype(int)
  utilisables=faits.loc[faits.Statut_chronologie.eq('OK')].groupby('Ticker').size() if not faits.empty else pd.Series(dtype=int)
  couverture['Nb_faits_chronologie_OK']=couverture.Ticker.map(utilisables).fillna(0).astype(int)
+ disponibles=faits.loc[faits.Statut_disponibilite_T0.eq('DISPONIBLE_AVANT_T0')].groupby('Ticker').size() if not faits.empty else pd.Series(dtype=int)
+ couverture['Nb_faits_disponibles_T0']=couverture.Ticker.map(disponibles).fillna(0).astype(int)
  couverture['CIK_pistes']=couverture.Ticker.map(lambda t:'|'.join(sorted(identites.get(t,set()))))
  couverture['Statut_identite']=couverture.Ticker.map(lambda t:'IDENTITE_DIVERGENTE_A_RELIRE' if len(identites.get(t,set()))>1 else 'A_VERIFIER')
  couverture_titulaires=titulaires[['ID_position','Ticker','Societe','Pays']].merge(
-  couverture[['Ticker','Nb_faits_bruts','Nb_faits_chronologie_OK','CIK_pistes','Statut_identite']],on='Ticker',how='left',validate='one_to_one')
+  couverture[['Ticker','Nb_faits_bruts','Nb_faits_chronologie_OK','Nb_faits_disponibles_T0','CIK_pistes','Statut_identite']],on='Ticker',how='left',validate='one_to_one')
  if len(titulaires) and (len(couverture_titulaires)!=40 or couverture_titulaires.Nb_faits_bruts.isna().any()):
   raise RuntimeError('COUVERTURE_TITULAIRES_INCOMPLETE')
  couverture_titulaires['Statut_SSI']='EN_ATTENTE_DATA'
@@ -159,6 +190,8 @@ def executer():
         'dossiers_avec_faits':int(couverture.Nb_faits_bruts.gt(0).sum()),'dossiers':len(scope),
         'observations_valeurs_divergentes':int(conflits.gt(1).sum()),
         'observations_chronologie_non_validee':int(faits.Statut_chronologie.ne('OK').sum()) if not faits.empty else 0,
+        'observations_disponibles_avant_T0':int(faits.Statut_disponibilite_T0.eq('DISPONIBLE_AVANT_T0').sum()) if not faits.empty else 0,
+        'observations_post_T0':int(faits.Statut_disponibilite_T0.eq('POSTERIEUR_OU_JOUR_T0').sum()) if not faits.empty else 0,
         'notes_attribuees':0,'identites_validees_automatiquement':0,
         'titulaires_couverts':len(couverture_titulaires),
         'titulaires_avec_pistes_SEC':int(couverture_titulaires.Nb_faits_bruts.gt(0).sum()) if len(couverture_titulaires) else 0,'statut':'BRUTS_CONSOLIDES_A_VERIFIER'}
