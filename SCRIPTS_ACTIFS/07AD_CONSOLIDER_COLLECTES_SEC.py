@@ -55,6 +55,33 @@ def executer():
     if r.Ticker in set(scope.Ticker) and str(r.get('CIK','')).isdigit():
      identites.setdefault(r.Ticker,set()).add(r.CIK)
   archives.append(str(p.parent.relative_to(BASE)))
+ # Archives historiques US du module 07U/07V/07W : reutiliser les BRUTS SEC
+ # et leur index de couverture sans promouvoir une piste en preuve validee.
+ archives_qualification=[]
+ for p in sorted((BASE/'AUDITS/QUALIFICATION_US').glob('*/MANIFESTE.json')):
+  manifest=json.loads(p.read_text())
+  fichiers=manifest.get('fichiers',{})
+  cover=p.parent/'COUVERTURE_QUALIFICATION_US.csv'
+  bruts=p.parent/'BRUTS.csv.gz'
+  for fichier in (cover,bruts):
+   if not fichier.is_file() or fichiers.get(fichier.name)!=empreinte(fichier):
+    raise RuntimeError('ARCHIVE_QUALIFICATION_US_SHA256_DIVERGENT: '+str(fichier.relative_to(BASE)))
+  index_us=pd.read_csv(cover,dtype=str,keep_default_na=False)
+  if not {'Ticker_US','CIK'}.issubset(index_us.columns) or index_us.Ticker_US.duplicated().any():
+   raise RuntimeError('INDEX_QUALIFICATION_US_INVALIDE')
+  scope_us=set(scope.Ticker)
+  for _,r in index_us[index_us.Ticker_US.isin(scope_us)].iterrows():
+   if str(r.CIK).isdigit():
+    identites.setdefault(r.Ticker_US,set()).add(r.CIK)
+  for bloc in pd.read_csv(bruts,compression='gzip',dtype=str,keep_default_na=False,chunksize=100000):
+   if 'Taxonomie_SEC' not in bloc:bloc['Taxonomie_SEC']='us-gaap'
+   if not set(KEYS+['Valeur']).issubset(bloc.columns):
+    raise RuntimeError('SCHEMA_BRUTS_QUALIFICATION_US_INCOMPLET')
+   subset=bloc[bloc.Ticker.isin(scope_us)].copy()
+   if not subset.empty:
+    subset['Archive_source']=str(p.parent.relative_to(BASE))
+    lignes.append(subset)
+  archives_qualification.append(str(p.parent.relative_to(BASE)))
  faits=pd.concat(lignes,ignore_index=True) if lignes else pd.DataFrame(columns=KEYS+['Valeur','Archive_source'])
  conflits=pd.Series(dtype=int)
  # Une même observation peut figurer dans plusieurs archives ; aucune provenance n'est perdue.
@@ -82,7 +109,7 @@ def executer():
  faits.to_csv(out/'FAITS_SEC_BRUTS_CONSOLIDES.csv',index=False)
  couverture.to_csv(out/'COUVERTURE.csv',index=False)
  couverture_titulaires.to_csv(out/'COUVERTURE_TITULAIRES.csv',index=False)
- bilan={'archives_controlees':len(archives),'archives_sources':archives,'observations_brutes_distinctes':len(faits),
+ bilan={'archives_controlees':len(archives),'archives_qualification_us_controlees':len(archives_qualification),'archives_sources':archives+archives_qualification,'observations_brutes_distinctes':len(faits),
         'dossiers_avec_faits':int(couverture.Nb_faits_bruts.gt(0).sum()),'dossiers':len(scope),
         'observations_valeurs_divergentes':int(conflits.gt(1).sum()),
         'notes_attribuees':0,'identites_validees_automatiquement':0,
