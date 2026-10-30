@@ -17,7 +17,12 @@ CHAMPS = [
 def executer():
     if not CHASSE.exists():
         raise RuntimeError("Registre de chasse absent.")
-    chasse = pd.read_csv(CHASSE)
+    if CHASSE.stat().st_size == 0:
+        raise RuntimeError("Registre de chasse vide (fichier 0 octet) : relancer 08A_IMPORT_SCREENER.py.")
+    try:
+        chasse = pd.read_csv(CHASSE)
+    except pd.errors.EmptyDataError as exc:
+        raise RuntimeError("Registre de chasse sans en-tetes : relancer 08A_IMPORT_SCREENER.py.") from exc
     absents = [c for c in CHAMPS if c not in chasse.columns]
     if absents:
         raise RuntimeError("Colonnes chasse absentes : " + ", ".join(absents))
