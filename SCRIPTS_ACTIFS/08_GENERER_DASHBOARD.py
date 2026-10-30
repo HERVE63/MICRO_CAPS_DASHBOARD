@@ -5,7 +5,7 @@ Couche d'affichage uniquement : aucun calcul moteur, T0 ou règle de gestion n'e
 from pathlib import Path
 from datetime import datetime
 from zoneinfo import ZoneInfo
-import pandas as pd, html
+import pandas as pd, html, json
 
 BASE=Path(__file__).resolve().parents[1]
 D=BASE/"DONNEES"; APP=BASE/"APPLICATION"; APP.mkdir(exist_ok=True)
@@ -19,8 +19,27 @@ chall=H[H["Type"].astype(str).str.upper()=="CHALLENGER"].copy() if (not H.empty 
 if not chall.empty:
     chall["MCPA_num"]=pd.to_numeric(chall["MCPA"],errors="coerce")
     chall["SSI_num"]=pd.to_numeric(chall["SSI"],errors="coerce")
-    chall=chall[chall["SSI_num"]>=65].sort_values(["MCPA_num","SSI_num"],ascending=False).head(20)
+    chall=chall[(chall["SSI_num"]>=65) & (chall["MCPA_num"]>=80) & (chall["Statut_analyse"].astype(str).str.upper().isin(["VALIDE","VALIDEE"]))].sort_values(["MCPA_num","SSI_num"],ascending=False).head(20)
 detected=len(C)
+if len(P)!=40 or len(Q)!=40 or len(B)!=3:
+    raise RuntimeError("Publication dashboard bloquee : cohorte 40, controle qualite ou benchmarks incomplets.")
+if not chall.empty:
+    controles=D/"CONTROLE_CHASSE_SSI.csv"
+    revue_controle=D/"CONTROLE_REVUE_HEBDOMADAIRE_MCPA_IPS.csv"
+    if not controles.exists() or not revue_controle.exists():
+        raise RuntimeError("Challengers non publiables : controles SSI/MCPA manquants.")
+    if pd.read_csv(controles).iloc[0]["Statut"]!="OK" or pd.read_csv(revue_controle).iloc[0]["Statut"]!="OK":
+        raise RuntimeError("Challengers non publiables : SSI/MCPA non valides.")
+# Informations de progression documentaire : archives US distinctes de la chasse.
+statut_qualification=""
+archives=sorted((BASE/"AUDITS/SCE_DISCOVERY_US").glob("*/MANIFESTE.json"))
+if archives:
+    manifest=json.loads(archives[-1].read_text(encoding="utf-8"))
+    repartition=manifest.get("repartition_SSI",{})
+    admis_us=int(repartition.get("ADMIS_SSI",0))
+    univers_us=int(manifest.get("cotations_conservees",0))
+    date_arch=html.escape(str(manifest.get("date_utc",""))[:10])
+    statut_qualification=f'<div class="waiting">SSI US documenté au {date_arch} : {admis_us} admis / {univers_us} cotations · MCPA/IPS et confrontation aux 40 en attente.</div>'
 if detected == 0:
     raise RuntimeError("Publication dashboard bloquee : registre CHASSE_CANDIDATS vide ou illisible.")
 qualif_attente=max(detected-len(chall),0)
@@ -62,7 +81,7 @@ page=f"""<!doctype html><html lang="fr"><head><meta charset="utf-8"><meta name="
 </style></head><body><div class="container"><h1>MICRO CAPS</h1><div class="subtitle">Expérience prospective · T0 01/10/2026 · dernière séance {date}</div>
 <div class="section">🏁 MATCH DEPUIS LE T0</div><table><tr><th>Stratégie</th><th>Base 100</th><th>Perf.</th><th>Écart vs géré</th></tr>{match}</table>
 <div class="alpha"><div class="sub">ALPHA DE GESTION</div><div class="big">{alpha:+.2f} pt</div><div class="sub">Géré − Jumeau sans arbitrages</div></div>{alerts}
-<div class="section">🏆 CANDIDATS CONCURRENTS</div>{challenger_html}
+<div class="section">🏆 CANDIDATS CONCURRENTS</div>{challenger_html}{statut_qualification}
 <div class="section">40 VALEURS · COHORTE T0</div><table>{rows}</table>
 <div class="footer">Portefeuille géré {vg:,.2f} € · Jumeau {vt:,.2f} € · construction {now}</div></div></body></html>"""
 (APP/"index.html").write_text(page,encoding="utf-8")
