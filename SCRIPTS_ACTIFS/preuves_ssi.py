@@ -63,7 +63,11 @@ def verifier(r,ticker,bloc,base,limite=None):
 
 def verifier_identite_sce(r,d,base,limite=None):
     erreurs=[]
-    if r.get('SCE_valide')!='OUI':return ['contrôles SCE non validés']
+    # Protection aussi pour les appels directs hors 07R : une collision CIK
+    # ou un statut absent/inconnu ne peut jamais etre leve par les notes.
+    if str(r.get('Conflit_identite_CIK','')).strip().upper()!='NON':
+        erreurs.append('collision CIK non levée ou contrôle CIK absent/invalide')
+    if r.get('SCE_valide')!='OUI':return erreurs+['contrôles SCE non validés']
     ids=[x.strip() for x in str(r.get('Preuves_identite_SCE','')).split('|') if x.strip()]
     z=d[d.ID_preuve.isin(ids)];cik=str(r.get('CIK','')).strip()
     if len(ids)<2 or len(ids)!=len(set(ids)) or len(z)!=len(ids) or z.Source_URL.nunique()<2:erreurs.append('deux preuves identité SCE requises')
