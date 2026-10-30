@@ -42,7 +42,7 @@ def test():
   assert d.loc[d.Ticker.eq('INFU.US'),'Statut_observation'].iloc[0]=='BRUT_A_VERIFIER'
   assert d.loc[d.Valeur.eq(10),'Archives_sources'].iloc[0]=='AUDITS/SEC/RUN_A|AUDITS/SEC/RUN_B'
   assert d.loc[d.Valeur.eq(10),'Representations_brutes'].iloc[0]=='10|10.0'
-  couverture=pd.read_csv(out.parent/'COUVERTURE_TITULAIRES.csv')
+  couverture=pd.read_csv(out.parent/'COUVERTURE_TITULAIRES.csv',dtype={'CIK_pistes':str})
   assert len(couverture)==40
   assert couverture.loc[couverture.ID_position.eq(1),'Nb_faits_bruts'].iloc[0]==2
   assert couverture.loc[couverture.ID_position.eq(2),'Ticker'].iloc[0]=='INFU.US'
