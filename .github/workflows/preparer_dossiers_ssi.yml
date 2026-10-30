@@ -8,6 +8,9 @@ on:
   workflow_dispatch:
 permissions:
   contents: write
+concurrency:
+  group: microcaps-ssi-preparation-branche-test
+  cancel-in-progress: false
 jobs:
   ssi:
     runs-on: ubuntu-latest
