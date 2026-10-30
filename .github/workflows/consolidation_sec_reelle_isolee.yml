@@ -18,6 +18,7 @@ jobs:
             SCRIPTS_ACTIFS
             DONNEES
             AUDITS/SEC
+            AUDITS/QUALIFICATION_US
           sparse-checkout-cone-mode: true
       - uses: actions/setup-python@v5
         with:
@@ -37,6 +38,8 @@ jobs:
           assert bilan['titulaires_couverts']==40, bilan
           assert bilan['notes_attribuees']==0 and bilan['identites_validees_automatiquement']==0
           assert bilan['archives_controlees']>=1, bilan
+          assert bilan['archives_qualification_us_controlees']>=1, bilan
+          assert bilan['titulaires_avec_pistes_SEC']>=1, bilan
           sortie=manifeste.parent
           with (sortie/'COUVERTURE_TITULAIRES.csv').open(newline='') as f:
               lignes=list(csv.DictReader(f))
@@ -49,8 +52,8 @@ jobs:
           PY
       - name: Interdire toute mutation des references et de main
         run: |
-          git diff --exit-code -- DONNEES AUDITS/SEC HISTORIQUE CONFIG
-          test -z "$(git status --porcelain -- DONNEES HISTORIQUE CONFIG AUDITS/SEC)"
+          git diff --exit-code -- DONNEES AUDITS/SEC AUDITS/QUALIFICATION_US HISTORIQUE CONFIG
+          test -z "$(git status --porcelain -- DONNEES HISTORIQUE CONFIG AUDITS/SEC AUDITS/QUALIFICATION_US)"
       - uses: actions/upload-artifact@v4
         with:
           name: consolidation-sec-reelle-auditee
