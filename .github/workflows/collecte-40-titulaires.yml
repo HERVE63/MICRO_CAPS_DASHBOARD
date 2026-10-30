@@ -23,4 +23,4 @@ jobs:
         if: always()
         with:
           name: donnees-directes-40-titulaires
-          path: DONNEES/COLLECTE_DIRECTE_40_TITULAIRES.csv
+          path: |\n            DONNEES/COLLECTE_DIRECTE_40_TITULAIRES.csv\n            AUDITS/HISTORIQUE_COLLECTES_HEBDOMADAIRES/COLLECTE_40_*/
