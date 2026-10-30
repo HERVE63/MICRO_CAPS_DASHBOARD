@@ -17,8 +17,15 @@ def executer():
         pd.DataFrame([{'Date_validation_UTC':datetime.now(timezone.utc).isoformat(),'Dossiers':0,'Admis':0,'Refuses':0,'Refuses_plafond_sans_score_total':0,'Elimines':0,'Preuves_incompletes':0,'Identites_CIK_en_quarantaine':0}]).to_csv(AUD,index=False)
         print('SSI: aucun nouveau dossier qualifiable')
         return df
-    if not {'Decision_eliminatoire','Motif_eliminatoire',*[p+b for b in MAX for p in ['Note_','Preuve_']]}.issubset(df.columns):
-        raise RuntimeError('Schéma dossier SSI incomplet')
+    # Les controles d'identite SCE et de collision CIK sont obligatoires.
+    # Sans ces colonnes, valider_dossier() pourrait ignorer le controle SCE
+    # et une ancienne cohorte pourrait etre admise sur les sept notes seules.
+    requis={'Ticker','CIK','SCE_valide','Preuves_identite_SCE',
+           'Conflit_identite_CIK','Decision_eliminatoire','Motif_eliminatoire',
+           *[p+b for b in MAX for p in ('Note_','Preuve_')]}
+    absents=requis-set(df.columns)
+    if absents:
+        raise RuntimeError('Schema dossier SSI incomplet (identite SCE/CIK obligatoire) : '+', '.join(sorted(absents)))
     limite=datetime.now(timezone.utc);preuves=registre(D.parent,limite)
     scores=[];statuts=[];motifs=[];partiels=[]
     for _,r in df.iterrows():
