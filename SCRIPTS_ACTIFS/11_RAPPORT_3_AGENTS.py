@@ -56,7 +56,7 @@ def executer():
             performance_temoin_pct=round(n(p.get("Perf_Temoin_Portefeuille_pct")),3))
     resultat={"date_audit_UTC":datetime.now(timezone.utc).isoformat(),
         "agent_1_chasse":a1,"agent_2_filtrage":a2,"agent_3_confrontation":a3,
-        "arbitrage_nouveau_autorise":bool(qualifies and len(titulaires)>0 and len(duels)>0),
+        "arbitrage_nouveau_autorise":False,
         "avertissement":"Audit de transmission, pas certification des preuves ni execution d'ordres."}
     p=D/"AUDIT_CHAINE_3_AGENTS.json"
     temp=p.with_suffix(".tmp")
