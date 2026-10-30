@@ -14,6 +14,7 @@ jobs:
           sparse-checkout: |
             SCRIPTS_ACTIFS
             DONNEES
+            CONFIG
             AUDITS/SCE_DISCOVERY_US
             TESTS
             .github/workflows
@@ -71,6 +72,8 @@ jobs:
       - name: Verifier syntaxe modules corriges
         run: |
           python -m py_compile SCRIPTS_ACTIFS/07P_COLLECTE_PRESELECTION_MARCHE.py SCRIPTS_ACTIFS/07M_PREPARER_FILTRES_OBJECTIFS.py SCRIPTS_ACTIFS/07Q_PREPARER_DOSSIERS_SSI.py SCRIPTS_ACTIFS/08A_IMPORT_SCREENER.py SCRIPTS_ACTIFS/08B_CONTROLE_CHASSE_SSI.py SCRIPTS_ACTIFS/08C_AUDIT_CHAINE_COMPLETE.py SCRIPTS_ACTIFS/08_GENERER_DASHBOARD.py SCRIPTS_ACTIFS/07N2_COLLECTE_FONDAMENTAUX_INCREMENTALE.py SCRIPTS_ACTIFS/11_RAPPORT_3_AGENTS.py
+      - name: Tester arbitrage virtuel 09B 10 et replay 05C sur copies isolees
+        run: python -B TESTS/test_arbitrage_replay_virtuel_isole.py
       - name: Verifier isolation des workflows sur la branche declencheuse
         run: python -B TESTS/test_workflows_branch_safety.py
       - name: Tester la collecte incrementale sans acces reseau
