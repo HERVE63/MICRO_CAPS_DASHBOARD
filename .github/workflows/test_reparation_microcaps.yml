@@ -86,8 +86,8 @@ jobs:
           d=json.loads(p.stdout)
           print('AUDIT_DIAGNOSTIC:',json.dumps(d,ensure_ascii=False),flush=True)
           assert d['sauvegarde_autorisee'] is False
-          assert d['etapes']['chasse']['statut']=='BLOQUE'
-          assert 'SOURCE_ABSENTE_OU_VIDE' in d['etapes']['chasse']['motif']
+          assert d['etapes']['chasse']['statut']=='OK'
+          assert d['etapes']['chasse']['detections']>0
           assert d['etapes']['portefeuilles_et_benchmarks']['statut']=='OK'
           assert d['etapes']['qualification_SSI'].get('admis_SSI',0)==0
           assert d['etapes']['revue_MCPA_IPS'].get('challengers',0)==0
