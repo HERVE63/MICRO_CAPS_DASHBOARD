@@ -43,11 +43,19 @@ def executer():
 
         anciens = pd.read_csv(base / "DONNEES/DOSSIERS_SSI_A_QUALIFIER.csv",
                               dtype=str, keep_default_na=False)
+        # Régression : les preuves d'identité SCE et le CIK doivent survivre
+        # à 07Q, sans être considérés comme validés en l'absence des bruts.
+        assert not anciens.empty
+        anciens.loc[0, "CIK"] = "0000000123"
+        anciens.loc[0, "SCE_valide"] = "OUI"
+        anciens.loc[0, "Preuves_identite_SCE"] = "PREUVE_TEST_1|PREUVE_TEST_2"
+        anciens.to_csv(base / "DONNEES/DOSSIERS_SSI_A_QUALIFIER.csv", index=False)
         annotations = {}
         for _, ligne in anciens.iterrows():
             champs = {c: ligne[c] for c in anciens
                       if c.startswith(("Note_", "Preuve_")) or
-                      c in ("Decision_eliminatoire", "Motif_eliminatoire")}
+                      c in ("Decision_eliminatoire", "Motif_eliminatoire",
+                            "CIK", "SCE_valide", "Preuves_identite_SCE")}
             annotations[ligne["Ticker"]] = champs
 
         for n in SCRIPTS[:4]:
@@ -69,6 +77,11 @@ def executer():
         # Les documents bruts ne sont PAS copiés dans ce test : aucune
         # admission ne doit être produite sur des références non vérifiables.
         assert not resultat.Statut_SSI.eq("ADMIS_SSI").any()
+        assert {"CIK", "SCE_valide", "Preuves_identite_SCE"}.issubset(nouveaux.columns)
+        assert nouveaux.loc[0, "SCE_valide"] == "OUI"
+        assert nouveaux.loc[0, "CIK"] == "0000000123"
+        assert nouveaux.loc[0, "Preuves_identite_SCE"] == "PREUVE_TEST_1|PREUVE_TEST_2"
+        assert resultat.loc[0, "Statut_SSI"] != "ADMIS_SSI"
         for _, ligne in nouveaux.iterrows():
             if ligne.Ticker in annotations:
                 for c, attendu in annotations[ligne.Ticker].items():
