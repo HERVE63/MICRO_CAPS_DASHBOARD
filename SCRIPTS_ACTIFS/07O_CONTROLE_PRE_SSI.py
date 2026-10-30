@@ -5,10 +5,14 @@ F=D/"FONDAMENTAUX_CANDIDATS_MICRO_CAPS.csv"; U=D/"UNIVERS_PRET_FILTRES_OBJECTIFS
 OUT=D/"CANDIDATS_PRETS_SSI.csv"; HOLD=D/"CANDIDATS_SSI_DONNEES_MANQUANTES.csv"; AUD=D/"AUDIT_PRE_SSI.csv"
 def executer():
  f=pd.read_csv(F); u=pd.read_csv(U)
- x=u[u["Admissible_filtre_marche"].eq("OUI")].merge(f,on="Ticker",how="left",suffixes=("","_fond"))
+ if f["Ticker"].duplicated().any() or u["Ticker"].duplicated().any():
+  raise RuntimeError("Identifiants ticker dupliques avant pre-SSI")
+ x=u[u["Admissible_filtre_marche"].eq("OUI")].merge(f,on="Ticker",how="left",suffixes=("","_fond"),validate="one_to_one")
  # Données indispensables observables pour ouvrir l'évaluation SSI; aucune note n'est imputée.
  req=["CA_TTM","Cash","Dette_totale","Actions","Insiders_pct"]
- for c in req: x[c]=pd.to_numeric(x[c],errors="coerce")
+ for c in req:
+  if c not in x.columns: x[c]=pd.NA
+  x[c]=pd.to_numeric(x[c],errors="coerce")
  complete=x[req].notna().all(axis=1)
  # Filtres d'élimination stricts uniquement quand les données permettent de les constater.
  no_activity=x["CA_TTM"].fillna(0).le(0) & x["CA_TTM"].notna()
