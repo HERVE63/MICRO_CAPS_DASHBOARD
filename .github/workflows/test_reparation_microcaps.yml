@@ -138,6 +138,8 @@ jobs:
         run: python -B TESTS/test_pipeline_hebdo_isole.py
       - name: Tester collision identite CIK et quarantaine SSI 07Q
         run: python -B TESTS/test_07q_collision_identite_cik.py
+      - name: Tester la reutilisation SEC_BRIDGE sans faux CIK ni notes
+        run: python -B TESTS/test_pistes_sec_bridge_non_certifiees.py
       - name: Tester 07R quarantaine CIK meme en presence de notes apparemment valides
         run: python -B TESTS/test_07r_quarantaine_cik.py
       - name: Tester 07R exclusion CIK et preuves SCE avant toute elimination
