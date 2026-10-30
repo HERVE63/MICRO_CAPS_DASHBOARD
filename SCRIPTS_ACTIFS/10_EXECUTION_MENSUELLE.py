@@ -34,7 +34,8 @@ def executer(dry_run=False):
     force=os.getenv("MICRO_CAPS_FORCE_MENSUEL","0")=="1"
     if force and not (dry_run or os.getenv("MICRO_CAPS_DRY_RUN","0")=="1"):
         raise RuntimeError("Forçage hors fenêtre interdit sans exception grave documentée")
-    if not force and not dernier_mardi(maintenant.date()):
+    hebdo=os.getenv("MICRO_CAPS_ARBITRAGE_HEBDO","0")=="1"
+    if not force and not (dernier_mardi(maintenant.date()) or (hebdo and maintenant.weekday()==1)):
         print("Hors fenêtre mensuelle : aucune opération.")
         return pd.DataFrame()
 
