@@ -35,5 +35,8 @@ jobs:
           git add DONNEES/RESULTATS_SSI.csv DONNEES/AUDIT_SSI.csv DONNEES/CONTROLE_CHASSE_SSI.csv
           git add DONNEES/COUVERTURE_ARBITRAGE_GERE.csv
           git diff --cached --quiet || git commit -m "Prepare dossiers SSI Micro Caps"
+          # Nettoyer seulement les sorties non retenues apres commit des preuves.
+          git reset --hard HEAD
+          git clean -fd
           git pull --rebase origin "$GITHUB_REF_NAME"
           git push origin "HEAD:$GITHUB_REF_NAME"
