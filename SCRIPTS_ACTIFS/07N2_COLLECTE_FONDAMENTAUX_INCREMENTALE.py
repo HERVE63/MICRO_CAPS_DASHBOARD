@@ -73,7 +73,9 @@ def executer(base=None, fetcher=None, taille_lot=None, instant=None):
         raise ValueError("Horodatage UTC requis")
     date = instant.date().isoformat()
     iso = instant.astimezone(timezone.utc).isoformat()
-    index = anciens.set_index("Ticker", drop=False)
+    # pandas 3.x infere StringDtype sur les colonnes historiques mixtes ;
+    # utiliser object permet de conserver les nombres verifies sans erreur de typage.
+    index = anciens.set_index("Ticker", drop=False).astype(object)
     # Les tentatives du jour ne sont pas répétées : on évite une boucle infinie
     # sur des sources indisponibles et l'épuisement du fournisseur.
     attente = []
