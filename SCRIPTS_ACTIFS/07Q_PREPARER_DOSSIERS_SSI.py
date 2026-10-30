@@ -60,9 +60,9 @@ def executer():
   if ancien["Ticker"].duplicated().any():raise RuntimeError("Ancien registre SSI dupliqué")
   archiver_registre()
   # Le ticker n'est pas une identité stable. Le CIK de la nouvelle collecte
-  # prime s'il est renseigné ; l'ancien CIK n'est repris que si la source
-  # actuelle ne fournit aucun identifiant. Une divergence met ce dossier
-  # en quarantaine sans interrompre les autres candidats.
+  # prime s'il est renseigné ; l'ancien CIK n'est JAMAIS repris si la
+  # nouvelle source n'en fournit pas. Une divergence ou une identité
+  # source manquante isole le dossier sans interrompre les autres candidats.
   humains=[c for c in ancien if c.startswith(("Note_","Preuve_","Validation_","Correction_")) or c in ("Decision_eliminatoire","Motif_eliminatoire","SCE_valide","Preuves_identite_SCE")]
   reg=ancien.set_index("Ticker")
   mask=out["Ticker"].isin(reg.index)
