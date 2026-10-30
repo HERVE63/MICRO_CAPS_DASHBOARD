@@ -110,7 +110,18 @@ def executer():
         for _, ligne in nouveaux.iterrows():
             if ligne.Ticker in annotations:
                 for c, attendu in annotations[ligne.Ticker].items():
-                    assert str(ligne[c]) == str(attendu), (ligne.Ticker, c)
+                    if c == "CIK":
+                        # La nouvelle source fait autorité si son CIK est connu.
+                        # Deux valeurs absentes ("", MANQUANTE) sont équivalentes.
+                        nouveau = candidats.loc[candidats.Ticker.eq(ligne.Ticker), "CIK"].iloc[0]
+                        absents = {"", "MANQUANTE", "NAN", "NONE", "N/A"}
+                        attendu_cik = nouveau if str(nouveau).strip().upper() not in absents else attendu
+                        if str(attendu_cik).strip().upper() in absents:
+                            assert str(ligne[c]).strip().upper() in absents, (ligne.Ticker, c)
+                        else:
+                            assert str(ligne[c]) == str(attendu_cik), (ligne.Ticker, c)
+                    else:
+                        assert str(ligne[c]) == str(attendu), (ligne.Ticker, c)
         assert list((base / "AUDITS/DOSSIERS_SSI").glob("*/DOSSIERS_SSI_A_QUALIFIER.csv")), (
             "La préparation doit archiver l'ancien registre avant remplacement")
         # Incident de collecte : plus aucun candidat admissible. Le registre actif
