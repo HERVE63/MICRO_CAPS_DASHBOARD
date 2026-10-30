@@ -25,6 +25,7 @@ jobs:
           python -B SCRIPTS_ACTIFS/07Q2_AUDIT_PREUVES_SSI.py
           python -B SCRIPTS_ACTIFS/07R_VALIDER_NOTES_SSI.py
           python -B SCRIPTS_ACTIFS/08B_CONTROLE_CHASSE_SSI.py
+          MICRO_CAPS_FORCE_MENSUEL=1 MICRO_CAPS_DRY_RUN=1 python -B SCRIPTS_ACTIFS/10_EXECUTION_MENSUELLE.py
       - if: github.ref_name == 'repair/microcaps-chain-20261030'
         run: |
           git config user.name "github-actions[bot]"
@@ -32,6 +33,7 @@ jobs:
           git add DONNEES/DOSSIERS_SSI_A_QUALIFIER.csv DONNEES/AUDIT_DOSSIERS_SSI.csv AUDITS/DOSSIERS_SSI
           git add DONNEES/PLAN_COLLECTE_PREUVES_SSI.csv DONNEES/AUDIT_COLLECTE_PREUVES_SSI.csv
           git add DONNEES/RESULTATS_SSI.csv DONNEES/AUDIT_SSI.csv DONNEES/CONTROLE_CHASSE_SSI.csv
+          git add DONNEES/COUVERTURE_ARBITRAGE_GERE.csv
           git diff --cached --quiet || git commit -m "Prepare dossiers SSI Micro Caps"
           git pull --rebase origin "$GITHUB_REF_NAME"
           git push origin "HEAD:$GITHUB_REF_NAME"
