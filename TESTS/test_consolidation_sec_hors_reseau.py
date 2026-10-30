@@ -7,7 +7,25 @@ import pandas as pd
 ROOT=Path(__file__).resolve().parents[1]
 s=importlib.util.spec_from_file_location('consolidation',ROOT/'SCRIPTS_ACTIFS/07AD_CONSOLIDER_COLLECTES_SEC.py')
 m=importlib.util.module_from_spec(s);s.loader.exec_module(m)
+def test_chronologie():
+ # Les bruts restent disponibles mais aucune date invalide ne peut être promue.
+ cas=[
+  ('2026-01-01','2026-06-30','2026-08-01','OK'),
+  ('','2026-06-30','2026-08-01','OK'), # bilan instantané
+  ('2026-07-01','2026-06-30','2026-08-01','PERIODE_INVERSEE'),
+  ('2026-01-01','2026-06-30','2026-06-01','DEPOT_AVANT_FIN_PERIODE'),
+  ('2026-01-01','2026-06-30','2026-11-01','DEPOT_POSTERIEUR_REFERENCE'),
+  ('2026-01-01','','2026-08-01','DATE_OBLIGATOIRE_ABSENTE'),
+  ('2026-01-01','2026-06-30','invalide','FORMAT_DATE_INVALIDE')]
+ d=pd.DataFrame(cas,columns=['Debut_periode','Fin_periode','Date_depot','attendu'])
+ statut=m.verifier_chronologie_sec(d,pd.Timestamp('2026-10-30',tz='UTC'))
+ assert statut.tolist()==d.attendu.tolist(),list(zip(statut.tolist(),d.attendu.tolist()))
+ try:m.verifier_chronologie_sec(d,pd.Timestamp('2026-10-30'))
+ except ValueError as e:assert 'REFERENCE_UTC' in str(e)
+ else:raise AssertionError('Référence sans fuseau acceptée')
+
 def test():
+ test_chronologie()
  with TemporaryDirectory() as tmp:
   b=Path(tmp);(b/'DONNEES').mkdir()
   pd.DataFrame([{'Ticker':'A.F','Societe':'Fixture','Pays':'Allemagne'}]).to_csv(b/'DONNEES/DOSSIERS_SSI_A_QUALIFIER.csv',index=False)
@@ -50,6 +68,9 @@ def test():
   assert couverture.loc[couverture.ID_position.eq(2),'Ticker'].iloc[0]=='INFU.US'
   assert couverture.loc[couverture.ID_position.eq(2),'Nb_faits_bruts'].iloc[0]==1
   assert str(couverture.loc[couverture.ID_position.eq(2),'CIK_pistes'].iloc[0]).zfill(10)=='0000000022'
+  assert couverture.Nb_faits_chronologie_OK.loc[couverture.ID_position.eq(1)].iloc[0]==3
+  assert couverture.Nb_faits_chronologie_OK.loc[couverture.ID_position.eq(2)].iloc[0]==1
+  assert result['observations_chronologie_non_validee']==0
   assert couverture.Statut_SSI.eq('EN_ATTENTE_DATA').all()
   assert couverture.Statut_MCPA.eq('EN_ATTENTE_DATA').all()
   assert result['titulaires_couverts']==40 and result['titulaires_avec_pistes_SEC']==2
