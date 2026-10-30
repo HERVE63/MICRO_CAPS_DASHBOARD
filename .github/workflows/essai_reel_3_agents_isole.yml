@@ -46,4 +46,5 @@ jobs:
             DONNEES/AUDIT_FONDAMENTAUX_INCREMENTAL.csv
             DONNEES/AUDIT_PRE_SSI.csv
             DONNEES/AUDIT_SSI.csv
+            DONNEES/AUDIT_COLLECTE_PREUVES_SSI.csv
           if-no-files-found: warn
