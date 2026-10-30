@@ -66,7 +66,11 @@ jobs:
           python SCRIPTS_ACTIFS/07R_VALIDER_NOTES_SSI.py
           python SCRIPTS_ACTIFS/08B_CONTROLE_CHASSE_SSI.py
           # Confrontation virtuelle : simulation obligatoire avant toute activation d ecriture.
-          MICRO_CAPS_ARBITRAGE_HEBDO=1 MICRO_CAPS_DRY_RUN=1 python SCRIPTS_ACTIFS/10_EXECUTION_MENSUELLE.py
+          if python -c 'import pandas as pd,sys;sys.exit(0 if not pd.read_csv("DONNEES/REVUE_HEBDOMADAIRE_MCPA_IPS.csv").empty else 1)'; then
+            MICRO_CAPS_ARBITRAGE_HEBDO=1 MICRO_CAPS_DRY_RUN=1 python SCRIPTS_ACTIFS/10_EXECUTION_MENSUELLE.py
+          else
+            echo 'Aucune revue MCPA documentee : pas de simulation d arbitrage, audit poursuivi.'
+          fi
           python SCRIPTS_ACTIFS/08_GENERER_DASHBOARD.py
           python SCRIPTS_ACTIFS/11_RAPPORT_3_AGENTS.py
       - name: Sauvegarder la chasse
