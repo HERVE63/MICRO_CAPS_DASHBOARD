@@ -56,6 +56,39 @@ jobs:
           assert d['etapes']['revue_MCPA_IPS']['statut']=='BLOQUE'
           print('AUDIT FAIL-CLOSED VERIFIE :',d['blocages'])
           PY
+      - name: Tester dashboard mobile sur copie isolee et refuser challenger fictif
+        run: |
+          python - <<'PY'
+          import tempfile,shutil,pathlib,subprocess,sys,pandas as pd
+          root=pathlib.Path.cwd()
+          with tempfile.TemporaryDirectory() as d:
+              t=pathlib.Path(d)
+              (t/'SCRIPTS_ACTIFS').mkdir()
+              (t/'DONNEES').mkdir()
+              shutil.copy2(root/'SCRIPTS_ACTIFS/08_GENERER_DASHBOARD.py',t/'SCRIPTS_ACTIFS')
+              noms=['TEST_PORTEFEUILLES_V3.csv','TEST_CONTROLE_QUALITE_V3.csv','TEST_BENCHMARKS_V3.csv','CHASSE_CANDIDATS.csv','REVUE_HEBDOMADAIRE_MCPA_IPS.csv']
+              for nom in noms: shutil.copy2(root/'DONNEES'/nom,t/'DONNEES'/nom)
+              manifests=sorted((root/'AUDITS/SCE_DISCOVERY_US').glob('*/MANIFESTE.json'))
+              assert manifests
+              dest=t/'AUDITS/SCE_DISCOVERY_US'/manifests[-1].parent.name
+              dest.mkdir(parents=True)
+              shutil.copy2(manifests[-1],dest/'MANIFESTE.json')
+              script=t/'SCRIPTS_ACTIFS/08_GENERER_DASHBOARD.py'
+              p=subprocess.run([sys.executable,str(script)],capture_output=True,text=True)
+              assert p.returncode==0,(p.stdout,p.stderr)
+              page=(t/'index.html').read_text()
+              assert 'name="viewport"' in page
+              assert 'SSI US documenté' in page
+              assert '0</span><div class="sub">challengers qualifiés' in page
+              revue=t/'DONNEES/REVUE_HEBDOMADAIRE_MCPA_IPS.csv'
+              df=pd.read_csv(revue)
+              fake={c:'' for c in df.columns}
+              fake.update(Ticker='FAUX',Societe='Fausse qualification',Type='CHALLENGER',SSI=72,MCPA=90,Statut_analyse='VALIDE')
+              pd.concat([df,pd.DataFrame([fake])],ignore_index=True).to_csv(revue,index=False)
+              p=subprocess.run([sys.executable,str(script)],capture_output=True,text=True)
+              assert p.returncode!=0 and 'controles SSI/MCPA manquants' in p.stderr,(p.stdout,p.stderr)
+              print('Dashboard mobile et blocage faux challenger verifies.')
+          PY
       - name: Confirmer absence de mutation des historiques et donnees
         run: |
           test -z "$(git status --porcelain -- DONNEES HISTORIQUE AUDITS index.html APPLICATION/index.html)"
