@@ -25,7 +25,7 @@ def executer():
    colonnes.extend(["Note_"+b,"Preuve_"+b])
   archiver_registre()
   pd.DataFrame(columns=colonnes).to_csv(OUT,index=False)
-  pd.DataFrame([{"Dossiers_prets":0,"SSI_notes":0,"SSI_admis_65":0,"Statut":"EN_ATTENTE_DATA"}]).to_csv(AUD,index=False)
+  pd.DataFrame([{"Dossiers_prets":0,"SSI_notes":0,"SSI_admis_65":0,"Conflits_CIK":0,"Statut":"EN_ATTENTE_DATA"}]).to_csv(AUD,index=False)
   return pd.DataFrame(columns=colonnes)
  # Les 7 blocs du SSI maître. Les variables observées sont exposées, aucune note n'est inventée.
  out=pd.DataFrame({
@@ -51,6 +51,7 @@ def executer():
  out["SCE_valide"]="NON"
  out["Preuves_identite_SCE"]="MANQUANTE"
  out["SSI"]="MANQUANTE"; out["Statut_SSI"]="A_COMPLETER_PREUVES_SSI"
+ out["Conflit_identite_CIK"]="NON"
  out["Decision_eliminatoire"]="A_VERIFIER"
  out["Motif_eliminatoire"]="MANQUANTE"
  # Conservation des champs humains par ticker. Aucune collecte ne remet les notes à zéro.
@@ -58,16 +59,40 @@ def executer():
   ancien=pd.read_csv(OUT,dtype=str,keep_default_na=False)
   if ancien["Ticker"].duplicated().any():raise RuntimeError("Ancien registre SSI dupliqué")
   archiver_registre()
-  humains=[c for c in ancien if c.startswith(("Note_","Preuve_","Validation_","Correction_")) or c in ("Decision_eliminatoire","Motif_eliminatoire","CIK","SCE_valide","Preuves_identite_SCE")]
+  # Le ticker n'est pas une identité stable. Le CIK de la nouvelle collecte
+  # prime s'il est renseigné ; l'ancien CIK n'est repris que si la source
+  # actuelle ne fournit aucun identifiant. Une divergence met ce dossier
+  # en quarantaine sans interrompre les autres candidats.
+  humains=[c for c in ancien if c.startswith(("Note_","Preuve_","Validation_","Correction_")) or c in ("Decision_eliminatoire","Motif_eliminatoire","SCE_valide","Preuves_identite_SCE")]
   reg=ancien.set_index("Ticker")
+  mask=out["Ticker"].isin(reg.index)
   for c in humains:
    if c not in out:out[c]="MANQUANTE"
-   mask=out["Ticker"].isin(reg.index)
    out.loc[mask,c]=out.loc[mask,"Ticker"].map(reg[c])
+  anciens_cik=out.loc[mask,"Ticker"].map(reg["CIK"]) if "CIK" in reg else pd.Series("",index=out.index[mask])
+  nouveau_cik=out.loc[mask,"CIK"].astype(str)
+  absents={"","MANQUANTE","NAN","NONE","N/A"}
+  reprendre=nouveau_cik.str.strip().str.upper().isin(absents) & ~anciens_cik.astype(str).str.strip().str.upper().isin(absents)
+  out.loc[anciens_cik.index[reprendre],"CIK"]=anciens_cik[reprendre]
+  conflit=(~nouveau_cik.str.strip().str.upper().isin(absents)
+           & ~anciens_cik.astype(str).str.strip().str.upper().isin(absents)
+           & nouveau_cik.str.strip().ne(anciens_cik.astype(str).str.strip()))
+  if conflit.any():
+   indices=anciens_cik.index[conflit]
+   for c in humains:
+    out.loc[indices,c]="MANQUANTE"
+   out.loc[indices,"SCE_valide"]="NON"
+   out.loc[indices,"Preuves_identite_SCE"]="MANQUANTE"
+   out.loc[indices,"Decision_eliminatoire"]="A_VERIFIER"
+   out.loc[indices,"Motif_eliminatoire"]="MANQUANTE"
+   out.loc[indices,"Conflit_identite_CIK"]="OUI"
   # Les données collectées ne certifient jamais une admission antérieure.
   out["SSI"]="MANQUANTE";out["Statut_SSI"]="A_REVALIDER_PREUVES_SSI"
+  if conflit.any():out.loc[anciens_cik.index[conflit],"Statut_SSI"]="EN_ATTENTE_DATA_IDENTITE_CIK"
  tmp=OUT.with_suffix(".tmp");out.to_csv(tmp,index=False);tmp.replace(OUT)
- pd.DataFrame([{"Dossiers_prets":len(out),"SSI_notes":0,"SSI_admis_65":0,"Statut":"COLLECTE_PREUVES_SSI_REQUISE"}]).to_csv(AUD,index=False)
+ pd.DataFrame([{"Dossiers_prets":len(out),"SSI_notes":0,"SSI_admis_65":0,
+                "Conflits_CIK":int(out["Conflit_identite_CIK"].eq("OUI").sum()),
+                "Statut":"COLLECTE_PREUVES_SSI_REQUISE"}]).to_csv(AUD,index=False)
  print("Dossiers SSI a qualifier",len(out))
  return out
 if __name__=="__main__": executer()
