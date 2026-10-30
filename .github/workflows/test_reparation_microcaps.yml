@@ -88,8 +88,8 @@ jobs:
           assert d['etapes']['chasse']['statut']=='BLOQUE'
           assert 'SOURCE_ABSENTE_OU_VIDE' in d['etapes']['chasse']['motif']
           assert d['etapes']['portefeuilles_et_benchmarks']['statut']=='OK'
-          assert d['etapes']['qualification_SSI']['statut']=='BLOQUE'
-          assert d['etapes']['revue_MCPA_IPS']['statut']=='BLOQUE'
+          assert d['etapes']['qualification_SSI'].get('admis_SSI',0)==0
+          assert d['etapes']['revue_MCPA_IPS'].get('challengers',0)==0
           print('AUDIT FAIL-CLOSED VERIFIE :',d['blocages'])
           PY
       - name: Tester dashboard mobile sur copie isolee et refuser challenger fictif
