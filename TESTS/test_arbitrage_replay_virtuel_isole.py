@@ -160,5 +160,20 @@ def executer():
         print("09B -> 10 -> 05C OK : 40 positions, vente, entree, frais 2.5%, replay, cash residuel, refus cash negatif, aucune mutation officielle.")
 
 
+    # Reception de la couverture reellement publiee, sans aucune note de test.
+    couverture_officielle = ROOT / "DONNEES/COUVERTURE_ARBITRAGE_GERE.csv"
+    revue_officielle = pd.read_csv(ROOT / "DONNEES/REVUE_HEBDOMADAIRE_MCPA_IPS.csv")
+    journal_officiel = pd.read_csv(ROOT / "DONNEES/JOURNAL_ARBITRAGES_GERE.csv")
+    if revue_officielle.empty and journal_officiel.empty and couverture_officielle.exists():
+        couverture = pd.read_csv(couverture_officielle, dtype=str, keep_default_na=False)
+        initiale = pd.read_csv(ROOT / "DONNEES/ETAT_INITIAL_PORTEFEUILLE_GERE.csv", dtype=str)
+        assert len(couverture) == 40
+        assert set(couverture.ID_position) == set(initiale.ID_position)
+        assert dict(zip(couverture.ID_position, couverture.Ticker)) == dict(zip(initiale.ID_position, initiale.Ticker))
+        assert set(couverture.Statut_MCPA) == {"EN_ATTENTE_DATA"}
+        assert set(couverture.Operation_virtuelle) == {"NON"}
+        print("COUVERTURE REELLE VERIFIEE : 40 titulaires, aucune note ou operation inventee.")
+
+
 if __name__ == "__main__":
     executer()
