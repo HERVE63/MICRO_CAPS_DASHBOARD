@@ -22,6 +22,6 @@ Commits : c188ed826d3d57d97be370f50981db4e9a722a04 (correction), fbc9f63c8435b7c
 
 ## Contrôles et limites
 - Le test ajouté `TESTS/test_07q_collision_identite_cik.py` crée trois candidats fictifs dans un dossier temporaire : CIK absent, collision CIK, nouvel identifiant ; vérifie l'archivage et la poursuite de la cohorte.
-- La suite `test_reparation_microcaps.yml` déclenchée par push inclut désormais ce test. Résultat CI du nouveau commit : **à vérifier**, ne pas déclarer un succès sans exécution constatée.
+- La suite `test_reparation_microcaps.yml` déclenchée par push inclut désormais ce test. Les premières exécutions CI 41117003115 et 41117076287 ont échoué sur une ancienne hypothèse de test (CIK absent sous forme `MANQUANTE` versus chaîne vide). Correctif du test d'intégration : commit 3f0faebd57475c0a3f6b220f47a219831f35b511. **Validation CI finale : run 41117197563, succès**, incluant le nouveau test de collision, la chaîne SSI, l'audit bloquant et la non-mutation. Préparation SSI réelle : run 41116970928, succès technique uniquement.
 - Aucun arbitrage, aucune fusion main, aucun changement de portefeuille témoin ou de coffre maître.
 - Étape suivante : confirmer CI ; inspecter schémas/dates/empreintes PRICE02A et autres archives avant raccordement ; puis documenter les preuves primaires SCE/SSI, sans score imputé.
