@@ -14,7 +14,7 @@ def executer():
     if df.empty:
         df['Motif_decision_SSI']=pd.Series(dtype=str)
         df.to_csv(OUT,index=False)
-        pd.DataFrame([{'Date_validation_UTC':datetime.now(timezone.utc).isoformat(),'Dossiers':0,'Admis':0,'Refuses':0,'Refuses_plafond_sans_score_total':0,'Elimines':0,'Preuves_incompletes':0}]).to_csv(AUD,index=False)
+        pd.DataFrame([{'Date_validation_UTC':datetime.now(timezone.utc).isoformat(),'Dossiers':0,'Admis':0,'Refuses':0,'Refuses_plafond_sans_score_total':0,'Elimines':0,'Preuves_incompletes':0,'Identites_CIK_en_quarantaine':0}]).to_csv(AUD,index=False)
         print('SSI: aucun nouveau dossier qualifiable')
         return df
     if not {'Decision_eliminatoire','Motif_eliminatoire',*[p+b for b in MAX for p in ['Note_','Preuve_']]}.issubset(df.columns):
@@ -57,6 +57,7 @@ def executer():
     tmp=OUT.with_suffix('.tmp');df.to_csv(tmp,index=False);tmp.replace(OUT)
     pd.DataFrame([{'Date_validation_UTC':limite.isoformat(),'Dossiers':len(df),
         'Admis':statuts.count('ADMIS_SSI'),'Refuses':statuts.count('REFUSE_SSI'),
-        'Refuses_plafond_sans_score_total':statuts.count('REFUSE_SSI_PLAFOND_VERIFIE'),'Elimines':statuts.count('ELIMINE'),'Preuves_incompletes':statuts.count('A_COMPLETER_PREUVES_SSI')}]).to_csv(AUD,index=False)
+        'Refuses_plafond_sans_score_total':statuts.count('REFUSE_SSI_PLAFOND_VERIFIE'),'Elimines':statuts.count('ELIMINE'),'Preuves_incompletes':statuts.count('A_COMPLETER_PREUVES_SSI'),
+        'Identites_CIK_en_quarantaine':statuts.count('EN_ATTENTE_DATA_IDENTITE_CIK')}]).to_csv(AUD,index=False)
     print('SSI:',pd.Series(statuts).value_counts().to_dict());return df
 if __name__=='__main__':executer()
