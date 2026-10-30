@@ -91,7 +91,10 @@ def valider_dossier(r,d,base,limite=None):
     if len(identifiants)>1:errors.append('identité émetteur divergente entre blocs')
     cik=str(r.get('CIK','')).strip()
     if cik and any(x!='CIK:'+cik for x in identifiants):errors.append('identité des preuves différente du CIK du dossier')
-    if 'SCE_valide' in r:errors.extend(verifier_identite_sce(r,d,base,limite))
+    # Le controle d'identite SCE est obligatoire, meme pour les anciens
+    # dossiers qui ne possedent pas encore la colonne SCE_valide.
+    # Ne jamais traiter une colonne absente comme une validation implicite.
+    errors.extend(verifier_identite_sce(r,d,base,limite))
     decision=str(r.get('Decision_eliminatoire','')).upper().strip()
     if decision!='NON':errors.append('exclusions non vérifiées')
     ids=str(r.get('Motif_eliminatoire','')).split('|')
