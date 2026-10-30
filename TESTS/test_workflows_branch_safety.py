@@ -6,6 +6,7 @@ FICHIERS = (
     "chasse_hebdomadaire.yml",
     "fondamentaux_incrementaux_microcaps.yml",
     "arbitrage_mensuel.yml",
+    "controle_pre_ssi_microcaps.yml",
 )
 
 
