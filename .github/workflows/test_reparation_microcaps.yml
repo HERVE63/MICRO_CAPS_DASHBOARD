@@ -69,7 +69,7 @@ jobs:
           PY
       - name: Verifier syntaxe modules corriges
         run: |
-          python -m py_compile SCRIPTS_ACTIFS/08A_IMPORT_SCREENER.py SCRIPTS_ACTIFS/08B_CONTROLE_CHASSE_SSI.py SCRIPTS_ACTIFS/08C_AUDIT_CHAINE_COMPLETE.py SCRIPTS_ACTIFS/08_GENERER_DASHBOARD.py SCRIPTS_ACTIFS/07N2_COLLECTE_FONDAMENTAUX_INCREMENTALE.py
+          python -m py_compile SCRIPTS_ACTIFS/08A_IMPORT_SCREENER.py SCRIPTS_ACTIFS/08B_CONTROLE_CHASSE_SSI.py SCRIPTS_ACTIFS/08C_AUDIT_CHAINE_COMPLETE.py SCRIPTS_ACTIFS/08_GENERER_DASHBOARD.py SCRIPTS_ACTIFS/07N2_COLLECTE_FONDAMENTAUX_INCREMENTALE.py SCRIPTS_ACTIFS/11_RAPPORT_3_AGENTS.py
       - name: Verifier isolation des workflows sur la branche declencheuse
         run: python -B TESTS/test_workflows_branch_safety.py
       - name: Tester la collecte incrementale sans acces reseau
