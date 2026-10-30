@@ -23,6 +23,15 @@ def executer():
     scores=[];statuts=[];motifs=[];partiels=[]
     for _,r in df.iterrows():
         partiels.append(bilan_blocs_documentes(r,preuves,D.parent,limite))
+        # 07Q isole une collision CIK. 07R ne doit jamais transformer cette
+        # quarantaine en admission, meme si d'anciennes notes et preuves sont
+        # reintroduites par erreur ou si leur verification individuelle reussit.
+        # Le controle est independant de la qualite des autres dossiers.
+        if str(r.get('Conflit_identite_CIK','NON')).strip().upper()=='OUI':
+            scores.append('MANQUANTE')
+            statuts.append('EN_ATTENTE_DATA_IDENTITE_CIK')
+            motifs.append('Collision CIK non levee par verification independante : notation et admission interdites')
+            continue
         notes,erreurs=valider_dossier(r,preuves,D.parent,limite)
         # Une exclusion elle aussi doit avoir une référence vérifiée avant publication.
         if r.Decision_eliminatoire=='OUI':
