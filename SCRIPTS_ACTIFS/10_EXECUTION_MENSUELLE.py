@@ -16,6 +16,7 @@ JOURNAL=BASE/"DONNEES/JOURNAL_ARBITRAGES_GERE.csv"
 DUELS=BASE/"DONNEES/DUELS_PROCHAIN_EURO.csv"
 REVUE=BASE/"DONNEES/REVUE_HEBDOMADAIRE_MCPA_IPS.csv"
 PARAMS=BASE/"CONFIG/PARAMETRES_ARBITRAGE_MICRO_CAPS.csv"
+COUVERTURE=BASE/"DONNEES/COUVERTURE_ARBITRAGE_GERE.csv"
 
 def charger(nom):
     p=SRC/nom; s=importlib.util.spec_from_file_location(nom.replace(".py",""),p)
@@ -37,6 +38,24 @@ def executer(dry_run=False):
     hebdo=os.getenv("MICRO_CAPS_ARBITRAGE_HEBDO","0")=="1"
     if not force and not (dernier_mardi(maintenant.date()) or (hebdo and maintenant.weekday()==1)):
         print("Hors fenêtre mensuelle : aucune opération.")
+        return pd.DataFrame()
+
+    # Une revue vide n'est pas un motif pour interrompre la valorisation.
+    # Publier la couverture des positions ACTIVES sans inventer de scores.
+    if not REVUE.exists():
+        raise RuntimeError("Revue MCPA/IPS absente : aucune decision autorisee.")
+    revue_existante=pd.read_csv(REVUE,dtype=str,keep_default_na=False)
+    if revue_existante.empty:
+        etat=charger("05C_REPLAY_PORTEFEUILLE_GERE.py").executer()
+        actifs=etat["positions"]
+        actifs=actifs[actifs["Statut"].astype(str).str.upper().eq("ACTIF")]
+        couverture=actifs[["ID_position","Societe","Ticker"]].copy()
+        couverture.insert(0,"Date_controle",maintenant.date().isoformat())
+        couverture["Statut_MCPA"]="EN_ATTENTE_DATA"
+        couverture["Decision_arbitrage"]="AUCUNE_SANS_REVUE_VALIDEE"
+        couverture["Operation_virtuelle"]="NON"
+        couverture.to_csv(COUVERTURE,index=False)
+        print(f"ARBITRAGE SUSPENDU : {len(couverture)} positions actives sans revue MCPA/IPS ; journal inchange.")
         return pd.DataFrame()
 
     # Recalcule les contrôles/duels sur la revue courante.
