@@ -14,7 +14,9 @@ jobs:
         with:
           python-version: '3.11'
       - run: python -m pip install pandas pytest requests
-      - name: Tester 09D sans reseau avant collecte externe\n        run: python -B TESTS/test_09d_collecte_non_bloquante.py\n      - name: Collecter les fondamentaux EODHD des 40 titulaires
+      - name: Tester 09D sans reseau avant collecte externe
+        run: python -B TESTS/test_09d_collecte_non_bloquante.py
+      - name: Collecter les fondamentaux EODHD des 40 titulaires
         env:
           EODHD_API_TOKEN: ${{ secrets.EODH_API_KEY }}
           EODHD_API_KEY: ${{ secrets.EODH_API_KEY }}
