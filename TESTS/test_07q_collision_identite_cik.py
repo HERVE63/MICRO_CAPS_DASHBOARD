@@ -16,7 +16,7 @@ def executer():
         (base / "DONNEES").mkdir()
         shutil.copy2(SOURCE, base / "SCRIPTS_ACTIFS/07Q_PREPARER_DOSSIERS_SSI.py")
         candidats = []
-        for ticker, cik in [("MEME", ""), ("COLLISION", "0000000999"), ("NOUVEAU", "0000000777")]:
+        for ticker, cik in [("MEME", ""), ("COLLISION", "0000000999"), ("NOUVEAU", "0000000777"), ("LEGACY", "0000000555"), ("SANS_CIK", "")]:
             candidats.append(dict(Ticker=ticker, CIK=cik, Societe=ticker, Pays="USA",
                 Capitalisation_EUR="10000000", Cash="100", Dette_totale="20",
                 EBITDA="10", FCF="8", Croissance_CA="0.1", Marge_brute="0.3",
@@ -30,6 +30,8 @@ def executer():
             dict(Ticker="COLLISION", CIK="0000000456", Note_B1="15",
                  Preuve_B1="PREUVE_AUTRE_EMETTEUR", SCE_valide="OUI",
                  Preuves_identite_SCE="C|D", Decision_eliminatoire="NON"),
+            dict(Ticker="LEGACY", CIK="", Note_B1="19", Preuve_B1="PREUVE_SANS_IDENTITE",
+                 SCE_valide="OUI", Preuves_identite_SCE="LEGACY1|LEGACY2", Decision_eliminatoire="NON"),
             dict(Ticker="NOUVEAU", CIK="", Note_B1="MANQUANTE",
                  Preuve_B1="MANQUANTE", SCE_valide="NON",
                  Preuves_identite_SCE="MANQUANTE", Decision_eliminatoire="A_VERIFIER"),
@@ -40,7 +42,7 @@ def executer():
         assert p.returncode == 0, (p.stdout, p.stderr)
         result = pd.read_csv(base / "DONNEES/DOSSIERS_SSI_A_QUALIFIER.csv",
                              dtype=str, keep_default_na=False).set_index("Ticker")
-        assert len(result) == 3
+        assert len(result) == 5
         assert result.loc["MEME", "CIK"] == ""
         assert result.loc["MEME", "Note_B1"] == "MANQUANTE"
         assert result.loc["MEME", "Preuve_B1"] == "MANQUANTE"
@@ -55,6 +57,18 @@ def executer():
         assert result.loc["COLLISION", "SCE_valide"] == "NON"
         assert result.loc["COLLISION", "Preuves_identite_SCE"] == "MANQUANTE"
         assert result.loc["NOUVEAU", "CIK"] == "0000000777"
+        # Une annotation historique sans CIK ne peut etre transferee a un
+        # emetteur nouvellement identifie par le seul ticker.
+        assert result.loc["LEGACY", "CIK"] == "0000000555"
+        assert result.loc["LEGACY", "Note_B1"] == "MANQUANTE"
+        assert result.loc["LEGACY", "Preuve_B1"] == "MANQUANTE"
+        assert result.loc["LEGACY", "SCE_valide"] == "NON"
+        assert result.loc["LEGACY", "Statut_SSI"] == "A_REVALIDER_PREUVES_SSI"
+        # Meme sans ancien dossier, une nouvelle ligne sans CIK doit etre
+        # explicitement EN_ATTENTE_DATA et ne doit pas bloquer les autres.
+        assert result.loc["SANS_CIK", "CIK"] == ""
+        assert result.loc["SANS_CIK", "Statut_SSI"] == "EN_ATTENTE_DATA_IDENTITE_CIK"
+        assert result.loc["SANS_CIK", "Note_B1"] == "MANQUANTE"
         audit = pd.read_csv(base / "DONNEES/AUDIT_DOSSIERS_SSI.csv")
         assert int(audit.Conflits_CIK.iloc[0]) == 1
         archives = list((base / "AUDITS/DOSSIERS_SSI").glob("*/DOSSIERS_SSI_A_QUALIFIER.csv"))
@@ -74,7 +88,7 @@ def executer():
         assert deuxieme.loc["MEME", "CIK"] == ""
         assert deuxieme.loc["MEME", "Statut_SSI"] == "EN_ATTENTE_DATA_IDENTITE_CIK"
         assert deuxieme.loc["MEME", "Preuve_B1"] == "MANQUANTE"
-        assert len(deuxieme) == 3
+        assert len(deuxieme) == 5
         # Quand la source retrouve enfin le CIK, aucune ancienne note
         # ne doit etre restauree par simple coincidence du ticker.
         source = base / "DONNEES/CANDIDATS_PRETS_SSI.csv"
