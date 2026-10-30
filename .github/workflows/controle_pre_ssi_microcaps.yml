@@ -18,7 +18,8 @@ jobs:
           python-version: '3.11'
       - run: pip install pandas
       - run: python SCRIPTS_ACTIFS/07O_CONTROLE_PRE_SSI.py
-      - run: |
+      - if: github.ref_name == 'main'
+        run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
           git add DONNEES/CANDIDATS_PRETS_SSI.csv DONNEES/CANDIDATS_SSI_DONNEES_MANQUANTES.csv DONNEES/AUDIT_PRE_SSI.csv
