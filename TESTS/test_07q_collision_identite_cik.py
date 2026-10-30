@@ -41,8 +41,12 @@ def executer():
         result = pd.read_csv(base / "DONNEES/DOSSIERS_SSI_A_QUALIFIER.csv",
                              dtype=str, keep_default_na=False).set_index("Ticker")
         assert len(result) == 3
-        assert result.loc["MEME", "CIK"] == "0000000123"
-        assert result.loc["MEME", "Preuve_B1"] == "PREUVE_MEME"
+        assert result.loc["MEME", "CIK"] == ""
+        assert result.loc["MEME", "Note_B1"] == "MANQUANTE"
+        assert result.loc["MEME", "Preuve_B1"] == "MANQUANTE"
+        assert result.loc["MEME", "SCE_valide"] == "NON"
+        assert result.loc["MEME", "Statut_SSI"] == "EN_ATTENTE_DATA_IDENTITE_CIK"
+        assert result.loc["MEME", "Conflit_identite_CIK"] == "NON"
         assert result.loc["COLLISION", "CIK"] == "0000000999"
         assert result.loc["COLLISION", "Conflit_identite_CIK"] == "OUI"
         assert result.loc["COLLISION", "Statut_SSI"] == "EN_ATTENTE_DATA_IDENTITE_CIK"
@@ -67,8 +71,26 @@ def executer():
         assert deuxieme.loc["COLLISION", "Conflit_identite_CIK"] == "OUI"
         assert deuxieme.loc["COLLISION", "Statut_SSI"] == "EN_ATTENTE_DATA_IDENTITE_CIK"
         assert deuxieme.loc["COLLISION", "Preuve_B1"] == "MANQUANTE"
+        assert deuxieme.loc["MEME", "CIK"] == ""
+        assert deuxieme.loc["MEME", "Statut_SSI"] == "EN_ATTENTE_DATA_IDENTITE_CIK"
+        assert deuxieme.loc["MEME", "Preuve_B1"] == "MANQUANTE"
         assert len(deuxieme) == 3
-        print("07Q OK : collision CIK isolée, quarantaine persistante, 2 autres dossiers poursuivis")
+        # Quand la source retrouve enfin le CIK, aucune ancienne note
+        # ne doit etre restauree par simple coincidence du ticker.
+        source = base / "DONNEES/CANDIDATS_PRETS_SSI.csv"
+        recup = pd.read_csv(source, dtype=str, keep_default_na=False)
+        recup.loc[recup.Ticker.eq("MEME"), "CIK"] = "0000000123"
+        recup.to_csv(source, index=False)
+        p3 = subprocess.run([sys.executable, str(base / "SCRIPTS_ACTIFS/07Q_PREPARER_DOSSIERS_SSI.py")],
+                            cwd=base, text=True, capture_output=True)
+        assert p3.returncode == 0, (p3.stdout, p3.stderr)
+        troisieme = pd.read_csv(base / "DONNEES/DOSSIERS_SSI_A_QUALIFIER.csv",
+                                dtype=str, keep_default_na=False).set_index("Ticker")
+        assert troisieme.loc["MEME", "CIK"] == "0000000123"
+        assert troisieme.loc["MEME", "Preuve_B1"] == "MANQUANTE"
+        assert troisieme.loc["MEME", "Note_B1"] == "MANQUANTE"
+        assert troisieme.loc["MEME", "SCE_valide"] == "NON"
+        print("07Q OK : collision CIK et absence source isolees ; aucune ancienne note restauree")
 
 if __name__ == "__main__":
     executer()
