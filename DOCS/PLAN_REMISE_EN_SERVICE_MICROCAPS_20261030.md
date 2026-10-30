@@ -33,3 +33,15 @@
 ## Précautions de reprise
 
 Le workflow hebdomadaire historique n'exécute pas les modules 07Q/07R ni la notation MCPA ; les chaîner sans validation des sources risquerait d'écraser les champs humains et de publier des résultats sans preuve. Les archives SSI US et la chasse généraliste sont des univers distincts : ne pas additionner leurs compteurs. Toute nouvelle intégration doit être testée sur une copie temporaire avant publication.
+
+
+## Journal de reprise autonome — 30 octobre 2026
+
+- Registre historique conservé : DONNEES/CHASSE_CANDIDATS.csv, 5 429 763 octets, blob Git 9a97005c774f87154a035c57cb3ef2c820fab8df, 31 352 événements de détection. Attention : le connecteur de lecture peut renvoyer un contenu vide pour les fichiers volumineux, sans que le fichier soit vide. Une reconstruction temporaire réduite à 5 737 événements (ef3f8b6) a été annulée par restauration exacte du blob historique (372d5a0) et de son audit (9c68ed6). Contrôle de non-perte : TESTS/test_integrite_registre_chasse_hors_reseau.py, CI 41047630500 réussie.
+- Réemploi du moteur existant : 09B_DUEL_PROCHAIN_EURO.py vers 10_EXECUTION_MENSUELLE.py vers 05C_REPLAY_PORTEFEUILLE_GERE.py. Test isolé sur les 40 positions initiales : vente, achat challenger de test, frais 2,5 % achat et vente, replay, cash résiduel positif accepté sans réinvestissement implicite, cash négatif rejeté. Correctif 6c14991 ; test TESTS/test_arbitrage_replay_virtuel_isole.py ; CI 41047311787 réussie. Extension au renforcement interne d'un titulaire (11f36b4), réception à confirmer. Toutes les notes, cours et décisions de ces tests sont synthétiques, jamais des décisions d'investissement.
+- SSI : workflow existant preparer_dossiers_ssi.yml réutilisé sur branche de réparation (687e5f8) pour 07Q, 07Q2, 07R, 08B, avec registre de preuves et empreintes SHA256 ; résultat d'exécution à contrôler. Aucune note imputée ; dossiers incomplets en attente.
+- Inventaire historique préalable : le dépôt contient de nombreuses archives EODHD et SEC, ainsi que les moteurs de prix, fondamentaux, identité et preuves. Google Drive contient PRICE02A/raw_prices. Les recherches exactes FUND02E et FUND03A n'ont pas trouvé de fichiers indexés ; cela ne prouve pas leur absence dans les archives.
+- Blocage métier restant : REVUE_HEBDOMADAIRE_MCPA_IPS.csv n'a que son en-tête ; aucune revue certifiée des 40 titulaires, aucun arbitrage réel du portefeuille virtuel autorisé. CCFN.US a une analyse MCPA documentaire 72/100, sous le seuil challenger 80. Un test CI vert ne constitue pas une sélection opérationnelle.
+- Protection : aucun ordre financier réel ; aucun changement de main, du T0, du coffre maître, du journal officiel, du CPI ou de l'assurance-vie. PR #1 maintenu en brouillon ; SAUVEGARDE_MICROCAPS_TOTAL_SYSTEME interdite avant recette intégrale.
+
+Prochaine étape : confirmer SSI et test d'arbitrage interne ; réutiliser les preuves existantes pour établir une couverture des 40 titulaires, en classant explicitement EN_ATTENTE_DATA toute position non documentée, sans créer de score.
