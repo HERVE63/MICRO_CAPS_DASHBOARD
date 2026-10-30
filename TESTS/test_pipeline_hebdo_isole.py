@@ -98,7 +98,8 @@ def executer():
         assert len(nouveaux) == int(controle.Prets_SSI.iloc[0])
         assert set(resultat.Statut_SSI).issubset(
             {"ADMIS_SSI", "REFUSE_SSI", "ELIMINE",
-             "A_COMPLETER_PREUVES_SSI", "REFUSE_SSI_PLAFOND_VERIFIE"})
+             "A_COMPLETER_PREUVES_SSI", "REFUSE_SSI_PLAFOND_VERIFIE",
+             "EN_ATTENTE_DATA_IDENTITE_CIK"})
         # Les documents bruts ne sont PAS copiés dans ce test : aucune
         # admission ne doit être produite sur des références non vérifiables.
         assert not resultat.Statut_SSI.eq("ADMIS_SSI").any()
