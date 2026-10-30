@@ -45,3 +45,12 @@ Le workflow hebdomadaire historique n'exécute pas les modules 07Q/07R ni la not
 - Protection : aucun ordre financier réel ; aucun changement de main, du T0, du coffre maître, du journal officiel, du CPI ou de l'assurance-vie. PR #1 maintenu en brouillon ; SAUVEGARDE_MICROCAPS_TOTAL_SYSTEME interdite avant recette intégrale.
 
 Prochaine étape : confirmer SSI et test d'arbitrage interne ; réutiliser les preuves existantes pour établir une couverture des 40 titulaires, en classant explicitement EN_ATTENTE_DATA toute position non documentée, sans créer de score.
+
+
+### Résultats vérifiés après exécution sur branche isolée
+
+- Workflow SSI exécuté avec succès : GitHub Actions 41047694014. AUDIT_SSI.csv indique 1 361 dossiers, 0 admis, 0 refusés sur dossier complet, 1 361 preuves incomplètes. PLAN_COLLECTE_PREUVES_SSI.csv : 9 527 blocs audités, dont 233 avec au moins une variable absente ; aucune note SSI fabriquée.
+- Workflow de couverture du portefeuille exécuté avec succès : GitHub Actions 41047967502. DONNEES/COUVERTURE_ARBITRAGE_GERE.csv contient les 40 positions ACTIVES du portefeuille virtuel, toutes explicitement EN_ATTENTE_DATA, Decision_arbitrage=AUCUNE_SANS_REVUE_VALIDEE et Operation_virtuelle=NON. Il ne s'agit pas de 40 ventes ni de 40 notes MCPA.
+- Test de rotation interne et de replay : GitHub Actions 41047767301, succès. Test sans revue : GitHub Actions 41047950458, succès, 40 positions conservées sans opération ; les fixtures de notes et cours restent confinées aux tests.
+- Contrôle de non-mutation des références après workflow : les blobs Git de JOURNAL_ARBITRAGES_GERE.csv, ETAT_INITIAL_PORTEFEUILLE_GERE.csv, COHORTE_MICRO_CAPS_T0.csv, SAUVEGARDES/MICRO_CAPS_T0_GELE_2026-10-01.csv et TEST_BENCHMARKS_V3.csv sont strictement identiques entre main et la branche de réparation.
+- État : moteur d'arbitrage 09B/10/05C testé et contrôle sans revue réellement exécuté ; sélection et rotations économiques non opérationnelles faute de preuves MCPA sur les 40 titulaires. Ne pas annoncer une gestion active réalisée.
