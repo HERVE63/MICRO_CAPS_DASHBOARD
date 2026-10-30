@@ -15,7 +15,7 @@ def charger(nom):
 def test():
  with TemporaryDirectory() as tmp:
   root=Path(tmp);d=root/'DONNEES';d.mkdir();raw=root/'fixture.bin';raw.write_bytes(b'EXEMPLE DE TEST - AUCUNE DONNEE REELLE')
-  rows=[];dossier={'Ticker':'FIXTURE.US','CIK':'0000001234','Decision_eliminatoire':'A_VERIFIER','Motif_eliminatoire':'MANQUANTE'}
+  rows=[];dossier={'Ticker':'FIXTURE.US','CIK':'0000001234','SCE_valide':'NON','Preuves_identite_SCE':'MANQUANTE','Conflit_identite_CIK':'NON','Decision_eliminatoire':'A_VERIFIER','Motif_eliminatoire':'MANQUANTE'}
   for n in range(1,8):dossier['Note_B'+str(n)]='MANQUANTE';dossier['Preuve_B'+str(n)]='MANQUANTE'
   for bloc,note in {'B1':8,'B2':5,'B3':3,'B6':8}.items():
    r=dict.fromkeys(CHAMPS,'');r.update(ID_preuve='FIX_'+bloc,Ticker='FIXTURE.US',Bloc=bloc,Identifiant_emetteur='CIK:0000001234',Source_URL='https://example.org/fixture',Type_source='DEPOT_REGLEMENTAIRE',Date_publication='2026-01-01',Fichier_brut='fixture.bin',SHA256=hashlib.sha256(raw.read_bytes()).hexdigest(),Statut_identite='VERIFIEE',Statut_verification='VERIFIEE',Verificateur='Fixture',Date_verification_UTC='2026-01-02T00:00:00+00:00',Justification='EXEMPLE de test seulement',Note=str(note));rows.append(r)
