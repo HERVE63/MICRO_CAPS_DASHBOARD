@@ -101,8 +101,17 @@ def executer(dry_run=False):
     for source,grp in duels.groupby("ID_position_source",sort=False):
         if (grp["Statut_duel"]=="CONSERVER").all():
             continue
-        if not (grp["Statut_duel"]=="ALLOCATION_DETERMINEE").all():
+        # 09B peut décider une sortie vers CASH quand aucune destination
+        # admissible n\x27existe. Le replay 05C sait conserver ce produit net.
+        # Ne jamais fabriquer un achat pour forcer un réinvestissement.
+        cash_seul = (len(grp)==1 and str(grp.iloc[0]["Statut_duel"])=="CASH"
+                     and str(grp.iloc[0]["ID_position_destination"])=="CASH"
+                     and str(grp.iloc[0]["Type_destination"])=="CASH"
+                     and abs(float(grp.iloc[0]["Part_allocation"])-1.0)<1e-10)
+        if not cash_seul and not (grp["Statut_duel"]=="ALLOCATION_DETERMINEE").all():
             raise RuntimeError(f"Duel non exécutable pour {source}.")
+        if not cash_seul and abs(pd.to_numeric(grp["Part_allocation"],errors="raise").sum()-1.0)>1e-10:
+            raise RuntimeError(f"Répartition non équilibrée pour {source}.")
         ps=pos_active(source)
         cours_s,fx_s=prix_fx(ps["Ticker"],str(ps["Devise"]).upper())
         q=float(ps["Quantite"]); brut=q*cours_s*fx_s; frais_s=brut*tv; net=brut-frais_s
@@ -115,6 +124,9 @@ def executer(dry_run=False):
           "Motif":"Arbitrage mensuel après revues hebdomadaires","Decision_comite":"VENDRE"})
         lignes.append(row); seq+=1
 
+        if cash_seul:
+            # Vente seule : les espèces restent disponibles dans le portefeuille géré.
+            continue
         for k,(_,d) in enumerate(grp.iterrows(),1):
             montant=net*float(d["Part_allocation"])
             iddst=str(d["ID_position_destination"])
