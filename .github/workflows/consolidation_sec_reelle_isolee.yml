@@ -4,6 +4,7 @@ on:
     branches: [repair/microcaps-chain-20261030]
     paths:
       - .github/workflows/consolidation_sec_reelle_isolee.yml
+      - SCRIPTS_ACTIFS/07AD_CONSOLIDER_COLLECTES_SEC.py
   workflow_dispatch:
 permissions:
   contents: read
@@ -41,6 +42,12 @@ jobs:
           assert bilan['archives_qualification_us_controlees']>=1, bilan
           assert bilan['titulaires_avec_pistes_SEC']>=1, bilan
           sortie=manifeste.parent
+          assert set(bilan.get('fichiers_sha256',{}))=={'FAITS_SEC_BRUTS_CONSOLIDES.csv','COUVERTURE.csv','COUVERTURE_TITULAIRES.csv'}
+          for nom,sha in bilan['fichiers_sha256'].items():
+              assert hashlib.sha256((sortie/nom).read_bytes()).hexdigest()==sha, 'Sortie consolidee alteree: '+nom
+          assert len(bilan.get('manifestes_sources_sha256',{}))==bilan['archives_controlees']+bilan['archives_qualification_us_controlees']
+          for rel,sha in bilan['manifestes_sources_sha256'].items():
+              assert hashlib.sha256(pathlib.Path(rel).read_bytes()).hexdigest()==sha, 'Manifeste source altere: '+rel
           with (sortie/'COUVERTURE_TITULAIRES.csv').open(newline='') as f:
               lignes=list(csv.DictReader(f))
           assert len(lignes)==40 and len({r['ID_position'] for r in lignes})==40
