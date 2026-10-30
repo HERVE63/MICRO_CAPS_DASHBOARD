@@ -72,9 +72,11 @@ def executer():
   anciens_cik=out.loc[mask,"Ticker"].map(reg["CIK"]) if "CIK" in reg else pd.Series("",index=out.index[mask])
   nouveau_cik=out.loc[mask,"CIK"].astype(str)
   absents={"","MANQUANTE","NAN","NONE","N/A"}
-  reprendre=nouveau_cik.str.strip().str.upper().isin(absents) & ~anciens_cik.astype(str).str.strip().str.upper().isin(absents)
-  out.loc[anciens_cik.index[reprendre],"CIK"]=anciens_cik[reprendre]
-  conflit=(~nouveau_cik.str.strip().str.upper().isin(absents)
+  # Un CIK absent dans la nouvelle collecte ne prouve pas que l'ancien
+  # émetteur est toujours celui du ticker. Ne jamais réutiliser son CIK
+  # ni ses notes/preuves humaines par simple correspondance de ticker.
+  source_cik_absent=nouveau_cik.str.strip().str.upper().isin(absents)
+  conflit=(~source_cik_absent
            & ~anciens_cik.astype(str).str.strip().str.upper().isin(absents)
            & nouveau_cik.str.strip().ne(anciens_cik.astype(str).str.strip()))
   # La quarantaine reste active après les régénérations suivantes : le fait
@@ -83,18 +85,20 @@ def executer():
   deja_bloques=(out.loc[mask,"Ticker"].map(reg["Conflit_identite_CIK"]).eq("OUI")
                 if "Conflit_identite_CIK" in reg else pd.Series(False,index=out.index[mask]))
   conflit=conflit | deja_bloques
-  if conflit.any():
-   indices=anciens_cik.index[conflit]
+  a_isoler=conflit | source_cik_absent
+  if a_isoler.any():
+   indices=anciens_cik.index[a_isoler]
    for c in humains:
     out.loc[indices,c]="MANQUANTE"
    out.loc[indices,"SCE_valide"]="NON"
    out.loc[indices,"Preuves_identite_SCE"]="MANQUANTE"
    out.loc[indices,"Decision_eliminatoire"]="A_VERIFIER"
    out.loc[indices,"Motif_eliminatoire"]="MANQUANTE"
-   out.loc[indices,"Conflit_identite_CIK"]="OUI"
+   # Seule une divergence réelle reçoit le drapeau collision.
+   out.loc[anciens_cik.index[conflit],"Conflit_identite_CIK"]="OUI"
   # Les données collectées ne certifient jamais une admission antérieure.
   out["SSI"]="MANQUANTE";out["Statut_SSI"]="A_REVALIDER_PREUVES_SSI"
-  if conflit.any():out.loc[anciens_cik.index[conflit],"Statut_SSI"]="EN_ATTENTE_DATA_IDENTITE_CIK"
+  if a_isoler.any():out.loc[anciens_cik.index[a_isoler],"Statut_SSI"]="EN_ATTENTE_DATA_IDENTITE_CIK"
  tmp=OUT.with_suffix(".tmp");out.to_csv(tmp,index=False);tmp.replace(OUT)
  pd.DataFrame([{"Dossiers_prets":len(out),"SSI_notes":0,"SSI_admis_65":0,
                 "Conflits_CIK":int(out["Conflit_identite_CIK"].eq("OUI").sum()),
