@@ -16,6 +16,7 @@ jobs:
             DONNEES
             CONFIG
             AUDITS/SCE_DISCOVERY_US
+            AUDITS/QUALIFICATION_US
             TESTS
             .github/workflows
           sparse-checkout-cone-mode: true
@@ -43,6 +44,44 @@ jobs:
           PY
       - name: Verifier integrite du registre historique et ses 31352 detections
         run: python -B TESTS/test_integrite_registre_chasse_hors_reseau.py
+      - name: Verifier SHA256 archive SEC et rapprochement des cinq titulaires US
+        run: |
+          python - <<'PY'
+          import csv,hashlib,json,pathlib
+          root=pathlib.Path.cwd()
+          base=pathlib.Path("AUDITS/QUALIFICATION_US/20261016T133357809981Z")
+          source=root/base/"COUVERTURE_QUALIFICATION_US.csv"
+          manifeste=json.loads((root/base/"MANIFESTE.json").read_text())
+          sha=hashlib.sha256(source.read_bytes()).hexdigest()
+          assert sha==manifeste["fichiers"]["COUVERTURE_QUALIFICATION_US.csv"], "SHA256 archive SEC divergent"
+          def lire(p):
+              with p.open(encoding="utf-8-sig",newline="") as f:return list(csv.DictReader(f))
+          cohorte=lire(root/"DONNEES/COHORTE_MICRO_CAPS_T0.csv")
+          us={r["ID_ligne"]:r for r in cohorte if r["Pays"]=="USA"}
+          assert len(cohorte)==40 and len(us)==5
+          invent=lire(root/"AUDITS/REPARATION/RAPPROCHEMENT_TITULAIRES_US_20261030.csv")
+          assert len(invent)==5 and {r["ID_position"] for r in invent}==set(us)
+          archives={r["Ticker_US"]:r for r in lire(source)}
+          presentes=0
+          for r in invent:
+              assert r["Ticker_portefeuille"]==us[r["ID_position"]]["Ticker_cotation"]
+              assert r["Statut_SSI"]=="EN_ATTENTE_DATA" and r["Statut_MCPA"]=="EN_ATTENTE_DATA"
+              cle=r["Ticker_portefeuille"]+".US"
+              if cle not in archives:
+                  assert r["Statut_identite_archive"]=="ABSENT_DE_CETTE_ARCHIVE"
+                  assert r["Verification_SHA256_independante"]=="NON"
+                  continue
+              a=archives[cle];presentes+=1
+              assert r["Ticker_archive"]==cle and r["CIK"]==a["CIK"]
+              assert r["Faits_comparables_pistes"]==a["Faits_comparables"]
+              assert r["Date_depot_financier_archive"]==a["Dernier_depot_financier"]
+              assert r["Statut_identite_archive"]==a["Statut_origine"]
+              assert r["Source_archive"]==str(base/"COUVERTURE_QUALIFICATION_US.csv")
+              assert r["SHA256_archive_declare_par_manifeste"]==sha
+              assert r["Verification_SHA256_independante"]=="OUI"
+          assert presentes==4, "La cohorte archivee doit rester immuable"
+          print("ARCHIVE SEC SHA256 VERIFIE ; 4/5 titulaires US rapproches, 1 absent de cette archive, 0 score attribue")
+          PY
       - name: Tester preparation SSI sur copie isolee et preservation des preuves
         run: |
           python - <<'PY'
