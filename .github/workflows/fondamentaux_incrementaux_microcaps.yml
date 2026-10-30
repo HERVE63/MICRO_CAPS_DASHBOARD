@@ -1,0 +1,52 @@
+name: MICRO CAPS - FONDAMENTAUX INCREMENTAUX ET SSI
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: "5 6 * * 1-5"
+permissions:
+  contents: write
+concurrency:
+  group: microcaps-production-quotidienne
+  cancel-in-progress: false
+jobs:
+  qualification:
+    runs-on: ubuntu-latest
+    timeout-minutes: 110
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: main
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - run: pip install pandas numpy yfinance cryptography
+      - name: Verifier les modules avant collecte
+        run: |
+          python -m py_compile SCRIPTS_ACTIFS/07N2_COLLECTE_FONDAMENTAUX_INCREMENTALE.py
+          python -B TESTS/executer_tests.py
+      - name: Collecter un lot borne et reconcilier le sas SSI
+        env:
+          MICRO_CAPS_FONDAMENTAUX_BATCH_SIZE: "100"
+        run: |
+          python -B SCRIPTS_ACTIFS/07N2_COLLECTE_FONDAMENTAUX_INCREMENTALE.py
+          python -B SCRIPTS_ACTIFS/07O_CONTROLE_PRE_SSI.py
+          python -B SCRIPTS_ACTIFS/07Q_PREPARER_DOSSIERS_SSI.py
+          python -B SCRIPTS_ACTIFS/07R_VALIDER_NOTES_SSI.py
+          python -B SCRIPTS_ACTIFS/08B_CONTROLE_CHASSE_SSI.py
+          python -B SCRIPTS_ACTIFS/08_GENERER_DASHBOARD.py
+          python -B SCRIPTS_ACTIFS/07AC_CONTROLER_T0.py
+      - name: Versionner seulement les sorties qualifiees
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add DONNEES/FONDAMENTAUX_CANDIDATS_MICRO_CAPS.csv
+          git add DONNEES/AUDIT_TENTATIVES_FONDAMENTAUX.csv DONNEES/AUDIT_FONDAMENTAUX_INCREMENTAL.csv
+          git add DONNEES/CANDIDATS_PRETS_SSI.csv DONNEES/CANDIDATS_SSI_DONNEES_MANQUANTES.csv DONNEES/AUDIT_PRE_SSI.csv
+          git add DONNEES/DOSSIERS_SSI_A_QUALIFIER.csv DONNEES/AUDIT_DOSSIERS_SSI.csv
+          git add DONNEES/RESULTATS_SSI.csv DONNEES/AUDIT_SSI.csv DONNEES/CONTROLE_CHASSE_SSI.csv
+          git add AUDITS/DOSSIERS_SSI index.html APPLICATION/index.html
+          if ! git diff --cached --quiet; then
+            git commit -m "Qualification SSI incrementale : observations datees sans note imputee"
+            git pull --rebase origin main
+            git push origin main
+          fi
