@@ -118,6 +118,8 @@ def indexer_captures_primaires():
   dossier=audit.parent.resolve()
   try:
    manifeste=json.loads((dossier/"MANIFESTE.json").read_text(encoding="utf-8"))
+   if "fichiers" not in manifeste:
+    refuser("MANIFESTE_HISTORIQUE_SANS_FICHIERS")
    fichiers=manifeste["fichiers"]
    if not isinstance(fichiers,dict) or fichiers.get("AUDIT_DOCUMENTS.csv")!=hashlib.sha256(audit.read_bytes()).hexdigest():
     refuser("SHA256_AUDIT_OU_MANIFESTE_DIVERGENT")
@@ -125,7 +127,8 @@ def indexer_captures_primaires():
     lignes=list(csv.DictReader(f))
   except (OSError,ValueError,KeyError,UnicodeError,TypeError,json.JSONDecodeError) as erreur:
    invalides+=1
-   tracer(audit,{},"MANIFESTE_OU_AUDIT_INVALIDE",type(erreur).__name__)
+   code=("MANIFESTE_HISTORIQUE_SANS_FICHIERS" if str(erreur)=="MANIFESTE_HISTORIQUE_SANS_FICHIERS" else "MANIFESTE_OU_AUDIT_INVALIDE")
+   tracer(audit,{},code,type(erreur).__name__)
    continue
   for ligne in lignes:
    if ligne.get("Statut")!="DOCUMENT_COLLECTE_A_VERIFIER":
