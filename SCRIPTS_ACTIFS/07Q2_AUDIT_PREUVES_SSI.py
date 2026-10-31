@@ -6,6 +6,7 @@ from pathlib import Path
 import hashlib
 import re
 import pandas as pd
+from preuves_ssi import identifiant_dossier
 
 D=Path(__file__).resolve().parent.parent/"DONNEES"
 SRC=D/"DOSSIERS_SSI_A_QUALIFIER.csv"
@@ -86,8 +87,10 @@ def executer():
  pistes,sha_archive=lire_pistes_archive()
  rows=[]
  for _,r in df.iterrows():
-  cik=str(r.get("CIK","")).strip()
-  ident="CIK:"+cik if re.fullmatch(r"[0-9]{10}",cik) else "MANQUANTE"
+  # Même résolution d’identité que 07R : CIK source ou ISIN/LEI déclaré,
+  # formellement valide. Aucune déclaration ne vaut preuve SCE vérifiée.
+  ident=identifiant_dossier(r) or "MANQUANTE"
+  collision=str(r.get("Conflit_identite_CIK","NON")).strip().upper()=="OUI"
   isin_piste,societe_archive,statut_piste=pistes.get(r["Ticker"],("MANQUANTE","MANQUANTE","AUCUNE_PISTE_ARCHIVE"))
   base={"Ticker":r["Ticker"],"Societe":r.get("Societe",""),
         "Source_actuelle":r.get("B6_source",""),
@@ -104,11 +107,14 @@ def executer():
   # Ces deux controles sont des prealables a la notation, non des notes.
   # Ne jamais utiliser Pays (place de cotation) comme domicile de l'emetteur.
   rows.append({**base,"Bloc_SSI":"IDENTITE_SCE",
-    "Variables_absentes":"CIK ou identifiant reglementaire ISIN/LEI verifie" if ident=="MANQUANTE" else "",
+    "Variables_absentes":("Collision identite CIK non levee" if collision else
+                          "CIK ou identifiant reglementaire ISIN/LEI verifie" if ident=="MANQUANTE" else ""),
     "Preuve_validee":"A_CONTROLER" if not manquant(r.get("Preuves_identite_SCE","")) else "NON",
     "Note_presente":"NON",
     "Preuves_complementaires_requises":"Deux sources primaires independantes, concordance emetteur/ISIN/LEI/CIK, provenance, date et SHA256",
-    "Statut":"EN_ATTENTE_DATA_IDENTITE" if ident=="MANQUANTE" else "A_VERIFIER_IDENTITE_SCE"})
+    "Statut":("EN_ATTENTE_DATA_IDENTITE_CIK" if collision else
+              "EN_ATTENTE_DATA_IDENTITE" if ident=="MANQUANTE" else
+              "A_VERIFIER_IDENTITE_SCE")})
   rows.append({**base,"Bloc_SSI":"EXCLUSIONS",
     "Variables_absentes":"Preuve primaire du controle des exclusions" if manquant(r.get("Motif_eliminatoire","")) else "",
     "Preuve_validee":"A_CONTROLER" if not manquant(r.get("Motif_eliminatoire","")) else "NON",
