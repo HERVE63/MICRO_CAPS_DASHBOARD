@@ -1,0 +1,76 @@
+name: MICRO CAPS - FICHE MARCHE FERMENTALG SHA256 ISOLEE
+on:
+  workflow_dispatch:
+  push:
+    branches: [repair/microcaps-chain-20261030]
+    paths:
+      - 'CONFIG/DOCUMENTS_MARCHE_FERMENTALG_A_COLLECTER.csv'
+      - 'TESTS/test_fermentalg_fiche_marche_sha256_hors_reseau.py'
+      - '.github/workflows/collecte_identite_fermentalg_marche_isolee.yml'
+permissions:
+  contents: write
+concurrency:
+  group: microcaps-identite-fermentalg-marche-isolee
+  cancel-in-progress: false
+jobs:
+  capture:
+    if: github.ref_name == 'repair/microcaps-chain-20261030'
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: ${{ github.ref_name }}
+          sparse-checkout: |
+            SCRIPTS_ACTIFS
+            CONFIG
+            DONNEES
+            TESTS
+            AUDITS/SOURCES_OFFICIELLES
+          sparse-checkout-cone-mode: true
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - run: pip install pandas
+      - name: Verifier le registre de marche sans score
+        run: python -B TESTS/test_fermentalg_fiche_marche_sha256_hors_reseau.py
+      - name: Capturer la fiche Deutsche Boerse via le collecteur 07AA existant
+        id: collecte
+        run: |
+          python -B SCRIPTS_ACTIFS/07AA_COLLECTE_DOCUMENTS_OFFICIELS.py \
+            --registre CONFIG/DOCUMENTS_MARCHE_FERMENTALG_A_COLLECTER.csv \
+            --couverture DONNEES/DOSSIERS_SSI_A_QUALIFIER.csv
+          python - <<'PY'
+          from pathlib import Path
+          import os
+          dossiers=sorted(Path('AUDITS/SOURCES_OFFICIELLES').glob('*/MANIFESTE.json'))
+          assert dossiers, 'Aucun manifeste de capture'
+          dossier=dossiers[-1].parent
+          with open(os.environ['GITHUB_OUTPUT'],'a',encoding='utf-8') as f:
+              f.write('dossier='+str(dossier)+'\n')
+          print('Dossier de capture:',dossier)
+          PY
+      - name: Controler les octets SHA256 et le symbole officiel 1F6
+        run: python -B TESTS/test_fermentalg_fiche_marche_sha256_hors_reseau.py "${{ steps.collecte.outputs.dossier }}"
+      - name: Verifier aucune mutation des historiques ni des portefeuilles
+        if: always()
+        run: |
+          git diff --exit-code -- DONNEES HISTORIQUE SAUVEGARDES APPLICATION index.html
+      - name: Conserver preuve ou motif de blocage en artefact
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: fermentalg-fiche-marche-${{ github.run_id }}-${{ github.run_attempt }}
+          path: ${{ steps.collecte.outputs.dossier }}
+          if-no-files-found: warn
+      - name: Publier uniquement les documents d'audit sur branche isolee
+        if: ${{ success() && github.ref_name == 'repair/microcaps-chain-20261030' }}
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add AUDITS/SOURCES_OFFICIELLES
+          if ! git diff --cached --quiet; then
+            git commit -m "Capturer fiche Deutsche Boerse 1F6 SHA256 sans certification SCE"
+            git pull --rebase origin "$GITHUB_REF_NAME"
+            git push origin "HEAD:$GITHUB_REF_NAME"
+          fi
