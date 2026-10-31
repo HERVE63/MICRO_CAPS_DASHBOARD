@@ -35,7 +35,7 @@ jobs:
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
           git add DONNEES/DOSSIERS_SSI_A_QUALIFIER.csv DONNEES/AUDIT_DOSSIERS_SSI.csv AUDITS/DOSSIERS_SSI
-          git add DONNEES/PLAN_COLLECTE_PREUVES_SSI.csv DONNEES/AUDIT_COLLECTE_PREUVES_SSI.csv
+          git add DONNEES/PLAN_COLLECTE_PREUVES_SSI.csv DONNEES/AUDIT_COLLECTE_PREUVES_SSI.csv DONNEES/ANOMALIES_CAPTURES_SSI.csv
           git add DONNEES/RESULTATS_SSI.csv DONNEES/AUDIT_SSI.csv DONNEES/CONTROLE_CHASSE_SSI.csv
           git add DONNEES/COUVERTURE_ARBITRAGE_GERE.csv
           git diff --cached --quiet || git commit -m "Prepare dossiers SSI Micro Caps"
