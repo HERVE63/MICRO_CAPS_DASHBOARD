@@ -1,23 +1,43 @@
-name: Collecte directe des 40 titulaires
+name: Collecte directe des 40 titulaires (isolée, sans notation)
 on:
   workflow_dispatch:
 permissions:
   contents: read
 jobs:
   collecter:
+    if: github.ref_name == 'repair/microcaps-chain-20261030'
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
+        with:
+          ref: ${{ github.ref_name }}
       - uses: actions/setup-python@v5
         with:
           python-version: '3.11'
       - run: python -m pip install pandas requests
-      - name: Collecte EODHD
+      - name: Diagnostiquer acces EODHD sans bloquer les 40 dossiers
+        id: diagnostic
+        continue-on-error: true
         env:
           EODHD_API_TOKEN: ${{ secrets.EODHD_API_KEY || secrets.EODH_API_KEY }}
+        run: python -B SCRIPTS_ACTIFS/09E_TEST_ACCES_EODHD.py
+      - name: Collecter les 40 titulaires et isoler les echecs par ligne
+        env:
+          EODHD_API_TOKEN: ${{ secrets.EODHD_API_KEY || secrets.EODH_API_KEY }}
+        run: python -B SCRIPTS_ACTIFS/09D_COLLECTE_40_TITULAIRES.py
+      - name: Controler la couverture et interdire toute qualification fictive
         run: |
-          python SCRIPTS_ACTIFS/09E_TEST_ACCES_EODHD.py
-          python SCRIPTS_ACTIFS/09D_COLLECTE_40_TITULAIRES.py
+          python - <<'PY'
+          import pandas as pd
+          p = 'DONNEES/COLLECTE_DIRECTE_40_TITULAIRES.csv'
+          d = pd.read_csv(p, dtype=str, keep_default_na=False)
+          assert len(d) == 40 and d['ID_position'].nunique() == 40
+          assert (d['Preuve_primaire_validee'] == 'NON').all()
+          assert (d['Score_SSI'] == 'MANQUANTE').all()
+          assert (d['Score_MCPA'] == 'MANQUANTE').all()
+          print('COUVERTURE_40', len(d), 'QUALIFICATIONS=0; ARBITRAGE_INTERDIT')
+          print('STATUTS', d['Statut'].value_counts().to_dict())
+          PY
       - uses: actions/upload-artifact@v4
         if: always()
         with:
