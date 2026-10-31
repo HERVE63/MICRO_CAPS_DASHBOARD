@@ -53,6 +53,22 @@ def test():
         assert all(r["Note_SSI"] == r["Note_MCPA"] == "MANQUANTE" for r in resultat)
         audit = lire(b / "DONNEES/AUDIT_RACCORDEMENT_FAITS_SSI.csv")
         assert len(audit) == 1 and audit[0]["Scores_attribues"] == "0"
+        # Collision de ticker dans les dossiers SSI : aucune ligne ne doit
+        # hériter silencieusement de la dernière identité rencontrée.
+        dossiers_path = b / "DONNEES/DOSSIERS_SSI_A_QUALIFIER.csv"
+        dossiers_originaux = lire(dossiers_path)
+        ecrire(dossiers_path, dossiers_originaux + [{
+            "Ticker": "Z8J.F", "Identifiant_emetteur_verifie": "ISIN:FR0011271600"
+        }])
+        resultat = m.executer(b)
+        assert sum(r["Statut_raccordement"] == "EN_ATTENTE_DATA_IDENTITE_AMBIGUE" for r in resultat) == 9
+        assert sum(r["Statut_raccordement"] == "EN_ATTENTE_DATA_IDENTITE" for r in resultat) == 9
+        assert all(r["Note_SSI"] == r["Note_MCPA"] == "MANQUANTE" for r in resultat)
+        # Une identité dupliquée même identique reste en quarantaine.
+        ecrire(dossiers_path, dossiers_originaux + [dict(dossiers_originaux[0])])
+        resultat = m.executer(b)
+        assert sum(r["Statut_raccordement"] == "EN_ATTENTE_DATA_IDENTITE_AMBIGUE" for r in resultat) == 9
+        ecrire(dossiers_path, dossiers_originaux)
         # Une source corrompue ne bloque pas les autres : refus local des 9 faits ICAPE.
         brut = b / "AUDITS/SOURCES_OFFICIELLES" / CAPTURES[0] / (
             "05605e38d3a3e9778d3d8468b613752fe54ef2bbe529bd109b5c622824b0669c.bin")
