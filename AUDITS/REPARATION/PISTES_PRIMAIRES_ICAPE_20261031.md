@@ -19,3 +19,17 @@
 4. Ensuite seulement alimenter 07Q/07R. Sept blocs SSI, exclusions et notes MCPA restent MANQUANTE jusqu'à leurs propres preuves.
 
 **Résultat :** trois marchés pour un même ISIN potentiel, aucune certification, aucun score, aucun historique modifié.
+
+
+## Mise à jour effective — 31/10/2026 09:39 UTC (capture brute, NON certification)
+
+L'état « aucun document brut » ci-dessus décrit le **premier passage** et n'est plus l'état documentaire courant. Le collecteur historique `07AA_COLLECTE_DOCUMENTS_OFFICIELS.py` a été réutilisé sur la branche `repair/microcaps-chain-20261030`, avec le registre spécifique `CONFIG/DOCUMENTS_OFFICIELS_ICAPE_A_COLLECTER.csv` et le workflow isolé `collecte_icape_primaires_isolee.yml`.
+
+- Exécution GitHub Actions **41189502515**, terminée `success` ; commit automatique **418693db66bfddb3af5b54c415109b66fa12d6e6**. Les deux pages HTTPS ont été effectivement capturées en octets HTML, sans notation.
+- Émetteur : `AUDITS/SOURCES_OFFICIELLES/20261031T093904998805Z/edeafb246554d75e51b1f445e0ce34a19bd4ace8af8986d31dcf1c0726bc35b0.bin`, SHA256 `edeafb246554d75e51b1f445e0ce34a19bd4ace8af8986d31dcf1c0726bc35b0`, source `https://www.icape-group.com/fr/centre-des-investisseurs/`.
+- Opérateur de marché Euronext : `AUDITS/SOURCES_OFFICIELLES/20261031T093904998805Z/32fbb3eb9ffa8eec72f92a90ded811eaf115d73668b27dc7853f3fee74307e07.bin`, SHA256 `32fbb3eb9ffa8eec72f92a90ded811eaf115d73668b27dc7853f3fee74307e07`, source `https://live.euronext.com/en/ipo-showcase/icape-holding`.
+- Les deux fichiers contiennent visiblement `ICAPE` et `FR001400A3Q3` ; la page Euronext comporte également le LEI `969500SMJNIR6M3A8D61`. L'audit et le manifeste sont dans le même répertoire. Les dates de **capture** sont connues, les dates de **publication des pages** restent explicitement `INCONNUE_NE_PAS_UTILISER_RETROSPECTIVEMENT`.
+- Aucune promotion dans `REGISTRE_PREUVES_SSI.csv` : `Statut_identite=A_VERIFIER_COTATION_Z8J_F`, `Notes_attribuees=0`. Une revue SCE indépendante, une vérification du lien `Z8J.F`/émetteur et les publications financières datées restent indispensables.
+- Une seconde exécution a été déclenchée pour contrôler automatiquement les SHA256 et la présence de l'ISIN dans les octets ; son résultat doit être vérifié séparément avant de revendiquer une validation de cette nouvelle étape.
+
+**Périmètre :** 2 documents sur 1 seul candidat configuré ; 1 360 dossiers restent sans source dans cette collecte spécifique. Aucune admission SSI, aucun challenger, aucun duel ni arbitrage n'est déduit de ces deux documents. `main`, le coffre maître et les historiques officiels restent exclus des écritures.
