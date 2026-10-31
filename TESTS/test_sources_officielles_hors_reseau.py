@@ -63,5 +63,20 @@ def test():
    try:m.verifier_url('https://issuer.example/file',{'issuer.example'})
    except ValueError:pass
    else:raise AssertionError('Adresse privée acceptée')
+ # Le registre reel de collecte ICAPE n'est qu'un inventaire de pistes :
+ # deux sources datees, deux pages a publication inconnue, aucune certification.
+ reg_reel=pd.read_csv(ROOT/'CONFIG/DOCUMENTS_OFFICIELS_ICAPE_A_COLLECTER.csv',
+                      dtype=str,keep_default_na=False)
+ assert len(reg_reel)==4 and reg_reel.ID_document.is_unique
+ assert reg_reel.Statut_identite.str.startswith('A_VERIFIER').all()
+ assert reg_reel.Identifiant_emetteur.eq('ISIN:FR001400A3Q3').all()
+ assert reg_reel.Source_URL.str.startswith('https://').all()
+ dates=reg_reel[reg_reel.Date_publication.ne('')]
+ assert set(dates.ID_document)=={
+  'ICAPE_RFS_S1_2026_OFFICIEL','ICAPE_RESULTATS_S1_2026_EURONEXT'}
+ assert pd.to_datetime(dates.Date_publication,utc=True,format='mixed',errors='coerce').notna().all()
+ assert dates.Source_date_publication.str.startswith('https://').all()
+ assert reg_reel.loc[reg_reel.Date_publication.eq(''),'Date_publication_inconnue'].eq('OUI').all()
+ assert not any(c.startswith('Note_') for c in reg_reel.columns)
  print('SOURCES NON-US: archive brute, statut non validé, domaines/HTTPS/adresses publiques contrôlés')
 if __name__=='__main__':test()
