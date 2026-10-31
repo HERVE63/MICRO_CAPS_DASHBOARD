@@ -125,7 +125,9 @@ def executer():
      print("Reprise identite non-US refusee : registre preuves illisible",type(erreur).__name__)
     else:
      for idx in candidats.index[candidats]:
-      ancien_dossier=reg.loc[out.at[idx,"Ticker"]]
+      ancien_dossier=reg.loc[out.at[idx,"Ticker"]].copy()
+      # set_index("Ticker") a retire la colonne attendue par le validateur SCE.
+      ancien_dossier["Ticker"]=out.at[idx,"Ticker"]
       try:
        conforme=not verifier_identite_sce(ancien_dossier,preuves,B,limite)
       except (KeyError,ValueError,TypeError,OSError):
