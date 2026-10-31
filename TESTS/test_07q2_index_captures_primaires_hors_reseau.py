@@ -45,7 +45,8 @@ def tester():
         url="https://exemple.test/communique"
         date=datetime.now(timezone.utc).isoformat()
         ligne={"ID_document":"TEST","Ticker":"FICTIF.F","Identifiant_emetteur":"ISIN:FR0011271600",
-               "Source_URL":url,"Date_publication":"","Date_collecte_UTC":date,
+               "Source_URL":url,"Type_source":"PUBLICATION_EMETTEUR",
+               "Date_publication":"","Date_collecte_UTC":date,
                "Statut_date_publication":"INCONNUE_NE_PAS_UTILISER_RETROSPECTIVEMENT",
                "Statut":"DOCUMENT_COLLECTE_A_VERIFIER","SHA256":sha,
                "Fichier_brut":str(brut.relative_to(base))}
@@ -63,6 +64,10 @@ def tester():
         assert p.URLs_primaires_distinctes_pistes=="1", "Deux captures de la meme URL ne sont pas deux sources"
         assert p.Identifiants_captures_non_certifies=="ISIN:FR0011271600"
         assert p.Captures_publication_inconnue=="2"
+        assert p.Captures_sources_URL_pistes==url
+        assert p.Captures_SHA256_pistes==sha
+        assert p.Captures_dates_publication_pistes=="INCONNUE"
+        assert p.Captures_dates_collecte_UTC_pistes==date
         assert p.Statut_captures_non_certifiees=="PISTES_CAPTUREES_NON_CERTIFIEES"
         assert p.Identifiant_emetteur_source=="MANQUANTE"
         assert p.Preuve_validee=="NON" and p.Note_presente=="NON"
@@ -91,6 +96,12 @@ def tester():
         p=plan[(plan.Ticker=="FICTIF.F")&(plan.Bloc_SSI=="IDENTITE_SCE")].iloc[0]
         assert p.Captures_primaires_SHA256_OK_pistes=="0"
         assert int(__import__("pandas").read_csv(module.AUD).iloc[0].Captures_invalides_exclues)==1
+
+        # Un type de source non primaire est refuse meme avec un SHA correct.
+        enregistrer([dict(ligne,Type_source="FORUM")])
+        plan=module.executer()
+        p=plan[(plan.Ticker=="FICTIF.F")&(plan.Bloc_SSI=="IDENTITE_SCE")].iloc[0]
+        assert p.Captures_primaires_SHA256_OK_pistes=="0"
 
         # Deux identifiants divergents pour un ticker : conflit explicite, aucun score.
         enregistrer([ligne,dict(ligne,Identifiant_emetteur="ISIN:FR001400A3Q3")])
