@@ -64,11 +64,12 @@ def test():
    except ValueError:pass
    else:raise AssertionError('Adresse privée acceptée')
  # Le registre reel de collecte ICAPE n'est qu'un inventaire de pistes :
- # deux sources datees, deux pages a publication inconnue, aucune certification.
+ # deux sources datees, trois pages a publication inconnue, aucune certification.
  reg_reel=pd.read_csv(ROOT/'CONFIG/DOCUMENTS_OFFICIELS_ICAPE_A_COLLECTER.csv',
                       dtype=str,keep_default_na=False)
- assert len(reg_reel)==4 and reg_reel.ID_document.is_unique
+ assert len(reg_reel)==5 and reg_reel.ID_document.is_unique
  assert reg_reel.Statut_identite.str.startswith('A_VERIFIER').all()
+ assert set(reg_reel.loc[reg_reel.Type_source.eq('DONNEE_MARCHE_IDENTITE'),'ID_document'])=={'ICAPE_EURONEXT_IPO_20261031','ICAPE_DEUTSCHE_BOERSE_FRANKFURT_Z8J'}
  assert reg_reel.Identifiant_emetteur.eq('ISIN:FR001400A3Q3').all()
  assert reg_reel.Source_URL.str.startswith('https://').all()
  dates=reg_reel[reg_reel.Date_publication.ne('')]
