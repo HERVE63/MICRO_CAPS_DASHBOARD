@@ -5,7 +5,7 @@ import sys
 import re
 import pandas as pd
 sys.path.insert(0,str(Path(__file__).resolve().parent))
-from preuves_ssi import MAX, registre, valider_dossier, bilan_blocs_documentes, verifier_identite_sce
+from preuves_ssi import MAX, registre, valider_dossier, bilan_blocs_documentes, verifier_identite_sce, identifiant_dossier
 D=Path(__file__).resolve().parents[1]/'DONNEES'
 SRC=D/'DOSSIERS_SSI_A_QUALIFIER.csv';OUT=D/'RESULTATS_SSI.csv';AUD=D/'AUDIT_SSI.csv'
 def executer():
@@ -40,15 +40,15 @@ def executer():
             statuts.append('EN_ATTENTE_DATA_IDENTITE_CIK')
             motifs.append('Collision CIK non levee par verification independante : notation et admission interdites')
             continue
-        # Une identite SEC absente ou malformee ne peut pas etre admise
-        # par des notes anciennes ou par un appel de validateur incomplet.
-        # Conserver un statut EN_ATTENTE_DATA explicite pour chaque dossier,
-        # sans interrompre la validation des autres lignes.
-        cik=str(r.get('CIK','')).strip()
-        if not re.fullmatch(r'[0-9]{10}',cik):
+        # CIK pour les émetteurs SEC, ISIN/LEI uniquement si une identité
+        # réglementaire est explicitement déclarée puis vérifiée par SCE.
+        # Une simple piste 07D ne suffit jamais. Un CIK malformé/divergent
+        # interdit le repli ISIN/LEI. Chaque ligne reste indépendante.
+        ident=identifiant_dossier(r)
+        if not ident:
             scores.append('MANQUANTE')
             statuts.append('EN_ATTENTE_DATA_IDENTITE_CIK')
-            motifs.append('CIK source absent ou invalide : identite emetteur non certifiee ; notation interdite')
+            motifs.append('Identifiant réglementaire absent/invalide/contradictoire : deux preuves SCE primaires requises ; notation interdite')
             continue
         notes,erreurs=valider_dossier(r,preuves,D.parent,limite)
         # Une exclusion elle aussi doit avoir une référence vérifiée avant publication.
@@ -58,18 +58,16 @@ def executer():
             # Une preuve d'exclusion rattachee au ticker seul ne suffit pas :
             # une collision de cotations peut viser un AUTRE emetteur.
             # Identite SCE independamment verifiee + CIK exact obligatoires.
-            cik=str(r.get('CIK','')).strip()
             preuve_exclusion=(z.iloc[0] if len(z)==1 else None)
-            if (preuve_exclusion is not None and cik
-                and preuve_exclusion.Identifiant_emetteur=='CIK:'+cik
+            if (preuve_exclusion is not None and ident
+                and preuve_exclusion.Identifiant_emetteur==ident
                 and not verifier_identite_sce(r,preuves,D.parent,limite)
                 and not verifier(preuve_exclusion,r.Ticker,'EXCLUSIONS',D.parent,limite)):
                 scores.append('MANQUANTE');statuts.append('ELIMINE');motifs.append(r.Motif_eliminatoire);continue
         if erreurs and r.get('SCE_valide','NON')=='OUI' and r.Decision_eliminatoire=='NON' and partiels[-1]['Plafond_SSI_si_blocs_restants_maximaux']<65:
             from preuves_ssi import verifier
             ids=str(r.Motif_eliminatoire).split('|');ex=preuves[preuves.ID_preuve.isin(ids)]
-            cik=str(r.get('CIK',''))
-            if not verifier_identite_sce(r,preuves,D.parent,limite) and cik and len(ex)==len(ids) and len(set(ids))==len(ids) and all(not verifier(p,r.Ticker,'EXCLUSIONS',D.parent,limite) and p.Identifiant_emetteur=='CIK:'+cik for _,p in ex.iterrows()):
+            if not verifier_identite_sce(r,preuves,D.parent,limite) and ident and len(ex)==len(ids) and len(set(ids))==len(ids) and all(not verifier(p,r.Ticker,'EXCLUSIONS',D.parent,limite) and p.Identifiant_emetteur==ident for _,p in ex.iterrows()):
                 scores.append('MANQUANTE');statuts.append('REFUSE_SSI_PLAFOND_VERIFIE')
                 motifs.append('Même au maximum des blocs non documentés, plafond '+str(partiels[-1]['Plafond_SSI_si_blocs_restants_maximaux'])+' < 65 ; aucune note manquante imputée. Nouvelle preuve/révision impose recalcul.')
                 continue
