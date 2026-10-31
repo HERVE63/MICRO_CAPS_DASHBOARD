@@ -27,6 +27,19 @@ def test():
     spec = importlib.util.spec_from_file_location("raccordement_financier_isole", SCRIPT)
     m = importlib.util.module_from_spec(spec)
     spec.loader.exec_module(m)
+    # Les montants et dates sont des faits, pas des estimations à normaliser.
+    for valeur in ("113,342", "(3,904)", "-4,270", "310", "0", "1,234,567.89"):
+        assert m.verifier_montant(valeur), valeur
+    for valeur in ("1,2,3", "123,4", "1,000,0", "01,000", "(-12)", "NaN", "1e6", "(3,904", "3,904)"):
+        assert not m.verifier_montant(valeur), valeur
+    for date in ("2026-10-01T05:45:00", "2026-10-01"):
+        try:
+            m.date_utc(date)
+        except ValueError:
+            pass
+        else:
+            raise AssertionError("Date sans fuseau acceptée : " + date)
+    assert m.date_utc("2026-10-01T05:45:00Z").isoformat() == "2026-10-01T05:45:00+00:00"
     with tempfile.TemporaryDirectory() as t:
         b = Path(t)
         (b / "DONNEES").mkdir()
@@ -66,6 +79,35 @@ def test():
                    and x["Transcription_chiffres_verifiee"] == "NON" for x in couverture)
         assert all(x["Nombre_documents_SHA256_distincts"] == "1"
                    for x in couverture if int(x["Nombre_observations_pistes"]) > 0)
+        # Une répétition exacte du même fait ne double pas les pistes B3.
+        chemin_icape = b / "AUDITS/REPARATION" / m.NOMS[0]
+        faits_icape = lire(chemin_icape)
+        ecrire(chemin_icape, faits_icape + [dict(faits_icape[0])])
+        doublons = m.executer(b)
+        assert len(doublons) == 19
+        couverture = lire(b / "DONNEES/COUVERTURE_OBSERVATIONS_SSI_NON_CERTIFIEES.csv")
+        assert next(x for x in couverture if x["Ticker"] == "Z8J.F" and x["Bloc_SSI"] == "B3")["Nombre_observations_pistes"] == "1"
+        # Même document/tableau/ligne/période, deux montants : quarantaine
+        # de toutes les variantes, sans empêcher les 16 autres faits.
+        conflit = dict(faits_icape[0])
+        conflit["Valeur_source"] = "999,999"
+        ecrire(chemin_icape, faits_icape + [conflit])
+        contradictoires = m.executer(b)
+        assert len(contradictoires) == 19
+        assert sum(x["Statut_raccordement"] == "EN_ATTENTE_DATA_CONFLIT_FACTUEL"
+                   for x in contradictoires) == 2
+        couverture = lire(b / "DONNEES/COUVERTURE_OBSERVATIONS_SSI_NON_CERTIFIEES.csv")
+        assert next(x for x in couverture if x["Ticker"] == "Z8J.F" and x["Bloc_SSI"] == "B3")["Nombre_observations_pistes"] == "0"
+        assert next(x for x in couverture if x["Ticker"] == "1F6.F" and x["Bloc_SSI"] == "B3")["Nombre_observations_pistes"] == "2"
+        assert all(x["Note_SSI"] == x["Note_MCPA"] == "MANQUANTE" for x in contradictoires)
+        ecrire(chemin_icape, faits_icape)
+        # Ligne source absente : impossible de classer un fait financier.
+        sans_ligne = dict(faits_icape[0])
+        sans_ligne["Ligne_IFRS"] = ""
+        ecrire(chemin_icape, faits_icape[1:] + [sans_ligne])
+        incomplet = m.executer(b)
+        assert sum(x["Statut_raccordement"] == "EN_ATTENTE_DATA_SCHEMA" for x in incomplet) == 1
+        ecrire(chemin_icape, faits_icape)
         # Collision de ticker dans les dossiers SSI : aucune ligne ne doit
         # hériter silencieusement de la dernière identité rencontrée.
         dossiers_path = b / "DONNEES/DOSSIERS_SSI_A_QUALIFIER.csv"
