@@ -135,7 +135,9 @@ def verifier_identite_sce(r,d,base,limite=None):
     ids=[x.strip() for x in str(r.get('Preuves_identite_SCE','')).split('|') if x.strip()]
     z=d[d.ID_preuve.isin(ids)];ident=identifiant_dossier(r)
     if not ident:erreurs.append('identifiant réglementaire du dossier absent, invalide ou contradictoire')
-    if len(ids)<2 or len(ids)!=len(set(ids)) or len(z)!=len(ids) or z.Source_URL.nunique()<2:erreurs.append('deux preuves identité SCE requises')
+    if (len(ids)<2 or len(ids)!=len(set(ids)) or len(z)!=len(ids)
+            or z.Source_URL.nunique()<2 or z.SHA256.nunique()<2):
+        erreurs.append('deux documents primaires distincts (URL et SHA256) requis pour identité SCE')
     for _,p in z.iterrows():
         erreurs.extend(verifier(p,r.Ticker,'IDENTITE_SCE',base,limite))
         if not ident or p.Identifiant_emetteur!=ident:erreurs.append('identité SCE divergente du dossier')
