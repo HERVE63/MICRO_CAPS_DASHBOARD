@@ -10,11 +10,13 @@ on:
       - '.github/workflows/collecte_fermentalg_primaires_isolee.yml'
 permissions:
   contents: write
+  actions: write
 concurrency:
   group: microcaps-fermentalg-reprise-isolee
   cancel-in-progress: false
 jobs:
   capture:
+    if: github.ref_name == 'repair/microcaps-chain-20261030'
     runs-on: ubuntu-latest
     timeout-minutes: 15
     steps:
@@ -90,6 +92,7 @@ jobs:
           path: AUDITS/SOURCES_OFFICIELLES/
           if-no-files-found: warn
       - name: Publier seulement les audits de collecte sur branche isolee
+        id: publication
         if: ${{ success() && github.ref_name == 'repair/microcaps-chain-20261030' }}
         run: |
           git config user.name "github-actions[bot]"
@@ -99,4 +102,14 @@ jobs:
             git commit -m "Reprise Fermentalg 07AA: capture ou blocage source trace, sans note"
             git pull --rebase origin "$GITHUB_REF_NAME"
             git push origin "HEAD:$GITHUB_REF_NAME"
+            echo "published=true" >> "$GITHUB_OUTPUT"
           fi
+      - name: Relancer 07Q/07Q2/07R uniquement apres publication des preuves
+        if: ${{ success() && steps.publication.outputs.published == 'true' && github.ref_name == 'repair/microcaps-chain-20261030' }}
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          # Les push realises avec GITHUB_TOKEN ne declenchent pas un second push workflow.
+          # workflow_dispatch est autorise par GitHub et doit pointer vers la branche isolee.
+          gh workflow run preparer_dossiers_ssi.yml --ref "$GITHUB_REF_NAME"
+          echo "SSI_DISPATCHED branch=$GITHUB_REF_NAME commit=$(git rev-parse HEAD)"
