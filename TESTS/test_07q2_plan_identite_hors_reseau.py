@@ -42,6 +42,7 @@ def executer():
   pd.DataFrame(fixture).to_csv(module.SRC,index=False)
   avant=module.SRC.read_bytes()
   out=module.executer()
+  assert (d/'ANOMALIES_CAPTURES_SSI.csv').exists(), 'Diagnostic 07Q2 doit rester dans la fixture isolee'
   assert len(out)==18, "2 dossiers * (2 controles + 7 blocs)"
   assert out.groupby("Ticker").size().to_dict()=={"FICTIF.F":9,"FICTIF.US":9}
   assert set(out.Bloc_SSI)=={"IDENTITE_SCE","EXCLUSIONS","B1","B2","B3","B4","B5","B6","B7"}
