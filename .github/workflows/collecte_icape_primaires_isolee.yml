@@ -40,6 +40,16 @@ jobs:
           df=pd.read_csv(audits[-1],dtype=str,keep_default_na=False)
           assert len(df)==2 and df['Notes_attribuees'].eq('0').all()
           assert df['Statut_identite'].str.startswith('A_VERIFIER').all()
+          # Verifier les octets originaux sans confondre HTTP 200 et identite SCE.
+          import hashlib
+          for _,row in df.iterrows():
+              if row['Statut'] != 'DOCUMENT_COLLECTE_A_VERIFIER':
+                  continue  # Les autres sources continuent en EN_ATTENTE_DATA.
+              brut=Path(row['Fichier_brut']).read_bytes()
+              assert hashlib.sha256(brut).hexdigest()==row['SHA256']
+              assert b'FR001400A3Q3' in brut and b'ICAPE' in brut.upper(), 'Page non pertinente'
+              assert row['Source_URL'].startswith('https://')
+              assert row['Date_collecte_UTC']
           print('CAPTURE_ICAPE_STATUTS',df[['ID_document','Statut','Motif']].to_json(orient='records') if 'Motif' in df else df[['ID_document','Statut']].to_json(orient='records'))
           print('CERTIFICATION_SCE=NON ; SSI=MANQUANTE ; aucune promotion automatique')
           PY
