@@ -16,6 +16,7 @@ D=Path(__file__).resolve().parent.parent/"DONNEES"
 SRC=D/"DOSSIERS_SSI_A_QUALIFIER.csv"
 OUT=D/"PLAN_COLLECTE_PREUVES_SSI.csv"
 AUD=D/"AUDIT_COLLECTE_PREUVES_SSI.csv"
+ANOMALIES=D/"ANOMALIES_CAPTURES_SSI.csv"
 ARCHIVE_IDENTITE=D/"IDENTITE_COTATIONS_MULTIPLES.csv"
 CHAMPS={
  "B1":("B1_bilan_cash","B1_bilan_dette"),
@@ -90,32 +91,47 @@ def lire_pistes_archive():
 
 
 def indexer_captures_primaires():
- """Réutiliser les octets de 07AA, sans requalifier une capture en preuve SCE.
+ """Indexer les captures 07AA, en publiant les causes de chaque rejet.
 
- L'index est une PISTE documentaire par ticker, jamais une identité certifiée.
- Un ticker peut être recyclé : les identifiants divergents sont explicités.
- Toute capture corrompue, hors répertoire ou sans manifeste vérifiable est exclue.
+ Le diagnostic est une sortie de contrôle, pas un registre de preuves SCE.
+ Le contrat de retour historique (captures, invalides, bloquees) est conserve.
+ Un document invalide ne bloque pas les autres dossiers.
  """
  racine=D.parent.resolve()
  archives=racine/"AUDITS"/"SOURCES_OFFICIELLES"
  captures={}
  invalides=0
  bloquees=0
+ anomalies=[]
+ colonnes=["Archive","ID_document","Ticker","Source_URL","Statut_original","Code_anomalie","Motif_07AA"]
+ def tracer(audit,ligne,code,motif=""):
+  anomalies.append({"Archive":str(audit.relative_to(racine)),
+                   "ID_document":str(ligne.get("ID_document","")),
+                   "Ticker":str(ligne.get("Ticker","")),
+                   "Source_URL":str(ligne.get("Source_URL","")),
+                   "Statut_original":str(ligne.get("Statut","")),
+                   "Code_anomalie":code,
+                   "Motif_07AA":str(motif)[:500]})
+ def refuser(code):
+  raise ValueError(code)
  for audit in sorted(archives.glob("*/AUDIT_DOCUMENTS.csv")):
   dossier=audit.parent.resolve()
   try:
    manifeste=json.loads((dossier/"MANIFESTE.json").read_text(encoding="utf-8"))
    fichiers=manifeste["fichiers"]
-   if fichiers.get("AUDIT_DOCUMENTS.csv")!=hashlib.sha256(audit.read_bytes()).hexdigest():
-    raise ValueError("SHA256 audit divergent")
+   if not isinstance(fichiers,dict) or fichiers.get("AUDIT_DOCUMENTS.csv")!=hashlib.sha256(audit.read_bytes()).hexdigest():
+    refuser("SHA256_AUDIT_OU_MANIFESTE_DIVERGENT")
    with audit.open(encoding="utf-8-sig",newline="") as f:
     lignes=list(csv.DictReader(f))
-  except (OSError,ValueError,KeyError,UnicodeError,json.JSONDecodeError):
+  except (OSError,ValueError,KeyError,UnicodeError,TypeError,json.JSONDecodeError) as erreur:
    invalides+=1
+   tracer(audit,{},"MANIFESTE_OU_AUDIT_INVALIDE",type(erreur).__name__)
    continue
   for ligne in lignes:
    if ligne.get("Statut")!="DOCUMENT_COLLECTE_A_VERIFIER":
-    if ligne.get("Statut")=="BLOQUE_SOURCE":bloquees+=1
+    if ligne.get("Statut")=="BLOQUE_SOURCE":
+     bloquees+=1
+     tracer(audit,ligne,"SOURCE_BLOQUEE_07AA",ligne.get("Motif",""))
     continue
    try:
     ticker=ligne["Ticker"].strip()
@@ -124,26 +140,46 @@ def indexer_captures_primaires():
     sha=ligne["SHA256"].strip()
     date_capture=pd.to_datetime(ligne["Date_collecte_UTC"],utc=True,errors="coerce")
     date_pub=pd.to_datetime(ligne.get("Date_publication",""),utc=True,errors="coerce")
+    if not ticker:refuser("TICKER_ABSENT")
+    if not identifiant_reglementaire_formel_valide(ident):refuser("IDENTIFIANT_REGLEMENTAIRE_INVALIDE")
+    if not url.startswith("https://"):refuser("URL_NON_HTTPS")
+    if ligne.get("Type_source") not in {"PUBLICATION_EMETTEUR","DEPOT_REGLEMENTAIRE","DONNEE_MARCHE_IDENTITE"}:
+     refuser("TYPE_SOURCE_NON_PRIMAIRE")
+    if pd.isna(date_capture):refuser("DATE_COLLECTE_INVALIDE")
+    if date_capture>pd.Timestamp(datetime.now(timezone.utc)):refuser("DATE_COLLECTE_FUTURE")
+    if ligne.get("Date_publication","").strip() and pd.isna(date_pub):refuser("DATE_PUBLICATION_INVALIDE")
+    if not pd.isna(date_pub) and date_pub>date_capture:refuser("DATE_PUBLICATION_APRES_COLLECTE")
+    if not re.fullmatch(r"[0-9a-f]{64}",sha):refuser("SHA256_MALFORME")
     chemin=(racine/ligne["Fichier_brut"]).resolve()
-    if (not ticker or not identifiant_reglementaire_formel_valide(ident)
-        or not url.startswith("https://")
-        or ligne.get("Type_source") not in {"PUBLICATION_EMETTEUR","DEPOT_REGLEMENTAIRE","DONNEE_MARCHE_IDENTITE"}
-        or pd.isna(date_capture)
-        or date_capture>pd.Timestamp(datetime.now(timezone.utc))
-        or (ligne.get("Date_publication","").strip() and pd.isna(date_pub))
-        or (not pd.isna(date_pub) and date_pub>date_capture)
-        or chemin.parent!=dossier or chemin.name!=sha+".bin"
-        and chemin.name!=sha+".pdf"
-        or fichiers.get(chemin.name)!=sha
-        or hashlib.sha256(chemin.read_bytes()).hexdigest()!=sha):
-     raise ValueError("Capture non verifiable")
+    if chemin.parent!=dossier or chemin.name not in {sha+".bin",sha+".pdf"}:
+     refuser("CHEMIN_HORS_ARCHIVE")
+    if fichiers.get(chemin.name)!=sha:refuser("SHA256_MANIFESTE_BRUT_DIVERGENT")
+    if hashlib.sha256(chemin.read_bytes()).hexdigest()!=sha:refuser("SHA256_BRUT_DIVERGENT")
     if not ligne.get("Date_publication","").strip() and ligne.get("Statut_date_publication","").startswith("DATE_"):
-     raise ValueError("Date publication incoherente")
+     refuser("STATUT_DATE_PUBLICATION_INCOHERENT")
     captures.setdefault(ticker,[]).append((ident,url,sha,pd.isna(date_pub),
                                            str(ligne.get("Date_publication","")).strip() or "INCONNUE",
                                            str(ligne["Date_collecte_UTC"]).strip()))
-   except (OSError,ValueError,KeyError,TypeError):
+   except (OSError,ValueError,KeyError,TypeError) as erreur:
     invalides+=1
+    code=(str(erreur) if isinstance(erreur,ValueError) and str(erreur) in {
+      "TICKER_ABSENT","IDENTIFIANT_REGLEMENTAIRE_INVALIDE","URL_NON_HTTPS",
+      "TYPE_SOURCE_NON_PRIMAIRE","DATE_COLLECTE_INVALIDE","DATE_COLLECTE_FUTURE",
+      "DATE_PUBLICATION_INVALIDE","DATE_PUBLICATION_APRES_COLLECTE",
+      "SHA256_MALFORME","CHEMIN_HORS_ARCHIVE","SHA256_MANIFESTE_BRUT_DIVERGENT",
+      "SHA256_BRUT_DIVERGENT","STATUT_DATE_PUBLICATION_INCOHERENT"}
+      else "ERREUR_LECTURE_OU_SCHEMA")
+    tracer(audit,ligne,code,type(erreur).__name__ if code=="ERREUR_LECTURE_OU_SCHEMA" else "")
+ # Publication atomique : les rejets sont consultables sans parcourir les logs.
+ ANOMALIES.parent.mkdir(parents=True,exist_ok=True)
+ temporaire=ANOMALIES.with_suffix(".tmp")
+ with temporaire.open("w",newline="",encoding="utf-8") as f:
+  w=csv.DictWriter(f,fieldnames=colonnes)
+  w.writeheader()
+  w.writerows(anomalies)
+ temporaire.replace(ANOMALIES)
+ assert invalides==sum(a["Code_anomalie"]!="SOURCE_BLOQUEE_07AA" for a in anomalies)
+ assert bloquees==sum(a["Code_anomalie"]=="SOURCE_BLOQUEE_07AA" for a in anomalies)
  return captures,invalides,bloquees
 
 def executer():
