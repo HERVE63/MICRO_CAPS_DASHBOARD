@@ -25,6 +25,9 @@ def test():
         brut=base/"preuve_fictive.bin"
         brut.write_bytes(b"FIXTURE NON REGLEMENTAIRE - TEST HORS RESEAU")
         sha=hashlib.sha256(brut.read_bytes()).hexdigest()
+        brut_identite2=base/"preuve_identite_independante.bin"
+        brut_identite2.write_bytes(b"DEUXIEME DOCUMENT PRIMAIRE FICTIF DISTINCT")
+        sha_identite2=hashlib.sha256(brut_identite2.read_bytes()).hexdigest()
         ident="ISIN:US0378331005"  # exemple de checksum, pas une attribution d'emetteur
         dossier=dict(Ticker="EXEMPLE.F",CIK="",Identifiant_emetteur_verifie=ident,
                      Conflit_identite_CIK="NON",SCE_valide="OUI",
@@ -37,7 +40,8 @@ def test():
             r.update(ID_preuve=pid,Ticker="EXEMPLE.F",Bloc=bloc,
                      Identifiant_emetteur=ident,Source_URL="https://example.org/fixture/"+pid,
                      Type_source="DEPOT_REGLEMENTAIRE",Date_publication="2026-01-01",
-                     Fichier_brut="preuve_fictive.bin",SHA256=sha,
+                     Fichier_brut=(brut_identite2.name if pid=="SCE2" else brut.name),
+                     SHA256=(sha_identite2 if pid=="SCE2" else sha),
                      Statut_identite="VERIFIEE",Statut_verification="VERIFIEE",
                      Verificateur="FIXTURE_INDEPENDANTE",Date_verification_UTC="2026-01-02T00:00:00Z",
                      Justification="FICTION POUR TEST",Note="10" if bloc.startswith("B") else "")
@@ -51,6 +55,12 @@ def test():
         assert identifiant_dossier(pd.Series(dossier))==ident
         notes,errors=valider_dossier(pd.Series(dossier),reg,base)
         assert not errors and sum(notes)==70,(notes,errors)
+        # Deux URL distinctes ne suffisent pas si les octets archivés sont identiques.
+        meme_document=reg.copy()
+        masque=meme_document.ID_preuve.eq("SCE2")
+        meme_document.loc[masque,"Fichier_brut"]=brut.name
+        meme_document.loc[masque,"SHA256"]=sha
+        assert any("SHA256" in e for e in valider_dossier(pd.Series(dossier),meme_document,base)[1])
         m.D,m.SRC,m.OUT,m.AUD=d,d/"DOSSIERS_SSI_A_QUALIFIER.csv",d/"RESULTATS_SSI.csv",d/"AUDIT_SSI.csv"
         result=m.executer()
         assert result.iloc[0].Statut_SSI=="ADMIS_SSI" and result.iloc[0].SSI=="70"
