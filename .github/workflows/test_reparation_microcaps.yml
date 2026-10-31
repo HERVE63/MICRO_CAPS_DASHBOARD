@@ -140,6 +140,8 @@ jobs:
         run: python -B TESTS/test_07q_collision_identite_cik.py
       - name: Tester reprise non-US 07Q uniquement avec identite source et preuves SCE SHA256
         run: python -B TESTS/test_07q_reprise_isin_lei_preuves_hors_reseau.py
+      - name: Tester premiere identite non-US 07Q uniquement sur deux preuves SCE et SHA256
+        run: python -B TESTS/test_07q_premiere_identite_sce_hors_reseau.py
       - name: Tester 09D collecte EODHD partielle et empreintes hors reseau
         run: python -B TESTS/test_09d_collecte_non_bloquante.py
       - name: Tester la reutilisation SEC_BRIDGE sans faux CIK ni notes
