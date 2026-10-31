@@ -54,6 +54,10 @@ def executer():
         assert "permissions:\n  contents: write\n  actions: write\n" in s, nom
         assert ("jobs:\n  capture:\n    if: github.ref_name == "
                 "'repair/microcaps-chain-20261030'") in s, nom
+        assert "  group: microcaps-07aa-publication-branche-test" in s, nom
+        assert "for essai in 1 2 3 4 5; do" in s, nom
+        assert 'git pull --rebase origin "$GITHUB_REF_NAME"' in s, nom
+        assert "ECHEC_PUBLICATION_APRES_5_TENTATIVES" in s, nom
         assert "        id: publication\n" in s, nom
         assert 'echo "published=true" >> "$GITHUB_OUTPUT"' in s, nom
         assert "steps.publication.outputs.published == 'true'" in s, nom
