@@ -4,6 +4,7 @@ Fixtures fictives. Aucun score, document primaire ou ordre financier.
 from pathlib import Path
 from tempfile import TemporaryDirectory
 import importlib.util
+import hashlib
 import sys
 import pandas as pd
 
@@ -19,6 +20,12 @@ def executer():
   module.SRC=d/"DOSSIERS_SSI_A_QUALIFIER.csv"
   module.OUT=d/"PLAN_COLLECTE_PREUVES_SSI.csv"
   module.AUD=d/"AUDIT_COLLECTE_PREUVES_SSI.csv"
+  module.ARCHIVE_IDENTITE=d/"IDENTITE_COTATIONS_MULTIPLES.csv"
+  pd.DataFrame([
+   {"Ticker":"FICTIF.F","Societe":"Nom sans verification","ISIN":"US0378331005"},
+   {"Ticker":"FICTIF.US","Societe":"Autre nom non verifie","ISIN":"US0378331006"}
+  ]).to_csv(module.ARCHIVE_IDENTITE,index=False)
+  sha_archive=hashlib.sha256(module.ARCHIVE_IDENTITE.read_bytes()).hexdigest()
   fixture=[]
   for ticker,cik,preuve in [
       ("FICTIF.F","","MANQUANTE"),
@@ -42,10 +49,20 @@ def executer():
   assert f.Identifiant_emetteur_source=="MANQUANTE"
   assert f.Pays_cotation_declare=="Allemagne"
   assert f.Pays_emetteur_verifie=="MANQUANTE"
+  assert f.ISIN_piste_non_certifiee=="US0378331005"
+  assert f.Statut_piste_ISIN=="PISTE_ISIN_CHECKSUM_OK_NON_CERTIFIEE"
+  assert f.SHA256_archive_ISIN==sha_archive
+  assert f.Provenance_archive_ISIN=="DONNEES/IDENTITE_COTATIONS_MULTIPLES.csv"
+  assert f.Date_archive_ISIN=="MANQUANTE", "Date source non prouvee, jamais inventee"
+  assert f.Preuve_validee=="NON", "Checksum ISIN ne vaut pas verification de preuve"
+  assert f.Identifiant_emetteur_source=="MANQUANTE", "Piste non certifiee ne devient pas identite"
   u=out[(out.Ticker=="FICTIF.US") & (out.Bloc_SSI=="IDENTITE_SCE")].iloc[0]
   assert u.Identifiant_emetteur_source=="CIK:0000000123"
   assert u.Preuve_validee=="A_CONTROLER", "Une reference ne certifie pas la preuve"
   assert u.Pays_emetteur_verifie=="MANQUANTE"
+  assert u.Statut_piste_ISIN=="ISIN_INVALIDE_ARCHIVE"
+  assert u.ISIN_piste_non_certifiee=="MANQUANTE"
+  assert u.Identifiant_emetteur_source=="CIK:0000000123"
   assert set(out.Note_presente)=={"NON"}
   assert not (out.Preuve_validee=="OUI").any()
   audit=pd.read_csv(module.AUD).iloc[0]
@@ -54,12 +71,32 @@ def executer():
   assert int(audit.Controles_identite_exclusions)==4
   assert int(audit.Identites_CIK_source_absentes)==1
   assert int(audit.Lignes_plan)==18
+  assert int(audit.Pistes_ISIN_checksum_OK_non_certifiees)==1
+  assert int(audit.Pistes_ISIN_ambigues_ou_invalides)==1
   assert module.SRC.read_bytes()==avant, "Le plan ne doit jamais modifier la cohorte source"
   pd.DataFrame(columns=fixture[0].keys()).to_csv(module.SRC,index=False)
   vide=module.executer()
   assert vide.empty and list(vide.columns)==module.COLONNES
   assert int(pd.read_csv(module.AUD).iloc[0].Dossiers)==0
   assert module.SRC.exists()
- print("07Q2 OK : identite/exclusions prioritaires, aucun score, attente non-US, source intacte")
+  # Un ticker duplique dans l\'archive ne permet jamais de choisir un ISIN.
+  pd.DataFrame(fixture).to_csv(module.SRC,index=False)
+  pd.DataFrame([
+   {"Ticker":"FICTIF.F","Societe":"A","ISIN":"US0378331005"},
+   {"Ticker":"FICTIF.F","Societe":"B","ISIN":"US0378331005"}
+  ]).to_csv(module.ARCHIVE_IDENTITE,index=False)
+  ambigu=module.executer()
+  ligne=ambigu[(ambigu.Ticker=="FICTIF.F") & (ambigu.Bloc_SSI=="IDENTITE_SCE")].iloc[0]
+  assert ligne.Statut_piste_ISIN=="TICKER_AMBIGU_ARCHIVE"
+  assert ligne.ISIN_piste_non_certifiee=="MANQUANTE"
+  assert ligne.Preuve_validee=="NON"
+  # Archive sans schema requis : erreur explicite, resultats precedents preserves.
+  avant_plan=module.OUT.read_bytes();avant_audit=module.AUD.read_bytes()
+  pd.DataFrame([{"Ticker":"FICTIF.F","ISIN":"US0378331005"}]).to_csv(module.ARCHIVE_IDENTITE,index=False)
+  try:module.executer()
+  except RuntimeError as exc:assert "Schema archive ISIN historique incomplet" in str(exc)
+  else:raise AssertionError("Archive ISIN sans nom acceptee")
+  assert module.OUT.read_bytes()==avant_plan and module.AUD.read_bytes()==avant_audit
+ print("07Q2 OK : 2 controles + 7 blocs, ISIN historique non certifie, checksum, SHA256, ambiguite et source intacte")
 
 if __name__=="__main__":executer()
