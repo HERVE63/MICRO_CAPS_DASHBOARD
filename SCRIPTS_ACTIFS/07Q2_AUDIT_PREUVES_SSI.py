@@ -126,6 +126,7 @@ def indexer_captures_primaires():
     if (not ticker or not identifiant_reglementaire_formel_valide(ident)
         or not url.startswith("https://") or pd.isna(date_capture)
         or date_capture>pd.Timestamp(datetime.now(timezone.utc))
+        or (ligne.get("Date_publication","").strip() and pd.isna(date_pub))
         or (not pd.isna(date_pub) and date_pub>date_capture)
         or chemin.parent!=dossier or chemin.name!=sha+".bin"
         and chemin.name!=sha+".pdf"
