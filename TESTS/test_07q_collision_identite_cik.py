@@ -104,6 +104,33 @@ def executer():
         assert troisieme.loc["MEME", "Preuve_B1"] == "MANQUANTE"
         assert troisieme.loc["MEME", "Note_B1"] == "MANQUANTE"
         assert troisieme.loc["MEME", "SCE_valide"] == "NON"
+        # Une relance horaire identique ne doit pas accumuler des copies
+        # de 1 361 dossiers inchanges. Une version effectivement differente
+        # doit, en revanche, rester reconstructible.
+        def relancer():
+            z = subprocess.run([sys.executable, str(base / "SCRIPTS_ACTIFS/07Q_PREPARER_DOSSIERS_SSI.py")],
+                               cwd=base, text=True, capture_output=True)
+            assert z.returncode == 0, (z.stdout, z.stderr)
+        def nombre_archives():
+            return len(list((base / "AUDITS/DOSSIERS_SSI").glob("*/DOSSIERS_SSI_A_QUALIFIER.csv")))
+        relancer()  # La version du troisieme passage n'etait pas encore archivee.
+        avant_identique = nombre_archives()
+        relancer()  # Aucune mutation du registre : archive strictement identique.
+        assert nombre_archives() == avant_identique, "07Q archive en double une version inchangee"
+        actuel = base / "DONNEES/DOSSIERS_SSI_A_QUALIFIER.csv"
+        modifie = pd.read_csv(actuel, dtype=str, keep_default_na=False)
+        modifie.loc[modifie.Ticker.eq("NOUVEAU"), "Note_B1"] = "7"
+        modifie.loc[modifie.Ticker.eq("NOUVEAU"), "Preuve_B1"] = "PREUVE_TEST_NON_CERTIFIEE"
+        modifie.to_csv(actuel, index=False)
+        relancer()
+        assert nombre_archives() == avant_identique + 1, "Version distincte non archivee"
+        archive_recente = sorted((base / "AUDITS/DOSSIERS_SSI").glob("*/DOSSIERS_SSI_A_QUALIFIER.csv"))[-1]
+        assert "PREUVE_TEST_NON_CERTIFIEE" in archive_recente.read_text()
+        relancer()
+        assert nombre_archives() == avant_identique + 1, "Relance repetee non idempotente"
+        dernier = pd.read_csv(actuel, dtype=str, keep_default_na=False).set_index("Ticker")
+        assert dernier.loc["NOUVEAU", "Preuve_B1"] == "PREUVE_TEST_NON_CERTIFIEE"
+        assert dernier.loc["COLLISION", "Conflit_identite_CIK"] == "OUI"
         print("07Q OK : collision CIK et absence source isolees ; aucune ancienne note restauree")
 
 if __name__ == "__main__":
