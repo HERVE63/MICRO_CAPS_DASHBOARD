@@ -44,7 +44,7 @@ def date_utc(value):
 
 
 def verifier_montant(texte):
-    if not re.fullmatch(r"\\(?-?[0-9][0-9,]*(?:\\.[0-9]+)?\\)?", texte):
+    if not re.fullmatch(r"\(?-?[0-9][0-9,]*(?:\.[0-9]+)?\)?", texte):
         return False
     if texte.startswith("(") != texte.endswith(")"):
         return False
