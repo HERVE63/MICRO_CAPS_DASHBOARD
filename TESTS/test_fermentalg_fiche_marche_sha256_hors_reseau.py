@@ -77,9 +77,9 @@ def test(capture=None):
     assert "html" in a["Type_contenu"].lower()
     parser = Texte()
     parser.feed(data.decode("utf-8", errors="replace"))
-    texte = re.sub(r"\\s+", " ", " ".join(parser.morceaux))
+    texte = re.sub(r"\s+", " ", " ".join(parser.morceaux))
     assert "FERMENTALG" in texte.upper() and ISIN in texte
-    assert re.search(r"\\bSymbol\\s*:\\s*1F6\\b", texte, re.IGNORECASE), "Symbole officiel absent"
+    assert re.search(r"\bSymbol\s*:\s*1F6\b", texte, re.IGNORECASE), "Symbole officiel absent"
     assert "Frankfurt" in texte, "Place Frankfurt non lisible"
     # La fiche identifie le symbole officiel 1F6, PAS le suffixe fournisseur .F.
     # Elle ne donne ni date de publication ni validation SCE/SSI/MCPA.
