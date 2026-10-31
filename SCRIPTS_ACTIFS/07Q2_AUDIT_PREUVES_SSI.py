@@ -80,7 +80,7 @@ def executer():
  pd.DataFrame([{"Dossiers":len(df),"Blocs_a_auditer":len(blocs),
    "Blocs_avec_variables_absentes":int(blocs["Variables_absentes"].ne("").sum()),
    "Controles_identite_exclusions":len(out)-len(blocs),
-   "Identites_CIK_source_absentes":int((df["CIK"].map(lambda x: not bool(re.fullmatch(r"[0-9]{10}",str(x).strip())))).sum()) if "CIK" in df else len(df),
+   "Identites_CIK_source_absentes":sum(not bool(re.fullmatch(r"[0-9]{10}",str(x).strip())) for x in df["CIK"]) if "CIK" in df else len(df),
    "Lignes_plan":len(out),
    "Statut":"EN_ATTENTE_DATA" if df.empty else "AUCUNE_NOTE_AUTOMATIQUE_SANS_PREUVE"}]).to_csv(AUD,index=False)
  print("Plan de collecte SSI",len(df),"dossiers",len(blocs),"blocs",len(out)-len(blocs),"controles")
