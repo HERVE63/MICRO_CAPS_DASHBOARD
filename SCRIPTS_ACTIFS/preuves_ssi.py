@@ -48,6 +48,26 @@ def identifiant_reglementaire_formel_valide(ident):
         return checksum_lei_valide(ident[4:])
     return False
 
+def identifiant_dossier(r):
+    """Identité attendue : CIK source valide OU ISIN/LEI explicitement vérifié.
+
+    Un ISIN/LEI déclaré ne devient jamais une preuve : verifier_identite_sce
+    exige deux documents primaires distincts concordants, puis chaque bloc
+    et chaque exclusion doivent porter le même identifiant. Un CIK source
+    présent mais malformé/divergent ne peut pas être contourné.
+    """
+    cik=str(r.get('CIK','')).strip()
+    ident=str(r.get('Identifiant_emetteur_verifie','')).strip()
+    if not manquant(cik):
+        if not re.fullmatch(r'[0-9]{10}',cik):
+            return ''
+        attendu='CIK:'+cik
+        return attendu if manquant(ident) or ident==attendu else ''
+    if (not manquant(ident) and ident.startswith(('ISIN:','LEI:'))
+            and identifiant_reglementaire_formel_valide(ident)):
+        return ident
+    return ''
+
 def registre(base,limite=None):
     p=base/'DONNEES/REGISTRE_PREUVES_SSI.csv'
     if not p.exists():return pd.DataFrame(columns=CHAMPS)
@@ -104,11 +124,12 @@ def verifier_identite_sce(r,d,base,limite=None):
         erreurs.append('collision CIK non levée ou contrôle CIK absent/invalide')
     if r.get('SCE_valide')!='OUI':return erreurs+['contrôles SCE non validés']
     ids=[x.strip() for x in str(r.get('Preuves_identite_SCE','')).split('|') if x.strip()]
-    z=d[d.ID_preuve.isin(ids)];cik=str(r.get('CIK','')).strip()
+    z=d[d.ID_preuve.isin(ids)];ident=identifiant_dossier(r)
+    if not ident:erreurs.append('identifiant réglementaire du dossier absent, invalide ou contradictoire')
     if len(ids)<2 or len(ids)!=len(set(ids)) or len(z)!=len(ids) or z.Source_URL.nunique()<2:erreurs.append('deux preuves identité SCE requises')
     for _,p in z.iterrows():
         erreurs.extend(verifier(p,r.Ticker,'IDENTITE_SCE',base,limite))
-        if not cik or p.Identifiant_emetteur!='CIK:'+cik:erreurs.append('identité SCE divergente du dossier')
+        if not ident or p.Identifiant_emetteur!=ident:erreurs.append('identité SCE divergente du dossier')
     return erreurs
 
 def valider_dossier(r,d,base,limite=None):
@@ -128,8 +149,9 @@ def valider_dossier(r,d,base,limite=None):
             notes.append(int(n))
         except ValueError:errors.append(bloc+': note non concordante avec preuve vérifiée')
     if len(identifiants)>1:errors.append('identité émetteur divergente entre blocs')
-    cik=str(r.get('CIK','')).strip()
-    if cik and any(x!='CIK:'+cik for x in identifiants):errors.append('identité des preuves différente du CIK du dossier')
+    ident=identifiant_dossier(r)
+    if not ident:errors.append('identifiant réglementaire du dossier absent, invalide ou contradictoire')
+    if ident and any(x!=ident for x in identifiants):errors.append('identité des preuves différente de l\'identifiant du dossier')
     # Le controle d'identite SCE est obligatoire, meme pour les anciens
     # dossiers qui ne possedent pas encore la colonne SCE_valide.
     # Ne jamais traiter une colonne absente comme une validation implicite.
@@ -156,8 +178,8 @@ def bilan_blocs_documentes(r,d,base,limite=None):
         preuves=d[d.ID_preuve.isin(ids)]
         if len(preuves)!=len(ids):continue
         if any(verifier(p,r.Ticker,bloc,base,limite) for _,p in preuves.iterrows()):continue
-        cik=str(r.get('CIK','')).strip()
-        if cik and any(p.Identifiant_emetteur!='CIK:'+cik for _,p in preuves.iterrows()):continue
+        ident=identifiant_dossier(r)
+        if not ident or any(p.Identifiant_emetteur!=ident for _,p in preuves.iterrows()):continue
         try:
             n=float(r.get('Note_'+bloc,''))
             if not math.isfinite(n) or not n.is_integer() or not 0<=n<=maximum:continue
