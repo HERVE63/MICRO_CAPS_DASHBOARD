@@ -37,16 +37,17 @@ def sha256(path):
 
 
 def date_utc(value):
+    """Les horodatages de provenance exigent un fuseau explicite : jamais d'UTC inventé."""
     d = datetime.fromisoformat(value.strip().replace("Z", "+00:00"))
-    if d.tzinfo is None:
-        d = d.replace(tzinfo=timezone.utc)
+    if d.tzinfo is None or d.utcoffset() is None:
+        raise ValueError("Horodatage sans fuseau explicite")
     return d.astimezone(timezone.utc)
 
 
 def verifier_montant(texte):
-    if not re.fullmatch(r"\(?-?[0-9][0-9,]*(?:\.[0-9]+)?\)?", texte):
-        return False
-    if texte.startswith("(") != texte.endswith(")"):
+    """Séparateurs de milliers stricts : '1,2,3' ne vaut jamais 123."""
+    nombre = r"(?:0|[1-9][0-9]*|[1-9][0-9]{0,2}(?:,[0-9]{3})+)(?:\.[0-9]+)?"
+    if not re.fullmatch(rf"(?:-?{nombre}|\({nombre}\))", texte):
         return False
     try:
         Decimal(texte.strip("()").replace(",", ""))
@@ -77,6 +78,9 @@ def indexer_archives(racine):
 def controler_ligne(r, dossiers, archives, racine, maintenant):
     if any(not r.get(c, "").strip() for c in CHAMPS):
         return "EN_ATTENTE_DATA_SCHEMA", "Champ obligatoire absent", ""
+    if not (r.get("Tableau_IFRS", r.get("Tableau_source", "")).strip()
+            and r.get("Ligne_IFRS", r.get("Ligne_source", "")).strip()):
+        return "EN_ATTENTE_DATA_SCHEMA", "Tableau ou ligne source absent", ""
     if r["Note_SSI"] != "MANQUANTE" or r["Note_MCPA"] != "MANQUANTE" or r["Statut_qualification"] != "EN_ATTENTE_DATA":
         return "REJET_NOTE_OU_QUALIFICATION", "Score/qualification non autorisé dans la transcription", ""
     if r["Unite_source"] != "kEUR" or not verifier_montant(r["Valeur_source"]):
@@ -149,17 +153,48 @@ COUVERTURE_COLONNES = (
 )
 
 
+def isoler_conflits_factuels(resultat):
+    """Même source/tableau/ligne/période/unité : deux valeurs distinctes = quarantaine.
+
+    Ne compare pas des publications différentes, qui peuvent être retraitées.
+    Ne modifie jamais les transcriptions archivées. Aucun score n'est autorisé.
+    """
+    groupes = {}
+    for r in resultat:
+        if r["Statut_raccordement"] not in STATUTS_ARCHIVE_INTEGRE:
+            continue
+        cle = tuple(r[k] for k in ("Ticker", "Identifiant_emetteur", "ID_document",
+                                   "Tableau_source", "Ligne_source", "Periode_cloture",
+                                   "Unite_source", "SHA256_source"))
+        groupes.setdefault(cle, []).append(r)
+    for lignes in groupes.values():
+        if len({r["Valeur_source"] for r in lignes}) > 1:
+            for r in lignes:
+                r["Statut_raccordement"] = "EN_ATTENTE_DATA_CONFLIT_FACTUEL"
+                r["Motif"] = "Valeurs divergentes pour le même fait primaire : transcription à vérifier"
+
+
 def ecrire_couverture_pistes(resultat, donnees):
     """Couverture indicative, jamais une note, preuve certifiée ou admission SSI."""
     tickers = sorted({r["Ticker"] for r in resultat if r["Ticker"]})
     lignes = []
     for ticker in tickers:
         for bloc, libelles in BLOCS_PISTES.items():
-            pistes = [r for r in resultat
-                      if r["Ticker"] == ticker
-                      and r["Ligne_source"] in libelles
-                      and r["Archive_source"]
-                      and r["Statut_raccordement"] in STATUTS_ARCHIVE_INTEGRE]
+            # Un même fait recopié deux fois ne double jamais la couverture.
+            pistes = []
+            deja_vus = set()
+            for r in resultat:
+                if not (r["Ticker"] == ticker
+                        and r["Ligne_source"] in libelles
+                        and r["Archive_source"]
+                        and r["Statut_raccordement"] in STATUTS_ARCHIVE_INTEGRE):
+                    continue
+                cle = tuple(r[k] for k in ("Identifiant_emetteur", "ID_document",
+                                           "Tableau_source", "Ligne_source", "Periode_cloture",
+                                           "Unite_source", "Valeur_source", "SHA256_source"))
+                if cle not in deja_vus:
+                    deja_vus.add(cle)
+                    pistes.append(r)
             identites = {r["Statut_raccordement"] for r in pistes}
             statut = ("EN_ATTENTE_DATA_IDENTITE_AMBIGUE"
                       if "EN_ATTENTE_DATA_IDENTITE_AMBIGUE" in identites
@@ -233,6 +268,7 @@ def executer(racine=None, maintenant=None):
                 "Statut_raccordement": statut, "Motif": motif,
                 "Note_SSI": "MANQUANTE", "Note_MCPA": "MANQUANTE",
             })
+    isoler_conflits_factuels(resultat)
     destination = d / "OBSERVATIONS_FINANCIERES_SSI_NON_CERTIFIEES.csv"
     tmp = destination.with_suffix(".tmp")
     with tmp.open("w", encoding="utf-8", newline="") as f:
