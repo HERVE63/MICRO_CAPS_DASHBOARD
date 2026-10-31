@@ -119,6 +119,77 @@ def controler_ligne(r, dossiers, archives, racine, maintenant):
     return "EN_ATTENTE_DATA_SOURCE", "Archive primaire non concordante ou SHA256 invalide", ""
 
 
+
+# Ce classement thématique n'est PAS une vérification des chiffres transcrits.
+# Il sert seulement à identifier les blocs où des observations déjà archivées
+# existent, pour organiser les contrôles primaires et l'identité SCE.
+BLOCS_PISTES = {
+    "B1": {"Cash and cash equivalents", "Borrowings and financial debt",
+           "Borrowings and bank overdrafts", "Shareholders' equity",
+           "Non-current financial liabilities", "Current financial liabilities"},
+    "B2": {"Current EBITDA", "EBIT", "Group share",
+           "Cash flow from operating activities", "Cash flow from investing activities",
+           "Operating income before share-based payments and non-recurring items",
+           "Operating income after share-based payments and non-recurring items",
+           "Net income attributable to the Group"},
+    "B3": {"Revenue"},
+    "B4": set(), "B5": set(), "B6": set(), "B7": set(),
+}
+STATUTS_ARCHIVE_INTEGRE = {
+    "PISTE_FINANCIERE_SHA256_OK_NON_CERTIFIEE",
+    "EN_ATTENTE_DATA_IDENTITE",
+    "EN_ATTENTE_DATA_IDENTITE_AMBIGUE",
+}
+COUVERTURE_COLONNES = (
+    "Ticker", "Bloc_SSI", "Nombre_observations_pistes",
+    "Nombre_documents_SHA256_distincts", "Lignes_source_pistes",
+    "Periodes_pistes", "SHA256_sources_pistes", "Statuts_raccordement",
+    "Statut_bloc", "Identite_SCE_certifiee", "Transcription_chiffres_verifiee",
+    "Note_SSI", "Note_MCPA",
+)
+
+
+def ecrire_couverture_pistes(resultat, donnees):
+    """Couverture indicative, jamais une note, preuve certifiée ou admission SSI."""
+    tickers = sorted({r["Ticker"] for r in resultat if r["Ticker"]})
+    lignes = []
+    for ticker in tickers:
+        for bloc, libelles in BLOCS_PISTES.items():
+            pistes = [r for r in resultat
+                      if r["Ticker"] == ticker
+                      and r["Ligne_source"] in libelles
+                      and r["Archive_source"]
+                      and r["Statut_raccordement"] in STATUTS_ARCHIVE_INTEGRE]
+            identites = {r["Statut_raccordement"] for r in pistes}
+            statut = ("EN_ATTENTE_DATA_IDENTITE_AMBIGUE"
+                      if "EN_ATTENTE_DATA_IDENTITE_AMBIGUE" in identites
+                      else "PISTES_ARCHIVEES_NON_CERTIFIEES" if pistes
+                      else "EN_ATTENTE_DATA")
+            def uniques(champ):
+                return "|".join(sorted({r[champ] for r in pistes if r[champ]}))
+            lignes.append({
+                "Ticker": ticker, "Bloc_SSI": bloc,
+                "Nombre_observations_pistes": len(pistes),
+                "Nombre_documents_SHA256_distincts": len({r["SHA256_source"] for r in pistes}),
+                "Lignes_source_pistes": uniques("Ligne_source"),
+                "Periodes_pistes": uniques("Periode_cloture"),
+                "SHA256_sources_pistes": uniques("SHA256_source"),
+                "Statuts_raccordement": uniques("Statut_raccordement"),
+                "Statut_bloc": statut,
+                "Identite_SCE_certifiee": "NON",
+                "Transcription_chiffres_verifiee": "NON",
+                "Note_SSI": "MANQUANTE", "Note_MCPA": "MANQUANTE",
+            })
+    destination = donnees / "COUVERTURE_OBSERVATIONS_SSI_NON_CERTIFIEES.csv"
+    tmp = destination.with_suffix(".tmp")
+    with tmp.open("w", encoding="utf-8", newline="") as f:
+        w = csv.DictWriter(f, fieldnames=COUVERTURE_COLONNES)
+        w.writeheader()
+        w.writerows(lignes)
+    tmp.replace(destination)
+    return lignes
+
+
 def executer(racine=None, maintenant=None):
     racine = Path(racine or Path(__file__).resolve().parents[1]).resolve()
     maintenant = maintenant or datetime.now(timezone.utc)
@@ -169,6 +240,8 @@ def executer(racine=None, maintenant=None):
         writer.writeheader()
         writer.writerows(resultat)
     tmp.replace(destination)
+    couverture = ecrire_couverture_pistes(resultat, d)
+    print("07Q3 couverture indicative SSI (sans preuve ni score):", len(couverture))
     bilan = {}
     for r in resultat:
         bilan[r["Statut_raccordement"]] = bilan.get(r["Statut_raccordement"], 0) + 1
