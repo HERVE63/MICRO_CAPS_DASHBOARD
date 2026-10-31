@@ -45,16 +45,18 @@ def executer():
     # GitHub ne relance pas un workflow push apres un push GITHUB_TOKEN.
     # Les collecteurs 07AA doivent dispatcher 07Q uniquement si leur
     # commit de preuves a effectivement ete publie sur la branche isolee.
-    for nom in (
-        "collecte_icape_primaires_isolee.yml",
-        "collecte_fermentalg_primaires_isolee.yml",
-        "collecte_identite_fermentalg_marche_isolee.yml",
-    ):
+    groupes = {
+        "collecte_icape_primaires_isolee.yml": "microcaps-icape-primaires-isolees",
+        "collecte_fermentalg_primaires_isolee.yml": "microcaps-fermentalg-reprise-isolee",
+        "collecte_identite_fermentalg_marche_isolee.yml": "microcaps-identite-fermentalg-marche-isolee",
+    }
+    for nom in groupes:
         s = (ROOT / ".github/workflows" / nom).read_text(encoding="utf-8")
         assert "permissions:\n  contents: write\n  actions: write\n" in s, nom
         assert ("jobs:\n  capture:\n    if: github.ref_name == "
                 "'repair/microcaps-chain-20261030'") in s, nom
-        assert "  group: microcaps-07aa-publication-branche-test" in s, nom
+        assert "  group: " + groupes[nom] in s, nom
+        assert "  cancel-in-progress: false" in s, nom
         assert "for essai in 1 2 3 4 5; do" in s, nom
         assert 'git pull --rebase origin "$GITHUB_REF_NAME"' in s, nom
         assert "ECHEC_PUBLICATION_APRES_5_TENTATIVES" in s, nom
