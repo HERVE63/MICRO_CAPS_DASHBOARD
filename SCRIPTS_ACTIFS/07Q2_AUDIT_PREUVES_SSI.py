@@ -170,14 +170,16 @@ def indexer_captures_primaires():
       "SHA256_BRUT_DIVERGENT","STATUT_DATE_PUBLICATION_INCOHERENT"}
       else "ERREUR_LECTURE_OU_SCHEMA")
     tracer(audit,ligne,code,type(erreur).__name__ if code=="ERREUR_LECTURE_OU_SCHEMA" else "")
- # Publication atomique : les rejets sont consultables sans parcourir les logs.
- ANOMALIES.parent.mkdir(parents=True,exist_ok=True)
- temporaire=ANOMALIES.with_suffix(".tmp")
+ # Respecter le repertoire D injecte par les tests hors reseau : jamais
+ # ecrire dans le depot quand un test utilise une cohorte temporaire.
+ sortie_anomalies=D/"ANOMALIES_CAPTURES_SSI.csv"
+ sortie_anomalies.parent.mkdir(parents=True,exist_ok=True)
+ temporaire=sortie_anomalies.with_suffix(".tmp")
  with temporaire.open("w",newline="",encoding="utf-8") as f:
   w=csv.DictWriter(f,fieldnames=colonnes)
   w.writeheader()
   w.writerows(anomalies)
- temporaire.replace(ANOMALIES)
+ temporaire.replace(sortie_anomalies)
  assert invalides==sum(a["Code_anomalie"]!="SOURCE_BLOQUEE_07AA" for a in anomalies)
  assert bloquees==sum(a["Code_anomalie"]=="SOURCE_BLOQUEE_07AA" for a in anomalies)
  return captures,invalides,bloquees
