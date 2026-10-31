@@ -57,10 +57,10 @@ def test():
     assert fer["Type_source"] == "PUBLICATION_EMETTEUR"
     assert fer["Statut_identite"] == "A_VERIFIER_COTATION_1F6_F"
     assert fer["Date_publication"] == "2026-10-06T16:00:00Z"
-    assert fer["Source_date_publication"].startswith("https://www.actusnews.com/fr/fermentalg/")
-    assert fer["Source_habilitation_domaine"].startswith("https://www.actusnews.com/fr/fermentalg/")
-    assert urlparse(fer["Source_URL"]).hostname == fer["Domaine_autorise"] == "www.actusnews.com"
-    assert "/fr/fermentalg/cp/2026/10/06/" in fer["Source_URL"]
+    assert fer["Source_date_publication"].startswith("https://www.webdisclosure.fr/press-release/fermentalg-")
+    assert fer["Source_habilitation_domaine"].startswith("https://www.webdisclosure.fr/press-release/fermentalg-")
+    assert urlparse(fer["Source_URL"]).hostname == fer["Domaine_autorise"] == "www.webdisclosure.fr"
+    assert "/press-release/fermentalg-epa-falg-half-year-results-2026" in fer["Source_URL"]
     assert not any(c.startswith("Note_") for c in fer)
 
     dossiers = [r for r in lire(DOSSIERS) if r["Ticker"] in ("1F6.F", "HBQ.F")]
