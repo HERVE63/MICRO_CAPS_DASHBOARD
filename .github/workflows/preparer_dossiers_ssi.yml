@@ -5,6 +5,11 @@ on:
     paths:
       - 'SCRIPTS_ACTIFS/07Q_PREPARER_DOSSIERS_SSI.py'
       - 'SCRIPTS_ACTIFS/07Q2_AUDIT_PREUVES_SSI.py'
+      - 'SCRIPTS_ACTIFS/preuves_ssi.py'
+      - 'SCRIPTS_ACTIFS/07R_VALIDER_NOTES_SSI.py'
+      - 'DONNEES/CANDIDATS_PRETS_SSI.csv'
+      - 'DONNEES/IDENTITE_COTATIONS_MULTIPLES.csv'
+      - 'AUDITS/SOURCES_OFFICIELLES/**'
       - '.github/workflows/preparer_dossiers_ssi.yml'
   workflow_dispatch:
 permissions:
@@ -14,6 +19,7 @@ concurrency:
   cancel-in-progress: false
 jobs:
   ssi:
+    if: github.ref_name == 'repair/microcaps-chain-20261030'
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
