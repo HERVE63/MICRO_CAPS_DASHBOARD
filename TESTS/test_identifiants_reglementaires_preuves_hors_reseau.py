@@ -42,6 +42,16 @@ def executer():
                       "ISIN:US037833100", "LEI:5493001KJTIIGC8Y1R1!",
                       "ISIN:MANQUANTE", "MANQUANTE"):
             assert any("identifiant" in e for e in erreurs(ident)), (ident, erreurs(ident))
+        # Source officielle de marche: admissible comme preuve d'identite
+        # seulement apres revue independante, jamais comme preuve financiere.
+        marche=pd.Series({**r,"Type_source":"DONNEE_MARCHE_IDENTITE"})
+        assert not verifier(marche,"FICTIF.TEST","IDENTITE_SCE",root)
+        assert "source non primaire pour ce bloc" in verifier(
+            pd.Series({**r,"Bloc":"B1","Type_source":"DONNEE_MARCHE_IDENTITE","Note":"5"}),
+            "FICTIF.TEST","B1",root)
+        assert "source non primaire pour ce bloc" in verifier(
+            pd.Series({**r,"Bloc":"EXCLUSIONS","Type_source":"DONNEE_MARCHE_IDENTITE"}),
+            "FICTIF.TEST","EXCLUSIONS",root)
         alt = pd.Series({**r, "Identifiant_emetteur":"ISIN:US0378331005", "SHA256":"0"*64})
         assert "empreinte document divergente" in verifier(alt, "FICTIF.TEST", "IDENTITE_SCE", root)
     print("SSI identifiants: CIK, ISIN/Luhn et LEI/mod97 controles, SHA256 preserve")
