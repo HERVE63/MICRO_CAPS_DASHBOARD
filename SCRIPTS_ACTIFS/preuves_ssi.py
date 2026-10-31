@@ -13,6 +13,41 @@ CHAMPS=['ID_preuve','Remplace_ID','Ticker','Bloc','Identifiant_emetteur','Source
 MANQUANTS={'','MANQUANTE','A_COMPLETER','NON_VERIFIE','N/A','NAN','NONE'}
 def manquant(v):return str(v).strip().upper() in MANQUANTS
 
+def checksum_isin_valide(isin):
+    """ISO 6166 / Luhn. Un checksum correct ne certifie PAS l'emetteur."""
+    if not re.fullmatch(r'[A-Z]{2}[A-Z0-9]{9}[0-9]', isin):
+        return False
+    chiffres=''.join(str(ord(c)-55) if 'A'<=c<='Z' else c for c in isin)
+    total=0
+    for pos,c in enumerate(reversed(chiffres)):
+        n=int(c)
+        if pos%2:
+            n*=2
+            n=n//10+n%10
+        total+=n
+    return total%10==0
+
+def checksum_lei_valide(lei):
+    """ISO 17442 / ISO 7064 mod 97-10, sans certification de l'identite."""
+    if not re.fullmatch(r'[A-Z0-9]{20}', lei):
+        return False
+    chiffres=''.join(str(ord(c)-55) if 'A'<=c<='Z' else c for c in lei)
+    # Calcul modulaire incrementiel pour ne pas dependre d'un entier geant.
+    reste=0
+    for c in chiffres:
+        reste=(reste*10+int(c))%97
+    return reste==1
+
+def identifiant_reglementaire_formel_valide(ident):
+    """CIK exact ou ISIN/LEI avec checksum; la preuve primaire reste obligatoire."""
+    if re.fullmatch(r'CIK:[0-9]{10}', ident):
+        return True
+    if ident.startswith('ISIN:'):
+        return checksum_isin_valide(ident[5:])
+    if ident.startswith('LEI:'):
+        return checksum_lei_valide(ident[4:])
+    return False
+
 def registre(base,limite=None):
     p=base/'DONNEES/REGISTRE_PREUVES_SSI.csv'
     if not p.exists():return pd.DataFrame(columns=CHAMPS)
@@ -41,7 +76,7 @@ def verifier(r,ticker,bloc,base,limite=None):
     if r.Statut_verification!='VERIFIEE' or r.Statut_identite!='VERIFIEE':errors.append('identité/contenu non vérifié')
     for c in ['Identifiant_emetteur','Verificateur','Justification','SHA256']:
         if manquant(r[c]):errors.append(c+' manquant')
-    if not re.fullmatch(r'(?:CIK:[0-9]{10}|ISIN:[A-Z]{2}[A-Z0-9]{9}[0-9]|LEI:[A-Z0-9]{20})',r.Identifiant_emetteur):
+    if not identifiant_reglementaire_formel_valide(str(r.Identifiant_emetteur)):
         errors.append('identifiant émetteur invalide')
     if not r.Source_URL.startswith('https://'):errors.append('source sans URL HTTPS')
     types={'PUBLICATION_EMETTEUR','DEPOT_REGLEMENTAIRE'}
