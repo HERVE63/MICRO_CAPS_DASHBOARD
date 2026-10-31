@@ -77,7 +77,8 @@ def appliquer_revues(ordre,revues,preuves,base,recensement_sha,limite=None):
    for _,q in z.iterrows():
     erreurs.extend(verifier(q,v.Ticker,bloc,base,limite))
     if q.Identifiant_emetteur!='CIK:'+v.CIK:erreurs.append('IDENTITE_PREUVE_DIVERGENTE')
-   if bloc=='IDENTITE_SCE' and (len(z)<2 or z.Source_URL.nunique()<2):erreurs.append('DEUX_SOURCES_IDENTITE_REQUISES')
+   if bloc=='IDENTITE_SCE' and (len(z)<2 or z.Source_URL.nunique()<2 or z.SHA256.nunique()<2):
+    erreurs.append('DEUX_DOCUMENTS_IDENTITE_DISTINCTS_URL_SHA256_REQUIS')
   if erreurs:
    r['Motifs']+=';'+';'.join(sorted(set(erreurs)));continue
   r.update(SCE_valide='OUI',Statut_SCE='IDENTITE_EXCLUSIONS_VERIFIEES',Motifs='REVUE_PRIMAIRE_IDENTIFIEE',Preuve_controle_exclusions=v.Preuve_exclusions,Preuves_identite_SCE=v.Preuves_identite)
