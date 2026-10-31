@@ -25,7 +25,7 @@ def executer():
                 Momentum_3m_pct="1", Momentum_6m_pct="2", Au_dessus_MM200="OUI"))
         pd.DataFrame(candidats).to_csv(base / "DONNEES/CANDIDATS_PRETS_SSI.csv", index=False)
         anciens = [
-            dict(Ticker="MEME", CIK="0000000123", Note_B1="12", Preuve_B1="PREUVE_MEME",
+            dict(Ticker="MEME", CIK="0000000123", Identifiant_emetteur_verifie="ISIN:US0378331005", Note_B1="12", Preuve_B1="PREUVE_MEME",
                  SCE_valide="OUI", Preuves_identite_SCE="A|B", Decision_eliminatoire="NON"),
             dict(Ticker="COLLISION", CIK="0000000456", Note_B1="15",
                  Preuve_B1="PREUVE_AUTRE_EMETTEUR", SCE_valide="OUI",
@@ -44,6 +44,7 @@ def executer():
                              dtype=str, keep_default_na=False).set_index("Ticker")
         assert len(result) == 5
         assert result.loc["MEME", "CIK"] == ""
+        assert result.loc["MEME", "Identifiant_emetteur_verifie"] == "MANQUANTE", "Identité non transférable par ticker"
         assert result.loc["MEME", "Note_B1"] == "MANQUANTE"
         assert result.loc["MEME", "Preuve_B1"] == "MANQUANTE"
         assert result.loc["MEME", "SCE_valide"] == "NON"
