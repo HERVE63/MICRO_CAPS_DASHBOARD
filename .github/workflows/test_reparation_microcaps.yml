@@ -144,6 +144,8 @@ jobs:
         run: python -B TESTS/test_pistes_sec_bridge_non_certifiees.py
       - name: Tester 07Q2 plan identite emetteur et exclusions sans notation
         run: python -B TESTS/test_07q2_plan_identite_hors_reseau.py
+      - name: Tester les checksums ISO ISIN et LEI des preuves SSI hors reseau
+        run: python -B TESTS/test_identifiants_reglementaires_preuves_hors_reseau.py
       - name: Tester 07R quarantaine CIK meme en presence de notes apparemment valides
         run: python -B TESTS/test_07r_quarantaine_cik.py
       - name: Tester 07R exclusion CIK et preuves SCE avant toute elimination
