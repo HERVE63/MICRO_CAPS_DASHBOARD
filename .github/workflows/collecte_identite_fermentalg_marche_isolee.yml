@@ -11,7 +11,7 @@ permissions:
   contents: write
   actions: write
 concurrency:
-  group: microcaps-identite-fermentalg-marche-isolee
+  group: microcaps-07aa-publication-branche-test
   cancel-in-progress: false
 jobs:
   capture:
@@ -73,9 +73,20 @@ jobs:
           git add AUDITS/SOURCES_OFFICIELLES
           if ! git diff --cached --quiet; then
             git commit -m "Capturer fiche Deutsche Boerse 1F6 SHA256 sans certification SCE"
-            git pull --rebase origin "$GITHUB_REF_NAME"
-            git push origin "HEAD:$GITHUB_REF_NAME"
-            echo "published=true" >> "$GITHUB_OUTPUT"
+            # Plusieurs collecteurs/SSI peuvent avancer la branche entre pull et push.
+            # Rebase sur la tete courante, retry borne et echec explicite si epuisement.
+            for essai in 1 2 3 4 5; do
+              git pull --rebase origin "$GITHUB_REF_NAME"
+              if git push origin "HEAD:$GITHUB_REF_NAME"; then
+                echo "published=true" >> "$GITHUB_OUTPUT"
+                break
+              fi
+              if [ "$essai" -eq 5 ]; then
+                echo "ECHEC_PUBLICATION_APRES_5_TENTATIVES" >&2
+                exit 1
+              fi
+              sleep $((essai * 2))
+            done
           fi
       - name: Relancer 07Q/07Q2/07R uniquement apres publication des preuves
         if: ${{ success() && steps.publication.outputs.published == 'true' && github.ref_name == 'repair/microcaps-chain-20261030' }}
