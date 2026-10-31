@@ -9,6 +9,7 @@ import sys
 import pandas as pd
 
 ROOT=Path(__file__).resolve().parents[1]
+sys.path.insert(0,str(ROOT/"SCRIPTS_ACTIFS"))
 SCRIPT=ROOT/"SCRIPTS_ACTIFS/07Q2_AUDIT_PREUVES_SSI.py"
 
 def executer():
@@ -74,6 +75,37 @@ def executer():
   assert int(audit.Pistes_ISIN_checksum_OK_non_certifiees)==1
   assert int(audit.Pistes_ISIN_ambigues_ou_invalides)==1
   assert module.SRC.read_bytes()==avant, "Le plan ne doit jamais modifier la cohorte source"
+  # Une identité ISIN formellement valide et déclarée ne doit pas être
+  # faussement signalée comme absente par 07Q2, mais elle n'est pas certifiée.
+  # Aucun score ni admission ne peut être déduit de cette déclaration.
+  candidats=pd.read_csv(module.SRC,dtype=str,keep_default_na=False)
+  candidats["Identifiant_emetteur_verifie"]="MANQUANTE"
+  candidats.loc[candidats.Ticker.eq("FICTIF.F"),"Identifiant_emetteur_verifie"]="ISIN:US0378331005"
+  candidats.to_csv(module.SRC,index=False)
+  plan=module.executer()
+  identite=plan[(plan.Ticker=="FICTIF.F") & (plan.Bloc_SSI=="IDENTITE_SCE")].iloc[0]
+  assert identite.Identifiant_emetteur_source=="ISIN:US0378331005"
+  assert identite.Statut=="A_VERIFIER_IDENTITE_SCE"
+  assert identite.Preuve_validee=="NON"
+  assert identite.Pays_emetteur_verifie=="MANQUANTE"
+  assert not (plan.Preuve_validee=="OUI").any()
+  # Un CIK malformé interdit tout repli opportuniste vers un ISIN déclaré.
+  candidats.loc[candidats.Ticker.eq("FICTIF.F"),"CIK"]="123"
+  candidats.to_csv(module.SRC,index=False)
+  plan=module.executer()
+  identite=plan[(plan.Ticker=="FICTIF.F") & (plan.Bloc_SSI=="IDENTITE_SCE")].iloc[0]
+  assert identite.Identifiant_emetteur_source=="MANQUANTE"
+  assert identite.Statut=="EN_ATTENTE_DATA_IDENTITE"
+  # Une collision explicite reste en quarantaine même si le CIK est valide.
+  candidats.loc[candidats.Ticker.eq("FICTIF.F"),"CIK"]="0000000123"
+  candidats["Conflit_identite_CIK"]="NON"
+  candidats.loc[candidats.Ticker.eq("FICTIF.F"),"Conflit_identite_CIK"]="OUI"
+  candidats.to_csv(module.SRC,index=False)
+  plan=module.executer()
+  identite=plan[(plan.Ticker=="FICTIF.F") & (plan.Bloc_SSI=="IDENTITE_SCE")].iloc[0]
+  assert identite.Statut=="EN_ATTENTE_DATA_IDENTITE_CIK"
+  assert identite.Preuve_validee=="NON"
+  assert not (plan.Preuve_validee=="OUI").any()
   pd.DataFrame(columns=fixture[0].keys()).to_csv(module.SRC,index=False)
   vide=module.executer()
   assert vide.empty and list(vide.columns)==module.COLONNES
