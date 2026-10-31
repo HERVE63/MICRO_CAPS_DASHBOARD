@@ -155,6 +155,8 @@ jobs:
         run: python -B TESTS/test_fermentalg_fiche_marche_sha256_hors_reseau.py
       - name: Verifier neuf faits financiers Fermentalg sur capture HTML primaire SHA256
         run: python -B TESTS/test_fermentalg_faits_financiers_primaire_hors_reseau.py
+      - name: Tester raccordement 07Q3 des 18 faits IFRS, SHA256, identité et quarantaine
+        run: python -B TESTS/test_07q3_raccordement_faits_financiers_hors_reseau.py
       - name: Tester 09E diagnostic EODHD sans reseau ni fuite de cle
         run: python -B TESTS/test_09e_diagnostic_eodhd_hors_reseau.py
       - name: Tester 09D collecte EODHD partielle et empreintes hors reseau
