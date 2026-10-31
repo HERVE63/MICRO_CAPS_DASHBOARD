@@ -106,6 +106,10 @@ def verifier(r,ticker,bloc,base,limite=None):
     if not r.Source_URL.startswith('https://'):errors.append('source sans URL HTTPS')
     types={'PUBLICATION_EMETTEUR','DEPOT_REGLEMENTAIRE'}
     if bloc=='B7':types.add('DONNEE_MARCHE')
+    # Les fiches officielles de marche ne peuvent prouver que l'identite,
+    # jamais les blocs financiers ni les exclusions. Revue SCE independante
+    # et verification du document brut toujours obligatoires.
+    if bloc=='IDENTITE_SCE':types.add('DONNEE_MARCHE_IDENTITE')
     if r.Type_source not in types:errors.append('source non primaire pour ce bloc')
     pub=pd.to_datetime(r.Date_publication,utc=True,errors='coerce')
     ver=pd.to_datetime(r.Date_verification_UTC,utc=True,errors='coerce')
