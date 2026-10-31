@@ -1,0 +1,48 @@
+name: MICRO CAPS - REHYDRATATION REGISTRE CHASSE (BRANCHE TEST)
+on:
+  push:
+    branches:
+      - repair/microcaps-chain-20261030
+    paths:
+      - ".github/workflows/rehydratation_chasse_reparation.yml"
+      - "SCRIPTS_ACTIFS/08A_IMPORT_SCREENER.py"
+  workflow_dispatch:
+permissions:
+  contents: write
+concurrency:
+  group: microcaps-rehydratation-branche-test
+  cancel-in-progress: false
+jobs:
+  rehydrater:
+    if: github.ref == 'refs/heads/repair/microcaps-chain-20261030'
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: true
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - run: pip install pandas numpy
+      - name: Reconstruire registre uniquement depuis la sortie du screener archivee
+        run: |
+          python SCRIPTS_ACTIFS/08A_IMPORT_SCREENER.py
+          python - <<'PY'
+          import csv
+          from pathlib import Path
+          p=Path("DONNEES/CHASSE_CANDIDATS.csv")
+          with p.open(encoding="utf-8-sig", newline="") as f:
+              rows=list(csv.DictReader(f))
+          assert len(rows)>0, "Registre chasse toujours vide"
+          assert len({(r["Ticker"],r["Date_detection"]) for r in rows})==len(rows), "Doublons de detection"
+          print(f"REGISTRE CHASSE RECONSTRUIT : {len(rows)} lignes uniques, sans note ni qualification inventee.")
+          PY
+      - name: Publier registre et controle sur branche de reparation uniquement
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add DONNEES/CHASSE_CANDIDATS.csv DONNEES/CONTROLE_IMPORT_SCREENER.csv
+          if ! git diff --cached --quiet; then
+            git commit -m "Rehydrater registre chasse depuis screener documente"
+            git push origin HEAD:repair/microcaps-chain-20261030
+          fi

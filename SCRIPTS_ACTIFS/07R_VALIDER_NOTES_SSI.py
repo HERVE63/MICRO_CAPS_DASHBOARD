@@ -2,33 +2,72 @@
 from pathlib import Path
 from datetime import datetime, timezone
 import sys
+import re
 import pandas as pd
 sys.path.insert(0,str(Path(__file__).resolve().parent))
-from preuves_ssi import MAX, registre, valider_dossier, bilan_blocs_documentes, verifier_identite_sce
+from preuves_ssi import MAX, registre, valider_dossier, bilan_blocs_documentes, verifier_identite_sce, identifiant_dossier
 D=Path(__file__).resolve().parents[1]/'DONNEES'
 SRC=D/'DOSSIERS_SSI_A_QUALIFIER.csv';OUT=D/'RESULTATS_SSI.csv';AUD=D/'AUDIT_SSI.csv'
 def executer():
     if not SRC.exists():raise RuntimeError('Dossiers SSI absents')
     df=pd.read_csv(SRC,dtype=str,keep_default_na=False)
-    if df.empty or df.Ticker.duplicated().any():raise RuntimeError('Dossiers SSI vides/tickers dupliqués')
-    if not {'Decision_eliminatoire','Motif_eliminatoire',*[p+b for b in MAX for p in ['Note_','Preuve_']]}.issubset(df.columns):
-        raise RuntimeError('Schéma dossier SSI incomplet')
+    if df.Ticker.duplicated().any():raise RuntimeError('Tickers SSI dupliqués')
+    if df.empty:
+        df['Motif_decision_SSI']=pd.Series(dtype=str)
+        df.to_csv(OUT,index=False)
+        pd.DataFrame([{'Date_validation_UTC':datetime.now(timezone.utc).isoformat(),'Dossiers':0,'Admis':0,'Refuses':0,'Refuses_plafond_sans_score_total':0,'Elimines':0,'Preuves_incompletes':0,'Identites_CIK_en_quarantaine':0}]).to_csv(AUD,index=False)
+        print('SSI: aucun nouveau dossier qualifiable')
+        return df
+    # Les controles d'identite SCE et de collision CIK sont obligatoires.
+    # Sans ces colonnes, valider_dossier() pourrait ignorer le controle SCE
+    # et une ancienne cohorte pourrait etre admise sur les sept notes seules.
+    requis={'Ticker','CIK','SCE_valide','Preuves_identite_SCE',
+           'Conflit_identite_CIK','Decision_eliminatoire','Motif_eliminatoire',
+           *[p+b for b in MAX for p in ('Note_','Preuve_')]}
+    absents=requis-set(df.columns)
+    if absents:
+        raise RuntimeError('Schema dossier SSI incomplet (identite SCE/CIK obligatoire) : '+', '.join(sorted(absents)))
     limite=datetime.now(timezone.utc);preuves=registre(D.parent,limite)
     scores=[];statuts=[];motifs=[];partiels=[]
     for _,r in df.iterrows():
         partiels.append(bilan_blocs_documentes(r,preuves,D.parent,limite))
+        # 07Q isole une collision CIK. 07R ne doit jamais transformer cette
+        # quarantaine en admission, meme si d'anciennes notes et preuves sont
+        # reintroduites par erreur ou si leur verification individuelle reussit.
+        # Le controle est independant de la qualite des autres dossiers.
+        if str(r.get('Conflit_identite_CIK','NON')).strip().upper()=='OUI':
+            scores.append('MANQUANTE')
+            statuts.append('EN_ATTENTE_DATA_IDENTITE_CIK')
+            motifs.append('Collision CIK non levee par verification independante : notation et admission interdites')
+            continue
+        # CIK pour les émetteurs SEC, ISIN/LEI uniquement si une identité
+        # réglementaire est explicitement déclarée puis vérifiée par SCE.
+        # Une simple piste 07D ne suffit jamais. Un CIK malformé/divergent
+        # interdit le repli ISIN/LEI. Chaque ligne reste indépendante.
+        ident=identifiant_dossier(r)
+        if not ident:
+            scores.append('MANQUANTE')
+            statuts.append('EN_ATTENTE_DATA_IDENTITE_CIK')
+            motifs.append('Identifiant réglementaire absent/invalide/contradictoire : deux preuves SCE primaires requises ; notation interdite')
+            continue
         notes,erreurs=valider_dossier(r,preuves,D.parent,limite)
         # Une exclusion elle aussi doit avoir une référence vérifiée avant publication.
         if r.Decision_eliminatoire=='OUI':
             from preuves_ssi import verifier
             z=preuves[preuves.ID_preuve.eq(r.Motif_eliminatoire)]
-            if len(z)==1 and not verifier(z.iloc[0],r.Ticker,'EXCLUSIONS',D.parent,limite):
+            # Une preuve d'exclusion rattachee au ticker seul ne suffit pas :
+            # une collision de cotations peut viser un AUTRE emetteur.
+            # Identite SCE independamment verifiee + CIK exact obligatoires.
+            preuve_exclusion=(z.iloc[0] if len(z)==1 else None)
+            if (preuve_exclusion is not None and ident
+                and preuve_exclusion.Identifiant_emetteur==ident
+                and not verifier_identite_sce(r,preuves,D.parent,limite)
+                and not verifier(preuve_exclusion,r.Ticker,'EXCLUSIONS',D.parent,limite)):
                 scores.append('MANQUANTE');statuts.append('ELIMINE');motifs.append(r.Motif_eliminatoire);continue
         if erreurs and r.get('SCE_valide','NON')=='OUI' and r.Decision_eliminatoire=='NON' and partiels[-1]['Plafond_SSI_si_blocs_restants_maximaux']<65:
             from preuves_ssi import verifier
             ids=str(r.Motif_eliminatoire).split('|');ex=preuves[preuves.ID_preuve.isin(ids)]
-            cik=str(r.get('CIK',''))
-            if not verifier_identite_sce(r,preuves,D.parent,limite) and cik and len(ex)==len(ids) and len(set(ids))==len(ids) and all(not verifier(p,r.Ticker,'EXCLUSIONS',D.parent,limite) and p.Identifiant_emetteur=='CIK:'+cik for _,p in ex.iterrows()):
+            if not verifier_identite_sce(r,preuves,D.parent,limite) and ident and len(ex)==len(ids) and len(set(ids))==len(ids) and all(not verifier(p,r.Ticker,'EXCLUSIONS',D.parent,limite) and p.Identifiant_emetteur==ident for _,p in ex.iterrows()):
                 scores.append('MANQUANTE');statuts.append('REFUSE_SSI_PLAFOND_VERIFIE')
                 motifs.append('Même au maximum des blocs non documentés, plafond '+str(partiels[-1]['Plafond_SSI_si_blocs_restants_maximaux'])+' < 65 ; aucune note manquante imputée. Nouvelle preuve/révision impose recalcul.')
                 continue
@@ -42,6 +81,7 @@ def executer():
     tmp=OUT.with_suffix('.tmp');df.to_csv(tmp,index=False);tmp.replace(OUT)
     pd.DataFrame([{'Date_validation_UTC':limite.isoformat(),'Dossiers':len(df),
         'Admis':statuts.count('ADMIS_SSI'),'Refuses':statuts.count('REFUSE_SSI'),
-        'Refuses_plafond_sans_score_total':statuts.count('REFUSE_SSI_PLAFOND_VERIFIE'),'Elimines':statuts.count('ELIMINE'),'Preuves_incompletes':statuts.count('A_COMPLETER_PREUVES_SSI')}]).to_csv(AUD,index=False)
+        'Refuses_plafond_sans_score_total':statuts.count('REFUSE_SSI_PLAFOND_VERIFIE'),'Elimines':statuts.count('ELIMINE'),'Preuves_incompletes':statuts.count('A_COMPLETER_PREUVES_SSI'),
+        'Identites_CIK_en_quarantaine':statuts.count('EN_ATTENTE_DATA_IDENTITE_CIK')}]).to_csv(AUD,index=False)
     print('SSI:',pd.Series(statuts).value_counts().to_dict());return df
 if __name__=='__main__':executer()

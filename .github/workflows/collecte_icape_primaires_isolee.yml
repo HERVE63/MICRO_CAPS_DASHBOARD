@@ -1,0 +1,126 @@
+name: MICRO CAPS - CAPTURE PRIMAIRE ICAPE ISOLEE
+on:
+  workflow_dispatch:
+  push:
+    branches: [repair/microcaps-chain-20261030]
+    paths:
+      - 'CONFIG/DOCUMENTS_OFFICIELS_ICAPE_A_COLLECTER.csv'
+      - 'SCRIPTS_ACTIFS/07AA_COLLECTE_DOCUMENTS_OFFICIELS.py'
+      - 'TESTS/test_sources_officielles_hors_reseau.py'
+      - '.github/workflows/collecte_icape_primaires_isolee.yml'
+permissions:
+  contents: write
+  actions: write
+concurrency:
+  group: microcaps-icape-primaires-isolees
+  cancel-in-progress: false
+jobs:
+  capture:
+    if: github.ref_name == 'repair/microcaps-chain-20261030'
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: ${{ github.ref_name }}
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - run: pip install pandas
+      - name: Tester le collecteur historique hors reseau
+        run: python -B TESTS/test_sources_officielles_hors_reseau.py
+      - name: Capturer quatre sources officielles dont deux publications datees sans notation
+        run: |
+          python -B SCRIPTS_ACTIFS/07AA_COLLECTE_DOCUMENTS_OFFICIELS.py \
+            --registre CONFIG/DOCUMENTS_OFFICIELS_ICAPE_A_COLLECTER.csv \
+            --couverture DONNEES/DOSSIERS_SSI_A_QUALIFIER.csv
+          python - <<'PY'
+          from pathlib import Path
+          import pandas as pd
+          audits=sorted(Path('AUDITS/SOURCES_OFFICIELLES').glob('*/AUDIT_DOCUMENTS.csv'))
+          assert audits, 'Aucun audit de capture produit'
+          df=pd.read_csv(audits[-1],dtype=str,keep_default_na=False)
+          import json
+          config=pd.read_csv('CONFIG/DOCUMENTS_OFFICIELS_ICAPE_A_COLLECTER.csv',dtype=str,keep_default_na=False)
+          assert len(config)==4 and len(df)==len(config), 'Registre ICAPE et audit divergent'
+          assert df['ID_document'].is_unique and set(df.ID_document)==set(config.ID_document)
+          assert df['Notes_attribuees'].eq('0').all()
+          assert df['Statut_identite'].str.startswith('A_VERIFIER').all()
+          nouveaux={'ICAPE_RFS_S1_2026_OFFICIEL','ICAPE_RESULTATS_S1_2026_EURONEXT'}
+          assert set(config.loc[config.Date_publication.ne(''),'ID_document'])==nouveaux
+          assert config.loc[config.ID_document.isin(nouveaux),'Source_date_publication'].str.startswith('https://').all()
+          # Chaque octet capture est contrôle; un PDF ne peut pas etre inspecte
+          # par recherche binaire de l'ISIN (texte souvent compresse).
+          import hashlib
+          captures=set()
+          for _,row in df.iterrows():
+              if row['Statut'] != 'DOCUMENT_COLLECTE_A_VERIFIER':
+                  assert row['Statut']=='BLOQUE_SOURCE'
+                  continue  # Un document bloque reste EN_ATTENTE_DATA.
+              brut=Path(row['Fichier_brut']).read_bytes()
+              assert hashlib.sha256(brut).hexdigest()==row['SHA256']
+              assert row['Source_URL'].startswith('https://') and row['Date_collecte_UTC']
+              assert row['Statut_date_publication'] in (
+                  'DATE_DECLAREE_A_VERIFIER','INCONNUE_NE_PAS_UTILISER_RETROSPECTIVEMENT')
+              if row['ID_document']=='ICAPE_RFS_S1_2026_OFFICIEL':
+                  assert brut.startswith(b'%PDF-') and len(brut)>10000, 'Rapport PDF absent ou tronque'
+              else:
+                  assert b'FR001400A3Q3' in brut and b'ICAPE' in brut.upper(), 'Page non pertinente'
+              captures.add(row['ID_document'])
+          assert {'ICAPE_EMETTEUR_IDENTITE_20261031','ICAPE_EURONEXT_IPO_20261031'}.issubset(captures)
+          assert captures.intersection(nouveaux), 'Aucun nouveau document date capture'
+          dossier=Path(df.loc[0,'Fichier_brut']).parent
+          manifeste=json.loads((dossier/'MANIFESTE.json').read_text())
+          assert manifeste['documents_configures']==4 and manifeste['notes_attribuees']==0
+          assert manifeste['documents_collectes']==len(captures)
+          for nom,empreinte in manifeste['fichiers'].items():
+              assert hashlib.sha256((dossier/nom).read_bytes()).hexdigest()==empreinte
+          print('CAPTURES_DATEES_NON_CERTIFIEES',sorted(captures.intersection(nouveaux)))
+          print('CERTIFICATION_SCE=NON ; SSI=MANQUANTE ; MCPA=MANQUANTE')
+          print('CAPTURE_ICAPE_STATUTS',df[['ID_document','Statut','Motif']].to_json(orient='records') if 'Motif' in df else df[['ID_document','Statut']].to_json(orient='records'))
+          print('CERTIFICATION_SCE=NON ; SSI=MANQUANTE ; aucune promotion automatique')
+          PY
+      - name: Verifier isolation des donnees de production
+        if: always()
+        run: |
+          git diff --exit-code -- DONNEES HISTORIQUE SAUVEGARDES APPLICATION index.html
+      - name: Conserver les documents et audits meme en cas de source bloquee
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: icape-primaires-${{ github.run_id }}-${{ github.run_attempt }}
+          path: AUDITS/SOURCES_OFFICIELLES/
+          if-no-files-found: warn
+      - name: Publier exclusivement les captures sur branche de reparation
+        id: publication
+        if: ${{ success() && github.ref_name == 'repair/microcaps-chain-20261030' }}
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add AUDITS/SOURCES_OFFICIELLES
+          if ! git diff --cached --quiet; then
+            git commit -m "Capture ICAPE: documents bruts, provenance et SHA256 non certifies"
+            # Plusieurs collecteurs/SSI peuvent avancer la branche entre pull et push.
+            # Rebase sur la tete courante, retry borne et echec explicite si epuisement.
+            for essai in 1 2 3 4 5; do
+              git pull --rebase origin "$GITHUB_REF_NAME"
+              if git push origin "HEAD:$GITHUB_REF_NAME"; then
+                echo "published=true" >> "$GITHUB_OUTPUT"
+                break
+              fi
+              if [ "$essai" -eq 5 ]; then
+                echo "ECHEC_PUBLICATION_APRES_5_TENTATIVES" >&2
+                exit 1
+              fi
+              sleep $((essai * 2))
+            done
+          fi
+      - name: Relancer 07Q/07Q2/07R uniquement apres publication des preuves
+        if: ${{ success() && steps.publication.outputs.published == 'true' && github.ref_name == 'repair/microcaps-chain-20261030' }}
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          # Les push realises avec GITHUB_TOKEN ne declenchent pas un second push workflow.
+          # workflow_dispatch est autorise par GitHub et doit pointer vers la branche isolee.
+          gh workflow run preparer_dossiers_ssi.yml --ref "$GITHUB_REF_NAME"
+          echo "SSI_DISPATCHED branch=$GITHUB_REF_NAME commit=$(git rev-parse HEAD)"

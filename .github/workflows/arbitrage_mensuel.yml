@@ -15,7 +15,7 @@ jobs:
     steps:
       - uses: actions/checkout@v4
         with:
-          ref: main
+          ref: ${{ github.ref_name }}
           sparse-checkout: SCRIPTS_ACTIFS/00A_PLANIFICATION_QUOTIDIENNE.py
           sparse-checkout-cone-mode: false
       - name: Vérifier le réveil mensuel sans dépendre de la minute réelle
@@ -52,7 +52,8 @@ jobs:
             git commit -m "Arbitrage mensuel MICRO CAPS"
             # Les sorties non retenues ne doivent pas bloquer le rebase.
             # Ne modifie aucun coffre maître ni historique officiel hors commit validé.
-            git restore --worktree .
-            git pull --rebase origin main
-            git push
+            git reset --hard HEAD
+            git clean -fd
+            git pull --rebase origin "$GITHUB_REF_NAME"
+            git push origin "HEAD:$GITHUB_REF_NAME"
           fi

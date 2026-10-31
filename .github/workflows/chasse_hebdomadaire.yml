@@ -21,7 +21,7 @@ jobs:
     steps:
       - uses: actions/checkout@v4
         with:
-          ref: main
+          ref: ${{ github.ref_name }}
           sparse-checkout: SCRIPTS_ACTIFS/00A_PLANIFICATION_QUOTIDIENNE.py
           sparse-checkout-cone-mode: false
       - name: Choisir le réveil du mardi sans exiger une arrivée à la minute exacte
@@ -56,20 +56,37 @@ jobs:
           python SCRIPTS_ACTIFS/08S_ADAPTATEUR_CHASSEUR_MICRO_CAPS.py
           python SCRIPTS_ACTIFS/08A_IMPORT_SCREENER.py
           python SCRIPTS_ACTIFS/07P_COLLECTE_PRESELECTION_MARCHE.py
+          # Reconcilier la nouvelle chasse et les fondamentaux effectivement disponibles.
+          # Les nouveaux tickers sans fondamentaux restent en attente : aucune imputation.
+          python SCRIPTS_ACTIFS/07M_PREPARER_FILTRES_OBJECTIFS.py
+          python SCRIPTS_ACTIFS/07N2_COLLECTE_FONDAMENTAUX_INCREMENTALE.py
+          python SCRIPTS_ACTIFS/07O_CONTROLE_PRE_SSI.py
+          # Regenerer les dossiers SSI en conservant les annotations humaines historiques.
+          python SCRIPTS_ACTIFS/07Q_PREPARER_DOSSIERS_SSI.py
+          python SCRIPTS_ACTIFS/07Q2_AUDIT_PREUVES_SSI.py
+          python SCRIPTS_ACTIFS/07R_VALIDER_NOTES_SSI.py
           python SCRIPTS_ACTIFS/08B_CONTROLE_CHASSE_SSI.py
+          # Confrontation virtuelle : simulation obligatoire avant toute activation d ecriture.
+          if python -c 'import pandas as pd,sys;sys.exit(0 if not pd.read_csv("DONNEES/REVUE_HEBDOMADAIRE_MCPA_IPS.csv").empty else 1)'; then
+            MICRO_CAPS_ARBITRAGE_HEBDO=1 MICRO_CAPS_DRY_RUN=1 python SCRIPTS_ACTIFS/10_EXECUTION_MENSUELLE.py
+          else
+            echo 'Aucune revue MCPA documentee : pas de simulation d arbitrage, audit poursuivi.'
+          fi
           python SCRIPTS_ACTIFS/08_GENERER_DASHBOARD.py
+          python SCRIPTS_ACTIFS/11_RAPPORT_3_AGENTS.py
       - name: Sauvegarder la chasse
         if: steps.horaire.outputs.run == 'true'
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add DONNEES/SORTIE_CHASSEUR_EXISTANT.csv DONNEES/SORTIE_SCREENER_CANDIDATS.csv DONNEES/CHASSE_CANDIDATS.csv DONNEES/CONTROLE_ADAPTATEUR_CHASSEUR_MICRO_CAPS.csv DONNEES/CONTROLE_IMPORT_SCREENER.csv DONNEES/PRESELECTION_VARIABLES_MARCHE.csv DONNEES/AUDIT_LISTINGS_MICRO_CAPS.csv DONNEES/UNIVERS_ACTIONS_MICRO_CAPS_ETAPE1.csv DONNEES/REJETS_PRESELECTION_MICRO_CAPS.csv DONNEES/COTATIONS_MULTIPLES_A_VERIFIER.csv DONNEES/RESOLUTION_COTATIONS_MULTIPLES.csv DONNEES/SYNTHESE_COTATIONS_MULTIPLES.csv DONNEES/IDENTITE_COTATIONS_MULTIPLES.csv DONNEES/SYNTHESE_IDENTITE_COTATIONS.csv DONNEES/UNIVERS_INVESTISSABLE_MICRO_CAPS.csv DONNEES/EXCLUS_IDENTITE_MICRO_CAPS.csv DONNEES/SYNTHESE_UNIVERS_INVESTISSABLE.csv DONNEES/CONTROLE_CHASSE_SSI.csv index.html
+          git add DONNEES/SORTIE_CHASSEUR_EXISTANT.csv DONNEES/SORTIE_SCREENER_CANDIDATS.csv DONNEES/CHASSE_CANDIDATS.csv DONNEES/CONTROLE_ADAPTATEUR_CHASSEUR_MICRO_CAPS.csv DONNEES/CONTROLE_IMPORT_SCREENER.csv DONNEES/PRESELECTION_VARIABLES_MARCHE.csv DONNEES/UNIVERS_PRET_FILTRES_OBJECTIFS.csv DONNEES/AUDIT_PREPARATION_FILTRES.csv DONNEES/CANDIDATS_PRETS_SSI.csv DONNEES/CANDIDATS_SSI_DONNEES_MANQUANTES.csv DONNEES/AUDIT_PRE_SSI.csv DONNEES/FONDAMENTAUX_CANDIDATS_MICRO_CAPS.csv DONNEES/AUDIT_TENTATIVES_FONDAMENTAUX.csv DONNEES/AUDIT_FONDAMENTAUX_INCREMENTAL.csv DONNEES/AUDIT_LISTINGS_MICRO_CAPS.csv DONNEES/UNIVERS_ACTIONS_MICRO_CAPS_ETAPE1.csv DONNEES/REJETS_PRESELECTION_MICRO_CAPS.csv DONNEES/COTATIONS_MULTIPLES_A_VERIFIER.csv DONNEES/RESOLUTION_COTATIONS_MULTIPLES.csv DONNEES/SYNTHESE_COTATIONS_MULTIPLES.csv DONNEES/IDENTITE_COTATIONS_MULTIPLES.csv DONNEES/SYNTHESE_IDENTITE_COTATIONS.csv DONNEES/UNIVERS_INVESTISSABLE_MICRO_CAPS.csv DONNEES/EXCLUS_IDENTITE_MICRO_CAPS.csv DONNEES/SYNTHESE_UNIVERS_INVESTISSABLE.csv DONNEES/CONTROLE_CHASSE_SSI.csv DONNEES/DOSSIERS_SSI_A_QUALIFIER.csv DONNEES/AUDIT_DOSSIERS_SSI.csv DONNEES/PLAN_COLLECTE_PREUVES_SSI.csv DONNEES/AUDIT_COLLECTE_PREUVES_SSI.csv DONNEES/RESULTATS_SSI.csv DONNEES/AUDIT_SSI.csv DONNEES/COUVERTURE_ARBITRAGE_GERE.csv AUDITS/DOSSIERS_SSI DONNEES/AUDIT_CHAINE_3_AGENTS.json index.html
           if ! git diff --cached --quiet; then
             git commit -m "Chasse hebdomadaire MICRO CAPS"
             # Les autres sorties generees non retenues ne doivent pas bloquer le rebase.
             # Les historiques officiels et coffres maitres ne sont pas commits ici.
             git status --short
-            git restore --worktree .
-            git pull --rebase origin main
-            git push
+            git reset --hard HEAD
+            git clean -fd
+            git pull --rebase origin "$GITHUB_REF_NAME"
+            git push origin "HEAD:$GITHUB_REF_NAME"
           fi

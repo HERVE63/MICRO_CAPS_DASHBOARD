@@ -1,0 +1,238 @@
+name: MICRO CAPS - TEST REPARATION ISOLE
+on:
+  workflow_dispatch:
+  push:
+    branches: [repair/microcaps-chain-20261030]
+permissions:
+  contents: read
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          sparse-checkout: |
+            SCRIPTS_ACTIFS
+            DONNEES
+            CONFIG
+            AUDITS/SCE_DISCOVERY_US
+            AUDITS/QUALIFICATION_US
+            AUDITS/REPARATION
+            AUDITS/SOURCES_OFFICIELLES
+            TESTS
+            tests
+            .github/workflows
+          sparse-checkout-cone-mode: true
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - run: pip install pandas numpy pytest requests
+      - name: Tester import sur copie temporaire sans modifier le depot
+        run: |
+          python - <<'PY'
+          import tempfile, shutil, pathlib, subprocess, sys, csv
+          root=pathlib.Path.cwd()
+          with tempfile.TemporaryDirectory() as d:
+              t=pathlib.Path(d)
+              (t/'SCRIPTS_ACTIFS').mkdir()
+              (t/'DONNEES').mkdir()
+              shutil.copy(root/'SCRIPTS_ACTIFS/08A_IMPORT_SCREENER.py',t/'SCRIPTS_ACTIFS')
+              with (t/'DONNEES/SORTIE_SCREENER_CANDIDATS.csv').open('w',newline='') as f:
+                  w=csv.writer(f);w.writerow(['Date_detection','Societe','Ticker','Devise','Pays','Source_detection','Date_source','These_initiale','Statut_chasse'])
+                  w.writerow(['2026-10-30','Test','TEST','USD','USA','TEST','2026-10-30','Test','DETECTE'])
+              (t/'DONNEES/CHASSE_CANDIDATS.csv').write_text('')
+              subprocess.run([sys.executable,str(t/'SCRIPTS_ACTIFS/08A_IMPORT_SCREENER.py')],check=True)
+              with (t/'DONNEES/CHASSE_CANDIDATS.csv').open() as f:
+                  assert len(list(csv.DictReader(f)))==1
+          PY
+      - name: Verifier integrite du registre historique et ses 31352 detections
+        run: python -B TESTS/test_integrite_registre_chasse_hors_reseau.py
+      - name: Verifier SHA256 archive SEC et rapprochement des cinq titulaires US
+        run: |
+          python - <<'PY'
+          import csv,hashlib,json,pathlib
+          root=pathlib.Path.cwd()
+          base=pathlib.Path("AUDITS/QUALIFICATION_US/20261016T133357809981Z")
+          source=root/base/"COUVERTURE_QUALIFICATION_US.csv"
+          manifeste=json.loads((root/base/"MANIFESTE.json").read_text())
+          sha=hashlib.sha256(source.read_bytes()).hexdigest()
+          assert sha==manifeste["fichiers"]["COUVERTURE_QUALIFICATION_US.csv"], "SHA256 archive SEC divergent"
+          def lire(p):
+              with p.open(encoding="utf-8-sig",newline="") as f:return list(csv.DictReader(f))
+          cohorte=lire(root/"DONNEES/COHORTE_MICRO_CAPS_T0.csv")
+          us={r["ID_ligne"]:r for r in cohorte if r["Pays"]=="USA"}
+          assert len(cohorte)==40 and len(us)==5
+          invent=lire(root/"AUDITS/REPARATION/RAPPROCHEMENT_TITULAIRES_US_20261030.csv")
+          assert len(invent)==5 and {r["ID_position"] for r in invent}==set(us)
+          archives={r["Ticker_US"]:r for r in lire(source)}
+          presentes=0
+          for r in invent:
+              assert r["Ticker_portefeuille"]==us[r["ID_position"]]["Ticker_cotation"]
+              assert r["Statut_SSI"]=="EN_ATTENTE_DATA" and r["Statut_MCPA"]=="EN_ATTENTE_DATA"
+              cle=r["Ticker_portefeuille"]+".US"
+              if cle not in archives:
+                  assert r["Statut_identite_archive"]=="ABSENT_DE_CETTE_ARCHIVE"
+                  assert r["Verification_SHA256_independante"]=="NON"
+                  continue
+              a=archives[cle];presentes+=1
+              assert r["Ticker_archive"]==cle and r["CIK"]==a["CIK"]
+              assert r["Faits_comparables_pistes"]==a["Faits_comparables"]
+              assert r["Date_depot_financier_archive"]==a["Dernier_depot_financier"]
+              assert r["Statut_identite_archive"]==a["Statut_origine"]
+              assert r["Source_archive"]==str(base/"COUVERTURE_QUALIFICATION_US.csv")
+              assert r["SHA256_archive_declare_par_manifeste"]==sha
+              assert r["Verification_SHA256_independante"]=="OUI"
+          assert presentes==4, "La cohorte archivee doit rester immuable"
+          print("ARCHIVE SEC SHA256 VERIFIE ; 4/5 titulaires US rapproches, 1 absent de cette archive, 0 score attribue")
+          PY
+      - name: Tester preparation SSI sur copie isolee et preservation des preuves
+        run: |
+          python - <<'PY'
+          import tempfile,shutil,pathlib,subprocess,sys,csv
+          root=pathlib.Path.cwd()
+          with tempfile.TemporaryDirectory() as d:
+              t=pathlib.Path(d)
+              (t/'SCRIPTS_ACTIFS').mkdir()
+              (t/'DONNEES').mkdir()
+              shutil.copy2(root/'SCRIPTS_ACTIFS/07Q_PREPARER_DOSSIERS_SSI.py',t/'SCRIPTS_ACTIFS')
+              shutil.copy2(root/'SCRIPTS_ACTIFS/07Q2_AUDIT_PREUVES_SSI.py',t/'SCRIPTS_ACTIFS')
+              shutil.copy2(root/'DONNEES/CANDIDATS_PRETS_SSI.csv',t/'DONNEES')
+              # Fixture de test : identite CIK explicitement presente dans la
+              # nouvelle source. Sans CIK source, 07Q doit effacer les anciennes
+              # annotations plutot que les reattribuer par simple ticker.
+              import pandas as pd
+              fixture=t/'DONNEES/CANDIDATS_PRETS_SSI.csv'
+              candidats=pd.read_csv(fixture,dtype=str,keep_default_na=False)
+              assert not candidats.empty
+              candidats.loc[candidats.index[0],'CIK']='0000000123'
+              candidats.to_csv(fixture,index=False)
+              script=t/'SCRIPTS_ACTIFS/07Q_PREPARER_DOSSIERS_SSI.py'
+              subprocess.run([sys.executable,str(script)],check=True)
+              out=t/'DONNEES/DOSSIERS_SSI_A_QUALIFIER.csv'
+              with out.open(newline='') as f: rows=list(csv.DictReader(f))
+              assert rows and all(r['Note_B1']=='MANQUANTE' for r in rows)
+              rows[0]['Note_B1']='12'
+              rows[0]['Preuve_B1']='PREUVE_TEST_NON_CERTIFIEE'
+              with out.open('w',newline='') as f:
+                  w=csv.DictWriter(f,fieldnames=rows[0].keys());w.writeheader();w.writerows(rows)
+              subprocess.run([sys.executable,str(script)],check=True)
+              with out.open(newline='') as f: apres=list(csv.DictReader(f))
+              assert apres[0]['Note_B1']=='12'
+              assert apres[0]['Preuve_B1']=='PREUVE_TEST_NON_CERTIFIEE'
+              assert apres[0]['Statut_SSI']=='A_REVALIDER_PREUVES_SSI'
+              print('07Q: donnees reconstruites, annotations conservees, aucune admission inventee')
+          PY
+      - name: Verifier syntaxe modules corriges
+        run: |
+          python -m py_compile SCRIPTS_ACTIFS/07P_COLLECTE_PRESELECTION_MARCHE.py SCRIPTS_ACTIFS/07M_PREPARER_FILTRES_OBJECTIFS.py SCRIPTS_ACTIFS/07Q_PREPARER_DOSSIERS_SSI.py SCRIPTS_ACTIFS/08A_IMPORT_SCREENER.py SCRIPTS_ACTIFS/08B_CONTROLE_CHASSE_SSI.py SCRIPTS_ACTIFS/08C_AUDIT_CHAINE_COMPLETE.py SCRIPTS_ACTIFS/08_GENERER_DASHBOARD.py SCRIPTS_ACTIFS/07N2_COLLECTE_FONDAMENTAUX_INCREMENTALE.py SCRIPTS_ACTIFS/11_RAPPORT_3_AGENTS.py SCRIPTS_ACTIFS/09D_COLLECTE_40_TITULAIRES.py
+      - name: Tester regles de duel 09B egalite et ex-aequo
+        run: python -B TESTS/test_duels_prochain_euro_hors_reseau.py
+      - name: Tester arbitrage virtuel 09B 10 et replay 05C sur copies isolees
+        run: python -B TESTS/test_arbitrage_replay_virtuel_isole.py
+      - name: Verifier isolation des workflows sur la branche declencheuse
+        run: python -B TESTS/test_workflows_branch_safety.py
+      - name: Tester consolidation archives SEC et couverture 40 titulaires sans notation
+        run: python -B TESTS/test_consolidation_sec_hors_reseau.py
+      - name: Tester la collecte incrementale sans acces reseau
+        run: python -B TESTS/test_fondamentaux_incrementaux.py
+      - name: Tester le raccordement 07M 07O 07Q 07R sans réseau ni mutation
+        run: python -B TESTS/test_pipeline_hebdo_isole.py
+      - name: Tester collision identite CIK et quarantaine SSI 07Q
+        run: python -B TESTS/test_07q_collision_identite_cik.py
+      - name: Tester reprise non-US 07Q uniquement avec identite source et preuves SCE SHA256
+        run: python -B TESTS/test_07q_reprise_isin_lei_preuves_hors_reseau.py
+      - name: Tester premiere identite non-US 07Q uniquement sur deux preuves SCE et SHA256
+        run: python -B TESTS/test_07q_premiere_identite_sce_hors_reseau.py
+      - name: Tester collecteur primaire non-US, fiche de marche non certifiee et SHA256
+        run: python -B TESTS/test_sources_officielles_hors_reseau.py
+      - name: Auditer neuf faits IFRS ICAPE sur source primaire archivee SHA256 sans score
+        run: python -B TESTS/test_icape_faits_financiers_primaire_hors_reseau.py
+      - name: Reutiliser capture Hofseth SHA256 et verifier reprise Fermentalg sans notes
+        run: python -B TESTS/test_reprise_fermentalg_hors_reseau.py
+      - name: Revalider trois PDF Hofseth legacy par SHA256 sans certification SCE
+        run: python -B TESTS/test_hofseth_legacy_sha256_hors_reseau.py
+      - name: Verifier registre fiche de marche Fermentalg sans certification ni score
+        run: python -B TESTS/test_fermentalg_fiche_marche_sha256_hors_reseau.py
+      - name: Verifier neuf faits financiers Fermentalg sur capture HTML primaire SHA256
+        run: python -B TESTS/test_fermentalg_faits_financiers_primaire_hors_reseau.py
+      - name: Tester raccordement 07Q3 des 18 faits IFRS, SHA256, identité et quarantaine
+        run: python -B TESTS/test_07q3_raccordement_faits_financiers_hors_reseau.py
+      - name: Tester 09E diagnostic EODHD sans reseau ni fuite de cle
+        run: python -B TESTS/test_09e_diagnostic_eodhd_hors_reseau.py
+      - name: Tester 09D collecte EODHD partielle et empreintes hors reseau
+        run: python -B TESTS/test_09d_collecte_non_bloquante.py
+      - name: Tester la reutilisation SEC_BRIDGE sans faux CIK ni notes
+        run: python -B TESTS/test_pistes_sec_bridge_non_certifiees.py
+      - name: Tester 07Q2 plan identite emetteur et exclusions sans notation
+        run: python -B TESTS/test_07q2_plan_identite_hors_reseau.py
+      - name: Indexer captures 07AA vers 07Q2 sans certification, avec SHA256 et tests adverses
+        run: python -B TESTS/test_07q2_index_captures_primaires_hors_reseau.py
+      - name: Tester les checksums ISO ISIN et LEI des preuves SSI hors reseau
+        run: python -B TESTS/test_identifiants_reglementaires_preuves_hors_reseau.py
+      - name: Refuser remplacement de preuve par un autre emetteur meme ticker
+        run: python -B TESTS/test_remplacement_preuves_identite_hors_reseau.py
+      - name: Tester identite non-US ISIN/LEI sur preuves concordantes et SHA256 hors reseau
+        run: python -B TESTS/test_07r_identite_reglementaire_non_us_hors_reseau.py
+      - name: Tester 07R quarantaine CIK meme en presence de notes apparemment valides
+        run: python -B TESTS/test_07r_quarantaine_cik.py
+      - name: Tester 07R exclusion CIK et preuves SCE avant toute elimination
+        run: python -B TESTS/test_07r_exclusion_identite_cik.py
+      - name: Tester SSI documentaire et plafond avec schema SCE strict
+        run: python -B TESTS/test_notes_documentaires_ssi_hors_reseau.py
+      - name: Audit de completude attendu BLOQUE tant que SSI et MCPA ne sont pas qualifies
+        run: |
+          python - <<'PY'
+          import json,subprocess,sys
+          p=subprocess.run([sys.executable,'SCRIPTS_ACTIFS/08C_AUDIT_CHAINE_COMPLETE.py'],capture_output=True,text=True)
+          if p.returncode != 1:
+              raise AssertionError('Le dispositif incomplet ne doit pas autoriser la sauvegarde')
+          d=json.loads(p.stdout)
+          print('AUDIT_DIAGNOSTIC:',json.dumps(d,ensure_ascii=False),flush=True)
+          assert d['sauvegarde_autorisee'] is False
+          assert d['etapes']['chasse']['statut']=='OK'
+          assert d['etapes']['chasse']['detections']>0
+          assert d['etapes']['portefeuilles_et_benchmarks']['statut']=='OK'
+          assert d['etapes']['qualification_SSI'].get('admis_SSI',0)==0
+          assert d['etapes']['revue_MCPA_IPS'].get('challengers',0)==0
+          print('AUDIT FAIL-CLOSED VERIFIE :',d['blocages'])
+          PY
+      - name: Tester dashboard mobile sur copie isolee et refuser challenger fictif
+        run: |
+          python - <<'PY'
+          import tempfile,shutil,pathlib,subprocess,sys,pandas as pd
+          root=pathlib.Path.cwd()
+          with tempfile.TemporaryDirectory() as d:
+              t=pathlib.Path(d)
+              (t/'SCRIPTS_ACTIFS').mkdir()
+              (t/'DONNEES').mkdir()
+              shutil.copy2(root/'SCRIPTS_ACTIFS/08_GENERER_DASHBOARD.py',t/'SCRIPTS_ACTIFS')
+              noms=['TEST_PORTEFEUILLES_V3.csv','TEST_CONTROLE_QUALITE_V3.csv','TEST_BENCHMARKS_V3.csv','CHASSE_CANDIDATS.csv','REVUE_HEBDOMADAIRE_MCPA_IPS.csv']
+              for nom in noms: shutil.copy2(root/'DONNEES'/nom,t/'DONNEES'/nom)
+              manifests=sorted((root/'AUDITS/SCE_DISCOVERY_US').glob('*/MANIFESTE.json'))
+              assert manifests
+              dest=t/'AUDITS/SCE_DISCOVERY_US'/manifests[-1].parent.name
+              dest.mkdir(parents=True)
+              shutil.copy2(manifests[-1],dest/'MANIFESTE.json')
+              script=t/'SCRIPTS_ACTIFS/08_GENERER_DASHBOARD.py'
+              # Le registre versionne est vide : reconstruire un exemple strictement isole.
+              (t/'DONNEES/CHASSE_CANDIDATS.csv').write_text('Date_detection,Societe,Ticker,Devise,Pays,Source_detection,Date_source,These_initiale,Statut_chasse\n2026-10-30,Test,TEST,USD,USA,TEST,2026-10-30,Test,DETECTE\n')
+              p=subprocess.run([sys.executable,str(script)],capture_output=True,text=True)
+              assert p.returncode==0,(p.stdout,p.stderr)
+              page=(t/'index.html').read_text()
+              assert 'name="viewport"' in page
+              assert 'SSI US documenté' in page
+              assert '0</span><div class="sub">challengers qualifiés' in page
+              revue=t/'DONNEES/REVUE_HEBDOMADAIRE_MCPA_IPS.csv'
+              df=pd.read_csv(revue)
+              fake={c:'' for c in df.columns}
+              fake.update(Ticker='FAUX',Societe='Fausse qualification',Type='CHALLENGER',SSI=72,MCPA=90,Statut_analyse='VALIDE')
+              pd.concat([df,pd.DataFrame([fake])],ignore_index=True).to_csv(revue,index=False)
+              p=subprocess.run([sys.executable,str(script)],capture_output=True,text=True)
+              assert p.returncode!=0 and 'controles SSI/MCPA manquants' in p.stderr,(p.stdout,p.stderr)
+              print('Dashboard mobile et blocage faux challenger verifies.')
+          PY
+      - name: Tester replay 05C vente puis entree sur copie isolee
+        run: python -m pytest -q tests/test_replay_05c_isolation_smoke.py tests/test_replay_05c_sale_purchase_isolated.py
+      - name: Confirmer absence de mutation des historiques et donnees
+        run: |
+          test -z "$(git status --porcelain -- DONNEES HISTORIQUE AUDITS index.html APPLICATION/index.html)"

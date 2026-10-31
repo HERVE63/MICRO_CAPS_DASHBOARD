@@ -1,0 +1,126 @@
+name: MICRO CAPS - REPRISE PRIMAIRE FERMENTALG ISOLEE
+on:
+  workflow_dispatch:
+  push:
+    branches: [repair/microcaps-chain-20261030]
+    paths:
+      - 'CONFIG/DOCUMENTS_OFFICIELS_A_COLLECTER.csv'
+      - 'AUDITS/REPARATION/REGISTRE_REPRISE_FERMENTALG_20261031.csv'
+      - 'TESTS/test_reprise_fermentalg_hors_reseau.py'
+      - '.github/workflows/collecte_fermentalg_primaires_isolee.yml'
+permissions:
+  contents: write
+  actions: write
+concurrency:
+  group: microcaps-fermentalg-reprise-isolee
+  cancel-in-progress: false
+jobs:
+  capture:
+    if: github.ref_name == 'repair/microcaps-chain-20261030'
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: ${{ github.ref_name }}
+          sparse-checkout: |
+            SCRIPTS_ACTIFS
+            CONFIG
+            DONNEES
+            TESTS
+            AUDITS/SOURCES_OFFICIELLES
+            AUDITS/REPARATION
+          sparse-checkout-cone-mode: true
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - run: pip install pandas
+      - name: Verifier archive Hofseth deja acquise et registre de reprise
+        run: python -B TESTS/test_reprise_fermentalg_hors_reseau.py
+      - name: Reessayer seulement Fermentalg via collecteur 07AA historique
+        run: |
+          python -B SCRIPTS_ACTIFS/07AA_COLLECTE_DOCUMENTS_OFFICIELS.py \
+            --registre AUDITS/REPARATION/REGISTRE_REPRISE_FERMENTALG_20261031.csv \
+            --couverture DONNEES/DOSSIERS_SSI_A_QUALIFIER.csv
+          python - <<'PY'
+          import csv, hashlib, json
+          from pathlib import Path
+          racine=Path.cwd()
+          dossiers=sorted((racine/'AUDITS/SOURCES_OFFICIELLES').glob('*/MANIFESTE.json'))
+          assert dossiers, 'Aucun manifeste de collecte'
+          # Le dernier dossier est celui cree par la reprise courante.
+          dossier=dossiers[-1].parent
+          with (dossier/'AUDIT_DOCUMENTS.csv').open(newline='',encoding='utf-8') as f:
+              lignes=list(csv.DictReader(f))
+          assert len(lignes)==1 and lignes[0]['ID_document']=='FERMENTALG_CP_S1_2026'
+          r=lignes[0]
+          m=json.loads((dossier/'MANIFESTE.json').read_text(encoding='utf-8'))
+          registre=racine/'AUDITS/REPARATION/REGISTRE_REPRISE_FERMENTALG_20261031.csv'
+          assert m['registre_SHA256']==hashlib.sha256(registre.read_bytes()).hexdigest()
+          assert m['documents_configures']==1 and m['notes_attribuees']==0
+          assert m['dossiers_univers']==1361 and m['couverture_complete'] is False
+          assert r['Notes_attribuees']=='0' and r['Statut_identite']=='A_VERIFIER_COTATION_1F6_F'
+          assert r['Date_publication']=='2026-10-06T16:00:00Z'
+          assert r['Statut_date_publication']=='DATE_DECLAREE_A_VERIFIER'
+          for nom,sha in m['fichiers'].items():
+              assert hashlib.sha256((dossier/nom).read_bytes()).hexdigest()==sha
+          if r['Statut']=='BLOQUE_SOURCE':
+              assert not r.get('SHA256') and not r.get('Fichier_brut')
+              assert m['sources_bloquees']==1 and m['documents_collectes']==0
+              print('FERMENTALG EN_ATTENTE_DATA: source inaccessible:',r.get('Motif','inconnu'))
+          else:
+              assert r['Statut']=='DOCUMENT_COLLECTE_A_VERIFIER'
+              p=racine/r['Fichier_brut']
+              assert p.resolve().parent==dossier.resolve()
+              brut=p.read_bytes()
+              assert hashlib.sha256(brut).hexdigest()==r['SHA256']
+              assert b'FR0011271600' in brut and b'FERMENTALG' in brut.upper()
+              assert len(brut)>5000 and 'html' in r['Type_contenu'].lower()
+              assert m['documents_collectes']==1 and m['sources_bloquees']==0
+              print('FERMENTALG DOCUMENT_PRIMAIRE_CAPTURE_SHA256',r['SHA256'])
+          print('SSI=MANQUANTE ; MCPA=MANQUANTE ; identite 1F6.F non certifiee')
+          PY
+      - name: Confirmer absence de mutation des historiques et portefeuilles
+        if: always()
+        run: |
+          git diff --exit-code -- DONNEES HISTORIQUE SAUVEGARDES APPLICATION index.html
+      - name: Archiver preuves de collecte ou echec source
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: fermentalg-reprise-${{ github.run_id }}-${{ github.run_attempt }}
+          path: AUDITS/SOURCES_OFFICIELLES/
+          if-no-files-found: warn
+      - name: Publier seulement les audits de collecte sur branche isolee
+        id: publication
+        if: ${{ success() && github.ref_name == 'repair/microcaps-chain-20261030' }}
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add AUDITS/SOURCES_OFFICIELLES
+          if ! git diff --cached --quiet; then
+            git commit -m "Reprise Fermentalg 07AA: capture ou blocage source trace, sans note"
+            # Plusieurs collecteurs/SSI peuvent avancer la branche entre pull et push.
+            # Rebase sur la tete courante, retry borne et echec explicite si epuisement.
+            for essai in 1 2 3 4 5; do
+              git pull --rebase origin "$GITHUB_REF_NAME"
+              if git push origin "HEAD:$GITHUB_REF_NAME"; then
+                echo "published=true" >> "$GITHUB_OUTPUT"
+                break
+              fi
+              if [ "$essai" -eq 5 ]; then
+                echo "ECHEC_PUBLICATION_APRES_5_TENTATIVES" >&2
+                exit 1
+              fi
+              sleep $((essai * 2))
+            done
+          fi
+      - name: Relancer 07Q/07Q2/07R uniquement apres publication des preuves
+        if: ${{ success() && steps.publication.outputs.published == 'true' && github.ref_name == 'repair/microcaps-chain-20261030' }}
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          # Les push realises avec GITHUB_TOKEN ne declenchent pas un second push workflow.
+          # workflow_dispatch est autorise par GitHub et doit pointer vers la branche isolee.
+          gh workflow run preparer_dossiers_ssi.yml --ref "$GITHUB_REF_NAME"
+          echo "SSI_DISPATCHED branch=$GITHUB_REF_NAME commit=$(git rev-parse HEAD)"

@@ -2,14 +2,42 @@ from pathlib import Path
 import pandas as pd
 B=Path(__file__).resolve().parent.parent; D=B/"DONNEES"
 SRC=D/"CANDIDATS_PRETS_SSI.csv"; OUT=D/"DOSSIERS_SSI_A_QUALIFIER.csv"; AUD=D/"AUDIT_DOSSIERS_SSI.csv"
+def archiver_registre():
+ """Conserver toute version distincte, y compris avant une cohorte vide.
+
+ Une relance horaire sans changement ne doit pas republier des instantanes
+ identiques. Comparaison des octets du registre avec la derniere archive :
+ aucune annotation ni identite n'est inferee du ticker.
+ """
+ if not OUT.exists():return False
+ from datetime import datetime,timezone
+ import shutil
+ racine=B/"AUDITS"/"DOSSIERS_SSI"
+ precedents=sorted(racine.glob("*/"+OUT.name)) if racine.exists() else []
+ if precedents and precedents[-1].read_bytes()==OUT.read_bytes():
+  return False
+ archive=racine/datetime.now(timezone.utc).strftime("%Y%m%dT%H%M%S%fZ")
+ archive.mkdir(parents=True,exist_ok=False)
+ shutil.copy2(OUT,archive/OUT.name)
+ return True
 def executer():
- d=pd.read_csv(SRC)
+ # Les CIK sont des identifiants, pas des nombres : conserver leurs zéros initiaux.
+ d=pd.read_csv(SRC,dtype={"Ticker":str,"CIK":str},keep_default_na=False)
+ if d["Ticker"].duplicated().any():raise RuntimeError("Tickers source SSI dupliques : identite ambiguë")
  if "Date_scan_fond" not in d.columns:
   if "Date_scan" in d.columns:
    d["Date_scan_fond"]=d["Date_scan"]
   else:
    raise RuntimeError("Date des fondamentaux manquante : aucune date inventee")
- if d.empty: raise RuntimeError("Aucun candidat pret SSI")
+ if "Momentum_12m_pct" not in d.columns: d["Momentum_12m_pct"]=pd.NA
+ if d.empty:
+  colonnes=["Ticker","CIK","Identifiant_emetteur_verifie","SCE_valide","Preuves_identite_SCE","SSI","Statut_SSI","Decision_eliminatoire","Motif_eliminatoire"]
+  for b in ("B1","B2","B3","B4","B5","B6","B7"):
+   colonnes.extend(["Note_"+b,"Preuve_"+b])
+  archiver_registre()
+  pd.DataFrame(columns=colonnes).to_csv(OUT,index=False)
+  pd.DataFrame([{"Dossiers_prets":0,"SSI_notes":0,"SSI_admis_65":0,"Conflits_CIK":0,"Statut":"EN_ATTENTE_DATA"}]).to_csv(AUD,index=False)
+  return pd.DataFrame(columns=colonnes)
  # Les 7 blocs du SSI maître. Les variables observées sont exposées, aucune note n'est inventée.
  out=pd.DataFrame({
   "Ticker":d["Ticker"],"Societe":d["Societe"],"Pays":d["Pays"],"Capitalisation_EUR":d["Capitalisation_EUR"],
@@ -21,34 +49,169 @@ def executer():
   "B6_source":d["Source_fondamentaux"],"B6_date":d["Date_scan_fond"],
   "B7_volume_local":d["Volume_monetaire_median_63s_local"],
   "Momentum_3m_pct":d["Momentum_3m_pct"],"Momentum_6m_pct":d["Momentum_6m_pct"],
+  "Momentum_12m_pct":d["Momentum_12m_pct"],
   "Au_dessus_MM200":d["Au_dessus_MM200"]
  })
  # Gouvernance/dilution et qualité documentaire ne peuvent pas être déduites des seuls champs actuels.
  for bloc in ("B1","B2","B3","B4","B5","B6","B7"):
   out["Note_"+bloc]="MANQUANTE"
   out["Preuve_"+bloc]="MANQUANTE"
+ # Le contrôle SCE exige deux preuves indépendantes et un CIK.
+ # Le ticker ou Yahoo ne suffisent pas à valider l'identité.
+ out["CIK"]=d["CIK"].astype(str) if "CIK" in d.columns else "MANQUANTE"
+ # Champ de revue independante, jamais rempli depuis un ISIN de catalogue.
+ # Ne pas reporter cet identifiant par ticker depuis un ancien dossier :
+ # une collision ou un changement d'emetteur resterait indetectable.
+ out["Identifiant_emetteur_verifie"]="MANQUANTE"
+ out["SCE_valide"]="NON"
+ out["Preuves_identite_SCE"]="MANQUANTE"
  out["SSI"]="MANQUANTE"; out["Statut_SSI"]="A_COMPLETER_PREUVES_SSI"
+ out["Conflit_identite_CIK"]="NON"
  out["Decision_eliminatoire"]="A_VERIFIER"
  out["Motif_eliminatoire"]="MANQUANTE"
- # Conservation des champs humains par ticker. Aucune collecte ne remet les notes à zéro.
+ # Conservation des annotations seulement sous controle de l identite stable.
+ reprises_identite=0
  if OUT.exists():
   ancien=pd.read_csv(OUT,dtype=str,keep_default_na=False)
   if ancien["Ticker"].duplicated().any():raise RuntimeError("Ancien registre SSI dupliqué")
-  from datetime import datetime,timezone
-  archive=B/"AUDITS"/"DOSSIERS_SSI"/datetime.now(timezone.utc).strftime("%Y%m%dT%H%M%S%fZ")
-  archive.mkdir(parents=True,exist_ok=False)
-  import shutil
-  shutil.copy2(OUT,archive/OUT.name)
-  humains=[c for c in ancien if c.startswith(("Note_","Preuve_","Validation_","Correction_")) or c in ("Decision_eliminatoire","Motif_eliminatoire")]
+  archiver_registre()
+  # Le ticker n'est pas une identité stable. Le CIK de la nouvelle collecte
+  # prime s'il est renseigné ; l'ancien CIK n'est JAMAIS repris si la
+  # nouvelle source n'en fournit pas. Une divergence ou une identité
+  # source manquante isole le dossier sans interrompre les autres candidats.
+  humains=[c for c in ancien if c.startswith(("Note_","Preuve_","Validation_","Correction_")) or c in ("Decision_eliminatoire","Motif_eliminatoire","SCE_valide","Preuves_identite_SCE")]
   reg=ancien.set_index("Ticker")
+  mask=out["Ticker"].isin(reg.index)
   for c in humains:
    if c not in out:out[c]="MANQUANTE"
-   mask=out["Ticker"].isin(reg.index)
    out.loc[mask,c]=out.loc[mask,"Ticker"].map(reg[c])
+  anciens_cik=out.loc[mask,"Ticker"].map(reg["CIK"]) if "CIK" in reg else pd.Series("",index=out.index[mask])
+  nouveau_cik=out.loc[mask,"CIK"].astype(str)
+  absents={"","MANQUANTE","NAN","NONE","N/A"}
+  # Un CIK absent dans la nouvelle collecte ne prouve pas que l'ancien
+  # émetteur est toujours celui du ticker. Ne jamais réutiliser son CIK
+  # ni ses notes/preuves humaines par simple correspondance de ticker.
+  source_cik_absent=nouveau_cik.str.strip().str.upper().isin(absents)
+  ancien_cik_absent=anciens_cik.astype(str).str.strip().str.upper().isin(absents)
+  conflit=(~source_cik_absent
+           & ~ancien_cik_absent
+           & nouveau_cik.str.strip().ne(anciens_cik.astype(str).str.strip()))
+  # La quarantaine reste active après les régénérations suivantes : le fait
+  # que le nouveau CIK ait remplacé l'ancien ne prouve PAS la résolution
+  # indépendante de la collision initiale.
+  deja_bloques=(out.loc[mask,"Ticker"].map(reg["Conflit_identite_CIK"]).eq("OUI")
+                if "Conflit_identite_CIK" in reg else pd.Series(False,index=out.index[mask]))
+  conflit=conflit | deja_bloques
+  # Cas non-US : un ISIN/LEI ne peut etre repris d un dossier precedent que
+  # si la NOUVELLE source declare exactement le meme identifiant et que les
+  # deux preuves SCE historiques restent verifiables (sources, dates, SHA256).
+  # Le ticker seul, un catalogue 07D et un checksum ne suffisent jamais.
+  reprise_non_us=pd.Series(False,index=out.index[mask])
+  if "Identifiant_emetteur_verifie" in d.columns and "Identifiant_emetteur_verifie" in reg.columns:
+   from preuves_ssi import (registre, verifier_identite_sce,
+                            identifiant_reglementaire_formel_valide)
+   from datetime import datetime,timezone
+   declares=out.loc[mask,"Ticker"].map(d.set_index("Ticker")["Identifiant_emetteur_verifie"]).fillna("")
+   anciens_ident=out.loc[mask,"Ticker"].map(reg["Identifiant_emetteur_verifie"]).fillna("")
+   candidats=(source_cik_absent & ancien_cik_absent & ~conflit
+              & declares.eq(anciens_ident)
+              & declares.str.startswith(("ISIN:","LEI:"))
+              & declares.map(identifiant_reglementaire_formel_valide))
+   if candidats.any():
+    try:
+     limite=datetime.now(timezone.utc)
+     preuves=registre(B,limite)
+    except (OSError,ValueError,RuntimeError) as erreur:
+     print("Reprise identite non-US refusee : registre preuves illisible",type(erreur).__name__)
+    else:
+     for idx in candidats.index[candidats]:
+      ancien_dossier=reg.loc[out.at[idx,"Ticker"]].copy()
+      # set_index("Ticker") a retire la colonne attendue par le validateur SCE.
+      ancien_dossier["Ticker"]=out.at[idx,"Ticker"]
+      try:
+       conforme=not verifier_identite_sce(ancien_dossier,preuves,B,limite)
+      except (KeyError,ValueError,TypeError,OSError):
+       conforme=False
+      if conforme:
+       reprise_non_us.at[idx]=True
+       out.at[idx,"Identifiant_emetteur_verifie"]=declares.at[idx]
+   reprises_identite=int(reprise_non_us.sum())
+  # Un ancien dossier sans CIK ne peut pas transmettre ses annotations au
+  # nouveau CIK par la seule concordance du ticker. Purger les annotations,
+  # sans qualifier de collision une identite historique simplement inconnue.
+  a_purger=conflit | ((source_cik_absent | ancien_cik_absent) & ~reprise_non_us)
+  a_isoler=conflit | (source_cik_absent & ~reprise_non_us)
+  if a_purger.any():
+   indices=anciens_cik.index[a_purger]
+   for c in humains:
+    out.loc[indices,c]="MANQUANTE"
+   out.loc[indices,"SCE_valide"]="NON"
+   out.loc[indices,"Preuves_identite_SCE"]="MANQUANTE"
+   out.loc[indices,"Decision_eliminatoire"]="A_VERIFIER"
+   out.loc[indices,"Motif_eliminatoire"]="MANQUANTE"
+   # Seule une divergence réelle reçoit le drapeau collision.
+   out.loc[anciens_cik.index[conflit],"Conflit_identite_CIK"]="OUI"
   # Les données collectées ne certifient jamais une admission antérieure.
   out["SSI"]="MANQUANTE";out["Statut_SSI"]="A_REVALIDER_PREUVES_SSI"
+  if a_isoler.any():out.loc[anciens_cik.index[a_isoler],"Statut_SSI"]="EN_ATTENTE_DATA_IDENTITE_CIK"
+ # Une premiere identification non-US ne peut pas provenir du ticker ni du
+ # catalogue 07D. Elle peut etre introduite par une NOUVELLE source SSI
+ # explicitement renseignee, mais uniquement si deux pieces SCE independantes
+ # sont deja dans le registre et sont re-verifiees (dates, identite, SHA256).
+ # Ce chemin n'importe aucune ancienne note et ne donne jamais de score.
+ nouvelles_identites=0
+ requis_identite={"Identifiant_emetteur_verifie","SCE_valide","Preuves_identite_SCE"}
+ if requis_identite.issubset(d.columns):
+  from preuves_ssi import (registre, verifier_identite_sce,
+                           identifiant_reglementaire_formel_valide)
+  from datetime import datetime,timezone
+  ident_source=d["Identifiant_emetteur_verifie"].astype(str).str.strip()
+  candidats=(ident_source.str.startswith(("ISIN:","LEI:"))
+             & d["SCE_valide"].astype(str).str.strip().eq("OUI")
+             & d["Preuves_identite_SCE"].astype(str).str.strip().ne(""))
+  if candidats.any():
+   try:
+    limite=datetime.now(timezone.utc)
+    preuves=registre(B,limite)
+   except (OSError,ValueError,RuntimeError) as erreur:
+    print("Premiere identite non-US refusee : registre illisible",type(erreur).__name__)
+   else:
+    for idx in d.index[candidats]:
+     ident=ident_source.at[idx]
+     cik=str(out.at[idx,"CIK"]).strip().upper()
+     if cik not in {"","MANQUANTE","NAN","NONE","N/A"}:
+      continue  # CIK present ou malforme : jamais de repli ISIN/LEI.
+     if out.at[idx,"Conflit_identite_CIK"]!="NON":
+      continue  # Une collision historique ne se leve pas automatiquement.
+     if ("Conflit_identite_CIK" in d.columns and
+         str(d.at[idx,"Conflit_identite_CIK"]).strip().upper()!="NON"):
+      continue
+     if not identifiant_reglementaire_formel_valide(ident):
+      continue
+     ligne=d.loc[idx].copy()
+     ligne["Conflit_identite_CIK"]="NON"
+     try:
+      valide=not verifier_identite_sce(ligne,preuves,B,limite)
+     except (KeyError,ValueError,TypeError,OSError):
+      valide=False
+     if not valide:
+      continue
+     if out.at[idx,"Identifiant_emetteur_verifie"]!=ident:
+      nouvelles_identites+=1
+     out.at[idx,"Identifiant_emetteur_verifie"]=ident
+     out.at[idx,"SCE_valide"]="OUI"
+     out.at[idx,"Preuves_identite_SCE"]=str(ligne["Preuves_identite_SCE"])
+     out.at[idx,"Statut_SSI"]="A_REVALIDER_PREUVES_SSI"
+ # Y compris pour les nouveaux tickers absents de tout registre precedent :
+ # un CIK non renseigne impose EN_ATTENTE_DATA, jamais une qualification.
+ cik_absent=out["CIK"].astype(str).str.strip().str.upper().isin({"","MANQUANTE","NAN","NONE","N/A"})
+ out.loc[cik_absent & out["Identifiant_emetteur_verifie"].eq("MANQUANTE"),"Statut_SSI"]="EN_ATTENTE_DATA_IDENTITE_CIK"
  tmp=OUT.with_suffix(".tmp");out.to_csv(tmp,index=False);tmp.replace(OUT)
- pd.DataFrame([{"Dossiers_prets":len(out),"SSI_notes":0,"SSI_admis_65":0,"Statut":"COLLECTE_PREUVES_SSI_REQUISE"}]).to_csv(AUD,index=False)
+ pd.DataFrame([{"Dossiers_prets":len(out),"SSI_notes":0,"SSI_admis_65":0,
+                "Conflits_CIK":int(out["Conflit_identite_CIK"].eq("OUI").sum()),
+  "Reprises_identite_ISIN_LEI_sur_preuves":reprises_identite,
+  "Nouvelles_identites_ISIN_LEI_sur_preuves":nouvelles_identites,
+                "Statut":"COLLECTE_PREUVES_SSI_REQUISE"}]).to_csv(AUD,index=False)
  print("Dossiers SSI a qualifier",len(out))
  return out
 if __name__=="__main__": executer()

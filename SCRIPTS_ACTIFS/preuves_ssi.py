@@ -13,6 +13,61 @@ CHAMPS=['ID_preuve','Remplace_ID','Ticker','Bloc','Identifiant_emetteur','Source
 MANQUANTS={'','MANQUANTE','A_COMPLETER','NON_VERIFIE','N/A','NAN','NONE'}
 def manquant(v):return str(v).strip().upper() in MANQUANTS
 
+def checksum_isin_valide(isin):
+    """ISO 6166 / Luhn. Un checksum correct ne certifie PAS l'emetteur."""
+    if not re.fullmatch(r'[A-Z]{2}[A-Z0-9]{9}[0-9]', isin):
+        return False
+    chiffres=''.join(str(ord(c)-55) if 'A'<=c<='Z' else c for c in isin)
+    total=0
+    for pos,c in enumerate(reversed(chiffres)):
+        n=int(c)
+        if pos%2:
+            n*=2
+            n=n//10+n%10
+        total+=n
+    return total%10==0
+
+def checksum_lei_valide(lei):
+    """ISO 17442 / ISO 7064 mod 97-10, sans certification de l'identite."""
+    if not re.fullmatch(r'[A-Z0-9]{20}', lei):
+        return False
+    chiffres=''.join(str(ord(c)-55) if 'A'<=c<='Z' else c for c in lei)
+    # Calcul modulaire incrementiel pour ne pas dependre d'un entier geant.
+    reste=0
+    for c in chiffres:
+        reste=(reste*10+int(c))%97
+    return reste==1
+
+def identifiant_reglementaire_formel_valide(ident):
+    """CIK exact ou ISIN/LEI avec checksum; la preuve primaire reste obligatoire."""
+    if re.fullmatch(r'CIK:[0-9]{10}', ident):
+        return True
+    if ident.startswith('ISIN:'):
+        return checksum_isin_valide(ident[5:])
+    if ident.startswith('LEI:'):
+        return checksum_lei_valide(ident[4:])
+    return False
+
+def identifiant_dossier(r):
+    """Identité attendue : CIK source valide OU ISIN/LEI explicitement vérifié.
+
+    Un ISIN/LEI déclaré ne devient jamais une preuve : verifier_identite_sce
+    exige deux documents primaires distincts concordants, puis chaque bloc
+    et chaque exclusion doivent porter le même identifiant. Un CIK source
+    présent mais malformé/divergent ne peut pas être contourné.
+    """
+    cik=str(r.get('CIK','')).strip()
+    ident=str(r.get('Identifiant_emetteur_verifie','')).strip()
+    if not manquant(cik):
+        if not re.fullmatch(r'[0-9]{10}',cik):
+            return ''
+        attendu='CIK:'+cik
+        return attendu if manquant(ident) or ident==attendu else ''
+    if (not manquant(ident) and ident.startswith(('ISIN:','LEI:'))
+            and identifiant_reglementaire_formel_valide(ident)):
+        return ident
+    return ''
+
 def registre(base,limite=None):
     p=base/'DONNEES/REGISTRE_PREUVES_SSI.csv'
     if not p.exists():return pd.DataFrame(columns=CHAMPS)
@@ -27,7 +82,12 @@ def registre(base,limite=None):
     valides=d[d.Statut_verification.eq('VERIFIEE')]
     for _,r in valides[~valides.Remplace_ID.map(manquant)].iterrows():
         old=d[d.ID_preuve.eq(r.Remplace_ID)]
-        if len(old)!=1 or old.iloc[0].Ticker!=r.Ticker or old.iloc[0].Bloc!=r.Bloc:
+        # Un ticker peut changer d'émetteur (réutilisation, cotation secondaire).
+        # Un remplacement append-only ne peut révoquer qu'une preuve du MÊME
+        # émetteur réglementaire, pas celle d'un homonyme de cotation.
+        if (len(old)!=1 or old.iloc[0].Ticker!=r.Ticker
+                or old.iloc[0].Bloc!=r.Bloc
+                or old.iloc[0].Identifiant_emetteur!=r.Identifiant_emetteur):
             raise RuntimeError('Remplacement de preuve incohérent')
         if pd.Timestamp(r.Date_verification_UTC)<=pd.Timestamp(old.iloc[0].Date_verification_UTC):
             raise RuntimeError('Remplacement de preuve non postérieur')
@@ -41,11 +101,15 @@ def verifier(r,ticker,bloc,base,limite=None):
     if r.Statut_verification!='VERIFIEE' or r.Statut_identite!='VERIFIEE':errors.append('identité/contenu non vérifié')
     for c in ['Identifiant_emetteur','Verificateur','Justification','SHA256']:
         if manquant(r[c]):errors.append(c+' manquant')
-    if not re.fullmatch(r'(?:CIK:[0-9]{10}|ISIN:[A-Z]{2}[A-Z0-9]{9}[0-9]|LEI:[A-Z0-9]{20})',r.Identifiant_emetteur):
+    if not identifiant_reglementaire_formel_valide(str(r.Identifiant_emetteur)):
         errors.append('identifiant émetteur invalide')
     if not r.Source_URL.startswith('https://'):errors.append('source sans URL HTTPS')
     types={'PUBLICATION_EMETTEUR','DEPOT_REGLEMENTAIRE'}
     if bloc=='B7':types.add('DONNEE_MARCHE')
+    # Les fiches officielles de marche ne peuvent prouver que l'identite,
+    # jamais les blocs financiers ni les exclusions. Revue SCE independante
+    # et verification du document brut toujours obligatoires.
+    if bloc=='IDENTITE_SCE':types.add('DONNEE_MARCHE_IDENTITE')
     if r.Type_source not in types:errors.append('source non primaire pour ce bloc')
     pub=pd.to_datetime(r.Date_publication,utc=True,errors='coerce')
     ver=pd.to_datetime(r.Date_verification_UTC,utc=True,errors='coerce')
@@ -63,13 +127,18 @@ def verifier(r,ticker,bloc,base,limite=None):
 
 def verifier_identite_sce(r,d,base,limite=None):
     erreurs=[]
-    if r.get('SCE_valide')!='OUI':return ['contrôles SCE non validés']
+    # Protection aussi pour les appels directs hors 07R : une collision CIK
+    # ou un statut absent/inconnu ne peut jamais etre leve par les notes.
+    if str(r.get('Conflit_identite_CIK','')).strip().upper()!='NON':
+        erreurs.append('collision CIK non levée ou contrôle CIK absent/invalide')
+    if r.get('SCE_valide')!='OUI':return erreurs+['contrôles SCE non validés']
     ids=[x.strip() for x in str(r.get('Preuves_identite_SCE','')).split('|') if x.strip()]
-    z=d[d.ID_preuve.isin(ids)];cik=str(r.get('CIK','')).strip()
+    z=d[d.ID_preuve.isin(ids)];ident=identifiant_dossier(r)
+    if not ident:erreurs.append('identifiant réglementaire du dossier absent, invalide ou contradictoire')
     if len(ids)<2 or len(ids)!=len(set(ids)) or len(z)!=len(ids) or z.Source_URL.nunique()<2:erreurs.append('deux preuves identité SCE requises')
     for _,p in z.iterrows():
         erreurs.extend(verifier(p,r.Ticker,'IDENTITE_SCE',base,limite))
-        if not cik or p.Identifiant_emetteur!='CIK:'+cik:erreurs.append('identité SCE divergente du dossier')
+        if not ident or p.Identifiant_emetteur!=ident:erreurs.append('identité SCE divergente du dossier')
     return erreurs
 
 def valider_dossier(r,d,base,limite=None):
@@ -89,9 +158,13 @@ def valider_dossier(r,d,base,limite=None):
             notes.append(int(n))
         except ValueError:errors.append(bloc+': note non concordante avec preuve vérifiée')
     if len(identifiants)>1:errors.append('identité émetteur divergente entre blocs')
-    cik=str(r.get('CIK','')).strip()
-    if cik and any(x!='CIK:'+cik for x in identifiants):errors.append('identité des preuves différente du CIK du dossier')
-    if 'SCE_valide' in r:errors.extend(verifier_identite_sce(r,d,base,limite))
+    ident=identifiant_dossier(r)
+    if not ident:errors.append('identifiant réglementaire du dossier absent, invalide ou contradictoire')
+    if ident and any(x!=ident for x in identifiants):errors.append('identité des preuves différente de l\'identifiant du dossier')
+    # Le controle d'identite SCE est obligatoire, meme pour les anciens
+    # dossiers qui ne possedent pas encore la colonne SCE_valide.
+    # Ne jamais traiter une colonne absente comme une validation implicite.
+    errors.extend(verifier_identite_sce(r,d,base,limite))
     decision=str(r.get('Decision_eliminatoire','')).upper().strip()
     if decision!='NON':errors.append('exclusions non vérifiées')
     ids=str(r.get('Motif_eliminatoire','')).split('|')
@@ -114,8 +187,8 @@ def bilan_blocs_documentes(r,d,base,limite=None):
         preuves=d[d.ID_preuve.isin(ids)]
         if len(preuves)!=len(ids):continue
         if any(verifier(p,r.Ticker,bloc,base,limite) for _,p in preuves.iterrows()):continue
-        cik=str(r.get('CIK','')).strip()
-        if cik and any(p.Identifiant_emetteur!='CIK:'+cik for _,p in preuves.iterrows()):continue
+        ident=identifiant_dossier(r)
+        if not ident or any(p.Identifiant_emetteur!=ident for _,p in preuves.iterrows()):continue
         try:
             n=float(r.get('Note_'+bloc,''))
             if not math.isfinite(n) or not n.is_integer() or not 0<=n<=maximum:continue

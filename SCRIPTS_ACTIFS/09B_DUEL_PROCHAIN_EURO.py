@@ -49,7 +49,7 @@ def calculer_duels(df):
     for _, src in sources.iterrows():
         note_source = float(src["MCPA_N"])
         comparaison = str(src["Challengers_compares"]).strip()
-        if not comparaison:
+        if not comparaison or comparaison.upper() in {"NAN", "NONE"}:
             raise RuntimeError(f"Comparaison manquante pour {src['Societe']}.")
 
         if destinations.empty:
