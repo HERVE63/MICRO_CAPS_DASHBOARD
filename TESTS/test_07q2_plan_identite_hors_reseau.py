@@ -18,6 +18,7 @@ def executer():
  spec.loader.exec_module(module)
  with TemporaryDirectory() as tmp:
   d=Path(tmp)
+  module.D=d  # Toutes les sorties et lectures d archives doivent rester dans la fixture.
   module.SRC=d/"DOSSIERS_SSI_A_QUALIFIER.csv"
   module.OUT=d/"PLAN_COLLECTE_PREUVES_SSI.csv"
   module.AUD=d/"AUDIT_COLLECTE_PREUVES_SSI.csv"
