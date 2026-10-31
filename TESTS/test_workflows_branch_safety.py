@@ -42,6 +42,30 @@ def executer():
             "'repair/microcaps-chain-20261030'") in s, (
         "workflow_dispatch ne doit jamais exécuter le job SSI sur main"
     )
+    # GitHub ne relance pas un workflow push apres un push GITHUB_TOKEN.
+    # Les collecteurs 07AA doivent dispatcher 07Q uniquement si leur
+    # commit de preuves a effectivement ete publie sur la branche isolee.
+    for nom in (
+        "collecte_icape_primaires_isolee.yml",
+        "collecte_fermentalg_primaires_isolee.yml",
+        "collecte_identite_fermentalg_marche_isolee.yml",
+    ):
+        s = (ROOT / ".github/workflows" / nom).read_text(encoding="utf-8")
+        assert "permissions:\n  contents: write\n  actions: write\n" in s, nom
+        assert ("jobs:\n  capture:\n    if: github.ref_name == "
+                "'repair/microcaps-chain-20261030'") in s, nom
+        assert "        id: publication\n" in s, nom
+        assert 'echo "published=true" >> "$GITHUB_OUTPUT"' in s, nom
+        assert "steps.publication.outputs.published == 'true'" in s, nom
+        assert "github.ref_name == 'repair/microcaps-chain-20261030'" in s, nom
+        assert 'gh workflow run preparer_dossiers_ssi.yml --ref "$GITHUB_REF_NAME"' in s, nom
+        assert s.index('git push origin "HEAD:$GITHUB_REF_NAME"') < s.index(
+            'echo "published=true" >> "$GITHUB_OUTPUT"') < s.index(
+            "gh workflow run preparer_dossiers_ssi.yml"), nom
+        assert "git push origin main" not in s and "ref: main" not in s, nom
+    assert "  workflow_dispatch:\n" in (
+        ROOT / ".github/workflows/preparer_dossiers_ssi.yml"
+    ).read_text(encoding="utf-8")
     print("Sécurité des branches : workflows isolés et push sur la branche déclencheuse")
 
 
