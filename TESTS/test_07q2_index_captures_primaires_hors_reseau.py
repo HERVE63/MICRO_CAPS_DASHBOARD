@@ -138,6 +138,13 @@ def tester():
         module.executer()
         assert anomalies()[0]["Code_anomalie"]=="MANIFESTE_OU_AUDIT_INVALIDE"
         assert int(__import__("pandas").read_csv(module.AUD).iloc[0].Captures_invalides_exclues)==1
+
+        # Ancien format 07AA sans dictionnaire de hashes : non indexable,
+        # mais le diagnostic ne doit pas le confondre avec un SHA corrompu.
+        (dossier/"MANIFESTE.json").write_text(json.dumps({"documents_collectes":1}),encoding="utf-8")
+        module.executer()
+        assert anomalies()[0]["Code_anomalie"]=="MANIFESTE_HISTORIQUE_SANS_FICHIERS"
+        assert int(__import__("pandas").read_csv(module.AUD).iloc[0].Captures_invalides_exclues)==1
     print("INDEX_07AA_07Q2_OK : SHA256, URL distincte, date, conflit, traversal, aucune admission")
 
 if __name__=="__main__":
