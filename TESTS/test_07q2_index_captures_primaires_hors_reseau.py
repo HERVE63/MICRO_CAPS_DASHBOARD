@@ -57,6 +57,9 @@ def tester():
             manifeste={"fichiers":{"AUDIT_DOCUMENTS.csv":hashlib.sha256(audit.read_bytes()).hexdigest(),
                                    brut.name:sha}}
             (dossier/"MANIFESTE.json").write_text(json.dumps(manifeste),encoding="utf-8")
+        def anomalies():
+            with module.ANOMALIES.open(encoding="utf-8",newline="") as f:
+                return list(csv.DictReader(f))
         enregistrer([ligne,dict(ligne,ID_document="TEST_BIS")])
         plan=module.executer()
         p=plan[(plan.Ticker=="FICTIF.F")&(plan.Bloc_SSI=="IDENTITE_SCE")].iloc[0]
@@ -75,6 +78,7 @@ def tester():
         autre=plan[(plan.Ticker=="AUTRE.F")&(plan.Bloc_SSI=="IDENTITE_SCE")].iloc[0]
         assert autre.Captures_primaires_SHA256_OK_pistes=="0"
         assert int(__import__("pandas").read_csv(module.AUD).iloc[0].Captures_primaires_SHA256_OK_pistes)==2
+        assert anomalies()==[], "Aucune anomalie dans la fixture saine"
 
         # Un document corrompu est ignoré, sans bloquer le candidat voisin.
         brut.write_bytes(octets+b"alteration")
@@ -82,6 +86,7 @@ def tester():
         p=plan[(plan.Ticker=="FICTIF.F")&(plan.Bloc_SSI=="IDENTITE_SCE")].iloc[0]
         assert p.Captures_primaires_SHA256_OK_pistes=="0"
         assert int(__import__("pandas").read_csv(module.AUD).iloc[0].Captures_invalides_exclues)==2
+        assert len(anomalies())==2 and {a["Code_anomalie"] for a in anomalies()}=={"SHA256_BRUT_DIVERGENT"}
 
         # La restauration des octets rend la piste réutilisable, jamais certifiée.
         brut.write_bytes(octets)
@@ -89,6 +94,7 @@ def tester():
         futur=(datetime.now(timezone.utc)+timedelta(days=5)).isoformat()
         enregistrer([dict(ligne,Date_publication=futur)])
         assert module.executer().query("Ticker == 'FICTIF.F' and Bloc_SSI == 'IDENTITE_SCE'").iloc[0].Captures_primaires_SHA256_OK_pistes=="0"
+        assert anomalies()[0]["Code_anomalie"]=="DATE_PUBLICATION_APRES_COLLECTE"
 
         # Une date de publication malformee ne doit jamais devenir une date inconnue.
         enregistrer([dict(ligne,Date_publication="date-invalide")])
@@ -96,10 +102,12 @@ def tester():
         p=plan[(plan.Ticker=="FICTIF.F")&(plan.Bloc_SSI=="IDENTITE_SCE")].iloc[0]
         assert p.Captures_primaires_SHA256_OK_pistes=="0"
         assert int(__import__("pandas").read_csv(module.AUD).iloc[0].Captures_invalides_exclues)==1
+        assert anomalies()[0]["Code_anomalie"]=="DATE_PUBLICATION_INVALIDE"
 
         # Un type de source non primaire est refuse meme avec un SHA correct.
         enregistrer([dict(ligne,Type_source="FORUM")])
         plan=module.executer()
+        assert anomalies()[0]["Code_anomalie"]=="TYPE_SOURCE_NON_PRIMAIRE"
         p=plan[(plan.Ticker=="FICTIF.F")&(plan.Bloc_SSI=="IDENTITE_SCE")].iloc[0]
         assert p.Captures_primaires_SHA256_OK_pistes=="0"
 
@@ -116,6 +124,20 @@ def tester():
         p=plan[(plan.Ticker=="FICTIF.F")&(plan.Bloc_SSI=="IDENTITE_SCE")].iloc[0]
         assert p.Captures_primaires_SHA256_OK_pistes=="0"
         assert not (plan.Preuve_validee=="OUI").any()
+        assert anomalies()[0]["Code_anomalie"]=="CHEMIN_HORS_ARCHIVE"
+
+        # La source bloquee est conservee en diagnostic sans etre une preuve.
+        enregistrer([dict(ligne,Statut="BLOQUE_SOURCE")])
+        plan=module.executer()
+        assert anomalies()[0]["Code_anomalie"]=="SOURCE_BLOQUEE_07AA"
+        assert int(__import__("pandas").read_csv(module.AUD).iloc[0].Sources_bloquees)==1
+        assert not (plan.Preuve_validee=="OUI").any()
+
+        # Manifeste corrompu : un rejet de lot, jamais une certification.
+        (dossier/"MANIFESTE.json").write_text("{invalide",encoding="utf-8")
+        module.executer()
+        assert anomalies()[0]["Code_anomalie"]=="MANIFESTE_OU_AUDIT_INVALIDE"
+        assert int(__import__("pandas").read_csv(module.AUD).iloc[0].Captures_invalides_exclues)==1
     print("INDEX_07AA_07Q2_OK : SHA256, URL distincte, date, conflit, traversal, aucune admission")
 
 if __name__=="__main__":
