@@ -22,6 +22,26 @@ def executer():
         assert "ref: ${{ github.ref_name }}" in s, nom
         assert 'git push origin "HEAD:$GITHUB_REF_NAME"' in s, nom
         assert 'git pull --rebase origin "$GITHUB_REF_NAME"' in s, nom
+    # La préparation SSI doit se relancer sur les changements de ses véritables
+    # entrées, notamment les captures 07AA. Le push GITHUB_TOKEN d'un autre
+    # workflow ne déclenche toutefois PAS de nouvel événement push GitHub :
+    # ce contrôle couvre les commits ordinaires et les lancements manuels.
+    p = ROOT / ".github/workflows/preparer_dossiers_ssi.yml"
+    s = p.read_text(encoding="utf-8")
+    for entree in (
+        "SCRIPTS_ACTIFS/07Q_PREPARER_DOSSIERS_SSI.py",
+        "SCRIPTS_ACTIFS/07Q2_AUDIT_PREUVES_SSI.py",
+        "SCRIPTS_ACTIFS/preuves_ssi.py",
+        "SCRIPTS_ACTIFS/07R_VALIDER_NOTES_SSI.py",
+        "DONNEES/CANDIDATS_PRETS_SSI.csv",
+        "DONNEES/IDENTITE_COTATIONS_MULTIPLES.csv",
+        "AUDITS/SOURCES_OFFICIELLES/**",
+    ):
+        assert "      - '" + entree + "'" in s, "Entrée SSI non surveillée : " + entree
+    assert ("  ssi:\n    if: github.ref_name == "
+            "'repair/microcaps-chain-20261030'") in s, (
+        "workflow_dispatch ne doit jamais exécuter le job SSI sur main"
+    )
     print("Sécurité des branches : workflows isolés et push sur la branche déclencheuse")
 
 
