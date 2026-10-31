@@ -9,6 +9,7 @@ on:
       - '.github/workflows/collecte_identite_fermentalg_marche_isolee.yml'
 permissions:
   contents: write
+  actions: write
 concurrency:
   group: microcaps-identite-fermentalg-marche-isolee
   cancel-in-progress: false
@@ -64,6 +65,7 @@ jobs:
           path: ${{ steps.collecte.outputs.dossier }}
           if-no-files-found: warn
       - name: Publier uniquement les documents d'audit sur branche isolee
+        id: publication
         if: ${{ success() && github.ref_name == 'repair/microcaps-chain-20261030' }}
         run: |
           git config user.name "github-actions[bot]"
@@ -73,4 +75,14 @@ jobs:
             git commit -m "Capturer fiche Deutsche Boerse 1F6 SHA256 sans certification SCE"
             git pull --rebase origin "$GITHUB_REF_NAME"
             git push origin "HEAD:$GITHUB_REF_NAME"
+            echo "published=true" >> "$GITHUB_OUTPUT"
           fi
+      - name: Relancer 07Q/07Q2/07R uniquement apres publication des preuves
+        if: ${{ success() && steps.publication.outputs.published == 'true' && github.ref_name == 'repair/microcaps-chain-20261030' }}
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          # Les push realises avec GITHUB_TOKEN ne declenchent pas un second push workflow.
+          # workflow_dispatch est autorise par GitHub et doit pointer vers la branche isolee.
+          gh workflow run preparer_dossiers_ssi.yml --ref "$GITHUB_REF_NAME"
+          echo "SSI_DISPATCHED branch=$GITHUB_REF_NAME commit=$(git rev-parse HEAD)"
