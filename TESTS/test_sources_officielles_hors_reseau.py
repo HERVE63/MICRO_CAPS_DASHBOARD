@@ -36,6 +36,19 @@ def test():
    out=b/result['Fichier_brut'];manifest=json.loads((out.parent/'MANIFESTE.json').read_text())
    assert manifest['dossiers_univers']==2 and manifest['dossiers_sans_document_configure']==1
    assert manifest['fichiers'][out.name]==result['SHA256'] and manifest['notes_attribuees']==0
+   # Fiche d'operateur de marche : capture documentaire uniquement,
+   # jamais une certification d'identite ou une note.
+   marche=dict(unknown,Type_source='DONNEE_MARCHE_IDENTITE',
+               Statut_identite='A_VERIFIER_COTATION_TEST')
+   pd.DataFrame([marche]).to_csv(reg,index=False)
+   capture=m.executer(reg,full)[0]
+   assert capture['Statut']=='DOCUMENT_COLLECTE_A_VERIFIER'
+   assert capture['Notes_attribuees']==0
+   assert capture['Statut_identite']=='A_VERIFIER_COTATION_TEST'
+   pd.DataFrame([dict(marche,Statut_identite='VERIFIEE')]).to_csv(reg,index=False)
+   assert m.executer(reg,full)[0]['Statut']=='BLOQUE_SOURCE'
+   pd.DataFrame([dict(marche,Type_source='DONNEE_MARCHE')]).to_csv(reg,index=False)
+   assert m.executer(reg,full)[0]['Statut']=='BLOQUE_SOURCE'
    for invalid in [dict(unknown,Date_publication_inconnue=''),dict(unknown,Date_publication='2999-01-01'),dict(unknown,Date_publication='date erronée')]:
     pd.DataFrame([invalid]).to_csv(reg,index=False)
     assert m.executer(reg,full)[0]['Statut']=='BLOQUE_SOURCE'
