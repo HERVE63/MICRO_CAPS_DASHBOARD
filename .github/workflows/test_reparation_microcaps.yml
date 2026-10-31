@@ -149,6 +149,8 @@ jobs:
         run: python -B TESTS/test_icape_faits_financiers_primaire_hors_reseau.py
       - name: Reutiliser capture Hofseth SHA256 et verifier reprise Fermentalg sans notes
         run: python -B TESTS/test_reprise_fermentalg_hors_reseau.py
+      - name: Verifier registre fiche de marche Fermentalg sans certification ni score
+        run: python -B TESTS/test_fermentalg_fiche_marche_sha256_hors_reseau.py
       - name: Verifier neuf faits financiers Fermentalg sur capture HTML primaire SHA256
         run: python -B TESTS/test_fermentalg_faits_financiers_primaire_hors_reseau.py
       - name: Tester 09D collecte EODHD partielle et empreintes hors reseau
