@@ -98,7 +98,7 @@ def executer():
         "ISIN_piste_non_certifiee":isin_piste,
         "Societe_archive_ISIN":societe_archive,
         "Statut_piste_ISIN":statut_piste,
-        "Provenance_archive_ISIN":str(ARCHIVE_IDENTITE.relative_to(D.parent)) if statut_piste!="AUCUNE_PISTE_ARCHIVE" else "MANQUANTE",
+        "Provenance_archive_ISIN":"DONNEES/"+ARCHIVE_IDENTITE.name if statut_piste!="AUCUNE_PISTE_ARCHIVE" else "MANQUANTE",
         "SHA256_archive_ISIN":sha_archive if statut_piste!="AUCUNE_PISTE_ARCHIVE" else "MANQUANTE",
         "Date_archive_ISIN":"MANQUANTE"}
   # Ces deux controles sont des prealables a la notation, non des notes.
