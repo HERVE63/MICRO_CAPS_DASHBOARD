@@ -111,6 +111,8 @@ def controler_ligne(r, dossiers, archives, racine, maintenant):
         if r["Ticker"] not in dossiers:
             return "EN_ATTENTE_DATA_DOSSIER", "Ticker absent des dossiers SSI", chemin
         ident = dossiers[r["Ticker"]].get("Identifiant_emetteur_verifie", "").strip()
+        if ident == "CONFLIT_TICKER_DUPLIQUE":
+            return "EN_ATTENTE_DATA_IDENTITE_AMBIGUE", "Ticker dupliqué dans les dossiers SSI ; aucune identité ne peut être retenue", chemin
         if ident != r["Identifiant_emetteur"]:
             return "EN_ATTENTE_DATA_IDENTITE", "Identité SCE non certifiée/concordance absente", chemin
         return "PISTE_FINANCIERE_SHA256_OK_NON_CERTIFIEE", "Transcription documentaire seulement; aucune note autorisée", chemin
@@ -124,7 +126,20 @@ def executer(racine=None, maintenant=None):
     dossiers_path = d / "DOSSIERS_SSI_A_QUALIFIER.csv"
     if not dossiers_path.exists():
         raise RuntimeError("07Q doit produire les dossiers SSI avant 07Q3")
-    dossiers = {r["Ticker"]: r for r in lignes_csv(dossiers_path)}
+    # Un dictionnaire naïf écraserait silencieusement la première identité
+    # d’un ticker dupliqué. Isoler ce ticker, sans bloquer les autres dossiers.
+    dossiers = {}
+    doublons = set()
+    for dossier in lignes_csv(dossiers_path):
+        ticker = dossier.get("Ticker", "").strip()
+        if not ticker:
+            continue
+        if ticker in dossiers:
+            doublons.add(ticker)
+        else:
+            dossiers[ticker] = dossier
+    for ticker in doublons:
+        dossiers[ticker] = {"Identifiant_emetteur_verifie": "CONFLIT_TICKER_DUPLIQUE"}
     archives = indexer_archives(racine)
     resultat = []
     for nom in NOMS:
