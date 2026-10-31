@@ -11,7 +11,7 @@ permissions:
   contents: write
   actions: write
 concurrency:
-  group: microcaps-07aa-publication-branche-test
+  group: microcaps-identite-fermentalg-marche-isolee
   cancel-in-progress: false
 jobs:
   capture:
