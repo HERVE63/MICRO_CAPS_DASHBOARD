@@ -3,6 +3,7 @@ from pathlib import Path
 from tempfile import TemporaryDirectory
 from unittest.mock import patch
 import importlib.util
+import hashlib
 import sys
 import pandas as pd
 
@@ -96,7 +97,8 @@ def executer():
         # test uniquement, sans rapport avec des societes ou des scores reels.
         lignes_preuves = [
             {"ID_preuve": ident, "Source_URL": "https://source.example/" + ident,
-             "Identifiant_emetteur": "CIK:0000000123", "Note": "1"}
+             "Identifiant_emetteur": "CIK:0000000123", "Note": "1",
+             "SHA256": hashlib.sha256(ident.encode()).hexdigest()}
             for ident in ["SCE1", "SCE2", "EX1", "B1P", "B2P", "B3P",
                           "B4P", "B5P", "B6P", "B7P"]
         ]
