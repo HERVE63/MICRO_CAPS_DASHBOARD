@@ -85,6 +85,13 @@ def tester():
         enregistrer([dict(ligne,Date_publication=futur)])
         assert module.executer().query("Ticker == 'FICTIF.F' and Bloc_SSI == 'IDENTITE_SCE'").iloc[0].Captures_primaires_SHA256_OK_pistes=="0"
 
+        # Une date de publication malformee ne doit jamais devenir une date inconnue.
+        enregistrer([dict(ligne,Date_publication="date-invalide")])
+        plan=module.executer()
+        p=plan[(plan.Ticker=="FICTIF.F")&(plan.Bloc_SSI=="IDENTITE_SCE")].iloc[0]
+        assert p.Captures_primaires_SHA256_OK_pistes=="0"
+        assert int(__import__("pandas").read_csv(module.AUD).iloc[0].Captures_invalides_exclues)==1
+
         # Deux identifiants divergents pour un ticker : conflit explicite, aucun score.
         enregistrer([ligne,dict(ligne,Identifiant_emetteur="ISIN:FR001400A3Q3")])
         plan=module.executer()
