@@ -43,7 +43,9 @@ COLONNES=["Ticker","Societe","Bloc_SSI","Variables_absentes","Preuve_validee",
           "Provenance_archive_ISIN","SHA256_archive_ISIN","Date_archive_ISIN",
           "Captures_primaires_SHA256_OK_pistes","URLs_primaires_distinctes_pistes",
           "Identifiants_captures_non_certifies","Captures_publication_inconnue",
-          "Statut_captures_non_certifiees"]
+          "Statut_captures_non_certifiees",
+          "Captures_sources_URL_pistes","Captures_SHA256_pistes",
+          "Captures_dates_publication_pistes","Captures_dates_collecte_UTC_pistes"]
 def manquant(v):
  return pd.isna(v) or str(v).strip().upper() in ("","MANQUANTE","NAN","NONE","N/A")
 
@@ -124,7 +126,9 @@ def indexer_captures_primaires():
     date_pub=pd.to_datetime(ligne.get("Date_publication",""),utc=True,errors="coerce")
     chemin=(racine/ligne["Fichier_brut"]).resolve()
     if (not ticker or not identifiant_reglementaire_formel_valide(ident)
-        or not url.startswith("https://") or pd.isna(date_capture)
+        or not url.startswith("https://")
+        or ligne.get("Type_source") not in {"PUBLICATION_EMETTEUR","DEPOT_REGLEMENTAIRE","DONNEE_MARCHE_IDENTITE"}
+        or pd.isna(date_capture)
         or date_capture>pd.Timestamp(datetime.now(timezone.utc))
         or (ligne.get("Date_publication","").strip() and pd.isna(date_pub))
         or (not pd.isna(date_pub) and date_pub>date_capture)
@@ -135,7 +139,9 @@ def indexer_captures_primaires():
      raise ValueError("Capture non verifiable")
     if not ligne.get("Date_publication","").strip() and ligne.get("Statut_date_publication","").startswith("DATE_"):
      raise ValueError("Date publication incoherente")
-    captures.setdefault(ticker,[]).append((ident,url,sha,pd.isna(date_pub)))
+    captures.setdefault(ticker,[]).append((ident,url,sha,pd.isna(date_pub),
+                                           str(ligne.get("Date_publication","")).strip() or "INCONNUE",
+                                           str(ligne["Date_collecte_UTC"]).strip()))
    except (OSError,ValueError,KeyError,TypeError):
     invalides+=1
  return captures,invalides,bloquees
@@ -156,8 +162,8 @@ def executer():
   isin_piste,societe_archive,statut_piste=pistes.get(r["Ticker"],("MANQUANTE","MANQUANTE","AUCUNE_PISTE_ARCHIVE"))
   brutes=captures.get(r["Ticker"],[])
   # Plusieurs captures de la meme URL ne valent jamais plusieurs sources.
-  urls={url for _,url,_,_ in brutes}
-  identifiants={ident for ident,_,_,_ in brutes}
+  urls={x[1] for x in brutes}
+  identifiants={x[0] for x in brutes}
   ident_dossier=identifiant_dossier(r)
   statut_captures=("AUCUNE_CAPTURE_SHA256_OK" if not brutes else
                    "CONFLIT_IDENTIFIANTS_CAPTURE_NON_CERTIFIE" if len(identifiants)>1 or
@@ -178,8 +184,12 @@ def executer():
         "Captures_primaires_SHA256_OK_pistes":str(len(brutes)),
         "URLs_primaires_distinctes_pistes":str(len(urls)),
         "Identifiants_captures_non_certifies":"|".join(sorted(identifiants)) if brutes else "MANQUANTE",
-        "Captures_publication_inconnue":str(sum(inconnue for _,_,_,inconnue in brutes)),
-        "Statut_captures_non_certifiees":statut_captures}
+        "Captures_publication_inconnue":str(sum(x[3] for x in brutes)),
+        "Statut_captures_non_certifiees":statut_captures,
+        "Captures_sources_URL_pistes":" | ".join(sorted(urls)) if brutes else "MANQUANTE",
+        "Captures_SHA256_pistes":" | ".join(sorted({x[2] for x in brutes})) if brutes else "MANQUANTE",
+        "Captures_dates_publication_pistes":" | ".join(sorted({x[4] for x in brutes})) if brutes else "MANQUANTE",
+        "Captures_dates_collecte_UTC_pistes":" | ".join(sorted({x[5] for x in brutes})) if brutes else "MANQUANTE"}
   # Ces deux controles sont des prealables a la notation, non des notes.
   # Ne jamais utiliser Pays (place de cotation) comme domicile de l'emetteur.
   rows.append({**base,"Bloc_SSI":"IDENTITE_SCE",
