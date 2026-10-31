@@ -4,6 +4,7 @@ on:
     branches: [repair/microcaps-chain-20261030]
     paths:
       - 'SCRIPTS_ACTIFS/07Q_PREPARER_DOSSIERS_SSI.py'
+      - 'SCRIPTS_ACTIFS/07Q2_AUDIT_PREUVES_SSI.py'
       - '.github/workflows/preparer_dossiers_ssi.yml'
   workflow_dispatch:
 permissions:
