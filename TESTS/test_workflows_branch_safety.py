@@ -72,6 +72,20 @@ def executer():
     assert "  workflow_dispatch:\n" in (
         ROOT / ".github/workflows/preparer_dossiers_ssi.yml"
     ).read_text(encoding="utf-8")
+    # La collecte 40 est un workflow manuel sans écriture Git. Elle ne doit
+    # jamais tourner sur main, et une cle EODHD absente ne doit pas empecher
+    # 09D de produire les 40 statuts EN_ATTENTE_CLE.
+    collecte = (ROOT / ".github/workflows/collecte-40-titulaires.yml").read_text(encoding="utf-8")
+    assert "  collecter:\n    if: github.ref_name == 'repair/microcaps-chain-20261030'" in collecte
+    assert "          ref: ${{ github.ref_name }}" in collecte
+    assert "permissions:\n  contents: read" in collecte
+    assert "continue-on-error: true" in collecte
+    assert "python -B SCRIPTS_ACTIFS/09E_TEST_ACCES_EODHD.py" in collecte
+    assert "python -B SCRIPTS_ACTIFS/09D_COLLECTE_40_TITULAIRES.py" in collecte
+    assert collecte.index("09E_TEST_ACCES_EODHD.py") < collecte.index("09D_COLLECTE_40_TITULAIRES.py")
+    assert "DONNEES/COLLECTE_DIRECTE_40_TITULAIRES.csv" in collecte
+    assert "Score_SSI" in collecte and "Score_MCPA" in collecte
+    assert "git push" not in collecte and "ref: main" not in collecte
     print("Sécurité des branches : workflows isolés et push sur la branche déclencheuse")
 
 
