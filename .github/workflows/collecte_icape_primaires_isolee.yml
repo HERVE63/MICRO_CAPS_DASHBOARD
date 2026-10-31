@@ -27,7 +27,7 @@ jobs:
       - run: pip install pandas
       - name: Tester le collecteur historique hors reseau
         run: python -B TESTS/test_sources_officielles_hors_reseau.py
-      - name: Capturer les deux sources officielles sans aucune note
+      - name: Capturer quatre sources officielles dont deux publications datees sans notation
         run: |
           python -B SCRIPTS_ACTIFS/07AA_COLLECTE_DOCUMENTS_OFFICIELS.py \
             --registre CONFIG/DOCUMENTS_OFFICIELS_ICAPE_A_COLLECTER.csv \
@@ -38,18 +38,43 @@ jobs:
           audits=sorted(Path('AUDITS/SOURCES_OFFICIELLES').glob('*/AUDIT_DOCUMENTS.csv'))
           assert audits, 'Aucun audit de capture produit'
           df=pd.read_csv(audits[-1],dtype=str,keep_default_na=False)
-          assert len(df)==2 and df['Notes_attribuees'].eq('0').all()
+          import json
+          config=pd.read_csv('CONFIG/DOCUMENTS_OFFICIELS_ICAPE_A_COLLECTER.csv',dtype=str,keep_default_na=False)
+          assert len(config)==4 and len(df)==len(config), 'Registre ICAPE et audit divergent'
+          assert df['ID_document'].is_unique and set(df.ID_document)==set(config.ID_document)
+          assert df['Notes_attribuees'].eq('0').all()
           assert df['Statut_identite'].str.startswith('A_VERIFIER').all()
-          # Verifier les octets originaux sans confondre HTTP 200 et identite SCE.
+          nouveaux={'ICAPE_RFS_S1_2026_OFFICIEL','ICAPE_RESULTATS_S1_2026_EURONEXT'}
+          assert set(config.loc[config.Date_publication.ne(''),'ID_document'])==nouveaux
+          assert config.loc[config.ID_document.isin(nouveaux),'Source_date_publication'].str.startswith('https://').all()
+          # Chaque octet capture est contrôle; un PDF ne peut pas etre inspecte
+          # par recherche binaire de l'ISIN (texte souvent compresse).
           import hashlib
+          captures=set()
           for _,row in df.iterrows():
               if row['Statut'] != 'DOCUMENT_COLLECTE_A_VERIFIER':
-                  continue  # Les autres sources continuent en EN_ATTENTE_DATA.
+                  assert row['Statut']=='BLOQUE_SOURCE'
+                  continue  # Un document bloque reste EN_ATTENTE_DATA.
               brut=Path(row['Fichier_brut']).read_bytes()
               assert hashlib.sha256(brut).hexdigest()==row['SHA256']
-              assert b'FR001400A3Q3' in brut and b'ICAPE' in brut.upper(), 'Page non pertinente'
-              assert row['Source_URL'].startswith('https://')
-              assert row['Date_collecte_UTC']
+              assert row['Source_URL'].startswith('https://') and row['Date_collecte_UTC']
+              assert row['Statut_date_publication'] in (
+                  'DATE_DECLAREE_A_VERIFIER','INCONNUE_NE_PAS_UTILISER_RETROSPECTIVEMENT')
+              if row['ID_document']=='ICAPE_RFS_S1_2026_OFFICIEL':
+                  assert brut.startswith(b'%PDF-') and len(brut)>10000, 'Rapport PDF absent ou tronque'
+              else:
+                  assert b'FR001400A3Q3' in brut and b'ICAPE' in brut.upper(), 'Page non pertinente'
+              captures.add(row['ID_document'])
+          assert {'ICAPE_EMETTEUR_IDENTITE_20261031','ICAPE_EURONEXT_IPO_20261031'}.issubset(captures)
+          assert captures.intersection(nouveaux), 'Aucun nouveau document date capture'
+          dossier=Path(df.loc[0,'Fichier_brut']).parent
+          manifeste=json.loads((dossier/'MANIFESTE.json').read_text())
+          assert manifeste['documents_configures']==4 and manifeste['notes_attribuees']==0
+          assert manifeste['documents_collectes']==len(captures)
+          for nom,empreinte in manifeste['fichiers'].items():
+              assert hashlib.sha256((dossier/nom).read_bytes()).hexdigest()==empreinte
+          print('CAPTURES_DATEES_NON_CERTIFIEES',sorted(captures.intersection(nouveaux)))
+          print('CERTIFICATION_SCE=NON ; SSI=MANQUANTE ; MCPA=MANQUANTE')
           print('CAPTURE_ICAPE_STATUTS',df[['ID_document','Statut','Motif']].to_json(orient='records') if 'Motif' in df else df[['ID_document','Statut']].to_json(orient='records'))
           print('CERTIFICATION_SCE=NON ; SSI=MANQUANTE ; aucune promotion automatique')
           PY
