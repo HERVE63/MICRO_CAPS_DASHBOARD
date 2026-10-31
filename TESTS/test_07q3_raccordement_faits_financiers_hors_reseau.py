@@ -53,6 +53,19 @@ def test():
         assert all(r["Note_SSI"] == r["Note_MCPA"] == "MANQUANTE" for r in resultat)
         audit = lire(b / "DONNEES/AUDIT_RACCORDEMENT_FAITS_SSI.csv")
         assert len(audit) == 1 and audit[0]["Scores_attribues"] == "0"
+        # Couverture indicative B1/B2/B3 : 18 pistes déjà archivées,
+        # mais aucune transcription vérifiée, identité SCE ou note inventée.
+        couverture = lire(b / "DONNEES/COUVERTURE_OBSERVATIONS_SSI_NON_CERTIFIEES.csv")
+        assert len(couverture) == 14  # deux émetteurs x sept blocs
+        compte = {(x["Ticker"], x["Bloc_SSI"]): int(x["Nombre_observations_pistes"])
+                  for x in couverture}
+        assert [compte["Z8J.F", "B" + str(i)] for i in range(1, 8)] == [3, 5, 1, 0, 0, 0, 0]
+        assert [compte["1F6.F", "B" + str(i)] for i in range(1, 8)] == [4, 3, 2, 0, 0, 0, 0]
+        assert all(x["Note_SSI"] == x["Note_MCPA"] == "MANQUANTE" for x in couverture)
+        assert all(x["Identite_SCE_certifiee"] == "NON"
+                   and x["Transcription_chiffres_verifiee"] == "NON" for x in couverture)
+        assert all(x["Nombre_documents_SHA256_distincts"] == "1"
+                   for x in couverture if int(x["Nombre_observations_pistes"]) > 0)
         # Collision de ticker dans les dossiers SSI : aucune ligne ne doit
         # hériter silencieusement de la dernière identité rencontrée.
         dossiers_path = b / "DONNEES/DOSSIERS_SSI_A_QUALIFIER.csv"
@@ -76,6 +89,11 @@ def test():
         resultat = m.executer(b)
         assert sum(r["Statut_raccordement"] == "EN_ATTENTE_DATA_SOURCE" for r in resultat) == 9
         assert sum(r["Statut_raccordement"] == "EN_ATTENTE_DATA_IDENTITE" for r in resultat) == 9
+        couverture = lire(b / "DONNEES/COUVERTURE_OBSERVATIONS_SSI_NON_CERTIFIEES.csv")
+        assert sum(int(x["Nombre_observations_pistes"]) for x in couverture
+                   if x["Ticker"] == "Z8J.F") == 0  # source corrompue isolée
+        assert sum(int(x["Nombre_observations_pistes"]) for x in couverture
+                   if x["Ticker"] == "1F6.F") == 9
         # Une note injectée dans le registre factuel est refusée.
         chemin = b / "AUDITS/REPARATION" / m.NOMS[1]
         faits = lire(chemin)
