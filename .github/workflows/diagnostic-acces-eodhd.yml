@@ -1,0 +1,30 @@
+name: Diagnostic acces EODHD
+on:
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  diagnostic:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Tester les droits API sans exposer la cle
+        env:
+          EODHD_API_TOKEN: ${{ secrets.EODH_API_KEY }}
+        shell: bash
+        run: |
+          python - <<'PY'
+          import os, urllib.parse, urllib.request, urllib.error
+          token = os.environ.get("EODHD_API_TOKEN", "")
+          if not token:
+              print("DIAGNOSTIC CLE_ABSENTE")
+              raise SystemExit(1)
+          for name, path in [("compte", "user"), ("cours_AAPL", "eod/AAPL.US"), ("fondamentaux_AAPL", "fundamentals/AAPL.US")]:
+              url = "https://eodhd.com/api/" + path + "?" + urllib.parse.urlencode({"api_token": token, "fmt": "json"})
+              try:
+                  with urllib.request.urlopen(url, timeout=20) as response:
+                      print("DIAGNOSTIC", name, "HTTP", response.status)
+              except urllib.error.HTTPError as e:
+                  print("DIAGNOSTIC", name, "HTTP", e.code)
+              except Exception as e:
+                  print("DIAGNOSTIC", name, "ERREUR", type(e).__name__)
+          PY
