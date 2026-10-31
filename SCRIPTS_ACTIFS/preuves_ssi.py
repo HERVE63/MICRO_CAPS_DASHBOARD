@@ -82,7 +82,12 @@ def registre(base,limite=None):
     valides=d[d.Statut_verification.eq('VERIFIEE')]
     for _,r in valides[~valides.Remplace_ID.map(manquant)].iterrows():
         old=d[d.ID_preuve.eq(r.Remplace_ID)]
-        if len(old)!=1 or old.iloc[0].Ticker!=r.Ticker or old.iloc[0].Bloc!=r.Bloc:
+        # Un ticker peut changer d'émetteur (réutilisation, cotation secondaire).
+        # Un remplacement append-only ne peut révoquer qu'une preuve du MÊME
+        # émetteur réglementaire, pas celle d'un homonyme de cotation.
+        if (len(old)!=1 or old.iloc[0].Ticker!=r.Ticker
+                or old.iloc[0].Bloc!=r.Bloc
+                or old.iloc[0].Identifiant_emetteur!=r.Identifiant_emetteur):
             raise RuntimeError('Remplacement de preuve incohérent')
         if pd.Timestamp(r.Date_verification_UTC)<=pd.Timestamp(old.iloc[0].Date_verification_UTC):
             raise RuntimeError('Remplacement de preuve non postérieur')
