@@ -3,13 +3,23 @@ import pandas as pd
 B=Path(__file__).resolve().parent.parent; D=B/"DONNEES"
 SRC=D/"CANDIDATS_PRETS_SSI.csv"; OUT=D/"DOSSIERS_SSI_A_QUALIFIER.csv"; AUD=D/"AUDIT_DOSSIERS_SSI.csv"
 def archiver_registre():
- """Sauvegarde toute version précédente, y compris avant une cohorte vide."""
- if not OUT.exists():return
+ """Conserver toute version distincte, y compris avant une cohorte vide.
+
+ Une relance horaire sans changement ne doit pas republier des instantanes
+ identiques. Comparaison des octets du registre avec la derniere archive :
+ aucune annotation ni identite n'est inferee du ticker.
+ """
+ if not OUT.exists():return False
  from datetime import datetime,timezone
  import shutil
- archive=B/"AUDITS"/"DOSSIERS_SSI"/datetime.now(timezone.utc).strftime("%Y%m%dT%H%M%S%fZ")
+ racine=B/"AUDITS"/"DOSSIERS_SSI"
+ precedents=sorted(racine.glob("*/"+OUT.name)) if racine.exists() else []
+ if precedents and precedents[-1].read_bytes()==OUT.read_bytes():
+  return False
+ archive=racine/datetime.now(timezone.utc).strftime("%Y%m%dT%H%M%S%fZ")
  archive.mkdir(parents=True,exist_ok=False)
  shutil.copy2(OUT,archive/OUT.name)
+ return True
 def executer():
  # Les CIK sont des identifiants, pas des nombres : conserver leurs zéros initiaux.
  d=pd.read_csv(SRC,dtype={"Ticker":str,"CIK":str},keep_default_na=False)
