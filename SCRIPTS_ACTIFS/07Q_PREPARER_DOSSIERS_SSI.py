@@ -154,6 +154,54 @@ def executer():
   # Les données collectées ne certifient jamais une admission antérieure.
   out["SSI"]="MANQUANTE";out["Statut_SSI"]="A_REVALIDER_PREUVES_SSI"
   if a_isoler.any():out.loc[anciens_cik.index[a_isoler],"Statut_SSI"]="EN_ATTENTE_DATA_IDENTITE_CIK"
+ # Une premiere identification non-US ne peut pas provenir du ticker ni du
+ # catalogue 07D. Elle peut etre introduite par une NOUVELLE source SSI
+ # explicitement renseignee, mais uniquement si deux pieces SCE independantes
+ # sont deja dans le registre et sont re-verifiees (dates, identite, SHA256).
+ # Ce chemin n'importe aucune ancienne note et ne donne jamais de score.
+ nouvelles_identites=0
+ requis_identite={"Identifiant_emetteur_verifie","SCE_valide","Preuves_identite_SCE"}
+ if requis_identite.issubset(d.columns):
+  from preuves_ssi import (registre, verifier_identite_sce,
+                           identifiant_reglementaire_formel_valide)
+  from datetime import datetime,timezone
+  ident_source=d["Identifiant_emetteur_verifie"].astype(str).str.strip()
+  candidats=(ident_source.str.startswith(("ISIN:","LEI:"))
+             & d["SCE_valide"].astype(str).str.strip().eq("OUI")
+             & d["Preuves_identite_SCE"].astype(str).str.strip().ne(""))
+  if candidats.any():
+   try:
+    limite=datetime.now(timezone.utc)
+    preuves=registre(B,limite)
+   except (OSError,ValueError,RuntimeError) as erreur:
+    print("Premiere identite non-US refusee : registre illisible",type(erreur).__name__)
+   else:
+    for idx in d.index[candidats]:
+     ident=ident_source.at[idx]
+     cik=str(out.at[idx,"CIK"]).strip().upper()
+     if cik not in {"","MANQUANTE","NAN","NONE","N/A"}:
+      continue  # CIK present ou malforme : jamais de repli ISIN/LEI.
+     if out.at[idx,"Conflit_identite_CIK"]!="NON":
+      continue  # Une collision historique ne se leve pas automatiquement.
+     if ("Conflit_identite_CIK" in d.columns and
+         str(d.at[idx,"Conflit_identite_CIK"]).strip().upper()!="NON"):
+      continue
+     if not identifiant_reglementaire_formel_valide(ident):
+      continue
+     ligne=d.loc[idx].copy()
+     ligne["Conflit_identite_CIK"]="NON"
+     try:
+      valide=not verifier_identite_sce(ligne,preuves,B,limite)
+     except (KeyError,ValueError,TypeError,OSError):
+      valide=False
+     if not valide:
+      continue
+     if out.at[idx,"Identifiant_emetteur_verifie"]!=ident:
+      nouvelles_identites+=1
+     out.at[idx,"Identifiant_emetteur_verifie"]=ident
+     out.at[idx,"SCE_valide"]="OUI"
+     out.at[idx,"Preuves_identite_SCE"]=str(ligne["Preuves_identite_SCE"])
+     out.at[idx,"Statut_SSI"]="A_REVALIDER_PREUVES_SSI"
  # Y compris pour les nouveaux tickers absents de tout registre precedent :
  # un CIK non renseigne impose EN_ATTENTE_DATA, jamais une qualification.
  cik_absent=out["CIK"].astype(str).str.strip().str.upper().isin({"","MANQUANTE","NAN","NONE","N/A"})
@@ -162,6 +210,7 @@ def executer():
  pd.DataFrame([{"Dossiers_prets":len(out),"SSI_notes":0,"SSI_admis_65":0,
                 "Conflits_CIK":int(out["Conflit_identite_CIK"].eq("OUI").sum()),
   "Reprises_identite_ISIN_LEI_sur_preuves":reprises_identite,
+  "Nouvelles_identites_ISIN_LEI_sur_preuves":nouvelles_identites,
                 "Statut":"COLLECTE_PREUVES_SSI_REQUISE"}]).to_csv(AUD,index=False)
  print("Dossiers SSI a qualifier",len(out))
  return out
