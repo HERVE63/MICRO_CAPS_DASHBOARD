@@ -148,38 +148,38 @@ def executer():
   except RuntimeError as exc:assert "Schema archive ISIN historique incomplet" in str(exc)
   else:raise AssertionError("Archive ISIN sans nom acceptee")
   assert module.OUT.read_bytes()==avant_plan and module.AUD.read_bytes()==avant_audit
- # Panne pendant une publication 07Q2 : le dernier plan/audit valide
- # doit survivre, sans réinitialisation de l'univers ni score fabriqué.
- from unittest.mock import patch
- pd.DataFrame(fixture).to_csv(module.SRC,index=False)
- pd.DataFrame([{"Ticker":"FICTIF.F","Societe":"A","ISIN":"US0378331005"}]).to_csv(
-  module.ARCHIVE_IDENTITE,index=False)
- avant_plan=module.OUT.read_bytes()
- avant_audit=module.AUD.read_bytes()
- original_to_csv=pd.DataFrame.to_csv
- def panne_sur_temporaire(frame,chemin,*args,**kwargs):
-  if str(chemin).endswith("PLAN_COLLECTE_PREUVES_SSI.tmp"):
-   Path(chemin).write_bytes(b"TRONCATURE_PLAN_SIMULEE")
-   raise OSError("PANNE_PLAN_07Q2")
-  return original_to_csv(frame,chemin,*args,**kwargs)
- with patch.object(pd.DataFrame,"to_csv",autospec=True,side_effect=panne_sur_temporaire):
-  try:module.executer()
-  except OSError as exc:assert "PANNE_PLAN_07Q2" in str(exc)
-  else:raise AssertionError("07Q2 doit écrire le plan via un fichier temporaire")
- assert module.OUT.read_bytes()==avant_plan, "Plan valide écrasé par panne"
- assert module.AUD.read_bytes()==avant_audit, "Audit valide modifié par panne plan"
- (d/"PLAN_COLLECTE_PREUVES_SSI.tmp").unlink(missing_ok=True)
- def panne_audit(frame,chemin,*args,**kwargs):
-  if str(chemin).endswith("AUDIT_COLLECTE_PREUVES_SSI.tmp"):
-   Path(chemin).write_bytes(b"TRONCATURE_AUDIT_SIMULEE")
-   raise OSError("PANNE_AUDIT_07Q2")
-  return original_to_csv(frame,chemin,*args,**kwargs)
- with patch.object(pd.DataFrame,"to_csv",autospec=True,side_effect=panne_audit):
-  try:module.executer()
-  except OSError as exc:assert "PANNE_AUDIT_07Q2" in str(exc)
-  else:raise AssertionError("07Q2 doit écrire l'audit via un fichier temporaire")
- assert module.AUD.read_bytes()==avant_audit, "Audit valide écrasé par panne"
- (d/"AUDIT_COLLECTE_PREUVES_SSI.tmp").unlink(missing_ok=True)
+  # Panne pendant une publication 07Q2 : le dernier plan/audit valide
+  # doit survivre, sans réinitialisation de l'univers ni score fabriqué.
+  from unittest.mock import patch
+  pd.DataFrame(fixture).to_csv(module.SRC,index=False)
+  pd.DataFrame([{"Ticker":"FICTIF.F","Societe":"A","ISIN":"US0378331005"}]).to_csv(
+   module.ARCHIVE_IDENTITE,index=False)
+  avant_plan=module.OUT.read_bytes()
+  avant_audit=module.AUD.read_bytes()
+  original_to_csv=pd.DataFrame.to_csv
+  def panne_sur_temporaire(frame,chemin,*args,**kwargs):
+   if str(chemin).endswith("PLAN_COLLECTE_PREUVES_SSI.tmp"):
+    Path(chemin).write_bytes(b"TRONCATURE_PLAN_SIMULEE")
+    raise OSError("PANNE_PLAN_07Q2")
+   return original_to_csv(frame,chemin,*args,**kwargs)
+  with patch.object(pd.DataFrame,"to_csv",autospec=True,side_effect=panne_sur_temporaire):
+   try:module.executer()
+   except OSError as exc:assert "PANNE_PLAN_07Q2" in str(exc)
+   else:raise AssertionError("07Q2 doit écrire le plan via un fichier temporaire")
+  assert module.OUT.read_bytes()==avant_plan, "Plan valide écrasé par panne"
+  assert module.AUD.read_bytes()==avant_audit, "Audit valide modifié par panne plan"
+  (d/"PLAN_COLLECTE_PREUVES_SSI.tmp").unlink(missing_ok=True)
+  def panne_audit(frame,chemin,*args,**kwargs):
+   if str(chemin).endswith("AUDIT_COLLECTE_PREUVES_SSI.tmp"):
+    Path(chemin).write_bytes(b"TRONCATURE_AUDIT_SIMULEE")
+    raise OSError("PANNE_AUDIT_07Q2")
+   return original_to_csv(frame,chemin,*args,**kwargs)
+  with patch.object(pd.DataFrame,"to_csv",autospec=True,side_effect=panne_audit):
+   try:module.executer()
+   except OSError as exc:assert "PANNE_AUDIT_07Q2" in str(exc)
+   else:raise AssertionError("07Q2 doit écrire l'audit via un fichier temporaire")
+  assert module.AUD.read_bytes()==avant_audit, "Audit valide écrasé par panne"
+  (d/"AUDIT_COLLECTE_PREUVES_SSI.tmp").unlink(missing_ok=True)
  print("07Q2 OK : 2 controles + 7 blocs, ISIN historique non certifie, checksum, SHA256, ambiguite et source intacte")
 
 if __name__=="__main__":executer()
