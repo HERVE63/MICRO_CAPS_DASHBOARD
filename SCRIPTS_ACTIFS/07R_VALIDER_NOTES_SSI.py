@@ -11,11 +11,15 @@ SRC=D/'DOSSIERS_SSI_A_QUALIFIER.csv';OUT=D/'RESULTATS_SSI.csv';AUD=D/'AUDIT_SSI.
 def executer():
     if not SRC.exists():raise RuntimeError('Dossiers SSI absents')
     df=pd.read_csv(SRC,dtype=str,keep_default_na=False)
-    if df.Ticker.duplicated().any():raise RuntimeError('Tickers SSI dupliqués')
+    # Défense en profondeur : un dossier dupliqué n'empêche pas de qualifier
+    # les autres, mais ne peut jamais être noté ou admis lui-même.
+    if 'Ticker' not in df.columns:raise RuntimeError('Schema dossier SSI incomplet : Ticker')
+    cle_ticker=df.Ticker.astype(str).str.strip().str.upper()
+    ambigus=cle_ticker.duplicated(keep=False) | cle_ticker.eq('')
     if df.empty:
         df['Motif_decision_SSI']=pd.Series(dtype=str)
         df.to_csv(OUT,index=False)
-        pd.DataFrame([{'Date_validation_UTC':datetime.now(timezone.utc).isoformat(),'Dossiers':0,'Admis':0,'Refuses':0,'Refuses_plafond_sans_score_total':0,'Elimines':0,'Preuves_incompletes':0,'Identites_CIK_en_quarantaine':0}]).to_csv(AUD,index=False)
+        pd.DataFrame([{'Date_validation_UTC':datetime.now(timezone.utc).isoformat(),'Dossiers':0,'Admis':0,'Refuses':0,'Refuses_plafond_sans_score_total':0,'Elimines':0,'Preuves_incompletes':0,'Identites_CIK_en_quarantaine':0,'Dossiers_identite_ambigue':0}]).to_csv(AUD,index=False)
         print('SSI: aucun nouveau dossier qualifiable')
         return df
     # Les controles d'identite SCE et de collision CIK sont obligatoires.
@@ -29,7 +33,18 @@ def executer():
         raise RuntimeError('Schema dossier SSI incomplet (identite SCE/CIK obligatoire) : '+', '.join(sorted(absents)))
     limite=datetime.now(timezone.utc);preuves=registre(D.parent,limite)
     scores=[];statuts=[];motifs=[];partiels=[]
-    for _,r in df.iterrows():
+    for i,(_,r) in enumerate(df.iterrows()):
+        if bool(ambigus.iloc[i]):
+            # Ne même pas afficher de points partiels sur une identité ambiguë.
+            partiels.append({'Blocs_SSI_documentes':'',
+                'Nombre_blocs_SSI_documentes':0,'Points_sur_blocs_documentes':0,
+                'Maximum_blocs_documentes':0,
+                'Plafond_SSI_si_blocs_restants_maximaux':100,
+                'Portee_plafond':'NON_CALCULE_IDENTITE_AMBIGUE'})
+            scores.append('MANQUANTE')
+            statuts.append('EN_ATTENTE_DATA_IDENTITE_AMBIGUE')
+            motifs.append('Ticker vide/dupliqué : identité non univoque ; aucune notation ni admission')
+            continue
         partiels.append(bilan_blocs_documentes(r,preuves,D.parent,limite))
         # 07Q isole une collision CIK. 07R ne doit jamais transformer cette
         # quarantaine en admission, meme si d'anciennes notes et preuves sont
@@ -82,6 +97,7 @@ def executer():
     pd.DataFrame([{'Date_validation_UTC':limite.isoformat(),'Dossiers':len(df),
         'Admis':statuts.count('ADMIS_SSI'),'Refuses':statuts.count('REFUSE_SSI'),
         'Refuses_plafond_sans_score_total':statuts.count('REFUSE_SSI_PLAFOND_VERIFIE'),'Elimines':statuts.count('ELIMINE'),'Preuves_incompletes':statuts.count('A_COMPLETER_PREUVES_SSI'),
-        'Identites_CIK_en_quarantaine':statuts.count('EN_ATTENTE_DATA_IDENTITE_CIK')}]).to_csv(AUD,index=False)
+        'Identites_CIK_en_quarantaine':statuts.count('EN_ATTENTE_DATA_IDENTITE_CIK'),
+        'Dossiers_identite_ambigue':statuts.count('EN_ATTENTE_DATA_IDENTITE_AMBIGUE')}]).to_csv(AUD,index=False)
     print('SSI:',pd.Series(statuts).value_counts().to_dict());return df
 if __name__=='__main__':executer()
