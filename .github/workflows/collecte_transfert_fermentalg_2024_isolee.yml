@@ -5,7 +5,6 @@ on:
     branches: [repair/microcaps-chain-20261030]
     paths:
       - 'AUDITS/REPARATION/REGISTRE_FERMENTALG_TRANSFERT_2024.csv'
-      - '.github/workflows/collecte_transfert_fermentalg_2024_isolee.yml'
 permissions:
   contents: write
   actions: write
