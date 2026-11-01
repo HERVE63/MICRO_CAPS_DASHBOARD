@@ -63,6 +63,21 @@ def test():
     assert "/press-release/fermentalg-epa-falg-half-year-results-2026" in fer["Source_URL"]
     assert not any(c.startswith("Note_") for c in fer)
 
+    # Nouvelle source PRIMAIRE datee : elle complete l'archive S1 deja acquise,
+    # sans la recapturer et sans promouvoir la piste en preuve SSI.
+    complement = lire(BASE / "AUDITS/REPARATION/REGISTRE_COMPLEMENT_FERMENTALG_IDENTITE_20261101.csv")
+    assert len(complement) == 1
+    q1 = complement[0]
+    assert q1["ID_document"] == "FERMENTALG_Q1_2026_IDENTITE_DATEE"
+    assert q1["Ticker"] == "1F6.F" and q1["Identifiant_emetteur"] == "ISIN:FR0011271600"
+    assert q1["Date_publication"] == "2026-05-05"  # date civile publiee, pas d'heure UTC inventee
+    assert q1["Type_source"] == "PUBLICATION_EMETTEUR"
+    assert q1["Statut_identite"] == "A_VERIFIER_COTATION_1F6_F"
+    assert q1["Source_URL"] == q1["Source_habilitation_domaine"] == q1["Source_date_publication"]
+    assert q1["Domaine_autorise"] == urlparse(q1["Source_URL"]).hostname == "www.webdisclosure.fr"
+    assert q1["Source_URL"] != fer["Source_URL"]
+    assert not any(c.startswith("Note_") for c in q1)
+
     dossiers = [r for r in lire(DOSSIERS) if r["Ticker"] in ("1F6.F", "HBQ.F")]
     assert len(dossiers) == 2
     for r in dossiers:
