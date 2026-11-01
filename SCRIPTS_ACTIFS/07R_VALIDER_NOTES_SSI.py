@@ -8,6 +8,12 @@ sys.path.insert(0,str(Path(__file__).resolve().parent))
 from preuves_ssi import MAX, registre, valider_dossier, bilan_blocs_documentes, verifier_identite_sce, identifiant_dossier
 D=Path(__file__).resolve().parents[1]/'DONNEES'
 SRC=D/'DOSSIERS_SSI_A_QUALIFIER.csv';OUT=D/'RESULTATS_SSI.csv';AUD=D/'AUDIT_SSI.csv'
+def plafond_identite_non_verifiee(portee):
+    """Ne publier aucun point partiel tant que l'identite est en quarantaine."""
+    return {'Blocs_SSI_documentes':'', 'Nombre_blocs_SSI_documentes':0,
+            'Points_sur_blocs_documentes':0, 'Maximum_blocs_documentes':0,
+            'Plafond_SSI_si_blocs_restants_maximaux':100,
+            'Portee_plafond':portee}
 def executer():
     if not SRC.exists():raise RuntimeError('Dossiers SSI absents')
     df=pd.read_csv(SRC,dtype=str,keep_default_na=False)
@@ -36,21 +42,17 @@ def executer():
     for i,(_,r) in enumerate(df.iterrows()):
         if bool(ambigus.iloc[i]):
             # Ne même pas afficher de points partiels sur une identité ambiguë.
-            partiels.append({'Blocs_SSI_documentes':'',
-                'Nombre_blocs_SSI_documentes':0,'Points_sur_blocs_documentes':0,
-                'Maximum_blocs_documentes':0,
-                'Plafond_SSI_si_blocs_restants_maximaux':100,
-                'Portee_plafond':'NON_CALCULE_IDENTITE_AMBIGUE'})
+            partiels.append(plafond_identite_non_verifiee('NON_CALCULE_IDENTITE_AMBIGUE'))
             scores.append('MANQUANTE')
             statuts.append('EN_ATTENTE_DATA_IDENTITE_AMBIGUE')
             motifs.append('Ticker vide/dupliqué : identité non univoque ; aucune notation ni admission')
             continue
-        partiels.append(bilan_blocs_documentes(r,preuves,D.parent,limite))
         # 07Q isole une collision CIK. 07R ne doit jamais transformer cette
         # quarantaine en admission, meme si d'anciennes notes et preuves sont
         # reintroduites par erreur ou si leur verification individuelle reussit.
         # Le controle est independant de la qualite des autres dossiers.
         if str(r.get('Conflit_identite_CIK','NON')).strip().upper()=='OUI':
+            partiels.append(plafond_identite_non_verifiee('NON_CALCULE_IDENTITE_CIK'))
             scores.append('MANQUANTE')
             statuts.append('EN_ATTENTE_DATA_IDENTITE_CIK')
             motifs.append('Collision CIK non levee par verification independante : notation et admission interdites')
@@ -61,10 +63,12 @@ def executer():
         # interdit le repli ISIN/LEI. Chaque ligne reste indépendante.
         ident=identifiant_dossier(r)
         if not ident:
+            partiels.append(plafond_identite_non_verifiee('NON_CALCULE_IDENTITE_CIK'))
             scores.append('MANQUANTE')
             statuts.append('EN_ATTENTE_DATA_IDENTITE_CIK')
             motifs.append('Identifiant réglementaire absent/invalide/contradictoire : deux preuves SCE primaires requises ; notation interdite')
             continue
+        partiels.append(bilan_blocs_documentes(r,preuves,D.parent,limite))
         notes,erreurs=valider_dossier(r,preuves,D.parent,limite)
         # Une exclusion elle aussi doit avoir une référence vérifiée avant publication.
         if r.Decision_eliminatoire=='OUI':
