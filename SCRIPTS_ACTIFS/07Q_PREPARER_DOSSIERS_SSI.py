@@ -23,7 +23,28 @@ def archiver_registre():
 def executer():
  # Les CIK sont des identifiants, pas des nombres : conserver leurs zéros initiaux.
  d=pd.read_csv(SRC,dtype={"Ticker":str,"CIK":str},keep_default_na=False)
- if d["Ticker"].duplicated().any():raise RuntimeError("Tickers source SSI dupliques : identite ambiguë")
+ # Les homonymes/duplicatas et les tickers vides sont mis en quarantaine,
+ # sans interrompre les autres candidats ni reprendre une annotation par ticker.
+ quarantaines=[]
+ def isoler_ambigus(table,origine):
+  cles=table["Ticker"].astype(str).str.strip().str.upper()
+  ambigu=cles.duplicated(keep=False) | cles.eq("")
+  for cle in sorted(set(cles[ambigu])):
+   groupe=table.loc[cles.eq(cle)]
+   ciks=sorted({str(v).strip() for v in groupe["CIK"] if str(v).strip()}) if "CIK" in groupe else []
+   quarantaines.append({"Origine":origine,"Ticker_normalise":cle,
+    "Lignes":len(groupe),"CIK_sources":"|".join(ciks),
+    "Motif":"TICKER_VIDE" if not cle else "TICKER_DUPLIQUE",
+    "Statut":"EN_ATTENTE_DATA_IDENTITE_AMBIGUE"})
+  return table.loc[~ambigu].copy()
+ def publier_quarantaine():
+  destination=D/"QUARANTAINE_DOUBLONS_SSI.csv"
+  tmp=destination.with_suffix(".tmp")
+  pd.DataFrame(quarantaines,columns=["Origine","Ticker_normalise","Lignes",
+   "CIK_sources","Motif","Statut"]).to_csv(tmp,index=False)
+  tmp.replace(destination)
+ d["Ticker"]=d["Ticker"].astype(str).str.strip()
+ d=isoler_ambigus(d,"CANDIDATS_PRETS_SSI")
  if "Date_scan_fond" not in d.columns:
   if "Date_scan" in d.columns:
    d["Date_scan_fond"]=d["Date_scan"]
@@ -35,8 +56,11 @@ def executer():
   for b in ("B1","B2","B3","B4","B5","B6","B7"):
    colonnes.extend(["Note_"+b,"Preuve_"+b])
   archiver_registre()
+  publier_quarantaine()
   pd.DataFrame(columns=colonnes).to_csv(OUT,index=False)
-  pd.DataFrame([{"Dossiers_prets":0,"SSI_notes":0,"SSI_admis_65":0,"Conflits_CIK":0,"Statut":"EN_ATTENTE_DATA"}]).to_csv(AUD,index=False)
+  pd.DataFrame([{"Dossiers_prets":0,"SSI_notes":0,"SSI_admis_65":0,"Conflits_CIK":0,
+   "Lignes_source_quarantaine":sum(x["Lignes"] for x in quarantaines if x["Origine"]=="CANDIDATS_PRETS_SSI"),
+   "Lignes_ancien_registre_quarantaine":0,"Statut":"EN_ATTENTE_DATA"}]).to_csv(AUD,index=False)
   return pd.DataFrame(columns=colonnes)
  # Les 7 blocs du SSI maître. Les variables observées sont exposées, aucune note n'est inventée.
  out=pd.DataFrame({
@@ -73,8 +97,10 @@ def executer():
  reprises_identite=0
  if OUT.exists():
   ancien=pd.read_csv(OUT,dtype=str,keep_default_na=False)
-  if ancien["Ticker"].duplicated().any():raise RuntimeError("Ancien registre SSI dupliqué")
+  # Toujours archiver les octets historiques avant d'isoler leurs doublons.
+  # Aucun champ humain d'un ancien ticker ambigu ne doit être réutilisé.
   archiver_registre()
+  ancien=isoler_ambigus(ancien,"DOSSIERS_SSI_HISTORIQUE")
   # Le ticker n'est pas une identité stable. Le CIK de la nouvelle collecte
   # prime s'il est renseigné ; l'ancien CIK n'est JAMAIS repris si la
   # nouvelle source n'en fournit pas. Une divergence ou une identité
@@ -206,8 +232,11 @@ def executer():
  # un CIK non renseigne impose EN_ATTENTE_DATA, jamais une qualification.
  cik_absent=out["CIK"].astype(str).str.strip().str.upper().isin({"","MANQUANTE","NAN","NONE","N/A"})
  out.loc[cik_absent & out["Identifiant_emetteur_verifie"].eq("MANQUANTE"),"Statut_SSI"]="EN_ATTENTE_DATA_IDENTITE_CIK"
+ publier_quarantaine()
  tmp=OUT.with_suffix(".tmp");out.to_csv(tmp,index=False);tmp.replace(OUT)
  pd.DataFrame([{"Dossiers_prets":len(out),"SSI_notes":0,"SSI_admis_65":0,
+  "Lignes_source_quarantaine":sum(x["Lignes"] for x in quarantaines if x["Origine"]=="CANDIDATS_PRETS_SSI"),
+  "Lignes_ancien_registre_quarantaine":sum(x["Lignes"] for x in quarantaines if x["Origine"]=="DOSSIERS_SSI_HISTORIQUE"),
                 "Conflits_CIK":int(out["Conflit_identite_CIK"].eq("OUI").sum()),
   "Reprises_identite_ISIN_LEI_sur_preuves":reprises_identite,
   "Nouvelles_identites_ISIN_LEI_sur_preuves":nouvelles_identites,
