@@ -20,23 +20,26 @@ def executer():
     # Défense en profondeur : un dossier dupliqué n'empêche pas de qualifier
     # les autres, mais ne peut jamais être noté ou admis lui-même.
     if 'Ticker' not in df.columns:raise RuntimeError('Schema dossier SSI incomplet : Ticker')
-    cle_ticker=df.Ticker.astype(str).str.strip().str.upper()
-    ambigus=cle_ticker.duplicated(keep=False) | cle_ticker.eq('')
-    if df.empty:
-        df['Motif_decision_SSI']=pd.Series(dtype=str)
-        df.to_csv(OUT,index=False)
-        pd.DataFrame([{'Date_validation_UTC':datetime.now(timezone.utc).isoformat(),'Dossiers':0,'Admis':0,'Refuses':0,'Refuses_plafond_sans_score_total':0,'Elimines':0,'Preuves_incompletes':0,'Identites_CIK_en_quarantaine':0,'Dossiers_identite_ambigue':0}]).to_csv(AUD,index=False)
-        print('SSI: aucun nouveau dossier qualifiable')
-        return df
-    # Les controles d'identite SCE et de collision CIK sont obligatoires.
-    # Sans ces colonnes, valider_dossier() pourrait ignorer le controle SCE
-    # et une ancienne cohorte pourrait etre admise sur les sept notes seules.
+    # Vérifier le contrat SSI même avec zéro ligne : une collecte vide ne
+    # doit pas masquer un schéma cassé et donner un faux succès à la CI.
     requis={'Ticker','CIK','SCE_valide','Preuves_identite_SCE',
            'Conflit_identite_CIK','Decision_eliminatoire','Motif_eliminatoire',
            *[p+b for b in MAX for p in ('Note_','Preuve_')]}
     absents=requis-set(df.columns)
     if absents:
         raise RuntimeError('Schema dossier SSI incomplet (identite SCE/CIK obligatoire) : '+', '.join(sorted(absents)))
+    cle_ticker=df.Ticker.astype(str).str.strip().str.upper()
+    ambigus=cle_ticker.duplicated(keep=False) | cle_ticker.eq('')
+    if df.empty:
+        df['SSI']=pd.Series(dtype=str)
+        df['Statut_SSI']=pd.Series(dtype=str)
+        df['Motif_decision_SSI']=pd.Series(dtype=str)
+        for champ in plafond_identite_non_verifiee('NON_CALCULE_COHORTE_VIDE'):
+            df[champ]=pd.Series(dtype=str)
+        df.to_csv(OUT,index=False)
+        pd.DataFrame([{'Date_validation_UTC':datetime.now(timezone.utc).isoformat(),'Dossiers':0,'Admis':0,'Refuses':0,'Refuses_plafond_sans_score_total':0,'Elimines':0,'Preuves_incompletes':0,'Identites_CIK_en_quarantaine':0,'Dossiers_identite_ambigue':0}]).to_csv(AUD,index=False)
+        print('SSI: aucun nouveau dossier qualifiable')
+        return df
     limite=datetime.now(timezone.utc);preuves=registre(D.parent,limite)
     scores=[];statuts=[];motifs=[];partiels=[]
     for i,(_,r) in enumerate(df.iterrows()):
