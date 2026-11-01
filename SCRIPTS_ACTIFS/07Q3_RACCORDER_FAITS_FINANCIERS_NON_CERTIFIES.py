@@ -45,7 +45,7 @@ def date_utc(value):
     """
     texte = str(value).strip()
     if not re.fullmatch(
-        r"\\d{4}-\\d{2}-\\d{2}T\\d{2}:\\d{2}:\\d{2}(?:\\.\\d+)?(?:Z|\\+00:00)",
+        r"\d{4}-\d{2}-\d{2}T\d{2}:\d{2}:\d{2}(?:\.\d+)?(?:Z|\+00:00)",
         texte,
     ):
         raise ValueError("Horodatage sans heure et UTC explicites")
@@ -106,7 +106,7 @@ def controler_ligne(r, dossiers, archives, racine, maintenant):
         # Une période comptable est une DATE civile, pas un horodatage
         # qu'on pourrait décaler ou tronquer silencieusement.
         periode = r["Periode_cloture"]
-        if not re.fullmatch(r"\\d{4}-\\d{2}-\\d{2}", periode):
+        if not re.fullmatch(r"\d{4}-\d{2}-\d{2}", periode):
             raise ValueError("Période de clôture non civile")
         cloture = datetime.fromisoformat(periode).replace(tzinfo=timezone.utc)
         if not (cloture <= publ <= capture <= maintenant):
