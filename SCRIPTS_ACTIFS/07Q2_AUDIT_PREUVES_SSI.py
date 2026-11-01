@@ -141,7 +141,12 @@ def indexer_captures_primaires():
     ident=ligne["Identifiant_emetteur"].strip()
     url=ligne["Source_URL"].strip()
     sha=ligne["SHA256"].strip()
-    date_capture=pd.to_datetime(ligne["Date_collecte_UTC"],utc=True,errors="coerce")
+    # Un horodatage de collecte sans fuseau est ambigu et ne doit pas etre
+    # converti implicitement en UTC par pandas. Meme exigence que 07R.
+    collecte_brute=str(ligne["Date_collecte_UTC"]).strip()
+    if not re.fullmatch(r"\d{4}-\d{2}-\d{2}T\d{2}:\d{2}:\d{2}(?:\.\d+)?(?:Z|\+00:00)",collecte_brute):
+     refuser("DATE_COLLECTE_SANS_UTC_EXPLICITE")
+    date_capture=pd.to_datetime(collecte_brute,utc=True,errors="coerce")
     date_pub=pd.to_datetime(ligne.get("Date_publication",""),utc=True,errors="coerce")
     if not ticker:refuser("TICKER_ABSENT")
     if not identifiant_reglementaire_formel_valide(ident):refuser("IDENTIFIANT_REGLEMENTAIRE_INVALIDE")
@@ -186,7 +191,7 @@ def indexer_captures_primaires():
     invalides+=1
     code=(str(erreur) if isinstance(erreur,ValueError) and str(erreur) in {
       "TICKER_ABSENT","IDENTIFIANT_REGLEMENTAIRE_INVALIDE","URL_NON_HTTPS",
-      "TYPE_SOURCE_NON_PRIMAIRE","DATE_COLLECTE_INVALIDE","DATE_COLLECTE_FUTURE",
+      "TYPE_SOURCE_NON_PRIMAIRE","DATE_COLLECTE_INVALIDE","DATE_COLLECTE_SANS_UTC_EXPLICITE","DATE_COLLECTE_FUTURE",
       "DATE_PUBLICATION_INVALIDE","DATE_PUBLICATION_APRES_COLLECTE",
       "SHA256_MALFORME","CHEMIN_HORS_ARCHIVE","SHA256_MANIFESTE_BRUT_DIVERGENT",
       "SHA256_BRUT_DIVERGENT","STATUT_DATE_PUBLICATION_INCOHERENT"}
