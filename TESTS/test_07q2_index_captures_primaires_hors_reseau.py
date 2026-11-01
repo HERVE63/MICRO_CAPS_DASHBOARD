@@ -157,6 +157,26 @@ def tester():
         assert int(__import__("pandas").read_csv(module.AUD).iloc[0].Captures_invalides_exclues)==1
         assert anomalies()[0]["Code_anomalie"]=="DATE_PUBLICATION_INVALIDE"
 
+        # Un horodatage de collecte sans UTC explicite ne doit jamais
+        # etre interprete comme UTC par pandas. Les autres candidats restent.
+        for collecte_invalide in (
+            "2026-10-31T17:31:26",
+            "2026-10-31T17:31:26+01:00",
+            "2026-10-31 17:31:26+00:00",
+        ):
+            enregistrer([dict(ligne,Date_collecte_UTC=collecte_invalide)])
+            plan=module.executer()
+            p=plan[(plan.Ticker=="FICTIF.F")&(plan.Bloc_SSI=="IDENTITE_SCE")].iloc[0]
+            assert p.Captures_primaires_SHA256_OK_pistes=="0"
+            assert anomalies()[0]["Code_anomalie"]=="DATE_COLLECTE_SANS_UTC_EXPLICITE"
+            assert plan[(plan.Ticker=="AUTRE.F")&(plan.Bloc_SSI=="IDENTITE_SCE")].shape[0]==1
+            assert not (plan.Preuve_validee=="OUI").any()
+        # La forme Z UTC valide reste acceptee sans creer de preuve certifiee.
+        enregistrer([dict(ligne,Date_collecte_UTC=date.replace("+00:00","Z"))])
+        plan=module.executer()
+        assert plan[(plan.Ticker=="FICTIF.F")&(plan.Bloc_SSI=="IDENTITE_SCE")].iloc[0].Captures_primaires_SHA256_OK_pistes=="1"
+        assert not (plan.Preuve_validee=="OUI").any()
+
         # Un type de source non primaire est refuse meme avec un SHA correct.
         enregistrer([dict(ligne,Type_source="FORUM")])
         plan=module.executer()
