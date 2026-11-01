@@ -69,6 +69,19 @@ def executer():
             'echo "published=true" >> "$GITHUB_OUTPUT"') < s.index(
             "gh workflow run preparer_dossiers_ssi.yml"), nom
         assert "git push origin main" not in s and "ref: main" not in s, nom
+    # Une modification du workflow de capture ne doit pas relancer une
+    # collecte de document primaire deja archive (eviter les doublons).
+    transfert = (ROOT / ".github/workflows/collecte_transfert_fermentalg_2024_isolee.yml").read_text(encoding="utf-8")
+    bloc_push = transfert.split("  push:\n", 1)[1].split("permissions:\n", 1)[0]
+    assert "branches: [repair/microcaps-chain-20261030]" in bloc_push
+    assert "      - 'AUDITS/REPARATION/REGISTRE_FERMENTALG_TRANSFERT_2024.csv'" in bloc_push
+    assert "collecte_transfert_fermentalg_2024_isolee.yml" not in bloc_push, (
+        "Une edition du workflow recapturerait le meme document historique"
+    )
+    assert "  workflow_dispatch:\n" in transfert
+    assert "  contents: write" in transfert and "  actions: write" in transfert
+    assert "github.ref_name == 'repair/microcaps-chain-20261030'" in transfert
+    assert "git push origin main" not in transfert
     assert "  workflow_dispatch:\n" in (
         ROOT / ".github/workflows/preparer_dossiers_ssi.yml"
     ).read_text(encoding="utf-8")
