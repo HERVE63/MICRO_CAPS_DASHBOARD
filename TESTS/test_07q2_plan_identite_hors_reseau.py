@@ -108,6 +108,23 @@ def executer():
   assert identite.Statut=="EN_ATTENTE_DATA_IDENTITE_CIK"
   assert identite.Preuve_validee=="NON"
   assert not (plan.Preuve_validee=="OUI").any()
+  # Regression : deux variantes du meme ticker et un ticker vide ne
+  # doivent jamais bloquer un candidat independant ni recevoir de notes.
+  doublon=dict(fixture[0],Ticker=" fictif.f ")
+  sans_ticker=dict(fixture[0],Ticker="  ")
+  pd.DataFrame(fixture+[doublon,sans_ticker]).to_csv(module.SRC,index=False)
+  plan=module.executer()
+  assert len(plan)==9 and set(plan.Ticker)=={"FICTIF.US"}
+  quarantaine=pd.read_csv(d/"QUARANTAINE_PLAN_SSI.csv",dtype=str,keep_default_na=False)
+  assert {r.Ticker_normalise:int(r.Lignes) for _,r in quarantaine.iterrows()}=={"":1,"FICTIF.F":2}
+  assert set(quarantaine.Statut)=={"EN_ATTENTE_DATA_IDENTITE_AMBIGUE"}
+  audit=pd.read_csv(module.AUD).iloc[0]
+  assert int(audit.Dossiers)==1 and int(audit.Dossiers_en_quarantaine)==3
+  assert not (plan.Preuve_validee=="OUI").any() and set(plan.Note_presente)=={"NON"}
+  # Tous les dossiers ambigus : plan vide, mais aucune exception globale.
+  pd.DataFrame([fixture[0],doublon,sans_ticker]).to_csv(module.SRC,index=False)
+  plan=module.executer()
+  assert plan.empty and int(pd.read_csv(module.AUD).iloc[0].Dossiers_en_quarantaine)==3
   pd.DataFrame(columns=fixture[0].keys()).to_csv(module.SRC,index=False)
   vide=module.executer()
   assert vide.empty and list(vide.columns)==module.COLONNES
