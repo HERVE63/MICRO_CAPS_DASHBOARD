@@ -54,8 +54,9 @@ def tester():
         audit=dossier/"AUDIT_DOCUMENTS.csv"
         def enregistrer(lignes):
             csv_ecrire(audit,colonnes,lignes)
-            manifeste={"fichiers":{"AUDIT_DOCUMENTS.csv":hashlib.sha256(audit.read_bytes()).hexdigest(),
-                                   brut.name:sha}}
+            fichiers={p.name:hashlib.sha256(p.read_bytes()).hexdigest() for p in dossier.glob("*.bin")}
+            fichiers["AUDIT_DOCUMENTS.csv"]=hashlib.sha256(audit.read_bytes()).hexdigest()
+            manifeste={"fichiers":fichiers}
             (dossier/"MANIFESTE.json").write_text(json.dumps(manifeste),encoding="utf-8")
         def anomalies():
             with module.ANOMALIES.open(encoding="utf-8",newline="") as f:
@@ -79,6 +80,38 @@ def tester():
         assert autre.Captures_primaires_SHA256_OK_pistes=="0"
         assert int(__import__("pandas").read_csv(module.AUD).iloc[0].Captures_primaires_SHA256_OK_pistes)==2
         assert anomalies()==[], "Aucune anomalie dans la fixture saine"
+        import pandas as pd
+        file_revue=pd.read_csv(module.D/"FILE_CERTIFICATION_IDENTITES_SSI.csv",dtype=str,keep_default_na=False)
+        assert len(file_revue)==2
+        ligne_revue=file_revue.set_index("Ticker").loc["FICTIF.F"]
+        assert ligne_revue.Priorite_revue_documentaire=="P2_PISTES_PRIMAIRES_A_COMPLETER"
+        assert ligne_revue.URLs_distinctes_pistes=="1"
+        assert ligne_revue.Statut_certification=="PISTES_NON_CERTIFIEES"
+        assert ligne_revue.Qualification_economique=="NON_CALCULEE_PAR_CET_AUDIT"
+        assert file_revue.set_index("Ticker").loc["AUTRE.F"].Priorite_revue_documentaire=="P4_AUCUNE_PISTE_PRIMAIRE"
+
+        # Deux domaines et deux octets distincts priorisent la revue,
+        # mais n'autorisent jamais une validation SCE ni une note.
+        octets2=b"Deuxieme document primaire fictif et distinct"
+        sha2=hashlib.sha256(octets2).hexdigest()
+        brut2=dossier/(sha2+".bin")
+        brut2.write_bytes(octets2)
+        ligne2=dict(ligne,ID_document="TEST_AUTRE",
+                    Source_URL="https://regulateur.test/fiche",
+                    SHA256=sha2,Fichier_brut=str(brut2.relative_to(base)),
+                    Date_publication="2026-10-01",
+                    Statut_date_publication="DATE_DECLAREE_A_VERIFIER")
+        enregistrer([ligne,ligne2])
+        plan=module.executer()
+        file_revue=pd.read_csv(module.D/"FILE_CERTIFICATION_IDENTITES_SSI.csv",dtype=str,keep_default_na=False)
+        ligne_revue=file_revue.set_index("Ticker").loc["FICTIF.F"]
+        assert ligne_revue.Priorite_revue_documentaire=="P1_PISTES_MULTIDOMAINES_A_CERTIFIER"
+        assert ligne_revue.Domaines_hebergement_distincts_pistes=="2"
+        assert ligne_revue.SHA256_distincts_pistes=="2"
+        assert ligne_revue.Publications_date_inconnue=="1"
+        assert ligne_revue.Statut_certification=="PISTES_NON_CERTIFIEES"
+        assert not (plan.Preuve_validee=="OUI").any()
+        enregistrer([ligne,dict(ligne,ID_document="TEST_BIS")])
 
         # Un document corrompu est ignoré, sans bloquer le candidat voisin.
         brut.write_bytes(octets+b"alteration")
