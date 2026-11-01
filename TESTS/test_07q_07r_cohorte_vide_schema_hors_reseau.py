@@ -56,6 +56,29 @@ def executer():
         good_output = output.read_bytes()
         good_audit = audit.read_bytes()
 
+        # Reprise sur incident : une ecriture partielle doit toucher uniquement
+        # le fichier temporaire, jamais le dernier RESULTATS_SSI valide.
+        # Panne injectee sur une copie temporaire, sans donnees reelles.
+        import importlib.util
+        from unittest.mock import patch
+        spec = importlib.util.spec_from_file_location("ssi_07r_panne_test", scripts / MODULES[1])
+        module = importlib.util.module_from_spec(spec)
+        spec.loader.exec_module(module)
+        def panne_disque(_frame, chemin, *args, **kwargs):
+            chemin = Path(chemin)
+            chemin.write_bytes(b"RESULTAT_TRONQUE_PANNE_SIMULEE")
+            raise OSError("PANNE_DISQUE_SIMULEE")
+        with patch.object(pd.DataFrame, "to_csv", autospec=True, side_effect=panne_disque):
+            try:
+                module.executer()
+            except OSError as exc:
+                assert "PANNE_DISQUE_SIMULEE" in str(exc)
+            else:
+                raise AssertionError("La panne d'ecriture aurait du interrompre 07R")
+        assert output.read_bytes() == good_output, "07R a tronque un resultat valide lors d'une panne"
+        assert audit.read_bytes() == good_audit, "07R a modifie l'audit lors d'une panne"
+        (data / "RESULTATS_SSI.tmp").unlink(missing_ok=True)
+
         # Une cohorte vide dont le champ de collision a disparu est un
         # incident de contrat, pas une qualification SSI réussie.
         pd.read_csv(dossiers, dtype=str).drop(columns=["Conflit_identite_CIK"]).to_csv(dossiers, index=False)
