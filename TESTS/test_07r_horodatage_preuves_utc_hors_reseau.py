@@ -43,13 +43,16 @@ def test():
             "2026-01-02T01:00:00+01:00",
             "2026-01-02T00:00:00-00:00",
             "2026-02-30T00:00:00Z",
-            "2999-01-01T00:00:00Z",
             "",
         ):
             r["Date_verification_UTC"] = mauvais
             assert not horodatage_verification_utc_strict(mauvais), mauvais
             assert any("UTC explicite" in e for e in verifier(
                 pd.Series(r), "FIX.US", "B1", root)), mauvais
+        r["Date_verification_UTC"] = "2999-01-01T00:00:00Z"
+        assert horodatage_verification_utc_strict(r["Date_verification_UTC"])
+        assert any("dates futures" in e for e in verifier(
+            pd.Series(r), "FIX.US", "B1", root))
         assert brut.read_bytes() == avant
     print("07R : horodatages UTC explicites et documents fictifs SHA256 vérifiés")
 
