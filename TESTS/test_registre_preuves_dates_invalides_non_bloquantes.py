@@ -52,8 +52,9 @@ def test():
         preuves = registre(root, datetime(2026, 11, 1, tzinfo=timezone.utc))
         ids = set(preuves.ID_preuve)
         # Les dates invalides restent traçables et sont rejetées par verifier().
-        assert {"OK_A", "MAUVAIS_B", "OLD_C", "NEW_C",
-                "OLD_D", "NEW_D"} <= ids
+        assert {"OK_A", "MAUVAIS_B", "OLD_C", "OLD_D"} <= ids
+        assert "NEW_C" not in ids and "NEW_D" not in ids, (
+            "Remplacements aux dates non vérifiables exclus du registre ACTIF")
         assert verifier(preuves[preuves.ID_preuve.eq("OK_A")].iloc[0],
                         "A.US", "B1", root) == []
         assert any("dates" in e for e in verifier(
