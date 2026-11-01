@@ -32,14 +32,25 @@ def test():
         assert m.verifier_montant(valeur), valeur
     for valeur in ("1,2,3", "123,4", "1,000,0", "01,000", "(-12)", "NaN", "1e6", "(3,904", "3,904)"):
         assert not m.verifier_montant(valeur), valeur
-    for date in ("2026-10-01T05:45:00", "2026-10-01"):
+    # Provenance stricte, cohérente avec 07Q2 et 07R : les fuseaux
+    # non UTC, les heures absentes et les formats ambigus sont refusés.
+    for date in (
+        "2026-10-01T05:45:00", "2026-10-01",
+        "2026-10-01T06:45:00+01:00",
+        "2026-09-30T23:45:00-06:00",
+        "2026-10-01T05:45:00+0000",
+        "2026-10-01T05:45:00z",
+        "2026-10-01T05:45Z",
+        "2026-13-01T05:45:00Z",
+    ):
         try:
             m.date_utc(date)
         except ValueError:
             pass
         else:
-            raise AssertionError("Date sans fuseau acceptée : " + date)
+            raise AssertionError("Date de provenance ambiguë acceptée : " + date)
     assert m.date_utc("2026-10-01T05:45:00Z").isoformat() == "2026-10-01T05:45:00+00:00"
+    assert m.date_utc("2026-10-01T05:45:00.123456+00:00").isoformat() == "2026-10-01T05:45:00.123456+00:00"
     with tempfile.TemporaryDirectory() as t:
         b = Path(t)
         (b / "DONNEES").mkdir()
@@ -124,6 +135,27 @@ def test():
         resultat = m.executer(b)
         assert sum(r["Statut_raccordement"] == "EN_ATTENTE_DATA_IDENTITE_AMBIGUE" for r in resultat) == 9
         ecrire(dossiers_path, dossiers_originaux)
+        # Un seul fait à horodatage non UTC reste EN_ATTENTE_DATA_DATES,
+        # sans bloquer les 17 autres faits ni publier de note.
+        dates_non_utc = [dict(x) for x in faits_icape]
+        dates_non_utc[0]["Date_collecte_UTC"] = "2026-10-31T11:32:36.976336+01:00"
+        ecrire(chemin_icape, dates_non_utc)
+        controle_dates = m.executer(b)
+        assert len(controle_dates) == 18
+        assert sum(x["Statut_raccordement"] == "EN_ATTENTE_DATA_DATES"
+                   for x in controle_dates) == 1
+        assert sum(x["Statut_raccordement"] == "PISTE_FINANCIERE_SHA256_OK_NON_CERTIFIEE"
+                   for x in controle_dates) == 8
+        assert all(x["Note_SSI"] == x["Note_MCPA"] == "MANQUANTE"
+                   for x in controle_dates)
+        # Une période comptable ne peut pas contenir une heure ni un fuseau.
+        periode_non_civile = [dict(x) for x in faits_icape]
+        periode_non_civile[0]["Periode_cloture"] = "2026-06-30T00:00:00+00:00"
+        ecrire(chemin_icape, periode_non_civile)
+        controle_periode = m.executer(b)
+        assert sum(x["Statut_raccordement"] == "EN_ATTENTE_DATA_DATES"
+                   for x in controle_periode) == 1
+        ecrire(chemin_icape, faits_icape)
         # Une source corrompue ne bloque pas les autres : refus local des 9 faits ICAPE.
         brut = b / "AUDITS/SOURCES_OFFICIELLES" / CAPTURES[0] / (
             "05605e38d3a3e9778d3d8468b613752fe54ef2bbe529bd109b5c622824b0669c.bin")
