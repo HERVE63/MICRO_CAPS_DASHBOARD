@@ -36,8 +36,14 @@ def executer():
         df['Motif_decision_SSI']=pd.Series(dtype=str)
         for champ in plafond_identite_non_verifiee('NON_CALCULE_COHORTE_VIDE'):
             df[champ]=pd.Series(dtype=str)
-        df.to_csv(OUT,index=False)
-        pd.DataFrame([{'Date_validation_UTC':datetime.now(timezone.utc).isoformat(),'Dossiers':0,'Admis':0,'Refuses':0,'Refuses_plafond_sans_score_total':0,'Elimines':0,'Preuves_incompletes':0,'Identites_CIK_en_quarantaine':0,'Dossiers_identite_ambigue':0}]).to_csv(AUD,index=False)
+        # Publication atomique, y compris en cohorte vide : une panne
+        # d'ecriture ne doit jamais tronquer le dernier resultat valide.
+        tmp=OUT.with_suffix('.tmp')
+        df.to_csv(tmp,index=False)
+        tmp.replace(OUT)
+        tmp_aud=AUD.with_suffix('.tmp')
+        pd.DataFrame([{'Date_validation_UTC':datetime.now(timezone.utc).isoformat(),'Dossiers':0,'Admis':0,'Refuses':0,'Refuses_plafond_sans_score_total':0,'Elimines':0,'Preuves_incompletes':0,'Identites_CIK_en_quarantaine':0,'Dossiers_identite_ambigue':0}]).to_csv(tmp_aud,index=False)
+        tmp_aud.replace(AUD)
         print('SSI: aucun nouveau dossier qualifiable')
         return df
     limite=datetime.now(timezone.utc);preuves=registre(D.parent,limite)
@@ -113,6 +119,7 @@ def executer():
         'Admis':statuts.count('ADMIS_SSI'),'Refuses':statuts.count('REFUSE_SSI'),
         'Refuses_plafond_sans_score_total':statuts.count('REFUSE_SSI_PLAFOND_VERIFIE'),'Elimines':statuts.count('ELIMINE'),'Preuves_incompletes':statuts.count('A_COMPLETER_PREUVES_SSI'),
         'Identites_CIK_en_quarantaine':statuts.count('EN_ATTENTE_DATA_IDENTITE_CIK'),
-        'Dossiers_identite_ambigue':statuts.count('EN_ATTENTE_DATA_IDENTITE_AMBIGUE')}]).to_csv(AUD,index=False)
+        'Dossiers_identite_ambigue':statuts.count('EN_ATTENTE_DATA_IDENTITE_AMBIGUE')}]).to_csv(AUD.with_suffix('.tmp'),index=False)
+    AUD.with_suffix('.tmp').replace(AUD)
     print('SSI:',pd.Series(statuts).value_counts().to_dict());return df
 if __name__=='__main__':executer()
