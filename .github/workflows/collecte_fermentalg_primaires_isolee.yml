@@ -4,9 +4,7 @@ on:
   push:
     branches: [repair/microcaps-chain-20261030]
     paths:
-      - 'CONFIG/DOCUMENTS_OFFICIELS_A_COLLECTER.csv'
       - 'AUDITS/REPARATION/REGISTRE_COMPLEMENT_FERMENTALG_IDENTITE_20261101.csv'
-      - '.github/workflows/collecte_fermentalg_primaires_isolee.yml'
 permissions:
   contents: write
   actions: write
