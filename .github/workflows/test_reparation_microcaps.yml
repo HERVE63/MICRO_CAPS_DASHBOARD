@@ -185,6 +185,8 @@ jobs:
         run: python -B TESTS/test_notes_documentaires_ssi_hors_reseau.py
       - name: Rejeter preuves SSI sans heure de verification UTC explicite
         run: python -B TESTS/test_07r_horodatage_preuves_utc_hors_reseau.py
+      - name: Ne pas bloquer les autres dossiers pour une date de preuve corrompue
+        run: python -B TESTS/test_registre_preuves_dates_invalides_non_bloquantes.py
       - name: Audit de completude attendu BLOQUE tant que SSI et MCPA ne sont pas qualifies
         run: |
           python - <<'PY'
