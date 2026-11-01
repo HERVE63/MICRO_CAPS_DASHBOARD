@@ -34,7 +34,20 @@ class Texte(HTMLParser):
 
 def test(capture=None):
     rows = lignes(REG)
-    assert len(rows) == 1, "Le registre de capture doit etre isole"
+    assert len(rows) == 2, "Le registre doit limiter la collecte a deux operateurs de marche"
+    assert len({x["ID_document"] for x in rows}) == 2
+    assert len({x["Source_URL"] for x in rows}) == 2
+    euronext = rows[1]
+    assert euronext["ID_document"] == "FERMENTALG_EURONEXT_GROWTH_TRANSFERT_2024"
+    assert euronext["Ticker"] == "1F6.F"
+    assert euronext["Identifiant_emetteur"] == "ISIN:" + ISIN
+    assert euronext["Source_URL"] == euronext["Source_habilitation_domaine"] == (
+        "https://live.euronext.com/en/ipo-showcase/fermentalg-0")
+    assert euronext["Domaine_autorise"] == "live.euronext.com"
+    assert euronext["Type_source"] == "DONNEE_MARCHE_IDENTITE"
+    # La date de transfert (2024) n'est PAS une date de publication de la page.
+    assert euronext["Date_publication"] == "" and euronext["Date_publication_inconnue"] == "OUI"
+    assert euronext["Statut_identite"] == "A_VERIFIER_RAPPROCHEMENT_ALGAE_1F6_F"
     r = rows[0]
     assert r["ID_document"] == ID
     assert r["Ticker"] == "1F6.F"
@@ -52,8 +65,10 @@ def test(capture=None):
     assert dossier.is_dir()
     assert dossier.parent == (ROOT / "AUDITS/SOURCES_OFFICIELLES").resolve()
     audits = lignes(dossier / "AUDIT_DOCUMENTS.csv")
-    assert len(audits) == 1
-    a = audits[0]
+    assert len(audits) == 2
+    assert {x["ID_document"] for x in audits} == {x["ID_document"] for x in rows}
+    a = next(x for x in audits if x["ID_document"] == ID)
+    e = next(x for x in audits if x["ID_document"] == euronext["ID_document"])
     assert a["ID_document"] == ID and a["Source_URL"] == URL
     assert a["Type_source"] == "DONNEE_MARCHE_IDENTITE"
     assert a["Statut"] == "DOCUMENT_COLLECTE_A_VERIFIER", a.get("Motif", "")
@@ -62,10 +77,14 @@ def test(capture=None):
     assert a["Statut_date_publication"] == "INCONNUE_NE_PAS_UTILISER_RETROSPECTIVEMENT"
     assert a["Notes_attribuees"] == "0"
     manifeste = json.loads((dossier / "MANIFESTE.json").read_text(encoding="utf-8"))
-    assert manifeste["documents_configures"] == manifeste["documents_collectes"] == 1
-    assert manifeste["sources_bloquees"] == manifeste["notes_attribuees"] == 0
+    assert manifeste["documents_configures"] == 2
+    assert manifeste["documents_collectes"] == sum(
+        x["Statut"] == "DOCUMENT_COLLECTE_A_VERIFIER" for x in audits)
+    assert manifeste["sources_bloquees"] == sum(
+        x["Statut"] == "BLOQUE_SOURCE" for x in audits)
+    assert manifeste["notes_attribuees"] == 0
     assert manifeste["couverture_complete"] is False
-    assert manifeste["publications_dates_inconnues"] == 1
+    assert manifeste["publications_dates_inconnues"] == 2
     assert manifeste["registre_SHA256"] == hashlib.sha256(REG.read_bytes()).hexdigest()
     for name, digest in manifeste["fichiers"].items():
         assert hashlib.sha256((dossier / name).read_bytes()).hexdigest() == digest
@@ -81,6 +100,29 @@ def test(capture=None):
     assert "FERMENTALG" in texte.upper() and ISIN in texte
     assert re.search(r"\bSymbol\s*:\s*1F6\b", texte, re.IGNORECASE), "Symbole officiel absent"
     assert "Frankfurt" in texte, "Place Frankfurt non lisible"
+    # La seconde source est independante du marche allemand. Son contenu
+    # confirme au mieux le lien FERMENTALG/ISIN/ALGAE sur Euronext, sans
+    # pretendre prouver la cotation allemande ni une identite SCE certifiee.
+    assert e["Notes_attribuees"] == "0"
+    assert e["Date_publication"] == ""
+    assert e["Statut_date_publication"] == "INCONNUE_NE_PAS_UTILISER_RETROSPECTIVEMENT"
+    if e["Statut"] == "DOCUMENT_COLLECTE_A_VERIFIER":
+        brut_e = (ROOT / e["Fichier_brut"]).resolve()
+        assert brut_e.parent == dossier
+        data_e = brut_e.read_bytes()
+        assert hashlib.sha256(data_e).hexdigest() == e["SHA256"] == manifeste["fichiers"][brut_e.name]
+        assert "html" in e["Type_contenu"].lower()
+        page = Texte()
+        page.feed(data_e.decode("utf-8", errors="replace"))
+        texte_e = re.sub(r"\s+", " ", " ".join(page.morceaux))
+        assert "FERMENTALG" in texte_e.upper()
+        assert ISIN in texte_e and re.search(r"\bALGAE\b", texte_e, re.I)
+        print("EURONEXT_GROWTH_PISTE_ISIN_ALGAE_SHA256_OK ; publication inconnue")
+    else:
+        assert e["Statut"] == "BLOQUE_SOURCE"
+        assert not e.get("SHA256") and not e.get("Fichier_brut")
+        assert e.get("Motif"), "Une source bloquee doit documenter le motif"
+        print("EURONEXT_GROWTH_EN_ATTENTE_DATA_SOURCE:", e["Motif"])
     # La fiche identifie le symbole officiel 1F6, PAS le suffixe fournisseur .F.
     # Elle ne donne ni date de publication ni validation SCE/SSI/MCPA.
     print("FICHE_MARCHE_SHA256_OK ; symbole 1F6 et ISIN concordants ; "
