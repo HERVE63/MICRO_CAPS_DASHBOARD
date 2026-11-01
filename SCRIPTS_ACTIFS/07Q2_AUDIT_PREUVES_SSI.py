@@ -187,6 +187,66 @@ def indexer_captures_primaires():
  assert bloquees==sum(a["Code_anomalie"]=="SOURCE_BLOQUEE_07AA" for a in anomalies)
  return captures,invalides,bloquees
 
+def publier_file_certification(df, captures, pistes):
+ """File de revue documentaire, jamais une certification SCE ou une note SSI.
+
+ Reutilise UNIQUEMENT les captures deja controlees par indexer_captures_primaires()
+ et les ISIN indicatifs de 07D. Deux domaines ne prouvent pas deux editeurs
+ independants : la revue des documents et de leurs dates reste obligatoire.
+ """
+ from urllib.parse import urlsplit
+ destination=D/"FILE_CERTIFICATION_IDENTITES_SSI.csv"
+ colonnes=["Ticker","Societe","Priorite_revue_documentaire",
+  "Identifiant_dossier_source","Identifiant_piste_unique_non_certifie",
+  "ISIN_archive_piste_non_certifiee","Captures_SHA256_OK_pistes",
+  "URLs_distinctes_pistes","SHA256_distincts_pistes",
+  "Domaines_hebergement_distincts_pistes","Publications_date_inconnue",
+  "Publications_date_connue_a_verifier","URLs_pistes","SHA256_pistes",
+  "Dates_publication_pistes","Statut_certification","Qualification_economique"]
+ lignes=[]
+ for _,r in df.iterrows():
+  ticker=str(r["Ticker"]).strip()
+  brutes=captures.get(ticker,[])
+  identifiants={x[0] for x in brutes}
+  urls={x[1] for x in brutes}
+  empreintes={x[2] for x in brutes}
+  domaines={urlsplit(u).hostname for u in urls if urlsplit(u).hostname}
+  inconnu=sum(bool(x[3]) for x in brutes)
+  isin_piste,_,statut_archive=pistes.get(ticker,("MANQUANTE","MANQUANTE","AUCUNE_PISTE_ARCHIVE"))
+  if len(identifiants)>1:
+   priorite="P0_CONFLIT_IDENTIFIANTS_A_EXAMINER"
+  elif len(urls)>=2 and len(empreintes)>=2 and len(domaines)>=2:
+   priorite="P1_PISTES_MULTIDOMAINES_A_CERTIFIER"
+  elif brutes:
+   priorite="P2_PISTES_PRIMAIRES_A_COMPLETER"
+  elif statut_archive=="PISTE_ISIN_CHECKSUM_OK_NON_CERTIFIEE":
+   priorite="P3_ISIN_ARCHIVE_A_CORROBORER"
+  else:
+   priorite="P4_AUCUNE_PISTE_PRIMAIRE"
+  lignes.append({
+   "Ticker":ticker,"Societe":str(r.get("Societe","")),
+   "Priorite_revue_documentaire":priorite,
+   "Identifiant_dossier_source":identifiant_dossier(r) or "MANQUANTE",
+   "Identifiant_piste_unique_non_certifie":next(iter(identifiants)) if len(identifiants)==1 else "MANQUANTE",
+   "ISIN_archive_piste_non_certifiee":isin_piste,
+   "Captures_SHA256_OK_pistes":len(brutes),
+   "URLs_distinctes_pistes":len(urls),
+   "SHA256_distincts_pistes":len(empreintes),
+   "Domaines_hebergement_distincts_pistes":len(domaines),
+   "Publications_date_inconnue":inconnu,
+   "Publications_date_connue_a_verifier":len(brutes)-inconnu,
+   "URLs_pistes":" | ".join(sorted(urls)) or "MANQUANTE",
+   "SHA256_pistes":" | ".join(sorted(empreintes)) or "MANQUANTE",
+   "Dates_publication_pistes":" | ".join(sorted({str(x[4]) for x in brutes})) or "MANQUANTE",
+   "Statut_certification":"PISTES_NON_CERTIFIEES",
+   "Qualification_economique":"NON_CALCULEE_PAR_CET_AUDIT"})
+ sortie=pd.DataFrame(lignes,columns=colonnes).sort_values(
+  ["Priorite_revue_documentaire","Ticker"],kind="stable")
+ tmp=destination.with_suffix(".tmp")
+ sortie.to_csv(tmp,index=False)
+ tmp.replace(destination)
+ return sortie
+
 def executer():
  if not SRC.exists(): raise RuntimeError("Dossiers SSI absents")
  df=pd.read_csv(SRC,dtype=str,keep_default_na=False)
@@ -277,6 +337,7 @@ def executer():
     "Statut":"A_COMPLETER_PREUVES_SSI"})
  out=pd.DataFrame(rows,columns=COLONNES)
  out.to_csv(OUT,index=False)
+ file_revue=publier_file_certification(df,captures,pistes)
  blocs=out[out.Bloc_SSI.isin(CHAMPS)]
  pd.DataFrame([{"Dossiers":len(df),"Dossiers_en_quarantaine":int(ambigu.sum()),"Blocs_a_auditer":len(blocs),
    "Blocs_avec_variables_absentes":int(blocs["Variables_absentes"].ne("").sum()),
@@ -287,6 +348,7 @@ def executer():
    "Captures_invalides_exclues":invalides,
    "Sources_bloquees":bloquees,
    "Dossiers_avec_pistes_capturees":sum(bool(captures.get(t)) for t in df["Ticker"]),
+   "Dossiers_priorite_P1_pistes_multidomaines":int(file_revue["Priorite_revue_documentaire"].eq("P1_PISTES_MULTIDOMAINES_A_CERTIFIER").sum()),
    "Pistes_ISIN_checksum_OK_non_certifiees":int((out["Bloc_SSI"].eq("IDENTITE_SCE") & out["Statut_piste_ISIN"].eq("PISTE_ISIN_CHECKSUM_OK_NON_CERTIFIEE")).sum()),
    "Pistes_ISIN_ambigues_ou_invalides":int((out["Bloc_SSI"].eq("IDENTITE_SCE") & out["Statut_piste_ISIN"].isin(["TICKER_AMBIGU_ARCHIVE","ISIN_INVALIDE_ARCHIVE"])).sum()),
    "Statut":"EN_ATTENTE_DATA" if df.empty else "AUCUNE_NOTE_AUTOMATIQUE_SANS_PREUVE"}]).to_csv(AUD,index=False)
