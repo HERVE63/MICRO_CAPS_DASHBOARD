@@ -35,6 +35,31 @@ def executer():
         assert source.read_bytes() == before_source
         dossiers = data / "DOSSIERS_SSI_A_QUALIFIER.csv"
         original_dossiers = dossiers.read_bytes()
+        original_audit_07q = (data / "AUDIT_DOSSIERS_SSI.csv").read_bytes()
+        # Régression : une panne durant la publication 07Q d'une cohorte vide
+        # ne doit pas tronquer le dernier dossier SSI valide.
+        import importlib.util
+        from unittest.mock import patch
+        spec_q = importlib.util.spec_from_file_location("ssi_07q_panne_test", scripts / MODULES[0])
+        module_q = importlib.util.module_from_spec(spec_q)
+        spec_q.loader.exec_module(module_q)
+        to_csv_original = pd.DataFrame.to_csv
+        def panne_07q(frame, chemin, *args, **kwargs):
+            nom = Path(chemin).name
+            if nom in {"DOSSIERS_SSI_A_QUALIFIER.csv", "DOSSIERS_SSI_A_QUALIFIER.tmp"}:
+                Path(chemin).write_bytes(b"TRONCATURE_07Q_SIMULEE")
+                raise OSError("PANNE_07Q_SIMULEE")
+            return to_csv_original(frame, chemin, *args, **kwargs)
+        with patch.object(pd.DataFrame, "to_csv", autospec=True, side_effect=panne_07q):
+            try:
+                module_q.executer()
+            except OSError as exc:
+                assert "PANNE_07Q_SIMULEE" in str(exc)
+            else:
+                raise AssertionError("La panne d'ecriture 07Q doit etre propagee")
+        assert dossiers.read_bytes() == original_dossiers, "07Q a tronque un dossier valide"
+        assert (data / "AUDIT_DOSSIERS_SSI.csv").read_bytes() == original_audit_07q
+        (data / "DOSSIERS_SSI_A_QUALIFIER.tmp").unlink(missing_ok=True)
         cols = set(pd.read_csv(dossiers, nrows=0).columns)
         mandatory = {"Ticker", "CIK", "SCE_valide", "Preuves_identite_SCE",
                      "Conflit_identite_CIK", "Decision_eliminatoire", "Motif_eliminatoire"}
