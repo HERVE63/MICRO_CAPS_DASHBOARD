@@ -46,9 +46,15 @@ def executer():
         def valider(r, *args):
             appeles.append(r["Ticker"])
             return [10] * 7, []
-        def bilan(*args):
-            return {"Nombre_blocs_SSI_documentes": 7,
-                    "Plafond_SSI_si_blocs_restants_maximaux": 70}
+        appeles_bilan = []
+        def bilan(r, *args):
+            appeles_bilan.append(r["Ticker"])
+            return {"Blocs_SSI_documentes": "B1|B2|B3|B4|B5|B6|B7",
+                    "Nombre_blocs_SSI_documentes": 7,
+                    "Points_sur_blocs_documentes": 70,
+                    "Maximum_blocs_documentes": 100,
+                    "Plafond_SSI_si_blocs_restants_maximaux": 70,
+                    "Portee_plafond": "TEST_SEULEMENT"}
         with patch.object(module, "registre", return_value=pd.DataFrame()), \
              patch.object(module, "valider_dossier", side_effect=valider), \
              patch.object(module, "bilan_blocs_documentes", side_effect=bilan):
@@ -62,6 +68,14 @@ def executer():
         assert resultat.loc["SAIN", "SSI"] == "70"
         assert resultat.loc["SAIN", "Statut_SSI"] == "ADMIS_SSI"
         assert appeles == ["SAIN"], "Les dossiers sans CIK valide ou en collision ne doivent pas etre notes"
+        assert appeles_bilan == ["SAIN"], "Aucun calcul de points partiels sur une identite CIK en quarantaine"
+        for ticker in ("COLLISION", "SANS_CIK", "CIK_INVALIDE"):
+            assert resultat.loc[ticker, "Nombre_blocs_SSI_documentes"] == "0"
+            assert resultat.loc[ticker, "Points_sur_blocs_documentes"] == "0"
+            assert resultat.loc[ticker, "Maximum_blocs_documentes"] == "0"
+            assert resultat.loc[ticker, "Plafond_SSI_si_blocs_restants_maximaux"] == "100"
+            assert resultat.loc[ticker, "Portee_plafond"] == "NON_CALCULE_IDENTITE_CIK"
+        assert resultat.loc["SAIN", "Points_sur_blocs_documentes"] == "70"
         audit = pd.read_csv(module.AUD)
         assert int(audit.loc[0, "Identites_CIK_en_quarantaine"]) == 3
         assert int(audit.loc[0, "Admis"]) == 1
