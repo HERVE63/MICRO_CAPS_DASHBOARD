@@ -78,6 +78,22 @@ def test():
     assert q1["Source_URL"] != fer["Source_URL"]
     assert not any(c.startswith("Note_") for c in q1)
 
+    # Source historique distincte : FALG -> ALGAE en avril 2024.
+    # La chronologie du symbole ne prouve PAS le suffixe fournisseur .F.
+    transfert = lire(BASE / "AUDITS/REPARATION/REGISTRE_FERMENTALG_TRANSFERT_2024.csv")
+    assert len(transfert) == 1
+    t = transfert[0]
+    assert t["ID_document"] == "FERMENTALG_TRANSFERT_FALG_ALGAE_20240412"
+    assert t["Ticker"] == "1F6.F" and t["Identifiant_emetteur"] == "ISIN:FR0011271600"
+    assert t["Date_publication"] == "2024-04-12"
+    assert t["Type_source"] == "PUBLICATION_EMETTEUR"
+    assert t["Statut_identite"] == "A_VERIFIER_HISTORIQUE_FALG_ALGAE_ET_COTATION_1F6_F"
+    assert t["Source_URL"] == t["Source_habilitation_domaine"] == t["Source_date_publication"]
+    assert urlparse(t["Source_URL"]).hostname == t["Domaine_autorise"] == "www.webdisclosure.fr"
+    assert t["Source_URL"] not in {fer["Source_URL"], q1["Source_URL"]}
+    assert not any(c.startswith("Note_") or c in ("SSI", "MCPA") for c in t)
+    assert len({fer["ID_document"], q1["ID_document"], t["ID_document"]}) == 3
+
     dossiers = [r for r in lire(DOSSIERS) if r["Ticker"] in ("1F6.F", "HBQ.F")]
     assert len(dossiers) == 2
     for r in dossiers:
