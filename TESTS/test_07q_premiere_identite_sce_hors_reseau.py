@@ -53,7 +53,7 @@ def executer():
     if ticker=="BAD_SHA.F" and i==1:sha="0"*64
     p=dict.fromkeys(CHAMPS,"")
     p.update(ID_preuve=preuve_id,Ticker=ticker,Bloc="IDENTITE_SCE",
-     Identifiant_emetteur=ISIN,Source_URL="https://example.org/test/"+preuve_id,
+     Identifiant_emetteur=ISIN,Source_URL=("https://exchange.example/test/" if i else "https://issuer.example/test/")+preuve_id,
      Type_source="DEPOT_REGLEMENTAIRE",Date_publication="2026-09-01",
      Fichier_brut="DONNEES/"+fichier.name,SHA256=sha,
      Statut_identite="VERIFIEE",Statut_verification="VERIFIEE",
