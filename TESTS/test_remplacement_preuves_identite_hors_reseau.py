@@ -1,6 +1,6 @@
-"""Régression hors réseau : remplacement de preuve lié à l'émetteur, jamais au ticker seul.
+"""SSI : remplacements invalides isolés, autres preuves conservées et exploitables.
 
-Toutes les preuves et sociétés sont fictives. Aucune admission ni note réelle.
+Fixtures fictives hors réseau ; aucun score, émetteur ou ordre réel.
 """
 from pathlib import Path
 from tempfile import TemporaryDirectory
@@ -10,14 +10,14 @@ import pandas as pd
 
 ROOT = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(ROOT / "SCRIPTS_ACTIFS"))
-from preuves_ssi import CHAMPS, registre
+from preuves_ssi import CHAMPS, registre, verifier
 
 
-def preuve(pid, ident, date, remplace=""):
+def preuve(pid, ident, date, remplace="", ticker="COLLISION.F", bloc="IDENTITE_SCE"):
     row = dict.fromkeys(CHAMPS, "")
     row.update(
-        ID_preuve=pid, Remplace_ID=remplace, Ticker="COLLISION.F",
-        Bloc="IDENTITE_SCE", Identifiant_emetteur=ident,
+        ID_preuve=pid, Remplace_ID=remplace, Ticker=ticker,
+        Bloc=bloc, Identifiant_emetteur=ident,
         Source_URL="https://example.org/fixture/" + pid,
         Type_source="DEPOT_REGLEMENTAIRE", Date_publication="2026-09-01",
         Fichier_brut="document_fixture.txt", SHA256=SHA,
@@ -40,31 +40,45 @@ def executer():
         p = d / "REGISTRE_PREUVES_SSI.csv"
         old = preuve("P1", "ISIN:US0378331005", "2026-10-01T00:00:00Z")
         same = preuve("P2", "ISIN:US0378331005", "2026-10-02T00:00:00Z", "P1")
-        pd.DataFrame([old, same]).to_csv(p, index=False)
-        out = registre(base)
-        assert set(out.ID_preuve) == {"P2"}, "Même émetteur : remplacement valide"
-        # Même ticker et même bloc, mais émetteur différent : aucune substitution.
+        sain = preuve("SAIN", "CIK:0000000123", "2026-10-03T00:00:00Z",
+                     ticker="SAIN.US")
+        def lire(lignes):
+            pd.DataFrame(lignes, columns=CHAMPS).to_csv(p, index=False)
+            avant = p.read_bytes()
+            out = registre(base)
+            assert p.read_bytes() == avant, "Le registre append-only a été modifié"
+            assert "SAIN" in set(out.ID_preuve), "Un dossier sain ne doit jamais être bloqué"
+            assert verifier(out[out.ID_preuve.eq("SAIN")].iloc[0],
+                            "SAIN.US", "IDENTITE_SCE", base) == []
+            return set(out.ID_preuve)
+
+        assert lire([old, same, sain]) == {"P2", "SAIN"}, (
+            "Même émetteur, même bloc, chronologie correcte : remplacement autorisé")
         other = preuve("P3", "CIK:0000000123", "2026-10-03T00:00:00Z", "P1")
-        pd.DataFrame([old, other]).to_csv(p, index=False)
-        before = p.read_bytes()
-        try:
-            registre(base)
-        except RuntimeError as exc:
-            assert "Remplacement de preuve incohérent" in str(exc), str(exc)
-        else:
-            raise AssertionError("Preuve d'un autre émetteur substituée par ticker")
-        assert p.read_bytes() == before, "Registre source modifié"
-        # Même identifiant mais autre ticker : également interdit.
-        cross = dict(same)
-        cross["Ticker"] = "AUTRE.F"
-        pd.DataFrame([old, cross]).to_csv(p, index=False)
-        try:
-            registre(base)
-        except RuntimeError as exc:
-            assert "Remplacement de preuve incohérent" in str(exc)
-        else:
-            raise AssertionError("Preuve remplacée entre deux tickers")
-    print("SSI : remplacement autorisé seulement à ticker, bloc et émetteur identiques")
+        assert lire([old, other, sain]) == {"P1", "SAIN"}, (
+            "Un émetteur homonyme ne doit ni remplacer P1 ni être actif")
+        cross = preuve("P4", "ISIN:US0378331005", "2026-10-03T00:00:00Z",
+                      "P1", ticker="AUTRE.F")
+        assert lire([old, cross, sain]) == {"P1", "SAIN"}, (
+            "Un autre ticker ne doit ni remplacer P1 ni être actif")
+        ancien = preuve("P5", "ISIN:US0378331005",
+                       "2026-09-30T00:00:00Z", "P1")
+        assert lire([old, ancien, sain]) == {"P1", "SAIN"}, (
+            "Une révision antérieure ne peut révoquer P1 ni arrêter le lot")
+        egal = preuve("P6", "ISIN:US0378331005",
+                     "2026-10-01T00:00:00Z", "P1")
+        assert lire([old, egal, sain]) == {"P1", "SAIN"}, (
+            "Une révision à la même seconde ne peut révoquer P1")
+        orphelin = preuve("P7", "ISIN:US0378331005",
+                         "2026-10-04T00:00:00Z", "INEXISTANT")
+        assert lire([old, orphelin, sain]) == {"P1", "SAIN"}, (
+            "Une référence manquante doit être isolée sans admission")
+        invalide = preuve("P8", "ISIN:US0378331005",
+                         "date_invalide", "P1")
+        assert lire([old, invalide, sain]) == {"P1", "SAIN"}, (
+            "Une date invalide ne doit pas révoquer P1")
+        assert document.read_bytes() == b"DOCUMENT FICTIF SANS PREUVE PRIMAIRE"
+    print("SSI : 7 scénarios de remplacement, preuves saines préservées, aucun arrêt global")
 
 
 if __name__ == "__main__":
