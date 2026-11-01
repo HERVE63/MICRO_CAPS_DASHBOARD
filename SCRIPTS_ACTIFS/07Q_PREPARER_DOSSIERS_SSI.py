@@ -57,10 +57,14 @@ def executer():
    colonnes.extend(["Note_"+b,"Preuve_"+b])
   archiver_registre()
   publier_quarantaine()
-  pd.DataFrame(columns=colonnes).to_csv(OUT,index=False)
+  tmp=OUT.with_suffix(".tmp")
+  pd.DataFrame(columns=colonnes).to_csv(tmp,index=False)
+  tmp.replace(OUT)
+  tmp_aud=AUD.with_suffix(".tmp")
   pd.DataFrame([{"Dossiers_prets":0,"SSI_notes":0,"SSI_admis_65":0,"Conflits_CIK":0,
    "Lignes_source_quarantaine":sum(x["Lignes"] for x in quarantaines if x["Origine"]=="CANDIDATS_PRETS_SSI"),
-   "Lignes_ancien_registre_quarantaine":0,"Statut":"EN_ATTENTE_DATA"}]).to_csv(AUD,index=False)
+   "Lignes_ancien_registre_quarantaine":0,"Statut":"EN_ATTENTE_DATA"}]).to_csv(tmp_aud,index=False)
+  tmp_aud.replace(AUD)
   return pd.DataFrame(columns=colonnes)
  # Les 7 blocs du SSI maître. Les variables observées sont exposées, aucune note n'est inventée.
  out=pd.DataFrame({
@@ -240,7 +244,8 @@ def executer():
                 "Conflits_CIK":int(out["Conflit_identite_CIK"].eq("OUI").sum()),
   "Reprises_identite_ISIN_LEI_sur_preuves":reprises_identite,
   "Nouvelles_identites_ISIN_LEI_sur_preuves":nouvelles_identites,
-                "Statut":"COLLECTE_PREUVES_SSI_REQUISE"}]).to_csv(AUD,index=False)
+                "Statut":"COLLECTE_PREUVES_SSI_REQUISE"}]).to_csv(AUD.with_suffix(".tmp"),index=False)
+ AUD.with_suffix(".tmp").replace(AUD)
  print("Dossiers SSI a qualifier",len(out))
  return out
 if __name__=="__main__": executer()
