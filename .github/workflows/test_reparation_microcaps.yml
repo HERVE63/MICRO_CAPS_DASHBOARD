@@ -139,6 +139,8 @@ jobs:
         run: python -B TESTS/test_fondamentaux_incrementaux.py
       - name: Tester le raccordement 07M 07O 07Q 07R sans réseau ni mutation
         run: python -B TESTS/test_pipeline_hebdo_isole.py
+      - name: Refuser un schema SSI vide invalide et maintenir les colonnes contractuelles
+        run: python -B TESTS/test_07q_07r_cohorte_vide_schema_hors_reseau.py
       - name: Tester collision identite CIK et quarantaine SSI 07Q
         run: python -B TESTS/test_07q_collision_identite_cik.py
       - name: Tester doublons SSI source/historique, quarantaine 07Q et validation 07R non bloquantes
