@@ -101,27 +101,36 @@ def registre(base,limite=None):
             # NaT reste dans le registre pour un rejet explicite par verifier().
             # Les preuves datées du futur ne sont jamais rendues admissibles.
             d=d[dates.isna() | (dates<=pd.Timestamp(limite))].copy()
-    # Seuls les remplacements validés peuvent retirer une preuve valide.
+    # Une tentative de remplacement erronée est mise en quarantaine PAR
+    # PREUVE, jamais par portefeuille. Le CSV source append-only est intact.
+    # Ni une identité divergente, ni un ordre chronologique impossible ne
+    # doivent révoquer l'ancienne preuve ou interrompre les autres dossiers.
+    rejets_remplacement=set()
     valides=d[d.Statut_verification.eq('VERIFIEE')]
     for _,r in valides[~valides.Remplace_ID.map(manquant)].iterrows():
+        if r.ID_preuve not in set(d.ID_preuve):
+            continue  # Une chaîne de remplacements a déjà révoqué cette ligne.
         old=d[d.ID_preuve.eq(r.Remplace_ID)]
-        # Un ticker peut changer d'émetteur (réutilisation, cotation secondaire).
-        # Un remplacement append-only ne peut révoquer qu'une preuve du MÊME
-        # émetteur réglementaire, pas celle d'un homonyme de cotation.
         if (len(old)!=1 or old.iloc[0].Ticker!=r.Ticker
                 or old.iloc[0].Bloc!=r.Bloc
                 or old.iloc[0].Identifiant_emetteur!=r.Identifiant_emetteur):
-            raise RuntimeError('Remplacement de preuve incohérent')
-        # Un remplacement invalide ne doit ni révoquer l'ancienne preuve
-        # ni provoquer un échec global. Il restera rejeté par verifier().
-        errors=verifier(r,r.Ticker,r.Bloc,base,limite)
-        if errors:continue
+            rejets_remplacement.add(r.ID_preuve)
+            continue
+        if verifier(r,r.Ticker,r.Bloc,base,limite):
+            rejets_remplacement.add(r.ID_preuve)
+            continue
         ancien_horodatage=old.iloc[0].Date_verification_UTC
         if not horodatage_verification_utc_strict(ancien_horodatage):
-            continue  # Ordre chronologique non démontrable : pas de révocation.
+            rejets_remplacement.add(r.ID_preuve)
+            continue  # Ordre chronologique indémontrable.
         if pd.Timestamp(r.Date_verification_UTC)<=pd.Timestamp(ancien_horodatage):
-            raise RuntimeError('Remplacement de preuve non postérieur')
+            rejets_remplacement.add(r.ID_preuve)
+            continue
         d=d[~d.ID_preuve.eq(r.Remplace_ID)]
+    # La trace des tentatives invalides reste dans REGISTRE_PREUVES_SSI.csv ;
+    # elles sont exclues du registre ACTIF pour éviter toute admission par ID.
+    if rejets_remplacement:
+        d=d[~d.ID_preuve.isin(rejets_remplacement)].copy()
     return d
 
 def verifier(r,ticker,bloc,base,limite=None):
