@@ -259,6 +259,7 @@ def publier_file_certification(df, captures, pistes):
  colonnes=["Ticker","Societe","Priorite_revue_documentaire",
   "Identifiant_dossier_source","Identifiant_piste_unique_non_certifie",
   "ISIN_archive_piste_non_certifiee","Captures_SHA256_OK_pistes",
+  "Documents_uniques_URL_SHA256_pistes","Repetitions_captures_pistes",
   "URLs_distinctes_pistes","SHA256_distincts_pistes",
   "Domaines_hebergement_distincts_pistes","Publications_date_inconnue",
   "Publications_date_connue_a_verifier","URLs_pistes","SHA256_pistes",
@@ -271,7 +272,13 @@ def publier_file_certification(df, captures, pistes):
   urls={x[1] for x in brutes}
   empreintes={x[2] for x in brutes}
   domaines={urlsplit(u).hostname for u in urls if urlsplit(u).hostname}
-  inconnu=sum(bool(x[3]) for x in brutes)
+  # Les repetitions exactes URL+SHA256 ne sont pas des sources nouvelles.
+  # En cas de date manquante ou contradictoire, rester conservateur.
+  groupes={}
+  for capture in brutes:
+   groupes.setdefault((capture[1],capture[2]),[]).append(capture)
+  inconnu=sum(any(x[3] for x in groupe) or
+              len({x[4] for x in groupe})!=1 for groupe in groupes.values())
   isin_piste,_,statut_archive=pistes.get(ticker,("MANQUANTE","MANQUANTE","AUCUNE_PISTE_ARCHIVE"))
   if len(identifiants)>1:
    priorite="P0_CONFLIT_IDENTIFIANTS_A_EXAMINER"
@@ -290,11 +297,13 @@ def publier_file_certification(df, captures, pistes):
    "Identifiant_piste_unique_non_certifie":next(iter(identifiants)) if len(identifiants)==1 else "MANQUANTE",
    "ISIN_archive_piste_non_certifiee":isin_piste,
    "Captures_SHA256_OK_pistes":len(brutes),
+   "Documents_uniques_URL_SHA256_pistes":len(groupes),
+   "Repetitions_captures_pistes":len(brutes)-len(groupes),
    "URLs_distinctes_pistes":len(urls),
    "SHA256_distincts_pistes":len(empreintes),
    "Domaines_hebergement_distincts_pistes":len(domaines),
    "Publications_date_inconnue":inconnu,
-   "Publications_date_connue_a_verifier":len(brutes)-inconnu,
+   "Publications_date_connue_a_verifier":len(groupes)-inconnu,
    "URLs_pistes":" | ".join(sorted(urls)) or "MANQUANTE",
    "SHA256_pistes":" | ".join(sorted(empreintes)) or "MANQUANTE",
    "Dates_publication_pistes":" | ".join(sorted({str(x[4]) for x in brutes})) or "MANQUANTE",

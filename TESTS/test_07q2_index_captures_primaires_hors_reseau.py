@@ -96,6 +96,11 @@ def tester():
         ligne_revue=file_revue.set_index("Ticker").loc["FICTIF.F"]
         assert ligne_revue.Priorite_revue_documentaire=="P2_PISTES_PRIMAIRES_A_COMPLETER"
         assert ligne_revue.URLs_distinctes_pistes=="1"
+        assert ligne_revue.Captures_SHA256_OK_pistes=="2"
+        assert ligne_revue.Documents_uniques_URL_SHA256_pistes=="1"
+        assert ligne_revue.Repetitions_captures_pistes=="1"
+        assert ligne_revue.Publications_date_inconnue=="1"
+        assert ligne_revue.Publications_date_connue_a_verifier=="0"
         assert ligne_revue.Statut_certification=="PISTES_NON_CERTIFIEES"
         assert ligne_revue.Qualification_economique=="NON_CALCULEE_PAR_CET_AUDIT"
         assert file_revue.set_index("Ticker").loc["AUTRE.F"].Priorite_revue_documentaire=="P4_AUCUNE_PISTE_PRIMAIRE"
@@ -118,6 +123,8 @@ def tester():
         assert ligne_revue.Priorite_revue_documentaire=="P1_PISTES_MULTIDOMAINES_A_CERTIFIER"
         assert ligne_revue.Domaines_hebergement_distincts_pistes=="2"
         assert ligne_revue.SHA256_distincts_pistes=="2"
+        assert ligne_revue.Documents_uniques_URL_SHA256_pistes=="2"
+        assert ligne_revue.Repetitions_captures_pistes=="0"
         assert ligne_revue.Publications_date_inconnue=="1"
         assert ligne_revue.Statut_certification=="PISTES_NON_CERTIFIEES"
         preuves_brutes=__import__("pandas").read_csv(
