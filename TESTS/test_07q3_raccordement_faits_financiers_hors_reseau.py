@@ -176,6 +176,30 @@ def test():
         resultat = m.executer(b)
         assert sum(r["Statut_raccordement"] == "REJET_NOTE_OU_QUALIFICATION" for r in resultat) == 1
         assert all(r["Note_SSI"] == r["Note_MCPA"] == "MANQUANTE" for r in resultat)
+        # Reprise sur incident 07Q3 : une erreur pendant l'ecriture de
+        # l'audit ne doit jamais tronquer le dernier audit publie.
+        audit_path = b / "DONNEES/AUDIT_RACCORDEMENT_FAITS_SSI.csv"
+        audit_precedent = audit_path.read_bytes()
+        dictwriter_initial = csv.DictWriter
+        class EchecEcritureAudit(dictwriter_initial):
+            def writerow(self, rowdict):
+                if ("Observations" in self.fieldnames
+                        and rowdict.get("Observations") != "Observations"):
+                    self.writer.writerow(["AUDIT_PARTIEL_INJECTE"])
+                    raise OSError("Panne simulee pendant l'ecriture de l'audit 07Q3")
+                return super().writerow(rowdict)
+        csv.DictWriter = EchecEcritureAudit
+        try:
+            try:
+                m.executer(b)
+            except OSError as exc:
+                assert "Panne simulee" in str(exc)
+            else:
+                raise AssertionError("Injection de panne audit 07Q3 non declenchee")
+        finally:
+            csv.DictWriter = dictwriter_initial
+        assert audit_path.read_bytes() == audit_precedent, (
+            "Panne 07Q3 : le dernier audit valide a ete ecrase ou tronque")
         assert all(hashlib.sha256(p.read_bytes()).hexdigest() == h for p, h in originals.items())
     print("07Q3: 18 faits réutilisés, 9 pistes SHA256, 9 identités en attente; corruption et note injectée rejetées")
 
