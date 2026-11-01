@@ -174,7 +174,7 @@ def indexer_captures_primaires():
       isin_observe="NON_APPLICABLE_IDENTIFIANT_NON_ISIN"
      if ligne.get("Type_source")=="DONNEE_MARCHE_IDENTITE":
       symbole=ticker.split(".")[0]
-      symbole_observe=("OUI" if re.search(r"\bSymbol:\s*"+re.escape(symbole)+r"\\b",texte,re.I) else "NON")
+      symbole_observe=("OUI" if re.search(r"\bSymbol:\s*"+re.escape(symbole)+r"\b",texte,re.I) else "NON")
     captures.setdefault(ticker,[]).append((ident,url,sha,pd.isna(date_pub),
                                            str(ligne.get("Date_publication","")).strip() or "INCONNUE",
                                            str(ligne["Date_collecte_UTC"]).strip(),
