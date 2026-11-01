@@ -31,6 +31,9 @@ def test():
   with patch.object(m,'D',d),patch.object(m,'SRC',d/'DOSSIERS_SSI_A_QUALIFIER.csv'),patch.object(m,'OUT',d/'RESULTATS_SSI.csv'),patch.object(m,'AUD',d/'AUDIT_SSI.csv'):
    result=m.executer()
   assert result.iloc[0].SSI=='MANQUANTE' and result.iloc[0].Statut_SSI=='A_COMPLETER_PREUVES_SSI'
+  assert result.iloc[0].Points_sur_blocs_documentes==0
+  assert result.iloc[0].Portee_plafond=='NON_CALCULE_IDENTITE_SCE'
+  assert result.iloc[0].Plafond_SSI_si_blocs_restants_maximaux==100
   # Le refus par plafond exige identité SCE et contrôle négatif des exclusions prouvés.
   ex=rows[0].copy();ex.update(ID_preuve='FIX_EX',Bloc='EXCLUSIONS',Note='');identites=[]
   for i in range(2):
@@ -43,6 +46,18 @@ def test():
   with patch.object(m,'D',d),patch.object(m,'SRC',d/'DOSSIERS_SSI_A_QUALIFIER.csv'),patch.object(m,'OUT',d/'RESULTATS_SSI.csv'),patch.object(m,'AUD',d/'AUDIT_SSI.csv'):
    result=m.executer()
   assert result.iloc[0].Statut_SSI=='REFUSE_SSI_PLAFOND_VERIFIE' and result.iloc[0].SSI=='MANQUANTE'
+  assert result.iloc[0].Points_sur_blocs_documentes==24
+  assert result.iloc[0].Plafond_SSI_si_blocs_restants_maximaux==64
+  # Une preuve SCE supprimée invalide immédiatement le calcul partiel,
+  # même si les quatre preuves financières restent inchangées et valides.
+  dossier['Preuves_identite_SCE']='FIX_ID_0|PIECE_ABSENTE'
+  pd.DataFrame([dossier]).to_csv(d/'DOSSIERS_SSI_A_QUALIFIER.csv',index=False)
+  with patch.object(m,'D',d),patch.object(m,'SRC',d/'DOSSIERS_SSI_A_QUALIFIER.csv'),patch.object(m,'OUT',d/'RESULTATS_SSI.csv'),patch.object(m,'AUD',d/'AUDIT_SSI.csv'):
+   sans_identite=m.executer().iloc[0]
+  assert sans_identite.SSI=='MANQUANTE' and sans_identite.Statut_SSI=='A_COMPLETER_PREUVES_SSI'
+  assert sans_identite.Points_sur_blocs_documentes==0
+  assert sans_identite.Portee_plafond=='NON_CALCULE_IDENTITE_SCE'
+  dossier['Preuves_identite_SCE']='FIX_ID_0|FIX_ID_1'
   dossier['Motif_eliminatoire']='ABSENTE';pd.DataFrame([dossier]).to_csv(d/'DOSSIERS_SSI_A_QUALIFIER.csv',index=False)
   with patch.object(m,'D',d),patch.object(m,'SRC',d/'DOSSIERS_SSI_A_QUALIFIER.csv'),patch.object(m,'OUT',d/'RESULTATS_SSI.csv'),patch.object(m,'AUD',d/'AUDIT_SSI.csv'):
    assert m.executer().iloc[0].Statut_SSI=='A_COMPLETER_PREUVES_SSI'
