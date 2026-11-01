@@ -34,3 +34,12 @@ Ce passage ne certifie aucune identité SCE, aucune transcription financière et
 ## Étape suivante
 
 Vérifier les conclusions des runs et corriger toute régression. Ensuite, appliquer les contrôles documentaires aux preuves SCE indépendantes ICAPE/Fermentalg et aux autres dossiers sans inventer d'identité, puis compléter B4–B7. Le système reste incomplet ; **ne pas fusionner**, ne pas créer `SAUVEGARDE_MICROCAPS_TOTAL_SYSTEME` avant validation bout en bout.
+
+## Résultats CI contrôlés après exécution
+
+Sur le commit de code/test/workflow `70b6bfbe0583b4c666fde4622dedaca420310c8f` :
+- [CI complète 41270799101](https://github.com/HERVE63/MICRO_CAPS_DASHBOARD/actions/runs/41270799101) : **success**, job `test` terminé. Étape `Rejeter preuves SSI sans heure de verification UTC explicite` : **success** ; contrôle intégrité CHASSE 31 352 détections, 07Q3, 07R et isolation historiques : **success**.
+- [Replay isolé 41270798935](https://github.com/HERVE63/MICRO_CAPS_DASHBOARD/actions/runs/41270798935) : **success**.
+- [Second replay isolé 41270802405](https://github.com/HERVE63/MICRO_CAPS_DASHBOARD/actions/runs/41270802405) : **success**.
+
+Ces résultats valident les tests reproductibles sur fixtures et l'intégrité des contrôles prévus, **pas** l'existence de challengers qualifiés ou d'un arbitrage opérationnel sur données économiques réelles. Aucun ordre financier réel ni fusion sur `main`.
