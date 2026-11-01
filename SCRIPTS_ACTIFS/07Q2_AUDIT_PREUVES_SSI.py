@@ -191,7 +191,24 @@ def executer():
  if not SRC.exists(): raise RuntimeError("Dossiers SSI absents")
  df=pd.read_csv(SRC,dtype=str,keep_default_na=False)
  if "Ticker" not in df:raise RuntimeError("Ticker absent des dossiers SSI")
- if df["Ticker"].duplicated().any(): raise RuntimeError("Tickers dupliques: identite a resoudre")
+ # Un ticker vide ou duplique ne doit jamais faire tomber le plan des autres
+ # candidats. Comparaison normalisee : casse et espaces ne levent pas une
+ # ambiguite d'emetteur. Aucune note/preuve n'est reprise de ces lignes.
+ df["Ticker"]=df["Ticker"].astype(str).str.strip()
+ cles=df["Ticker"].str.upper()
+ ambigu=cles.eq("") | cles.duplicated(keep=False)
+ quarantaines=[]
+ for cle in sorted(set(cles[ambigu])):
+  groupe=df.loc[cles.eq(cle)]
+  quarantaines.append({"Ticker_normalise":cle,"Lignes":len(groupe),
+                       "Motif":"TICKER_VIDE" if not cle else "TICKER_DUPLIQUE",
+                       "Statut":"EN_ATTENTE_DATA_IDENTITE_AMBIGUE"})
+ # Sortie isolee du registre de quarantaine 07Q, qui ne doit pas etre ecrase.
+ quarantaine=D/"QUARANTAINE_PLAN_SSI.csv"
+ temporaire=quarantaine.with_suffix(".tmp")
+ pd.DataFrame(quarantaines,columns=["Ticker_normalise","Lignes","Motif","Statut"]).to_csv(temporaire,index=False)
+ temporaire.replace(quarantaine)
+ df=df.loc[~ambigu].copy()
  pistes,sha_archive=lire_pistes_archive()
  captures,invalides,bloquees=indexer_captures_primaires()
  rows=[]
@@ -261,7 +278,7 @@ def executer():
  out=pd.DataFrame(rows,columns=COLONNES)
  out.to_csv(OUT,index=False)
  blocs=out[out.Bloc_SSI.isin(CHAMPS)]
- pd.DataFrame([{"Dossiers":len(df),"Blocs_a_auditer":len(blocs),
+ pd.DataFrame([{"Dossiers":len(df),"Dossiers_en_quarantaine":int(ambigu.sum()),"Blocs_a_auditer":len(blocs),
    "Blocs_avec_variables_absentes":int(blocs["Variables_absentes"].ne("").sum()),
    "Controles_identite_exclusions":len(out)-len(blocs),
    "Identites_CIK_source_absentes":sum(not bool(re.fullmatch(r"[0-9]{10}",str(x).strip())) for x in df["CIK"]) if "CIK" in df else len(df),
