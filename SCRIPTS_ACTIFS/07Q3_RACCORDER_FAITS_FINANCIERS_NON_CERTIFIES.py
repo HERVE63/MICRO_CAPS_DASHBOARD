@@ -298,7 +298,10 @@ def executer(racine=None, maintenant=None):
     for r in resultat:
         bilan[r["Statut_raccordement"]] = bilan.get(r["Statut_raccordement"], 0) + 1
     audit = d / "AUDIT_RACCORDEMENT_FAITS_SSI.csv"
-    with audit.open("w", encoding="utf-8", newline="") as f:
+    # Meme garantie de reprise que les sorties observations/couverture :
+    # une panne pendant l'ecriture ne doit pas tronquer l'audit precedent.
+    audit_tmp = audit.with_suffix(".tmp")
+    with audit_tmp.open("w", encoding="utf-8", newline="") as f:
         w = csv.DictWriter(f, fieldnames=("Observations", "Dossiers", "SHA256_et_identite_concordants_non_certifies",
                                           "EN_ATTENTE_DATA", "Scores_attribues", "Statut"))
         w.writeheader()
@@ -306,6 +309,7 @@ def executer(racine=None, maintenant=None):
                     "SHA256_et_identite_concordants_non_certifies": bilan.get("PISTE_FINANCIERE_SHA256_OK_NON_CERTIFIEE", 0),
                     "EN_ATTENTE_DATA": len(resultat) - bilan.get("PISTE_FINANCIERE_SHA256_OK_NON_CERTIFIEE", 0),
                     "Scores_attribues": 0, "Statut": "AUCUNE_ADMISSION_SSI_AUTOMATIQUE"})
+    audit_tmp.replace(audit)
     print("07Q3 observations financières (sans score):", len(resultat), bilan)
     return resultat
 
