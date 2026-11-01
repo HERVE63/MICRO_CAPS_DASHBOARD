@@ -38,7 +38,7 @@ def tester():
         csv_ecrire(module.ARCHIVE_IDENTITE,["Ticker","Societe","ISIN"],[])
         dossier=base/"AUDITS/SOURCES_OFFICIELLES/20261031T000000000000Z"
         dossier.mkdir(parents=True)
-        octets=b"Document officiel fictif : pas de validation SSI."
+        octets=b"<html><title>Fictif FR0011271600</title><p>Source fictive</p></html>"
         sha=hashlib.sha256(octets).hexdigest()
         brut=dossier/(sha+".bin")
         brut.write_bytes(octets)
@@ -49,7 +49,7 @@ def tester():
                "Date_publication":"","Date_collecte_UTC":date,
                "Statut_date_publication":"INCONNUE_NE_PAS_UTILISER_RETROSPECTIVEMENT",
                "Statut":"DOCUMENT_COLLECTE_A_VERIFIER","SHA256":sha,
-               "Fichier_brut":str(brut.relative_to(base))}
+               "Fichier_brut":str(brut.relative_to(base)),"Type_contenu":"text/html; charset=UTF-8"}
         colonnes=list(ligne)
         audit=dossier/"AUDIT_DOCUMENTS.csv"
         def enregistrer(lignes):
@@ -80,6 +80,16 @@ def tester():
         assert autre.Captures_primaires_SHA256_OK_pistes=="0"
         assert int(__import__("pandas").read_csv(module.AUD).iloc[0].Captures_primaires_SHA256_OK_pistes)==2
         assert anomalies()==[], "Aucune anomalie dans la fixture saine"
+        preuves_brutes=__import__("pandas").read_csv(
+            module.D/"CONCORDANCES_IDENTITE_BRUTS_NON_CERTIFIEES.csv",
+            dtype=str,keep_default_na=False)
+        assert len(preuves_brutes)==1, "Captures identiques URL/SHA non dedoublees"
+        trace=preuves_brutes.iloc[0]
+        assert trace.ISIN_observe_dans_brut=="OUI"
+        assert trace.Symbole_marche_observe_dans_brut=="NON_APPLICABLE"
+        assert trace.SHA256_brut_verifie==sha
+        assert trace.Identite_SCE_certifiee=="NON" and trace.Note_SSI=="MANQUANTE"
+        assert trace.Archive_brute==str(brut.relative_to(base))
         import pandas as pd
         file_revue=pd.read_csv(module.D/"FILE_CERTIFICATION_IDENTITES_SSI.csv",dtype=str,keep_default_na=False)
         assert len(file_revue)==2
@@ -92,14 +102,14 @@ def tester():
 
         # Deux domaines et deux octets distincts priorisent la revue,
         # mais n'autorisent jamais une validation SCE ni une note.
-        octets2=b"Deuxieme document primaire fictif et distinct"
+        octets2=b"<html><title>FR0011271600</title><span>Symbol: FICTIF</span></html>"
         sha2=hashlib.sha256(octets2).hexdigest()
         brut2=dossier/(sha2+".bin")
         brut2.write_bytes(octets2)
         ligne2=dict(ligne,ID_document="TEST_AUTRE",
                     Source_URL="https://regulateur.test/fiche",
                     SHA256=sha2,Fichier_brut=str(brut2.relative_to(base)),
-                    Date_publication="2026-10-01",
+                    Date_publication="2026-10-01",Type_source="DONNEE_MARCHE_IDENTITE",
                     Statut_date_publication="DATE_DECLAREE_A_VERIFIER")
         enregistrer([ligne,ligne2])
         plan=module.executer()
@@ -110,6 +120,16 @@ def tester():
         assert ligne_revue.SHA256_distincts_pistes=="2"
         assert ligne_revue.Publications_date_inconnue=="1"
         assert ligne_revue.Statut_certification=="PISTES_NON_CERTIFIEES"
+        preuves_brutes=__import__("pandas").read_csv(
+            module.D/"CONCORDANCES_IDENTITE_BRUTS_NON_CERTIFIEES.csv",
+            dtype=str,keep_default_na=False)
+        assert len(preuves_brutes)==2
+        marche=preuves_brutes[preuves_brutes.Type_source=="DONNEE_MARCHE_IDENTITE"].iloc[0]
+        assert marche.ISIN_observe_dans_brut=="OUI"
+        assert marche.Symbole_marche_observe_dans_brut=="OUI"
+        assert marche.Date_publication_declaree=="2026-10-01"
+        assert not (preuves_brutes.Identite_SCE_certifiee!="NON").any()
+        assert not (preuves_brutes.Note_SSI!="MANQUANTE").any()
         assert not (plan.Preuve_validee=="OUI").any()
         enregistrer([ligne,dict(ligne,ID_document="TEST_BIS")])
 
