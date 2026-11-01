@@ -111,7 +111,7 @@ def executer():
         # simulées comme valides. Les notes ci-dessous sont des fixtures de
         # test uniquement, sans rapport avec des societes ou des scores reels.
         lignes_preuves = [
-            {"ID_preuve": ident, "Source_URL": "https://source.example/" + ident,
+            {"ID_preuve": ident, "Source_URL": ("https://exchange.example/" if ident=="SCE2" else "https://issuer.example/") + ident,
              "Identifiant_emetteur": "CIK:0000000123", "Note": "1",
              "SHA256": hashlib.sha256(ident.encode()).hexdigest()}
             for ident in ["SCE1", "SCE2", "EX1", "B1P", "B2P", "B3P",
