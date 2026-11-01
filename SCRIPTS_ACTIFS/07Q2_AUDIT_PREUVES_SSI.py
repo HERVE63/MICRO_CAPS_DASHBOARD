@@ -405,7 +405,10 @@ def executer():
     "Preuves_complementaires_requises":COMPLEMENTS[bloc],
     "Statut":"A_COMPLETER_PREUVES_SSI"})
  out=pd.DataFrame(rows,columns=COLONNES)
- out.to_csv(OUT,index=False)
+ # Publication atomique : une panne d'écriture n'écrase pas le dernier plan valide.
+ plan_tmp=OUT.with_suffix('.tmp')
+ out.to_csv(plan_tmp,index=False)
+ plan_tmp.replace(OUT)
  publier_concordances_brutes(captures)
  file_revue=publier_file_certification(df,captures,pistes)
  blocs=out[out.Bloc_SSI.isin(CHAMPS)]
@@ -421,7 +424,9 @@ def executer():
    "Dossiers_priorite_P1_pistes_multidomaines":int(file_revue["Priorite_revue_documentaire"].eq("P1_PISTES_MULTIDOMAINES_A_CERTIFIER").sum()),
    "Pistes_ISIN_checksum_OK_non_certifiees":int((out["Bloc_SSI"].eq("IDENTITE_SCE") & out["Statut_piste_ISIN"].eq("PISTE_ISIN_CHECKSUM_OK_NON_CERTIFIEE")).sum()),
    "Pistes_ISIN_ambigues_ou_invalides":int((out["Bloc_SSI"].eq("IDENTITE_SCE") & out["Statut_piste_ISIN"].isin(["TICKER_AMBIGU_ARCHIVE","ISIN_INVALIDE_ARCHIVE"])).sum()),
-   "Statut":"EN_ATTENTE_DATA" if df.empty else "AUCUNE_NOTE_AUTOMATIQUE_SANS_PREUVE"}]).to_csv(AUD,index=False)
+   "Statut":"EN_ATTENTE_DATA" if df.empty else "AUCUNE_NOTE_AUTOMATIQUE_SANS_PREUVE"}]).to_csv(AUD.with_suffix(".tmp"),index=False)
+ # Même garantie pour l’audit, y compris en cohorte vide.
+ AUD.with_suffix(".tmp").replace(AUD)
  print("Plan de collecte SSI",len(df),"dossiers",len(blocs),"blocs",len(out)-len(blocs),"controles")
  return out
 if __name__=="__main__": executer()
