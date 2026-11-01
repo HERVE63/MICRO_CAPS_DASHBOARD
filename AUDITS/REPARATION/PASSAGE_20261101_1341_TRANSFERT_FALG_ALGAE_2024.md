@@ -35,3 +35,11 @@ Les trois écritures ont été confirmées par les réponses de l'API GitHub ; l
 2. Si la source est bloquée, conserver `BLOQUE_SOURCE` et poursuivre les autres dossiers. Si elle est capturée, vérifier la publication de l'archive et la relance 07Q/07Q2/07R, puis lire les nouveaux registres.
 3. Certification SCE **uniquement** après deux preuves primaires réellement vérifiées et indépendantes, date/provenance/identité/ticker contrôlés ; ensuite vérifier les 18 observations financières et les blocs SSI manquants.
 4. Ne pas créer `SAUVEGARDE_MICROCAPS_TOTAL_SYSTEME` avant validation intégrale de la chaîne, de l'arbitrage virtuel, des benchmarks et du replay.
+
+## Addendum après observation de la publication Git
+
+- Archive **effectivement publiée** par le workflow : `AUDITS/SOURCES_OFFICIELLES/20261101T133947911965Z/`. Le registre d'audit indique `DOCUMENT_COLLECTE_A_VERIFIER`, `Date_collecte_UTC=2026-11-01T13:39:47.911965+00:00`, `Date_publication=2024-04-12` (déclarée à vérifier), `Notes_attribuees=0`.
+- Manifeste relu : `documents_configures=1`, `documents_collectes=1`, `sources_bloquees=0`, `notes_attribuees=0`. SHA256 brut **déclaré et contrôlé par le workflow** : `0e7c2536c8a06701d554ec01aae241b1da9cd506fb928e472a2fc9e8b09c1875`. Le fichier `.bin`, l'audit et le manifeste sont présents dans la branche. Cette capture n'est **pas** une certification SCE.
+- Incident : l'édition du test historique a également déclenché l'ancien workflow Q1 ; archive redondante `AUDITS/SOURCES_OFFICIELLES/20261101T134021888309Z/`, SHA256 `b1f9b7ea7553e9a2c21d125f17da49d272f2d411316369920d25f2c2a420f649` identique à la pièce Q1 antérieure. Correction `a64d893cc862d730f65e784af5f737496ca975b1` : retrait du chemin de test des déclencheurs de recapture Q1. **Ne pas compter ce doublon comme source indépendante.**
+- Le dernier audit SSI encore visible lors de ce contrôle datait de `2026-11-01T12:37:22.473669+00:00` (1 361 dossiers, zéro admission). La régénération post-capture et les résultats CI restent à contrôler ; aucun succès non observé n'est affirmé.
+- Journal de PR : commentaire `6558737425`.
