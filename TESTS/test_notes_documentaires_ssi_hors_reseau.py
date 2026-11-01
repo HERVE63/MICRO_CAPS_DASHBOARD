@@ -38,7 +38,7 @@ def test():
   ex=rows[0].copy();ex.update(ID_preuve='FIX_EX',Bloc='EXCLUSIONS',Note='');identites=[]
   for i in range(2):
    ident=ex.copy();ident_file=root/('identite_'+str(i)+'.bin');ident_file.write_bytes(('PIECE IDENTITE DISTINCTE '+str(i)).encode())
-   ident.update(ID_preuve='FIX_ID_'+str(i),Bloc='IDENTITE_SCE',Source_URL='https://example.org/identite/'+str(i),Fichier_brut=ident_file.name,SHA256=hashlib.sha256(ident_file.read_bytes()).hexdigest());identites.append(ident)
+   ident.update(ID_preuve='FIX_ID_'+str(i),Bloc='IDENTITE_SCE',Source_URL=('https://exchange.example/identite/' if i else 'https://issuer.example/identite/')+str(i),Fichier_brut=ident_file.name,SHA256=hashlib.sha256(ident_file.read_bytes()).hexdigest());identites.append(ident)
   preuves=pd.concat([preuves,pd.DataFrame([ex,*identites])],ignore_index=True)
   preuves.to_csv(d/'REGISTRE_PREUVES_SSI.csv',index=False)
   dossier.update(SCE_valide='OUI',Preuves_identite_SCE='FIX_ID_0|FIX_ID_1',Decision_eliminatoire='NON',Motif_eliminatoire='FIX_EX')
