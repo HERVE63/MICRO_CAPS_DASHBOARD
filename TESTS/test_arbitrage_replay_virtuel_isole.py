@@ -49,13 +49,13 @@ def executer():
                 "Societe": p.Societe, "Ticker": p.Ticker, "Devise": p.Devise,
                 "MCPA": 60 if pid == source else (90 if pid == destination else 80),
                 "Decision": "VENDRE" if pid == source else ("RENFORCER" if pid == destination else "CONSERVER"),
-                "Challengers_compares": "TEST_SYNTHETIQUE_NON_OFFICIEL",
+                "Challengers_compares": (destination + "|TEST_ONLY_CHALLENGER" if pid == source else "AUCUNE"),
             })
         records.append({
             "Type": "CHALLENGER", "ID_position": "TEST_ONLY_CHALLENGER",
             "Societe": "TEST SYNTHETIQUE", "Ticker": "TEST_ONLY", "Devise": "USD",
             "MCPA": 95, "Decision": "SONDE",
-            "Challengers_compares": "TEST_SYNTHETIQUE_NON_OFFICIEL",
+            "Challengers_compares": "AUCUNE",
         })
         r = pd.DataFrame(records)
         r.to_csv(revue, index=False)
@@ -119,7 +119,10 @@ def executer():
             assert init.read_bytes() == original_initial
             # Rotation inter-portefeuille : renforcer un titulaire, sans nouveau challenger.
             journal.write_bytes(original_journal)
-            r[r.Type == "TITULAIRE"].to_csv(revue, index=False)
+            intra_revue = r[r.Type == "TITULAIRE"].copy()
+            intra_revue.loc[intra_revue.ID_position == source,
+                             "Challengers_compares"] = destination
+            intra_revue.to_csv(revue, index=False)
             intra = execu.executer(dry_run=True)
             assert len(intra) == 2 and list(intra.Type_operation) == ["SORTIE", "RENFORCEMENT"]
             assert str(intra.iloc[1].ID_ligne_entrante) == destination
@@ -158,6 +161,8 @@ def executer():
             journal.write_bytes(original_journal)
             cash_revue = r[r.Type == "TITULAIRE"].copy()
             cash_revue.loc[cash_revue.ID_position != source, "Decision"] = "CONSERVER"
+            cash_revue.loc[cash_revue.ID_position == source,
+                            "Challengers_compares"] = "AUCUNE"
             cash_revue.to_csv(revue, index=False)
             cash_duel = duel.calculer_duels(cash_revue)
             assert len(cash_duel) == 1 and cash_duel.iloc[0].Statut_duel == "CASH"
