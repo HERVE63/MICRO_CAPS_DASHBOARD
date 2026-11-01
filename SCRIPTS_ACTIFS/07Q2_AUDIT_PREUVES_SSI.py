@@ -157,12 +157,31 @@ def indexer_captures_primaires():
     if chemin.parent!=dossier or chemin.name not in {sha+".bin",sha+".pdf"}:
      refuser("CHEMIN_HORS_ARCHIVE")
     if fichiers.get(chemin.name)!=sha:refuser("SHA256_MANIFESTE_BRUT_DIVERGENT")
-    if hashlib.sha256(chemin.read_bytes()).hexdigest()!=sha:refuser("SHA256_BRUT_DIVERGENT")
+    octets=chemin.read_bytes()
+    if hashlib.sha256(octets).hexdigest()!=sha:refuser("SHA256_BRUT_DIVERGENT")
     if not ligne.get("Date_publication","").strip() and ligne.get("Statut_date_publication","").startswith("DATE_"):
      refuser("STATUT_DATE_PUBLICATION_INCOHERENT")
+    # Concordance purement textuelle dans les OCTETS archives et hashes.
+    # Ni le libelle de l'audit ni le nom du fichier ne prouvent l'identite.
+    type_contenu=str(ligne.get("Type_contenu","")).lower()
+    isin_observe="NON_ANALYSE_BINAIRE"
+    symbole_observe="NON_APPLICABLE"
+    if type_contenu.startswith(("text/html","text/plain")):
+     texte=octets.decode("utf-8",errors="replace")
+     if ident.startswith("ISIN:"):
+      isin_observe=("OUI" if re.search(r"(?<![A-Z0-9])"+re.escape(ident[5:])+r"(?![A-Z0-9])",texte,re.I) else "NON")
+     else:
+      isin_observe="NON_APPLICABLE_IDENTIFIANT_NON_ISIN"
+     if ligne.get("Type_source")=="DONNEE_MARCHE_IDENTITE":
+      symbole=ticker.split(".")[0]
+      symbole_observe=("OUI" if re.search(r"\\bSymbol:\\s*"+re.escape(symbole)+r"\\b",texte,re.I) else "NON")
     captures.setdefault(ticker,[]).append((ident,url,sha,pd.isna(date_pub),
                                            str(ligne.get("Date_publication","")).strip() or "INCONNUE",
-                                           str(ligne["Date_collecte_UTC"]).strip()))
+                                           str(ligne["Date_collecte_UTC"]).strip(),
+                                           str(ligne.get("ID_document","")),
+                                           str(chemin.relative_to(racine)),
+                                           str(ligne.get("Type_source","")),
+                                           type_contenu,isin_observe,symbole_observe))
    except (OSError,ValueError,KeyError,TypeError) as erreur:
     invalides+=1
     code=(str(erreur) if isinstance(erreur,ValueError) and str(erreur) in {
@@ -186,6 +205,42 @@ def indexer_captures_primaires():
  assert invalides==sum(a["Code_anomalie"]!="SOURCE_BLOQUEE_07AA" for a in anomalies)
  assert bloquees==sum(a["Code_anomalie"]=="SOURCE_BLOQUEE_07AA" for a in anomalies)
  return captures,invalides,bloquees
+
+def publier_concordances_brutes(captures):
+ """Table de relecture des contenus HTML archives, sans certification SCE.
+
+ La presence textuelle d'un ISIN ou symbole est un INDICE : la date de
+ publication, l'independance editoriale et la cotation doivent etre revues.
+ Les doublons exacts (URL, SHA256) ne comptent jamais deux fois.
+ """
+ destination=D/"CONCORDANCES_IDENTITE_BRUTS_NON_CERTIFIEES.csv"
+ colonnes=["Ticker","ID_document","Identifiant_declare_non_certifie",
+  "Type_source","Source_URL","Archive_brute","SHA256_brut_verifie",
+  "Date_publication_declaree","Date_collecte_UTC","Type_contenu",
+  "ISIN_observe_dans_brut","Symbole_marche_observe_dans_brut",
+  "Identite_SCE_certifiee","Note_SSI","Statut"]
+ lignes=[]
+ deja=set()
+ for ticker,documents in sorted(captures.items()):
+  for d in documents:
+   cle=(ticker,d[1],d[2])
+   if cle in deja:continue
+   deja.add(cle)
+   lignes.append(dict(Ticker=ticker,ID_document=d[6],
+    Identifiant_declare_non_certifie=d[0],Type_source=d[8],
+    Source_URL=d[1],Archive_brute=d[7],SHA256_brut_verifie=d[2],
+    Date_publication_declaree=d[4],Date_collecte_UTC=d[5],
+    Type_contenu=d[9],ISIN_observe_dans_brut=d[10],
+    Symbole_marche_observe_dans_brut=d[11],
+    Identite_SCE_certifiee="NON",Note_SSI="MANQUANTE",
+    Statut="INDICE_TEXTUEL_NON_CERTIFIE" if d[10]=="OUI" else "EN_ATTENTE_RELECTURE_PRIMAIRE"))
+ sortie=pd.DataFrame(lignes,columns=colonnes).sort_values(
+  ["Ticker","Source_URL","SHA256_brut_verifie"],kind="stable")
+ tmp=destination.with_suffix(".tmp")
+ sortie.to_csv(tmp,index=False)
+ tmp.replace(destination)
+ return sortie
+
 
 def publier_file_certification(df, captures, pistes):
  """File de revue documentaire, jamais une certification SCE ou une note SSI.
@@ -337,6 +392,7 @@ def executer():
     "Statut":"A_COMPLETER_PREUVES_SSI"})
  out=pd.DataFrame(rows,columns=COLONNES)
  out.to_csv(OUT,index=False)
+ publier_concordances_brutes(captures)
  file_revue=publier_file_certification(df,captures,pistes)
  blocs=out[out.Bloc_SSI.isin(CHAMPS)]
  pd.DataFrame([{"Dossiers":len(df),"Dossiers_en_quarantaine":int(ambigu.sum()),"Blocs_a_auditer":len(blocs),
