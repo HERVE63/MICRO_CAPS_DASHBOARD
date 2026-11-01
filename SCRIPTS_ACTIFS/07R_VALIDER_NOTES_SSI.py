@@ -68,7 +68,15 @@ def executer():
             statuts.append('EN_ATTENTE_DATA_IDENTITE_CIK')
             motifs.append('Identifiant réglementaire absent/invalide/contradictoire : deux preuves SCE primaires requises ; notation interdite')
             continue
-        partiels.append(bilan_blocs_documentes(r,preuves,D.parent,limite))
+        # Une identité réglementaire formellement valide ne prouve pas que
+        # les deux documents primaires SCE ont été contrôlés. Tant que cette
+        # certification indépendante manque, masquer aussi les points partiels
+        # et le plafond : ils ne doivent pas apparaître comme une qualification.
+        erreurs_sce=verifier_identite_sce(r,preuves,D.parent,limite)
+        if erreurs_sce:
+            partiels.append(plafond_identite_non_verifiee('NON_CALCULE_IDENTITE_SCE'))
+        else:
+            partiels.append(bilan_blocs_documentes(r,preuves,D.parent,limite))
         notes,erreurs=valider_dossier(r,preuves,D.parent,limite)
         # Une exclusion elle aussi doit avoir une référence vérifiée avant publication.
         if r.Decision_eliminatoire=='OUI':
