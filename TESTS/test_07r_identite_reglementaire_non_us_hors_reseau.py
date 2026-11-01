@@ -38,7 +38,7 @@ def test():
                                        ("EX1","EXCLUSIONS")]+[("P"+str(n),"B"+str(n)) for n in range(1,8)]):
             r=dict.fromkeys(CHAMPS,"")
             r.update(ID_preuve=pid,Ticker="EXEMPLE.F",Bloc=bloc,
-                     Identifiant_emetteur=ident,Source_URL="https://example.org/fixture/"+pid,
+                     Identifiant_emetteur=ident,Source_URL=("https://exchange.example/fixture/" if pid=="SCE2" else "https://issuer.example/fixture/")+pid,
                      Type_source="DEPOT_REGLEMENTAIRE",Date_publication="2026-01-01",
                      Fichier_brut=(brut_identite2.name if pid=="SCE2" else brut.name),
                      SHA256=(sha_identite2 if pid=="SCE2" else sha),
@@ -55,6 +55,11 @@ def test():
         assert identifiant_dossier(pd.Series(dossier))==ident
         notes,errors=valider_dossier(pd.Series(dossier),reg,base)
         assert not errors and sum(notes)==70,(notes,errors)
+        # Deux URL et deux empreintes du meme editeur ne constituent
+        # pas deux sources SCE independantes.
+        meme_hote=reg.copy()
+        meme_hote.loc[meme_hote.ID_preuve.eq("SCE2"),"Source_URL"]="https://www.issuer.example/fixture/SCE2"
+        assert any("sources distinctes" in e for e in valider_dossier(pd.Series(dossier),meme_hote,base)[1])
         # Deux URL distinctes ne suffisent pas si les octets archivés sont identiques.
         meme_document=reg.copy()
         masque=meme_document.ID_preuve.eq("SCE2")
