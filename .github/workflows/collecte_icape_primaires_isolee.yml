@@ -29,7 +29,7 @@ jobs:
       - run: pip install pandas
       - name: Tester le collecteur historique hors reseau
         run: python -B TESTS/test_sources_officielles_hors_reseau.py
-      - name: Capturer cinq sources officielles dont deux publications datees sans notation
+      - name: Capturer six sources officielles dont deux publications datees sans notation
         run: |
           python -B SCRIPTS_ACTIFS/07AA_COLLECTE_DOCUMENTS_OFFICIELS.py \
             --registre CONFIG/DOCUMENTS_OFFICIELS_ICAPE_A_COLLECTER.csv \
@@ -42,13 +42,17 @@ jobs:
           df=pd.read_csv(audits[-1],dtype=str,keep_default_na=False)
           import json
           config=pd.read_csv('CONFIG/DOCUMENTS_OFFICIELS_ICAPE_A_COLLECTER.csv',dtype=str,keep_default_na=False)
-          assert len(config)==5 and len(df)==len(config), 'Registre ICAPE et audit divergent'
+          assert len(config)==6 and len(df)==len(config), 'Registre ICAPE et audit divergent'
           assert df['ID_document'].is_unique and set(df.ID_document)==set(config.ID_document)
           assert df['Notes_attribuees'].eq('0').all()
           assert df['Statut_identite'].str.startswith('A_VERIFIER').all()
           nouveaux={'ICAPE_RFS_S1_2026_OFFICIEL','ICAPE_RESULTATS_S1_2026_EURONEXT'}
           assert set(config.loc[config.Date_publication.ne(''),'ID_document'])==nouveaux
           assert config.loc[config.ID_document.isin(nouveaux),'Source_date_publication'].str.startswith('https://').all()
+          stuttgart=config.loc[config.ID_document.eq('ICAPE_STUTTGART_Z8J_XSTU_20261101')].iloc[0]
+          assert stuttgart['Ticker']=='Z8J.F' and stuttgart['Date_publication_inconnue']=='OUI'
+          assert 'STUTTGART_XSTU' in stuttgart['Objet_documentaire']
+          assert 'DISTINCTE_XFRA' in stuttgart['Statut_identite']
           # Chaque octet capture est contrôle; un PDF ne peut pas etre inspecte
           # par recherche binaire de l'ISIN (texte souvent compresse).
           import hashlib
@@ -62,7 +66,7 @@ jobs:
               assert row['Source_URL'].startswith('https://') and row['Date_collecte_UTC']
               assert row['Statut_date_publication'] in (
                   'DATE_DECLAREE_A_VERIFIER','INCONNUE_NE_PAS_UTILISER_RETROSPECTIVEMENT')
-              if row['ID_document']=='ICAPE_DEUTSCHE_BOERSE_FRANKFURT_Z8J':
+              if row['ID_document'] in {'ICAPE_DEUTSCHE_BOERSE_FRANKFURT_Z8J','ICAPE_STUTTGART_Z8J_XSTU_20261101'}:
                   assert b'FR001400A3Q3' in brut and b'Z8J' in brut, 'Fiche de marche sans identite/symbole'
               elif row['ID_document']=='ICAPE_RFS_S1_2026_OFFICIEL':
                   assert brut.startswith(b'%PDF-') and len(brut)>10000, 'Rapport PDF absent ou tronque'
@@ -73,7 +77,7 @@ jobs:
           assert captures.intersection(nouveaux), 'Aucun nouveau document date capture'
           dossier=Path(df.loc[0,'Fichier_brut']).parent
           manifeste=json.loads((dossier/'MANIFESTE.json').read_text())
-          assert manifeste['documents_configures']==5 and manifeste['notes_attribuees']==0
+          assert manifeste['documents_configures']==6 and manifeste['notes_attribuees']==0
           assert manifeste['documents_collectes']==len(captures)
           for nom,empreinte in manifeste['fichiers'].items():
               assert hashlib.sha256((dossier/nom).read_bytes()).hexdigest()==empreinte

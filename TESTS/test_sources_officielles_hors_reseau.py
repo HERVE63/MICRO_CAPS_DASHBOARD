@@ -67,10 +67,19 @@ def test():
  # deux sources datees, trois pages a publication inconnue, aucune certification.
  reg_reel=pd.read_csv(ROOT/'CONFIG/DOCUMENTS_OFFICIELS_ICAPE_A_COLLECTER.csv',
                       dtype=str,keep_default_na=False)
- assert len(reg_reel)==5 and reg_reel.ID_document.is_unique
+ assert len(reg_reel)==6 and reg_reel.ID_document.is_unique
  assert reg_reel.Statut_identite.str.startswith('A_VERIFIER').all()
- assert set(reg_reel.loc[reg_reel.Type_source.eq('DONNEE_MARCHE_IDENTITE'),'ID_document'])=={'ICAPE_EURONEXT_IPO_20261031','ICAPE_DEUTSCHE_BOERSE_FRANKFURT_Z8J'}
+ assert set(reg_reel.loc[reg_reel.Type_source.eq('DONNEE_MARCHE_IDENTITE'),'ID_document'])=={'ICAPE_EURONEXT_IPO_20261031','ICAPE_DEUTSCHE_BOERSE_FRANKFURT_Z8J','ICAPE_STUTTGART_Z8J_XSTU_20261101'}
  assert reg_reel.Identifiant_emetteur.eq('ISIN:FR001400A3Q3').all()
+ # Une fiche XSTU ne certifie jamais la cotation XETRA/Francfort (Z8J.F).
+ stuttgart=reg_reel.set_index('ID_document').loc['ICAPE_STUTTGART_Z8J_XSTU_20261101']
+ assert stuttgart.Ticker=='Z8J.F' and stuttgart.Date_publication==''
+ assert stuttgart.Date_publication_inconnue=='OUI'
+ assert stuttgart.Type_source=='DONNEE_MARCHE_IDENTITE'
+ assert 'STUTTGART_XSTU' in stuttgart.Objet_documentaire
+ assert 'DISTINCTE_XFRA' in stuttgart.Statut_identite
+ assert stuttgart.Source_URL.startswith('https://www.boerse-stuttgart.de/')
+ assert not any(c.startswith('Note_') for c in reg_reel.columns)
  assert reg_reel.Source_URL.str.startswith('https://').all()
  dates=reg_reel[reg_reel.Date_publication.ne('')]
  assert set(dates.ID_document)=={
