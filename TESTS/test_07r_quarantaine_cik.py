@@ -57,6 +57,7 @@ def executer():
                     "Portee_plafond": "TEST_SEULEMENT"}
         with patch.object(module, "registre", return_value=pd.DataFrame()), \
              patch.object(module, "valider_dossier", side_effect=valider), \
+             patch.object(module, "verifier_identite_sce", return_value=[]), \
              patch.object(module, "bilan_blocs_documentes", side_effect=bilan):
             module.executer()
         resultat = pd.read_csv(module.OUT, dtype=str, keep_default_na=False).set_index("Ticker")
