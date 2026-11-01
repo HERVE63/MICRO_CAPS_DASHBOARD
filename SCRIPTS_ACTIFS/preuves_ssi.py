@@ -92,9 +92,15 @@ def registre(base,limite=None):
     if not set(CHAMPS).issubset(d.columns):raise RuntimeError('Schéma registre preuves incomplet')
     if d.ID_preuve.duplicated().any() or d.ID_preuve.map(manquant).any():raise RuntimeError('ID preuve invalide/dupliqué')
     if not d.empty:
-        dates=pd.to_datetime(d.Date_verification_UTC,utc=True,errors='coerce')
-        if dates.isna().any():raise RuntimeError('Date de vérification invalide')
-        if limite is not None: d=d[dates<=pd.Timestamp(limite)].copy()
+        # Une date malformée ne doit pas arrêter la qualification des autres
+        # émetteurs. La ligne reste visible, mais verifier() la rejettera
+        # individuellement ; aucune preuve n'est corrigée ou inventée.
+        dates=d.Date_verification_UTC.map(
+            lambda value: pd.to_datetime(value,utc=True,errors='coerce'))
+        if limite is not None:
+            # NaT reste dans le registre pour un rejet explicite par verifier().
+            # Les preuves datées du futur ne sont jamais rendues admissibles.
+            d=d[dates.isna() | (dates<=pd.Timestamp(limite))].copy()
     # Seuls les remplacements validés peuvent retirer une preuve valide.
     valides=d[d.Statut_verification.eq('VERIFIEE')]
     for _,r in valides[~valides.Remplace_ID.map(manquant)].iterrows():
@@ -106,10 +112,16 @@ def registre(base,limite=None):
                 or old.iloc[0].Bloc!=r.Bloc
                 or old.iloc[0].Identifiant_emetteur!=r.Identifiant_emetteur):
             raise RuntimeError('Remplacement de preuve incohérent')
-        if pd.Timestamp(r.Date_verification_UTC)<=pd.Timestamp(old.iloc[0].Date_verification_UTC):
-            raise RuntimeError('Remplacement de preuve non postérieur')
+        # Un remplacement invalide ne doit ni révoquer l'ancienne preuve
+        # ni provoquer un échec global. Il restera rejeté par verifier().
         errors=verifier(r,r.Ticker,r.Bloc,base,limite)
-        if not errors:d=d[~d.ID_preuve.eq(r.Remplace_ID)]
+        if errors:continue
+        ancien_horodatage=old.iloc[0].Date_verification_UTC
+        if not horodatage_verification_utc_strict(ancien_horodatage):
+            continue  # Ordre chronologique non démontrable : pas de révocation.
+        if pd.Timestamp(r.Date_verification_UTC)<=pd.Timestamp(ancien_horodatage):
+            raise RuntimeError('Remplacement de preuve non postérieur')
+        d=d[~d.ID_preuve.eq(r.Remplace_ID)]
     return d
 
 def verifier(r,ticker,bloc,base,limite=None):
