@@ -57,8 +57,12 @@ def test():
             with patch.object(m, "registre", return_value=reg), \
                  patch.object(m, "valider_dossier", return_value=([], ["blocs incomplets"])), \
                  patch.object(m, "bilan_blocs_documentes", return_value={
+                     "Blocs_SSI_documentes": "",
                      "Nombre_blocs_SSI_documentes": 0,
-                     "Plafond_SSI_si_blocs_restants_maximaux": 100
+                     "Points_sur_blocs_documentes": 0,
+                     "Maximum_blocs_documentes": 0,
+                     "Plafond_SSI_si_blocs_restants_maximaux": 100,
+                     "Portee_plafond": "TEST_SEULEMENT"
                  }), \
                  patch.object(m, "verifier_identite_sce",
                               return_value=[] if sce_valide else ["SCE non prouve"]), \
@@ -68,6 +72,9 @@ def test():
             result = pd.read_csv(m.OUT, dtype=str, keep_default_na=False).set_index("Ticker")
             assert result.loc["AUTRE_TEST", "Statut_SSI"] == "A_COMPLETER_PREUVES_SSI"
             assert result.loc["AUTRE_TEST", "SSI"] == "MANQUANTE"
+            if collision:
+                assert result.loc["CIBLE_TEST", "Points_sur_blocs_documentes"] == "0"
+                assert result.loc["CIBLE_TEST", "Portee_plafond"] == "NON_CALCULE_IDENTITE_CIK"
             return result.loc["CIBLE_TEST", "Statut_SSI"]
 
         assert execution("CIK:0000009999") == "A_COMPLETER_PREUVES_SSI"
