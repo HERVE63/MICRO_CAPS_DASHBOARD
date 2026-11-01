@@ -52,7 +52,7 @@ def executer():
    raise RuntimeError("Date des fondamentaux manquante : aucune date inventee")
  if "Momentum_12m_pct" not in d.columns: d["Momentum_12m_pct"]=pd.NA
  if d.empty:
-  colonnes=["Ticker","CIK","Identifiant_emetteur_verifie","SCE_valide","Preuves_identite_SCE","SSI","Statut_SSI","Decision_eliminatoire","Motif_eliminatoire"]
+  colonnes=["Ticker","CIK","Identifiant_emetteur_verifie","SCE_valide","Preuves_identite_SCE","Conflit_identite_CIK","SSI","Statut_SSI","Decision_eliminatoire","Motif_eliminatoire"]
   for b in ("B1","B2","B3","B4","B5","B6","B7"):
    colonnes.extend(["Note_"+b,"Preuve_"+b])
   archiver_registre()
