@@ -5,6 +5,7 @@ append-only (humain ou assistant explicitement nommé) ; une correction référe
 from pathlib import Path
 from datetime import datetime, timezone, timedelta
 import hashlib, math, re
+from urllib.parse import urlsplit
 import pandas as pd
 MAX={'B1':20,'B2':15,'B3':15,'B4':20,'B5':10,'B6':10,'B7':10}
 CHAMPS=['ID_preuve','Remplace_ID','Ticker','Bloc','Identifiant_emetteur','Source_URL',
@@ -165,6 +166,25 @@ def verifier(r,ticker,bloc,base,limite=None):
         except ValueError:errors.append('note invalide/hors barème')
     return errors
 
+def domaines_sce_distincts(urls):
+    """Garde-fou minimal : deux URL du meme hote ne sont pas deux sources
+    independantes. www et hote nu sont traites comme identiques.
+    Ce test ne remplace PAS la revue des editeurs/proprietaires des sources.
+    """
+    hotes=[]
+    for url in urls:
+        try:
+            h=(urlsplit(str(url)).hostname or '').lower().rstrip('.')
+        except ValueError:
+            return False
+        if h.startswith('www.'):
+            h=h[4:]
+        if not h:
+            return False
+        hotes.append(h)
+    return len(set(hotes))>=2
+
+
 def verifier_identite_sce(r,d,base,limite=None):
     erreurs=[]
     # Protection aussi pour les appels directs hors 07R : une collision CIK
@@ -176,8 +196,9 @@ def verifier_identite_sce(r,d,base,limite=None):
     z=d[d.ID_preuve.isin(ids)];ident=identifiant_dossier(r)
     if not ident:erreurs.append('identifiant réglementaire du dossier absent, invalide ou contradictoire')
     if (len(ids)<2 or len(ids)!=len(set(ids)) or len(z)!=len(ids)
-            or z.Source_URL.nunique()<2 or z.SHA256.nunique()<2):
-        erreurs.append('deux documents primaires distincts (URL et SHA256) requis pour identité SCE')
+            or z.Source_URL.nunique()<2 or z.SHA256.nunique()<2
+            or not domaines_sce_distincts(z.Source_URL)):
+        erreurs.append('deux documents primaires de sources distinctes (hotes, URL et SHA256) requis pour identité SCE')
     for _,p in z.iterrows():
         erreurs.extend(verifier(p,r.Ticker,'IDENTITE_SCE',base,limite))
         if not ident or p.Identifiant_emetteur!=ident:erreurs.append('identité SCE divergente du dossier')
