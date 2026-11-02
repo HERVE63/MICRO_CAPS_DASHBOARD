@@ -15,13 +15,13 @@ SCRIPT = ROOT / "SCRIPTS_ACTIFS/09D_COLLECTE_40_TITULAIRES.py"
 
 
 class Reponse:
-    status_code = 200
-
-    def __init__(self, data):
+    def __init__(self, data, status_code=200):
         self.data = data
+        self.status_code = status_code
 
     def raise_for_status(self):
-        pass
+        if self.status_code >= 400:
+            raise requests.HTTPError("Erreur HTTP simulee, sans secret")
 
     def json(self):
         return self.data
@@ -36,9 +36,9 @@ def executer():
         source = root / "DONNEES/ETAT_INITIAL_PORTEFEUILLE_GERE.csv"
         source.parent.mkdir()
         pd.DataFrame([
-            {"ID_position": i, "Societe": "Société " + str(i),
-             "Ticker": "T3.TO" if i == 3 else "T4.L" if i == 4 else "T" + str(i),
-             "Devise": "CAD" if i == 3 else "GBP" if i == 4 else "USD"}
+            {"ID_position": i, "Societe": "Growens" if i == 5 else "Société " + str(i),
+             "Ticker": "T3.TO" if i == 3 else "T4.L" if i == 4 else "GROW.MI" if i == 5 else "T" + str(i),
+             "Devise": "CAD" if i == 3 else "GBP" if i == 4 else "EUR" if i == 5 else "USD"}
             for i in range(1, 41)
         ]).to_csv(source, index=False)
         module.BASE = root
@@ -64,6 +64,15 @@ def executer():
                 })
             if url.endswith("/T2.US"):
                 return Reponse({"General": {"Code": "AUTRE", "Exchange": "US"}})
+            if url.endswith("/eod/GROW.MI"):
+                return Reponse({"error": "Ticker Not Found"}, status_code=404)
+            if url.endswith("/search/Growens"):
+                return Reponse([
+                    {"Code": "GROW", "Exchange": "MI", "Name": "Growens S.p.A.",
+                     "ISIN": "IT0005040354"},
+                    {"Code": "GROW", "Exchange": "US", "Name": "Autre société",
+                     "ISIN": "US0000000002"},
+                ])
             raise requests.Timeout("secret dans une URL à ne pas publier")
 
         with patch.dict(os.environ, {"EODHD_API_TOKEN": "TEST_SECRET"}, clear=True):
@@ -89,6 +98,14 @@ def executer():
         assert rows[0]["Statut_cours"] == rows[2]["Statut_cours"] == "COURS_FOURNISSEUR_NON_CERTIFIE"
         assert rows[2]["Cours_ajuste_fournisseur"] == 2.5
         assert all(r["Statut"] == "EN_ATTENTE_DATA_FOURNISSEUR" for r in rows[4:])
+        assert "https://eodhd.com/api/search/Growens" in appels
+        assert rows[4]["HTTP_cours"] == 404
+        assert rows[4]["Statut_recherche"] == "PISTES_FOURNISSEUR_NON_CERTIFIEES"
+        assert rows[4]["Nombre_pistes_recherche"] == 2
+        assert rows[4]["Statut_cours"] == "EN_ATTENTE_DATA_COURS"
+        assert rows[4]["Statut_identite"] == "NON_CERTIFIEE"
+        assert rows[4]["Ticker_requete_EODHD"] == "GROW.MI"
+        assert rows[4]["Score_SSI"] == rows[4]["Score_MCPA"] == "MANQUANTE"
         assert all(r["Preuve_primaire_validee"] == "NON" for r in rows)
         assert all(r["Score_SSI"] == r["Score_MCPA"] == "MANQUANTE" for r in rows)
         csv_bytes = module.OUT.read_bytes()
@@ -105,7 +122,10 @@ def executer():
         for rel, attendu in manifeste["fichiers_sha256"].items():
             assert hashlib.sha256((dossiers[0] / rel).read_bytes()).hexdigest() == attendu
         assert b"TEST_SECRET" not in (dossiers[0] / "MANIFESTE.json").read_bytes()
-        assert len(list((dossiers[0] / "REPONSES_FOURNISSEUR").glob("*.json"))) == 5
+        assert len(list((dossiers[0] / "REPONSES_FOURNISSEUR").glob("*.json"))) == 6
+        assert (dossiers[0] / "REPONSES_FOURNISSEUR/5_SEARCH.json").exists()
+        assert manifeste["recherches_identite_404"] == 1
+        assert manifeste["pistes_identite_non_certifiees"] == 2
         # Absence de clé : aucun appel réseau, 40 dossiers en attente, pas d'échec global.
         module.HIST = root / "AUDITS/SANS_CLE"
         with patch.dict(os.environ, {}, clear=True):
@@ -113,7 +133,7 @@ def executer():
                 sans_cle = module.collecter()
         assert len(sans_cle) == 40
         assert all(r["Statut"] == "EN_ATTENTE_CLE" for r in sans_cle)
-        print("09D : 40/40 traités, 2 fondamentaux + 3 EOD SHA256, 0 score ; sans clé 40 EN_ATTENTE_CLE")
+        print("09D : 40/40 traités, 2 fondamentaux + 3 EOD + 1 recherche 404 SHA256, 0 score ; sans clé 40 EN_ATTENTE_CLE")
 
 
 if __name__ == "__main__":
