@@ -169,6 +169,8 @@ jobs:
         run: python -B TESTS/test_09e_diagnostic_eodhd_hors_reseau.py
       - name: Tester 09D collecte EODHD partielle et empreintes hors reseau
         run: python -B TESTS/test_09d_collecte_non_bloquante.py
+      - name: Tester pilote SEC cinq titulaires, SHA256 et erreurs isolees hors reseau
+        run: python -B TESTS/test_09f_pilote_sec_us_5_hors_reseau.py
       - name: Tester la reutilisation SEC_BRIDGE sans faux CIK ni notes
         run: python -B TESTS/test_pistes_sec_bridge_non_certifiees.py
       - name: Tester 07Q2 plan identite emetteur et exclusions sans notation
