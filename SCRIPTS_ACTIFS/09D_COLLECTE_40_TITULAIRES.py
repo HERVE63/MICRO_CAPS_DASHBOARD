@@ -42,13 +42,20 @@ def collecter():
     records = []
     fichiers = {}
     for _, p in positions.iterrows():
-        ticker = str(p["Ticker"])
+        ticker = str(p["Ticker"]).strip()
+        # Les cinq titulaires US de la cohorte T0 sont stockés sans suffixe
+        # (IDN, INFU, OSS, CXDO, LWAY), tandis que l'API EODHD attend .US.
+        # Ne jamais changer le ticker officiel de la position ni ajouter
+        # .US à une cotation déjà suffixée (.TO, .V, .PA, .L, etc.).
+        ticker_eodhd = (ticker + ".US" if str(p["Devise"]).upper() == "USD"
+                        and re.fullmatch(r"[A-Za-z0-9-]+", ticker) else ticker)
         row = {
             "ID_position": p["ID_position"], "Societe": p["Societe"],
-            "Ticker": ticker, "Devise": p["Devise"],
+            "Ticker": ticker, "Ticker_requete_EODHD": ticker_eodhd,
+            "Devise": p["Devise"],
             "Horodatage_UTC": datetime.now(timezone.utc).isoformat(),
             "Source": "EODHD fundamentals (fournisseur secondaire)",
-            "Endpoint_sans_secret": "/api/fundamentals/" + ticker,
+            "Endpoint_sans_secret": "/api/fundamentals/" + ticker_eodhd,
             "Statut": "EN_ATTENTE_CLE" if not api else "EN_ATTENTE_DATA_FOURNISSEUR",
             "Statut_identite": "NON_CERTIFIEE",
             "Preuve_primaire_validee": "NON", "Score_SSI": "MANQUANTE",
@@ -57,7 +64,7 @@ def collecter():
         if api:
             try:
                 response = requests.get(
-                    "https://eodhd.com/api/fundamentals/" + ticker,
+                    "https://eodhd.com/api/fundamentals/" + ticker_eodhd,
                     params={"api_token": api, "fmt": "json"}, timeout=25,
                 )
                 row["HTTP_statut"] = response.status_code
