@@ -30,7 +30,7 @@ def test():
         lignes = []
         for ticker in ("CIBLE_TEST", "AUTRE_TEST"):
             row = {
-                "Ticker": ticker, "CIK": "0000000123",
+                "Ticker": ticker, "CIK": "0000000123" if ticker == "CIBLE_TEST" else "0000000456",
                 "SCE_valide": "OUI", "Preuves_identite_SCE": "ID_A|ID_B",
                 "Conflit_identite_CIK": "NON",
                 "Decision_eliminatoire": "OUI" if ticker == "CIBLE_TEST" else "A_VERIFIER",
