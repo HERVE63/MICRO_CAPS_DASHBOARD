@@ -14,6 +14,7 @@ import json
 import math
 import os
 import re
+from urllib.parse import quote
 
 import pandas as pd
 import requests
@@ -158,6 +159,45 @@ def collecter():
             except (requests.RequestException, ValueError, TypeError, OverflowError) as exc:
                 # Ne jamais exposer le message d'exception : il peut contenir le token.
                 row["Erreur_cours_type"] = type(exc).__name__
+        # Diagnostic uniquement lorsque le fournisseur répond explicitement 404.
+        # Le moteur conserve le ticker T0 et NE substitue JAMAIS une suggestion
+        # de recherche à une cotation : code, place et ISIN restent à certifier
+        # indépendamment sur une source primaire.
+        if api and row.get("HTTP_cours") == 404:
+            row["Statut_recherche"] = "EN_ATTENTE_RECHERCHE_FOURNISSEUR"
+            try:
+                nom = str(p["Societe"]).strip()
+                recherche = requests.get(
+                    "https://eodhd.com/api/search/" + quote(nom, safe=""),
+                    params={"api_token": api, "fmt": "json",
+                            "type": "stock", "limit": 10},
+                    timeout=25,
+                )
+                row["HTTP_recherche"] = recherche.status_code
+                recherche.raise_for_status()
+                suggestions = recherche.json()
+                if isinstance(suggestions, list):
+                    contenu = json.dumps(
+                        suggestions, ensure_ascii=False, sort_keys=True,
+                        separators=(",", ":"), allow_nan=False,
+                    ).encode("utf-8")
+                    chemin = brut / (str(p["ID_position"]) + "_SEARCH.json")
+                    _ecrire_atomique(chemin, contenu)
+                    empreinte = sha256(contenu).hexdigest()
+                    fichiers[str(chemin.relative_to(dossier))] = empreinte
+                    row["SHA256_recherche_JSON"] = empreinte
+                    row["Archive_recherche_JSON"] = str(chemin.relative_to(BASE))
+                    row["Nombre_pistes_recherche"] = len(suggestions)
+                    row["Statut_recherche"] = (
+                        "PISTES_FOURNISSEUR_NON_CERTIFIEES" if suggestions
+                        else "AUCUNE_PISTE_FOURNISSEUR"
+                    )
+                else:
+                    row["Statut_recherche"] = "REPONSE_RECHERCHE_NON_EXPLOITABLE"
+            except (requests.RequestException, ValueError, TypeError) as exc:
+                # Ne jamais journaliser l'URL complète ni le message de
+                # l'exception, susceptibles de contenir la clé API.
+                row["Erreur_recherche_type"] = type(exc).__name__
         records.append(row)
     rapport = pd.DataFrame(records)
     _ecrire_atomique(OUT, rapport.to_csv(index=False).encode("utf-8"))
@@ -172,6 +212,10 @@ def collecter():
         "types_erreur": dict(Counter(x.get("Erreur_type", "AUCUNE") for x in records)),
         "observations_fournisseur": compte.get("OBSERVATION_FOURNISSEUR_NON_CERTIFIEE", 0),
         "cours_EOD_observes": int(rapport["Statut_cours"].eq("COURS_FOURNISSEUR_NON_CERTIFIE").sum()),
+        "recherches_identite_404": int(rapport.get("HTTP_recherche", pd.Series(dtype=object)).notna().sum()),
+        "pistes_identite_non_certifiees": int(pd.to_numeric(
+            rapport.get("Nombre_pistes_recherche", pd.Series(dtype=object)),
+            errors="coerce").fillna(0).sum()),
         "preuves_primaires_validees": 0, "scores_attribues": 0,
         "revue_MCPA_validee": False, "arbitrage_autorise": False,
         "type_sha256": "SHA256 des octets du JSON canonique archive",
