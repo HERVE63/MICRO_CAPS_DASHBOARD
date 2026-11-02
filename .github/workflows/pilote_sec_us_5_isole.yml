@@ -1,0 +1,75 @@
+name: MICRO CAPS - PILOTE SEC US 5 ISOLE
+on:
+  workflow_dispatch:
+  push:
+    branches: [repair/microcaps-chain-20261030]
+    paths:
+      - 'SCRIPTS_ACTIFS/09F_PILOTE_SEC_US_5.py'
+      - 'TESTS/test_09f_pilote_sec_us_5_hors_reseau.py'
+      - '.github/workflows/pilote_sec_us_5_isole.yml'
+permissions:
+  contents: read
+jobs:
+  pilote:
+    if: github.ref == 'refs/heads/repair/microcaps-chain-20261030'
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: ${{ github.sha }}
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Reutiliser et tester le pilote SEC sans reseau
+        run: python -B TESTS/test_09f_pilote_sec_us_5_hors_reseau.py
+      - name: Collecter les cinq titulaires US sur SEC sans modifier le depot
+        env:
+          SEC_USER_AGENT: ${{ secrets.SEC_USER_AGENT }}
+        run: python -B SCRIPTS_ACTIFS/09F_PILOTE_SEC_US_5.py
+      - name: Recalculer independamment SHA256 et refuser scores ou arbitrages
+        run: |
+          python - <<'PY'
+          import csv, hashlib, json
+          from pathlib import Path
+          dossiers = sorted(Path('AUDITS/SEC_PILOTE_US_5').glob('*/MANIFESTE.json'))
+          assert len(dossiers) == 1, 'Une seule collecte SEC isolée attendue'
+          manifest = json.loads(dossiers[0].read_text())
+          dossier = dossiers[0].parent
+          assert manifest['Univers'] == manifest['Lignes'] == 5
+          assert manifest['Notes_attribuees'] == manifest['Arbitrages'] == 0
+          assert manifest['Identites_SCE_certifiees'] == 0
+          for rel, sha in manifest['Fichiers_SHA256'].items():
+              p = (dossier / rel).resolve()
+              assert p.is_relative_to(dossier.resolve()) and p.is_file()
+              assert hashlib.sha256(p.read_bytes()).hexdigest() == sha
+          for source in manifest['Sources']:
+              p = (dossier / source['Fichier_brut']).resolve()
+              assert p.is_relative_to(dossier.resolve()) and p.is_file()
+              assert hashlib.sha256(p.read_bytes()).hexdigest() == source['SHA256']
+              assert source['URL'].startswith(('https://www.sec.gov/', 'https://data.sec.gov/'))
+          with (dossier / 'DIAGNOSTIC_SEC_US_5.csv').open(newline='') as f:
+              rows = list(csv.DictReader(f))
+          assert len(rows) == 5 and len({r['ID_position'] for r in rows}) == 5
+          assert all(r['Score_SSI'] == 'MANQUANTE'
+                     and r['Score_MCPA'] == 'MANQUANTE'
+                     and r['Preuve_SCE_certifiee'] == 'NON' for r in rows)
+          print('SEC_US_5', json.dumps({
+              'lignes': len(rows), 'captures': len(manifest['Sources']),
+              'xbrl_non_certifies': manifest['XBRL_brut_a_verifier'],
+              'statuts': {r['Ticker']: r['Statut'] for r in rows},
+              'scores': 0, 'arbitrages': 0}, ensure_ascii=False))
+          PY
+      - name: Interdire toute modification des donnees et coffres
+        if: always()
+        run: |
+          git diff --exit-code -- DONNEES HISTORIQUE SAUVEGARDES CONFIG APPLICATION index.html
+          test -z "$(git status --porcelain -- DONNEES HISTORIQUE SAUVEGARDES CONFIG APPLICATION index.html)"
+      - name: Conserver les preuves et les echecs en artefact non fusionne
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: sec-pilote-us-5-${{ github.run_id }}-${{ github.run_attempt }}
+          path: AUDITS/SEC_PILOTE_US_5/
+          if-no-files-found: warn
+          retention-days: 90
