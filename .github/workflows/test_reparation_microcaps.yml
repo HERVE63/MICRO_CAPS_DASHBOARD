@@ -193,6 +193,8 @@ jobs:
         run: python -B TESTS/test_07r_horodatage_preuves_utc_hors_reseau.py
       - name: Ne pas bloquer les autres dossiers pour une date de preuve corrompue
         run: python -B TESTS/test_registre_preuves_dates_invalides_non_bloquantes.py
+      - name: Isoler les identifiants de preuve dupliques ou vides sans arreter SSI
+        run: python -B TESTS/test_registre_preuves_ids_ambigus_non_bloquants.py
       - name: Audit de completude attendu BLOQUE tant que SSI et MCPA ne sont pas qualifies
         run: |
           python - <<'PY'
