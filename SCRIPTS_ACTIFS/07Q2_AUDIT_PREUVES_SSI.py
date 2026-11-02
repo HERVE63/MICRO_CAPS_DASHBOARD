@@ -205,9 +205,15 @@ def indexer_captures_primaires():
     url_source_date=str(ligne.get("Source_date_publication","")).strip()
     try:
      source_date=urlsplit(url_source_date)
-     source_date_lien=(bool(url_source_date) and source_date.scheme=="https"
+     # Un lien de date sur une organisation tierce arbitraire ne rattache
+    # pas la date a la publication capturee. Conserver la capture SHA256
+    # comme piste, mais interdire la formation automatique d'une paire SCE.
+    # Les dates provenant d'un regulateur distinct restent a revoir
+    # manuellement : ce controle n'est PAS une certification de provenance.
+    source_date_lien=(bool(url_source_date) and source_date.scheme=="https"
                        and bool(source_date.hostname) and "." in source_date.hostname
-                       and not source_date.username and not source_date.password)
+                       and not source_date.username and not source_date.password
+                       and not domaines_sce_distincts((url,url_source_date)))
     except ValueError:
      source_date_lien=False
     captures.setdefault(ticker,[]).append((ident,url,sha,pd.isna(date_pub),
