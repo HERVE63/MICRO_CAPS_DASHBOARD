@@ -53,6 +53,7 @@ def tester():
         # Le schema fixture inclut les colonnes de provenance 07AA.
         ligne["URL_finale"]=url
         ligne["Domaine_autorise"]="exemple.test"
+        ligne["Source_date_publication"]=""
         colonnes=list(ligne)
         audit=dossier/"AUDIT_DOCUMENTS.csv"
         def enregistrer(lignes):
@@ -120,7 +121,8 @@ def tester():
                     Domaine_autorise="regulateur.test",
                     SHA256=sha2,Fichier_brut=str(brut2.relative_to(base)),
                     Date_publication="2026-10-01",Type_source="DONNEE_MARCHE_IDENTITE",
-                    Statut_date_publication="DATE_DECLAREE_A_VERIFIER")
+                    Statut_date_publication="DATE_DECLAREE_A_VERIFIER",
+                    Source_date_publication="https://regulateur.test/date")
         enregistrer([ligne,ligne2])
         plan=module.executer()
         file_revue=pd.read_csv(module.D/"FILE_CERTIFICATION_IDENTITES_SSI.csv",dtype=str,keep_default_na=False)
@@ -143,6 +145,32 @@ def tester():
         assert not (preuves_brutes.Identite_SCE_certifiee!="NON").any()
         assert not (preuves_brutes.Note_SSI!="MANQUANTE").any()
         assert not (plan.Preuve_validee=="OUI").any()
+
+        # Deux documents dates et deux domaines ne constituent des pistes
+        # de paire que si la provenance des deux dates est au moins liee.
+        datee=dict(ligne,Date_publication="2026-09-30",
+                   Statut_date_publication="DATE_DECLAREE_A_VERIFIER",
+                   Source_date_publication="https://exemple.test/date")
+        enregistrer([datee,ligne2])
+        module.executer()
+        revue=pd.read_csv(module.D/"FILE_CERTIFICATION_IDENTITES_SSI.csv",
+                          dtype=str,keep_default_na=False).set_index("Ticker").loc["FICTIF.F"]
+        assert revue.Paires_SCE_potentielles_a_relire=="1"
+        assert revue.Publications_date_connue_lien_source_a_verifier=="2"
+        assert revue.Publications_date_connue_sans_lien_source=="0"
+
+        # Le retrait du lien de date ne retire pas le document SHA256 valide
+        # de l'inventaire, mais le retire des paires SCE potentielles.
+        enregistrer([dict(datee,Source_date_publication=""),ligne2])
+        module.executer()
+        revue=pd.read_csv(module.D/"FILE_CERTIFICATION_IDENTITES_SSI.csv",
+                          dtype=str,keep_default_na=False).set_index("Ticker").loc["FICTIF.F"]
+        assert revue.Captures_SHA256_OK_pistes=="2"
+        assert revue.Paires_SCE_potentielles_a_relire=="0"
+        assert revue.Publications_date_connue_sans_lien_source=="1"
+        assert revue.Publications_date_connue_lien_source_a_verifier=="1"
+        assert revue.Statut_certification=="PISTES_NON_CERTIFIEES"
+
         enregistrer([ligne,dict(ligne,ID_document="TEST_BIS")])
 
         # Un document corrompu est ignoré, sans bloquer le candidat voisin.
