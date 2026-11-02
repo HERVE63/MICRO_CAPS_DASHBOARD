@@ -12,6 +12,8 @@ on:
       - 'TESTS/test_09h_audit_periodes_sec_hors_reseau.py'
       - 'SCRIPTS_ACTIFS/09I_AUDITER_ACCESSIONS_SEC.py'
       - 'TESTS/test_09i_audit_accessions_sec_hors_reseau.py'
+      - 'SCRIPTS_ACTIFS/09J_REVOIR_HISTORIQUE_SEC.py'
+      - 'TESTS/test_09j_historique_sec_hors_reseau.py'
       - 'SCRIPTS_ACTIFS/07U_COLLECTE_COMPANYFACTS_SEC.py'
       - 'SCRIPTS_ACTIFS/07V_NORMALISER_FAITS_SEC.py'
       - '.github/workflows/pilote_sec_us_5_isole.yml'
@@ -45,6 +47,8 @@ jobs:
         run: python -B TESTS/test_09h_audit_periodes_sec_hors_reseau.py
       - name: Tester 09I recoupement des accessions SEC sans réseau ni score
         run: python -B TESTS/test_09i_audit_accessions_sec_hors_reseau.py
+      - name: Tester 09J historique SEC hors reseau et quarantaine des amendements
+        run: python -B TESTS/test_09j_historique_sec_hors_reseau.py
       - name: Collecter les cinq titulaires US sur SEC sans modifier le depot
         env:
           SEC_USER_AGENT: ${{ secrets.SEC_USER_AGENT }}
@@ -174,6 +178,34 @@ jobs:
           assert all(r['Statut_preuve'] == 'A_VERIFIER_IDENTITE_ET_PERIODE' for r in lignes)
           assert all(r['Statut_accession_09I'] != 'CERTIFIE' for r in lignes)
           print('09I', json.dumps(m['Audits'], ensure_ascii=False))
+          PY
+      - name: Rechercher les accessions historiques SEC sans score ni ordre
+        env:
+          SEC_USER_AGENT: ${{ secrets.SEC_USER_AGENT }}
+        run: |
+          python - <<'PY'
+          import csv,hashlib,json,subprocess,sys
+          from pathlib import Path
+          dossiers=sorted(Path('AUDITS/SEC_PILOTE_US_5').glob('*/MANIFESTE.json'))
+          assert len(dossiers)==1
+          d=dossiers[0].parent
+          subprocess.run([sys.executable,'-B','SCRIPTS_ACTIFS/09J_REVOIR_HISTORIQUE_SEC.py',str(d)],check=True)
+          out=d/'AUDIT_HISTORIQUE_09J'
+          m=json.loads((out/'MANIFESTE_09J.json').read_text())
+          assert m['Statut']=='AUDIT_HISTORIQUE_NON_CERTIFIANT'
+          assert (m['Notes_SSI'],m['Notes_MCPA'],m['Arbitrages'])==(0,0,0)
+          assert m['Source_manifeste_09I_SHA256']==hashlib.sha256(
+              (d/'AUDIT_ACCESSIONS_09I/MANIFESTE_09I.json').read_bytes()).hexdigest()
+          for rel,digest in m['Fichiers_SHA256'].items():
+              f=(out/rel).resolve()
+              assert f.is_relative_to(out.resolve()) and f.is_file()
+              assert hashlib.sha256(f.read_bytes()).hexdigest()==digest
+          with (out/'REVUE_HISTORIQUE_SEC_09J.csv').open(newline='') as f:
+              rows=list(csv.DictReader(f))
+          assert len(rows)==m['Accessions_distinctes']
+          assert all(r['Statut_preuve']=='A_VERIFIER_IDENTITE_ET_PERIODE' for r in rows)
+          print('09J SEC REEL',json.dumps({'accessions':len(rows),
+              'statuts':m['Statuts'],'captures':len(m['Captures'])},ensure_ascii=False))
           PY
       - name: Interdire toute modification des donnees et coffres
         if: always()
