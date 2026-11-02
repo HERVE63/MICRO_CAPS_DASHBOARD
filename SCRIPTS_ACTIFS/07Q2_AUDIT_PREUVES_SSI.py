@@ -300,7 +300,7 @@ def paires_documentaires_a_revoir(documents):
   # ne doivent pas devenir une paire sur la seule premiere ligne du CSV.
   if len({(c[0],c[3],c[4],c[6],c[8],c[10],c[11],c[12] if len(c)>12 else False) for c in groupe})!=1:continue
   c=groupe[0]
-  ident,url,sha,date_inconnue,date_pub,_,id_doc,_,type_source,_,isin_dans_brut,symbole_dans_brut=c
+  ident,url,sha,date_inconnue,date_pub,_,id_doc,_,type_source,_,isin_dans_brut,symbole_dans_brut=c[:12]
   if date_inconnue or date_pub=="INCONNUE" or len(c)<13 or not c[12]:continue
   if not identifiant_reglementaire_formel_valide(ident):continue
   if type_source not in {"PUBLICATION_EMETTEUR","DEPOT_REGLEMENTAIRE","DONNEE_MARCHE_IDENTITE"}:continue
