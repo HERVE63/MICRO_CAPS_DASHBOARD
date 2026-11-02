@@ -85,10 +85,14 @@ def executer():
     assert "  workflow_dispatch:\n" in (
         ROOT / ".github/workflows/preparer_dossiers_ssi.yml"
     ).read_text(encoding="utf-8")
-    # La collecte 40 est un workflow manuel sans écriture Git. Elle ne doit
-    # jamais tourner sur main, et une cle EODHD absente ne doit pas empecher
-    # 09D de produire les 40 statuts EN_ATTENTE_CLE.
+    # La collecte 40 reste manuelle et bénéficie d'un déclenchement push
+    # strictement borné à son propre workflow sur la branche isolée : ce
+    # changement permet un essai réel sans dispatch externe. Aucun push Git,
+    # aucune écriture main, aucun score si la clé ou les données manquent.
     collecte = (ROOT / ".github/workflows/collecte-40-titulaires.yml").read_text(encoding="utf-8")
+    assert ("  push:\n    branches: [repair/microcaps-chain-20261030]\n"
+            "    paths:\n      - '.github/workflows/collecte-40-titulaires.yml'\n") in collecte
+    assert "  schedule:" not in collecte
     assert "  collecter:\n    if: github.ref_name == 'repair/microcaps-chain-20261030'" in collecte
     assert "          ref: ${{ github.ref_name }}" in collecte
     assert "permissions:\n  contents: read" in collecte
