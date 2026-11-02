@@ -13,15 +13,24 @@ m=importlib.util.module_from_spec(spec)
 spec.loader.exec_module(m)
 
 def capture(id_doc,url,sha,ident="ISIN:FR0011271600",date="2026-10-01",
-            type_source="PUBLICATION_EMETTEUR",isin="OUI",symbole="NON_APPLICABLE"):
+            type_source="PUBLICATION_EMETTEUR",isin="OUI",symbole="NON_APPLICABLE",
+            source_date="https://dates.exemple.test/publication"):
     return (ident,url,sha,date=="INCONNUE",date,"2026-10-02T00:00:00Z",
             id_doc,"AUDITS/SOURCES_OFFICIELLES/fixture.bin",type_source,
-            "text/html",isin,symbole)
+            "text/html",isin,symbole,bool(source_date))
 
 def tester():
     a=capture("DOC_A","https://www.emetteur.fr/a","a"*64)
     b=capture("DOC_B","https://live.marche.fr/b","b"*64)
     assert len(m.paires_documentaires_a_revoir([a,b]))==1
+    # Une date inscrite sans URL de provenance ne peut creer une paire,
+    # meme si les octets, les domaines et l'identite paraissent coherents.
+    sans_source=capture("DOC_B",b[1],b[2],source_date="")
+    assert m.paires_documentaires_a_revoir([a,sans_source])==[]
+    assert m.paires_documentaires_a_revoir([a,b,sans_source])==[]
+    # Les anciennes captures a 12 champs sont conservables comme pistes,
+    # mais ne deviennent jamais des paires sans provenance de date.
+    assert m.paires_documentaires_a_revoir([a,b[:12]])==[]
     assert set(m.paires_documentaires_a_revoir([a,b])[0])=={"DOC_A","DOC_B"}
     # Meme organisation, deux sous-domaines : ce n'est PAS l'independance.
     same=capture("DOC_C","https://investors.emetteur.fr/c","c"*64)
