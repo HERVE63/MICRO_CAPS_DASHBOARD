@@ -25,6 +25,10 @@ COLONNES = ("Horizon", "Ticker", "CIK", "Concept", "Unite", "Cadence",
             "Debut_periode", "Fin_periode", "Nb_alias", "Nb_valeurs_distinctes",
             "Nb_observations_brutes", "Nb_revisions_meme_tag",
             "Date_depot_max", "SHA256_brut_SEC", "Statut")
+DETAIL_COLONNES = ("Horizon", "Ticker", "CIK", "Concept", "Unite", "Cadence",
+                   "Debut_periode", "Fin_periode", "Statut_groupe", "Tag_SEC",
+                   "Taxonomie_SEC", "Date_depot", "Accession", "Formulaire",
+                   "Valeur", "Source_officielle", "SHA256_brut_SEC", "Statut_preuve")
 
 
 def empreinte(p):
@@ -121,6 +125,7 @@ def analyser_horizon(base, m, label, limite, flux):
             if k in groupes:
                 raw_par_cle[k].append(r)
     lignes = []
+    details = []
     compteurs = defaultdict(int)
     for k, obs in sorted(groupes.items()):
         historiques = raw_par_cle[k]
@@ -135,6 +140,25 @@ def analyser_horizon(base, m, label, limite, flux):
             statut = "EN_ATTENTE_DATA_REVISION"
         else:
             statut = "PISTE_PERIODE_INDEPENDANTE_NON_CERTIFIEE"
+        if statut in ("EN_ATTENTE_DATA_CONFLIT_ALIAS", "EN_ATTENTE_DATA_REVISION"):
+            # Reprendre les observations SEC brutes et leurs dépôts originaux.
+            # 07V conserve une version par tag ; ses seules lignes comparables
+            # ne permettent PAS d'expliquer une révision historique.
+            vus = set()
+            for r in sorted(historiques, key=lambda x: (
+                    x["Date_depot"], x.get("Accession", ""),
+                    x.get("Tag_SEC", ""), x.get("Valeur", ""))):
+                detail = dict(zip(DETAIL_COLONNES, (
+                    label, k[0], k[1], k[2], k[3], k[4], k[5], k[6],
+                    statut, r["Tag_SEC"], r.get("Taxonomie_SEC", ""),
+                    r["Date_depot"], r.get("Accession", ""),
+                    r.get("Formulaire", ""), r["Valeur"],
+                    r.get("Source_officielle", ""), r["SHA256_brut_SEC"],
+                    r["Statut_preuve"])))
+                signature = tuple(detail[c] for c in DETAIL_COLONNES)
+                if signature not in vus:
+                    vus.add(signature)
+                    details.append(detail)
         compteurs[statut] += 1
         lignes.append(dict(zip(COLONNES, (
             label, k[0], k[1], k[2], k[3], k[4], k[5], k[6],
@@ -144,13 +168,15 @@ def analyser_horizon(base, m, label, limite, flux):
             liens[k[0]]["SHA256"], statut
         ))))
     return lignes, {
+        "Observations_a_revoir": len(details),
+        "Groupes_a_revoir": compteurs["EN_ATTENTE_DATA_CONFLIT_ALIAS"] + compteurs["EN_ATTENTE_DATA_REVISION"],
         "Faits_bruts": len(raw), "Faits_comparables_07V": len(comparables),
         "Periodes_distinctes": len(lignes),
         "Cumuls_intermediaires_bruts_non_convertis": cumuls_exclus,
         "Statuts": dict(compteurs),
         "Titres_sans_periode": sorted(set(TITRES) - {r["Ticker"] for r in lignes}),
         "Notes_SSI": 0, "Notes_MCPA": 0, "Arbitrages": 0
-    }
+    }, details
 
 
 def executer(dossier):
@@ -160,11 +186,12 @@ def executer(dossier):
     if destination.exists():
         raise FileExistsError("AUDIT_09H_EXISTANT_NE_PAS_ECRASER")
     flux = charger_module_flux()
-    resultats, audits = [], {}
+    resultats, audits, details = [], {}, []
     for label, limite in (("T0", date_iso(m["T0"])),
                           ("COURANT", date_iso(m["Date_collecte"]))):
-        lignes, audit = analyser_horizon(base, m, label, limite, flux)
+        lignes, audit, detail = analyser_horizon(base, m, label, limite, flux)
         resultats.extend(lignes)
+        details.extend(detail)
         audits[label] = audit
     with tempfile.TemporaryDirectory(prefix=".09H_", dir=dossier) as tmp:
         p = Path(tmp)
@@ -172,6 +199,10 @@ def executer(dossier):
             w = csv.DictWriter(f, fieldnames=COLONNES)
             w.writeheader()
             w.writerows(resultats)
+        with (p / "DETAIL_CONFLITS_REVISIONS_09H.csv").open("w", encoding="utf-8", newline="") as f:
+            w = csv.DictWriter(f, fieldnames=DETAIL_COLONNES)
+            w.writeheader()
+            w.writerows(details)
         (p / "AUDIT_PERIODES_09H.json").write_text(
             json.dumps(audits, ensure_ascii=False, sort_keys=True, indent=2) + "\n",
             encoding="utf-8")
