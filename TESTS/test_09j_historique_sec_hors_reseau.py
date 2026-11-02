@@ -29,7 +29,7 @@ def preparer(base):
     d = fixture_i.fixture(base)
     manifest_path = d / "MANIFESTE.json"
     mf = json.loads(manifest_path.read_text())
-    sub = next(s for s in mf["Sources"] if s["URL"].endswith("CIK0000001001.json"))
+    sub = next(s for s in mf["Sources"] if "/submissions/" in s["URL"] and s["URL"].endswith("CIK0000001001.json"))
     ancien = d / sub["Fichier_brut"]
     obj = json.loads(ancien.read_bytes())
     obj["filings"]["files"] = [{
