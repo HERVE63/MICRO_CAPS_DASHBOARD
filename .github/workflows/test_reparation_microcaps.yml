@@ -177,6 +177,8 @@ jobs:
         run: python -B TESTS/test_09h_audit_periodes_sec_hors_reseau.py
       - name: Tester 09I recoupement des accessions SEC archivées et quarantaine sans réseau
         run: python -B TESTS/test_09i_audit_accessions_sec_hors_reseau.py
+      - name: Tester 09J index historique SEC et amendements sans reseau
+        run: python -B TESTS/test_09j_historique_sec_hors_reseau.py
       - name: Tester la reutilisation SEC_BRIDGE sans faux CIK ni notes
         run: python -B TESTS/test_pistes_sec_bridge_non_certifiees.py
       - name: Tester 07Q2 plan identite emetteur et exclusions sans notation
