@@ -72,11 +72,13 @@ def executer():
             if url.endswith("/eod/GROW.MI"):
                 return Reponse({"error": "Ticker Not Found"}, status_code=404)
             if url.endswith("/search/Growens"):
+                # Cas observé dans la capture réelle du 02/11 : même ISIN,
+                # mais cotation secondaire à Francfort, non Milan.
                 return Reponse([
-                    {"Code": "GROW", "Exchange": "MI", "Name": "Growens S.p.A.",
-                     "ISIN": "IT0005040354"},
-                    {"Code": "GROW", "Exchange": "US", "Name": "Autre société",
-                     "ISIN": "US0000000002"},
+                    {"Code": "0MU", "Exchange": "F", "Name": "Growens S.p.A.",
+                     "ISIN": "IT0005040354", "Currency": "EUR",
+                     "isPrimary": False, "previousClose": 1.68,
+                     "previousCloseDate": "2026-10-30"},
                 ])
             raise requests.Timeout("secret dans une URL à ne pas publier")
 
@@ -106,10 +108,11 @@ def executer():
         assert "https://eodhd.com/api/search/Growens" in appels
         assert rows[4]["HTTP_cours"] == 404
         assert rows[4]["Statut_recherche"] == "PISTES_FOURNISSEUR_NON_CERTIFIEES"
-        assert rows[4]["Nombre_pistes_recherche"] == 2
+        assert rows[4]["Nombre_pistes_recherche"] == 1
         assert rows[4]["Statut_cours"] == "EN_ATTENTE_DATA_COURS"
         assert rows[4]["Statut_identite"] == "NON_CERTIFIEE"
         assert rows[4]["Ticker_requete_EODHD"] == "GROW.MI"
+        assert "Cours_ajuste_fournisseur" not in rows[4], "Le prix Frankfurt 0MU.F ne doit jamais remplacer GROW.MI"
         assert rows[4]["Score_SSI"] == rows[4]["Score_MCPA"] == "MANQUANTE"
         assert rows[5]["Statut_cours"] == "EN_ATTENTE_DATA_COURS_CONFLIT"
         assert rows[5].get("Anomalie_cours") == "CLOTURE_MULTIPLE_CONTRADICTOIRE"
@@ -135,7 +138,7 @@ def executer():
         assert len(list((dossiers[0] / "REPONSES_FOURNISSEUR").glob("*.json"))) == 7
         assert (dossiers[0] / "REPONSES_FOURNISSEUR/5_SEARCH.json").exists()
         assert manifeste["recherches_identite_404"] == 1
-        assert manifeste["pistes_identite_non_certifiees"] == 2
+        assert manifeste["pistes_identite_non_certifiees"] == 1
         # Absence de clé : aucun appel réseau, 40 dossiers en attente, pas d'échec global.
         module.HIST = root / "AUDITS/SANS_CLE"
         with patch.dict(os.environ, {}, clear=True):
