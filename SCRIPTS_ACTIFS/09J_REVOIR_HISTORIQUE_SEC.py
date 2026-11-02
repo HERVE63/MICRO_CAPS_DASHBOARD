@@ -180,6 +180,7 @@ def executer(dossier, fetcher=None, agent=None, pause=time.sleep, maintenant=Non
                 row["Statut_09J"] = erreur
                 continue
             occurrences = set()
+            incidents_sources = []
             for url in urls:
                 if url not in cache:
                     try:
@@ -200,18 +201,24 @@ def executer(dossier, fetcher=None, agent=None, pause=time.sleep, maintenant=Non
                         cache[url] = (None, "", "", "EN_ATTENTE_DATA_SEC_" + type(exc).__name__)
                 obj, digest, chemin, echec = cache[url]
                 if echec:
-                    row["Statut_09J"] = echec
+                    incidents_sources.append(echec)
                     continue
                 rec = obj.get("accessionNumber", [])
                 dates = obj.get("filingDate", [])
                 forms = obj.get("form", [])
                 if not all(isinstance(x, list) for x in (rec, dates, forms)) or len({len(x) for x in (rec, dates, forms)}) != 1:
-                    row["Statut_09J"] = "EN_ATTENTE_DATA_SCHEMA_HISTORIQUE"
+                    incidents_sources.append("EN_ATTENTE_DATA_SCHEMA_HISTORIQUE")
                     continue
                 for accn, dep, form in zip(rec, dates, forms):
                     if accn == row["Accession"]:
                         occurrences.add((str(dep), str(form), url, digest))
-            if len(occurrences) == 1:
+            # Une archive qui repond ne suffit pas si un second index couvrant
+            # la meme date a echoue ou presente un schema invalide : la
+            # recherche est incomplete, donc la concordance est non exploitable.
+            if incidents_sources:
+                row["Statut_09J"] = ("EN_ATTENTE_DATA_INDEX_HISTORIQUE_PARTIEL"
+                                     if occurrences else sorted(incidents_sources)[0])
+            elif len(occurrences) == 1:
                 dep, form, url, digest = next(iter(occurrences))
                 row["Date_depot_historique"] = dep
                 row["Formulaire_historique"] = form
