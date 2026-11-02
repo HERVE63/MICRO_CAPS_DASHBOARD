@@ -112,19 +112,37 @@ def extraire_fichiers_historiques(d, mf, cik, date_fait):
     fichiers = obj.get("filings", {}).get("files", [])
     if not isinstance(fichiers, list):
         return [], "EN_ATTENTE_DATA_SCHEMA_INDEX_HISTORIQUE"
-    candidats = []
+    # Une plage malformee ne doit pas interrompre les autres candidats.
+    # Les archives d'un autre CIK ne sont jamais une preuve de provenance.
+    try:
+        date_cible = date.fromisoformat(date_fait)
+    except (TypeError, ValueError):
+        return [], "EN_ATTENTE_DATA_DATE_DEPOT_INVALIDE"
+    candidats, entrees_invalides = [], False
     for entry in fichiers:
         if not isinstance(entry, dict):
+            entrees_invalides = True
             continue
-        nom = entry.get("name", "")
-        if (isinstance(nom, str) and URL_ARCHIVE.fullmatch(
-                "https://data.sec.gov/submissions/" + nom)
-                and entry.get("filingFrom", "9999-12-31") <= date_fait
-                <= entry.get("filingTo", "0000-01-01")):
+        nom = entry.get("name")
+        debut, fin = entry.get("filingFrom"), entry.get("filingTo")
+        if not isinstance(nom, str) or not re.fullmatch(
+                r"CIK" + cik + r"-submissions-\\d{3}\\.json", nom):
+            entrees_invalides = True
+            continue
+        try:
+            debut_date, fin_date = date.fromisoformat(debut), date.fromisoformat(fin)
+        except (TypeError, ValueError):
+            entrees_invalides = True
+            continue
+        if debut_date > fin_date:
+            entrees_invalides = True
+            continue
+        if debut_date <= date_cible <= fin_date:
             candidats.append("https://data.sec.gov/submissions/" + nom)
     candidats = sorted(set(candidats))
     if not candidats:
-        return [], "EN_ATTENTE_DATA_INDEX_HISTORIQUE_NON_REPERTORIE"
+        return [], ("EN_ATTENTE_DATA_INDEX_HISTORIQUE_MALFORME" if entrees_invalides
+                    else "EN_ATTENTE_DATA_INDEX_HISTORIQUE_NON_REPERTORIE")
     if len(candidats) > 3:
         return [], "EN_ATTENTE_DATA_INDEX_HISTORIQUE_AMBIGU"
     return candidats, ""
