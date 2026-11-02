@@ -64,6 +64,25 @@ def test_revisions_alias_cumuls_et_replay():
         assert m["Statut"] == "AUDIT_PERIODES_NON_CERTIFIANT"
         assert (m["Notes_SSI"], m["Notes_MCPA"], m["Arbitrages"]) == (0, 0, 0)
         lignes = lire(d / "AUDIT_PERIODES_09H/PERIODES_SEC_09H.csv")
+        details = lire(d / "AUDIT_PERIODES_09H/DETAIL_CONFLITS_REVISIONS_09H.csv")
+        assert details, "Les révisions doivent rester inspectables au niveau des dépôts SEC"
+        assert len(details) == sum(
+            x["Observations_a_revoir"] for x in m["Audits"].values())
+        assert all(x["Statut_groupe"] in (
+            "EN_ATTENTE_DATA_CONFLIT_ALIAS", "EN_ATTENTE_DATA_REVISION")
+            and x["Statut_preuve"] == "A_VERIFIER_IDENTITE_ET_PERIODE"
+            and x["SHA256_brut_SEC"] == (
+                json.loads((d / "NORMALISATION_07U_07V/MANIFESTE_REPLAY.json")
+                           .read_text())["Sources_reutilisees"][x["Ticker"]]["SHA256"])
+            for x in details)
+        assert all(x["Date_depot"] <= ("2026-10-01" if x["Horizon"] == "T0"
+                                     else m["Date_collecte"]) for x in details)
+        revision = [x for x in details if x["Ticker"] == "IDN"
+                    and x["Fin_periode"] == "2025-12-31"
+                    and x["Horizon"] == "T0"]
+        assert {"100", "105", "110"}.issubset({x["Valeur"] for x in revision})
+        assert {"a", "rev", "alias"}.issubset({x["Accession"] for x in revision})
+        assert all(x["Ticker"] != "OSS" for x in details)
         conflit = [r for r in lignes if r["Ticker"] == "IDN"
                    and r["Fin_periode"] == "2025-12-31"
                    and r["Concept"] == "Revenues"]
