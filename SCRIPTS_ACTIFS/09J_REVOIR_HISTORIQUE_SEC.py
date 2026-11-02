@@ -107,9 +107,13 @@ def extraire_fichiers_historiques(d, mf, cik, date_fait):
     if not brut.is_relative_to(d.resolve()) or sha(brut) != sources[0]["SHA256"]:
         raise ValueError("SHA256_SUBMISSIONS_INVALIDE")
     obj = json.loads(brut.read_bytes())
+    # Un schema externe incomplet ne doit pas interrompre les autres CIK.
+    # Il ne permet pas non plus de conclure que la liste historique est vide.
+    if not isinstance(obj, dict) or not isinstance(obj.get("filings"), dict):
+        return [], "EN_ATTENTE_DATA_SCHEMA_INDEX_HISTORIQUE"
     if str(obj.get("cik", "")).zfill(10) != cik:
         raise ValueError("CIK_SUBMISSIONS_INVALIDE")
-    fichiers = obj.get("filings", {}).get("files", [])
+    fichiers = obj["filings"].get("files")
     if not isinstance(fichiers, list):
         return [], "EN_ATTENTE_DATA_SCHEMA_INDEX_HISTORIQUE"
     # Une plage malformee ne doit pas interrompre les autres candidats.
@@ -140,9 +144,12 @@ def extraire_fichiers_historiques(d, mf, cik, date_fait):
         if debut_date <= date_cible <= fin_date:
             candidats.append("https://data.sec.gov/submissions/" + nom)
     candidats = sorted(set(candidats))
+    # Une entree illisible pourrait couvrir la meme date que l index valide.
+    # Refuser tout recoupement partiel plutot que promouvoir le premier match.
+    if entrees_invalides:
+        return [], "EN_ATTENTE_DATA_INDEX_HISTORIQUE_MALFORME"
     if not candidats:
-        return [], ("EN_ATTENTE_DATA_INDEX_HISTORIQUE_MALFORME" if entrees_invalides
-                    else "EN_ATTENTE_DATA_INDEX_HISTORIQUE_NON_REPERTORIE")
+        return [], "EN_ATTENTE_DATA_INDEX_HISTORIQUE_NON_REPERTORIE"
     if len(candidats) > 3:
         return [], "EN_ATTENTE_DATA_INDEX_HISTORIQUE_AMBIGU"
     return candidats, ""
