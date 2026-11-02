@@ -50,7 +50,7 @@ def tester():
     assert len(lecteur.pages) == 42, "Pagination différente du rapport ICAPE archivé"
     extraits = [(i + 1, p.extract_text() or "") for i, p in enumerate(lecteur.pages)]
     pages_lisibles = sum(bool(t.strip()) for _, t in extraits)
-    pages_icape = [n for n, t in extraits if re.search(r"\\bICAPE\\b", t, flags=re.I)]
+    pages_icape = [n for n, t in extraits if re.search(r"\bICAPE\b", t, flags=re.I)]
     assert pages_lisibles >= 30, "Extraction textuelle insuffisante : revue manuelle requise"
     assert pages_icape, "Nom de l'émetteur introuvable dans le contenu PDF extrait"
     # Les marqueurs textuels ne prouvent ni la date officielle de publication,
