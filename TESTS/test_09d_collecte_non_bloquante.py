@@ -37,7 +37,8 @@ def executer():
         source.parent.mkdir()
         pd.DataFrame([
             {"ID_position": i, "Societe": "Société " + str(i),
-             "Ticker": "T" + str(i), "Devise": "USD"}
+             "Ticker": "T3.TO" if i == 3 else "T" + str(i),
+             "Devise": "CAD" if i == 3 else "USD"}
             for i in range(1, 41)
         ]).to_csv(source, index=False)
         module.BASE = root
@@ -45,15 +46,17 @@ def executer():
         module.OUT = root / "DONNEES/COLLECTE_DIRECTE_40_TITULAIRES.csv"
         module.HIST = root / "AUDITS/HISTORIQUE_COLLECTES_HEBDOMADAIRES"
 
+        appels = []
         def faux_get(url, params, timeout):
             assert params["api_token"] == "TEST_SECRET"
             assert timeout == 25
-            if url.endswith("/T1"):
+            appels.append(url)
+            if url.endswith("/T1.US"):
                 return Reponse({
                     "General": {"Code": "T1", "Exchange": "US", "ISIN": "US0000000001"},
                     "Highlights": {"RevenueTTM": 1234},
                 })
-            if url.endswith("/T2"):
+            if url.endswith("/T2.US"):
                 return Reponse({"General": {"Code": "AUTRE", "Exchange": "US"}})
             raise requests.Timeout("secret dans une URL à ne pas publier")
 
@@ -61,6 +64,13 @@ def executer():
             with patch.object(module.requests, "get", side_effect=faux_get):
                 rows = module.collecter()
         assert len(rows) == 40
+        assert appels[:3] == [
+            "https://eodhd.com/api/fundamentals/T1.US",
+            "https://eodhd.com/api/fundamentals/T2.US",
+            "https://eodhd.com/api/fundamentals/T3.TO",
+        ], "Les tickers US nus prennent .US ; les places déjà suffixées sont intactes"
+        assert rows[0]["Ticker"] == "T1" and rows[0]["Ticker_requete_EODHD"] == "T1.US"
+        assert rows[2]["Ticker"] == "T3.TO" and rows[2]["Ticker_requete_EODHD"] == "T3.TO"
         assert rows[0]["Statut"] == "OBSERVATION_FOURNISSEUR_NON_CERTIFIEE"
         assert rows[1]["Statut"] == "EN_ATTENTE_DATA_IDENTITE"
         assert all(r["Statut"] == "EN_ATTENTE_DATA_FOURNISSEUR" for r in rows[2:])
