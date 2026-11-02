@@ -45,6 +45,43 @@ jobs:
           print('COUVERTURE_40', len(d), 'QUALIFICATIONS=0; ARBITRAGE_INTERDIT')
           print('STATUTS', d['Statut'].value_counts().to_dict())
           PY
+      - name: Verifier les SHA256 de toutes les reponses reelles archivees
+        run: |
+          python - <<'PY'
+          import hashlib
+          import json
+          from pathlib import Path
+          import pandas as pd
+
+          dossiers = sorted(Path('AUDITS/HISTORIQUE_COLLECTES_HEBDOMADAIRES').glob('COLLECTE_40_*'))
+          assert len(dossiers) == 1, f'Attendu 1 lot isole, trouve {len(dossiers)}'
+          dossier = dossiers[0]
+          manifeste = json.loads((dossier / 'MANIFESTE.json').read_text(encoding='utf-8'))
+          assert manifeste['nombre_positions'] == 40
+          assert manifeste['preuves_primaires_validees'] == 0
+          assert manifeste['scores_attribues'] == 0
+          assert manifeste['arbitrage_autorise'] is False
+          empreintes = manifeste['fichiers_sha256']
+          assert empreintes, 'Manifeste de reponses vide'
+          for rel, sha in empreintes.items():
+              cible = (dossier / rel).resolve()
+              assert cible.is_relative_to(dossier.resolve()), 'Chemin archive hors lot'
+              assert cible.is_file(), f'Archive manquante : {rel}'
+              assert hashlib.sha256(cible.read_bytes()).hexdigest() == sha, f'SHA256 divergent : {rel}'
+          eod = sum(rel.endswith('_EOD.json') for rel in empreintes)
+          recherches = sum(rel.endswith('_SEARCH.json') for rel in empreintes)
+          assert eod == manifeste['cours_EOD_observes']
+          assert recherches <= manifeste['recherches_identite_404']
+          donnees = pd.read_csv('DONNEES/COLLECTE_DIRECTE_40_TITULAIRES.csv',
+                                dtype=str, keep_default_na=False)
+          non_trouves = donnees[donnees['HTTP_cours'] == '404']
+          assert (non_trouves['Statut_cours'] != 'COURS_FOURNISSEUR_NON_CERTIFIE').all()
+          assert (non_trouves['Score_SSI'] == 'MANQUANTE').all()
+          assert (non_trouves['Score_MCPA'] == 'MANQUANTE').all()
+          print('SHA256_REELS_VALIDES', len(empreintes),
+                'EOD', eod, 'RECHERCHES', recherches,
+                'HTTP404', len(non_trouves), 'ADMISSIONS', 0)
+          PY
       - uses: actions/upload-artifact@v4
         if: always()
         with:
