@@ -190,7 +190,10 @@ def collecter():
             f.write("### Collecte EODHD : observations non certifiées\n\n")
             f.write("40 lignes traitées ; preuves primaires validées : **0** ; "
                     "SSI/MCPA et arbitrages : **non autorisés**.\n\n")
-            f.write("Statuts : " + json.dumps(compte, ensure_ascii=False) + "\n")
+            f.write("Statuts : " + json.dumps(compte, ensure_ascii=False) + "\n\n")
+            f.write("Cours EOD fournisseurs disponibles : **" +
+                    str(synthese["cours_EOD_observes"]) + "/40** ; données secondaires, "
+                    "pas une valorisation EUR ni une preuve de qualification.\n")
     return records
 
 
