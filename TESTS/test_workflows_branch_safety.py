@@ -100,7 +100,8 @@ def executer():
     assert "continue-on-error: true" in collecte
     assert "python -B SCRIPTS_ACTIFS/09E_TEST_ACCES_EODHD.py" in collecte
     assert "python -B SCRIPTS_ACTIFS/09D_COLLECTE_40_TITULAIRES.py" in collecte
-    assert collecte.index("09E_TEST_ACCES_EODHD.py") < collecte.index("09D_COLLECTE_40_TITULAIRES.py")
+    assert (collecte.index("run: python -B SCRIPTS_ACTIFS/09E_TEST_ACCES_EODHD.py")
+            < collecte.index("run: python -B SCRIPTS_ACTIFS/09D_COLLECTE_40_TITULAIRES.py"))
     assert "DONNEES/COLLECTE_DIRECTE_40_TITULAIRES.csv" in collecte
     assert "Score_SSI" in collecte and "Score_MCPA" in collecte
     assert "git push" not in collecte and "ref: main" not in collecte
