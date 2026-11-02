@@ -57,6 +57,11 @@ def executer():
                 return Reponse([{"date": "2026-10-31", "adjusted_close": 2.5}])
             if url.endswith("/eod/T4.LSE"):
                 return Reponse([{"date": "2026-10-31", "adjusted_close": 11.0}])
+            if url.endswith("/eod/T6.US"):
+                # Même séance, deux clôtures contradictoires : ne pas retenir
+                # arbitrairement la plus haute selon l’ordre de réponse.
+                return Reponse([{"date": "2026-10-31", "adjusted_close": 3.0},
+                                {"date": "2026-10-31", "adjusted_close": 3.4}])
             if url.endswith("/T1.US"):
                 return Reponse({
                     "General": {"Code": "T1", "Exchange": "US", "ISIN": "US0000000001"},
@@ -106,6 +111,11 @@ def executer():
         assert rows[4]["Statut_identite"] == "NON_CERTIFIEE"
         assert rows[4]["Ticker_requete_EODHD"] == "GROW.MI"
         assert rows[4]["Score_SSI"] == rows[4]["Score_MCPA"] == "MANQUANTE"
+        assert rows[5]["Statut_cours"] == "EN_ATTENTE_DATA_COURS_CONFLIT"
+        assert rows[5].get("Anomalie_cours") == "CLOTURE_MULTIPLE_CONTRADICTOIRE"
+        assert "Cours_ajuste_fournisseur" not in rows[5]
+        assert rows[5]["Archive_EOD_JSON"].endswith("6_EOD.json")
+        assert rows[5]["SHA256_EOD_JSON"]
         assert all(r["Preuve_primaire_validee"] == "NON" for r in rows)
         assert all(r["Score_SSI"] == r["Score_MCPA"] == "MANQUANTE" for r in rows)
         csv_bytes = module.OUT.read_bytes()
@@ -122,7 +132,7 @@ def executer():
         for rel, attendu in manifeste["fichiers_sha256"].items():
             assert hashlib.sha256((dossiers[0] / rel).read_bytes()).hexdigest() == attendu
         assert b"TEST_SECRET" not in (dossiers[0] / "MANIFESTE.json").read_bytes()
-        assert len(list((dossiers[0] / "REPONSES_FOURNISSEUR").glob("*.json"))) == 6
+        assert len(list((dossiers[0] / "REPONSES_FOURNISSEUR").glob("*.json"))) == 7
         assert (dossiers[0] / "REPONSES_FOURNISSEUR/5_SEARCH.json").exists()
         assert manifeste["recherches_identite_404"] == 1
         assert manifeste["pistes_identite_non_certifiees"] == 2
@@ -133,7 +143,7 @@ def executer():
                 sans_cle = module.collecter()
         assert len(sans_cle) == 40
         assert all(r["Statut"] == "EN_ATTENTE_CLE" for r in sans_cle)
-        print("09D : 40/40 traités, 2 fondamentaux + 3 EOD + 1 recherche 404 SHA256, 0 score ; sans clé 40 EN_ATTENTE_CLE")
+        print("09D : 40/40 traités, 2 fondamentaux + 3 EOD valides + 1 EOD contradictoire en quarantaine + 1 recherche 404 SHA256, 0 score ; sans clé 40 EN_ATTENTE_CLE")
 
 
 if __name__ == "__main__":
