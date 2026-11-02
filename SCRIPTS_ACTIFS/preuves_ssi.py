@@ -114,7 +114,32 @@ def registre(base,limite=None):
     # doivent révoquer l'ancienne preuve ou interrompre les autres dossiers.
     rejets_remplacement=set()
     valides=d[d.Statut_verification.eq('VERIFIEE')]
+    # Plusieurs revisions individuellement valides du meme ID parent sont
+    # incompatibles avec une chaine append-only univoque. Sans cette
+    # verification, la premiere ligne CSV gagnait arbitrairement et pouvait
+    # revoquer la preuve originale, rendant le resultat dependant de l'ordre.
+    # Une revision invalide ne doit pas bloquer une revision saine.
+    propositions={}
     for _,r in valides[~valides.Remplace_ID.map(manquant)].iterrows():
+        old=d[d.ID_preuve.eq(r.Remplace_ID)]
+        if (len(old)!=1 or old.iloc[0].Ticker!=r.Ticker
+                or old.iloc[0].Bloc!=r.Bloc
+                or old.iloc[0].Identifiant_emetteur!=r.Identifiant_emetteur):
+            continue
+        if verifier(r,r.Ticker,r.Bloc,base,limite):
+            continue
+        ancien_horodatage=old.iloc[0].Date_verification_UTC
+        if not horodatage_verification_utc_strict(ancien_horodatage):
+            continue
+        if pd.Timestamp(r.Date_verification_UTC)<=pd.Timestamp(ancien_horodatage):
+            continue
+        propositions.setdefault(r.Remplace_ID,set()).add(r.ID_preuve)
+    for ids in propositions.values():
+        if len(ids)>1:
+            rejets_remplacement.update(ids)
+    for _,r in valides[~valides.Remplace_ID.map(manquant)].iterrows():
+        if r.ID_preuve in rejets_remplacement:
+            continue
         if r.ID_preuve not in set(d.ID_preuve):
             continue  # Une chaîne de remplacements a déjà révoqué cette ligne.
         old=d[d.ID_preuve.eq(r.Remplace_ID)]
