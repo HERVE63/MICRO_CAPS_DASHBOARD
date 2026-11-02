@@ -91,7 +91,8 @@ def executer():
     # aucune écriture main, aucun score si la clé ou les données manquent.
     collecte = (ROOT / ".github/workflows/collecte-40-titulaires.yml").read_text(encoding="utf-8")
     assert ("  push:\n    branches: [repair/microcaps-chain-20261030]\n"
-            "    paths:\n      - '.github/workflows/collecte-40-titulaires.yml'\n") in collecte
+            "    paths:\n      - '.github/workflows/collecte-40-titulaires.yml'\n"
+            "      - 'SCRIPTS_ACTIFS/09D_COLLECTE_40_TITULAIRES.py'\n") in collecte
     assert "  schedule:" not in collecte
     assert "  collecter:\n    if: github.ref_name == 'repair/microcaps-chain-20261030'" in collecte
     assert "          ref: ${{ github.ref_name }}" in collecte
