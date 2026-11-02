@@ -160,8 +160,38 @@ def test_index_historique_identite_et_dates_en_quarantaine():
         p.write_bytes(brut)
         sub["SHA256"] = hashlib.sha256(brut).hexdigest()
         urls, statut = j.extraire_fichiers_historiques(d, mf, "0000001001", "2026-01-01")
+        assert urls == [] and statut == "EN_ATTENTE_DATA_INDEX_HISTORIQUE_MALFORME", (
+            "Un index valide et des metadonnees corrompues ne prouvent pas une recherche complete")
+        obj["filings"]["files"] = [valide]
+        brut = json.dumps(obj).encode()
+        p.write_bytes(brut)
+        sub["SHA256"] = hashlib.sha256(brut).hexdigest()
+        urls, statut = j.extraire_fichiers_historiques(d, mf, "0000001001", "2026-01-01")
         assert urls == ["https://data.sec.gov/submissions/CIK0000001001-submissions-001.json"]
         assert statut == ""
+
+
+def test_schema_submissions_invalide_ne_bloque_pas_les_autres():
+    # Un JSON avec empreinte correcte peut ne plus respecter le schema SEC.
+    # Chaque anomalie doit rester EN_ATTENTE_DATA, sans exception globale.
+    with TemporaryDirectory() as tmp:
+        d = preparer(tmp)
+        mf = json.loads((d / "MANIFESTE.json").read_text())
+        sub = next(x for x in mf["Sources"] if x["URL"].endswith("/CIK0000001001.json"))
+        p = d / sub["Fichier_brut"]
+        original = json.loads(p.read_bytes())
+        for invalide in ([], {"filings": []}, {"cik": 1001, "filings": {"files": "bad"}},
+                         {"cik": 1001, "filings": {}}):
+            brut = json.dumps(invalide).encode()
+            p.write_bytes(brut)
+            sub["SHA256"] = hashlib.sha256(brut).hexdigest()
+            urls, statut = j.extraire_fichiers_historiques(d, mf, "0000001001", "2026-01-01")
+            assert urls == [] and statut == "EN_ATTENTE_DATA_SCHEMA_INDEX_HISTORIQUE"
+        brut = json.dumps(original).encode()
+        p.write_bytes(brut)
+        sub["SHA256"] = hashlib.sha256(brut).hexdigest()
+        urls, statut = j.extraire_fichiers_historiques(d, mf, "0000001001", "2026-01-01")
+        assert len(urls) == 1 and statut == "", "Reprise possible avec source de nouveau valide"
 
 
 def test_index_partiel_ne_certifie_pas_un_depot():
@@ -202,5 +232,6 @@ if __name__ == "__main__":
     test_empreinte_09i_invalide_refusee()
     test_amendement_ne_vaut_pas_validation()
     test_index_historique_identite_et_dates_en_quarantaine()
+    test_schema_submissions_invalide_ne_bloque_pas_les_autres()
     test_index_partiel_ne_certifie_pas_un_depot()
     print("TEST 09J OK : archives SEC, SHA256, amendements, quarantaine, zero score")
