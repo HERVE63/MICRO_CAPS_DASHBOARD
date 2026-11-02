@@ -1,0 +1,19 @@
+name: Pilote SEC EDGAR 5 microcaps US
+on:
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  sec-us:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: repair/microcaps-chain-20261030
+      - name: Tester la collecte SEC des cinq premieres microcaps US
+        run: python SCRIPTS_ACTIFS/09F_PILOTE_SEC_US_5.py
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: diagnostic-sec-us-5
+          path: AUDITS/DIAGNOSTIC_SEC_US_5.csv
