@@ -133,7 +133,8 @@ def test_index_historique_identite_et_dates_en_quarantaine():
     with TemporaryDirectory() as tmp:
         d = preparer(tmp)
         mf = json.loads((d / "MANIFESTE.json").read_text())
-        sub = next(s for s in mf["Sources"] if s["URL"].endswith("/CIK0000001001.json"))
+        sub = next(s for s in mf["Sources"] if "/submissions/" in s["URL"]
+                   and s["URL"].endswith("/CIK0000001001.json"))
         p = d / sub["Fichier_brut"]
         obj = json.loads(p.read_bytes())
         valide = {"name": "CIK0000001001-submissions-001.json",
