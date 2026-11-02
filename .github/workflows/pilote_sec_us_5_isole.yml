@@ -6,6 +6,10 @@ on:
     paths:
       - 'SCRIPTS_ACTIFS/09F_PILOTE_SEC_US_5.py'
       - 'TESTS/test_09f_pilote_sec_us_5_hors_reseau.py'
+      - 'SCRIPTS_ACTIFS/09G_REJOUER_SEC_ARCHIVE_07U_07V.py'
+      - 'TESTS/test_09g_replay_sec_archive_hors_reseau.py'
+      - 'SCRIPTS_ACTIFS/07U_COLLECTE_COMPANYFACTS_SEC.py'
+      - 'SCRIPTS_ACTIFS/07V_NORMALISER_FAITS_SEC.py'
       - '.github/workflows/pilote_sec_us_5_isole.yml'
 permissions:
   contents: read
@@ -27,8 +31,12 @@ jobs:
       - uses: actions/setup-python@v5
         with:
           python-version: '3.12'
+      - name: Installer dependance des modules historiques 07U et 07V
+        run: pip install pandas
       - name: Reutiliser et tester le pilote SEC sans reseau
         run: python -B TESTS/test_09f_pilote_sec_us_5_hors_reseau.py
+      - name: Tester replay SEC 07U et 07V hors reseau, T0 et SHA256
+        run: python -B TESTS/test_09g_replay_sec_archive_hors_reseau.py
       - name: Collecter les cinq titulaires US sur SEC sans modifier le depot
         env:
           SEC_USER_AGENT: ${{ secrets.SEC_USER_AGENT }}
@@ -66,6 +74,31 @@ jobs:
               'xbrl_non_certifies': manifest['XBRL_brut_a_verifier'],
               'statuts': {r['Ticker']: r['Statut'] for r in rows},
               'scores': 0, 'arbitrages': 0}, ensure_ascii=False))
+          PY
+      - name: Rejouer 07U et 07V sur archives SHA256 a T0 et a date courante
+        run: |
+          python - <<'PY'
+          import csv, hashlib, json, subprocess, sys
+          from pathlib import Path
+          archives = sorted(Path('AUDITS/SEC_PILOTE_US_5').glob('*/MANIFESTE.json'))
+          assert len(archives) == 1
+          subprocess.run([sys.executable, '-B', 'SCRIPTS_ACTIFS/09G_REJOUER_SEC_ARCHIVE_07U_07V.py',
+                          str(archives[0].parent)], check=True)
+          sortie = archives[0].parent / 'NORMALISATION_07U_07V'
+          m = json.loads((sortie / 'MANIFESTE_REPLAY.json').read_text())
+          assert m['Statut'] == 'REPLAY_SEC_NON_CERTIFIANT'
+          assert m['Notes_SSI'] == m['Notes_MCPA'] == m['Arbitrages'] == 0
+          assert len(m['Sources_reutilisees']) == 5, 'Une source SEC brute manque pour un titulaire US'
+          for rel, digest in m['Fichiers_SHA256'].items():
+              p = (sortie / rel).resolve()
+              assert p.is_relative_to(sortie.resolve()) and hashlib.sha256(p.read_bytes()).hexdigest() == digest
+          for label, limite in [('T0', '2026-10-01'), ('COURANT', m['Date_collecte'])]:
+              with (sortie / label / 'FAITS_SEC_COMPARABLES_SSI.csv').open(newline='') as f:
+                  lignes = list(csv.DictReader(f))
+              assert all(r['Date_depot'] <= limite for r in lignes)
+              assert all(r['Statut_preuve'] == 'A_VERIFIER_IDENTITE_ET_PERIODE' for r in lignes)
+              assert all(len(r['SHA256_brut_SEC']) == 64 for r in lignes)
+              print(label, len(lignes), 'faits comparables plausibles NON CERTIFIES')
           PY
       - name: Interdire toute modification des donnees et coffres
         if: always()
