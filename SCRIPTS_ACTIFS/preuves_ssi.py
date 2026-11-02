@@ -131,16 +131,23 @@ def registre(base,limite=None):
         ['_ordre_verification','ID_preuve'],kind='stable',na_position='last')
     for _,r in revisions.iterrows():
         old=d[d.ID_preuve.eq(r.Remplace_ID)]
+        # Une revision n'est admissible que si son parent est lui-meme
+        # integralement verifie (statut, date, provenance, fichier, SHA256).
+        # Sans cela PARENT_NON_VERIFIE -> FILLE_VERIFIEE -> PETITE_FILLE
+        # blanchirait indirectement une preuve invalide. Quarantainer
+        # avant de traiter les revisions, puis propager aux descendants.
         if (len(old)!=1 or old.iloc[0].Ticker!=r.Ticker
                 or old.iloc[0].Bloc!=r.Bloc
-                or old.iloc[0].Identifiant_emetteur!=r.Identifiant_emetteur):
-            continue
-        if verifier(r,r.Ticker,r.Bloc,base,limite):
+                or old.iloc[0].Identifiant_emetteur!=r.Identifiant_emetteur
+                or verifier(r,r.Ticker,r.Bloc,base,limite)
+                or (len(old)==1 and verifier(
+                    old.iloc[0],r.Ticker,r.Bloc,base,limite))):
+            rejets_remplacement.add(r.ID_preuve)
             continue
         ancien_horodatage=old.iloc[0].Date_verification_UTC
-        if not horodatage_verification_utc_strict(ancien_horodatage):
-            continue
-        if pd.Timestamp(r.Date_verification_UTC)<=pd.Timestamp(ancien_horodatage):
+        if (not horodatage_verification_utc_strict(ancien_horodatage)
+                or pd.Timestamp(r.Date_verification_UTC)<=pd.Timestamp(ancien_horodatage)):
+            rejets_remplacement.add(r.ID_preuve)
             continue
         propositions.setdefault(r.Remplace_ID,set()).add(r.ID_preuve)
     for ids in propositions.values():
@@ -168,7 +175,8 @@ def registre(base,limite=None):
                 or old.iloc[0].Identifiant_emetteur!=r.Identifiant_emetteur):
             rejets_remplacement.add(r.ID_preuve)
             continue
-        if verifier(r,r.Ticker,r.Bloc,base,limite):
+        if (verifier(r,r.Ticker,r.Bloc,base,limite)
+                or verifier(old.iloc[0],r.Ticker,r.Bloc,base,limite)):
             rejets_remplacement.add(r.ID_preuve)
             continue
         ancien_horodatage=old.iloc[0].Date_verification_UTC
