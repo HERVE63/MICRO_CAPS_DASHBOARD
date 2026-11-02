@@ -8,7 +8,9 @@ import re
 import json
 import csv
 from datetime import datetime, timezone
+from urllib.parse import urlsplit
 import pandas as pd
+from preuves_ssi import domaines_sce_distincts
 from preuves_ssi import identifiant_reglementaire_formel_valide
 from preuves_ssi import identifiant_dossier
 
@@ -150,7 +152,24 @@ def indexer_captures_primaires():
     date_pub=pd.to_datetime(ligne.get("Date_publication",""),utc=True,errors="coerce")
     if not ticker:refuser("TICKER_ABSENT")
     if not identifiant_reglementaire_formel_valide(ident):refuser("IDENTIFIANT_REGLEMENTAIRE_INVALIDE")
-    if not url.startswith("https://"):refuser("URL_NON_HTTPS")
+    # Le SHA256 authentifie les octets archives, pas leur provenance web.
+    # Un domaine declare ou une redirection vers un autre editeur ne peut
+    # devenir une piste primaire, meme avec un fichier brut integre.
+    origine=urlsplit(url)
+    if (origine.scheme!="https" or not origine.hostname or
+        "." not in origine.hostname or origine.username or origine.password):
+     refuser("URL_NON_HTTPS")
+    domaine_declare=str(ligne.get("Domaine_autorise","")).strip().lower().rstrip(".")
+    if domaine_declare and origine.hostname.lower().rstrip(".")!=domaine_declare:
+     refuser("DOMAINE_SOURCE_NON_AUTORISE")
+    url_finale=str(ligne.get("URL_finale","")).strip()
+    if url_finale:
+     finale=urlsplit(url_finale)
+     if (finale.scheme!="https" or not finale.hostname or
+         "." not in finale.hostname or finale.username or finale.password):
+      refuser("URL_FINALE_INVALIDE")
+     if domaines_sce_distincts((url,url_finale)):
+      refuser("REDIRECTION_HORS_ORGANISATION")
     if ligne.get("Type_source") not in {"PUBLICATION_EMETTEUR","DEPOT_REGLEMENTAIRE","DONNEE_MARCHE_IDENTITE"}:
      refuser("TYPE_SOURCE_NON_PRIMAIRE")
     if pd.isna(date_capture):refuser("DATE_COLLECTE_INVALIDE")
@@ -191,6 +210,7 @@ def indexer_captures_primaires():
     invalides+=1
     code=(str(erreur) if isinstance(erreur,ValueError) and str(erreur) in {
       "TICKER_ABSENT","IDENTIFIANT_REGLEMENTAIRE_INVALIDE","URL_NON_HTTPS",
+      "DOMAINE_SOURCE_NON_AUTORISE","URL_FINALE_INVALIDE","REDIRECTION_HORS_ORGANISATION",
       "TYPE_SOURCE_NON_PRIMAIRE","DATE_COLLECTE_INVALIDE","DATE_COLLECTE_SANS_UTC_EXPLICITE","DATE_COLLECTE_FUTURE",
       "DATE_PUBLICATION_INVALIDE","DATE_PUBLICATION_APRES_COLLECTE",
       "SHA256_MALFORME","CHEMIN_HORS_ARCHIVE","SHA256_MANIFESTE_BRUT_DIVERGENT",
