@@ -54,6 +54,14 @@ def executer():
 
         assert lire([old, same, sain]) == {"P2", "SAIN"}, (
             "Même émetteur, même bloc, chronologie correcte : remplacement autorisé")
+        concurrent = preuve("P9", "ISIN:US0378331005",
+                            "2026-10-03T00:00:00Z", "P1")
+        assert lire([old, same, concurrent, sain]) == {"P1", "SAIN"}, (
+            "Deux revisions admissibles du meme parent sont ambiguës : "
+            "garder P1 et exclure toutes les revisions concurrentes")
+        assert lire([concurrent, old, sain, same]) == {"P1", "SAIN"}, (
+            "L'issue ne doit pas dependre de l'ordre du CSV")
+
         other = preuve("P3", "CIK:0000000123", "2026-10-03T00:00:00Z", "P1")
         assert lire([old, other, sain]) == {"P1", "SAIN"}, (
             "Un émetteur homonyme ne doit ni remplacer P1 ni être actif")
@@ -78,7 +86,7 @@ def executer():
         assert lire([old, invalide, sain]) == {"P1", "SAIN"}, (
             "Une date invalide ne doit pas révoquer P1")
         assert document.read_bytes() == b"DOCUMENT FICTIF SANS PREUVE PRIMAIRE"
-    print("SSI : 7 scénarios de remplacement, preuves saines préservées, aucun arrêt global")
+    print("SSI : 9 scénarios de remplacement, preuves saines préservées, aucun arrêt global")
 
 
 if __name__ == "__main__":
