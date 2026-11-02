@@ -10,6 +10,8 @@ on:
       - 'TESTS/test_09g_replay_sec_archive_hors_reseau.py'
       - 'SCRIPTS_ACTIFS/09H_AUDITER_PERIODES_SEC.py'
       - 'TESTS/test_09h_audit_periodes_sec_hors_reseau.py'
+      - 'SCRIPTS_ACTIFS/09I_AUDITER_ACCESSIONS_SEC.py'
+      - 'TESTS/test_09i_audit_accessions_sec_hors_reseau.py'
       - 'SCRIPTS_ACTIFS/07U_COLLECTE_COMPANYFACTS_SEC.py'
       - 'SCRIPTS_ACTIFS/07V_NORMALISER_FAITS_SEC.py'
       - '.github/workflows/pilote_sec_us_5_isole.yml'
@@ -41,6 +43,8 @@ jobs:
         run: python -B TESTS/test_09g_replay_sec_archive_hors_reseau.py
       - name: Tester 09H périodes indépendantes, révisions, conflits et SHA256 hors réseau
         run: python -B TESTS/test_09h_audit_periodes_sec_hors_reseau.py
+      - name: Tester 09I recoupement des accessions SEC sans réseau ni score
+        run: python -B TESTS/test_09i_audit_accessions_sec_hors_reseau.py
       - name: Collecter les cinq titulaires US sur SEC sans modifier le depot
         env:
           SEC_USER_AGENT: ${{ secrets.SEC_USER_AGENT }}
@@ -147,6 +151,29 @@ jobs:
               assert audit['Periodes_distinctes'] > 0
               assert audit['Notes_SSI'] == audit['Notes_MCPA'] == audit['Arbitrages'] == 0
               print(label, audit)
+          PY
+      - name: Recouper les accessions des conflits 09H avec les submissions SEC archivées
+        run: |
+          python - <<'PY'
+          import csv, hashlib, json, subprocess, sys
+          from pathlib import Path
+          archives = sorted(Path('AUDITS/SEC_PILOTE_US_5').glob('*/MANIFESTE.json'))
+          assert len(archives) == 1
+          d = archives[0].parent
+          subprocess.run([sys.executable, '-B', 'SCRIPTS_ACTIFS/09I_AUDITER_ACCESSIONS_SEC.py', str(d)], check=True)
+          p = d / 'AUDIT_ACCESSIONS_09I'
+          m = json.loads((p / 'MANIFESTE_09I.json').read_text())
+          assert m['Statut'] == 'RECOUPEMENT_DEPOTS_SEC_NON_CERTIFIANT'
+          assert m['Notes_SSI'] == m['Notes_MCPA'] == m['Arbitrages'] == 0
+          for rel, digest in m['Fichiers_SHA256'].items():
+              assert hashlib.sha256((p / rel).read_bytes()).hexdigest() == digest
+          with (p / 'REVUE_ACCESSIONS_SEC_09I.csv').open(newline='') as f:
+              lignes = list(csv.DictReader(f))
+          assert len(lignes) == sum(a['Observations'] for a in m['Audits'].values())
+          assert len(lignes) > 0, 'Aucune révision réelle à auditer : vérifier 09H'
+          assert all(r['Statut_preuve'] == 'A_VERIFIER_IDENTITE_ET_PERIODE' for r in lignes)
+          assert all(r['Statut_accession_09I'] != 'CERTIFIE' for r in lignes)
+          print('09I', json.dumps(m['Audits'], ensure_ascii=False))
           PY
       - name: Interdire toute modification des donnees et coffres
         if: always()
