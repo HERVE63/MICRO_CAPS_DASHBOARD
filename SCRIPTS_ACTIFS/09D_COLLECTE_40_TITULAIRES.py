@@ -227,6 +227,8 @@ def collecter():
     print("COLLECTE_40_STATUTS " + json.dumps(compte, ensure_ascii=False, sort_keys=True))
     print("COLLECTE_40_HTTP " + json.dumps(synthese["codes_http"], sort_keys=True))
     print("COLLECTE_40_COURS_EOD " + str(synthese["cours_EOD_observes"]) + "/40")
+    print("COLLECTE_40_RECHERCHES_404 " + str(synthese["recherches_identite_404"]) +
+          " PISTES_NON_CERTIFIEES " + str(synthese["pistes_identite_non_certifiees"]))
     print("COLLECTE_40_ERREURS " + json.dumps(synthese["types_erreur"], sort_keys=True))
     print("COLLECTE_40_PREUVES_PRIMAIRES=0; ARBITRAGE_INTERDIT")
     if os.environ.get("GITHUB_STEP_SUMMARY"):
