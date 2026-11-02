@@ -60,6 +60,21 @@ def test():
         meme_hote=reg.copy()
         meme_hote.loc[meme_hote.ID_preuve.eq("SCE2"),"Source_URL"]="https://www.issuer.example/fixture/SCE2"
         assert any("sources distinctes" in e for e in valider_dossier(pd.Series(dossier),meme_hote,base)[1])
+        # Deux sous-domaines du meme editeur ne sont pas deux sources
+        # independantes, meme avec deux URLs et deux SHA256 differents.
+        meme_editeur=reg.copy()
+        meme_editeur.loc[meme_editeur.ID_preuve.eq("SCE1"),"Source_URL"]="https://investors.issuer.example/fixture/SCE1"
+        meme_editeur.loc[meme_editeur.ID_preuve.eq("SCE2"),"Source_URL"]="https://reports.issuer.example/fixture/SCE2"
+        assert any("sources distinctes" in e for e in valider_dossier(pd.Series(dossier),meme_editeur,base)[1])
+        # Deux organisations sous un suffixe public compose restent distinctes.
+        uk=reg.copy()
+        uk.loc[uk.ID_preuve.eq("SCE1"),"Source_URL"]="https://issuer.co.uk/fixture/SCE1"
+        uk.loc[uk.ID_preuve.eq("SCE2"),"Source_URL"]="https://exchange.co.uk/fixture/SCE2"
+        assert not valider_dossier(pd.Series(dossier),uk,base)[1]
+        # Un utilisateur/mot de passe dans l'URL ne doit pas servir de preuve SCE.
+        identifiant_url=reg.copy()
+        identifiant_url.loc[identifiant_url.ID_preuve.eq("SCE2"),"Source_URL"]="https://user@exchange.example/fixture/SCE2"
+        assert any("sources distinctes" in e for e in valider_dossier(pd.Series(dossier),identifiant_url,base)[1])
         # Deux URL distinctes ne suffisent pas si les octets archivés sont identiques.
         meme_document=reg.copy()
         masque=meme_document.ID_preuve.eq("SCE2")
