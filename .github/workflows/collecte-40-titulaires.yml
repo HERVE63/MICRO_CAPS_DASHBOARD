@@ -5,6 +5,7 @@ on:
     branches: [repair/microcaps-chain-20261030]
     paths:
       - '.github/workflows/collecte-40-titulaires.yml'
+      - 'SCRIPTS_ACTIFS/09D_COLLECTE_40_TITULAIRES.py'
 permissions:
   contents: read
 jobs:
@@ -19,6 +20,8 @@ jobs:
         with:
           python-version: '3.11'
       - run: python -m pip install pandas requests
+      - name: Tester plan B EODHD hors reseau avant toute collecte reelle
+        run: python -B TESTS/test_09d_collecte_non_bloquante.py
       - name: Diagnostiquer acces EODHD sans bloquer les 40 dossiers
         id: diagnostic
         continue-on-error: true
