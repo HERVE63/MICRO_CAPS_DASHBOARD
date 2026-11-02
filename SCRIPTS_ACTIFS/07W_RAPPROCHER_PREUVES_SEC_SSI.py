@@ -7,6 +7,7 @@ SEC=D/"PREUVES_SEC_EDGAR_SSI.csv"
 FACT=D/"FAITS_SEC_COMPARABLES_SSI.csv"
 OUT=D/"RAPPROCHEMENT_PREUVES_SEC_SSI.csv"
 AUD=D/"AUDIT_RAPPROCHEMENT_SEC_SSI.csv"
+QUAR=D/"QUARANTAINE_RAPPROCHEMENT_SEC_SSI.csv"
 BLOCS={"Cash":"B1","Assets":"B1","Liabilities":"B1","OperatingIncome":"B2","NetIncome":"B2","OperatingCashFlow":"B2","Revenues":"B3","Shares":"B5"}
 BLOCS.update(DebtCurrent='B1',LongTermDebtCurrent='B1',LongTermDebtNoncurrent='B1',
              GrossProfit='B2',CapitalExpenditure='B2',ShareBasedCompensation='B5')
@@ -17,18 +18,35 @@ def executer():
  sec=pd.read_csv(SEC,dtype=str,keep_default_na=False)
  faits=pd.read_csv(FACT,dtype=str,keep_default_na=False)
  for name,df in (("dossiers",dossiers),("SEC",sec)):
-  if "Ticker" not in df or df["Ticker"].duplicated().any():raise RuntimeError("Tickers invalides ou dupliques: "+name)
+  if not {"Ticker","CIK"}.issubset(df.columns):raise RuntimeError("Schema identite incomplet: "+name)
+  if df["Ticker"].astype(str).str.strip().str.upper().duplicated().any() or df["Ticker"].astype(str).str.strip().eq("").any():
+   raise RuntimeError("Tickers invalides ou dupliques: "+name)
  if not {"Ticker","CIK","Concept","Source_officielle","Date_depot","Fin_periode","Valeur","Unite","Statut_comparabilite"}.issubset(faits.columns):
   raise RuntimeError("Schema faits SEC incomplet")
  reg=sec.set_index("Ticker")
  dossiers_index=dossiers.set_index("Ticker")
  admis=set(dossiers["Ticker"])
- rows=[]
+ rows=[]; quarantaines=[]
+ def cik_normalise(v):
+  """CIK SEC: uniquement 1 a 10 chiffres, zero-padding sans inference."""
+  import re
+  s=str(v).strip()
+  return s.zfill(10) if re.fullmatch(r"[0-9]{1,10}",s) else ""
  for _,f in faits.iterrows():
   ticker=f["Ticker"]
   if ticker not in admis:continue
   identite=reg.loc[ticker] if ticker in reg.index else None
-  if identite is None or str(identite.get("CIK",""))!=f["CIK"]:continue
+  cik_dossier=cik_normalise(dossiers_index.loc[ticker].get("CIK",""))
+  cik_sec=cik_normalise(identite.get("CIK","")) if identite is not None else ""
+  cik_fait=cik_normalise(f["CIK"])
+  if not cik_dossier or not cik_sec or not cik_fait or len({cik_dossier,cik_sec,cik_fait})!=1:
+   quarantaines.append({"Ticker":ticker,"CIK_dossier":cik_dossier,
+    "CIK_SEC":cik_sec,"CIK_fait":cik_fait,
+    "Statut":"EN_ATTENTE_DATA_IDENTITE_CIK",
+    "Motif":"CIK_ABSENT_INVALIDE_OU_DIVERGENT",
+    "Source_officielle":f.get("Source_officielle",""),
+    "Accession":f.get("Accession","")})
+   continue
   bloc=BLOCS.get(f["Concept"],"HORS_BLOCS")
   statut="A_VERIFIER_IDENTITE_ET_DOCUMENT"
   if identite.get("CIK_verifie","NON")=="OUI" and identite.get("Statut_SEC")=="IDENTITE_VERIFIEE":
@@ -41,10 +59,15 @@ def executer():
    "Accession":f.get("Accession",""),"Tag_SEC":f.get("Tag_SEC",""),"Taxonomie_SEC":f.get("Taxonomie_SEC","us-gaap"),
    "Debut_periode":f.get("Debut_periode",""),"Formulaire":f.get("Formulaire","")})
  cols=["Ticker","Societe","CIK","Bloc_SSI_cible","Concept","Valeur","Unite","Fin_periode","Date_depot","Source_officielle","Statut_preuve","Statut_comparabilite","Note_SSI_attribuee","Accession","Tag_SEC","Taxonomie_SEC","Debut_periode","Formulaire"]
- pd.DataFrame(rows,columns=cols).to_csv(OUT,index=False)
- pd.DataFrame([{"Dossiers_SSI":len(dossiers),"Faits_rapproches":len(rows),
+ qcols=["Ticker","CIK_dossier","CIK_SEC","CIK_fait","Statut","Motif","Source_officielle","Accession"]
+ for dest,frame in ((OUT,pd.DataFrame(rows,columns=cols)),
+                    (QUAR,pd.DataFrame(quarantaines,columns=qcols))):
+  tmp=dest.with_suffix(".tmp");frame.to_csv(tmp,index=False);tmp.replace(dest)
+ audit=pd.DataFrame([{"Dossiers_SSI":len(dossiers),"Faits_rapproches":len(rows),
+  "Faits_en_quarantaine_identite_CIK":len(quarantaines),
   "Emetteurs_avec_faits":len({r["Ticker"] for r in rows}),"Notes_SSI_attribuees":0,
-  "Statut":"PISTES_DOCUMENTAIRES_NON_VALIDEES"}]).to_csv(AUD,index=False)
+  "Statut":"PISTES_DOCUMENTAIRES_NON_VALIDEES"}])
+ tmp=AUD.with_suffix(".tmp");audit.to_csv(tmp,index=False);tmp.replace(AUD)
  print("Rapprochement SEC SSI:",len(rows),"faits; zero score")
  return rows
 if __name__=="__main__":executer()
