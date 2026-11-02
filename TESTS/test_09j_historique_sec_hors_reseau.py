@@ -186,7 +186,7 @@ def test_schema_submissions_invalide_ne_bloque_pas_les_autres():
             p.write_bytes(brut)
             sub["SHA256"] = hashlib.sha256(brut).hexdigest()
             urls, statut = j.extraire_fichiers_historiques(d, mf, "0000001001", "2026-01-01")
-            assert urls == [] and statut == "EN_ATTENTE_DATA_SCHEMA_INDEX_HISTORIQUE"
+            assert urls == [] and statut == "EN_ATTENTE_DATA_SCHEMA_INDEX_HISTORIQUE", (repr(invalide), urls, statut)
         brut = json.dumps(original).encode()
         p.write_bytes(brut)
         sub["SHA256"] = hashlib.sha256(brut).hexdigest()
