@@ -100,6 +100,38 @@ def executer():
                          "date_invalide", "P1")
         assert lire([old, invalide, sain]) == {"P1", "SAIN"}, (
             "Une date invalide ne doit pas révoquer P1")
+        # Une revision ne doit pas blanchir une preuve parente non verifiee.
+        # La quarantaine se propage a toutes les generations, meme si
+        # leurs documents et statuts propres sont apparemment corrects.
+        parent_attente = preuve("PARENT_ATTENTE", "ISIN:US0378331005",
+                               "2026-10-01T00:00:00Z", ticker="ATTENTE.F")
+        parent_attente["Statut_verification"] = "EN_ATTENTE"
+        fille = preuve("FILLE", "ISIN:US0378331005",
+                       "2026-10-02T00:00:00Z", "PARENT_ATTENTE",
+                       ticker="ATTENTE.F")
+        petite_fille = preuve("PETITE_FILLE", "ISIN:US0378331005",
+                              "2026-10-03T00:00:00Z", "FILLE",
+                              ticker="ATTENTE.F")
+        assert lire([parent_attente, fille, petite_fille, sain]) == {
+            "PARENT_ATTENTE", "SAIN"}, (
+            "Une revision et ses descendants ne certifient pas "
+            "un parent non verifie")
+        assert lire([petite_fille, sain, fille, parent_attente]) == {
+            "PARENT_ATTENTE", "SAIN"}, (
+            "Quarantaine independante de l'ordre du registre")
+
+        parent_corrompu = preuve("PARENT_HASH", "ISIN:US0378331005",
+                                "2026-10-01T00:00:00Z",
+                                ticker="HASH.F")
+        parent_corrompu["SHA256"] = "0" * 64
+        fille_hash = preuve("FILLE_HASH", "ISIN:US0378331005",
+                            "2026-10-02T00:00:00Z", "PARENT_HASH",
+                            ticker="HASH.F")
+        assert lire([parent_corrompu, fille_hash, sain]) == {
+            "PARENT_HASH", "SAIN"}, (
+            "Une preuve brute au SHA256 invalide ne peut etre "
+            "blanchie par remplacement")
+
         assert document.read_bytes() == b"DOCUMENT FICTIF SANS PREUVE PRIMAIRE"
     print("SSI : 10 scénarios de remplacement, preuves saines préservées, aucun arrêt global")
 
