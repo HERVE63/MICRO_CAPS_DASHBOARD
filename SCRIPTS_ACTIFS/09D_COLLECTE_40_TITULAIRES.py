@@ -140,7 +140,12 @@ def collecter():
                         if date <= datetime.now(timezone.utc).date() and math.isfinite(valeur) and valeur > 0:
                             seances.append((date, valeur))
                     if seances:
-                        dernier, prix = max(seances)
+                        # Une même date peut apparaître deux fois dans une
+                        # réponse fournisseur. max((date, prix)) choisissait
+                        # silencieusement le prix le plus élevé : cela ne
+                        # constitue PAS une clôture univoque.
+                        dernier = max(date for date, _ in seances)
+                        valeurs = {prix for date, prix in seances if date == dernier}
                         contenu = json.dumps(cours, ensure_ascii=False, sort_keys=True,
                                              separators=(",", ":"), allow_nan=False).encode("utf-8")
                         chemin = brut / (str(p["ID_position"]) + "_EOD.json")
@@ -149,13 +154,19 @@ def collecter():
                         fichiers[str(chemin.relative_to(dossier))] = empreinte
                         row.update({
                             "Date_cours": dernier.isoformat(),
-                            "Cours_ajuste_fournisseur": prix,
                             "SHA256_EOD_JSON": empreinte,
                             "Archive_EOD_JSON": str(chemin.relative_to(BASE)),
-                            "Statut_cours": "COURS_FOURNISSEUR_NON_CERTIFIE",
                         })
-                        if row["Statut"] != "OBSERVATION_FOURNISSEUR_NON_CERTIFIEE":
-                            row["Statut"] = "OBSERVATION_COURS_SEULEMENT_NON_CERTIFIEE"
+                        if len(valeurs) != 1:
+                            # Archiver la réponse pour audit, mais ne publier
+                            # aucun cours arbitraire. Le dossier voisin continue.
+                            row["Statut_cours"] = "EN_ATTENTE_DATA_COURS_CONFLIT"
+                            row["Anomalie_cours"] = "CLOTURE_MULTIPLE_CONTRADICTOIRE"
+                        else:
+                            row["Cours_ajuste_fournisseur"] = next(iter(valeurs))
+                            row["Statut_cours"] = "COURS_FOURNISSEUR_NON_CERTIFIE"
+                            if row["Statut"] != "OBSERVATION_FOURNISSEUR_NON_CERTIFIEE":
+                                row["Statut"] = "OBSERVATION_COURS_SEULEMENT_NON_CERTIFIEE"
             except (requests.RequestException, ValueError, TypeError, OverflowError) as exc:
                 # Ne jamais exposer le message d'exception : il peut contenir le token.
                 row["Erreur_cours_type"] = type(exc).__name__
@@ -212,6 +223,7 @@ def collecter():
         "types_erreur": dict(Counter(x.get("Erreur_type", "AUCUNE") for x in records)),
         "observations_fournisseur": compte.get("OBSERVATION_FOURNISSEUR_NON_CERTIFIEE", 0),
         "cours_EOD_observes": int(rapport["Statut_cours"].eq("COURS_FOURNISSEUR_NON_CERTIFIE").sum()),
+        "cours_EOD_conflits": int(rapport["Statut_cours"].eq("EN_ATTENTE_DATA_COURS_CONFLIT").sum()),
         "recherches_identite_404": int(rapport.get("HTTP_recherche", pd.Series(dtype=object)).notna().sum()),
         "pistes_identite_non_certifiees": int(pd.to_numeric(
             rapport.get("Nombre_pistes_recherche", pd.Series(dtype=object)),
@@ -227,6 +239,7 @@ def collecter():
     print("COLLECTE_40_STATUTS " + json.dumps(compte, ensure_ascii=False, sort_keys=True))
     print("COLLECTE_40_HTTP " + json.dumps(synthese["codes_http"], sort_keys=True))
     print("COLLECTE_40_COURS_EOD " + str(synthese["cours_EOD_observes"]) + "/40")
+    print("COLLECTE_40_COURS_EOD_CONFLITS " + str(synthese["cours_EOD_conflits"]) + " (quarantaine)")
     print("COLLECTE_40_RECHERCHES_404 " + str(synthese["recherches_identite_404"]) +
           " PISTES_NON_CERTIFIEES " + str(synthese["pistes_identite_non_certifiees"]))
     print("COLLECTE_40_ERREURS " + json.dumps(synthese["types_erreur"], sort_keys=True))
