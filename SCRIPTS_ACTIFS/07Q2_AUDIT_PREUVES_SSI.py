@@ -199,13 +199,25 @@ def indexer_captures_primaires():
      if ligne.get("Type_source")=="DONNEE_MARCHE_IDENTITE":
       symbole=ticker.split(".")[0]
       symbole_observe=("OUI" if re.search(r"\bSymbol:\s*"+re.escape(symbole)+r"\b",texte,re.I) else "NON")
+    # Une date declaree sans lien de provenance ne doit pas suffire pour
+    # constituer une paire SCE potentielle. La presence d'un lien HTTPS
+    # reste une simple piste : son contenu et la date seront relus.
+    url_source_date=str(ligne.get("Source_date_publication","")).strip()
+    try:
+     source_date=urlsplit(url_source_date)
+     source_date_lien=(bool(url_source_date) and source_date.scheme=="https"
+                       and bool(source_date.hostname) and "." in source_date.hostname
+                       and not source_date.username and not source_date.password)
+    except ValueError:
+     source_date_lien=False
     captures.setdefault(ticker,[]).append((ident,url,sha,pd.isna(date_pub),
                                            str(ligne.get("Date_publication","")).strip() or "INCONNUE",
                                            str(ligne["Date_collecte_UTC"]).strip(),
                                            str(ligne.get("ID_document","")),
                                            str(chemin.relative_to(racine)),
                                            str(ligne.get("Type_source","")),
-                                           type_contenu,isin_observe,symbole_observe))
+                                           type_contenu,isin_observe,symbole_observe,
+                                           bool(source_date_lien and not pd.isna(date_pub))))
    except (OSError,ValueError,KeyError,TypeError) as erreur:
     invalides+=1
     code=(str(erreur) if isinstance(erreur,ValueError) and str(erreur) in {
@@ -273,8 +285,9 @@ def paires_documentaires_a_revoir(documents):
  Reutilise les captures dont les octets et SHA256 ont deja ete verifies
  par 07Q2. Exige une date de publication connue, une identite declaree
  concordante, deux documents distincts et deux domaines d'organisation
- distincts selon le validateur SCE existant. L'independance editoriale,
- la date de publication et la cotation restent A REVOIR.
+ distincts selon le validateur SCE existant. Une date doit avoir une URL
+ HTTPS de provenance declaree ; le contenu de cette URL, l'independance
+ editoriale, la date et la cotation restent A REVOIR.
  """
  from itertools import combinations
  from preuves_ssi import domaines_sce_distincts
@@ -285,10 +298,10 @@ def paires_documentaires_a_revoir(documents):
  for cle,groupe in groupes.items():
   # Des captures du meme URL/SHA avec dates, ID ou identites contradictoires
   # ne doivent pas devenir une paire sur la seule premiere ligne du CSV.
-  if len({(c[0],c[3],c[4],c[6],c[8],c[10],c[11]) for c in groupe})!=1:continue
+  if len({(c[0],c[3],c[4],c[6],c[8],c[10],c[11],c[12] if len(c)>12 else False) for c in groupe})!=1:continue
   c=groupe[0]
   ident,url,sha,date_inconnue,date_pub,_,id_doc,_,type_source,_,isin_dans_brut,symbole_dans_brut=c
-  if date_inconnue or date_pub=="INCONNUE":continue
+  if date_inconnue or date_pub=="INCONNUE" or len(c)<13 or not c[12]:continue
   if not identifiant_reglementaire_formel_valide(ident):continue
   if type_source not in {"PUBLICATION_EMETTEUR","DEPOT_REGLEMENTAIRE","DONNEE_MARCHE_IDENTITE"}:continue
   if ident.startswith("ISIN:") and isin_dans_brut!="OUI":continue
@@ -318,7 +331,10 @@ def publier_file_certification(df, captures, pistes):
   "Documents_uniques_URL_SHA256_pistes","Repetitions_captures_pistes",
   "URLs_distinctes_pistes","SHA256_distincts_pistes",
   "Domaines_hebergement_distincts_pistes","Publications_date_inconnue",
-  "Publications_date_connue_a_verifier","URLs_pistes","SHA256_pistes",
+  "Publications_date_connue_a_verifier",
+  "Publications_date_connue_sans_lien_source",
+  "Publications_date_connue_lien_source_a_verifier",
+  "URLs_pistes","SHA256_pistes",
   "Dates_publication_pistes","Paires_SCE_potentielles_a_relire",
   "Premiere_paire_ID_documents","Statut_paires_SCE",
   "Statut_certification","Qualification_economique"]
@@ -363,6 +379,14 @@ def publier_file_certification(df, captures, pistes):
    "Domaines_hebergement_distincts_pistes":len(domaines),
    "Publications_date_inconnue":inconnu,
    "Publications_date_connue_a_verifier":len(groupes)-inconnu,
+   "Publications_date_connue_sans_lien_source":sum(
+     not any(x[3] for x in groupe) and len({x[4] for x in groupe})==1
+     and not all(len(x)>12 and x[12] for x in groupe)
+     for groupe in groupes.values()),
+   "Publications_date_connue_lien_source_a_verifier":sum(
+     not any(x[3] for x in groupe) and len({x[4] for x in groupe})==1
+     and all(len(x)>12 and x[12] for x in groupe)
+     for groupe in groupes.values()),
    "URLs_pistes":" | ".join(sorted(urls)) or "MANQUANTE",
    "SHA256_pistes":" | ".join(sorted(empreintes)) or "MANQUANTE",
    "Dates_publication_pistes":" | ".join(sorted({str(x[4]) for x in brutes})) or "MANQUANTE",
