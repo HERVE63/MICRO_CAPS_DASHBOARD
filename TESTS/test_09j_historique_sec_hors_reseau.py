@@ -25,7 +25,7 @@ def lire(path):
         return list(csv.DictReader(f))
 
 
-def preparer(base):
+def preparer(base, double_index=False):
     d = fixture_i.fixture(base)
     manifest_path = d / "MANIFESTE.json"
     mf = json.loads(manifest_path.read_text())
@@ -36,6 +36,11 @@ def preparer(base):
         "name": "CIK0000001001-submissions-001.json",
         "filingFrom": "2010-01-01", "filingTo": "2030-01-01",
     }]
+    if double_index:
+        obj["filings"]["files"].append({
+            "name": "CIK0000001001-submissions-002.json",
+            "filingFrom": "2010-01-01", "filingTo": "2030-01-01",
+        })
     brut = json.dumps(obj, sort_keys=True).encode()
     digest = hashlib.sha256(brut).hexdigest()
     nouveau = d / "BRUTS" / (digest + ".json")
@@ -158,10 +163,44 @@ def test_index_historique_identite_et_dates_en_quarantaine():
         assert urls == ["https://data.sec.gov/submissions/CIK0000001001-submissions-001.json"]
         assert statut == ""
 
+
+def test_index_partiel_ne_certifie_pas_un_depot():
+    # Deux index historiques couvrent la meme date. Un seul repond :
+    # le rapprochement doit rester EN_ATTENTE_DATA et non etre recoupe.
+    with TemporaryDirectory() as tmp:
+        d = preparer(tmp, double_index=True)
+        old = {r["Accession"]: r for r in lire(
+            d / "AUDIT_ACCESSIONS_09I/REVUE_ACCESSIONS_SEC_09I.csv")
+            if r["CIK"] == "0000001001"
+            and r["Statut_accession_09I"] == "EN_ATTENTE_DATA_ACCESSION_HORS_INDEX_RECENT"}
+        assert old
+        appels = []
+        def fetcher(url, agent):
+            appels.append(url)
+            if url.endswith("-002.json"):
+                raise ConnectionError("archive indisponible (fixture)")
+            obj = {"accessionNumber": list(old),
+                   "filingDate": [r["Date_depot_fait"] for r in old.values()],
+                   "form": [r["Formulaire"] for r in old.values()]}
+            return obj, json.dumps(obj, sort_keys=True).encode()
+        bilan = j.executer(d, fetcher=fetcher, agent="Test@local.invalid",
+                           pause=lambda _: None)
+        assert len(appels) == 2
+        assert bilan["Notes_SSI"] == bilan["Notes_MCPA"] == bilan["Arbitrages"] == 0
+        lignes = lire(d / "AUDIT_HISTORIQUE_09J/REVUE_HISTORIQUE_SEC_09J.csv")
+        for r in lignes:
+            if r["Accession"] in old:
+                assert r["Statut_09J"] == "EN_ATTENTE_DATA_INDEX_HISTORIQUE_PARTIEL"
+                assert r["Statut_preuve"] == "A_VERIFIER_IDENTITE_ET_PERIODE"
+                assert not r["SHA256_source_historique"], "Source incomplete ne doit pas etre promue"
+        assert len(bilan["Captures"]) == 1
+
+
 if __name__ == "__main__":
     test_replay_historique_sha256_et_zero_score()
     test_echec_sec_non_bloquant()
     test_empreinte_09i_invalide_refusee()
     test_amendement_ne_vaut_pas_validation()
     test_index_historique_identite_et_dates_en_quarantaine()
+    test_index_partiel_ne_certifie_pas_un_depot()
     print("TEST 09J OK : archives SEC, SHA256, amendements, quarantaine, zero score")
