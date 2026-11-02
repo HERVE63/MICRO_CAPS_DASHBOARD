@@ -247,6 +247,35 @@ def publier_concordances_brutes(captures):
  return sortie
 
 
+def paires_documentaires_a_revoir(documents):
+ """Paires de PISTES primaires, jamais des preuves SCE certifiees.
+
+ Reutilise les captures dont les octets et SHA256 ont deja ete verifies
+ par 07Q2. Exige une date de publication connue, une identite declaree
+ concordante, deux documents distincts et deux domaines d'organisation
+ distincts selon le validateur SCE existant. L'independance editoriale,
+ la date de publication et la cotation restent A REVOIR.
+ """
+ from itertools import combinations
+ from preuves_ssi import domaines_sce_distincts
+ uniques={}
+ for c in documents:
+  ident,url,sha,date_inconnue,date_pub,_,id_doc,_,type_source,_,isin_dans_brut,symbole_dans_brut=c
+  if date_inconnue or date_pub=="INCONNUE":continue
+  if not identifiant_reglementaire_formel_valide(ident):continue
+  if type_source not in {"PUBLICATION_EMETTEUR","DEPOT_REGLEMENTAIRE","DONNEE_MARCHE_IDENTITE"}:continue
+  if ident.startswith("ISIN:") and isin_dans_brut!="OUI":continue
+  if type_source=="DONNEE_MARCHE_IDENTITE" and symbole_dans_brut!="OUI":continue
+  uniques.setdefault((url,sha),c)
+ couples=[]
+ documents_ordonnes=sorted(uniques.values(),key=lambda c:(c[1],c[2],c[6]))
+ for gauche,droite in combinations(documents_ordonnes,2):
+  if gauche[0]!=droite[0] or gauche[2]==droite[2]:continue
+  if not domaines_sce_distincts((gauche[1],droite[1])):continue
+  couples.append((gauche[6],droite[6]))
+ return couples
+
+
 def publier_file_certification(df, captures, pistes):
  """File de revue documentaire, jamais une certification SCE ou une note SSI.
 
@@ -263,11 +292,14 @@ def publier_file_certification(df, captures, pistes):
   "URLs_distinctes_pistes","SHA256_distincts_pistes",
   "Domaines_hebergement_distincts_pistes","Publications_date_inconnue",
   "Publications_date_connue_a_verifier","URLs_pistes","SHA256_pistes",
-  "Dates_publication_pistes","Statut_certification","Qualification_economique"]
+  "Dates_publication_pistes","Paires_SCE_potentielles_a_relire",
+  "Premiere_paire_ID_documents","Statut_paires_SCE",
+  "Statut_certification","Qualification_economique"]
  lignes=[]
  for _,r in df.iterrows():
   ticker=str(r["Ticker"]).strip()
   brutes=captures.get(ticker,[])
+  paires=paires_documentaires_a_revoir(brutes)
   identifiants={x[0] for x in brutes}
   urls={x[1] for x in brutes}
   empreintes={x[2] for x in brutes}
@@ -307,6 +339,9 @@ def publier_file_certification(df, captures, pistes):
    "URLs_pistes":" | ".join(sorted(urls)) or "MANQUANTE",
    "SHA256_pistes":" | ".join(sorted(empreintes)) or "MANQUANTE",
    "Dates_publication_pistes":" | ".join(sorted({str(x[4]) for x in brutes})) or "MANQUANTE",
+   "Paires_SCE_potentielles_a_relire":len(paires),
+   "Premiere_paire_ID_documents":" | ".join(paires[0]) if paires else "MANQUANTE",
+   "Statut_paires_SCE":"A_REVOIR_SANS_CERTIFICATION" if paires else "EN_ATTENTE_DATA",
    "Statut_certification":"PISTES_NON_CERTIFIEES",
    "Qualification_economique":"NON_CALCULEE_PAR_CET_AUDIT"})
  sortie=pd.DataFrame(lignes,columns=colonnes).sort_values(
