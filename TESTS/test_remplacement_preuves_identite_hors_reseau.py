@@ -68,6 +68,15 @@ def executer():
             "ne doit pas contourner le rejet de son parent")
 
 
+        # Une chaine valide P1 -> P2 -> P10 doit produire la meme preuve
+        # active quelle que soit la permutation des lignes append-only.
+        assert lire([old, same, descendant, sain]) == {"P10", "SAIN"}, (
+            "Une chaine chronologique valide ne garde que la revision terminale")
+        assert lire([old, descendant, same, sain]) == {"P10", "SAIN"}, (
+            "La permutation des revisions ne doit pas ressusciter P1")
+        assert lire([descendant, sain, old, same]) == {"P10", "SAIN"}, (
+            "Une revision arrivee avant son parent dans le CSV reste admissible")
+
         other = preuve("P3", "CIK:0000000123", "2026-10-03T00:00:00Z", "P1")
         assert lire([old, other, sain]) == {"P1", "SAIN"}, (
             "Un émetteur homonyme ne doit ni remplacer P1 ni être actif")
