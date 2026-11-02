@@ -30,6 +30,12 @@ def executer():
         raise RuntimeError('Schema dossier SSI incomplet (identite SCE/CIK obligatoire) : '+', '.join(sorted(absents)))
     cle_ticker=df.Ticker.astype(str).str.strip().str.upper()
     ambigus=cle_ticker.duplicated(keep=False) | cle_ticker.eq('')
+    # Une meme societe peut etre cotee sous plusieurs tickers (place secondaire,
+    # classes d'actions). Ne jamais compter ces cotations comme challengers
+    # distincts sans resolution documentaire de l'instrument primaire.
+    # Identifiant formel uniquement : aucune inference depuis le ticker.
+    identites=df.apply(identifiant_dossier,axis=1)
+    emetteurs_dupliques=identites.ne('') & identites.duplicated(keep=False)
     if df.empty:
         df['SSI']=pd.Series(dtype=str)
         df['Statut_SSI']=pd.Series(dtype=str)
@@ -42,7 +48,7 @@ def executer():
         df.to_csv(tmp,index=False)
         tmp.replace(OUT)
         tmp_aud=AUD.with_suffix('.tmp')
-        pd.DataFrame([{'Date_validation_UTC':datetime.now(timezone.utc).isoformat(),'Dossiers':0,'Admis':0,'Refuses':0,'Refuses_plafond_sans_score_total':0,'Elimines':0,'Preuves_incompletes':0,'Identites_CIK_en_quarantaine':0,'Dossiers_identite_ambigue':0}]).to_csv(tmp_aud,index=False)
+        pd.DataFrame([{'Date_validation_UTC':datetime.now(timezone.utc).isoformat(),'Dossiers':0,'Admis':0,'Refuses':0,'Refuses_plafond_sans_score_total':0,'Elimines':0,'Preuves_incompletes':0,'Identites_CIK_en_quarantaine':0,'Dossiers_identite_ambigue':0,'Dossiers_emetteur_duplique':0}]).to_csv(tmp_aud,index=False)
         tmp_aud.replace(AUD)
         print('SSI: aucun nouveau dossier qualifiable')
         return df
@@ -55,6 +61,12 @@ def executer():
             scores.append('MANQUANTE')
             statuts.append('EN_ATTENTE_DATA_IDENTITE_AMBIGUE')
             motifs.append('Ticker vide/dupliqué : identité non univoque ; aucune notation ni admission')
+            continue
+        if bool(emetteurs_dupliques.iloc[i]):
+            partiels.append(plafond_identite_non_verifiee('NON_CALCULE_EMETTEUR_DUPLIQUE'))
+            scores.append('MANQUANTE')
+            statuts.append('EN_ATTENTE_DATA_EMETTEUR_DUPLIQUE')
+            motifs.append('Identifiant reglementaire partage entre plusieurs cotations : instrument primaire a certifier ; aucune notation ni admission')
             continue
         # 07Q isole une collision CIK. 07R ne doit jamais transformer cette
         # quarantaine en admission, meme si d'anciennes notes et preuves sont
@@ -119,7 +131,8 @@ def executer():
         'Admis':statuts.count('ADMIS_SSI'),'Refuses':statuts.count('REFUSE_SSI'),
         'Refuses_plafond_sans_score_total':statuts.count('REFUSE_SSI_PLAFOND_VERIFIE'),'Elimines':statuts.count('ELIMINE'),'Preuves_incompletes':statuts.count('A_COMPLETER_PREUVES_SSI'),
         'Identites_CIK_en_quarantaine':statuts.count('EN_ATTENTE_DATA_IDENTITE_CIK'),
-        'Dossiers_identite_ambigue':statuts.count('EN_ATTENTE_DATA_IDENTITE_AMBIGUE')}]).to_csv(AUD.with_suffix('.tmp'),index=False)
+        'Dossiers_identite_ambigue':statuts.count('EN_ATTENTE_DATA_IDENTITE_AMBIGUE'),
+        'Dossiers_emetteur_duplique':statuts.count('EN_ATTENTE_DATA_EMETTEUR_DUPLIQUE')}]).to_csv(AUD.with_suffix('.tmp'),index=False)
     AUD.with_suffix('.tmp').replace(AUD)
     print('SSI:',pd.Series(statuts).value_counts().to_dict());return df
 if __name__=='__main__':executer()
