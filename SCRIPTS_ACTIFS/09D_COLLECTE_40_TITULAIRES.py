@@ -7,10 +7,11 @@ sont des instantanés JSON canoniques, vérifiables par SHA256, en artefact CI
 et non des preuves primaires validées.
 """
 from collections import Counter
-from datetime import datetime, timezone
+from datetime import datetime, timezone, timedelta
 from hashlib import sha256
 from pathlib import Path
 import json
+import math
 import os
 import re
 
@@ -106,6 +107,53 @@ def collecter():
             except (requests.RequestException, ValueError, TypeError) as exc:
                 # Ne jamais enregistrer str(exc): une URL peut contenir la clé.
                 row["Erreur_type"] = type(exc).__name__
+        # Plan B indépendant : le compte EODHD peut autoriser les cours EOD
+        # (HTTP 200) tout en refusant /fundamentals (HTTP 403). Le refus des
+        # fondamentaux ne doit ni masquer les cours ni inventer une note.
+        row["Statut_cours"] = "EN_ATTENTE_CLE" if not api else "EN_ATTENTE_DATA_COURS"
+        if api:
+            try:
+                cours_response = requests.get(
+                    "https://eodhd.com/api/eod/" + ticker_eodhd,
+                    params={"api_token": api, "fmt": "json",
+                            "from": (datetime.now(timezone.utc) - timedelta(days=21)).date().isoformat()},
+                    timeout=25,
+                )
+                row["HTTP_cours"] = cours_response.status_code
+                cours_response.raise_for_status()
+                cours = cours_response.json()
+                if isinstance(cours, list) and cours:
+                    seances = []
+                    for point in cours:
+                        if not isinstance(point, dict):
+                            continue
+                        try:
+                            date = datetime.strptime(str(point.get("date", "")), "%Y-%m-%d").date()
+                            valeur = float(point.get("adjusted_close"))
+                        except (TypeError, ValueError):
+                            continue
+                        if date <= datetime.now(timezone.utc).date() and math.isfinite(valeur) and valeur > 0:
+                            seances.append((date, valeur))
+                    if seances:
+                        dernier, prix = max(seances)
+                        contenu = json.dumps(cours, ensure_ascii=False, sort_keys=True,
+                                             separators=(",", ":"), allow_nan=False).encode("utf-8")
+                        chemin = brut / (str(p["ID_position"]) + "_EOD.json")
+                        _ecrire_atomique(chemin, contenu)
+                        empreinte = sha256(contenu).hexdigest()
+                        fichiers[str(chemin.relative_to(dossier))] = empreinte
+                        row.update({
+                            "Date_cours": dernier.isoformat(),
+                            "Cours_ajuste_fournisseur": prix,
+                            "SHA256_EOD_JSON": empreinte,
+                            "Archive_EOD_JSON": str(chemin.relative_to(BASE)),
+                            "Statut_cours": "COURS_FOURNISSEUR_NON_CERTIFIE",
+                        })
+                        if row["Statut"] != "OBSERVATION_FOURNISSEUR_NON_CERTIFIEE":
+                            row["Statut"] = "OBSERVATION_COURS_SEULEMENT_NON_CERTIFIEE"
+            except (requests.RequestException, ValueError, TypeError, OverflowError) as exc:
+                # Ne jamais exposer le message d'exception : il peut contenir le token.
+                row["Erreur_cours_type"] = type(exc).__name__
         records.append(row)
     rapport = pd.DataFrame(records)
     _ecrire_atomique(OUT, rapport.to_csv(index=False).encode("utf-8"))
@@ -119,6 +167,7 @@ def collecter():
         "codes_http": dict(Counter(str(x.get("HTTP_statut", "AUCUN")) for x in records)),
         "types_erreur": dict(Counter(x.get("Erreur_type", "AUCUNE") for x in records)),
         "observations_fournisseur": compte.get("OBSERVATION_FOURNISSEUR_NON_CERTIFIEE", 0),
+        "cours_EOD_observes": int(rapport["Statut_cours"].eq("COURS_FOURNISSEUR_NON_CERTIFIE").sum()),
         "preuves_primaires_validees": 0, "scores_attribues": 0,
         "revue_MCPA_validee": False, "arbitrage_autorise": False,
         "type_sha256": "SHA256 des octets du JSON canonique archive",
@@ -129,6 +178,7 @@ def collecter():
     ).encode("utf-8"))
     print("COLLECTE_40_STATUTS " + json.dumps(compte, ensure_ascii=False, sort_keys=True))
     print("COLLECTE_40_HTTP " + json.dumps(synthese["codes_http"], sort_keys=True))
+    print("COLLECTE_40_COURS_EOD " + str(synthese["cours_EOD_observes"]) + "/40")
     print("COLLECTE_40_ERREURS " + json.dumps(synthese["types_erreur"], sort_keys=True))
     print("COLLECTE_40_PREUVES_PRIMAIRES=0; ARBITRAGE_INTERDIT")
     if os.environ.get("GITHUB_STEP_SUMMARY"):
