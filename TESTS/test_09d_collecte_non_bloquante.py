@@ -51,6 +51,10 @@ def executer():
             assert params["api_token"] == "TEST_SECRET"
             assert timeout == 25
             appels.append(url)
+            if url.endswith("/eod/T1.US"):
+                return Reponse([{"date": "2026-10-31", "adjusted_close": 4.25}])
+            if url.endswith("/eod/T3.TO"):
+                return Reponse([{"date": "2026-10-31", "adjusted_close": 2.5}])
             if url.endswith("/T1.US"):
                 return Reponse({
                     "General": {"Code": "T1", "Exchange": "US", "ISIN": "US0000000001"},
@@ -64,16 +68,22 @@ def executer():
             with patch.object(module.requests, "get", side_effect=faux_get):
                 rows = module.collecter()
         assert len(rows) == 40
-        assert appels[:3] == [
+        assert appels[:6] == [
             "https://eodhd.com/api/fundamentals/T1.US",
+            "https://eodhd.com/api/eod/T1.US",
             "https://eodhd.com/api/fundamentals/T2.US",
+            "https://eodhd.com/api/eod/T2.US",
             "https://eodhd.com/api/fundamentals/T3.TO",
-        ], "Les tickers US nus prennent .US ; les places déjà suffixées sont intactes"
+            "https://eodhd.com/api/eod/T3.TO",
+        ], "Suffixe US et plan B EOD ne doivent pas modifier les cotations internationales"
         assert rows[0]["Ticker"] == "T1" and rows[0]["Ticker_requete_EODHD"] == "T1.US"
         assert rows[2]["Ticker"] == "T3.TO" and rows[2]["Ticker_requete_EODHD"] == "T3.TO"
         assert rows[0]["Statut"] == "OBSERVATION_FOURNISSEUR_NON_CERTIFIEE"
         assert rows[1]["Statut"] == "EN_ATTENTE_DATA_IDENTITE"
-        assert all(r["Statut"] == "EN_ATTENTE_DATA_FOURNISSEUR" for r in rows[2:])
+        assert rows[2]["Statut"] == "OBSERVATION_COURS_SEULEMENT_NON_CERTIFIEE"
+        assert rows[0]["Statut_cours"] == rows[2]["Statut_cours"] == "COURS_FOURNISSEUR_NON_CERTIFIE"
+        assert rows[2]["Cours_ajuste_fournisseur"] == 2.5
+        assert all(r["Statut"] == "EN_ATTENTE_DATA_FOURNISSEUR" for r in rows[3:])
         assert all(r["Preuve_primaire_validee"] == "NON" for r in rows)
         assert all(r["Score_SSI"] == r["Score_MCPA"] == "MANQUANTE" for r in rows)
         csv_bytes = module.OUT.read_bytes()
@@ -85,11 +95,12 @@ def executer():
         assert manifeste["nombre_positions"] == 40
         assert manifeste["preuves_primaires_validees"] == 0
         assert manifeste["scores_attribues"] == 0
+        assert manifeste["cours_EOD_observes"] == 2
         assert manifeste["arbitrage_autorise"] is False
         for rel, attendu in manifeste["fichiers_sha256"].items():
             assert hashlib.sha256((dossiers[0] / rel).read_bytes()).hexdigest() == attendu
         assert b"TEST_SECRET" not in (dossiers[0] / "MANIFESTE.json").read_bytes()
-        assert len(list((dossiers[0] / "REPONSES_FOURNISSEUR").glob("*.json"))) == 2
+        assert len(list((dossiers[0] / "REPONSES_FOURNISSEUR").glob("*.json"))) == 4
         # Absence de clé : aucun appel réseau, 40 dossiers en attente, pas d'échec global.
         module.HIST = root / "AUDITS/SANS_CLE"
         with patch.dict(os.environ, {}, clear=True):
@@ -97,7 +108,7 @@ def executer():
                 sans_cle = module.collecter()
         assert len(sans_cle) == 40
         assert all(r["Statut"] == "EN_ATTENTE_CLE" for r in sans_cle)
-        print("09D : 40/40 traités malgré 38 erreurs, 2 snapshots SHA256, 0 score ; sans clé 40 EN_ATTENTE_CLE")
+        print("09D : 40/40 traités, 2 fondamentaux + 2 EOD SHA256, 0 score ; sans clé 40 EN_ATTENTE_CLE")
 
 
 if __name__ == "__main__":
