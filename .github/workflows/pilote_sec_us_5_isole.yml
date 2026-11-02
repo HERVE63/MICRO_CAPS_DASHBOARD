@@ -126,8 +126,24 @@ jobs:
           for rel, digest in m['Fichiers_SHA256'].items():
               p = (a / rel).resolve()
               assert p.is_relative_to(a.resolve()) and hashlib.sha256(p.read_bytes()).hexdigest() == digest
+          import csv
+          with (a / 'DETAIL_CONFLITS_REVISIONS_09H.csv').open(newline='') as f:
+              details = list(csv.DictReader(f))
+          assert len(details) == sum(m['Audits'][k]['Observations_a_revoir']
+                                     for k in ('T0', 'COURANT'))
+          replay = json.loads((d / 'NORMALISATION_07U_07V/MANIFESTE_REPLAY.json').read_text())
+          for r in details:
+              assert r['Statut_groupe'] in (
+                  'EN_ATTENTE_DATA_CONFLIT_ALIAS', 'EN_ATTENTE_DATA_REVISION')
+              assert r['Statut_preuve'] == 'A_VERIFIER_IDENTITE_ET_PERIODE'
+              assert r['SHA256_brut_SEC'] == replay['Sources_reutilisees'][r['Ticker']]['SHA256']
+              assert r['Date_depot'] <= ('2026-10-01' if r['Horizon'] == 'T0'
+                                         else m['Date_collecte'])
           for label in ('T0', 'COURANT'):
               audit = m['Audits'][label]
+              assert audit['Groupes_a_revoir'] == sum(
+                  audit['Statuts'].get(x, 0) for x in (
+                      'EN_ATTENTE_DATA_CONFLIT_ALIAS', 'EN_ATTENTE_DATA_REVISION'))
               assert audit['Periodes_distinctes'] > 0
               assert audit['Notes_SSI'] == audit['Notes_MCPA'] == audit['Arbitrages'] == 0
               print(label, audit)
