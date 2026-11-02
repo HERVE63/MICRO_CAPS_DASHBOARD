@@ -62,12 +62,6 @@ def executer():
             statuts.append('EN_ATTENTE_DATA_IDENTITE_AMBIGUE')
             motifs.append('Ticker vide/dupliqué : identité non univoque ; aucune notation ni admission')
             continue
-        if bool(emetteurs_dupliques.iloc[i]):
-            partiels.append(plafond_identite_non_verifiee('NON_CALCULE_EMETTEUR_DUPLIQUE'))
-            scores.append('MANQUANTE')
-            statuts.append('EN_ATTENTE_DATA_EMETTEUR_DUPLIQUE')
-            motifs.append('Identifiant reglementaire partage entre plusieurs cotations : instrument primaire a certifier ; aucune notation ni admission')
-            continue
         # 07Q isole une collision CIK. 07R ne doit jamais transformer cette
         # quarantaine en admission, meme si d'anciennes notes et preuves sont
         # reintroduites par erreur ou si leur verification individuelle reussit.
@@ -77,6 +71,12 @@ def executer():
             scores.append('MANQUANTE')
             statuts.append('EN_ATTENTE_DATA_IDENTITE_CIK')
             motifs.append('Collision CIK non levee par verification independante : notation et admission interdites')
+            continue
+        if bool(emetteurs_dupliques.iloc[i]):
+            partiels.append(plafond_identite_non_verifiee('NON_CALCULE_EMETTEUR_DUPLIQUE'))
+            scores.append('MANQUANTE')
+            statuts.append('EN_ATTENTE_DATA_EMETTEUR_DUPLIQUE')
+            motifs.append('Identifiant reglementaire partage entre plusieurs cotations : instrument primaire a certifier ; aucune notation ni admission')
             continue
         # CIK pour les émetteurs SEC, ISIN/LEI uniquement si une identité
         # réglementaire est explicitement déclarée puis vérifiée par SCE.
