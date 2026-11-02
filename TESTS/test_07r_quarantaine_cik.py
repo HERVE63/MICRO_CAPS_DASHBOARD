@@ -25,7 +25,7 @@ def executer():
         dossier = data / "DOSSIERS_SSI_A_QUALIFIER.csv"
         lignes = []
         for ticker, conflit, cik in [("COLLISION", "OUI", "0000000123"),
-                                      ("SAIN", "NON", "0000000123"),
+                                      ("SAIN", "NON", "0000000456"),
                                       ("SANS_CIK", "NON", ""),
                                       ("CIK_INVALIDE", "NON", "123")]:
             ligne = dict(Ticker=ticker, CIK=cik,
