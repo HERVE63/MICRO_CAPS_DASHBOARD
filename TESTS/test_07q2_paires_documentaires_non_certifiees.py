@@ -29,6 +29,11 @@ def tester():
     # La duplication exacte d'un document ne cree pas une deuxieme preuve.
     assert m.paires_documentaires_a_revoir([a,a])==[]
     assert m.paires_documentaires_a_revoir([a,capture("DOC_D",b[1],a[2])])==[]
+    # Une accession documentaire ID identique n'est pas deux pieces independantes.
+    assert m.paires_documentaires_a_revoir([a,capture("DOC_A",b[1],b[2])])==[]
+    # Repetitions contradictoires (meme URL/SHA, date differente) : quarantaine.
+    contradictoire=capture("DOC_B",b[1],b[2],date="2026-09-30")
+    assert m.paires_documentaires_a_revoir([a,b,contradictoire])==[]
     # Publication inconnue, identite divergente ou ISIN absent du brut.
     assert m.paires_documentaires_a_revoir([a,capture("DOC_E",b[1],b[2],date="INCONNUE")])==[]
     assert m.paires_documentaires_a_revoir([a,capture("DOC_F",b[1],b[2],ident="ISIN:FR001400A3Q3")])==[]

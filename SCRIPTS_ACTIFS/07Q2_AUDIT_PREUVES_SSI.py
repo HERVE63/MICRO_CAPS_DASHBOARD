@@ -258,19 +258,26 @@ def paires_documentaires_a_revoir(documents):
  """
  from itertools import combinations
  from preuves_ssi import domaines_sce_distincts
- uniques={}
+ groupes={}
  for c in documents:
+  groupes.setdefault((c[1],c[2]),[]).append(c)
+ uniques={}
+ for cle,groupe in groupes.items():
+  # Des captures du meme URL/SHA avec dates, ID ou identites contradictoires
+  # ne doivent pas devenir une paire sur la seule premiere ligne du CSV.
+  if len({(c[0],c[3],c[4],c[6],c[8],c[10],c[11]) for c in groupe})!=1:continue
+  c=groupe[0]
   ident,url,sha,date_inconnue,date_pub,_,id_doc,_,type_source,_,isin_dans_brut,symbole_dans_brut=c
   if date_inconnue or date_pub=="INCONNUE":continue
   if not identifiant_reglementaire_formel_valide(ident):continue
   if type_source not in {"PUBLICATION_EMETTEUR","DEPOT_REGLEMENTAIRE","DONNEE_MARCHE_IDENTITE"}:continue
   if ident.startswith("ISIN:") and isin_dans_brut!="OUI":continue
   if type_source=="DONNEE_MARCHE_IDENTITE" and symbole_dans_brut!="OUI":continue
-  uniques.setdefault((url,sha),c)
+  uniques[cle]=c
  couples=[]
  documents_ordonnes=sorted(uniques.values(),key=lambda c:(c[1],c[2],c[6]))
  for gauche,droite in combinations(documents_ordonnes,2):
-  if gauche[0]!=droite[0] or gauche[2]==droite[2]:continue
+  if gauche[0]!=droite[0] or gauche[2]==droite[2] or gauche[6]==droite[6]:continue
   if not domaines_sce_distincts((gauche[1],droite[1])):continue
   couples.append((gauche[6],droite[6]))
  return couples
