@@ -18,6 +18,12 @@ jobs:
       - uses: actions/checkout@v4
         with:
           ref: ${{ github.sha }}
+          sparse-checkout: |
+            SCRIPTS_ACTIFS
+            DONNEES
+            TESTS
+            .github/workflows
+          sparse-checkout-cone-mode: true
       - uses: actions/setup-python@v5
         with:
           python-version: '3.12'
@@ -39,6 +45,7 @@ jobs:
           assert manifest['Univers'] == manifest['Lignes'] == 5
           assert manifest['Notes_attribuees'] == manifest['Arbitrages'] == 0
           assert manifest['Identites_SCE_certifiees'] == 0
+          assert manifest['Captures_brutes'] >= 1, 'Aucune capture primaire SEC reelle: ne pas valider collecte'
           for rel, sha in manifest['Fichiers_SHA256'].items():
               p = (dossier / rel).resolve()
               assert p.is_relative_to(dossier.resolve()) and p.is_file()
