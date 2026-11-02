@@ -1,6 +1,10 @@
 name: Collecte directe des 40 titulaires (isolée, sans notation)
 on:
   workflow_dispatch:
+  push:
+    branches: [repair/microcaps-chain-20261030]
+    paths:
+      - '.github/workflows/collecte-40-titulaires.yml'
 permissions:
   contents: read
 jobs:
