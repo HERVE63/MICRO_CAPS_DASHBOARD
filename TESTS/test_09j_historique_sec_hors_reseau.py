@@ -125,9 +125,42 @@ def test_amendement_ne_vaut_pas_validation():
     assert lignes[0]["Statut_preuve"] == "A_VERIFIER_IDENTITE_ET_PERIODE"
 
 
+
+
+def test_index_historique_identite_et_dates_en_quarantaine():
+    # Les metadonnees des archives sont des donnees externes non fiables.
+    # Une archive d'un autre CIK ne doit jamais etre consultee.
+    with TemporaryDirectory() as tmp:
+        d = preparer(tmp)
+        mf = json.loads((d / "MANIFESTE.json").read_text())
+        sub = next(s for s in mf["Sources"] if s["URL"].endswith("/CIK0000001001.json"))
+        p = d / sub["Fichier_brut"]
+        obj = json.loads(p.read_bytes())
+        valide = {"name": "CIK0000001001-submissions-001.json",
+                  "filingFrom": "2010-01-01", "filingTo": "2030-01-01"}
+        etranger = dict(valide, name="CIK0000009999-submissions-001.json")
+        date_malformee = dict(valide, filingFrom="2026-99-99")
+        bornes_inversees = dict(valide, filingFrom="2030-01-01", filingTo="2010-01-01")
+        obj["filings"]["files"] = [etranger, date_malformee, bornes_inversees]
+        brut = json.dumps(obj).encode()
+        p.write_bytes(brut)
+        sub["SHA256"] = hashlib.sha256(brut).hexdigest()
+        urls, statut = j.extraire_fichiers_historiques(d, mf, "0000001001", "2026-01-01")
+        assert urls == [] and statut == "EN_ATTENTE_DATA_INDEX_HISTORIQUE_MALFORME"
+        urls, statut = j.extraire_fichiers_historiques(d, mf, "0000001001", "date-invalide")
+        assert urls == [] and statut == "EN_ATTENTE_DATA_DATE_DEPOT_INVALIDE"
+        obj["filings"]["files"].append(valide)
+        brut = json.dumps(obj).encode()
+        p.write_bytes(brut)
+        sub["SHA256"] = hashlib.sha256(brut).hexdigest()
+        urls, statut = j.extraire_fichiers_historiques(d, mf, "0000001001", "2026-01-01")
+        assert urls == ["https://data.sec.gov/submissions/CIK0000001001-submissions-001.json"]
+        assert statut == ""
+
 if __name__ == "__main__":
     test_replay_historique_sha256_et_zero_score()
     test_echec_sec_non_bloquant()
     test_empreinte_09i_invalide_refusee()
     test_amendement_ne_vaut_pas_validation()
+    test_index_historique_identite_et_dates_en_quarantaine()
     print("TEST 09J OK : archives SEC, SHA256, amendements, quarantaine, zero score")
