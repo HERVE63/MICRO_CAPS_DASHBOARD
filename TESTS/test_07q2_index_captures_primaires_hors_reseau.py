@@ -50,6 +50,9 @@ def tester():
                "Statut_date_publication":"INCONNUE_NE_PAS_UTILISER_RETROSPECTIVEMENT",
                "Statut":"DOCUMENT_COLLECTE_A_VERIFIER","SHA256":sha,
                "Fichier_brut":str(brut.relative_to(base)),"Type_contenu":"text/html; charset=UTF-8"}
+        # Le schema fixture inclut les colonnes de provenance 07AA.
+        ligne["URL_finale"]=url
+        ligne["Domaine_autorise"]="exemple.test"
         colonnes=list(ligne)
         audit=dossier/"AUDIT_DOCUMENTS.csv"
         def enregistrer(lignes):
