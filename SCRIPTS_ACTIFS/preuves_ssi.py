@@ -137,6 +137,17 @@ def registre(base,limite=None):
     for ids in propositions.values():
         if len(ids)>1:
             rejets_remplacement.update(ids)
+    # Fermer la quarantaine sur les descendants : P10 ne peut pas
+    # remplacer P2 si P2 a ete rejete pour concurrence avec P9.
+    # Sinon une chaine de revisions contournerait le rejet initial.
+    while True:
+        descendants=set(valides.loc[
+            valides.Remplace_ID.isin(rejets_remplacement), 'ID_preuve'
+        ])
+        nouveaux=descendants-rejets_remplacement
+        if not nouveaux:
+            break
+        rejets_remplacement.update(nouveaux)
     for _,r in valides[~valides.Remplace_ID.map(manquant)].iterrows():
         if r.ID_preuve in rejets_remplacement:
             continue
