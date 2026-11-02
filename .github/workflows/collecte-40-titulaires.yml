@@ -70,17 +70,24 @@ jobs:
               assert hashlib.sha256(cible.read_bytes()).hexdigest() == sha, f'SHA256 divergent : {rel}'
           eod = sum(rel.endswith('_EOD.json') for rel in empreintes)
           recherches = sum(rel.endswith('_SEARCH.json') for rel in empreintes)
-          assert eod == manifeste['cours_EOD_observes']
+          assert eod == manifeste['cours_EOD_observes'] + manifeste['cours_EOD_conflits']
           assert recherches <= manifeste['recherches_identite_404']
           donnees = pd.read_csv('DONNEES/COLLECTE_DIRECTE_40_TITULAIRES.csv',
                                 dtype=str, keep_default_na=False)
+          conflits = donnees[donnees['Statut_cours'] == 'EN_ATTENTE_DATA_COURS_CONFLIT']
+          assert len(conflits) == manifeste['cours_EOD_conflits']
+          if not conflits.empty:
+              assert (conflits['Cours_ajuste_fournisseur'] == '').all()
+              assert (conflits['Anomalie_cours'] == 'CLOTURE_MULTIPLE_CONTRADICTOIRE').all()
+              assert (conflits['Score_SSI'] == 'MANQUANTE').all()
+              assert (conflits['Score_MCPA'] == 'MANQUANTE').all()
           non_trouves = donnees[donnees['HTTP_cours'] == '404']
           assert (non_trouves['Statut_cours'] != 'COURS_FOURNISSEUR_NON_CERTIFIE').all()
           assert (non_trouves['Score_SSI'] == 'MANQUANTE').all()
           assert (non_trouves['Score_MCPA'] == 'MANQUANTE').all()
           print('SHA256_REELS_VALIDES', len(empreintes),
                 'EOD', eod, 'RECHERCHES', recherches,
-                'HTTP404', len(non_trouves), 'ADMISSIONS', 0)
+                'HTTP404', len(non_trouves), 'EOD_CONFLITS', len(conflits), 'ADMISSIONS', 0)
           PY
       - uses: actions/upload-artifact@v4
         if: always()
