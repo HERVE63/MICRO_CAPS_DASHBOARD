@@ -206,6 +206,35 @@ def tester():
         assert not (plan.Preuve_validee=="OUI").any()
         assert anomalies()[0]["Code_anomalie"]=="CHEMIN_HORS_ARCHIVE"
 
+        # Le hash seul ne prouve pas la provenance : redirection vers un
+        # autre editeur et domaine d'habilitation contradictoire sont rejetes.
+        enregistrer([dict(ligne,URL_finale="https://autre-editeur.test/communique")])
+        plan=module.executer()
+        assert anomalies()[0]["Code_anomalie"]=="REDIRECTION_HORS_ORGANISATION"
+        assert plan[(plan.Ticker=="FICTIF.F")&(plan.Bloc_SSI=="IDENTITE_SCE")].iloc[0].Captures_primaires_SHA256_OK_pistes=="0"
+        assert not (plan.Preuve_validee=="OUI").any()
+
+        enregistrer([dict(ligne,Domaine_autorise="autre-editeur.test")])
+        module.executer()
+        assert anomalies()[0]["Code_anomalie"]=="DOMAINE_SOURCE_NON_AUTORISE"
+
+        enregistrer([dict(ligne,URL_finale="http://exemple.test/communique")])
+        module.executer()
+        assert anomalies()[0]["Code_anomalie"]=="URL_FINALE_INVALIDE"
+
+        enregistrer([dict(ligne,Source_URL="https://user:secret@exemple.test/communique")])
+        module.executer()
+        assert anomalies()[0]["Code_anomalie"]=="URL_NON_HTTPS"
+
+        # Redirection vers un sous-domaine du meme editeur : indice accepte,
+        # sans jamais etre certifie comme identite SCE ou comme note.
+        enregistrer([dict(ligne,URL_finale="https://cdn.exemple.test/communique",
+                             Domaine_autorise="exemple.test")])
+        plan=module.executer()
+        assert anomalies()==[]
+        assert plan[(plan.Ticker=="FICTIF.F")&(plan.Bloc_SSI=="IDENTITE_SCE")].iloc[0].Captures_primaires_SHA256_OK_pistes=="1"
+        assert not (plan.Preuve_validee=="OUI").any()
+
         # La source bloquee est conservee en diagnostic sans etre une preuve.
         enregistrer([dict(ligne,Statut="BLOQUE_SOURCE")])
         plan=module.executer()
