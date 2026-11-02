@@ -61,6 +61,12 @@ def executer():
             "garder P1 et exclure toutes les revisions concurrentes")
         assert lire([concurrent, old, sain, same]) == {"P1", "SAIN"}, (
             "L'issue ne doit pas dependre de l'ordre du CSV")
+        descendant = preuve("P10", "ISIN:US0378331005",
+                            "2026-10-04T00:00:00Z", "P2")
+        assert lire([old, same, concurrent, descendant, sain]) == {"P1", "SAIN"}, (
+            "Un descendant d'une revision concurrente en quarantaine "
+            "ne doit pas contourner le rejet de son parent")
+
 
         other = preuve("P3", "CIK:0000000123", "2026-10-03T00:00:00Z", "P1")
         assert lire([old, other, sain]) == {"P1", "SAIN"}, (
@@ -86,7 +92,7 @@ def executer():
         assert lire([old, invalide, sain]) == {"P1", "SAIN"}, (
             "Une date invalide ne doit pas révoquer P1")
         assert document.read_bytes() == b"DOCUMENT FICTIF SANS PREUVE PRIMAIRE"
-    print("SSI : 9 scénarios de remplacement, preuves saines préservées, aucun arrêt global")
+    print("SSI : 10 scénarios de remplacement, preuves saines préservées, aucun arrêt global")
 
 
 if __name__ == "__main__":
