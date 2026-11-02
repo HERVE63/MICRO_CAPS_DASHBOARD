@@ -120,7 +120,16 @@ def registre(base,limite=None):
     # revoquer la preuve originale, rendant le resultat dependant de l'ordre.
     # Une revision invalide ne doit pas bloquer une revision saine.
     propositions={}
-    for _,r in valides[~valides.Remplace_ID.map(manquant)].iterrows():
+    # Les lignes append-only peuvent arriver dans un ordre arbitraire.
+    # Traiter les revisions par heure de verification croissante garantit
+    # qu'une chaine P1 -> P2 -> P3 ne ressuscite pas P1 si P3 est lue avant P2.
+    # L'horodatage invalide est rejete individuellement par verifier().
+    revisions=valides[~valides.Remplace_ID.map(manquant)].copy()
+    revisions['_ordre_verification']=pd.to_datetime(
+        revisions.Date_verification_UTC,utc=True,errors='coerce')
+    revisions=revisions.sort_values(
+        ['_ordre_verification','ID_preuve'],kind='stable',na_position='last')
+    for _,r in revisions.iterrows():
         old=d[d.ID_preuve.eq(r.Remplace_ID)]
         if (len(old)!=1 or old.iloc[0].Ticker!=r.Ticker
                 or old.iloc[0].Bloc!=r.Bloc
@@ -148,7 +157,7 @@ def registre(base,limite=None):
         if not nouveaux:
             break
         rejets_remplacement.update(nouveaux)
-    for _,r in valides[~valides.Remplace_ID.map(manquant)].iterrows():
+    for _,r in revisions.iterrows():
         if r.ID_preuve in rejets_remplacement:
             continue
         if r.ID_preuve not in set(d.ID_preuve):
