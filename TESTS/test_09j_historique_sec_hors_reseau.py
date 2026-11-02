@@ -177,7 +177,8 @@ def test_schema_submissions_invalide_ne_bloque_pas_les_autres():
     with TemporaryDirectory() as tmp:
         d = preparer(tmp)
         mf = json.loads((d / "MANIFESTE.json").read_text())
-        sub = next(x for x in mf["Sources"] if x["URL"].endswith("/CIK0000001001.json"))
+        sub = next(x for x in mf["Sources"] if "/submissions/" in x["URL"]
+                   and x["URL"].endswith("/CIK0000001001.json"))
         p = d / sub["Fichier_brut"]
         original = json.loads(p.read_bytes())
         for invalide in ([], {"filings": []}, {"cik": 1001, "filings": {"files": "bad"}},
