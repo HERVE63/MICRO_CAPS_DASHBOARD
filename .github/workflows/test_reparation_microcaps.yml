@@ -153,6 +153,10 @@ jobs:
         run: python -B TESTS/test_sources_officielles_hors_reseau.py
       - name: Auditer neuf faits IFRS ICAPE sur source primaire archivee SHA256 sans score
         run: python -B TESTS/test_icape_faits_financiers_primaire_hors_reseau.py
+      - name: Relire le PDF ICAPE archive par pypdf sans attribuer de score
+        run: |
+          python -m pip install pypdf==5.9.0
+          python -B TESTS/test_icape_pdf_binaire_non_certifiant.py
       - name: Reutiliser capture Hofseth SHA256 et verifier reprise Fermentalg sans notes
         run: python -B TESTS/test_reprise_fermentalg_hors_reseau.py
       - name: Revalider trois PDF Hofseth legacy par SHA256 sans certification SCE
