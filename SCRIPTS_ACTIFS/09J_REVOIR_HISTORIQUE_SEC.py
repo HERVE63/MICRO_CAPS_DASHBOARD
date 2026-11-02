@@ -126,7 +126,7 @@ def extraire_fichiers_historiques(d, mf, cik, date_fait):
         nom = entry.get("name")
         debut, fin = entry.get("filingFrom"), entry.get("filingTo")
         if not isinstance(nom, str) or not re.fullmatch(
-                r"CIK" + cik + r"-submissions-\\d{3}\\.json", nom):
+                r"CIK" + cik + r"-submissions-\d{3}\.json", nom):
             entrees_invalides = True
             continue
         try:
