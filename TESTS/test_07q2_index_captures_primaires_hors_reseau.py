@@ -159,6 +159,27 @@ def tester():
         assert revue.Publications_date_connue_lien_source_a_verifier=="2"
         assert revue.Publications_date_connue_sans_lien_source=="0"
 
+        # Une URL HTTPS quelconque appartenant a un autre editeur ne
+        # justifie pas la date de la publication archivee. Le document
+        # SHA256 reste une piste, sans paire SCE ni score.
+        enregistrer([dict(datee,Source_date_publication="https://tiers-independant.test/date"),ligne2])
+        module.executer()
+        revue=pd.read_csv(module.D/"FILE_CERTIFICATION_IDENTITES_SSI.csv",
+                          dtype=str,keep_default_na=False).set_index("Ticker").loc["FICTIF.F"]
+        assert revue.Captures_SHA256_OK_pistes=="2"
+        assert revue.Paires_SCE_potentielles_a_relire=="0"
+        assert revue.Publications_date_connue_sans_lien_source=="1"
+        assert revue.Publications_date_connue_lien_source_a_verifier=="1"
+        assert revue.Statut_certification=="PISTES_NON_CERTIFIEES"
+        # Un sous-domaine du meme organisme conserve seulement le statut
+        # de piste a relire, jamais de preuve SCE certifiee.
+        enregistrer([dict(datee,Source_date_publication="https://investisseurs.exemple.test/date"),ligne2])
+        module.executer()
+        revue=pd.read_csv(module.D/"FILE_CERTIFICATION_IDENTITES_SSI.csv",
+                          dtype=str,keep_default_na=False).set_index("Ticker").loc["FICTIF.F"]
+        assert revue.Paires_SCE_potentielles_a_relire=="1"
+        assert revue.Statut_certification=="PISTES_NON_CERTIFIEES"
+
         # Le retrait du lien de date ne retire pas le document SHA256 valide
         # de l'inventaire, mais le retire des paires SCE potentielles.
         enregistrer([dict(datee,Source_date_publication=""),ligne2])
