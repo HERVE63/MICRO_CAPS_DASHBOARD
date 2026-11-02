@@ -226,22 +226,35 @@ def verifier(r,ticker,bloc,base,limite=None):
     return errors
 
 def domaines_sce_distincts(urls):
-    """Garde-fou minimal : deux URL du meme hote ne sont pas deux sources
-    independantes. www et hote nu sont traites comme identiques.
-    Ce test ne remplace PAS la revue des editeurs/proprietaires des sources.
+    """Refuser les sous-domaines d'un meme editeur comme sources independantes.
+
+    Heuristique conservatrice sur les domaines d'organisation : ce n'est pas
+    une certification des proprietaires. La revue SCE independante reste requise.
+    Les suffixes publics composes ci-dessous evitent de confondre deux societes
+    distinctes sous co.uk ou com.au. Un suffixe inconnu est traite prudemment.
     """
-    hotes=[]
+    suffixes_composes={
+        'co.uk','org.uk','gov.uk','ac.uk','com.au','net.au','org.au',
+        'co.jp','com.br','com.cn','co.nz','com.sg','com.hk','com.tw',
+        'co.kr','co.in'
+    }
+    organisations=[]
     for url in urls:
         try:
-            h=(urlsplit(str(url)).hostname or '').lower().rstrip('.')
+            parsed=urlsplit(str(url))
+            h=(parsed.hostname or '').lower().rstrip('.')
         except ValueError:
             return False
-        if h.startswith('www.'):
-            h=h[4:]
-        if not h:
+        if parsed.scheme!='https' or parsed.username or parsed.password:
             return False
-        hotes.append(h)
-    return len(set(hotes))>=2
+        labels=h.split('.')
+        if len(labels)<2 or any(not x for x in labels):
+            return False
+        profondeur=3 if '.'.join(labels[-2:]) in suffixes_composes else 2
+        if len(labels)<profondeur:
+            return False
+        organisations.append('.'.join(labels[-profondeur:]))
+    return len(set(organisations))>=2
 
 
 def verifier_identite_sce(r,d,base,limite=None):
