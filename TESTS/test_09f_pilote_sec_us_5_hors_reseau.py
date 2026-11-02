@@ -51,9 +51,9 @@ def source(url, agent):
         }
     elif "/companyfacts/CIK" in url:
         cik = int(url.split("CIK")[1].split(".json")[0])
-        obj = {"cik": cik, "facts": {"us-gaap": {
-            "Assets": {"units": {"USD": [{"val": 12, "end": "2026-09-30"}]}}
-        } if cik == 1001 else {"us-gaap": {}}}
+        gaap = ({"Assets": {"units": {"USD": [
+            {"val": 12, "end": "2026-09-30"}]}}} if cik == 1001 else {})
+        obj = {"cik": cik, "facts": {"us-gaap": gaap}}
     else:
         raise AssertionError(url)
     brut = json.dumps(obj, sort_keys=True, separators=(",", ":")).encode()
