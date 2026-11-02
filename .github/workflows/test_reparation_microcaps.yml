@@ -171,6 +171,8 @@ jobs:
         run: python -B TESTS/test_09d_collecte_non_bloquante.py
       - name: Tester pilote SEC cinq titulaires, SHA256 et erreurs isolees hors reseau
         run: python -B TESTS/test_09f_pilote_sec_us_5_hors_reseau.py
+      - name: Tester replay archives SEC par 07U et 07V en T0 et courant sans reseau
+        run: python -B TESTS/test_09g_replay_sec_archive_hors_reseau.py
       - name: Tester la reutilisation SEC_BRIDGE sans faux CIK ni notes
         run: python -B TESTS/test_pistes_sec_bridge_non_certifiees.py
       - name: Tester 07Q2 plan identite emetteur et exclusions sans notation
