@@ -91,7 +91,13 @@ def registre(base,limite=None):
     if not p.exists():return pd.DataFrame(columns=CHAMPS)
     d=pd.read_csv(p,dtype=str,keep_default_na=False)
     if not set(CHAMPS).issubset(d.columns):raise RuntimeError('Schéma registre preuves incomplet')
-    if d.ID_preuve.duplicated().any() or d.ID_preuve.map(manquant).any():raise RuntimeError('ID preuve invalide/dupliqué')
+    # Une collision d'ID ne doit ni attribuer la preuve a un mauvais emetteur,
+    # ni bloquer les dossiers sains. Exclure TOUTES les occurrences ambiguës :
+    # conserver la premiere rendrait l'issue dependante de l'ordre des lignes.
+    # Le registre CSV append-only n'est jamais modifie par cette quarantaine.
+    invalides = d.ID_preuve.map(manquant) | d.ID_preuve.duplicated(keep=False)
+    if invalides.any():
+        d = d.loc[~invalides].copy()
     if not d.empty:
         # Une date malformée ne doit pas arrêter la qualification des autres
         # émetteurs. La ligne reste visible, mais verifier() la rejettera
