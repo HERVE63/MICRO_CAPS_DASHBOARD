@@ -50,6 +50,10 @@ def collecter():
         # .US à une cotation déjà suffixée (.TO, .V, .PA, .L, etc.).
         ticker_eodhd = (ticker + ".US" if str(p["Devise"]).upper() == "USD"
                         and re.fullmatch(r"[A-Za-z0-9-]+", ticker) else ticker)
+        # Le suffixe Yahoo .L n'est pas le code EODHD de Londres (.LSE).
+        # Correspondance de place seulement : elle ne certifie pas l'ISIN.
+        if ticker_eodhd.upper().endswith(".L"):
+            ticker_eodhd = ticker_eodhd[:-2] + ".LSE"
         row = {
             "ID_position": p["ID_position"], "Societe": p["Societe"],
             "Ticker": ticker, "Ticker_requete_EODHD": ticker_eodhd,
