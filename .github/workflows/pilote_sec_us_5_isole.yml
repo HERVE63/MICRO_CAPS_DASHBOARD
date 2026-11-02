@@ -8,6 +8,8 @@ on:
       - 'TESTS/test_09f_pilote_sec_us_5_hors_reseau.py'
       - 'SCRIPTS_ACTIFS/09G_REJOUER_SEC_ARCHIVE_07U_07V.py'
       - 'TESTS/test_09g_replay_sec_archive_hors_reseau.py'
+      - 'SCRIPTS_ACTIFS/09H_AUDITER_PERIODES_SEC.py'
+      - 'TESTS/test_09h_audit_periodes_sec_hors_reseau.py'
       - 'SCRIPTS_ACTIFS/07U_COLLECTE_COMPANYFACTS_SEC.py'
       - 'SCRIPTS_ACTIFS/07V_NORMALISER_FAITS_SEC.py'
       - '.github/workflows/pilote_sec_us_5_isole.yml'
@@ -37,6 +39,8 @@ jobs:
         run: python -B TESTS/test_09f_pilote_sec_us_5_hors_reseau.py
       - name: Tester replay SEC 07U et 07V hors reseau, T0 et SHA256
         run: python -B TESTS/test_09g_replay_sec_archive_hors_reseau.py
+      - name: Tester 09H périodes indépendantes, révisions, conflits et SHA256 hors réseau
+        run: python -B TESTS/test_09h_audit_periodes_sec_hors_reseau.py
       - name: Collecter les cinq titulaires US sur SEC sans modifier le depot
         env:
           SEC_USER_AGENT: ${{ secrets.SEC_USER_AGENT }}
@@ -103,6 +107,30 @@ jobs:
                          for r in lignes), 'Lien fait-vers-capture SHA256 incoherent'
               assert lignes, 'Aucun fait comparable : ne pas valider le replay'
               print(label, len(lignes), 'faits comparables plausibles NON CERTIFIES')
+          PY
+      - name: Auditer les périodes SEC 09H sans score, ni conversion des cumuls
+        run: |
+          python - <<'PY'
+          import hashlib, json, subprocess, sys
+          from pathlib import Path
+          archives = sorted(Path('AUDITS/SEC_PILOTE_US_5').glob('*/MANIFESTE.json'))
+          assert len(archives) == 1
+          d = archives[0].parent
+          subprocess.run([sys.executable, '-B', 'SCRIPTS_ACTIFS/09H_AUDITER_PERIODES_SEC.py', str(d)], check=True)
+          a = d / 'AUDIT_PERIODES_09H'
+          m = json.loads((a / 'MANIFESTE_09H.json').read_text())
+          assert m['Statut'] == 'AUDIT_PERIODES_NON_CERTIFIANT'
+          assert (m['Notes_SSI'], m['Notes_MCPA'], m['Arbitrages']) == (0, 0, 0)
+          assert m['Source_manifeste_09G_SHA256'] == hashlib.sha256(
+              (d / 'NORMALISATION_07U_07V/MANIFESTE_REPLAY.json').read_bytes()).hexdigest()
+          for rel, digest in m['Fichiers_SHA256'].items():
+              p = (a / rel).resolve()
+              assert p.is_relative_to(a.resolve()) and hashlib.sha256(p.read_bytes()).hexdigest() == digest
+          for label in ('T0', 'COURANT'):
+              audit = m['Audits'][label]
+              assert audit['Periodes_distinctes'] > 0
+              assert audit['Notes_SSI'] == audit['Notes_MCPA'] == audit['Arbitrages'] == 0
+              print(label, audit)
           PY
       - name: Interdire toute modification des donnees et coffres
         if: always()
