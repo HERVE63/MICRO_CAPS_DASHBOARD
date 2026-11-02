@@ -98,6 +98,10 @@ jobs:
               assert all(r['Date_depot'] <= limite for r in lignes)
               assert all(r['Statut_preuve'] == 'A_VERIFIER_IDENTITE_ET_PERIODE' for r in lignes)
               assert all(len(r['SHA256_brut_SEC']) == 64 for r in lignes)
+              assert all(r['Ticker'] in m['Sources_reutilisees'] and
+                         r['SHA256_brut_SEC'] == m['Sources_reutilisees'][r['Ticker']]['SHA256']
+                         for r in lignes), 'Lien fait-vers-capture SHA256 incoherent'
+              assert lignes, 'Aucun fait comparable : ne pas valider le replay'
               print(label, len(lignes), 'faits comparables plausibles NON CERTIFIES')
           PY
       - name: Interdire toute modification des donnees et coffres
