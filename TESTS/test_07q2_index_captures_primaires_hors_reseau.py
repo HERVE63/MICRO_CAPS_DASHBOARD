@@ -116,6 +116,8 @@ def tester():
         brut2.write_bytes(octets2)
         ligne2=dict(ligne,ID_document="TEST_AUTRE",
                     Source_URL="https://regulateur.test/fiche",
+                    URL_finale="https://regulateur.test/fiche",
+                    Domaine_autorise="regulateur.test",
                     SHA256=sha2,Fichier_brut=str(brut2.relative_to(base)),
                     Date_publication="2026-10-01",Type_source="DONNEE_MARCHE_IDENTITE",
                     Statut_date_publication="DATE_DECLAREE_A_VERIFIER")
