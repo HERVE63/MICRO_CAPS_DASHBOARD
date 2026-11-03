@@ -15,6 +15,10 @@ def executer():
     assert len(t0) == 40 and t0["Ticker_cotation"].nunique() == 40
     result = p[["ID_position", "Societe", "Ticker", "Devise"]].copy()
     result["Present_dans_chasse"] = result["Ticker"].isin(set(c["Ticker"]))
+    # La presélection externe ne constitue pas le registre des titulaires.
+    # Un titulaire absent de cette liste n'est pas une preuve de perte de sa position.
+    result["Circuit_titulaire"] = "PORTEFEUILLE_GERE_EXISTANT"
+    result["Circuit_preselection"] = "CHASSE_EXTERNE_INDEPENDANTE"
     # La cohorte T0 est une référence historique, pas une preuve de données actuelles.
     # Comparer les tickers de cotation (avec place), sans fusion approximative.
     result["Present_dans_cohorte_T0"] = result["Ticker"].isin(set(t0["Ticker_cotation"]))
@@ -30,7 +34,8 @@ def executer():
     result.loc[~result["Present_dans_cohorte_T0"], "Statut_raccordement"] = "ECART_COHORTE_T0_A_VERIFIER"
     out = D / "AUDIT_RACCORDEMENT_40_TITULAIRES.csv"
     result.to_csv(out, index=False)
-    print(f"Titulaires={len(result)}, présents dans présélection SSI={int(result.Present_dans_chasse.sum())}, présents T0={int(result.Present_dans_cohorte_T0.sum())}")
+    print(f"Titulaires={len(result)}, présents dans présélection SSI EXTERNE={int(result.Present_dans_chasse.sum())}, présents T0={int(result.Present_dans_cohorte_T0.sum())}")
+    print("ATTENTION : absence de la preselection externe != absence du portefeuille gere.")
     print(f"Audit: {out}")
     return result
 
