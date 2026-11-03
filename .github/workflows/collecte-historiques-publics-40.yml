@@ -16,6 +16,10 @@ jobs:
       - uses: actions/setup-python@v5
         with:
           python-version: '3.12'
+      - name: Test de résilience 09N hors réseau
+        run: |
+          python -m pip install pytest
+          python -m pytest -q tests/test_09n_collecte_historique_isolee.py
       - name: Collecte publique sans clé
         run: python -B SCRIPTS_ACTIFS/09N_COLLECTE_HISTORIQUES_YAHOO_40.py
       - name: Archiver résultats et couverture
