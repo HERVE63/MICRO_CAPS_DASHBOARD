@@ -11,9 +11,11 @@ jobs:
         with:
           ref: repair/microcaps-chain-20261030
       - name: Tester la collecte SEC des cinq premieres microcaps US
+        env:
+          SEC_USER_AGENT: ${{ secrets.SEC_USER_AGENT }}
         run: python SCRIPTS_ACTIFS/09F_PILOTE_SEC_US_5.py
       - uses: actions/upload-artifact@v4
         if: always()
         with:
           name: diagnostic-sec-us-5
-          path: AUDITS/DIAGNOSTIC_SEC_US_5.csv
+          path: AUDITS/SEC_PILOTE_US_5/
