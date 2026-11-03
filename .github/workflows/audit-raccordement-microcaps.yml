@@ -5,6 +5,7 @@ on:
       - repair/microcaps-chain-20261030
     paths:
       - 'SCRIPTS_ACTIFS/09G_AUDIT_RACCORDEMENT.py'
+      - 'SCRIPTS_ACTIFS/09H_CONTROLE_ORDRE_CHALLENGE.py'
       - '.github/workflows/audit-raccordement-microcaps.yml'
   workflow_dispatch:
 permissions:
@@ -22,3 +23,5 @@ jobs:
         run: python SCRIPTS_ACTIFS/08A_IMPORT_SCREENER.py
       - name: Controler les interfaces existantes sans arbitrer
         run: python SCRIPTS_ACTIFS/09G_AUDIT_RACCORDEMENT.py
+      - name: Verifier l'ordre titulaires challengers duels sans arbitrage
+        run: python SCRIPTS_ACTIFS/09H_CONTROLE_ORDRE_CHALLENGE.py
