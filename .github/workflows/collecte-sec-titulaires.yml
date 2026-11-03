@@ -3,16 +3,8 @@ on:
   workflow_dispatch:
   pull_request:
     branches: [main]
-    paths:
-      - 'SCRIPTS_ACTIFS/09K_COLLECTE_SEC_TITULAIRES_US.py'
-      - 'SCRIPTS_ACTIFS/09L_COLLECTE_SEC_COMPANYFACTS_US.py'
-      - '.github/workflows/collecte-sec-titulaires.yml'
   push:
     branches: [repair/microcaps-chain-20261030]
-    paths:
-      - 'SCRIPTS_ACTIFS/09K_COLLECTE_SEC_TITULAIRES_US.py'
-      - 'SCRIPTS_ACTIFS/09L_COLLECTE_SEC_COMPANYFACTS_US.py'
-      - '.github/workflows/collecte-sec-titulaires.yml'
 permissions:
   contents: read
 jobs:
