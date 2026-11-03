@@ -1,0 +1,18 @@
+name: Audit lecture seule raccordement Micro Caps
+on:
+  push:
+    branches:
+      - repair/microcaps-chain-20261030
+    paths:
+      - 'SCRIPTS_ACTIFS/09G_AUDIT_RACCORDEMENT.py'
+      - '.github/workflows/audit-raccordement-microcaps.yml'
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  audit:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Controler les interfaces existantes sans arbitrer
+        run: python SCRIPTS_ACTIFS/09G_AUDIT_RACCORDEMENT.py
