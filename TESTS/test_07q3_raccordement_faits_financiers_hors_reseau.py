@@ -156,6 +156,21 @@ def test():
         assert sum(x["Statut_raccordement"] == "EN_ATTENTE_DATA_DATES"
                    for x in controle_periode) == 1
         ecrire(chemin_icape, faits_icape)
+        # URL primaire adversariale : aucun score, même avec SHA256 présent.
+        for mauvaise_url in (
+            "https://user:secret@www.icape-group.com/report.pdf",
+            "https://www.icape-group.com/report.pdf#session",
+            "https://www.icape-group.com:bad/report.pdf",
+            "http://www.icape-group.com/report.pdf",
+        ):
+            ligne = dict(faits_icape[0])
+            ligne["Source_URL"] = mauvaise_url
+            statut, _, _ = m.controler_ligne(
+                ligne,
+                {x["Ticker"]: x for x in dossiers_originaux},
+                m.indexer_archives(b), b, m.datetime.now(m.timezone.utc))
+            assert statut == "EN_ATTENTE_DATA_PROVENANCE", (mauvaise_url, statut)
+        ecrire(chemin_icape, faits_icape)
         # Une source corrompue ne bloque pas les autres : refus local des 9 faits ICAPE.
         brut = b / "AUDITS/SOURCES_OFFICIELLES" / CAPTURES[0] / (
             "05605e38d3a3e9778d3d8468b613752fe54ef2bbe529bd109b5c622824b0669c.bin")
