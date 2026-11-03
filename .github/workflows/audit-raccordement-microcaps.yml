@@ -14,5 +14,11 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - run: pip install pandas
+      - name: Tester l'import chasse dans le runner sans commit
+        run: python SCRIPTS_ACTIFS/08A_IMPORT_SCREENER.py
       - name: Controler les interfaces existantes sans arbitrer
         run: python SCRIPTS_ACTIFS/09G_AUDIT_RACCORDEMENT.py
