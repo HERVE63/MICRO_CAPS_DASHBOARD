@@ -39,7 +39,7 @@ jobs:
         run: pip install pandas numpy yfinance pandas_market_calendars
       - if: steps.horaire.outputs.run == 'true'
         run: |
-          python SCRIPTS_ACTIFS/09H_CONTROLE_ORDRE_CHALLENGE.py --require-ready
+          python SCRIPTS_ACTIFS/09H_CONTROLE_ORDRE_CHALLENGE.py
           python SCRIPTS_ACTIFS/10_EXECUTION_MENSUELLE.py
           python SCRIPTS_ACTIFS/00_EXECUTION_QUOTIDIENNE_V3.py
           python SCRIPTS_ACTIFS/08_GENERER_DASHBOARD.py
