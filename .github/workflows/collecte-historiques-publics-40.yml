@@ -1,0 +1,30 @@
+name: MICRO CAPS - historiques publics 40 titulaires
+on:
+  workflow_dispatch:
+  push:
+    branches: [repair/microcaps-chain-20261030]
+  pull_request:
+    branches: [main]
+permissions:
+  contents: read
+jobs:
+  collect-histories:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Collecte publique sans clé
+        run: python -B SCRIPTS_ACTIFS/09N_COLLECTE_HISTORIQUES_YAHOO_40.py
+      - name: Archiver résultats et couverture
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: historiques-40-${{ github.run_id }}
+          if-no-files-found: warn
+          path: |
+            DONNEES/HISTORIQUES_YAHOO_40.csv
+            DONNEES/COUVERTURE_HISTORIQUES_YAHOO_40.csv
+          retention-days: 30
