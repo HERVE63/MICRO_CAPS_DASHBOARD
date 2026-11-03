@@ -11,6 +11,7 @@ import csv
 import hashlib
 import json
 import re
+from urllib.parse import urlsplit
 
 NOMS = (
     "FAITS_FINANCIERS_ICAPE_S1_2026_NON_CERTIFIES.csv",
@@ -98,8 +99,17 @@ def controler_ligne(r, dossiers, archives, racine, maintenant):
         return "EN_ATTENTE_DATA_UNITE", "Montant ou unité non contrôlable", ""
     if not re.fullmatch(r"[0-9a-f]{64}", r["SHA256_source"]):
         return "EN_ATTENTE_DATA_SHA256", "Empreinte malformée", ""
-    if not r["Source_URL"].startswith("https://"):
-        return "EN_ATTENTE_DATA_PROVENANCE", "URL non HTTPS", ""
+    try:
+        url = urlsplit(r["Source_URL"])
+        if (url.scheme != "https" or not url.hostname or url.username is not None
+                or url.password is not None or url.fragment or url.port == 0):
+            raise ValueError("Provenance URL ambiguë")
+        # Le nom DNS doit être explicite ; les espaces et caractères de contrôle
+        # ne peuvent jamais être acceptés comme provenance primaire.
+        if any(c.isspace() or ord(c) < 32 for c in r["Source_URL"]):
+            raise ValueError("URL non canonique")
+    except ValueError:
+        return "EN_ATTENTE_DATA_PROVENANCE", "URL primaire HTTPS non canonique ou avec identifiants", ""
     try:
         publ = date_utc(r["Date_publication_UTC"])
         capture = date_utc(r["Date_collecte_UTC"])
