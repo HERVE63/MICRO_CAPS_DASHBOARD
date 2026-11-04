@@ -44,7 +44,8 @@ jobs:
           if python -B SCRIPTS_ACTIFS/09_CONTROLE_REVUE_MCPA_IPS.py; then
             python -B SCRIPTS_ACTIFS/09B_DUEL_PROCHAIN_EURO.py
           else
-            echo 'Revue incomplete : duels et arbitrages suspendus sans invention de scores.'
+            echo 'ERREUR : revue MCPA/IPS incomplete. Arbitrage non execute.'
+            exit 1
           fi
       - name: Archiver toutes les preuves
         if: always()
