@@ -1,6 +1,8 @@
 name: MICRO CAPS - collecte SEC titulaires (preuves, sans arbitrage)
 on:
   workflow_dispatch:
+  schedule:
+    - cron: '15 6 * * 1-5'
   pull_request:
     branches: [main]
   push:
