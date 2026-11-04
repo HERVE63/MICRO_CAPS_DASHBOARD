@@ -1,0 +1,821 @@
+[
+  {
+    "ticker": "IDN",
+    "url": "https://www.intellicheck.com/newsroom/intellicheck-reports-second-quarter-2026-results",
+    "date_source": "2026-08-13",
+    "periode": "S1 2026",
+    "champs": [
+      {
+        "bloc": "qualite",
+        "champ": "concentration_clients_pct",
+        "valeur": 29,
+        "unite": "pct",
+        "commentaire": "Part du principal client, pas somme des dix premiers."
+      },
+      {
+        "bloc": "risque",
+        "champ": "risque_concentration",
+        "valeur": "Client principal : 29 % du CA S1; transition vers plusieurs fournisseurs susceptible de réduire les transactions.",
+        "unite": "texte"
+      }
+    ]
+  },
+  {
+    "ticker": "AOM.L",
+    "url": "https://it.advfn.com/mercati/LSE/AOM/notizie/99472010/activeops-plc-h1-fy27-trading-update-and-notice-of",
+    "date_source": "2026-10-12",
+    "periode": "S1 FY2027 clos au 30/09/2026",
+    "champs": [
+      {
+        "bloc": "risque",
+        "champ": "cash",
+        "valeur": 19.6,
+        "unite": "millions_GBP"
+      },
+      {
+        "bloc": "risque",
+        "champ": "risque_concentration",
+        "valeur": "Un client de 3,8 M GBP d’ARR prévoit de ne pas renouveler en mars 2027; FY2028 attendu sensiblement sous les prévisions de marché.",
+        "unite": "texte"
+      },
+      {
+        "bloc": "croissance",
+        "champ": "catalyseurs_dates",
+        "valeur": "Résultats S1 FY2027 prévus le 24/11/2026; perspectives FY2028 abaissées le 12/10/2026.",
+        "unite": "texte"
+      },
+      {
+        "bloc": null,
+        "champ": "ca_semestriel",
+        "valeur": 25.3,
+        "unite": "millions_GBP"
+      }
+    ]
+  },
+  {
+    "ticker": "MTEC.L",
+    "url": "https://www.lse.co.uk/rns/MTEC/final-results-zfbwdv4veaci24w.html?mobile_view=desktop",
+    "date_source": "2026-09-29",
+    "periode": "FY2026, 12 mois clos au 31/05/2026",
+    "champs": [
+      {
+        "bloc": "qualite",
+        "champ": "ca_ttm",
+        "valeur": 58.884,
+        "unite": "millions_GBP"
+      },
+      {
+        "bloc": "qualite",
+        "champ": "marge_brute_pct",
+        "valeur": 30.4,
+        "unite": "pct"
+      },
+      {
+        "bloc": "qualite",
+        "champ": "marge_ebitda_pct",
+        "valeur": 10,
+        "unite": "pct",
+        "commentaire": "EBITDA ajusté, non IFRS."
+      },
+      {
+        "bloc": "qualite",
+        "champ": "marge_ebit_pct",
+        "valeur": 7.6387473677059985,
+        "unite": "pct",
+        "commentaire": "Calcul résultat opérationnel 4 498 / CA 58 884 kGBP."
+      },
+      {
+        "bloc": "qualite",
+        "champ": "marge_nette_pct",
+        "valeur": 5.814822362611236,
+        "unite": "pct"
+      },
+      {
+        "bloc": "croissance",
+        "champ": "croissance_ca_1a_pct",
+        "valeur": 26.8,
+        "unite": "pct"
+      },
+      {
+        "bloc": "croissance",
+        "champ": "croissance_ebitda_pct",
+        "valeur": 69,
+        "unite": "pct",
+        "commentaire": "Croissance EBITDA ajusté."
+      },
+      {
+        "bloc": "croissance",
+        "champ": "carnet_commandes",
+        "valeur": 83.5,
+        "unite": "millions_GBP"
+      },
+      {
+        "bloc": "risque",
+        "champ": "cash",
+        "valeur": 14.467,
+        "unite": "millions_GBP"
+      }
+    ]
+  },
+  {
+    "ticker": "ZOMD.V",
+    "url": "https://zoomd.com/zoomd-q2-2026-financial-results/",
+    "date_source": "2026-08-31",
+    "periode": "T2 2026 clos au 30/06/2026",
+    "champs": [
+      {
+        "bloc": "qualite",
+        "champ": "marge_brute_pct",
+        "valeur": 43,
+        "unite": "pct"
+      },
+      {
+        "bloc": "qualite",
+        "champ": "marge_ebitda_pct",
+        "valeur": 9.09090909090909,
+        "unite": "pct",
+        "commentaire": "EBITDA 0,7 / CA 7,7 M USD; chiffres publiés arrondis."
+      },
+      {
+        "bloc": "qualite",
+        "champ": "marge_nette_pct",
+        "valeur": 15.584415584415584,
+        "unite": "pct",
+        "commentaire": "RN 1,2 / CA 7,7 M USD; chiffres arrondis."
+      },
+      {
+        "bloc": "risque",
+        "champ": "cash",
+        "valeur": 22.6,
+        "unite": "millions_USD"
+      },
+      {
+        "bloc": "risque",
+        "champ": "risque_concentration",
+        "valeur": "CA T2 en baisse de 61 % sur un an après changement du modèle opérationnel de deux grands clients.",
+        "unite": "texte"
+      },
+      {
+        "bloc": null,
+        "champ": "ca_trimestriel",
+        "valeur": 7.7,
+        "unite": "millions_USD"
+      }
+    ]
+  },
+  {
+    "ticker": "GENI.ST",
+    "url": "https://www.generic.se/en/mfn_news/delarsrapport-januari-juni-2026/",
+    "date_source": "2026-08-20",
+    "periode": "S1 2026",
+    "champs": [
+      {
+        "bloc": "qualite",
+        "champ": "marge_brute_pct",
+        "valeur": 44,
+        "unite": "pct"
+      },
+      {
+        "bloc": null,
+        "champ": "ca_semestriel",
+        "valeur": 97.6,
+        "unite": "millions_SEK"
+      },
+      {
+        "bloc": null,
+        "champ": "bpa_semestriel",
+        "valeur": 1.27,
+        "unite": "SEK"
+      },
+      {
+        "bloc": null,
+        "champ": "cfo_semestriel",
+        "valeur": 10.5,
+        "unite": "millions_SEK"
+      }
+    ]
+  },
+  {
+    "ticker": "GROW.MI",
+    "url": "https://www.growens.io/en/press-releases/the-board-of-directors-approved-the-consolidated-half-year-report-as-of-30-june-2026/",
+    "date_source": "2026-09-15",
+    "periode": "S1 2026",
+    "champs": [
+      {
+        "bloc": "risque",
+        "champ": "cash",
+        "valeur": 3.552955,
+        "unite": "millions_EUR",
+        "commentaire": "Cash strict, ligne A du tableau; 13,221903 M EUR d’actifs destinés à la vente exclus. Le total élargi de liquidités de la société atteint 16,774858 M EUR."
+      },
+      {
+        "bloc": "risque",
+        "champ": "dette_nette",
+        "valeur": -9.2,
+        "unite": "millions_EUR",
+        "commentaire": "Opposé de la position financière nette de trésorerie publiée."
+      },
+      {
+        "bloc": null,
+        "champ": "ca_semestriel",
+        "valeur": 40.3,
+        "unite": "millions_EUR"
+      },
+      {
+        "bloc": null,
+        "champ": "ebitda_semestriel",
+        "valeur": 1.2,
+        "unite": "millions_EUR"
+      },
+      {
+        "bloc": null,
+        "champ": "resultat_net_semestriel",
+        "valeur": -1.4,
+        "unite": "millions_EUR"
+      },
+      {
+        "bloc": "qualite",
+        "champ": "marge_brute_pct",
+        "valeur": 26.1,
+        "unite": "pct"
+      },
+      {
+        "bloc": "qualite",
+        "champ": "marge_ebitda_pct",
+        "valeur": 3,
+        "unite": "pct"
+      }
+    ]
+  },
+  {
+    "ticker": "HDD.L",
+    "url": "https://www.lse.co.uk/rns/HDD/interim-statement-rirkv9gexkaj1t9.html",
+    "date_source": "2026-05-21",
+    "periode": "S1 FY2026 clos au 31/03/2026",
+    "champs": [
+      {
+        "bloc": "qualite",
+        "champ": "marge_brute_pct",
+        "valeur": 65,
+        "unite": "pct"
+      },
+      {
+        "bloc": "qualite",
+        "champ": "marge_ebit_pct",
+        "valeur": 26.8,
+        "unite": "pct"
+      },
+      {
+        "bloc": "qualite",
+        "champ": "marge_ebitda_pct",
+        "valeur": 33.333333333333336,
+        "unite": "pct",
+        "commentaire": "EBITDA et CA arrondis, ratio indicatif."
+      },
+      {
+        "bloc": "risque",
+        "champ": "cash",
+        "valeur": 1.5,
+        "unite": "millions_GBP"
+      },
+      {
+        "bloc": null,
+        "champ": "ca_semestriel",
+        "valeur": 4.8,
+        "unite": "millions_GBP"
+      }
+    ]
+  },
+  {
+    "ticker": "ELVA.TO",
+    "url": "https://electrovaya.com/press/electrovaya-reports-fiscal-year-q3-2026-results/",
+    "date_source": "2026-08-11",
+    "periode": "T3 FY2026 clos au 30/06/2026",
+    "champs": [
+      {
+        "bloc": "qualite",
+        "champ": "marge_brute_pct",
+        "valeur": 34.9,
+        "unite": "pct"
+      },
+      {
+        "bloc": "qualite",
+        "champ": "marge_ebitda_pct",
+        "valeur": 20.7,
+        "unite": "pct",
+        "commentaire": "EBITDA ajusté."
+      },
+      {
+        "bloc": "risque",
+        "champ": "cash",
+        "valeur": 13.1,
+        "unite": "millions_USD",
+        "commentaire": "Cash non restreint; cotation TSX en CAD distincte des comptes USD."
+      },
+      {
+        "bloc": "risque",
+        "champ": "risque_dilution",
+        "valeur": "Accord Amazon : jusqu’à 13 880 345 actions via warrants, acquisition complète conditionnée à des achats cumulés de 280 M USD.",
+        "unite": "texte"
+      },
+      {
+        "bloc": "croissance",
+        "champ": "previsions_ca_1a",
+        "valeur": {
+          "bas": 70,
+          "haut": 73
+        },
+        "unite": "millions_USD",
+        "commentaire": "Guidance de CA normalisé FY2026, estimation de direction."
+      },
+      {
+        "bloc": null,
+        "champ": "ca_trimestriel",
+        "valeur": 17.7,
+        "unite": "millions_USD"
+      }
+    ]
+  },
+  {
+    "ticker": "COV.V",
+    "url": "https://ir.covalon.com/news/news-details/2026/Covalon-Reports-Fiscal-2026-Third-Quarter-Results/default.aspx",
+    "date_source": "2026-08-27",
+    "periode": "T3 FY2026 clos au 30/06/2026",
+    "champs": [
+      {
+        "bloc": "qualite",
+        "champ": "marge_brute_pct",
+        "valeur": 67.2,
+        "unite": "pct"
+      },
+      {
+        "bloc": "qualite",
+        "champ": "marge_ebitda_pct",
+        "valeur": 29.46798402116595,
+        "unite": "pct",
+        "commentaire": "EBITDA ajusté / CA, valeurs CAD exactes publiées."
+      },
+      {
+        "bloc": "qualite",
+        "champ": "marge_nette_pct",
+        "valeur": 27.993504253994583,
+        "unite": "pct"
+      },
+      {
+        "bloc": "risque",
+        "champ": "cash",
+        "valeur": 19.4,
+        "unite": "millions_CAD"
+      },
+      {
+        "bloc": null,
+        "champ": "ca_trimestriel",
+        "valeur": 10041033,
+        "unite": "CAD"
+      },
+      {
+        "bloc": null,
+        "champ": "resultat_net_trimestriel",
+        "valeur": 2810837,
+        "unite": "CAD"
+      }
+    ]
+  },
+  {
+    "ticker": "MEMS.PA",
+    "url": "https://webdisclosure.com/press-release/memscap-epa-mems-information-financiere-trimestrielle-information-financiere-du-troisieme-trimestre-Yw40lu42wuE",
+    "date_source": "2026-10-26",
+    "periode": "T3 2026",
+    "champs": [
+      {
+        "bloc": "qualite",
+        "champ": "marge_brute_pct",
+        "valeur": 44.2,
+        "unite": "pct"
+      },
+      {
+        "bloc": "qualite",
+        "champ": "marge_ebitda_pct",
+        "valeur": 16.6,
+        "unite": "pct",
+        "commentaire": "EBITDA ajusté."
+      },
+      {
+        "bloc": "qualite",
+        "champ": "marge_ebit_pct",
+        "valeur": 14.9,
+        "unite": "pct"
+      },
+      {
+        "bloc": "qualite",
+        "champ": "marge_nette_pct",
+        "valeur": 8.8,
+        "unite": "pct"
+      },
+      {
+        "bloc": "risque",
+        "champ": "risque_concentration",
+        "valeur": "Aéronautique : 70 % du CA sur neuf mois; diversification médical et communications optiques.",
+        "unite": "texte"
+      },
+      {
+        "bloc": "croissance",
+        "champ": "catalyseurs_dates",
+        "valeur": "Prochaine publication officielle : résultats T4 2026 le 28/01/2027; programmes Contrôle moteur et Systèmes fluidiques en développement.",
+        "unite": "texte"
+      },
+      {
+        "bloc": null,
+        "champ": "ca_trimestriel",
+        "valeur": 3.333,
+        "unite": "millions_EUR"
+      }
+    ]
+  },
+  {
+    "ticker": "ALESE.PA",
+    "url": "https://entech-se.com/resultats-semestriels-2026/",
+    "date_source": "2026-09-23",
+    "periode": "S1 2026",
+    "champs": [
+      {
+        "bloc": "qualite",
+        "champ": "marge_brute_pct",
+        "valeur": 25.7,
+        "unite": "pct"
+      },
+      {
+        "bloc": "qualite",
+        "champ": "marge_ebitda_pct",
+        "valeur": 7,
+        "unite": "pct"
+      },
+      {
+        "bloc": "qualite",
+        "champ": "marge_ebit_pct",
+        "valeur": 4.45682451253482,
+        "unite": "pct"
+      },
+      {
+        "bloc": "qualite",
+        "champ": "marge_nette_pct",
+        "valeur": 2.22841225626741,
+        "unite": "pct"
+      },
+      {
+        "bloc": "risque",
+        "champ": "cash",
+        "valeur": 18.9,
+        "unite": "millions_EUR",
+        "commentaire": "Trésorerie et VMP."
+      },
+      {
+        "bloc": "risque",
+        "champ": "dette_brute",
+        "valeur": 38.9,
+        "unite": "millions_EUR"
+      },
+      {
+        "bloc": "risque",
+        "champ": "dette_nette",
+        "valeur": 19.9,
+        "unite": "millions_EUR"
+      },
+      {
+        "bloc": "croissance",
+        "champ": "carnet_commandes",
+        "valeur": 116,
+        "unite": "millions_EUR"
+      },
+      {
+        "bloc": "croissance",
+        "champ": "previsions_ca_1a",
+        "valeur": 130,
+        "unite": "millions_EUR",
+        "commentaire": "Objectif de direction 2026."
+      },
+      {
+        "bloc": "risque",
+        "champ": "risque_concentration",
+        "valeur": "Forte croissance EPC; BFR mobilisant 18,3 M EUR sur le semestre, baisse de trésorerie et dépendance au calendrier de chantiers.",
+        "unite": "texte"
+      },
+      {
+        "bloc": null,
+        "champ": "ca_semestriel",
+        "valeur": 71.8,
+        "unite": "millions_EUR"
+      }
+    ]
+  },
+  {
+    "ticker": "ALBFR.PA",
+    "url": "https://www.sidetrade.fr/news/resultats-du-premier-semestre-2026/",
+    "date_source": "2026-09-22",
+    "periode": "S1 2026",
+    "champs": [
+      {
+        "bloc": "qualite",
+        "champ": "marge_brute_pct",
+        "valeur": 74,
+        "unite": "pct"
+      },
+      {
+        "bloc": "qualite",
+        "champ": "marge_ebit_pct",
+        "valeur": 16.2,
+        "unite": "pct",
+        "commentaire": "Taux du tableau; chapeau de page 20,7 % contradictoire (à périmètre comparable), non substitué."
+      },
+      {
+        "bloc": "qualite",
+        "champ": "revenus_recurrents_pct",
+        "valeur": 89.9425287356322,
+        "unite": "pct",
+        "commentaire": "Abonnements / CA; ne signifie pas taux de rétention."
+      },
+      {
+        "bloc": "risque",
+        "champ": "cash",
+        "valeur": 19.9,
+        "unite": "millions_EUR"
+      },
+      {
+        "bloc": null,
+        "champ": "ca_semestriel",
+        "valeur": 34.8,
+        "unite": "millions_EUR"
+      }
+    ]
+  },
+  {
+    "ticker": "ALIEV.PA",
+    "url": "https://www.eqs-news.com/news/regulatory-circuit-france/ieva-group-ieva-group-publie-ses-premiers-resultats-semestriels-en-tres-forte-hausse/0cda8815-6371-47eb-8fcb-9699eb7a529e_fr",
+    "date_source": "2026-10-14",
+    "periode": "S1 2026",
+    "champs": [
+      {
+        "bloc": "qualite",
+        "champ": "revenus_recurrents_pct",
+        "valeur": 56,
+        "unite": "pct",
+        "commentaire": "Part des abonnements."
+      },
+      {
+        "bloc": "qualite",
+        "champ": "marge_ebitda_pct",
+        "valeur": -0.5,
+        "unite": "pct",
+        "commentaire": "EBITDA ajusté."
+      },
+      {
+        "bloc": "qualite",
+        "champ": "marge_nette_pct",
+        "valeur": -2.1327340274274182,
+        "unite": "pct",
+        "commentaire": "Résultat net part groupe / CA."
+      },
+      {
+        "bloc": "risque",
+        "champ": "cash",
+        "valeur": 14.939,
+        "unite": "millions_EUR"
+      },
+      {
+        "bloc": "risque",
+        "champ": "dette_brute",
+        "valeur": 4.046,
+        "unite": "millions_EUR"
+      },
+      {
+        "bloc": "risque",
+        "champ": "dette_nette",
+        "valeur": -10.893,
+        "unite": "millions_EUR"
+      },
+      {
+        "bloc": "croissance",
+        "champ": "catalyseurs_dates",
+        "valeur": "CA annuel 2026 : 26/01/2027; résultats annuels 2026 : 20/04/2027. Objectif EBITDA 2026 positif, non réalisé à cette date.",
+        "unite": "texte"
+      },
+      {
+        "bloc": null,
+        "champ": "ca_semestriel",
+        "valeur": 21.803,
+        "unite": "millions_EUR"
+      },
+      {
+        "bloc": null,
+        "champ": "croissance_organique_semestrielle",
+        "valeur": 3.9,
+        "unite": "pct"
+      }
+    ]
+  },
+  {
+    "ticker": "ALCUR.PA",
+    "url": "https://webdisclosure.fr/press-release/arcure-epa-alcur-resultats-du-1er-semestre-2026-un-redressement-qui-samorce-et-une-dynamique-oem-qui-saccelere-RYE8bAi9FeS",
+    "date_source": "2026-09-24",
+    "periode": "S1 2026",
+    "champs": [
+      {
+        "bloc": "qualite",
+        "champ": "marge_brute_pct",
+        "valeur": 57,
+        "unite": "pct"
+      },
+      {
+        "bloc": "qualite",
+        "champ": "marge_ebit_pct",
+        "valeur": -15.068493150684931,
+        "unite": "pct"
+      },
+      {
+        "bloc": "qualite",
+        "champ": "marge_nette_pct",
+        "valeur": -14.806833923349238,
+        "unite": "pct"
+      },
+      {
+        "bloc": "risque",
+        "champ": "cash",
+        "valeur": 2.816,
+        "unite": "millions_EUR"
+      },
+      {
+        "bloc": "risque",
+        "champ": "dette_brute",
+        "valeur": 7.444,
+        "unite": "millions_EUR"
+      },
+      {
+        "bloc": "risque",
+        "champ": "dette_nette",
+        "valeur": 4.6,
+        "unite": "millions_EUR"
+      },
+      {
+        "bloc": "croissance",
+        "champ": "catalyseurs_dates",
+        "valeur": "Quatrième accord OEM espéré fin 2026/début 2027; retour à l’équilibre net 2026 visé, sans garantie.",
+        "unite": "texte"
+      },
+      {
+        "bloc": null,
+        "champ": "ca_semestriel",
+        "valeur": 6.497,
+        "unite": "millions_EUR"
+      }
+    ]
+  },
+  {
+    "ticker": "ALLIX.PA",
+    "url": "https://www.webdisclosure.com/press-release/wallix-epa-allix-forte-amelioration-des-resultats-et-free-cash-flow-positif-des-le-1er-semestre-objectifs-2026-confirmes-3niIp2o7yw8",
+    "date_source": "2026-10-08",
+    "periode": "S1 2026",
+    "champs": [
+      {
+        "bloc": "qualite",
+        "champ": "revenus_recurrents_pct",
+        "valeur": 81,
+        "unite": "pct"
+      },
+      {
+        "bloc": "qualite",
+        "champ": "marge_ebit_pct",
+        "valeur": -5.831144830269428,
+        "unite": "pct"
+      },
+      {
+        "bloc": "qualite",
+        "champ": "marge_nette_pct",
+        "valeur": -4.411049508802646,
+        "unite": "pct"
+      },
+      {
+        "bloc": null,
+        "champ": "ca_semestriel",
+        "valeur": 20.562,
+        "unite": "millions_EUR"
+      }
+    ]
+  },
+  {
+    "ticker": "PULS.L",
+    "url": "https://www.lse.co.uk/rns/interim-results-75aksyer7ggqfpm.html?mobile_view=mobile",
+    "date_source": "2026-07-20",
+    "periode": "S1 FY2026 clos au 31/05/2026",
+    "champs": [
+      {
+        "bloc": "qualite",
+        "champ": "revenus_recurrents_pct",
+        "valeur": 97,
+        "unite": "pct"
+      },
+      {
+        "bloc": "qualite",
+        "champ": "marge_nette_pct",
+        "valeur": -7.1454545454545455,
+        "unite": "pct",
+        "commentaire": "CA arrondi 33 M GBP."
+      },
+      {
+        "bloc": null,
+        "champ": "ca_semestriel",
+        "valeur": 33,
+        "unite": "millions_GBP"
+      },
+      {
+        "bloc": null,
+        "champ": "ARR",
+        "valeur": 67.2,
+        "unite": "millions_GBP"
+      }
+    ]
+  },
+  {
+    "ticker": "HSP.L",
+    "url": "https://hsgplc.co.uk/insight/hargreaves-full-financial-results-2026",
+    "date_source": "2026-08-18",
+    "periode": "FY2026 clos au 31/05/2026",
+    "champs": [
+      {
+        "bloc": "risque",
+        "champ": "cash",
+        "valeur": 21.6,
+        "unite": "millions_GBP"
+      },
+      {
+        "bloc": "qualite",
+        "champ": "ca_ttm",
+        "valeur": 351.4,
+        "unite": "millions_GBP"
+      },
+      {
+        "bloc": "croissance",
+        "champ": "croissance_ca_1a_pct",
+        "valeur": 32.9,
+        "unite": "pct"
+      },
+      {
+        "bloc": "croissance",
+        "champ": "croissance_ebitda_pct",
+        "valeur": 8.6,
+        "unite": "pct"
+      }
+    ]
+  },
+  {
+    "ticker": "ROK.V",
+    "url": "https://rokresources.ca/investor-resources/financials/",
+    "date_source": "2026-11-04",
+    "periode": "agenda financier",
+    "champs": [
+      {
+        "bloc": "croissance",
+        "champ": "catalyseurs_dates",
+        "valeur": "Résultats T3 2026 annoncés pour le 19/11/2026.",
+        "unite": "texte"
+      }
+    ]
+  },
+  {
+    "ticker": "AL2SI.PA",
+    "url": "https://investors.2crsi.com/blog/communiques-de-presse-3/resultats-annuels-2025-2026-184",
+    "date_source": "2026-10-30",
+    "periode": "FY2025-2026 clos au 30/06/2026",
+    "champs": [
+      {
+        "bloc": "qualite",
+        "champ": "marge_ebit_pct",
+        "valeur": 4.838292367399741,
+        "unite": "pct"
+      },
+      {
+        "bloc": "qualite",
+        "champ": "marge_nette_pct",
+        "valeur": 4.3984476067270375,
+        "unite": "pct"
+      },
+      {
+        "bloc": "croissance",
+        "champ": "catalyseurs_dates",
+        "valeur": "Assemblée générale mixte du 17/12/2026; projet ÆTHER, perspective conditionnelle; comptes soumis à impossibilité annoncée de certification.",
+        "unite": "texte"
+      },
+      {
+        "bloc": "risque",
+        "champ": "risque_concentration",
+        "valeur": "Premier client <20 % du CA; comptes courants et créances HAW, partie liée, à surveiller.",
+        "unite": "texte"
+      },
+      {
+        "bloc": null,
+        "champ": "cash_au_27_octobre",
+        "valeur": 22.4,
+        "unite": "millions_EUR"
+      }
+    ]
+  }
+]

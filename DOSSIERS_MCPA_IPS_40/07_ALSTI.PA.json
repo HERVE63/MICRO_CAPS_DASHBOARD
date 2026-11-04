@@ -12,13 +12,14 @@
   "blocs": {
     "identite": {
       "isin": {
-        "valeur": null,
-        "unite": null,
-        "periode": null,
-        "date_source": null,
-        "source_url": null,
-        "statut": "A_COLLECTER",
-        "commentaire": null
+        "valeur": "FR001400MDW2",
+        "unite": "identifiant",
+        "periode": "profil émetteur au 2026-11-04",
+        "date_source": "2026-11-04",
+        "source_url": "https://stockanalysis.com/quote/epa/ALSTI/company/",
+        "statut": "SOURCE_SECONDAIRE_NON_RAPPROCHEE",
+        "commentaire": "Profil de la cotation exacte; identité à corroborer avec une source réglementaire.",
+        "date_collecte": "2026-11-04"
       },
       "lei": {
         "valeur": null,
@@ -27,43 +28,53 @@
         "date_source": null,
         "source_url": null,
         "statut": "A_COLLECTER",
-        "commentaire": null
+        "commentaire": null,
+        "recherche": {
+          "date": "2026-11-04",
+          "statut": "MANQUANT_RECHERCHE_NON_CLOSE",
+          "motif": "Aucune valeur vérifiée importée à cette étape; les recherches tracées ne démontrent pas une indisponibilité définitive.",
+          "journal": "journal_recherches"
+        }
       },
       "pays": {
-        "valeur": null,
-        "unite": null,
-        "periode": null,
-        "date_source": null,
-        "source_url": null,
-        "statut": "A_COLLECTER",
-        "commentaire": null
+        "valeur": "France",
+        "unite": "texte",
+        "periode": "profil émetteur au 2026-11-04",
+        "date_source": "2026-11-04",
+        "source_url": "https://stockanalysis.com/quote/epa/ALSTI/company/",
+        "statut": "SOURCE_SECONDAIRE_NON_RAPPROCHEE",
+        "commentaire": "Profil de la cotation exacte; identité à corroborer avec une source réglementaire.",
+        "date_collecte": "2026-11-04"
       },
       "secteur": {
-        "valeur": null,
-        "unite": null,
-        "periode": null,
-        "date_source": null,
-        "source_url": null,
-        "statut": "A_COLLECTER",
-        "commentaire": null
+        "valeur": "Industrials",
+        "unite": "texte",
+        "periode": "profil émetteur au 2026-11-04",
+        "date_source": "2026-11-04",
+        "source_url": "https://stockanalysis.com/quote/epa/ALSTI/company/",
+        "statut": "SOURCE_SECONDAIRE_NON_RAPPROCHEE",
+        "commentaire": "Profil de la cotation exacte; identité à corroborer avec une source réglementaire.",
+        "date_collecte": "2026-11-04"
       },
       "industrie": {
-        "valeur": null,
-        "unite": null,
-        "periode": null,
-        "date_source": null,
-        "source_url": null,
-        "statut": "A_COLLECTER",
-        "commentaire": null
+        "valeur": "Specialty Industrial Machinery",
+        "unite": "texte",
+        "periode": "profil émetteur au 2026-11-04",
+        "date_source": "2026-11-04",
+        "source_url": "https://stockanalysis.com/quote/epa/ALSTI/company/",
+        "statut": "SOURCE_SECONDAIRE_NON_RAPPROCHEE",
+        "commentaire": "Profil de la cotation exacte; identité à corroborer avec une source réglementaire.",
+        "date_collecte": "2026-11-04"
       },
       "place_cotation": {
-        "valeur": null,
-        "unite": null,
-        "periode": null,
-        "date_source": null,
-        "source_url": null,
-        "statut": "A_COLLECTER",
-        "commentaire": null
+        "valeur": "Euronext Paris",
+        "unite": "texte",
+        "periode": "profil émetteur au 2026-11-04",
+        "date_source": "2026-11-04",
+        "source_url": "https://stockanalysis.com/quote/epa/ALSTI/company/",
+        "statut": "SOURCE_SECONDAIRE_NON_RAPPROCHEE",
+        "commentaire": "Profil de la cotation exacte; identité à corroborer avec une source réglementaire.",
+        "date_collecte": "2026-11-04"
       },
       "marche": {
         "valeur": null,
@@ -72,54 +83,65 @@
         "date_source": null,
         "source_url": null,
         "statut": "A_COLLECTER",
-        "commentaire": null
+        "commentaire": null,
+        "recherche": {
+          "date": "2026-11-04",
+          "statut": "MANQUANT_RECHERCHE_NON_CLOSE",
+          "motif": "Aucune valeur vérifiée importée à cette étape; les recherches tracées ne démontrent pas une indisponibilité définitive.",
+          "journal": "journal_recherches"
+        }
       },
       "capitalisation_eur": {
-        "valeur": null,
-        "unite": null,
-        "periode": null,
-        "date_source": null,
-        "source_url": null,
-        "statut": "A_COLLECTER",
-        "commentaire": null
+        "valeur": 96650000.0,
+        "unite": "EUR",
+        "periode": "capitalisation fournisseur et référence BCE du 2026-11-04",
+        "date_source": "2026-11-04",
+        "source_url": "https://stockanalysis.com/quote/epa/ALSTI/statistics/ | https://www.ecb.europa.eu/stats/policy_and_exchange_rates/euro_reference_exchange_rates/html/index.cn.html",
+        "statut": "SOURCE_SECONDAIRE_NON_RAPPROCHEE",
+        "commentaire": "Capitalisation en devise de cotation / unités de cette devise pour 1 EUR; montant fournisseur arrondi.",
+        "date_collecte": "2026-11-04"
       },
       "flottant_pct": {
-        "valeur": null,
-        "unite": null,
-        "periode": null,
-        "date_source": null,
-        "source_url": null,
-        "statut": "A_COLLECTER",
-        "commentaire": null
+        "valeur": 49.0272373540856,
+        "unite": "pct",
+        "periode": "flottant/actions fournisseur au 2026-11-04",
+        "date_source": "2026-11-04",
+        "source_url": "https://stockanalysis.com/quote/epa/ALSTI/statistics/",
+        "statut": "SOURCE_SECONDAIRE_NON_RAPPROCHEE",
+        "commentaire": "Calcul sur nombres arrondis; détenu par initiés ≠ total dirigeants strict.",
+        "date_collecte": "2026-11-04"
       },
       "actionnariat_dirigeants_pct": {
-        "valeur": null,
-        "unite": null,
-        "periode": null,
-        "date_source": null,
-        "source_url": null,
-        "statut": "A_COLLECTER",
-        "commentaire": null
+        "valeur": 11.56,
+        "unite": "pct",
+        "periode": "détentions déclarées, dates hétérogènes du fournisseur",
+        "date_source": "2026-11-04",
+        "source_url": "https://stockanalysis.com/quote/epa/ALSTI/statistics/",
+        "statut": "SOURCE_SECONDAIRE_NON_RAPPROCHEE",
+        "commentaire": "Donnée de fournisseur secondaire; ni certification des comptes ni validation MCPA. Arrêté précis à rapprocher.",
+        "date_collecte": "2026-11-04"
       },
       "liquidite_moyenne_eur_20j": {
-        "valeur": null,
-        "unite": null,
-        "periode": null,
-        "date_source": null,
-        "source_url": null,
-        "statut": "A_COLLECTER",
-        "commentaire": null
+        "valeur": 1036950.395869112,
+        "unite": "EUR/jour",
+        "periode": "2026-10-07 / 2026-11-03",
+        "date_source": "2026-11-04",
+        "source_url": "https://query1.finance.yahoo.com/v8/finance/chart/ALSTI.PA?range=5y&interval=1d&events=div%2Csplits | https://www.ecb.europa.eu/stats/policy_and_exchange_rates/euro_reference_exchange_rates/html/index.cn.html",
+        "statut": "ESTIMATION_PROXY_LIQUIDITE",
+        "commentaire": "Moyenne(clôture non ajustée × volume) sur 20 séances, convertie au seul FX BCE du 04/11/2026; proxy de liquidité, pas volumes réellement négociés en EUR à chaque date. GBp/100 à Londres.",
+        "date_collecte": "2026-11-04"
       }
     },
     "qualite": {
       "ca_ttm": {
-        "valeur": null,
-        "unite": null,
-        "periode": null,
-        "date_source": null,
-        "source_url": null,
-        "statut": "A_COLLECTER",
-        "commentaire": null
+        "valeur": 90860000.0,
+        "unite": "EUR",
+        "periode": "TTM fournisseur; arrêté indiqué dans son tableau financier : Dec '25 Dec 31, 2025",
+        "date_source": "2026-11-04",
+        "source_url": "https://stockanalysis.com/quote/epa/ALSTI/statistics/",
+        "statut": "SOURCE_SECONDAIRE_NON_RAPPROCHEE",
+        "commentaire": "Donnée de fournisseur secondaire; ni certification des comptes ni validation MCPA. Arrêté précis à rapprocher. Date rapprochée au tableau financier du même fournisseur, sans certification primaire.",
+        "date_collecte": "2026-11-04"
       },
       "marge_brute_pct": {
         "valeur": 64.3,
@@ -140,58 +162,64 @@
         "commentaire": null
       },
       "marge_ebit_pct": {
-        "valeur": null,
-        "unite": null,
-        "periode": null,
-        "date_source": null,
-        "source_url": null,
-        "statut": "A_COLLECTER",
-        "commentaire": null
+        "valeur": 18.77,
+        "unite": "pct",
+        "periode": "TTM fournisseur; arrêté indiqué dans son tableau financier : Dec '25 Dec 31, 2025",
+        "date_source": "2026-11-04",
+        "source_url": "https://stockanalysis.com/quote/epa/ALSTI/statistics/",
+        "statut": "SOURCE_SECONDAIRE_NON_RAPPROCHEE",
+        "commentaire": "Donnée de fournisseur secondaire; ni certification des comptes ni validation MCPA. Arrêté précis à rapprocher. Date rapprochée au tableau financier du même fournisseur, sans certification primaire.",
+        "date_collecte": "2026-11-04"
       },
       "marge_nette_pct": {
-        "valeur": null,
-        "unite": null,
-        "periode": null,
-        "date_source": null,
-        "source_url": null,
-        "statut": "A_COLLECTER",
-        "commentaire": null
+        "valeur": 12.93,
+        "unite": "pct",
+        "periode": "TTM fournisseur; arrêté indiqué dans son tableau financier : Dec '25 Dec 31, 2025",
+        "date_source": "2026-11-04",
+        "source_url": "https://stockanalysis.com/quote/epa/ALSTI/statistics/",
+        "statut": "SOURCE_SECONDAIRE_NON_RAPPROCHEE",
+        "commentaire": "Donnée de fournisseur secondaire; ni certification des comptes ni validation MCPA. Arrêté précis à rapprocher. Date rapprochée au tableau financier du même fournisseur, sans certification primaire.",
+        "date_collecte": "2026-11-04"
       },
       "roe_pct": {
-        "valeur": null,
-        "unite": null,
-        "periode": null,
-        "date_source": null,
-        "source_url": null,
-        "statut": "A_COLLECTER",
-        "commentaire": null
+        "valeur": 44.25,
+        "unite": "pct",
+        "periode": "TTM fournisseur; arrêté indiqué dans son tableau financier : Dec '25 Dec 31, 2025",
+        "date_source": "2026-11-04",
+        "source_url": "https://stockanalysis.com/quote/epa/ALSTI/statistics/",
+        "statut": "SOURCE_SECONDAIRE_NON_RAPPROCHEE",
+        "commentaire": "Donnée de fournisseur secondaire; ni certification des comptes ni validation MCPA. Arrêté précis à rapprocher. Date rapprochée au tableau financier du même fournisseur, sans certification primaire.",
+        "date_collecte": "2026-11-04"
       },
       "roic_pct": {
-        "valeur": null,
-        "unite": null,
-        "periode": null,
-        "date_source": null,
-        "source_url": null,
-        "statut": "A_COLLECTER",
-        "commentaire": null
+        "valeur": 24.05,
+        "unite": "pct",
+        "periode": "TTM fournisseur; arrêté indiqué dans son tableau financier : Dec '25 Dec 31, 2025",
+        "date_source": "2026-11-04",
+        "source_url": "https://stockanalysis.com/quote/epa/ALSTI/statistics/",
+        "statut": "SOURCE_SECONDAIRE_NON_RAPPROCHEE",
+        "commentaire": "Donnée de fournisseur secondaire; ni certification des comptes ni validation MCPA. Arrêté précis à rapprocher. Date rapprochée au tableau financier du même fournisseur, sans certification primaire.",
+        "date_collecte": "2026-11-04"
       },
       "fcf_ttm": {
-        "valeur": null,
-        "unite": null,
-        "periode": null,
-        "date_source": null,
-        "source_url": null,
-        "statut": "A_COLLECTER",
-        "commentaire": null
+        "valeur": 4570000.0,
+        "unite": "EUR",
+        "periode": "TTM fournisseur; arrêté indiqué dans son tableau financier : Dec '25 Dec 31, 2025",
+        "date_source": "2026-11-04",
+        "source_url": "https://stockanalysis.com/quote/epa/ALSTI/statistics/",
+        "statut": "SOURCE_SECONDAIRE_NON_RAPPROCHEE",
+        "commentaire": "Donnée de fournisseur secondaire; ni certification des comptes ni validation MCPA. Arrêté précis à rapprocher. Date rapprochée au tableau financier du même fournisseur, sans certification primaire.",
+        "date_collecte": "2026-11-04"
       },
       "conversion_fcf_pct": {
-        "valeur": null,
-        "unite": null,
-        "periode": null,
-        "date_source": null,
-        "source_url": null,
-        "statut": "A_COLLECTER",
-        "commentaire": null
+        "valeur": 38.8936170212766,
+        "unite": "pct",
+        "periode": "TTM fournisseur; arrêté indiqué dans son tableau financier : Dec '25 Dec 31, 2025",
+        "date_source": "2026-11-04",
+        "source_url": "https://stockanalysis.com/quote/epa/ALSTI/statistics/",
+        "statut": "SOURCE_SECONDAIRE_NON_RAPPROCHEE",
+        "commentaire": "Convention explicitée : FCF/résultat net; pas de calcul si résultat net <=0. Date rapprochée au tableau financier du même fournisseur, sans certification primaire.",
+        "date_collecte": "2026-11-04"
       },
       "revenus_recurrents_pct": {
         "valeur": null,
@@ -200,7 +228,13 @@
         "date_source": null,
         "source_url": null,
         "statut": "A_COLLECTER",
-        "commentaire": null
+        "commentaire": null,
+        "recherche": {
+          "date": "2026-11-04",
+          "statut": "MANQUANT_RECHERCHE_NON_CLOSE",
+          "motif": "Aucune valeur vérifiée importée à cette étape; les recherches tracées ne démontrent pas une indisponibilité définitive.",
+          "journal": "journal_recherches"
+        }
       },
       "concentration_clients_pct": {
         "valeur": null,
@@ -209,7 +243,13 @@
         "date_source": null,
         "source_url": null,
         "statut": "A_COLLECTER",
-        "commentaire": null
+        "commentaire": null,
+        "recherche": {
+          "date": "2026-11-04",
+          "statut": "MANQUANT_RECHERCHE_NON_CLOSE",
+          "motif": "Aucune valeur vérifiée importée à cette étape; les recherches tracées ne démontrent pas une indisponibilité définitive.",
+          "journal": "journal_recherches"
+        }
       },
       "avantage_concurrentiel": {
         "valeur": null,
@@ -218,7 +258,13 @@
         "date_source": null,
         "source_url": null,
         "statut": "A_COLLECTER",
-        "commentaire": null
+        "commentaire": null,
+        "recherche": {
+          "date": "2026-11-04",
+          "statut": "MANQUANT_RECHERCHE_NON_CLOSE",
+          "motif": "Analyse MCPA/IPS argumentée encore nécessaire; ce champ ne doit pas être rempli par une statistique de fournisseur.",
+          "journal": "journal_recherches"
+        }
       },
       "qualite_management": {
         "valeur": null,
@@ -227,108 +273,125 @@
         "date_source": null,
         "source_url": null,
         "statut": "A_COLLECTER",
-        "commentaire": null
+        "commentaire": null,
+        "recherche": {
+          "date": "2026-11-04",
+          "statut": "MANQUANT_RECHERCHE_NON_CLOSE",
+          "motif": "Analyse MCPA/IPS argumentée encore nécessaire; ce champ ne doit pas être rempli par une statistique de fournisseur.",
+          "journal": "journal_recherches"
+        }
       }
     },
     "valorisation": {
       "cours": {
-        "valeur": null,
-        "unite": null,
-        "periode": null,
-        "date_source": null,
-        "source_url": null,
-        "statut": "A_COLLECTER",
-        "commentaire": null
+        "valeur": 19.670000076293945,
+        "unite": "EUR",
+        "periode": "cloture 2026-11-03",
+        "date_source": "2026-11-03",
+        "source_url": "https://query1.finance.yahoo.com/v8/finance/chart/ALSTI.PA?range=5y&interval=1d&events=div%2Csplits",
+        "statut": "SOURCE_MARCHE",
+        "commentaire": "Cours non ajuste; GBp/100 pour Londres.",
+        "date_collecte": "2026-11-04"
       },
       "date_cours": {
-        "valeur": null,
-        "unite": null,
-        "periode": null,
-        "date_source": null,
-        "source_url": null,
-        "statut": "A_COLLECTER",
-        "commentaire": null
+        "valeur": "2026-11-03",
+        "unite": "date",
+        "periode": "cloture",
+        "date_source": "2026-11-03",
+        "source_url": "https://query1.finance.yahoo.com/v8/finance/chart/ALSTI.PA?range=5y&interval=1d&events=div%2Csplits",
+        "statut": "SOURCE_MARCHE",
+        "commentaire": null,
+        "date_collecte": "2026-11-04"
       },
       "capitalisation": {
-        "valeur": null,
-        "unite": null,
-        "periode": null,
-        "date_source": null,
-        "source_url": null,
-        "statut": "A_COLLECTER",
-        "commentaire": null
+        "valeur": 96650000.0,
+        "unite": "EUR",
+        "periode": "cotation au 2026-11-04",
+        "date_source": "2026-11-04",
+        "source_url": "https://stockanalysis.com/quote/epa/ALSTI/statistics/",
+        "statut": "SOURCE_SECONDAIRE_NON_RAPPROCHEE",
+        "commentaire": "Donnée de fournisseur secondaire; ni certification des comptes ni validation MCPA. Arrêté précis à rapprocher.",
+        "date_collecte": "2026-11-04"
       },
       "valeur_entreprise": {
-        "valeur": null,
-        "unite": null,
-        "periode": null,
-        "date_source": null,
-        "source_url": null,
-        "statut": "A_COLLECTER",
-        "commentaire": null
+        "valeur": 122490000.0,
+        "unite": "EUR",
+        "periode": "valorisation affichée au 2026-11-04",
+        "date_source": "2026-11-04",
+        "source_url": "https://stockanalysis.com/quote/epa/ALSTI/statistics/",
+        "statut": "SOURCE_SECONDAIRE_NON_RAPPROCHEE",
+        "commentaire": "Donnée de fournisseur secondaire; ni certification des comptes ni validation MCPA. Arrêté précis à rapprocher.",
+        "date_collecte": "2026-11-04"
       },
       "ev_ca": {
-        "valeur": null,
-        "unite": null,
-        "periode": null,
-        "date_source": null,
-        "source_url": null,
-        "statut": "A_COLLECTER",
-        "commentaire": null
+        "valeur": 1.38,
+        "unite": "ratio",
+        "periode": "TTM fournisseur; arrêté indiqué dans son tableau financier : Dec '25 Dec 31, 2025",
+        "date_source": "2026-11-04",
+        "source_url": "https://stockanalysis.com/quote/epa/ALSTI/statistics/",
+        "statut": "SOURCE_SECONDAIRE_NON_RAPPROCHEE",
+        "commentaire": "Donnée de fournisseur secondaire; ni certification des comptes ni validation MCPA. Arrêté précis à rapprocher. Date rapprochée au tableau financier du même fournisseur, sans certification primaire.",
+        "date_collecte": "2026-11-04"
       },
       "ev_ebitda": {
-        "valeur": null,
-        "unite": null,
-        "periode": null,
-        "date_source": null,
-        "source_url": null,
-        "statut": "A_COLLECTER",
-        "commentaire": null
+        "valeur": 6.74,
+        "unite": "ratio",
+        "periode": "TTM fournisseur; arrêté indiqué dans son tableau financier : Dec '25 Dec 31, 2025",
+        "date_source": "2026-11-04",
+        "source_url": "https://stockanalysis.com/quote/epa/ALSTI/statistics/",
+        "statut": "SOURCE_SECONDAIRE_NON_RAPPROCHEE",
+        "commentaire": "Donnée de fournisseur secondaire; ni certification des comptes ni validation MCPA. Arrêté précis à rapprocher. Date rapprochée au tableau financier du même fournisseur, sans certification primaire.",
+        "date_collecte": "2026-11-04"
       },
       "ev_ebit": {
-        "valeur": null,
-        "unite": null,
-        "periode": null,
-        "date_source": null,
-        "source_url": null,
-        "statut": "A_COLLECTER",
-        "commentaire": null
+        "valeur": 7.36,
+        "unite": "ratio",
+        "periode": "TTM fournisseur; arrêté indiqué dans son tableau financier : Dec '25 Dec 31, 2025",
+        "date_source": "2026-11-04",
+        "source_url": "https://stockanalysis.com/quote/epa/ALSTI/statistics/",
+        "statut": "SOURCE_SECONDAIRE_NON_RAPPROCHEE",
+        "commentaire": "Donnée de fournisseur secondaire; ni certification des comptes ni validation MCPA. Arrêté précis à rapprocher. Date rapprochée au tableau financier du même fournisseur, sans certification primaire.",
+        "date_collecte": "2026-11-04"
       },
       "pe": {
-        "valeur": null,
-        "unite": null,
-        "periode": null,
-        "date_source": null,
-        "source_url": null,
-        "statut": "A_COLLECTER",
-        "commentaire": null
+        "valeur": 8.22,
+        "unite": "ratio",
+        "periode": "TTM fournisseur; arrêté indiqué dans son tableau financier : Dec '25 Dec 31, 2025",
+        "date_source": "2026-11-04",
+        "source_url": "https://stockanalysis.com/quote/epa/ALSTI/statistics/",
+        "statut": "SOURCE_SECONDAIRE_NON_RAPPROCHEE",
+        "commentaire": "Donnée de fournisseur secondaire; ni certification des comptes ni validation MCPA. Arrêté précis à rapprocher. Date rapprochée au tableau financier du même fournisseur, sans certification primaire.",
+        "date_collecte": "2026-11-04"
       },
       "p_fcf": {
-        "valeur": null,
-        "unite": null,
-        "periode": null,
-        "date_source": null,
-        "source_url": null,
-        "statut": "A_COLLECTER",
-        "commentaire": null
+        "valeur": 21.83,
+        "unite": "ratio",
+        "periode": "TTM fournisseur; arrêté indiqué dans son tableau financier : Dec '25 Dec 31, 2025",
+        "date_source": "2026-11-04",
+        "source_url": "https://stockanalysis.com/quote/epa/ALSTI/statistics/",
+        "statut": "SOURCE_SECONDAIRE_NON_RAPPROCHEE",
+        "commentaire": "Donnée de fournisseur secondaire; ni certification des comptes ni validation MCPA. Arrêté précis à rapprocher. Date rapprochée au tableau financier du même fournisseur, sans certification primaire.",
+        "date_collecte": "2026-11-04"
       },
       "p_b": {
-        "valeur": null,
-        "unite": null,
-        "periode": null,
-        "date_source": null,
-        "source_url": null,
-        "statut": "A_COLLECTER",
-        "commentaire": null
+        "valeur": 3.11,
+        "unite": "ratio",
+        "periode": "Dernier bilan affiché au 2026-11-04; date comptable exacte à rapprocher",
+        "date_source": "2026-11-04",
+        "source_url": "https://stockanalysis.com/quote/epa/ALSTI/statistics/",
+        "statut": "SOURCE_SECONDAIRE_NON_RAPPROCHEE",
+        "commentaire": "Donnée de fournisseur secondaire; ni certification des comptes ni validation MCPA. Arrêté précis à rapprocher.",
+        "date_collecte": "2026-11-04"
       },
       "rendement_fcf_pct": {
-        "valeur": null,
-        "unite": null,
-        "periode": null,
-        "date_source": null,
-        "source_url": null,
-        "statut": "A_COLLECTER",
-        "commentaire": null
+        "valeur": 4.58,
+        "unite": "pct",
+        "periode": "TTM fournisseur; arrêté indiqué dans son tableau financier : Dec '25 Dec 31, 2025",
+        "date_source": "2026-11-04",
+        "source_url": "https://stockanalysis.com/quote/epa/ALSTI/statistics/",
+        "statut": "SOURCE_SECONDAIRE_NON_RAPPROCHEE",
+        "commentaire": "Donnée de fournisseur secondaire; ni certification des comptes ni validation MCPA. Arrêté précis à rapprocher. Date rapprochée au tableau financier du même fournisseur, sans certification primaire.",
+        "date_collecte": "2026-11-04"
       },
       "comparables_sectoriels": {
         "valeur": null,
@@ -337,7 +400,13 @@
         "date_source": null,
         "source_url": null,
         "statut": "A_COLLECTER",
-        "commentaire": null
+        "commentaire": null,
+        "recherche": {
+          "date": "2026-11-04",
+          "statut": "MANQUANT_RECHERCHE_NON_CLOSE",
+          "motif": "Analyse MCPA/IPS argumentée encore nécessaire; ce champ ne doit pas être rempli par une statistique de fournisseur.",
+          "journal": "journal_recherches"
+        }
       },
       "valorisation_historique": {
         "valeur": null,
@@ -346,7 +415,13 @@
         "date_source": null,
         "source_url": null,
         "statut": "A_COLLECTER",
-        "commentaire": null
+        "commentaire": null,
+        "recherche": {
+          "date": "2026-11-04",
+          "statut": "MANQUANT_RECHERCHE_NON_CLOSE",
+          "motif": "Analyse MCPA/IPS argumentée encore nécessaire; ce champ ne doit pas être rempli par une statistique de fournisseur.",
+          "journal": "journal_recherches"
+        }
       },
       "marge_securite_pct": {
         "valeur": null,
@@ -355,27 +430,35 @@
         "date_source": null,
         "source_url": null,
         "statut": "A_COLLECTER",
-        "commentaire": null
+        "commentaire": null,
+        "recherche": {
+          "date": "2026-11-04",
+          "statut": "MANQUANT_RECHERCHE_NON_CLOSE",
+          "motif": "Analyse MCPA/IPS argumentée encore nécessaire; ce champ ne doit pas être rempli par une statistique de fournisseur.",
+          "journal": "journal_recherches"
+        }
       }
     },
     "croissance": {
       "croissance_ca_1a_pct": {
-        "valeur": null,
-        "unite": null,
-        "periode": null,
-        "date_source": null,
-        "source_url": null,
-        "statut": "A_COLLECTER",
-        "commentaire": null
+        "valeur": 47.56,
+        "unite": "pct",
+        "periode": "FY 2025 / FY 2024; clôture Dec '25 Dec 31, 2025",
+        "date_source": "2026-11-04",
+        "source_url": "https://stockanalysis.com/quote/epa/ALSTI/financials/",
+        "statut": "SOURCE_SECONDAIRE_NON_RAPPROCHEE",
+        "commentaire": "Croissance publiée par le fournisseur si disponible; sinon calcul sur montants annuels arrondis, dénominateur positif.",
+        "date_collecte": "2026-11-04"
       },
       "croissance_ca_3a_cagr_pct": {
-        "valeur": null,
-        "unite": null,
-        "periode": null,
-        "date_source": null,
-        "source_url": null,
-        "statut": "A_COLLECTER",
-        "commentaire": null
+        "valeur": 42.84947328854318,
+        "unite": "pct",
+        "periode": "FY 2022 / FY 2025",
+        "date_source": "2026-11-04",
+        "source_url": "https://stockanalysis.com/quote/epa/ALSTI/financials/",
+        "statut": "SOURCE_SECONDAIRE_NON_RAPPROCHEE",
+        "commentaire": "CAGR annuel sur trois ans; pas de confusion avec prévision de croissance.",
+        "date_collecte": "2026-11-04"
       },
       "croissance_ebitda_pct": {
         "valeur": null,
@@ -384,25 +467,33 @@
         "date_source": null,
         "source_url": null,
         "statut": "A_COLLECTER",
-        "commentaire": null
+        "commentaire": null,
+        "recherche": {
+          "date": "2026-11-04",
+          "statut": "MANQUANT_RECHERCHE_NON_CLOSE",
+          "motif": "Aucune valeur vérifiée importée à cette étape; les recherches tracées ne démontrent pas une indisponibilité définitive.",
+          "journal": "journal_recherches"
+        }
       },
       "croissance_bpa_pct": {
-        "valeur": null,
-        "unite": null,
-        "periode": null,
-        "date_source": null,
-        "source_url": null,
-        "statut": "A_COLLECTER",
-        "commentaire": null
+        "valeur": 20.29,
+        "unite": "pct",
+        "periode": "FY 2025 / FY 2024; clôture Dec '25 Dec 31, 2025",
+        "date_source": "2026-11-04",
+        "source_url": "https://stockanalysis.com/quote/epa/ALSTI/financials/",
+        "statut": "SOURCE_SECONDAIRE_NON_RAPPROCHEE",
+        "commentaire": "Croissance publiée par le fournisseur si disponible; sinon calcul sur montants annuels arrondis, dénominateur positif.",
+        "date_collecte": "2026-11-04"
       },
       "croissance_fcf_pct": {
-        "valeur": null,
-        "unite": null,
-        "periode": null,
-        "date_source": null,
-        "source_url": null,
-        "statut": "A_COLLECTER",
-        "commentaire": null
+        "valeur": -52.49480249480249,
+        "unite": "pct",
+        "periode": "FY 2025 / FY 2024",
+        "date_source": "2026-11-04",
+        "source_url": "https://stockanalysis.com/quote/epa/ALSTI/financials/",
+        "statut": "SOURCE_SECONDAIRE_NON_RAPPROCHEE",
+        "commentaire": "FCF annuel fournisseur, montants arrondis; pas de pourcentage si base <=0.",
+        "date_collecte": "2026-11-04"
       },
       "carnet_commandes": {
         "valeur": null,
@@ -411,7 +502,13 @@
         "date_source": null,
         "source_url": null,
         "statut": "A_COLLECTER",
-        "commentaire": null
+        "commentaire": null,
+        "recherche": {
+          "date": "2026-11-04",
+          "statut": "MANQUANT_RECHERCHE_NON_CLOSE",
+          "motif": "Aucune valeur vérifiée importée à cette étape; les recherches tracées ne démontrent pas une indisponibilité définitive.",
+          "journal": "journal_recherches"
+        }
       },
       "book_to_bill": {
         "valeur": null,
@@ -420,7 +517,13 @@
         "date_source": null,
         "source_url": null,
         "statut": "A_COLLECTER",
-        "commentaire": null
+        "commentaire": null,
+        "recherche": {
+          "date": "2026-11-04",
+          "statut": "MANQUANT_RECHERCHE_NON_CLOSE",
+          "motif": "Aucune valeur vérifiée importée à cette étape; les recherches tracées ne démontrent pas une indisponibilité définitive.",
+          "journal": "journal_recherches"
+        }
       },
       "previsions_ca_1a": {
         "valeur": 110,
@@ -432,13 +535,14 @@
         "commentaire": "Prévision de la société, non consensus"
       },
       "previsions_bpa_1a": {
-        "valeur": null,
-        "unite": null,
-        "periode": null,
-        "date_source": null,
-        "source_url": null,
-        "statut": "A_COLLECTER",
-        "commentaire": null
+        "valeur": 1.93,
+        "unite": "EUR/action",
+        "periode": "exercice annuel prévisionnel clos au 2026-12-31",
+        "date_source": "2026-11-04",
+        "source_url": "https://stockanalysis.com/quote/epa/ALSTI/forecast/",
+        "statut": "SOURCE_SECONDAIRE_PREVISION_NON_RAPPROCHEE",
+        "commentaire": "Premier exercice futur affiché; consensus et non engagement de direction. BPA non-GAAP ajusté selon le fournisseur; ne pas comparer directement au BPA comptable. Devise USD pour les cinq émetteurs domestiques US, devise financière explicitée pour les autres.",
+        "date_collecte": "2026-11-04"
       },
       "revision_bpa_30j_pct": {
         "valeur": null,
@@ -447,7 +551,13 @@
         "date_source": null,
         "source_url": null,
         "statut": "A_COLLECTER",
-        "commentaire": null
+        "commentaire": null,
+        "recherche": {
+          "date": "2026-11-04",
+          "statut": "MANQUANT_RECHERCHE_NON_CLOSE",
+          "motif": "Pas de série datée de consensus BPA à J, J-30/J-90 validée; évolution objectif de cours ou guidance non substituable.",
+          "journal": "journal_recherches"
+        }
       },
       "revision_bpa_90j_pct": {
         "valeur": null,
@@ -456,7 +566,13 @@
         "date_source": null,
         "source_url": null,
         "statut": "A_COLLECTER",
-        "commentaire": null
+        "commentaire": null,
+        "recherche": {
+          "date": "2026-11-04",
+          "statut": "MANQUANT_RECHERCHE_NON_CLOSE",
+          "motif": "Pas de série datée de consensus BPA à J, J-30/J-90 validée; évolution objectif de cours ou guidance non substituable.",
+          "journal": "journal_recherches"
+        }
       },
       "peg": {
         "valeur": null,
@@ -465,7 +581,13 @@
         "date_source": null,
         "source_url": null,
         "statut": "A_COLLECTER",
-        "commentaire": null
+        "commentaire": null,
+        "recherche": {
+          "date": "2026-11-04",
+          "statut": "MANQUANT_RECHERCHE_NON_CLOSE",
+          "motif": "Aucune valeur vérifiée importée à cette étape; les recherches tracées ne démontrent pas une indisponibilité définitive.",
+          "journal": "journal_recherches"
+        }
       },
       "catalyseurs_dates": {
         "valeur": "Nouvelles commandes BYD 5 M EUR pour 2027; diversification CATL; perte du client Tesla Megapack 3 en 2027",
@@ -483,7 +605,13 @@
         "date_source": null,
         "source_url": null,
         "statut": "A_COLLECTER",
-        "commentaire": null
+        "commentaire": null,
+        "recherche": {
+          "date": "2026-11-04",
+          "statut": "MANQUANT_RECHERCHE_NON_CLOSE",
+          "motif": "Aucune valeur vérifiée importée à cette étape; les recherches tracées ne démontrent pas une indisponibilité définitive.",
+          "journal": "journal_recherches"
+        }
       }
     },
     "risque": {
@@ -497,13 +625,14 @@
         "commentaire": null
       },
       "dette_brute": {
-        "valeur": null,
-        "unite": null,
-        "periode": null,
-        "date_source": null,
-        "source_url": null,
-        "statut": "A_COLLECTER",
-        "commentaire": null
+        "valeur": 43110000.0,
+        "unite": "EUR",
+        "periode": "Dernier bilan affiché au 2026-11-04; date comptable exacte à rapprocher",
+        "date_source": "2026-11-04",
+        "source_url": "https://stockanalysis.com/quote/epa/ALSTI/statistics/",
+        "statut": "SOURCE_SECONDAIRE_NON_RAPPROCHEE",
+        "commentaire": "Donnée de fournisseur secondaire; ni certification des comptes ni validation MCPA. Arrêté précis à rapprocher.",
+        "date_collecte": "2026-11-04"
       },
       "dette_nette": {
         "valeur": 26.3,
@@ -515,31 +644,34 @@
         "commentaire": null
       },
       "dette_nette_ebitda": {
-        "valeur": null,
-        "unite": null,
-        "periode": null,
-        "date_source": null,
-        "source_url": null,
-        "statut": "A_COLLECTER",
-        "commentaire": null
+        "valeur": 1.3043478260869565,
+        "unite": "ratio",
+        "periode": "TTM fournisseur; arrêté indiqué dans son tableau financier : Dec '25 Dec 31, 2025",
+        "date_source": "2026-11-04",
+        "source_url": "https://stockanalysis.com/quote/epa/ALSTI/statistics/",
+        "statut": "SOURCE_SECONDAIRE_NON_RAPPROCHEE",
+        "commentaire": "(Total Debt - Cash)/EBITDA, tous issus du même fournisseur; dates exactes à rapprocher. Date rapprochée au tableau financier du même fournisseur, sans certification primaire.",
+        "date_collecte": "2026-11-04"
       },
       "couverture_interets": {
-        "valeur": null,
-        "unite": null,
-        "periode": null,
-        "date_source": null,
-        "source_url": null,
-        "statut": "A_COLLECTER",
-        "commentaire": null
+        "valeur": 9.3,
+        "unite": "ratio",
+        "periode": "TTM fournisseur; arrêté indiqué dans son tableau financier : Dec '25 Dec 31, 2025",
+        "date_source": "2026-11-04",
+        "source_url": "https://stockanalysis.com/quote/epa/ALSTI/statistics/",
+        "statut": "SOURCE_SECONDAIRE_NON_RAPPROCHEE",
+        "commentaire": "Donnée de fournisseur secondaire; ni certification des comptes ni validation MCPA. Arrêté précis à rapprocher. Date rapprochée au tableau financier du même fournisseur, sans certification primaire.",
+        "date_collecte": "2026-11-04"
       },
       "liquidite_courante": {
-        "valeur": null,
-        "unite": null,
-        "periode": null,
-        "date_source": null,
-        "source_url": null,
-        "statut": "A_COLLECTER",
-        "commentaire": null
+        "valeur": 2.42,
+        "unite": "ratio",
+        "periode": "Dernier bilan affiché au 2026-11-04; date comptable exacte à rapprocher",
+        "date_source": "2026-11-04",
+        "source_url": "https://stockanalysis.com/quote/epa/ALSTI/statistics/",
+        "statut": "SOURCE_SECONDAIRE_NON_RAPPROCHEE",
+        "commentaire": "Donnée de fournisseur secondaire; ni certification des comptes ni validation MCPA. Arrêté précis à rapprocher.",
+        "date_collecte": "2026-11-04"
       },
       "cash_runway_mois": {
         "valeur": null,
@@ -548,7 +680,13 @@
         "date_source": null,
         "source_url": null,
         "statut": "A_COLLECTER",
-        "commentaire": null
+        "commentaire": null,
+        "recherche": {
+          "date": "2026-11-04",
+          "statut": "MANQUANT_RECHERCHE_NON_CLOSE",
+          "motif": "Aucune valeur vérifiée importée à cette étape; les recherches tracées ne démontrent pas une indisponibilité définitive.",
+          "journal": "journal_recherches"
+        }
       },
       "dilution_3a_pct": {
         "valeur": null,
@@ -557,7 +695,13 @@
         "date_source": null,
         "source_url": null,
         "statut": "A_COLLECTER",
-        "commentaire": null
+        "commentaire": null,
+        "recherche": {
+          "date": "2026-11-04",
+          "statut": "MANQUANT_RECHERCHE_NON_CLOSE",
+          "motif": "Aucune valeur vérifiée importée à cette étape; les recherches tracées ne démontrent pas une indisponibilité définitive.",
+          "journal": "journal_recherches"
+        }
       },
       "risque_refinancement": {
         "valeur": null,
@@ -566,7 +710,13 @@
         "date_source": null,
         "source_url": null,
         "statut": "A_COLLECTER",
-        "commentaire": null
+        "commentaire": null,
+        "recherche": {
+          "date": "2026-11-04",
+          "statut": "MANQUANT_RECHERCHE_NON_CLOSE",
+          "motif": "Aucune valeur vérifiée importée à cette étape; les recherches tracées ne démontrent pas une indisponibilité définitive.",
+          "journal": "journal_recherches"
+        }
       },
       "risque_pays": {
         "valeur": null,
@@ -575,7 +725,13 @@
         "date_source": null,
         "source_url": null,
         "statut": "A_COLLECTER",
-        "commentaire": null
+        "commentaire": null,
+        "recherche": {
+          "date": "2026-11-04",
+          "statut": "MANQUANT_RECHERCHE_NON_CLOSE",
+          "motif": "Aucune valeur vérifiée importée à cette étape; les recherches tracées ne démontrent pas une indisponibilité définitive.",
+          "journal": "journal_recherches"
+        }
       },
       "risque_change": {
         "valeur": null,
@@ -584,7 +740,13 @@
         "date_source": null,
         "source_url": null,
         "statut": "A_COLLECTER",
-        "commentaire": null
+        "commentaire": null,
+        "recherche": {
+          "date": "2026-11-04",
+          "statut": "MANQUANT_RECHERCHE_NON_CLOSE",
+          "motif": "Aucune valeur vérifiée importée à cette étape; les recherches tracées ne démontrent pas une indisponibilité définitive.",
+          "journal": "journal_recherches"
+        }
       },
       "risque_gouvernance": {
         "valeur": null,
@@ -593,7 +755,13 @@
         "date_source": null,
         "source_url": null,
         "statut": "A_COLLECTER",
-        "commentaire": null
+        "commentaire": null,
+        "recherche": {
+          "date": "2026-11-04",
+          "statut": "MANQUANT_RECHERCHE_NON_CLOSE",
+          "motif": "Aucune valeur vérifiée importée à cette étape; les recherches tracées ne démontrent pas une indisponibilité définitive.",
+          "journal": "journal_recherches"
+        }
       },
       "risque_reglementaire": {
         "valeur": null,
@@ -602,7 +770,13 @@
         "date_source": null,
         "source_url": null,
         "statut": "A_COLLECTER",
-        "commentaire": null
+        "commentaire": null,
+        "recherche": {
+          "date": "2026-11-04",
+          "statut": "MANQUANT_RECHERCHE_NON_CLOSE",
+          "motif": "Aucune valeur vérifiée importée à cette étape; les recherches tracées ne démontrent pas une indisponibilité définitive.",
+          "journal": "journal_recherches"
+        }
       },
       "risque_concentration": {
         "valeur": null,
@@ -611,7 +785,13 @@
         "date_source": null,
         "source_url": null,
         "statut": "A_COLLECTER",
-        "commentaire": null
+        "commentaire": null,
+        "recherche": {
+          "date": "2026-11-04",
+          "statut": "MANQUANT_RECHERCHE_NON_CLOSE",
+          "motif": "Aucune valeur vérifiée importée à cette étape; les recherches tracées ne démontrent pas une indisponibilité définitive.",
+          "journal": "journal_recherches"
+        }
       },
       "transactions_initiees_net_90j": {
         "valeur": null,
@@ -620,7 +800,13 @@
         "date_source": null,
         "source_url": null,
         "statut": "A_COLLECTER",
-        "commentaire": null
+        "commentaire": null,
+        "recherche": {
+          "date": "2026-11-04",
+          "statut": "MANQUANT_RECHERCHE_NON_CLOSE",
+          "motif": "Registre complet des transactions, codes et prix non validé sur toute la fenêtre; transaction isolée ≠ net exhaustif.",
+          "journal": "journal_recherches"
+        }
       },
       "transactions_initiees_net_180j": {
         "valeur": null,
@@ -629,63 +815,75 @@
         "date_source": null,
         "source_url": null,
         "statut": "A_COLLECTER",
-        "commentaire": null
+        "commentaire": null,
+        "recherche": {
+          "date": "2026-11-04",
+          "statut": "MANQUANT_RECHERCHE_NON_CLOSE",
+          "motif": "Registre complet des transactions, codes et prix non validé sur toute la fenêtre; transaction isolée ≠ net exhaustif.",
+          "journal": "journal_recherches"
+        }
       }
     },
     "momentum": {
       "prix_vers_mm200": {
-        "valeur": null,
-        "unite": null,
-        "periode": null,
-        "date_source": null,
-        "source_url": null,
-        "statut": "A_COLLECTER",
-        "commentaire": null
+        "valeur": 0.4028097490275636,
+        "unite": "ratio",
+        "periode": "200 dernières séances",
+        "date_source": "2026-11-03",
+        "source_url": "https://query1.finance.yahoo.com/v8/finance/chart/ALSTI.PA?range=5y&interval=1d&events=div%2Csplits",
+        "statut": "CALCULE_HISTORIQUE_SECONDAIRE",
+        "commentaire": "Cours ajusté / moyenne mobile 200 séances.",
+        "date_collecte": "2026-11-04"
       },
       "momentum_1m_pct": {
-        "valeur": null,
-        "unite": null,
-        "periode": null,
-        "date_source": null,
-        "source_url": null,
-        "statut": "A_COLLECTER",
-        "commentaire": null
+        "valeur": 3.5808336670440255,
+        "unite": "pct",
+        "periode": "2026-10-02 / 2026-11-03",
+        "date_source": "2026-11-03",
+        "source_url": "https://query1.finance.yahoo.com/v8/finance/chart/ALSTI.PA?range=5y&interval=1d&events=div%2Csplits",
+        "statut": "CALCULE_HISTORIQUE_SECONDAIRE",
+        "commentaire": "Cours ajustés, ancrage calendaire; dernière séance <= date cible.",
+        "date_collecte": "2026-11-04"
       },
       "momentum_3m_pct": {
-        "valeur": null,
-        "unite": null,
-        "periode": null,
-        "date_source": null,
-        "source_url": null,
-        "statut": "A_COLLECTER",
-        "commentaire": null
+        "valeur": -61.805825094574864,
+        "unite": "pct",
+        "periode": "2026-08-03 / 2026-11-03",
+        "date_source": "2026-11-03",
+        "source_url": "https://query1.finance.yahoo.com/v8/finance/chart/ALSTI.PA?range=5y&interval=1d&events=div%2Csplits",
+        "statut": "CALCULE_HISTORIQUE_SECONDAIRE",
+        "commentaire": "Cours ajustés, ancrage calendaire; dernière séance <= date cible.",
+        "date_collecte": "2026-11-04"
       },
       "momentum_6m_pct": {
-        "valeur": null,
-        "unite": null,
-        "periode": null,
-        "date_source": null,
-        "source_url": null,
-        "statut": "A_COLLECTER",
-        "commentaire": null
+        "valeur": -57.11347191767446,
+        "unite": "pct",
+        "periode": "2026-04-30 / 2026-11-03",
+        "date_source": "2026-11-03",
+        "source_url": "https://query1.finance.yahoo.com/v8/finance/chart/ALSTI.PA?range=5y&interval=1d&events=div%2Csplits",
+        "statut": "CALCULE_HISTORIQUE_SECONDAIRE",
+        "commentaire": "Cours ajustés, ancrage calendaire; dernière séance <= date cible.",
+        "date_collecte": "2026-11-04"
       },
       "momentum_12m_pct": {
-        "valeur": null,
-        "unite": null,
-        "periode": null,
-        "date_source": null,
-        "source_url": null,
-        "statut": "A_COLLECTER",
-        "commentaire": null
+        "valeur": -69.43264362566681,
+        "unite": "pct",
+        "periode": "2025-11-03 / 2026-11-03",
+        "date_source": "2026-11-03",
+        "source_url": "https://query1.finance.yahoo.com/v8/finance/chart/ALSTI.PA?range=5y&interval=1d&events=div%2Csplits",
+        "statut": "CALCULE_HISTORIQUE_SECONDAIRE",
+        "commentaire": "Cours ajustés, ancrage calendaire; dernière séance <= date cible.",
+        "date_collecte": "2026-11-04"
       },
       "momentum_6_1_pct": {
-        "valeur": null,
-        "unite": null,
-        "periode": null,
-        "date_source": null,
-        "source_url": null,
-        "statut": "A_COLLECTER",
-        "commentaire": null
+        "valeur": -58.596077513546206,
+        "unite": "pct",
+        "periode": "2026-04-30 / 2026-10-02",
+        "date_source": "2026-11-03",
+        "source_url": "https://query1.finance.yahoo.com/v8/finance/chart/ALSTI.PA?range=5y&interval=1d&events=div%2Csplits",
+        "statut": "CALCULE_HISTORIQUE_SECONDAIRE",
+        "commentaire": "Momentum 6–1 : prix à -1 mois / prix à -6 mois - 1; aucune modification de la règle de sélection.",
+        "date_collecte": "2026-11-04"
       },
       "force_relative_indice": {
         "valeur": null,
@@ -694,52 +892,63 @@
         "date_source": null,
         "source_url": null,
         "statut": "A_COLLECTER",
-        "commentaire": null
+        "commentaire": null,
+        "recherche": {
+          "date": "2026-11-04",
+          "statut": "MANQUANT_RECHERCHE_NON_CLOSE",
+          "motif": "Aucune valeur vérifiée importée à cette étape; les recherches tracées ne démontrent pas une indisponibilité définitive.",
+          "journal": "journal_recherches"
+        }
       },
       "volume_moyen_20j": {
-        "valeur": null,
-        "unite": null,
-        "periode": null,
-        "date_source": null,
-        "source_url": null,
-        "statut": "A_COLLECTER",
-        "commentaire": null
+        "valeur": 62762.25,
+        "unite": "titres",
+        "periode": "20 dernières séances",
+        "date_source": "2026-11-03",
+        "source_url": "https://query1.finance.yahoo.com/v8/finance/chart/ALSTI.PA?range=5y&interval=1d&events=div%2Csplits",
+        "statut": "CALCULE_HISTORIQUE_SECONDAIRE",
+        "commentaire": "Moyenne arithmétique des volumes Yahoo non ajustés.",
+        "date_collecte": "2026-11-04"
       },
       "ratio_volume": {
-        "valeur": null,
-        "unite": null,
-        "periode": null,
-        "date_source": null,
-        "source_url": null,
-        "statut": "A_COLLECTER",
-        "commentaire": null
+        "valeur": 2.6245075662520065,
+        "unite": "ratio",
+        "periode": "dernière séance / moyenne 20 séances",
+        "date_source": "2026-11-03",
+        "source_url": "https://query1.finance.yahoo.com/v8/finance/chart/ALSTI.PA?range=5y&interval=1d&events=div%2Csplits",
+        "statut": "CALCULE_HISTORIQUE_SECONDAIRE",
+        "commentaire": "Ratio de volume de la dernière séance.",
+        "date_collecte": "2026-11-04"
       },
       "tendance_mm200": {
-        "valeur": null,
-        "unite": null,
-        "periode": null,
-        "date_source": null,
-        "source_url": null,
-        "statut": "A_COLLECTER",
-        "commentaire": null
+        "valeur": -7.1731651010150665,
+        "unite": "pct",
+        "periode": "variation MM200 sur 20 séances",
+        "date_source": "2026-11-03",
+        "source_url": "https://query1.finance.yahoo.com/v8/finance/chart/ALSTI.PA?range=5y&interval=1d&events=div%2Csplits",
+        "statut": "CALCULE_HISTORIQUE_SECONDAIRE",
+        "commentaire": "Pente approchée par variation MM200(t)/MM200(t-20)-1; niveau MM200 non confondu avec pente.",
+        "date_collecte": "2026-11-04"
       },
       "volatilite_90j_pct": {
-        "valeur": null,
-        "unite": null,
-        "periode": null,
-        "date_source": null,
-        "source_url": null,
-        "statut": "A_COLLECTER",
-        "commentaire": null
+        "valeur": 156.97595546617043,
+        "unite": "pct",
+        "periode": "90 rendements quotidiens",
+        "date_source": "2026-11-03",
+        "source_url": "https://query1.finance.yahoo.com/v8/finance/chart/ALSTI.PA?range=5y&interval=1d&events=div%2Csplits",
+        "statut": "CALCULE_HISTORIQUE_SECONDAIRE",
+        "commentaire": "Écart-type échantillon des log-rendements ajustés annualisé sqrt(252).",
+        "date_collecte": "2026-11-04"
       },
       "drawdown_12m_pct": {
-        "valeur": null,
-        "unite": null,
-        "periode": null,
-        "date_source": null,
-        "source_url": null,
-        "statut": "A_COLLECTER",
-        "commentaire": null
+        "valeur": -79.0129567099343,
+        "unite": "pct",
+        "periode": "2025-11-03 / 2026-11-03",
+        "date_source": "2026-11-03",
+        "source_url": "https://query1.finance.yahoo.com/v8/finance/chart/ALSTI.PA?range=5y&interval=1d&events=div%2Csplits",
+        "statut": "CALCULE_HISTORIQUE_SECONDAIRE",
+        "commentaire": "Maximum drawdown du prix ajusté sur la fenêtre, valeur négative.",
+        "date_collecte": "2026-11-04"
       }
     },
     "diversification": {
@@ -750,16 +959,23 @@
         "date_source": null,
         "source_url": null,
         "statut": "A_COLLECTER",
-        "commentaire": null
+        "commentaire": null,
+        "recherche": {
+          "date": "2026-11-04",
+          "statut": "MANQUANT_RECHERCHE_NON_CLOSE",
+          "motif": "Aucune valeur vérifiée importée à cette étape; les recherches tracées ne démontrent pas une indisponibilité définitive.",
+          "journal": "journal_recherches"
+        }
       },
       "exposition_sectorielle": {
-        "valeur": null,
-        "unite": null,
-        "periode": null,
-        "date_source": null,
-        "source_url": null,
-        "statut": "A_COLLECTER",
-        "commentaire": null
+        "valeur": "Industrials",
+        "unite": "classification fournisseur",
+        "periode": "profil au 2026-11-04",
+        "date_source": "2026-11-04",
+        "source_url": "https://stockanalysis.com/quote/epa/ALSTI/company/",
+        "statut": "SOURCE_SECONDAIRE_NON_RAPPROCHEE",
+        "commentaire": "Secteur de l’émetteur; ne représente pas la répartition de son CA par secteur.",
+        "date_collecte": "2026-11-04"
       },
       "correlation_portefeuille": {
         "valeur": null,
@@ -768,7 +984,13 @@
         "date_source": null,
         "source_url": null,
         "statut": "A_COLLECTER",
-        "commentaire": null
+        "commentaire": null,
+        "recherche": {
+          "date": "2026-11-04",
+          "statut": "MANQUANT_RECHERCHE_NON_CLOSE",
+          "motif": "Aucune valeur vérifiée importée à cette étape; les recherches tracées ne démontrent pas une indisponibilité définitive.",
+          "journal": "journal_recherches"
+        }
       },
       "concentration_theme": {
         "valeur": null,
@@ -777,7 +999,13 @@
         "date_source": null,
         "source_url": null,
         "statut": "A_COLLECTER",
-        "commentaire": null
+        "commentaire": null,
+        "recherche": {
+          "date": "2026-11-04",
+          "statut": "MANQUANT_RECHERCHE_NON_CLOSE",
+          "motif": "Aucune valeur vérifiée importée à cette étape; les recherches tracées ne démontrent pas une indisponibilité définitive.",
+          "journal": "journal_recherches"
+        }
       },
       "interet_strategique": {
         "valeur": null,
@@ -786,7 +1014,13 @@
         "date_source": null,
         "source_url": null,
         "statut": "A_COLLECTER",
-        "commentaire": null
+        "commentaire": null,
+        "recherche": {
+          "date": "2026-11-04",
+          "statut": "MANQUANT_RECHERCHE_NON_CLOSE",
+          "motif": "Analyse MCPA/IPS argumentée encore nécessaire; ce champ ne doit pas être rempli par une statistique de fournisseur.",
+          "journal": "journal_recherches"
+        }
       },
       "complementarite_portefeuille": {
         "valeur": null,
@@ -795,7 +1029,13 @@
         "date_source": null,
         "source_url": null,
         "statut": "A_COLLECTER",
-        "commentaire": null
+        "commentaire": null,
+        "recherche": {
+          "date": "2026-11-04",
+          "statut": "MANQUANT_RECHERCHE_NON_CLOSE",
+          "motif": "Analyse MCPA/IPS argumentée encore nécessaire; ce champ ne doit pas être rempli par une statistique de fournisseur.",
+          "journal": "journal_recherches"
+        }
       }
     },
     "complements": {
@@ -806,7 +1046,13 @@
         "date_source": null,
         "source_url": null,
         "statut": "A_COLLECTER",
-        "commentaire": null
+        "commentaire": null,
+        "recherche": {
+          "date": "2026-11-04",
+          "statut": "MANQUANT_RECHERCHE_NON_CLOSE",
+          "motif": "Analyse MCPA/IPS argumentée encore nécessaire; ce champ ne doit pas être rempli par une statistique de fournisseur.",
+          "journal": "journal_recherches"
+        }
       },
       "ic_sur_5": {
         "valeur": null,
@@ -815,7 +1061,13 @@
         "date_source": null,
         "source_url": null,
         "statut": "A_COLLECTER",
-        "commentaire": null
+        "commentaire": null,
+        "recherche": {
+          "date": "2026-11-04",
+          "statut": "MANQUANT_RECHERCHE_NON_CLOSE",
+          "motif": "Analyse MCPA/IPS argumentée encore nécessaire; ce champ ne doit pas être rempli par une statistique de fournisseur.",
+          "journal": "journal_recherches"
+        }
       },
       "cx_sur_5": {
         "valeur": null,
@@ -824,7 +1076,13 @@
         "date_source": null,
         "source_url": null,
         "statut": "A_COLLECTER",
-        "commentaire": null
+        "commentaire": null,
+        "recherche": {
+          "date": "2026-11-04",
+          "statut": "MANQUANT_RECHERCHE_NON_CLOSE",
+          "motif": "Analyse MCPA/IPS argumentée encore nécessaire; ce champ ne doit pas être rempli par une statistique de fournisseur.",
+          "journal": "journal_recherches"
+        }
       },
       "delta": {
         "valeur": null,
@@ -833,7 +1091,13 @@
         "date_source": null,
         "source_url": null,
         "statut": "A_COLLECTER",
-        "commentaire": null
+        "commentaire": null,
+        "recherche": {
+          "date": "2026-11-04",
+          "statut": "MANQUANT_RECHERCHE_NON_CLOSE",
+          "motif": "Analyse MCPA/IPS argumentée encore nécessaire; ce champ ne doit pas être rempli par une statistique de fournisseur.",
+          "journal": "journal_recherches"
+        }
       },
       "wwws": {
         "valeur": null,
@@ -842,7 +1106,13 @@
         "date_source": null,
         "source_url": null,
         "statut": "A_COLLECTER",
-        "commentaire": null
+        "commentaire": null,
+        "recherche": {
+          "date": "2026-11-04",
+          "statut": "MANQUANT_RECHERCHE_NON_CLOSE",
+          "motif": "Analyse MCPA/IPS argumentée encore nécessaire; ce champ ne doit pas être rempli par une statistique de fournisseur.",
+          "journal": "journal_recherches"
+        }
       },
       "scenario_bear_3m_pct": {
         "valeur": null,
@@ -851,7 +1121,13 @@
         "date_source": null,
         "source_url": null,
         "statut": "A_COLLECTER",
-        "commentaire": null
+        "commentaire": null,
+        "recherche": {
+          "date": "2026-11-04",
+          "statut": "MANQUANT_RECHERCHE_NON_CLOSE",
+          "motif": "Analyse MCPA/IPS argumentée encore nécessaire; ce champ ne doit pas être rempli par une statistique de fournisseur.",
+          "journal": "journal_recherches"
+        }
       },
       "prob_bear_3m_pct": {
         "valeur": null,
@@ -860,7 +1136,13 @@
         "date_source": null,
         "source_url": null,
         "statut": "A_COLLECTER",
-        "commentaire": null
+        "commentaire": null,
+        "recherche": {
+          "date": "2026-11-04",
+          "statut": "MANQUANT_RECHERCHE_NON_CLOSE",
+          "motif": "Analyse MCPA/IPS argumentée encore nécessaire; ce champ ne doit pas être rempli par une statistique de fournisseur.",
+          "journal": "journal_recherches"
+        }
       },
       "scenario_central_3m_pct": {
         "valeur": null,
@@ -869,7 +1151,13 @@
         "date_source": null,
         "source_url": null,
         "statut": "A_COLLECTER",
-        "commentaire": null
+        "commentaire": null,
+        "recherche": {
+          "date": "2026-11-04",
+          "statut": "MANQUANT_RECHERCHE_NON_CLOSE",
+          "motif": "Analyse MCPA/IPS argumentée encore nécessaire; ce champ ne doit pas être rempli par une statistique de fournisseur.",
+          "journal": "journal_recherches"
+        }
       },
       "prob_central_3m_pct": {
         "valeur": null,
@@ -878,7 +1166,13 @@
         "date_source": null,
         "source_url": null,
         "statut": "A_COLLECTER",
-        "commentaire": null
+        "commentaire": null,
+        "recherche": {
+          "date": "2026-11-04",
+          "statut": "MANQUANT_RECHERCHE_NON_CLOSE",
+          "motif": "Analyse MCPA/IPS argumentée encore nécessaire; ce champ ne doit pas être rempli par une statistique de fournisseur.",
+          "journal": "journal_recherches"
+        }
       },
       "scenario_bull_3m_pct": {
         "valeur": null,
@@ -887,7 +1181,13 @@
         "date_source": null,
         "source_url": null,
         "statut": "A_COLLECTER",
-        "commentaire": null
+        "commentaire": null,
+        "recherche": {
+          "date": "2026-11-04",
+          "statut": "MANQUANT_RECHERCHE_NON_CLOSE",
+          "motif": "Analyse MCPA/IPS argumentée encore nécessaire; ce champ ne doit pas être rempli par une statistique de fournisseur.",
+          "journal": "journal_recherches"
+        }
       },
       "prob_bull_3m_pct": {
         "valeur": null,
@@ -896,7 +1196,13 @@
         "date_source": null,
         "source_url": null,
         "statut": "A_COLLECTER",
-        "commentaire": null
+        "commentaire": null,
+        "recherche": {
+          "date": "2026-11-04",
+          "statut": "MANQUANT_RECHERCHE_NON_CLOSE",
+          "motif": "Analyse MCPA/IPS argumentée encore nécessaire; ce champ ne doit pas être rempli par une statistique de fournisseur.",
+          "journal": "journal_recherches"
+        }
       },
       "scenario_bear_6m_pct": {
         "valeur": null,
@@ -905,7 +1211,13 @@
         "date_source": null,
         "source_url": null,
         "statut": "A_COLLECTER",
-        "commentaire": null
+        "commentaire": null,
+        "recherche": {
+          "date": "2026-11-04",
+          "statut": "MANQUANT_RECHERCHE_NON_CLOSE",
+          "motif": "Analyse MCPA/IPS argumentée encore nécessaire; ce champ ne doit pas être rempli par une statistique de fournisseur.",
+          "journal": "journal_recherches"
+        }
       },
       "prob_bear_6m_pct": {
         "valeur": null,
@@ -914,7 +1226,13 @@
         "date_source": null,
         "source_url": null,
         "statut": "A_COLLECTER",
-        "commentaire": null
+        "commentaire": null,
+        "recherche": {
+          "date": "2026-11-04",
+          "statut": "MANQUANT_RECHERCHE_NON_CLOSE",
+          "motif": "Analyse MCPA/IPS argumentée encore nécessaire; ce champ ne doit pas être rempli par une statistique de fournisseur.",
+          "journal": "journal_recherches"
+        }
       },
       "scenario_central_6m_pct": {
         "valeur": null,
@@ -923,7 +1241,13 @@
         "date_source": null,
         "source_url": null,
         "statut": "A_COLLECTER",
-        "commentaire": null
+        "commentaire": null,
+        "recherche": {
+          "date": "2026-11-04",
+          "statut": "MANQUANT_RECHERCHE_NON_CLOSE",
+          "motif": "Analyse MCPA/IPS argumentée encore nécessaire; ce champ ne doit pas être rempli par une statistique de fournisseur.",
+          "journal": "journal_recherches"
+        }
       },
       "prob_central_6m_pct": {
         "valeur": null,
@@ -932,7 +1256,13 @@
         "date_source": null,
         "source_url": null,
         "statut": "A_COLLECTER",
-        "commentaire": null
+        "commentaire": null,
+        "recherche": {
+          "date": "2026-11-04",
+          "statut": "MANQUANT_RECHERCHE_NON_CLOSE",
+          "motif": "Analyse MCPA/IPS argumentée encore nécessaire; ce champ ne doit pas être rempli par une statistique de fournisseur.",
+          "journal": "journal_recherches"
+        }
       },
       "scenario_bull_6m_pct": {
         "valeur": null,
@@ -941,7 +1271,13 @@
         "date_source": null,
         "source_url": null,
         "statut": "A_COLLECTER",
-        "commentaire": null
+        "commentaire": null,
+        "recherche": {
+          "date": "2026-11-04",
+          "statut": "MANQUANT_RECHERCHE_NON_CLOSE",
+          "motif": "Analyse MCPA/IPS argumentée encore nécessaire; ce champ ne doit pas être rempli par une statistique de fournisseur.",
+          "journal": "journal_recherches"
+        }
       },
       "prob_bull_6m_pct": {
         "valeur": null,
@@ -950,7 +1286,13 @@
         "date_source": null,
         "source_url": null,
         "statut": "A_COLLECTER",
-        "commentaire": null
+        "commentaire": null,
+        "recherche": {
+          "date": "2026-11-04",
+          "statut": "MANQUANT_RECHERCHE_NON_CLOSE",
+          "motif": "Analyse MCPA/IPS argumentée encore nécessaire; ce champ ne doit pas être rempli par une statistique de fournisseur.",
+          "journal": "journal_recherches"
+        }
       },
       "role_ips": {
         "valeur": null,
@@ -959,7 +1301,13 @@
         "date_source": null,
         "source_url": null,
         "statut": "A_COLLECTER",
-        "commentaire": null
+        "commentaire": null,
+        "recherche": {
+          "date": "2026-11-04",
+          "statut": "MANQUANT_RECHERCHE_NON_CLOSE",
+          "motif": "Analyse MCPA/IPS argumentée encore nécessaire; ce champ ne doit pas être rempli par une statistique de fournisseur.",
+          "journal": "journal_recherches"
+        }
       },
       "decision": {
         "valeur": null,
@@ -968,7 +1316,13 @@
         "date_source": null,
         "source_url": null,
         "statut": "A_COLLECTER",
-        "commentaire": null
+        "commentaire": null,
+        "recherche": {
+          "date": "2026-11-04",
+          "statut": "MANQUANT_RECHERCHE_NON_CLOSE",
+          "motif": "Analyse MCPA/IPS argumentée encore nécessaire; ce champ ne doit pas être rempli par une statistique de fournisseur.",
+          "journal": "journal_recherches"
+        }
       },
       "condition_renforcement": {
         "valeur": null,
@@ -977,7 +1331,13 @@
         "date_source": null,
         "source_url": null,
         "statut": "A_COLLECTER",
-        "commentaire": null
+        "commentaire": null,
+        "recherche": {
+          "date": "2026-11-04",
+          "statut": "MANQUANT_RECHERCHE_NON_CLOSE",
+          "motif": "Analyse MCPA/IPS argumentée encore nécessaire; ce champ ne doit pas être rempli par une statistique de fournisseur.",
+          "journal": "journal_recherches"
+        }
       },
       "condition_allegement_sortie": {
         "valeur": null,
@@ -986,7 +1346,13 @@
         "date_source": null,
         "source_url": null,
         "statut": "A_COLLECTER",
-        "commentaire": null
+        "commentaire": null,
+        "recherche": {
+          "date": "2026-11-04",
+          "statut": "MANQUANT_RECHERCHE_NON_CLOSE",
+          "motif": "Analyse MCPA/IPS argumentée encore nécessaire; ce champ ne doit pas être rempli par une statistique de fournisseur.",
+          "journal": "journal_recherches"
+        }
       },
       "challengers_compares": {
         "valeur": null,
@@ -995,7 +1361,13 @@
         "date_source": null,
         "source_url": null,
         "statut": "A_COLLECTER",
-        "commentaire": null
+        "commentaire": null,
+        "recherche": {
+          "date": "2026-11-04",
+          "statut": "MANQUANT_RECHERCHE_NON_CLOSE",
+          "motif": "Analyse MCPA/IPS argumentée encore nécessaire; ce champ ne doit pas être rempli par une statistique de fournisseur.",
+          "journal": "journal_recherches"
+        }
       }
     }
   },
@@ -1057,6 +1429,575 @@
     }
   ],
   "anomalies": [],
-  "statut_fiche": "A_COMPLETER",
-  "arbitrage_autorise": false
+  "statut_fiche": "ENRICHIE_NON_VALIDEE",
+  "arbitrage_autorise": false,
+  "observations_complementaires": [
+    {
+      "bloc": "risque",
+      "champ": "cash",
+      "valeur": 18810000.0,
+      "unite": "EUR",
+      "periode": "Dernier bilan affiché au 2026-11-04; date comptable exacte à rapprocher",
+      "date_source": "2026-11-04",
+      "source_url": "https://stockanalysis.com/quote/epa/ALSTI/statistics/",
+      "statut": "SOURCE_SECONDAIRE_NON_RAPPROCHEE",
+      "commentaire": "Donnée de fournisseur secondaire; ni certification des comptes ni validation MCPA. Arrêté précis à rapprocher.",
+      "date_collecte": "2026-11-04"
+    },
+    {
+      "bloc": "qualite",
+      "champ": "marge_brute_pct",
+      "valeur": 63.87,
+      "unite": "pct",
+      "periode": "TTM affiché au 2026-11-04; date exacte de fin non fournie sur la page statistiques",
+      "date_source": "2026-11-04",
+      "source_url": "https://stockanalysis.com/quote/epa/ALSTI/statistics/",
+      "statut": "SOURCE_SECONDAIRE_NON_RAPPROCHEE",
+      "commentaire": "Donnée de fournisseur secondaire; ni certification des comptes ni validation MCPA. Arrêté précis à rapprocher.",
+      "date_collecte": "2026-11-04"
+    },
+    {
+      "bloc": "qualite",
+      "champ": "marge_ebitda_pct",
+      "valeur": 20.51,
+      "unite": "pct",
+      "periode": "TTM affiché au 2026-11-04; date exacte de fin non fournie sur la page statistiques",
+      "date_source": "2026-11-04",
+      "source_url": "https://stockanalysis.com/quote/epa/ALSTI/statistics/",
+      "statut": "SOURCE_SECONDAIRE_NON_RAPPROCHEE",
+      "commentaire": "Donnée de fournisseur secondaire; ni certification des comptes ni validation MCPA. Arrêté précis à rapprocher.",
+      "date_collecte": "2026-11-04"
+    },
+    {
+      "bloc": "risque",
+      "champ": "dette_nette",
+      "valeur": 24300000.0,
+      "unite": "EUR",
+      "periode": "Dernier bilan affiché au 2026-11-04; date comptable exacte à rapprocher",
+      "date_source": "2026-11-04",
+      "source_url": "https://stockanalysis.com/quote/epa/ALSTI/statistics/",
+      "statut": "SOURCE_SECONDAIRE_NON_RAPPROCHEE",
+      "commentaire": "Dette nette = - Net Cash du fournisseur; périmètre dette/locations à rapprocher.",
+      "date_collecte": "2026-11-04"
+    },
+    {
+      "bloc": "croissance",
+      "champ": "catalyseurs_dates",
+      "valeur": "Mar 24, 2027",
+      "unite": "date estimée",
+      "periode": "prochaine publication fournisseur",
+      "date_source": "2026-11-04",
+      "source_url": "https://stockanalysis.com/quote/epa/ALSTI/statistics/",
+      "statut": "CALENDRIER_SECONDAIRE_A_CONFIRMER",
+      "commentaire": "Ne remplace pas un calendrier officiel.",
+      "date_collecte": "2026-11-04"
+    },
+    {
+      "bloc": "croissance",
+      "champ": "catalyseurs_dates",
+      "valeur": "Mar 24, 2027",
+      "unite": "date fournisseur",
+      "periode": "publication mentionnée par le fournisseur; vérifier si passée ou future",
+      "date_source": "2026-11-04",
+      "source_url": "https://stockanalysis.com/quote/epa/ALSTI/statistics/",
+      "statut": "CALENDRIER_SECONDAIRE_A_CONFIRMER",
+      "commentaire": "Ne remplace pas un calendrier officiel.",
+      "date_collecte": "2026-11-04"
+    },
+    {
+      "bloc": "risque",
+      "champ": "risque_dilution",
+      "valeur": "Variation annuelle des actions en circulation fournisseur : 0.91 %. Ne mesure pas les instruments potentiellement dilutifs.",
+      "unite": "texte",
+      "periode": "YoY fournisseur au 2026-11-04",
+      "date_source": "2026-11-04",
+      "source_url": "https://stockanalysis.com/quote/epa/ALSTI/statistics/",
+      "statut": "SOURCE_SECONDAIRE_NON_RAPPROCHEE",
+      "commentaire": "Indicateur réalisé, non prévision de dilution.",
+      "date_collecte": "2026-11-04"
+    },
+    {
+      "bloc": "croissance",
+      "champ": "croissance_ca_1a_pct",
+      "valeur": 47.56,
+      "unite": "pct",
+      "periode": "FY 2025 / FY 2024; clôture Dec '25 Dec 31, 2025",
+      "date_source": "2026-11-04",
+      "source_url": "https://stockanalysis.com/quote/epa/ALSTI/financials/",
+      "statut": "SOURCE_SECONDAIRE_NON_RAPPROCHEE",
+      "commentaire": "Croissance publiée par le fournisseur si disponible; sinon calcul sur montants annuels arrondis, dénominateur positif.",
+      "date_collecte": "2026-11-04"
+    },
+    {
+      "bloc": "croissance",
+      "champ": "croissance_bpa_pct",
+      "valeur": 20.29,
+      "unite": "pct",
+      "periode": "FY 2025 / FY 2024; clôture Dec '25 Dec 31, 2025",
+      "date_source": "2026-11-04",
+      "source_url": "https://stockanalysis.com/quote/epa/ALSTI/financials/",
+      "statut": "SOURCE_SECONDAIRE_NON_RAPPROCHEE",
+      "commentaire": "Croissance publiée par le fournisseur si disponible; sinon calcul sur montants annuels arrondis, dénominateur positif.",
+      "date_collecte": "2026-11-04"
+    },
+    {
+      "bloc": "croissance",
+      "champ": "croissance_ca_1a_pct",
+      "valeur": 47.5479051640143,
+      "unite": "pct",
+      "periode": "FY 2025 / FY 2024; clôture Dec '25 Dec 31, 2025",
+      "date_source": "2026-11-04",
+      "source_url": "https://stockanalysis.com/quote/epa/ALSTI/financials/",
+      "statut": "SOURCE_SECONDAIRE_NON_RAPPROCHEE",
+      "commentaire": "Calcul sur exercices annuels fournisseur; dénominateur strictement positif.",
+      "date_collecte": "2026-11-04"
+    },
+    {
+      "bloc": "croissance",
+      "champ": "croissance_bpa_pct",
+      "valeur": 20.52631578947368,
+      "unite": "pct",
+      "periode": "FY 2025 / FY 2024; clôture Dec '25 Dec 31, 2025",
+      "date_source": "2026-11-04",
+      "source_url": "https://stockanalysis.com/quote/epa/ALSTI/financials/",
+      "statut": "SOURCE_SECONDAIRE_NON_RAPPROCHEE",
+      "commentaire": "Calcul sur exercices annuels fournisseur; dénominateur strictement positif.",
+      "date_collecte": "2026-11-04"
+    },
+    {
+      "bloc": "valorisation",
+      "champ": "pe",
+      "valeur": 8.22,
+      "unite": "ratio",
+      "periode": "TTM fournisseur; arrêté indiqué dans son tableau financier : Dec '25 Dec 31, 2025",
+      "date_source": "2026-11-04",
+      "source_url": "https://stockanalysis.com/quote/epa/ALSTI/statistics/",
+      "statut": "SOURCE_SECONDAIRE_NON_RAPPROCHEE",
+      "commentaire": "Donnée de fournisseur secondaire; ni certification des comptes ni validation MCPA. Arrêté précis à rapprocher. Date rapprochée au tableau financier du même fournisseur, sans certification primaire.",
+      "date_collecte": "2026-11-04"
+    },
+    {
+      "bloc": "valorisation",
+      "champ": "p_fcf",
+      "valeur": 21.83,
+      "unite": "ratio",
+      "periode": "TTM fournisseur; arrêté indiqué dans son tableau financier : Dec '25 Dec 31, 2025",
+      "date_source": "2026-11-04",
+      "source_url": "https://stockanalysis.com/quote/epa/ALSTI/statistics/",
+      "statut": "SOURCE_SECONDAIRE_NON_RAPPROCHEE",
+      "commentaire": "Donnée de fournisseur secondaire; ni certification des comptes ni validation MCPA. Arrêté précis à rapprocher. Date rapprochée au tableau financier du même fournisseur, sans certification primaire.",
+      "date_collecte": "2026-11-04"
+    },
+    {
+      "bloc": "valorisation",
+      "champ": "ev_ca",
+      "valeur": 1.38,
+      "unite": "ratio",
+      "periode": "TTM fournisseur; arrêté indiqué dans son tableau financier : Dec '25 Dec 31, 2025",
+      "date_source": "2026-11-04",
+      "source_url": "https://stockanalysis.com/quote/epa/ALSTI/statistics/",
+      "statut": "SOURCE_SECONDAIRE_NON_RAPPROCHEE",
+      "commentaire": "Donnée de fournisseur secondaire; ni certification des comptes ni validation MCPA. Arrêté précis à rapprocher. Date rapprochée au tableau financier du même fournisseur, sans certification primaire.",
+      "date_collecte": "2026-11-04"
+    },
+    {
+      "bloc": "valorisation",
+      "champ": "ev_ebitda",
+      "valeur": 6.74,
+      "unite": "ratio",
+      "periode": "TTM fournisseur; arrêté indiqué dans son tableau financier : Dec '25 Dec 31, 2025",
+      "date_source": "2026-11-04",
+      "source_url": "https://stockanalysis.com/quote/epa/ALSTI/statistics/",
+      "statut": "SOURCE_SECONDAIRE_NON_RAPPROCHEE",
+      "commentaire": "Donnée de fournisseur secondaire; ni certification des comptes ni validation MCPA. Arrêté précis à rapprocher. Date rapprochée au tableau financier du même fournisseur, sans certification primaire.",
+      "date_collecte": "2026-11-04"
+    },
+    {
+      "bloc": "valorisation",
+      "champ": "ev_ebit",
+      "valeur": 7.36,
+      "unite": "ratio",
+      "periode": "TTM fournisseur; arrêté indiqué dans son tableau financier : Dec '25 Dec 31, 2025",
+      "date_source": "2026-11-04",
+      "source_url": "https://stockanalysis.com/quote/epa/ALSTI/statistics/",
+      "statut": "SOURCE_SECONDAIRE_NON_RAPPROCHEE",
+      "commentaire": "Donnée de fournisseur secondaire; ni certification des comptes ni validation MCPA. Arrêté précis à rapprocher. Date rapprochée au tableau financier du même fournisseur, sans certification primaire.",
+      "date_collecte": "2026-11-04"
+    },
+    {
+      "bloc": "risque",
+      "champ": "couverture_interets",
+      "valeur": 9.3,
+      "unite": "ratio",
+      "periode": "TTM fournisseur; arrêté indiqué dans son tableau financier : Dec '25 Dec 31, 2025",
+      "date_source": "2026-11-04",
+      "source_url": "https://stockanalysis.com/quote/epa/ALSTI/statistics/",
+      "statut": "SOURCE_SECONDAIRE_NON_RAPPROCHEE",
+      "commentaire": "Donnée de fournisseur secondaire; ni certification des comptes ni validation MCPA. Arrêté précis à rapprocher. Date rapprochée au tableau financier du même fournisseur, sans certification primaire.",
+      "date_collecte": "2026-11-04"
+    },
+    {
+      "bloc": "qualite",
+      "champ": "roe_pct",
+      "valeur": 44.25,
+      "unite": "pct",
+      "periode": "TTM fournisseur; arrêté indiqué dans son tableau financier : Dec '25 Dec 31, 2025",
+      "date_source": "2026-11-04",
+      "source_url": "https://stockanalysis.com/quote/epa/ALSTI/statistics/",
+      "statut": "SOURCE_SECONDAIRE_NON_RAPPROCHEE",
+      "commentaire": "Donnée de fournisseur secondaire; ni certification des comptes ni validation MCPA. Arrêté précis à rapprocher. Date rapprochée au tableau financier du même fournisseur, sans certification primaire.",
+      "date_collecte": "2026-11-04"
+    },
+    {
+      "bloc": "qualite",
+      "champ": "roic_pct",
+      "valeur": 24.05,
+      "unite": "pct",
+      "periode": "TTM fournisseur; arrêté indiqué dans son tableau financier : Dec '25 Dec 31, 2025",
+      "date_source": "2026-11-04",
+      "source_url": "https://stockanalysis.com/quote/epa/ALSTI/statistics/",
+      "statut": "SOURCE_SECONDAIRE_NON_RAPPROCHEE",
+      "commentaire": "Donnée de fournisseur secondaire; ni certification des comptes ni validation MCPA. Arrêté précis à rapprocher. Date rapprochée au tableau financier du même fournisseur, sans certification primaire.",
+      "date_collecte": "2026-11-04"
+    },
+    {
+      "bloc": "qualite",
+      "champ": "ca_ttm",
+      "valeur": 90860000.0,
+      "unite": "EUR",
+      "periode": "TTM fournisseur; arrêté indiqué dans son tableau financier : Dec '25 Dec 31, 2025",
+      "date_source": "2026-11-04",
+      "source_url": "https://stockanalysis.com/quote/epa/ALSTI/statistics/",
+      "statut": "SOURCE_SECONDAIRE_NON_RAPPROCHEE",
+      "commentaire": "Donnée de fournisseur secondaire; ni certification des comptes ni validation MCPA. Arrêté précis à rapprocher. Date rapprochée au tableau financier du même fournisseur, sans certification primaire.",
+      "date_collecte": "2026-11-04"
+    },
+    {
+      "bloc": "qualite",
+      "champ": "fcf_ttm",
+      "valeur": 4570000.0,
+      "unite": "EUR",
+      "periode": "TTM fournisseur; arrêté indiqué dans son tableau financier : Dec '25 Dec 31, 2025",
+      "date_source": "2026-11-04",
+      "source_url": "https://stockanalysis.com/quote/epa/ALSTI/statistics/",
+      "statut": "SOURCE_SECONDAIRE_NON_RAPPROCHEE",
+      "commentaire": "Donnée de fournisseur secondaire; ni certification des comptes ni validation MCPA. Arrêté précis à rapprocher. Date rapprochée au tableau financier du même fournisseur, sans certification primaire.",
+      "date_collecte": "2026-11-04"
+    },
+    {
+      "bloc": "qualite",
+      "champ": "marge_ebit_pct",
+      "valeur": 18.77,
+      "unite": "pct",
+      "periode": "TTM fournisseur; arrêté indiqué dans son tableau financier : Dec '25 Dec 31, 2025",
+      "date_source": "2026-11-04",
+      "source_url": "https://stockanalysis.com/quote/epa/ALSTI/statistics/",
+      "statut": "SOURCE_SECONDAIRE_NON_RAPPROCHEE",
+      "commentaire": "Donnée de fournisseur secondaire; ni certification des comptes ni validation MCPA. Arrêté précis à rapprocher. Date rapprochée au tableau financier du même fournisseur, sans certification primaire.",
+      "date_collecte": "2026-11-04"
+    },
+    {
+      "bloc": "qualite",
+      "champ": "marge_nette_pct",
+      "valeur": 12.93,
+      "unite": "pct",
+      "periode": "TTM fournisseur; arrêté indiqué dans son tableau financier : Dec '25 Dec 31, 2025",
+      "date_source": "2026-11-04",
+      "source_url": "https://stockanalysis.com/quote/epa/ALSTI/statistics/",
+      "statut": "SOURCE_SECONDAIRE_NON_RAPPROCHEE",
+      "commentaire": "Donnée de fournisseur secondaire; ni certification des comptes ni validation MCPA. Arrêté précis à rapprocher. Date rapprochée au tableau financier du même fournisseur, sans certification primaire.",
+      "date_collecte": "2026-11-04"
+    },
+    {
+      "bloc": "valorisation",
+      "champ": "rendement_fcf_pct",
+      "valeur": 4.58,
+      "unite": "pct",
+      "periode": "TTM fournisseur; arrêté indiqué dans son tableau financier : Dec '25 Dec 31, 2025",
+      "date_source": "2026-11-04",
+      "source_url": "https://stockanalysis.com/quote/epa/ALSTI/statistics/",
+      "statut": "SOURCE_SECONDAIRE_NON_RAPPROCHEE",
+      "commentaire": "Donnée de fournisseur secondaire; ni certification des comptes ni validation MCPA. Arrêté précis à rapprocher. Date rapprochée au tableau financier du même fournisseur, sans certification primaire.",
+      "date_collecte": "2026-11-04"
+    },
+    {
+      "bloc": "risque",
+      "champ": "dette_nette_ebitda",
+      "valeur": 1.3043478260869565,
+      "unite": "ratio",
+      "periode": "TTM fournisseur; arrêté indiqué dans son tableau financier : Dec '25 Dec 31, 2025",
+      "date_source": "2026-11-04",
+      "source_url": "https://stockanalysis.com/quote/epa/ALSTI/statistics/",
+      "statut": "SOURCE_SECONDAIRE_NON_RAPPROCHEE",
+      "commentaire": "(Total Debt - Cash)/EBITDA, tous issus du même fournisseur; dates exactes à rapprocher. Date rapprochée au tableau financier du même fournisseur, sans certification primaire.",
+      "date_collecte": "2026-11-04"
+    },
+    {
+      "bloc": "qualite",
+      "champ": "conversion_fcf_pct",
+      "valeur": 38.8936170212766,
+      "unite": "pct",
+      "periode": "TTM fournisseur; arrêté indiqué dans son tableau financier : Dec '25 Dec 31, 2025",
+      "date_source": "2026-11-04",
+      "source_url": "https://stockanalysis.com/quote/epa/ALSTI/statistics/",
+      "statut": "SOURCE_SECONDAIRE_NON_RAPPROCHEE",
+      "commentaire": "Convention explicitée : FCF/résultat net; pas de calcul si résultat net <=0. Date rapprochée au tableau financier du même fournisseur, sans certification primaire.",
+      "date_collecte": "2026-11-04"
+    },
+    {
+      "bloc": "croissance",
+      "champ": "previsions_ca_1a",
+      "valeur": 104850000.0,
+      "unite": "EUR",
+      "periode": "exercice annuel prévisionnel clos au 2026-12-31",
+      "date_source": "2026-11-04",
+      "source_url": "https://stockanalysis.com/quote/epa/ALSTI/forecast/",
+      "statut": "SOURCE_SECONDAIRE_PREVISION_NON_RAPPROCHEE",
+      "commentaire": "Premier exercice futur affiché; consensus et non engagement de direction. BPA non-GAAP ajusté selon le fournisseur; ne pas comparer directement au BPA comptable. Devise USD pour les cinq émetteurs domestiques US, devise financière explicitée pour les autres.",
+      "date_collecte": "2026-11-04"
+    }
+  ],
+  "journal_recherches": [
+    {
+      "famille": "fondamentaux",
+      "requete": "\"STIF\" 2026 annual interim results revenue cash debt official investor relations",
+      "date": "2026-11-04",
+      "resultats_identifies": [
+        {
+          "title": "Financial documentation - STIF Investors",
+          "url": "https://investir.stif.fr/en/financial-documentation/"
+        },
+        {
+          "title": "Press releases - Stif Investors",
+          "url": "https://investir.stif.fr/en/press-communications/"
+        },
+        {
+          "title": "Home - STIF Investors",
+          "url": "https://investir.stif.fr/en/"
+        },
+        {
+          "title": "STIF - Interim / Quarterly Report 2026 | FinancialFilings",
+          "url": "https://financialfilings.com/filings/stif/interim-quarterly-report/2026/74846969/"
+        },
+        {
+          "title": "Financial Agenda - STIF Investors",
+          "url": "https://investir.stif.fr/en/diary/"
+        },
+        {
+          "title": "STIF - Earnings Release 2026 | FinancialFilings",
+          "url": "https://financialfilings.com/filings/stif/earnings-release/2026/49450528/"
+        },
+        {
+          "title": "STIF - Strong Growth in 2026 Half-Year Results - 01/10/2026 - 17H45 - Actusnews Wire",
+          "url": "https://www.actusnews.com/en/stif/pr/2026/10/01/strong-growth-in-2026-half-year-results"
+        },
+        {
+          "title": "Stif : Strong Growth in 2026 Half-Year Results | MarketScreener",
+          "url": "https://www.marketscreener.com/news/stif-strong-growth-in-2026-half-year-results-ce785ddad889f32d"
+        },
+        {
+          "title": "STIF (EPA:ALSTI) |",
+          "url": "https://www.webdisclosure.com/press-release/stif-epa-alsti-des-resultats-semestriels-2026-en-forte-progression-CDUXzwstNZt"
+        }
+      ],
+      "statut": "RECHERCHE_EFFECTUEE_RESULTATS_NON_EXHAUSTIFS"
+    },
+    {
+      "famille": "valorisation_revisions_inities",
+      "requete": "\"STIF\" site:zonebourse.com valorisation consensus révisions dirigeants 2026",
+      "date": "2026-11-04",
+      "resultats_identifies": [
+        {
+          "title": "STIF : Ratios de Valorisations, Prévisions des analystes - Zonebourse",
+          "url": "https://www.zonebourse.com/cours/action/STIF-162866171/valorisation/"
+        },
+        {
+          "title": "STIF: Prévisions et Estimations des Analystes | ALSTI | Zonebourse",
+          "url": "https://www.zonebourse.com/cours/action/STIF-162866171/finances/"
+        },
+        {
+          "title": "STIF: Analyse Fondamentale et Notations Financières | ALSTI | FR001400MDW2 | Zonebourse",
+          "url": "https://www.zonebourse.com/cours/action/STIF-162866171/notations/"
+        },
+        {
+          "title": "STIF: Objectif de Cours et Consensus des Analystes | ALSTI | FR001400MDW2 | Zonebourse",
+          "url": "https://www.zonebourse.com/cours/action/STIF-162866171/consensus/"
+        },
+        {
+          "title": "STIF : Ratios de Valorisations, Prévisions des analystes - Zonebourse Suisse",
+          "url": "https://ch.zonebourse.com/cours/action/STIF-162866171/valorisation/"
+        },
+        {
+          "title": "Action STIF | Cours ALSTI Bourse Euronext Paris - Zonebourse",
+          "url": "https://www.zonebourse.com/cours/action/STIF-162866171/?iSubCodezb=180938465"
+        },
+        {
+          "title": "Action STIF | Cours ALSTI Bourse Euronext Paris - Zonebourse Suisse",
+          "url": "https://ch.zonebourse.com/cours/action/STIF-162866171/"
+        },
+        {
+          "title": "Stif : Des résultats semestriels 2026 en forte progression | Zonebourse",
+          "url": "https://www.zonebourse.com/actualite-bourse/stif-des-resultats-semestriels-2026-en-forte-progression-ce785ddad889f322"
+        },
+        {
+          "title": "Action STIF | Cours ALSTI Bourse Euronext Paris - Zonebourse",
+          "url": "https://www.zonebourse.com/cours/action/STIF-162866171/"
+        },
+        {
+          "title": "STIF: Analyse Fondamentale et Notations Financières | D08 | FR001400MDW2 | Zonebourse",
+          "url": "https://www.zonebourse.com/cours/action/STIF-194255030/notations/"
+        },
+        {
+          "title": "STIF: Analyse Fondamentale et Notations Financières | D08 | FR001400MDW2 | Zonebourse",
+          "url": "https://www.zonebourse.com/cours/action/STIF-164508117/notations/"
+        },
+        {
+          "title": "STIF: Analyse Fondamentale et Notations Financières | | FR001400MDW2 | Zonebourse",
+          "url": "https://www.zonebourse.com/cours/action/STIF-214866192/notations/"
+        }
+      ],
+      "statut": "RECHERCHE_EFFECTUEE_RESULTATS_NON_EXHAUSTIFS"
+    },
+    {
+      "famille": "transactions_inities",
+      "requete": "\"STIF\" insider director dealings PDMR transactions dirigeants 2026 October September August",
+      "date": "2026-11-04",
+      "resultats_identifies": [
+        {
+          "title": "Stif, les transactions réalisées par les dirigeants sur l'action",
+          "url": "https://www.abcbourse.com/marches/transactions_dirigeants/FR001400MDW2p"
+        },
+        {
+          "title": "STIF Insider Transactions: Director Buys & Sells",
+          "url": "https://insiderwatch.be/fr/chart/STIF"
+        },
+        {
+          "title": "Stif : déclarations, transactions dirigeants et positions courtes",
+          "url": "https://www.ideal-investisseur.fr/actions/stif-FR001400MDW2-transparence.html"
+        },
+        {
+          "title": "STIF : achats et ventes des dirigeants, 1 opération en 12 mois · A Free Lunch",
+          "url": "https://fr2.afreelun.ch/transactions-des-dirigeants/societe/stif/"
+        },
+        {
+          "title": "Stif Developpement SARL Insider Trading Activity",
+          "url": "https://www.insiderscreener.com/en/company/stif-developpement-sarl"
+        },
+        {
+          "title": "Stif (FR001400MDW2) : cours, analyse, consensus des analystes et données financières",
+          "url": "https://www.ideal-investisseur.fr/actions/stif-FR001400MDW2.html"
+        },
+        {
+          "title": "STIF : Transactions d'initiés - Zonebourse",
+          "url": "https://www.zonebourse.com/cours/action/STIF-162866171/societe-transactions-inities/"
+        },
+        {
+          "title": "STIF (ALSTI) : dirigeants, OPA, cours — Aktior",
+          "url": "https://www.aktior.com/societes/stif"
+        },
+        {
+          "title": "Stif (FR001400MDW2): price, analysis, analyst consensus and financial data",
+          "url": "https://www.ideal-investisseur.fr/en/stocks/stif-FR001400MDW2.html"
+        },
+        {
+          "title": "STIF : Transactions d'initiés - Zonebourse",
+          "url": "https://www.zonebourse.com/cours/action/STIF-194255030/societe-transactions-inities/"
+        },
+        {
+          "title": "STIF - Interim / Quarterly Report 2026 | FinancialFilings",
+          "url": "https://financialfilings.com/filings/stif/interim-quarterly-report/2026/74846969/"
+        },
+        {
+          "title": "Welcome to STIF",
+          "url": "https://investir.stif.fr/wp-content/uploads/2026/04/20260330_STIF_-2025-Full-year-results-final-version.pdf"
+        },
+        {
+          "title": "Plaquette comptes consolidés",
+          "url": "https://investir.stif.fr/wp-content/uploads/2024/07/STIF-SA-Comptes-consolides-31.12.2023-signes.pdf"
+        }
+      ],
+      "statut": "RECHERCHE_EFFECTUEE_RESULTATS_NON_EXHAUSTIFS"
+    },
+    {
+      "famille": "statistiques_financieres",
+      "url": "https://stockanalysis.com/quote/epa/ALSTI/statistics/",
+      "date": "2026-11-04",
+      "statut": "SOURCE_SECONDAIRE_A_RAPPROCHER",
+      "http": 200
+    },
+    {
+      "famille": "previsions_annuelles",
+      "url": "https://stockanalysis.com/quote/epa/ALSTI/forecast/",
+      "date": "2026-11-04",
+      "statut": "SOURCE_SECONDAIRE_PREVISIONS",
+      "http": 200,
+      "limite": "Les cellules Upgrade ne sont jamais converties en chiffres."
+    }
+  ],
+  "audit_couverture": {
+    "date": "2026-11-04",
+    "champs_total": 108,
+    "champs_renseignes": 54,
+    "couverture_pct": 50.0,
+    "champs_secondaires_non_rapproches": 34,
+    "champs_manquants": [
+      "identite.lei",
+      "identite.marche",
+      "qualite.revenus_recurrents_pct",
+      "qualite.concentration_clients_pct",
+      "qualite.avantage_concurrentiel",
+      "qualite.qualite_management",
+      "valorisation.comparables_sectoriels",
+      "valorisation.valorisation_historique",
+      "valorisation.marge_securite_pct",
+      "croissance.croissance_ebitda_pct",
+      "croissance.carnet_commandes",
+      "croissance.book_to_bill",
+      "croissance.revision_bpa_30j_pct",
+      "croissance.revision_bpa_90j_pct",
+      "croissance.peg",
+      "croissance.taille_marche_adressable",
+      "risque.cash_runway_mois",
+      "risque.dilution_3a_pct",
+      "risque.risque_refinancement",
+      "risque.risque_pays",
+      "risque.risque_change",
+      "risque.risque_gouvernance",
+      "risque.risque_reglementaire",
+      "risque.risque_concentration",
+      "risque.transactions_initiees_net_90j",
+      "risque.transactions_initiees_net_180j",
+      "momentum.force_relative_indice",
+      "diversification.zone_geographique",
+      "diversification.correlation_portefeuille",
+      "diversification.concentration_theme",
+      "diversification.interet_strategique",
+      "diversification.complementarite_portefeuille",
+      "complements.ssi",
+      "complements.ic_sur_5",
+      "complements.cx_sur_5",
+      "complements.delta",
+      "complements.wwws",
+      "complements.scenario_bear_3m_pct",
+      "complements.prob_bear_3m_pct",
+      "complements.scenario_central_3m_pct",
+      "complements.prob_central_3m_pct",
+      "complements.scenario_bull_3m_pct",
+      "complements.prob_bull_3m_pct",
+      "complements.scenario_bear_6m_pct",
+      "complements.prob_bear_6m_pct",
+      "complements.scenario_central_6m_pct",
+      "complements.prob_central_6m_pct",
+      "complements.scenario_bull_6m_pct",
+      "complements.prob_bull_6m_pct",
+      "complements.role_ips",
+      "complements.decision",
+      "complements.condition_renforcement",
+      "complements.condition_allegement_sortie",
+      "complements.challengers_compares"
+    ],
+    "indisponibilite_definitive_demontree": [],
+    "statut": "TRAITE_MAIS_INCOMPLET",
+    "cours_date_limite": "2026-11-03"
+  }
 }

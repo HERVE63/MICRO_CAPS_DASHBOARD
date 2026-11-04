@@ -27,43 +27,53 @@
         "date_source": null,
         "source_url": null,
         "statut": "A_COLLECTER",
-        "commentaire": null
+        "commentaire": null,
+        "recherche": {
+          "date": "2026-11-04",
+          "statut": "MANQUANT_RECHERCHE_NON_CLOSE",
+          "motif": "Aucune valeur vérifiée importée à cette étape; les recherches tracées ne démontrent pas une indisponibilité définitive.",
+          "journal": "journal_recherches"
+        }
       },
       "pays": {
-        "valeur": null,
-        "unite": null,
-        "periode": null,
-        "date_source": null,
-        "source_url": null,
-        "statut": "A_COLLECTER",
-        "commentaire": null
+        "valeur": "France",
+        "unite": "texte",
+        "periode": "profil émetteur au 2026-11-04",
+        "date_source": "2026-11-04",
+        "source_url": "https://stockanalysis.com/quote/epa/ALBPK/company/",
+        "statut": "SOURCE_SECONDAIRE_NON_RAPPROCHEE",
+        "commentaire": "Profil de la cotation exacte; identité à corroborer avec une source réglementaire.",
+        "date_collecte": "2026-11-04"
       },
       "secteur": {
-        "valeur": null,
-        "unite": null,
-        "periode": null,
-        "date_source": null,
-        "source_url": null,
-        "statut": "A_COLLECTER",
-        "commentaire": null
+        "valeur": "Technology",
+        "unite": "texte",
+        "periode": "profil émetteur au 2026-11-04",
+        "date_source": "2026-11-04",
+        "source_url": "https://stockanalysis.com/quote/epa/ALBPK/company/",
+        "statut": "SOURCE_SECONDAIRE_NON_RAPPROCHEE",
+        "commentaire": "Profil de la cotation exacte; identité à corroborer avec une source réglementaire.",
+        "date_collecte": "2026-11-04"
       },
       "industrie": {
-        "valeur": null,
-        "unite": null,
-        "periode": null,
-        "date_source": null,
-        "source_url": null,
-        "statut": "A_COLLECTER",
-        "commentaire": null
+        "valeur": "Communication Equipment",
+        "unite": "texte",
+        "periode": "profil émetteur au 2026-11-04",
+        "date_source": "2026-11-04",
+        "source_url": "https://stockanalysis.com/quote/epa/ALBPK/company/",
+        "statut": "SOURCE_SECONDAIRE_NON_RAPPROCHEE",
+        "commentaire": "Profil de la cotation exacte; identité à corroborer avec une source réglementaire.",
+        "date_collecte": "2026-11-04"
       },
       "place_cotation": {
-        "valeur": null,
-        "unite": null,
-        "periode": null,
-        "date_source": null,
-        "source_url": null,
-        "statut": "A_COLLECTER",
-        "commentaire": null
+        "valeur": "Euronext Paris",
+        "unite": "texte",
+        "periode": "profil émetteur au 2026-11-04",
+        "date_source": "2026-11-04",
+        "source_url": "https://stockanalysis.com/quote/epa/ALBPK/company/",
+        "statut": "SOURCE_SECONDAIRE_NON_RAPPROCHEE",
+        "commentaire": "Profil de la cotation exacte; identité à corroborer avec une source réglementaire.",
+        "date_collecte": "2026-11-04"
       },
       "marche": {
         "valeur": null,
@@ -72,90 +82,105 @@
         "date_source": null,
         "source_url": null,
         "statut": "A_COLLECTER",
-        "commentaire": null
+        "commentaire": null,
+        "recherche": {
+          "date": "2026-11-04",
+          "statut": "MANQUANT_RECHERCHE_NON_CLOSE",
+          "motif": "Aucune valeur vérifiée importée à cette étape; les recherches tracées ne démontrent pas une indisponibilité définitive.",
+          "journal": "journal_recherches"
+        }
       },
       "capitalisation_eur": {
-        "valeur": null,
-        "unite": null,
-        "periode": null,
-        "date_source": null,
-        "source_url": null,
-        "statut": "A_COLLECTER",
-        "commentaire": null
+        "valeur": 20240000.0,
+        "unite": "EUR",
+        "periode": "capitalisation fournisseur et référence BCE du 2026-11-04",
+        "date_source": "2026-11-04",
+        "source_url": "https://stockanalysis.com/quote/epa/ALBPK/statistics/ | https://www.ecb.europa.eu/stats/policy_and_exchange_rates/euro_reference_exchange_rates/html/index.cn.html",
+        "statut": "SOURCE_SECONDAIRE_NON_RAPPROCHEE",
+        "commentaire": "Capitalisation en devise de cotation / unités de cette devise pour 1 EUR; montant fournisseur arrondi.",
+        "date_collecte": "2026-11-04"
       },
       "flottant_pct": {
-        "valeur": null,
-        "unite": null,
-        "periode": null,
-        "date_source": null,
-        "source_url": null,
-        "statut": "A_COLLECTER",
-        "commentaire": null
+        "valeur": 27.782225780624497,
+        "unite": "pct",
+        "periode": "flottant/actions fournisseur au 2026-11-04",
+        "date_source": "2026-11-04",
+        "source_url": "https://stockanalysis.com/quote/epa/ALBPK/statistics/",
+        "statut": "SOURCE_SECONDAIRE_NON_RAPPROCHEE",
+        "commentaire": "Calcul sur nombres arrondis; détenu par initiés ≠ total dirigeants strict.",
+        "date_collecte": "2026-11-04"
       },
       "actionnariat_dirigeants_pct": {
-        "valeur": null,
-        "unite": null,
-        "periode": null,
-        "date_source": null,
-        "source_url": null,
-        "statut": "A_COLLECTER",
-        "commentaire": null
+        "valeur": 49.95,
+        "unite": "pct",
+        "periode": "détentions déclarées, dates hétérogènes du fournisseur",
+        "date_source": "2026-11-04",
+        "source_url": "https://stockanalysis.com/quote/epa/ALBPK/statistics/",
+        "statut": "SOURCE_SECONDAIRE_NON_RAPPROCHEE",
+        "commentaire": "Donnée de fournisseur secondaire; ni certification des comptes ni validation MCPA. Arrêté précis à rapprocher.",
+        "date_collecte": "2026-11-04"
       },
       "liquidite_moyenne_eur_20j": {
-        "valeur": null,
-        "unite": null,
-        "periode": null,
-        "date_source": null,
-        "source_url": null,
-        "statut": "A_COLLECTER",
-        "commentaire": null
+        "valeur": 16717.32232966423,
+        "unite": "EUR/jour",
+        "periode": "2026-10-07 / 2026-11-03",
+        "date_source": "2026-11-04",
+        "source_url": "https://query1.finance.yahoo.com/v8/finance/chart/ALBPK.PA?range=5y&interval=1d&events=div%2Csplits | https://www.ecb.europa.eu/stats/policy_and_exchange_rates/euro_reference_exchange_rates/html/index.cn.html",
+        "statut": "ESTIMATION_PROXY_LIQUIDITE",
+        "commentaire": "Moyenne(clôture non ajustée × volume) sur 20 séances, convertie au seul FX BCE du 04/11/2026; proxy de liquidité, pas volumes réellement négociés en EUR à chaque date. GBp/100 à Londres.",
+        "date_collecte": "2026-11-04"
       }
     },
     "qualite": {
       "ca_ttm": {
-        "valeur": null,
-        "unite": null,
-        "periode": null,
-        "date_source": null,
-        "source_url": null,
-        "statut": "A_COLLECTER",
-        "commentaire": null
+        "valeur": 46840000.0,
+        "unite": "EUR",
+        "periode": "TTM fournisseur; arrêté indiqué dans son tableau financier : Jun '26 Jun 30, 2026",
+        "date_source": "2026-11-04",
+        "source_url": "https://stockanalysis.com/quote/epa/ALBPK/statistics/",
+        "statut": "SOURCE_SECONDAIRE_NON_RAPPROCHEE",
+        "commentaire": "Donnée de fournisseur secondaire; ni certification des comptes ni validation MCPA. Arrêté précis à rapprocher. Date rapprochée au tableau financier du même fournisseur, sans certification primaire.",
+        "date_collecte": "2026-11-04"
       },
       "marge_brute_pct": {
-        "valeur": null,
-        "unite": null,
-        "periode": null,
-        "date_source": null,
-        "source_url": null,
-        "statut": "A_COLLECTER",
-        "commentaire": null
+        "valeur": 80.53,
+        "unite": "pct",
+        "periode": "TTM fournisseur; arrêté indiqué dans son tableau financier : Jun '26 Jun 30, 2026",
+        "date_source": "2026-11-04",
+        "source_url": "https://stockanalysis.com/quote/epa/ALBPK/statistics/",
+        "statut": "SOURCE_SECONDAIRE_NON_RAPPROCHEE",
+        "commentaire": "Donnée de fournisseur secondaire; ni certification des comptes ni validation MCPA. Arrêté précis à rapprocher. Date rapprochée au tableau financier du même fournisseur, sans certification primaire.",
+        "date_collecte": "2026-11-04"
       },
       "marge_ebitda_pct": {
-        "valeur": null,
-        "unite": null,
-        "periode": null,
-        "date_source": null,
-        "source_url": null,
-        "statut": "A_COLLECTER",
-        "commentaire": null
+        "valeur": -13.58,
+        "unite": "pct",
+        "periode": "TTM fournisseur; arrêté indiqué dans son tableau financier : Jun '26 Jun 30, 2026",
+        "date_source": "2026-11-04",
+        "source_url": "https://stockanalysis.com/quote/epa/ALBPK/statistics/",
+        "statut": "SOURCE_SECONDAIRE_NON_RAPPROCHEE",
+        "commentaire": "Donnée de fournisseur secondaire; ni certification des comptes ni validation MCPA. Arrêté précis à rapprocher. Date rapprochée au tableau financier du même fournisseur, sans certification primaire.",
+        "date_collecte": "2026-11-04"
       },
       "marge_ebit_pct": {
-        "valeur": null,
-        "unite": null,
-        "periode": null,
-        "date_source": null,
-        "source_url": null,
-        "statut": "A_COLLECTER",
-        "commentaire": null
+        "valeur": -13.88,
+        "unite": "pct",
+        "periode": "TTM fournisseur; arrêté indiqué dans son tableau financier : Jun '26 Jun 30, 2026",
+        "date_source": "2026-11-04",
+        "source_url": "https://stockanalysis.com/quote/epa/ALBPK/statistics/",
+        "statut": "SOURCE_SECONDAIRE_NON_RAPPROCHEE",
+        "commentaire": "Donnée de fournisseur secondaire; ni certification des comptes ni validation MCPA. Arrêté précis à rapprocher. Date rapprochée au tableau financier du même fournisseur, sans certification primaire.",
+        "date_collecte": "2026-11-04"
       },
       "marge_nette_pct": {
-        "valeur": null,
-        "unite": null,
-        "periode": null,
-        "date_source": null,
-        "source_url": null,
-        "statut": "A_COLLECTER",
-        "commentaire": null
+        "valeur": -6.48,
+        "unite": "pct",
+        "periode": "TTM fournisseur; arrêté indiqué dans son tableau financier : Jun '26 Jun 30, 2026",
+        "date_source": "2026-11-04",
+        "source_url": "https://stockanalysis.com/quote/epa/ALBPK/statistics/",
+        "statut": "SOURCE_SECONDAIRE_NON_RAPPROCHEE",
+        "commentaire": "Donnée de fournisseur secondaire; ni certification des comptes ni validation MCPA. Arrêté précis à rapprocher. Date rapprochée au tableau financier du même fournisseur, sans certification primaire.",
+        "date_collecte": "2026-11-04"
       },
       "roe_pct": {
         "valeur": null,
@@ -164,7 +189,13 @@
         "date_source": null,
         "source_url": null,
         "statut": "A_COLLECTER",
-        "commentaire": null
+        "commentaire": null,
+        "recherche": {
+          "date": "2026-11-04",
+          "statut": "MANQUANT_RECHERCHE_NON_CLOSE",
+          "motif": "Aucune valeur vérifiée importée à cette étape; les recherches tracées ne démontrent pas une indisponibilité définitive.",
+          "journal": "journal_recherches"
+        }
       },
       "roic_pct": {
         "valeur": null,
@@ -173,7 +204,13 @@
         "date_source": null,
         "source_url": null,
         "statut": "A_COLLECTER",
-        "commentaire": null
+        "commentaire": null,
+        "recherche": {
+          "date": "2026-11-04",
+          "statut": "MANQUANT_RECHERCHE_NON_CLOSE",
+          "motif": "Aucune valeur vérifiée importée à cette étape; les recherches tracées ne démontrent pas une indisponibilité définitive.",
+          "journal": "journal_recherches"
+        }
       },
       "fcf_ttm": {
         "valeur": null,
@@ -182,7 +219,13 @@
         "date_source": null,
         "source_url": null,
         "statut": "A_COLLECTER",
-        "commentaire": null
+        "commentaire": null,
+        "recherche": {
+          "date": "2026-11-04",
+          "statut": "MANQUANT_RECHERCHE_NON_CLOSE",
+          "motif": "Aucune valeur vérifiée importée à cette étape; les recherches tracées ne démontrent pas une indisponibilité définitive.",
+          "journal": "journal_recherches"
+        }
       },
       "conversion_fcf_pct": {
         "valeur": null,
@@ -191,7 +234,13 @@
         "date_source": null,
         "source_url": null,
         "statut": "A_COLLECTER",
-        "commentaire": null
+        "commentaire": null,
+        "recherche": {
+          "date": "2026-11-04",
+          "statut": "MANQUANT_RECHERCHE_NON_CLOSE",
+          "motif": "Aucune valeur vérifiée importée à cette étape; les recherches tracées ne démontrent pas une indisponibilité définitive.",
+          "journal": "journal_recherches"
+        }
       },
       "revenus_recurrents_pct": {
         "valeur": null,
@@ -200,7 +249,13 @@
         "date_source": null,
         "source_url": null,
         "statut": "A_COLLECTER",
-        "commentaire": null
+        "commentaire": null,
+        "recherche": {
+          "date": "2026-11-04",
+          "statut": "MANQUANT_RECHERCHE_NON_CLOSE",
+          "motif": "Aucune valeur vérifiée importée à cette étape; les recherches tracées ne démontrent pas une indisponibilité définitive.",
+          "journal": "journal_recherches"
+        }
       },
       "concentration_clients_pct": {
         "valeur": null,
@@ -209,7 +264,13 @@
         "date_source": null,
         "source_url": null,
         "statut": "A_COLLECTER",
-        "commentaire": null
+        "commentaire": null,
+        "recherche": {
+          "date": "2026-11-04",
+          "statut": "MANQUANT_RECHERCHE_NON_CLOSE",
+          "motif": "Aucune valeur vérifiée importée à cette étape; les recherches tracées ne démontrent pas une indisponibilité définitive.",
+          "journal": "journal_recherches"
+        }
       },
       "avantage_concurrentiel": {
         "valeur": null,
@@ -218,7 +279,13 @@
         "date_source": null,
         "source_url": null,
         "statut": "A_COLLECTER",
-        "commentaire": null
+        "commentaire": null,
+        "recherche": {
+          "date": "2026-11-04",
+          "statut": "MANQUANT_RECHERCHE_NON_CLOSE",
+          "motif": "Analyse MCPA/IPS argumentée encore nécessaire; ce champ ne doit pas être rempli par une statistique de fournisseur.",
+          "journal": "journal_recherches"
+        }
       },
       "qualite_management": {
         "valeur": null,
@@ -227,54 +294,65 @@
         "date_source": null,
         "source_url": null,
         "statut": "A_COLLECTER",
-        "commentaire": null
+        "commentaire": null,
+        "recherche": {
+          "date": "2026-11-04",
+          "statut": "MANQUANT_RECHERCHE_NON_CLOSE",
+          "motif": "Analyse MCPA/IPS argumentée encore nécessaire; ce champ ne doit pas être rempli par une statistique de fournisseur.",
+          "journal": "journal_recherches"
+        }
       }
     },
     "valorisation": {
       "cours": {
-        "valeur": null,
-        "unite": null,
-        "periode": null,
-        "date_source": null,
-        "source_url": null,
-        "statut": "A_COLLECTER",
-        "commentaire": null
+        "valeur": 1.6200000047683716,
+        "unite": "EUR",
+        "periode": "cloture 2026-11-03",
+        "date_source": "2026-11-03",
+        "source_url": "https://query1.finance.yahoo.com/v8/finance/chart/ALBPK.PA?range=5y&interval=1d&events=div%2Csplits",
+        "statut": "SOURCE_MARCHE",
+        "commentaire": "Cours non ajuste; GBp/100 pour Londres.",
+        "date_collecte": "2026-11-04"
       },
       "date_cours": {
-        "valeur": null,
-        "unite": null,
-        "periode": null,
-        "date_source": null,
-        "source_url": null,
-        "statut": "A_COLLECTER",
-        "commentaire": null
+        "valeur": "2026-11-03",
+        "unite": "date",
+        "periode": "cloture",
+        "date_source": "2026-11-03",
+        "source_url": "https://query1.finance.yahoo.com/v8/finance/chart/ALBPK.PA?range=5y&interval=1d&events=div%2Csplits",
+        "statut": "SOURCE_MARCHE",
+        "commentaire": null,
+        "date_collecte": "2026-11-04"
       },
       "capitalisation": {
-        "valeur": null,
-        "unite": null,
-        "periode": null,
-        "date_source": null,
-        "source_url": null,
-        "statut": "A_COLLECTER",
-        "commentaire": null
+        "valeur": 20240000.0,
+        "unite": "EUR",
+        "periode": "cotation au 2026-11-04",
+        "date_source": "2026-11-04",
+        "source_url": "https://stockanalysis.com/quote/epa/ALBPK/statistics/",
+        "statut": "SOURCE_SECONDAIRE_NON_RAPPROCHEE",
+        "commentaire": "Donnée de fournisseur secondaire; ni certification des comptes ni validation MCPA. Arrêté précis à rapprocher.",
+        "date_collecte": "2026-11-04"
       },
       "valeur_entreprise": {
-        "valeur": null,
-        "unite": null,
-        "periode": null,
-        "date_source": null,
-        "source_url": null,
-        "statut": "A_COLLECTER",
-        "commentaire": null
+        "valeur": 25730000.0,
+        "unite": "EUR",
+        "periode": "valorisation affichée au 2026-11-04",
+        "date_source": "2026-11-04",
+        "source_url": "https://stockanalysis.com/quote/epa/ALBPK/statistics/",
+        "statut": "SOURCE_SECONDAIRE_NON_RAPPROCHEE",
+        "commentaire": "Donnée de fournisseur secondaire; ni certification des comptes ni validation MCPA. Arrêté précis à rapprocher.",
+        "date_collecte": "2026-11-04"
       },
       "ev_ca": {
-        "valeur": null,
-        "unite": null,
-        "periode": null,
-        "date_source": null,
-        "source_url": null,
-        "statut": "A_COLLECTER",
-        "commentaire": null
+        "valeur": 0.54,
+        "unite": "ratio",
+        "periode": "TTM fournisseur; arrêté indiqué dans son tableau financier : Jun '26 Jun 30, 2026",
+        "date_source": "2026-11-04",
+        "source_url": "https://stockanalysis.com/quote/epa/ALBPK/statistics/",
+        "statut": "SOURCE_SECONDAIRE_NON_RAPPROCHEE",
+        "commentaire": "Donnée de fournisseur secondaire; ni certification des comptes ni validation MCPA. Arrêté précis à rapprocher. Date rapprochée au tableau financier du même fournisseur, sans certification primaire.",
+        "date_collecte": "2026-11-04"
       },
       "ev_ebitda": {
         "valeur": null,
@@ -283,7 +361,13 @@
         "date_source": null,
         "source_url": null,
         "statut": "A_COLLECTER",
-        "commentaire": null
+        "commentaire": null,
+        "recherche": {
+          "date": "2026-11-04",
+          "statut": "MANQUANT_RECHERCHE_NON_CLOSE",
+          "motif": "Aucune valeur vérifiée importée à cette étape; les recherches tracées ne démontrent pas une indisponibilité définitive.",
+          "journal": "journal_recherches"
+        }
       },
       "ev_ebit": {
         "valeur": null,
@@ -292,7 +376,13 @@
         "date_source": null,
         "source_url": null,
         "statut": "A_COLLECTER",
-        "commentaire": null
+        "commentaire": null,
+        "recherche": {
+          "date": "2026-11-04",
+          "statut": "MANQUANT_RECHERCHE_NON_CLOSE",
+          "motif": "Aucune valeur vérifiée importée à cette étape; les recherches tracées ne démontrent pas une indisponibilité définitive.",
+          "journal": "journal_recherches"
+        }
       },
       "pe": {
         "valeur": null,
@@ -301,7 +391,13 @@
         "date_source": null,
         "source_url": null,
         "statut": "A_COLLECTER",
-        "commentaire": null
+        "commentaire": null,
+        "recherche": {
+          "date": "2026-11-04",
+          "statut": "MANQUANT_RECHERCHE_NON_CLOSE",
+          "motif": "Aucune valeur vérifiée importée à cette étape; les recherches tracées ne démontrent pas une indisponibilité définitive.",
+          "journal": "journal_recherches"
+        }
       },
       "p_fcf": {
         "valeur": null,
@@ -310,7 +406,13 @@
         "date_source": null,
         "source_url": null,
         "statut": "A_COLLECTER",
-        "commentaire": null
+        "commentaire": null,
+        "recherche": {
+          "date": "2026-11-04",
+          "statut": "MANQUANT_RECHERCHE_NON_CLOSE",
+          "motif": "Aucune valeur vérifiée importée à cette étape; les recherches tracées ne démontrent pas une indisponibilité définitive.",
+          "journal": "journal_recherches"
+        }
       },
       "p_b": {
         "valeur": null,
@@ -319,7 +421,13 @@
         "date_source": null,
         "source_url": null,
         "statut": "A_COLLECTER",
-        "commentaire": null
+        "commentaire": null,
+        "recherche": {
+          "date": "2026-11-04",
+          "statut": "MANQUANT_RECHERCHE_NON_CLOSE",
+          "motif": "Aucune valeur vérifiée importée à cette étape; les recherches tracées ne démontrent pas une indisponibilité définitive.",
+          "journal": "journal_recherches"
+        }
       },
       "rendement_fcf_pct": {
         "valeur": null,
@@ -328,7 +436,13 @@
         "date_source": null,
         "source_url": null,
         "statut": "A_COLLECTER",
-        "commentaire": null
+        "commentaire": null,
+        "recherche": {
+          "date": "2026-11-04",
+          "statut": "MANQUANT_RECHERCHE_NON_CLOSE",
+          "motif": "Aucune valeur vérifiée importée à cette étape; les recherches tracées ne démontrent pas une indisponibilité définitive.",
+          "journal": "journal_recherches"
+        }
       },
       "comparables_sectoriels": {
         "valeur": null,
@@ -337,7 +451,13 @@
         "date_source": null,
         "source_url": null,
         "statut": "A_COLLECTER",
-        "commentaire": null
+        "commentaire": null,
+        "recherche": {
+          "date": "2026-11-04",
+          "statut": "MANQUANT_RECHERCHE_NON_CLOSE",
+          "motif": "Analyse MCPA/IPS argumentée encore nécessaire; ce champ ne doit pas être rempli par une statistique de fournisseur.",
+          "journal": "journal_recherches"
+        }
       },
       "valorisation_historique": {
         "valeur": null,
@@ -346,7 +466,13 @@
         "date_source": null,
         "source_url": null,
         "statut": "A_COLLECTER",
-        "commentaire": null
+        "commentaire": null,
+        "recherche": {
+          "date": "2026-11-04",
+          "statut": "MANQUANT_RECHERCHE_NON_CLOSE",
+          "motif": "Analyse MCPA/IPS argumentée encore nécessaire; ce champ ne doit pas être rempli par une statistique de fournisseur.",
+          "journal": "journal_recherches"
+        }
       },
       "marge_securite_pct": {
         "valeur": null,
@@ -355,27 +481,35 @@
         "date_source": null,
         "source_url": null,
         "statut": "A_COLLECTER",
-        "commentaire": null
+        "commentaire": null,
+        "recherche": {
+          "date": "2026-11-04",
+          "statut": "MANQUANT_RECHERCHE_NON_CLOSE",
+          "motif": "Analyse MCPA/IPS argumentée encore nécessaire; ce champ ne doit pas être rempli par une statistique de fournisseur.",
+          "journal": "journal_recherches"
+        }
       }
     },
     "croissance": {
       "croissance_ca_1a_pct": {
-        "valeur": null,
-        "unite": null,
-        "periode": null,
-        "date_source": null,
-        "source_url": null,
-        "statut": "A_COLLECTER",
-        "commentaire": null
+        "valeur": 9.8,
+        "unite": "pct",
+        "periode": "FY 2025 / FY 2024; clôture Dec '25 Dec 31, 2025",
+        "date_source": "2026-11-04",
+        "source_url": "https://stockanalysis.com/quote/epa/ALBPK/financials/",
+        "statut": "SOURCE_SECONDAIRE_NON_RAPPROCHEE",
+        "commentaire": "Croissance publiée par le fournisseur si disponible; sinon calcul sur montants annuels arrondis, dénominateur positif.",
+        "date_collecte": "2026-11-04"
       },
       "croissance_ca_3a_cagr_pct": {
-        "valeur": null,
-        "unite": null,
-        "periode": null,
-        "date_source": null,
-        "source_url": null,
-        "statut": "A_COLLECTER",
-        "commentaire": null
+        "valeur": 2.437653859061051,
+        "unite": "pct",
+        "periode": "FY 2022 / FY 2025",
+        "date_source": "2026-11-04",
+        "source_url": "https://stockanalysis.com/quote/epa/ALBPK/financials/",
+        "statut": "SOURCE_SECONDAIRE_NON_RAPPROCHEE",
+        "commentaire": "CAGR annuel sur trois ans; pas de confusion avec prévision de croissance.",
+        "date_collecte": "2026-11-04"
       },
       "croissance_ebitda_pct": {
         "valeur": null,
@@ -384,7 +518,13 @@
         "date_source": null,
         "source_url": null,
         "statut": "A_COLLECTER",
-        "commentaire": null
+        "commentaire": null,
+        "recherche": {
+          "date": "2026-11-04",
+          "statut": "MANQUANT_RECHERCHE_NON_CLOSE",
+          "motif": "Aucune valeur vérifiée importée à cette étape; les recherches tracées ne démontrent pas une indisponibilité définitive.",
+          "journal": "journal_recherches"
+        }
       },
       "croissance_bpa_pct": {
         "valeur": null,
@@ -393,16 +533,23 @@
         "date_source": null,
         "source_url": null,
         "statut": "A_COLLECTER",
-        "commentaire": null
+        "commentaire": null,
+        "recherche": {
+          "date": "2026-11-04",
+          "statut": "MANQUANT_RECHERCHE_NON_CLOSE",
+          "motif": "Aucune valeur vérifiée importée à cette étape; les recherches tracées ne démontrent pas une indisponibilité définitive.",
+          "journal": "journal_recherches"
+        }
       },
       "croissance_fcf_pct": {
-        "valeur": null,
-        "unite": null,
-        "periode": null,
-        "date_source": null,
-        "source_url": null,
-        "statut": "A_COLLECTER",
-        "commentaire": null
+        "valeur": 35.29411764705881,
+        "unite": "pct",
+        "periode": "FY 2025 / FY 2024",
+        "date_source": "2026-11-04",
+        "source_url": "https://stockanalysis.com/quote/epa/ALBPK/financials/",
+        "statut": "SOURCE_SECONDAIRE_NON_RAPPROCHEE",
+        "commentaire": "FCF annuel fournisseur, montants arrondis; pas de pourcentage si base <=0.",
+        "date_collecte": "2026-11-04"
       },
       "carnet_commandes": {
         "valeur": null,
@@ -411,7 +558,13 @@
         "date_source": null,
         "source_url": null,
         "statut": "A_COLLECTER",
-        "commentaire": null
+        "commentaire": null,
+        "recherche": {
+          "date": "2026-11-04",
+          "statut": "MANQUANT_RECHERCHE_NON_CLOSE",
+          "motif": "Aucune valeur vérifiée importée à cette étape; les recherches tracées ne démontrent pas une indisponibilité définitive.",
+          "journal": "journal_recherches"
+        }
       },
       "book_to_bill": {
         "valeur": null,
@@ -420,25 +573,33 @@
         "date_source": null,
         "source_url": null,
         "statut": "A_COLLECTER",
-        "commentaire": null
+        "commentaire": null,
+        "recherche": {
+          "date": "2026-11-04",
+          "statut": "MANQUANT_RECHERCHE_NON_CLOSE",
+          "motif": "Aucune valeur vérifiée importée à cette étape; les recherches tracées ne démontrent pas une indisponibilité définitive.",
+          "journal": "journal_recherches"
+        }
       },
       "previsions_ca_1a": {
-        "valeur": null,
-        "unite": null,
-        "periode": null,
-        "date_source": null,
-        "source_url": null,
-        "statut": "A_COLLECTER",
-        "commentaire": null
+        "valeur": 43550000.0,
+        "unite": "EUR",
+        "periode": "exercice annuel prévisionnel clos au 2026-12-31",
+        "date_source": "2026-11-04",
+        "source_url": "https://stockanalysis.com/quote/epa/ALBPK/forecast/",
+        "statut": "SOURCE_SECONDAIRE_PREVISION_NON_RAPPROCHEE",
+        "commentaire": "Premier exercice futur affiché; consensus et non engagement de direction. BPA non-GAAP ajusté selon le fournisseur; ne pas comparer directement au BPA comptable. Devise USD pour les cinq émetteurs domestiques US, devise financière explicitée pour les autres.",
+        "date_collecte": "2026-11-04"
       },
       "previsions_bpa_1a": {
-        "valeur": null,
-        "unite": null,
-        "periode": null,
-        "date_source": null,
-        "source_url": null,
-        "statut": "A_COLLECTER",
-        "commentaire": null
+        "valeur": -0.02,
+        "unite": "EUR/action",
+        "periode": "exercice annuel prévisionnel clos au 2026-12-31",
+        "date_source": "2026-11-04",
+        "source_url": "https://stockanalysis.com/quote/epa/ALBPK/forecast/",
+        "statut": "SOURCE_SECONDAIRE_PREVISION_NON_RAPPROCHEE",
+        "commentaire": "Premier exercice futur affiché; consensus et non engagement de direction. BPA non-GAAP ajusté selon le fournisseur; ne pas comparer directement au BPA comptable. Devise USD pour les cinq émetteurs domestiques US, devise financière explicitée pour les autres.",
+        "date_collecte": "2026-11-04"
       },
       "revision_bpa_30j_pct": {
         "valeur": null,
@@ -447,7 +608,13 @@
         "date_source": null,
         "source_url": null,
         "statut": "A_COLLECTER",
-        "commentaire": null
+        "commentaire": null,
+        "recherche": {
+          "date": "2026-11-04",
+          "statut": "MANQUANT_RECHERCHE_NON_CLOSE",
+          "motif": "Pas de série datée de consensus BPA à J, J-30/J-90 validée; évolution objectif de cours ou guidance non substituable.",
+          "journal": "journal_recherches"
+        }
       },
       "revision_bpa_90j_pct": {
         "valeur": null,
@@ -456,7 +623,13 @@
         "date_source": null,
         "source_url": null,
         "statut": "A_COLLECTER",
-        "commentaire": null
+        "commentaire": null,
+        "recherche": {
+          "date": "2026-11-04",
+          "statut": "MANQUANT_RECHERCHE_NON_CLOSE",
+          "motif": "Pas de série datée de consensus BPA à J, J-30/J-90 validée; évolution objectif de cours ou guidance non substituable.",
+          "journal": "journal_recherches"
+        }
       },
       "peg": {
         "valeur": null,
@@ -465,7 +638,13 @@
         "date_source": null,
         "source_url": null,
         "statut": "A_COLLECTER",
-        "commentaire": null
+        "commentaire": null,
+        "recherche": {
+          "date": "2026-11-04",
+          "statut": "MANQUANT_RECHERCHE_NON_CLOSE",
+          "motif": "Aucune valeur vérifiée importée à cette étape; les recherches tracées ne démontrent pas une indisponibilité définitive.",
+          "journal": "journal_recherches"
+        }
       },
       "catalyseurs_dates": {
         "valeur": "Retour attendu à un EBIT positif en 2027 selon estimations Zonebourse; scénario soumis à risque d'exécution",
@@ -483,7 +662,13 @@
         "date_source": null,
         "source_url": null,
         "statut": "A_COLLECTER",
-        "commentaire": null
+        "commentaire": null,
+        "recherche": {
+          "date": "2026-11-04",
+          "statut": "MANQUANT_RECHERCHE_NON_CLOSE",
+          "motif": "Aucune valeur vérifiée importée à cette étape; les recherches tracées ne démontrent pas une indisponibilité définitive.",
+          "journal": "journal_recherches"
+        }
       }
     },
     "risque": {
@@ -494,7 +679,13 @@
         "date_source": null,
         "source_url": null,
         "statut": "A_COLLECTER",
-        "commentaire": null
+        "commentaire": null,
+        "recherche": {
+          "date": "2026-11-04",
+          "statut": "MANQUANT_RECHERCHE_NON_CLOSE",
+          "motif": "Aucune valeur vérifiée importée à cette étape; les recherches tracées ne démontrent pas une indisponibilité définitive.",
+          "journal": "journal_recherches"
+        }
       },
       "dette_brute": {
         "valeur": null,
@@ -503,7 +694,13 @@
         "date_source": null,
         "source_url": null,
         "statut": "A_COLLECTER",
-        "commentaire": null
+        "commentaire": null,
+        "recherche": {
+          "date": "2026-11-04",
+          "statut": "MANQUANT_RECHERCHE_NON_CLOSE",
+          "motif": "Aucune valeur vérifiée importée à cette étape; les recherches tracées ne démontrent pas une indisponibilité définitive.",
+          "journal": "journal_recherches"
+        }
       },
       "dette_nette": {
         "valeur": null,
@@ -512,7 +709,13 @@
         "date_source": null,
         "source_url": null,
         "statut": "A_COLLECTER",
-        "commentaire": null
+        "commentaire": null,
+        "recherche": {
+          "date": "2026-11-04",
+          "statut": "MANQUANT_RECHERCHE_NON_CLOSE",
+          "motif": "Aucune valeur vérifiée importée à cette étape; les recherches tracées ne démontrent pas une indisponibilité définitive.",
+          "journal": "journal_recherches"
+        }
       },
       "dette_nette_ebitda": {
         "valeur": null,
@@ -521,16 +724,23 @@
         "date_source": null,
         "source_url": null,
         "statut": "A_COLLECTER",
-        "commentaire": null
+        "commentaire": null,
+        "recherche": {
+          "date": "2026-11-04",
+          "statut": "MANQUANT_RECHERCHE_NON_CLOSE",
+          "motif": "Aucune valeur vérifiée importée à cette étape; les recherches tracées ne démontrent pas une indisponibilité définitive.",
+          "journal": "journal_recherches"
+        }
       },
       "couverture_interets": {
-        "valeur": null,
-        "unite": null,
-        "periode": null,
-        "date_source": null,
-        "source_url": null,
-        "statut": "A_COLLECTER",
-        "commentaire": null
+        "valeur": -14.91,
+        "unite": "ratio",
+        "periode": "TTM fournisseur; arrêté indiqué dans son tableau financier : Jun '26 Jun 30, 2026",
+        "date_source": "2026-11-04",
+        "source_url": "https://stockanalysis.com/quote/epa/ALBPK/statistics/",
+        "statut": "SOURCE_SECONDAIRE_NON_RAPPROCHEE",
+        "commentaire": "Donnée de fournisseur secondaire; ni certification des comptes ni validation MCPA. Arrêté précis à rapprocher. Date rapprochée au tableau financier du même fournisseur, sans certification primaire.",
+        "date_collecte": "2026-11-04"
       },
       "liquidite_courante": {
         "valeur": null,
@@ -539,7 +749,13 @@
         "date_source": null,
         "source_url": null,
         "statut": "A_COLLECTER",
-        "commentaire": null
+        "commentaire": null,
+        "recherche": {
+          "date": "2026-11-04",
+          "statut": "MANQUANT_RECHERCHE_NON_CLOSE",
+          "motif": "Aucune valeur vérifiée importée à cette étape; les recherches tracées ne démontrent pas une indisponibilité définitive.",
+          "journal": "journal_recherches"
+        }
       },
       "cash_runway_mois": {
         "valeur": null,
@@ -548,7 +764,13 @@
         "date_source": null,
         "source_url": null,
         "statut": "A_COLLECTER",
-        "commentaire": null
+        "commentaire": null,
+        "recherche": {
+          "date": "2026-11-04",
+          "statut": "MANQUANT_RECHERCHE_NON_CLOSE",
+          "motif": "Aucune valeur vérifiée importée à cette étape; les recherches tracées ne démontrent pas une indisponibilité définitive.",
+          "journal": "journal_recherches"
+        }
       },
       "dilution_3a_pct": {
         "valeur": null,
@@ -557,7 +779,13 @@
         "date_source": null,
         "source_url": null,
         "statut": "A_COLLECTER",
-        "commentaire": null
+        "commentaire": null,
+        "recherche": {
+          "date": "2026-11-04",
+          "statut": "MANQUANT_RECHERCHE_NON_CLOSE",
+          "motif": "Aucune valeur vérifiée importée à cette étape; les recherches tracées ne démontrent pas une indisponibilité définitive.",
+          "journal": "journal_recherches"
+        }
       },
       "risque_refinancement": {
         "valeur": null,
@@ -566,7 +794,13 @@
         "date_source": null,
         "source_url": null,
         "statut": "A_COLLECTER",
-        "commentaire": null
+        "commentaire": null,
+        "recherche": {
+          "date": "2026-11-04",
+          "statut": "MANQUANT_RECHERCHE_NON_CLOSE",
+          "motif": "Aucune valeur vérifiée importée à cette étape; les recherches tracées ne démontrent pas une indisponibilité définitive.",
+          "journal": "journal_recherches"
+        }
       },
       "risque_pays": {
         "valeur": null,
@@ -575,7 +809,13 @@
         "date_source": null,
         "source_url": null,
         "statut": "A_COLLECTER",
-        "commentaire": null
+        "commentaire": null,
+        "recherche": {
+          "date": "2026-11-04",
+          "statut": "MANQUANT_RECHERCHE_NON_CLOSE",
+          "motif": "Aucune valeur vérifiée importée à cette étape; les recherches tracées ne démontrent pas une indisponibilité définitive.",
+          "journal": "journal_recherches"
+        }
       },
       "risque_change": {
         "valeur": null,
@@ -584,7 +824,13 @@
         "date_source": null,
         "source_url": null,
         "statut": "A_COLLECTER",
-        "commentaire": null
+        "commentaire": null,
+        "recherche": {
+          "date": "2026-11-04",
+          "statut": "MANQUANT_RECHERCHE_NON_CLOSE",
+          "motif": "Aucune valeur vérifiée importée à cette étape; les recherches tracées ne démontrent pas une indisponibilité définitive.",
+          "journal": "journal_recherches"
+        }
       },
       "risque_gouvernance": {
         "valeur": null,
@@ -593,7 +839,13 @@
         "date_source": null,
         "source_url": null,
         "statut": "A_COLLECTER",
-        "commentaire": null
+        "commentaire": null,
+        "recherche": {
+          "date": "2026-11-04",
+          "statut": "MANQUANT_RECHERCHE_NON_CLOSE",
+          "motif": "Aucune valeur vérifiée importée à cette étape; les recherches tracées ne démontrent pas une indisponibilité définitive.",
+          "journal": "journal_recherches"
+        }
       },
       "risque_reglementaire": {
         "valeur": null,
@@ -602,7 +854,13 @@
         "date_source": null,
         "source_url": null,
         "statut": "A_COLLECTER",
-        "commentaire": null
+        "commentaire": null,
+        "recherche": {
+          "date": "2026-11-04",
+          "statut": "MANQUANT_RECHERCHE_NON_CLOSE",
+          "motif": "Aucune valeur vérifiée importée à cette étape; les recherches tracées ne démontrent pas une indisponibilité définitive.",
+          "journal": "journal_recherches"
+        }
       },
       "risque_concentration": {
         "valeur": null,
@@ -611,7 +869,13 @@
         "date_source": null,
         "source_url": null,
         "statut": "A_COLLECTER",
-        "commentaire": null
+        "commentaire": null,
+        "recherche": {
+          "date": "2026-11-04",
+          "statut": "MANQUANT_RECHERCHE_NON_CLOSE",
+          "motif": "Aucune valeur vérifiée importée à cette étape; les recherches tracées ne démontrent pas une indisponibilité définitive.",
+          "journal": "journal_recherches"
+        }
       },
       "transactions_initiees_net_90j": {
         "valeur": null,
@@ -620,7 +884,13 @@
         "date_source": null,
         "source_url": null,
         "statut": "A_COLLECTER",
-        "commentaire": null
+        "commentaire": null,
+        "recherche": {
+          "date": "2026-11-04",
+          "statut": "MANQUANT_RECHERCHE_NON_CLOSE",
+          "motif": "Registre complet des transactions, codes et prix non validé sur toute la fenêtre; transaction isolée ≠ net exhaustif.",
+          "journal": "journal_recherches"
+        }
       },
       "transactions_initiees_net_180j": {
         "valeur": null,
@@ -629,63 +899,75 @@
         "date_source": null,
         "source_url": null,
         "statut": "A_COLLECTER",
-        "commentaire": null
+        "commentaire": null,
+        "recherche": {
+          "date": "2026-11-04",
+          "statut": "MANQUANT_RECHERCHE_NON_CLOSE",
+          "motif": "Registre complet des transactions, codes et prix non validé sur toute la fenêtre; transaction isolée ≠ net exhaustif.",
+          "journal": "journal_recherches"
+        }
       }
     },
     "momentum": {
       "prix_vers_mm200": {
-        "valeur": null,
-        "unite": null,
-        "periode": null,
-        "date_source": null,
-        "source_url": null,
-        "statut": "A_COLLECTER",
-        "commentaire": null
+        "valeur": 0.7252134820540045,
+        "unite": "ratio",
+        "periode": "200 dernières séances",
+        "date_source": "2026-11-03",
+        "source_url": "https://query1.finance.yahoo.com/v8/finance/chart/ALBPK.PA?range=5y&interval=1d&events=div%2Csplits",
+        "statut": "CALCULE_HISTORIQUE_SECONDAIRE",
+        "commentaire": "Cours ajusté / moyenne mobile 200 séances.",
+        "date_collecte": "2026-11-04"
       },
       "momentum_1m_pct": {
-        "valeur": null,
-        "unite": null,
-        "periode": null,
-        "date_source": null,
-        "source_url": null,
-        "statut": "A_COLLECTER",
-        "commentaire": null
+        "valeur": -16.06217363753816,
+        "unite": "pct",
+        "periode": "2026-10-02 / 2026-11-03",
+        "date_source": "2026-11-03",
+        "source_url": "https://query1.finance.yahoo.com/v8/finance/chart/ALBPK.PA?range=5y&interval=1d&events=div%2Csplits",
+        "statut": "CALCULE_HISTORIQUE_SECONDAIRE",
+        "commentaire": "Cours ajustés, ancrage calendaire; dernière séance <= date cible.",
+        "date_collecte": "2026-11-04"
       },
       "momentum_3m_pct": {
-        "valeur": null,
-        "unite": null,
-        "periode": null,
-        "date_source": null,
-        "source_url": null,
-        "statut": "A_COLLECTER",
-        "commentaire": null
+        "valeur": -31.64556611840451,
+        "unite": "pct",
+        "periode": "2026-08-03 / 2026-11-03",
+        "date_source": "2026-11-03",
+        "source_url": "https://query1.finance.yahoo.com/v8/finance/chart/ALBPK.PA?range=5y&interval=1d&events=div%2Csplits",
+        "statut": "CALCULE_HISTORIQUE_SECONDAIRE",
+        "commentaire": "Cours ajustés, ancrage calendaire; dernière séance <= date cible.",
+        "date_collecte": "2026-11-04"
       },
       "momentum_6m_pct": {
-        "valeur": null,
-        "unite": null,
-        "periode": null,
-        "date_source": null,
-        "source_url": null,
-        "statut": "A_COLLECTER",
-        "commentaire": null
+        "valeur": -27.678571523604344,
+        "unite": "pct",
+        "periode": "2026-04-30 / 2026-11-03",
+        "date_source": "2026-11-03",
+        "source_url": "https://query1.finance.yahoo.com/v8/finance/chart/ALBPK.PA?range=5y&interval=1d&events=div%2Csplits",
+        "statut": "CALCULE_HISTORIQUE_SECONDAIRE",
+        "commentaire": "Cours ajustés, ancrage calendaire; dernière séance <= date cible.",
+        "date_collecte": "2026-11-04"
       },
       "momentum_12m_pct": {
-        "valeur": null,
-        "unite": null,
-        "periode": null,
-        "date_source": null,
-        "source_url": null,
-        "statut": "A_COLLECTER",
-        "commentaire": null
+        "valeur": -33.877552112704834,
+        "unite": "pct",
+        "periode": "2025-11-03 / 2026-11-03",
+        "date_source": "2026-11-03",
+        "source_url": "https://query1.finance.yahoo.com/v8/finance/chart/ALBPK.PA?range=5y&interval=1d&events=div%2Csplits",
+        "statut": "CALCULE_HISTORIQUE_SECONDAIRE",
+        "commentaire": "Cours ajustés, ancrage calendaire; dernière séance <= date cible.",
+        "date_collecte": "2026-11-04"
       },
       "momentum_6_1_pct": {
-        "valeur": null,
-        "unite": null,
-        "periode": null,
-        "date_source": null,
-        "source_url": null,
-        "statut": "A_COLLECTER",
-        "commentaire": null
+        "valeur": -13.839288422723806,
+        "unite": "pct",
+        "periode": "2026-04-30 / 2026-10-02",
+        "date_source": "2026-11-03",
+        "source_url": "https://query1.finance.yahoo.com/v8/finance/chart/ALBPK.PA?range=5y&interval=1d&events=div%2Csplits",
+        "statut": "CALCULE_HISTORIQUE_SECONDAIRE",
+        "commentaire": "Momentum 6–1 : prix à -1 mois / prix à -6 mois - 1; aucune modification de la règle de sélection.",
+        "date_collecte": "2026-11-04"
       },
       "force_relative_indice": {
         "valeur": null,
@@ -694,52 +976,63 @@
         "date_source": null,
         "source_url": null,
         "statut": "A_COLLECTER",
-        "commentaire": null
+        "commentaire": null,
+        "recherche": {
+          "date": "2026-11-04",
+          "statut": "MANQUANT_RECHERCHE_NON_CLOSE",
+          "motif": "Aucune valeur vérifiée importée à cette étape; les recherches tracées ne démontrent pas une indisponibilité définitive.",
+          "journal": "journal_recherches"
+        }
       },
       "volume_moyen_20j": {
-        "valeur": null,
-        "unite": null,
-        "periode": null,
-        "date_source": null,
-        "source_url": null,
-        "statut": "A_COLLECTER",
-        "commentaire": null
+        "valeur": 10142.35,
+        "unite": "titres",
+        "periode": "20 dernières séances",
+        "date_source": "2026-11-03",
+        "source_url": "https://query1.finance.yahoo.com/v8/finance/chart/ALBPK.PA?range=5y&interval=1d&events=div%2Csplits",
+        "statut": "CALCULE_HISTORIQUE_SECONDAIRE",
+        "commentaire": "Moyenne arithmétique des volumes Yahoo non ajustés.",
+        "date_collecte": "2026-11-04"
       },
       "ratio_volume": {
-        "valeur": null,
-        "unite": null,
-        "periode": null,
-        "date_source": null,
-        "source_url": null,
-        "statut": "A_COLLECTER",
-        "commentaire": null
+        "valeur": 0.7272476299871331,
+        "unite": "ratio",
+        "periode": "dernière séance / moyenne 20 séances",
+        "date_source": "2026-11-03",
+        "source_url": "https://query1.finance.yahoo.com/v8/finance/chart/ALBPK.PA?range=5y&interval=1d&events=div%2Csplits",
+        "statut": "CALCULE_HISTORIQUE_SECONDAIRE",
+        "commentaire": "Ratio de volume de la dernière séance.",
+        "date_collecte": "2026-11-04"
       },
       "tendance_mm200": {
-        "valeur": null,
-        "unite": null,
-        "periode": null,
-        "date_source": null,
-        "source_url": null,
-        "statut": "A_COLLECTER",
-        "commentaire": null
+        "valeur": -2.4147046891028534,
+        "unite": "pct",
+        "periode": "variation MM200 sur 20 séances",
+        "date_source": "2026-11-03",
+        "source_url": "https://query1.finance.yahoo.com/v8/finance/chart/ALBPK.PA?range=5y&interval=1d&events=div%2Csplits",
+        "statut": "CALCULE_HISTORIQUE_SECONDAIRE",
+        "commentaire": "Pente approchée par variation MM200(t)/MM200(t-20)-1; niveau MM200 non confondu avec pente.",
+        "date_collecte": "2026-11-04"
       },
       "volatilite_90j_pct": {
-        "valeur": null,
-        "unite": null,
-        "periode": null,
-        "date_source": null,
-        "source_url": null,
-        "statut": "A_COLLECTER",
-        "commentaire": null
+        "valeur": 47.51069570281514,
+        "unite": "pct",
+        "periode": "90 rendements quotidiens",
+        "date_source": "2026-11-03",
+        "source_url": "https://query1.finance.yahoo.com/v8/finance/chart/ALBPK.PA?range=5y&interval=1d&events=div%2Csplits",
+        "statut": "CALCULE_HISTORIQUE_SECONDAIRE",
+        "commentaire": "Écart-type échantillon des log-rendements ajustés annualisé sqrt(252).",
+        "date_collecte": "2026-11-04"
       },
       "drawdown_12m_pct": {
-        "valeur": null,
-        "unite": null,
-        "periode": null,
-        "date_source": null,
-        "source_url": null,
-        "statut": "A_COLLECTER",
-        "commentaire": null
+        "valeur": -46.26865591974191,
+        "unite": "pct",
+        "periode": "2025-11-03 / 2026-11-03",
+        "date_source": "2026-11-03",
+        "source_url": "https://query1.finance.yahoo.com/v8/finance/chart/ALBPK.PA?range=5y&interval=1d&events=div%2Csplits",
+        "statut": "CALCULE_HISTORIQUE_SECONDAIRE",
+        "commentaire": "Maximum drawdown du prix ajusté sur la fenêtre, valeur négative.",
+        "date_collecte": "2026-11-04"
       }
     },
     "diversification": {
@@ -750,16 +1043,23 @@
         "date_source": null,
         "source_url": null,
         "statut": "A_COLLECTER",
-        "commentaire": null
+        "commentaire": null,
+        "recherche": {
+          "date": "2026-11-04",
+          "statut": "MANQUANT_RECHERCHE_NON_CLOSE",
+          "motif": "Aucune valeur vérifiée importée à cette étape; les recherches tracées ne démontrent pas une indisponibilité définitive.",
+          "journal": "journal_recherches"
+        }
       },
       "exposition_sectorielle": {
-        "valeur": null,
-        "unite": null,
-        "periode": null,
-        "date_source": null,
-        "source_url": null,
-        "statut": "A_COLLECTER",
-        "commentaire": null
+        "valeur": "Technology",
+        "unite": "classification fournisseur",
+        "periode": "profil au 2026-11-04",
+        "date_source": "2026-11-04",
+        "source_url": "https://stockanalysis.com/quote/epa/ALBPK/company/",
+        "statut": "SOURCE_SECONDAIRE_NON_RAPPROCHEE",
+        "commentaire": "Secteur de l’émetteur; ne représente pas la répartition de son CA par secteur.",
+        "date_collecte": "2026-11-04"
       },
       "correlation_portefeuille": {
         "valeur": null,
@@ -768,7 +1068,13 @@
         "date_source": null,
         "source_url": null,
         "statut": "A_COLLECTER",
-        "commentaire": null
+        "commentaire": null,
+        "recherche": {
+          "date": "2026-11-04",
+          "statut": "MANQUANT_RECHERCHE_NON_CLOSE",
+          "motif": "Aucune valeur vérifiée importée à cette étape; les recherches tracées ne démontrent pas une indisponibilité définitive.",
+          "journal": "journal_recherches"
+        }
       },
       "concentration_theme": {
         "valeur": null,
@@ -777,7 +1083,13 @@
         "date_source": null,
         "source_url": null,
         "statut": "A_COLLECTER",
-        "commentaire": null
+        "commentaire": null,
+        "recherche": {
+          "date": "2026-11-04",
+          "statut": "MANQUANT_RECHERCHE_NON_CLOSE",
+          "motif": "Aucune valeur vérifiée importée à cette étape; les recherches tracées ne démontrent pas une indisponibilité définitive.",
+          "journal": "journal_recherches"
+        }
       },
       "interet_strategique": {
         "valeur": null,
@@ -786,7 +1098,13 @@
         "date_source": null,
         "source_url": null,
         "statut": "A_COLLECTER",
-        "commentaire": null
+        "commentaire": null,
+        "recherche": {
+          "date": "2026-11-04",
+          "statut": "MANQUANT_RECHERCHE_NON_CLOSE",
+          "motif": "Analyse MCPA/IPS argumentée encore nécessaire; ce champ ne doit pas être rempli par une statistique de fournisseur.",
+          "journal": "journal_recherches"
+        }
       },
       "complementarite_portefeuille": {
         "valeur": null,
@@ -795,7 +1113,13 @@
         "date_source": null,
         "source_url": null,
         "statut": "A_COLLECTER",
-        "commentaire": null
+        "commentaire": null,
+        "recherche": {
+          "date": "2026-11-04",
+          "statut": "MANQUANT_RECHERCHE_NON_CLOSE",
+          "motif": "Analyse MCPA/IPS argumentée encore nécessaire; ce champ ne doit pas être rempli par une statistique de fournisseur.",
+          "journal": "journal_recherches"
+        }
       }
     },
     "complements": {
@@ -806,7 +1130,13 @@
         "date_source": null,
         "source_url": null,
         "statut": "A_COLLECTER",
-        "commentaire": null
+        "commentaire": null,
+        "recherche": {
+          "date": "2026-11-04",
+          "statut": "MANQUANT_RECHERCHE_NON_CLOSE",
+          "motif": "Analyse MCPA/IPS argumentée encore nécessaire; ce champ ne doit pas être rempli par une statistique de fournisseur.",
+          "journal": "journal_recherches"
+        }
       },
       "ic_sur_5": {
         "valeur": null,
@@ -815,7 +1145,13 @@
         "date_source": null,
         "source_url": null,
         "statut": "A_COLLECTER",
-        "commentaire": null
+        "commentaire": null,
+        "recherche": {
+          "date": "2026-11-04",
+          "statut": "MANQUANT_RECHERCHE_NON_CLOSE",
+          "motif": "Analyse MCPA/IPS argumentée encore nécessaire; ce champ ne doit pas être rempli par une statistique de fournisseur.",
+          "journal": "journal_recherches"
+        }
       },
       "cx_sur_5": {
         "valeur": null,
@@ -824,7 +1160,13 @@
         "date_source": null,
         "source_url": null,
         "statut": "A_COLLECTER",
-        "commentaire": null
+        "commentaire": null,
+        "recherche": {
+          "date": "2026-11-04",
+          "statut": "MANQUANT_RECHERCHE_NON_CLOSE",
+          "motif": "Analyse MCPA/IPS argumentée encore nécessaire; ce champ ne doit pas être rempli par une statistique de fournisseur.",
+          "journal": "journal_recherches"
+        }
       },
       "delta": {
         "valeur": null,
@@ -833,7 +1175,13 @@
         "date_source": null,
         "source_url": null,
         "statut": "A_COLLECTER",
-        "commentaire": null
+        "commentaire": null,
+        "recherche": {
+          "date": "2026-11-04",
+          "statut": "MANQUANT_RECHERCHE_NON_CLOSE",
+          "motif": "Analyse MCPA/IPS argumentée encore nécessaire; ce champ ne doit pas être rempli par une statistique de fournisseur.",
+          "journal": "journal_recherches"
+        }
       },
       "wwws": {
         "valeur": null,
@@ -842,7 +1190,13 @@
         "date_source": null,
         "source_url": null,
         "statut": "A_COLLECTER",
-        "commentaire": null
+        "commentaire": null,
+        "recherche": {
+          "date": "2026-11-04",
+          "statut": "MANQUANT_RECHERCHE_NON_CLOSE",
+          "motif": "Analyse MCPA/IPS argumentée encore nécessaire; ce champ ne doit pas être rempli par une statistique de fournisseur.",
+          "journal": "journal_recherches"
+        }
       },
       "scenario_bear_3m_pct": {
         "valeur": null,
@@ -851,7 +1205,13 @@
         "date_source": null,
         "source_url": null,
         "statut": "A_COLLECTER",
-        "commentaire": null
+        "commentaire": null,
+        "recherche": {
+          "date": "2026-11-04",
+          "statut": "MANQUANT_RECHERCHE_NON_CLOSE",
+          "motif": "Analyse MCPA/IPS argumentée encore nécessaire; ce champ ne doit pas être rempli par une statistique de fournisseur.",
+          "journal": "journal_recherches"
+        }
       },
       "prob_bear_3m_pct": {
         "valeur": null,
@@ -860,7 +1220,13 @@
         "date_source": null,
         "source_url": null,
         "statut": "A_COLLECTER",
-        "commentaire": null
+        "commentaire": null,
+        "recherche": {
+          "date": "2026-11-04",
+          "statut": "MANQUANT_RECHERCHE_NON_CLOSE",
+          "motif": "Analyse MCPA/IPS argumentée encore nécessaire; ce champ ne doit pas être rempli par une statistique de fournisseur.",
+          "journal": "journal_recherches"
+        }
       },
       "scenario_central_3m_pct": {
         "valeur": null,
@@ -869,7 +1235,13 @@
         "date_source": null,
         "source_url": null,
         "statut": "A_COLLECTER",
-        "commentaire": null
+        "commentaire": null,
+        "recherche": {
+          "date": "2026-11-04",
+          "statut": "MANQUANT_RECHERCHE_NON_CLOSE",
+          "motif": "Analyse MCPA/IPS argumentée encore nécessaire; ce champ ne doit pas être rempli par une statistique de fournisseur.",
+          "journal": "journal_recherches"
+        }
       },
       "prob_central_3m_pct": {
         "valeur": null,
@@ -878,7 +1250,13 @@
         "date_source": null,
         "source_url": null,
         "statut": "A_COLLECTER",
-        "commentaire": null
+        "commentaire": null,
+        "recherche": {
+          "date": "2026-11-04",
+          "statut": "MANQUANT_RECHERCHE_NON_CLOSE",
+          "motif": "Analyse MCPA/IPS argumentée encore nécessaire; ce champ ne doit pas être rempli par une statistique de fournisseur.",
+          "journal": "journal_recherches"
+        }
       },
       "scenario_bull_3m_pct": {
         "valeur": null,
@@ -887,7 +1265,13 @@
         "date_source": null,
         "source_url": null,
         "statut": "A_COLLECTER",
-        "commentaire": null
+        "commentaire": null,
+        "recherche": {
+          "date": "2026-11-04",
+          "statut": "MANQUANT_RECHERCHE_NON_CLOSE",
+          "motif": "Analyse MCPA/IPS argumentée encore nécessaire; ce champ ne doit pas être rempli par une statistique de fournisseur.",
+          "journal": "journal_recherches"
+        }
       },
       "prob_bull_3m_pct": {
         "valeur": null,
@@ -896,7 +1280,13 @@
         "date_source": null,
         "source_url": null,
         "statut": "A_COLLECTER",
-        "commentaire": null
+        "commentaire": null,
+        "recherche": {
+          "date": "2026-11-04",
+          "statut": "MANQUANT_RECHERCHE_NON_CLOSE",
+          "motif": "Analyse MCPA/IPS argumentée encore nécessaire; ce champ ne doit pas être rempli par une statistique de fournisseur.",
+          "journal": "journal_recherches"
+        }
       },
       "scenario_bear_6m_pct": {
         "valeur": null,
@@ -905,7 +1295,13 @@
         "date_source": null,
         "source_url": null,
         "statut": "A_COLLECTER",
-        "commentaire": null
+        "commentaire": null,
+        "recherche": {
+          "date": "2026-11-04",
+          "statut": "MANQUANT_RECHERCHE_NON_CLOSE",
+          "motif": "Analyse MCPA/IPS argumentée encore nécessaire; ce champ ne doit pas être rempli par une statistique de fournisseur.",
+          "journal": "journal_recherches"
+        }
       },
       "prob_bear_6m_pct": {
         "valeur": null,
@@ -914,7 +1310,13 @@
         "date_source": null,
         "source_url": null,
         "statut": "A_COLLECTER",
-        "commentaire": null
+        "commentaire": null,
+        "recherche": {
+          "date": "2026-11-04",
+          "statut": "MANQUANT_RECHERCHE_NON_CLOSE",
+          "motif": "Analyse MCPA/IPS argumentée encore nécessaire; ce champ ne doit pas être rempli par une statistique de fournisseur.",
+          "journal": "journal_recherches"
+        }
       },
       "scenario_central_6m_pct": {
         "valeur": null,
@@ -923,7 +1325,13 @@
         "date_source": null,
         "source_url": null,
         "statut": "A_COLLECTER",
-        "commentaire": null
+        "commentaire": null,
+        "recherche": {
+          "date": "2026-11-04",
+          "statut": "MANQUANT_RECHERCHE_NON_CLOSE",
+          "motif": "Analyse MCPA/IPS argumentée encore nécessaire; ce champ ne doit pas être rempli par une statistique de fournisseur.",
+          "journal": "journal_recherches"
+        }
       },
       "prob_central_6m_pct": {
         "valeur": null,
@@ -932,7 +1340,13 @@
         "date_source": null,
         "source_url": null,
         "statut": "A_COLLECTER",
-        "commentaire": null
+        "commentaire": null,
+        "recherche": {
+          "date": "2026-11-04",
+          "statut": "MANQUANT_RECHERCHE_NON_CLOSE",
+          "motif": "Analyse MCPA/IPS argumentée encore nécessaire; ce champ ne doit pas être rempli par une statistique de fournisseur.",
+          "journal": "journal_recherches"
+        }
       },
       "scenario_bull_6m_pct": {
         "valeur": null,
@@ -941,7 +1355,13 @@
         "date_source": null,
         "source_url": null,
         "statut": "A_COLLECTER",
-        "commentaire": null
+        "commentaire": null,
+        "recherche": {
+          "date": "2026-11-04",
+          "statut": "MANQUANT_RECHERCHE_NON_CLOSE",
+          "motif": "Analyse MCPA/IPS argumentée encore nécessaire; ce champ ne doit pas être rempli par une statistique de fournisseur.",
+          "journal": "journal_recherches"
+        }
       },
       "prob_bull_6m_pct": {
         "valeur": null,
@@ -950,7 +1370,13 @@
         "date_source": null,
         "source_url": null,
         "statut": "A_COLLECTER",
-        "commentaire": null
+        "commentaire": null,
+        "recherche": {
+          "date": "2026-11-04",
+          "statut": "MANQUANT_RECHERCHE_NON_CLOSE",
+          "motif": "Analyse MCPA/IPS argumentée encore nécessaire; ce champ ne doit pas être rempli par une statistique de fournisseur.",
+          "journal": "journal_recherches"
+        }
       },
       "role_ips": {
         "valeur": null,
@@ -959,7 +1385,13 @@
         "date_source": null,
         "source_url": null,
         "statut": "A_COLLECTER",
-        "commentaire": null
+        "commentaire": null,
+        "recherche": {
+          "date": "2026-11-04",
+          "statut": "MANQUANT_RECHERCHE_NON_CLOSE",
+          "motif": "Analyse MCPA/IPS argumentée encore nécessaire; ce champ ne doit pas être rempli par une statistique de fournisseur.",
+          "journal": "journal_recherches"
+        }
       },
       "decision": {
         "valeur": null,
@@ -968,7 +1400,13 @@
         "date_source": null,
         "source_url": null,
         "statut": "A_COLLECTER",
-        "commentaire": null
+        "commentaire": null,
+        "recherche": {
+          "date": "2026-11-04",
+          "statut": "MANQUANT_RECHERCHE_NON_CLOSE",
+          "motif": "Analyse MCPA/IPS argumentée encore nécessaire; ce champ ne doit pas être rempli par une statistique de fournisseur.",
+          "journal": "journal_recherches"
+        }
       },
       "condition_renforcement": {
         "valeur": null,
@@ -977,7 +1415,13 @@
         "date_source": null,
         "source_url": null,
         "statut": "A_COLLECTER",
-        "commentaire": null
+        "commentaire": null,
+        "recherche": {
+          "date": "2026-11-04",
+          "statut": "MANQUANT_RECHERCHE_NON_CLOSE",
+          "motif": "Analyse MCPA/IPS argumentée encore nécessaire; ce champ ne doit pas être rempli par une statistique de fournisseur.",
+          "journal": "journal_recherches"
+        }
       },
       "condition_allegement_sortie": {
         "valeur": null,
@@ -986,7 +1430,13 @@
         "date_source": null,
         "source_url": null,
         "statut": "A_COLLECTER",
-        "commentaire": null
+        "commentaire": null,
+        "recherche": {
+          "date": "2026-11-04",
+          "statut": "MANQUANT_RECHERCHE_NON_CLOSE",
+          "motif": "Analyse MCPA/IPS argumentée encore nécessaire; ce champ ne doit pas être rempli par une statistique de fournisseur.",
+          "journal": "journal_recherches"
+        }
       },
       "challengers_compares": {
         "valeur": null,
@@ -995,7 +1445,13 @@
         "date_source": null,
         "source_url": null,
         "statut": "A_COLLECTER",
-        "commentaire": null
+        "commentaire": null,
+        "recherche": {
+          "date": "2026-11-04",
+          "statut": "MANQUANT_RECHERCHE_NON_CLOSE",
+          "motif": "Analyse MCPA/IPS argumentée encore nécessaire; ce champ ne doit pas être rempli par une statistique de fournisseur.",
+          "journal": "journal_recherches"
+        }
       }
     }
   },
@@ -1084,6 +1540,407 @@
     }
   ],
   "anomalies": [],
-  "statut_fiche": "A_COMPLETER",
-  "arbitrage_autorise": false
+  "statut_fiche": "ENRICHIE_NON_VALIDEE",
+  "arbitrage_autorise": false,
+  "observations_complementaires": [
+    {
+      "bloc": "croissance",
+      "champ": "catalyseurs_dates",
+      "valeur": "Nov 11, 2026",
+      "unite": "date estimée",
+      "periode": "prochaine publication fournisseur",
+      "date_source": "2026-11-04",
+      "source_url": "https://stockanalysis.com/quote/epa/ALBPK/statistics/",
+      "statut": "CALENDRIER_SECONDAIRE_A_CONFIRMER",
+      "commentaire": "Ne remplace pas un calendrier officiel.",
+      "date_collecte": "2026-11-04"
+    },
+    {
+      "bloc": "croissance",
+      "champ": "catalyseurs_dates",
+      "valeur": "Nov 11, 2026",
+      "unite": "date fournisseur",
+      "periode": "publication mentionnée par le fournisseur; vérifier si passée ou future",
+      "date_source": "2026-11-04",
+      "source_url": "https://stockanalysis.com/quote/epa/ALBPK/statistics/",
+      "statut": "CALENDRIER_SECONDAIRE_A_CONFIRMER",
+      "commentaire": "Ne remplace pas un calendrier officiel.",
+      "date_collecte": "2026-11-04"
+    },
+    {
+      "bloc": "identite",
+      "champ": "isin",
+      "valeur": "FR001400AJZ7",
+      "unite": "identifiant",
+      "periode": "profil émetteur au 2026-11-04",
+      "date_source": "2026-11-04",
+      "source_url": "https://stockanalysis.com/quote/epa/ALBPK/company/",
+      "statut": "SOURCE_SECONDAIRE_NON_RAPPROCHEE",
+      "commentaire": "Profil de la cotation exacte; identité à corroborer avec une source réglementaire.",
+      "date_collecte": "2026-11-04"
+    },
+    {
+      "bloc": "croissance",
+      "champ": "croissance_ca_1a_pct",
+      "valeur": 9.8,
+      "unite": "pct",
+      "periode": "FY 2025 / FY 2024; clôture Dec '25 Dec 31, 2025",
+      "date_source": "2026-11-04",
+      "source_url": "https://stockanalysis.com/quote/epa/ALBPK/financials/",
+      "statut": "SOURCE_SECONDAIRE_NON_RAPPROCHEE",
+      "commentaire": "Croissance publiée par le fournisseur si disponible; sinon calcul sur montants annuels arrondis, dénominateur positif.",
+      "date_collecte": "2026-11-04"
+    },
+    {
+      "bloc": "croissance",
+      "champ": "croissance_ca_1a_pct",
+      "valeur": 9.79050876442924,
+      "unite": "pct",
+      "periode": "FY 2025 / FY 2024; clôture Dec '25 Dec 31, 2025",
+      "date_source": "2026-11-04",
+      "source_url": "https://stockanalysis.com/quote/epa/ALBPK/financials/",
+      "statut": "SOURCE_SECONDAIRE_NON_RAPPROCHEE",
+      "commentaire": "Calcul sur exercices annuels fournisseur; dénominateur strictement positif.",
+      "date_collecte": "2026-11-04"
+    },
+    {
+      "bloc": "valorisation",
+      "champ": "ev_ca",
+      "valeur": 0.54,
+      "unite": "ratio",
+      "periode": "TTM fournisseur; arrêté indiqué dans son tableau financier : Jun '26 Jun 30, 2026",
+      "date_source": "2026-11-04",
+      "source_url": "https://stockanalysis.com/quote/epa/ALBPK/statistics/",
+      "statut": "SOURCE_SECONDAIRE_NON_RAPPROCHEE",
+      "commentaire": "Donnée de fournisseur secondaire; ni certification des comptes ni validation MCPA. Arrêté précis à rapprocher. Date rapprochée au tableau financier du même fournisseur, sans certification primaire.",
+      "date_collecte": "2026-11-04"
+    },
+    {
+      "bloc": "risque",
+      "champ": "couverture_interets",
+      "valeur": -14.91,
+      "unite": "ratio",
+      "periode": "TTM fournisseur; arrêté indiqué dans son tableau financier : Jun '26 Jun 30, 2026",
+      "date_source": "2026-11-04",
+      "source_url": "https://stockanalysis.com/quote/epa/ALBPK/statistics/",
+      "statut": "SOURCE_SECONDAIRE_NON_RAPPROCHEE",
+      "commentaire": "Donnée de fournisseur secondaire; ni certification des comptes ni validation MCPA. Arrêté précis à rapprocher. Date rapprochée au tableau financier du même fournisseur, sans certification primaire.",
+      "date_collecte": "2026-11-04"
+    },
+    {
+      "bloc": "qualite",
+      "champ": "ca_ttm",
+      "valeur": 46840000.0,
+      "unite": "EUR",
+      "periode": "TTM fournisseur; arrêté indiqué dans son tableau financier : Jun '26 Jun 30, 2026",
+      "date_source": "2026-11-04",
+      "source_url": "https://stockanalysis.com/quote/epa/ALBPK/statistics/",
+      "statut": "SOURCE_SECONDAIRE_NON_RAPPROCHEE",
+      "commentaire": "Donnée de fournisseur secondaire; ni certification des comptes ni validation MCPA. Arrêté précis à rapprocher. Date rapprochée au tableau financier du même fournisseur, sans certification primaire.",
+      "date_collecte": "2026-11-04"
+    },
+    {
+      "bloc": "qualite",
+      "champ": "marge_brute_pct",
+      "valeur": 80.53,
+      "unite": "pct",
+      "periode": "TTM fournisseur; arrêté indiqué dans son tableau financier : Jun '26 Jun 30, 2026",
+      "date_source": "2026-11-04",
+      "source_url": "https://stockanalysis.com/quote/epa/ALBPK/statistics/",
+      "statut": "SOURCE_SECONDAIRE_NON_RAPPROCHEE",
+      "commentaire": "Donnée de fournisseur secondaire; ni certification des comptes ni validation MCPA. Arrêté précis à rapprocher. Date rapprochée au tableau financier du même fournisseur, sans certification primaire.",
+      "date_collecte": "2026-11-04"
+    },
+    {
+      "bloc": "qualite",
+      "champ": "marge_ebit_pct",
+      "valeur": -13.88,
+      "unite": "pct",
+      "periode": "TTM fournisseur; arrêté indiqué dans son tableau financier : Jun '26 Jun 30, 2026",
+      "date_source": "2026-11-04",
+      "source_url": "https://stockanalysis.com/quote/epa/ALBPK/statistics/",
+      "statut": "SOURCE_SECONDAIRE_NON_RAPPROCHEE",
+      "commentaire": "Donnée de fournisseur secondaire; ni certification des comptes ni validation MCPA. Arrêté précis à rapprocher. Date rapprochée au tableau financier du même fournisseur, sans certification primaire.",
+      "date_collecte": "2026-11-04"
+    },
+    {
+      "bloc": "qualite",
+      "champ": "marge_nette_pct",
+      "valeur": -6.48,
+      "unite": "pct",
+      "periode": "TTM fournisseur; arrêté indiqué dans son tableau financier : Jun '26 Jun 30, 2026",
+      "date_source": "2026-11-04",
+      "source_url": "https://stockanalysis.com/quote/epa/ALBPK/statistics/",
+      "statut": "SOURCE_SECONDAIRE_NON_RAPPROCHEE",
+      "commentaire": "Donnée de fournisseur secondaire; ni certification des comptes ni validation MCPA. Arrêté précis à rapprocher. Date rapprochée au tableau financier du même fournisseur, sans certification primaire.",
+      "date_collecte": "2026-11-04"
+    },
+    {
+      "bloc": "qualite",
+      "champ": "marge_ebitda_pct",
+      "valeur": -13.58,
+      "unite": "pct",
+      "periode": "TTM fournisseur; arrêté indiqué dans son tableau financier : Jun '26 Jun 30, 2026",
+      "date_source": "2026-11-04",
+      "source_url": "https://stockanalysis.com/quote/epa/ALBPK/statistics/",
+      "statut": "SOURCE_SECONDAIRE_NON_RAPPROCHEE",
+      "commentaire": "Donnée de fournisseur secondaire; ni certification des comptes ni validation MCPA. Arrêté précis à rapprocher. Date rapprochée au tableau financier du même fournisseur, sans certification primaire.",
+      "date_collecte": "2026-11-04"
+    }
+  ],
+  "journal_recherches": [
+    {
+      "famille": "fondamentaux",
+      "requete": "\"Broadpeak\" 2026 annual interim results revenue cash debt official investor relations",
+      "date": "2026-11-04",
+      "resultats_identifies": [
+        {
+          "title": "Investors - Broadpeak",
+          "url": "https://broadpeak.tv/investors/"
+        },
+        {
+          "title": "Broadpeak SA (via Public) / Broadpeak publishes its first-half 2026 results",
+          "url": "https://www.publicnow.com/view/E361E2D06E5184ED051BF52511AB43665FB798FE"
+        },
+        {
+          "title": "Broadpeak publishes its first-half 2026 results. | sharewise",
+          "url": "https://d1rf73nqj6wzfm.cloudfront.net/us/news_articles/Broadpeak_publishes_its_firsthalf_2026_results_Broadpeak_Sa_eqsen_20261001_1740"
+        },
+        {
+          "title": "Investisseurs - Broadpeak",
+          "url": "https://broadpeak.tv/fr/investisseurs/"
+        },
+        {
+          "title": "Broadpeak publie ses résultats annuels",
+          "url": "https://live.euronext.com/fr/products/equities/company-news/2026-04-15-broadpeak-publie-ses-resultats-annuels-0"
+        },
+        {
+          "title": "BROADPEAK SA |",
+          "url": "https://www.webdisclosure.fr/press-release/broadpeak-sa-etr-broadpeak-publishes-its-first-half-2026-results-waAP9iyndLF"
+        },
+        {
+          "title": "Communiqués financiers et présentations - Broadpeak",
+          "url": "https://broadpeak.tv/fr/communiques-financiers-et-presentations/"
+        },
+        {
+          "title": "Broadpeak publishes its full-year results",
+          "url": "https://live.euronext.com/en/products/equities/company-news/2026-04-15-broadpeak-publishes-its-full-year-results-0"
+        },
+        {
+          "title": "BROADPEAK SA |",
+          "url": "https://www.webdisclosure.com/press-release/broadpeak-sa-etr-broadpeak-publie-ses-resultats-du-premier-semestre-2026-ISqcVYzgQpZ"
+        },
+        {
+          "title": "Rapports et Information réglementée - Broadpeak",
+          "url": "https://broadpeak.tv/fr/rapports-et-information-reglementee/"
+        },
+        {
+          "title": "Broadpeak - Interim / Quarterly Report 2026 | FinancialFilings",
+          "url": "https://financialfilings.com/filings/broadpeak/interim-quarterly-report/2026/64574290/"
+        },
+        {
+          "title": "Broadpeak : publie ses résultats du premier semestre 2026 | Zonebourse",
+          "url": "https://www.zonebourse.com/actualite-bourse/broadpeak-publie-ses-resultats-du-premier-semestre-2026-ce785ddad88af324"
+        }
+      ],
+      "statut": "RECHERCHE_EFFECTUEE_RESULTATS_NON_EXHAUSTIFS"
+    },
+    {
+      "famille": "valorisation_revisions_inities",
+      "requete": "\"Broadpeak\" site:zonebourse.com valorisation consensus révisions dirigeants 2026",
+      "date": "2026-11-04",
+      "resultats_identifies": [
+        {
+          "title": "Broadpeak: Prévisions et Estimations des Analystes | ALBPK | Zonebourse",
+          "url": "https://www.zonebourse.com/cours/action/BROADPEAK-138444354/finances/"
+        },
+        {
+          "title": "Broadpeak : Ratios de Valorisations, Prévisions des analystes - Zonebourse",
+          "url": "https://www.zonebourse.com/cours/action/BROADPEAK-139401120/valorisation/"
+        },
+        {
+          "title": "Broadpeak : Ratios de Valorisations, Prévisions des analystes - Zonebourse",
+          "url": "https://www.zonebourse.com/cours/action/BROADPEAK-215272386/valorisation/"
+        },
+        {
+          "title": "Action Broadpeak | Cours ALBPK Bourse Euronext Paris - Zonebourse",
+          "url": "https://www.zonebourse.com/cours/action/BROADPEAK-138444354/"
+        },
+        {
+          "title": "Broadpeak: Actionnaires Dirigeants et Profil Société | ALBPK | FR001400AJZ7 | Zonebourse",
+          "url": "https://www.zonebourse.com/cours/action/BROADPEAK-138444354/societe/"
+        },
+        {
+          "title": "Broadpeak: Objectif de Cours et Consensus des Analystes | ALBPK | FR001400AJZ7 | Zonebourse",
+          "url": "https://www.zonebourse.com/cours/action/BROADPEAK-138444354/consensus/"
+        },
+        {
+          "title": "Broadpeak : publie ses résultats du premier semestre 2026 | Zonebourse",
+          "url": "https://www.zonebourse.com/actualite-bourse/broadpeak-publie-ses-resultats-du-premier-semestre-2026-ce785ddad88af324"
+        },
+        {
+          "title": "Broadpeak: Prévisions et Estimations des Analystes | ALBPK | Zonebourse Suisse",
+          "url": "https://ch.zonebourse.com/cours/action/BROADPEAK-138444354/finances/"
+        },
+        {
+          "title": "Broadpeak publie ses résultats du premier semestre 2026. | Zonebourse",
+          "url": "https://www.zonebourse.com/actualite-bourse/broadpeak-publie-ses-resultats-du-premier-semestre-2026-ce785ddad889f624"
+        },
+        {
+          "title": "Action Broadpeak | Cours ALBPK Bourse Euronext Paris - Zonebourse Suisse",
+          "url": "https://ch.zonebourse.com/cours/action/BROADPEAK-138444354/"
+        },
+        {
+          "title": "Broadpeak : Ratios de Valorisations, Prévisions des analystes - Zonebourse Suisse",
+          "url": "https://ch.zonebourse.com/cours/action/BROADPEAK-215272386/valorisation/"
+        },
+        {
+          "title": "Broadpeak Société anonyme confirme ses objectifs de résultats pour 2027 | Zonebourse Suisse",
+          "url": "https://ch.zonebourse.com/actualite-bourse/broadpeak-societe-anonyme-confirme-ses-objectifs-de-resultats-pour-2027-ce7f59d8dc8af124"
+        }
+      ],
+      "statut": "RECHERCHE_EFFECTUEE_RESULTATS_NON_EXHAUSTIFS"
+    },
+    {
+      "famille": "transactions_inities",
+      "requete": "\"Broadpeak\" insider director dealings PDMR transactions dirigeants 2026 October September August",
+      "date": "2026-11-04",
+      "resultats_identifies": [
+        {
+          "title": "BROADPEAK SA |",
+          "url": "https://www.webdisclosure.fr/press-release/broadpeak-sa-etr-broadpeak-sa-information-mensuelle-relative-au-nombre-total-des-droits-de-vote-et-dactions-composant-le-capital-social-au-310826-JnURSYZQ0MV"
+        },
+        {
+          "title": "Broadpeak SA Insider Trading Activity",
+          "url": "https://www.insiderscreener.com/en/company/broadpeak-sa"
+        },
+        {
+          "title": "Société BROADPEAK à Cesson-Sévigné (524473063) : CA, dirigeants, SIRET",
+          "url": "https://www.deedz.fr/entreprise/broadpeak-524473063"
+        },
+        {
+          "title": "Broadpeak : cours de l'action et cotation en bourse en direct | ABC Bourse",
+          "url": "https://www.abcbourse.com/cotation/ALBPKp"
+        },
+        {
+          "title": "BROADPEAK SA |",
+          "url": "https://www.webdisclosure.fr/article/broadpeak-sa-etr-broadpeak-sa-publication-des-droits-de-vote-et-actions-au-30-septembre-2026-PdiIUH65mx5"
+        },
+        {
+          "title": "Broadpeak : cours de l'action et cotation en bourse en direct | ABC Bourse",
+          "url": "https://www.abcbourse.com/marches/events/ALBPKp"
+        },
+        {
+          "title": "BROADPEAK Cours Action ALBPK, Cotation Bourse Euronext Paris - Boursorama",
+          "url": "https://www.boursorama.com/cours/1rPALBPK/"
+        },
+        {
+          "title": "BROADPEAK SA | News - EQS News",
+          "url": "https://www.eqs-news.com/company/broadpeak-sa/news/b8b1e3eb-5de2-1017-9638-eb8a05d60f5f"
+        },
+        {
+          "title": "BROADPEAK SA: Information mensuelle relative au nombre total des droits de vote et d’actions composant le capital social au 31.08.26. | - EQS News",
+          "url": "https://www.eqs-news.com/news/fr-regulatory/broadpeak-sa-information-mensuelle-relative-au-nombre-total-des-droits-de-vote-et-dactions-composant-le-capital-social-au-31-08-26/83945633-3171-4571-b734-6b8e9fbff9c1_fr"
+        }
+      ],
+      "statut": "RECHERCHE_EFFECTUEE_RESULTATS_NON_EXHAUSTIFS"
+    },
+    {
+      "famille": "statistiques_financieres",
+      "url": "https://stockanalysis.com/quote/epa/ALBPK/statistics/",
+      "date": "2026-11-04",
+      "statut": "SOURCE_SECONDAIRE_A_RAPPROCHER",
+      "http": 200
+    },
+    {
+      "famille": "previsions_annuelles",
+      "url": "https://stockanalysis.com/quote/epa/ALBPK/forecast/",
+      "date": "2026-11-04",
+      "statut": "SOURCE_SECONDAIRE_PREVISIONS",
+      "http": 200,
+      "limite": "Les cellules Upgrade ne sont jamais converties en chiffres."
+    }
+  ],
+  "audit_couverture": {
+    "date": "2026-11-04",
+    "champs_total": 108,
+    "champs_renseignes": 38,
+    "couverture_pct": 35.19,
+    "champs_secondaires_non_rapproches": 22,
+    "champs_manquants": [
+      "identite.lei",
+      "identite.marche",
+      "qualite.roe_pct",
+      "qualite.roic_pct",
+      "qualite.fcf_ttm",
+      "qualite.conversion_fcf_pct",
+      "qualite.revenus_recurrents_pct",
+      "qualite.concentration_clients_pct",
+      "qualite.avantage_concurrentiel",
+      "qualite.qualite_management",
+      "valorisation.ev_ebitda",
+      "valorisation.ev_ebit",
+      "valorisation.pe",
+      "valorisation.p_fcf",
+      "valorisation.p_b",
+      "valorisation.rendement_fcf_pct",
+      "valorisation.comparables_sectoriels",
+      "valorisation.valorisation_historique",
+      "valorisation.marge_securite_pct",
+      "croissance.croissance_ebitda_pct",
+      "croissance.croissance_bpa_pct",
+      "croissance.carnet_commandes",
+      "croissance.book_to_bill",
+      "croissance.revision_bpa_30j_pct",
+      "croissance.revision_bpa_90j_pct",
+      "croissance.peg",
+      "croissance.taille_marche_adressable",
+      "risque.cash",
+      "risque.dette_brute",
+      "risque.dette_nette",
+      "risque.dette_nette_ebitda",
+      "risque.liquidite_courante",
+      "risque.cash_runway_mois",
+      "risque.dilution_3a_pct",
+      "risque.risque_refinancement",
+      "risque.risque_pays",
+      "risque.risque_change",
+      "risque.risque_gouvernance",
+      "risque.risque_reglementaire",
+      "risque.risque_concentration",
+      "risque.transactions_initiees_net_90j",
+      "risque.transactions_initiees_net_180j",
+      "momentum.force_relative_indice",
+      "diversification.zone_geographique",
+      "diversification.correlation_portefeuille",
+      "diversification.concentration_theme",
+      "diversification.interet_strategique",
+      "diversification.complementarite_portefeuille",
+      "complements.ssi",
+      "complements.ic_sur_5",
+      "complements.cx_sur_5",
+      "complements.delta",
+      "complements.wwws",
+      "complements.scenario_bear_3m_pct",
+      "complements.prob_bear_3m_pct",
+      "complements.scenario_central_3m_pct",
+      "complements.prob_central_3m_pct",
+      "complements.scenario_bull_3m_pct",
+      "complements.prob_bull_3m_pct",
+      "complements.scenario_bear_6m_pct",
+      "complements.prob_bear_6m_pct",
+      "complements.scenario_central_6m_pct",
+      "complements.prob_central_6m_pct",
+      "complements.scenario_bull_6m_pct",
+      "complements.prob_bull_6m_pct",
+      "complements.role_ips",
+      "complements.decision",
+      "complements.condition_renforcement",
+      "complements.condition_allegement_sortie",
+      "complements.challengers_compares"
+    ],
+    "indisponibilite_definitive_demontree": [],
+    "statut": "TRAITE_MAIS_INCOMPLET",
+    "cours_date_limite": "2026-11-03"
+  }
 }

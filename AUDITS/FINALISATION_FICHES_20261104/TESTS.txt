@@ -1,0 +1,22 @@
+test_01_exact_cohort (__main__.Audit40.test_01_exact_cohort) ... ok
+test_02_original_verified_cells_unchanged (__main__.Audit40.test_02_original_verified_cells_unchanged) ... ok
+test_03_complete_metadata_for_values (__main__.Audit40.test_03_complete_metadata_for_values) ... ok
+test_04_missing_is_explicit_never_final_unavailability (__main__.Audit40.test_04_missing_is_explicit_never_final_unavailability) ... ok
+test_05_no_scores_or_orders (__main__.Audit40.test_05_no_scores_or_orders) ... ok
+test_06_london_pence_conversion (__main__.Audit40.test_06_london_pence_conversion) ... ok
+test_07_short_ipo_does_not_fabricate_history (__main__.Audit40.test_07_short_ipo_does_not_fabricate_history) ... ok
+test_08_na_never_becomes_zero (__main__.Audit40.test_08_na_never_becomes_zero) ... ok
+test_09_conflicting_prices_rejected (__main__.Audit40.test_09_conflicting_prices_rejected) ... ok
+test_10_insider_totals_respect_incompleteness (__main__.Audit40.test_10_insider_totals_respect_incompleteness) ... ok
+test_11_coverage_counts_are_exact (__main__.Audit40.test_11_coverage_counts_are_exact) ... ok
+test_12_filter_connector_keeps_live_review_unchanged (__main__.Audit40.test_12_filter_connector_keeps_live_review_unchanged) ... ok
+test_13_research_trace_for_every_company (__main__.Audit40.test_13_research_trace_for_every_company) ... ok
+test_14_no_nonfinite_numbers (__main__.Audit40.test_14_no_nonfinite_numbers) ... ok
+test_15_idempotent_offline_enrichment (__main__.Audit40.test_15_idempotent_offline_enrichment) ... ok
+
+----------------------------------------------------------------------
+Ran 15 tests in 0.924s
+
+OK
+0/40 dossiers eligible; review unchanged
+{"fiches_traitees": 40, "champs_renseignes": 2045, "total": 4320, "notes_attribuees": 0}
