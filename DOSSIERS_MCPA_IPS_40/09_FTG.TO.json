@@ -405,22 +405,22 @@
         "commentaire": null
       },
       "carnet_commandes": {
-        "valeur": null,
-        "unite": null,
-        "periode": null,
-        "date_source": null,
-        "source_url": null,
-        "statut": "A_COLLECTER",
-        "commentaire": null
+        "valeur": 220.7,
+        "unite": "millions_CAD",
+        "periode": "T3 2026",
+        "date_source": "2026-10-07",
+        "source_url": "https://www.ftgcorp.com/news/firan-technology-group-corporation-ftg-announces-q3-2026-financial-results/",
+        "statut": "SOURCE_PUBLIQUE_VERIFIEE",
+        "commentaire": "Résultat publié; non annualisé"
       },
       "book_to_bill": {
-        "valeur": null,
-        "unite": null,
-        "periode": null,
-        "date_source": null,
-        "source_url": null,
-        "statut": "A_COLLECTER",
-        "commentaire": null
+        "valeur": 1.41,
+        "unite": "ratio",
+        "periode": "T3 2026",
+        "date_source": "2026-10-07",
+        "source_url": "https://www.ftgcorp.com/news/firan-technology-group-corporation-ftg-announces-q3-2026-financial-results/",
+        "statut": "SOURCE_PUBLIQUE_VERIFIEE",
+        "commentaire": "Résultat publié; non annualisé"
       },
       "previsions_ca_1a": {
         "valeur": null,
@@ -506,13 +506,13 @@
         "commentaire": null
       },
       "dette_nette": {
-        "valeur": null,
-        "unite": null,
-        "periode": null,
-        "date_source": null,
-        "source_url": null,
-        "statut": "A_COLLECTER",
-        "commentaire": null
+        "valeur": -3.9,
+        "unite": "millions_CAD",
+        "periode": "T3 2026",
+        "date_source": "2026-10-07",
+        "source_url": "https://www.ftgcorp.com/news/firan-technology-group-corporation-ftg-announces-q3-2026-financial-results/",
+        "statut": "SOURCE_PUBLIQUE_VERIFIEE",
+        "commentaire": "Résultat publié; non annualisé"
       },
       "dette_nette_ebitda": {
         "valeur": null,
@@ -1027,7 +1027,62 @@
       "diversification": null
     }
   },
-  "preuves_complementaires": [],
+  "preuves_complementaires": [
+    {
+      "url": "https://www.ftgcorp.com/news/firan-technology-group-corporation-ftg-announces-q3-2026-financial-results/",
+      "indicateur": "CA_T3",
+      "valeur": 64.1,
+      "unite": "millions_CAD",
+      "periode": "T3 2026",
+      "date_collecte": "2026-11-04",
+      "statut": "SOURCE_PUBLIQUE_VERIFIEE"
+    },
+    {
+      "url": "https://www.ftgcorp.com/news/firan-technology-group-corporation-ftg-announces-q3-2026-financial-results/",
+      "indicateur": "Croissance_CA_T3",
+      "valeur": 34.3,
+      "unite": "pct",
+      "periode": "T3 2026",
+      "date_collecte": "2026-11-04",
+      "statut": "SOURCE_PUBLIQUE_VERIFIEE"
+    },
+    {
+      "url": "https://www.ftgcorp.com/news/firan-technology-group-corporation-ftg-announces-q3-2026-financial-results/",
+      "indicateur": "EBITDA_ajuste_T3",
+      "valeur": 15.1,
+      "unite": "millions_CAD",
+      "periode": "T3 2026",
+      "date_collecte": "2026-11-04",
+      "statut": "SOURCE_PUBLIQUE_VERIFIEE"
+    },
+    {
+      "url": "https://www.ftgcorp.com/news/firan-technology-group-corporation-ftg-announces-q3-2026-financial-results/",
+      "indicateur": "EBITDA_ajuste_TTM",
+      "valeur": 40.8,
+      "unite": "millions_CAD",
+      "periode": "TTM T3 2026",
+      "date_collecte": "2026-11-04",
+      "statut": "SOURCE_PUBLIQUE_VERIFIEE"
+    },
+    {
+      "url": "https://www.ftgcorp.com/news/firan-technology-group-corporation-ftg-announces-q3-2026-financial-results/",
+      "indicateur": "FCF_T3",
+      "valeur": 7.1,
+      "unite": "millions_CAD",
+      "periode": "T3 2026",
+      "date_collecte": "2026-11-04",
+      "statut": "SOURCE_PUBLIQUE_VERIFIEE"
+    },
+    {
+      "url": "https://www.ftgcorp.com/news/firan-technology-group-corporation-ftg-announces-q3-2026-financial-results/",
+      "indicateur": "Commandes_T3",
+      "valeur": 90.2,
+      "unite": "millions_CAD",
+      "periode": "T3 2026",
+      "date_collecte": "2026-11-04",
+      "statut": "SOURCE_PUBLIQUE_VERIFIEE"
+    }
+  ],
   "anomalies": [],
   "statut_fiche": "A_COMPLETER",
   "arbitrage_autorise": false
