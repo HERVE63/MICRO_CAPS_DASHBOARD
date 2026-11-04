@@ -468,12 +468,12 @@
         "commentaire": null
       },
       "catalyseurs_dates": {
-        "valeur": null,
-        "unite": null,
-        "periode": null,
-        "date_source": null,
-        "source_url": null,
-        "statut": "A_COLLECTER",
+        "valeur": "Avertissement sur résultats FY2026 sous consensus; commandes différées; chiffre d'affaires attendu 46-48 M GBP et marge EBITDA ajusté 43-45%",
+        "unite": "texte",
+        "periode": "FY2026",
+        "date_source": "2026-10-14",
+        "source_url": "https://www.investegate.co.uk/index.php/announcement/rns/cerillion--cer/full-year-trading-update/9769035",
+        "statut": "SOURCE_PUBLIQUE_VERIFIEE",
         "commentaire": null
       },
       "taille_marche_adressable": {
@@ -1027,7 +1027,44 @@
       "diversification": null
     }
   },
-  "preuves_complementaires": [],
+  "preuves_complementaires": [
+    {
+      "url": "https://www.investegate.co.uk/index.php/announcement/rns/cerillion--cer/full-year-trading-update/9769035",
+      "indicateur": "CA_FY2026_prevision_basse",
+      "valeur": 46,
+      "unite": "millions_GBP",
+      "periode": "FY2026 prévision",
+      "date_collecte": "2026-11-04",
+      "statut": "SOURCE_PUBLIQUE_VERIFIEE"
+    },
+    {
+      "url": "https://www.investegate.co.uk/index.php/announcement/rns/cerillion--cer/full-year-trading-update/9769035",
+      "indicateur": "CA_FY2026_prevision_haute",
+      "valeur": 48,
+      "unite": "millions_GBP",
+      "periode": "FY2026 prévision",
+      "date_collecte": "2026-11-04",
+      "statut": "SOURCE_PUBLIQUE_VERIFIEE"
+    },
+    {
+      "url": "https://www.investegate.co.uk/index.php/announcement/rns/cerillion--cer/full-year-trading-update/9769035",
+      "indicateur": "Marge_EBITDA_ajuste_prevision_basse",
+      "valeur": 43,
+      "unite": "pct",
+      "periode": "FY2026 prévision",
+      "date_collecte": "2026-11-04",
+      "statut": "SOURCE_PUBLIQUE_VERIFIEE"
+    },
+    {
+      "url": "https://www.investegate.co.uk/index.php/announcement/rns/cerillion--cer/full-year-trading-update/9769035",
+      "indicateur": "Marge_EBITDA_ajuste_prevision_haute",
+      "valeur": 45,
+      "unite": "pct",
+      "periode": "FY2026 prévision",
+      "date_collecte": "2026-11-04",
+      "statut": "SOURCE_PUBLIQUE_VERIFIEE"
+    }
+  ],
   "anomalies": [],
   "statut_fiche": "A_COMPLETER",
   "arbitrage_autorise": false
