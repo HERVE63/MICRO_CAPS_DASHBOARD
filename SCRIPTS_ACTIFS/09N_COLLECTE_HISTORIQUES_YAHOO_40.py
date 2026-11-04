@@ -36,9 +36,9 @@ def main():
             elif missing_adjusted:status="MISSING_ADJUSTED"
             elif missing_volume:status="MISSING_VOLUME"
         except Exception as e:status="FAILED_"+type(e).__name__
-        summary.append([p["ID_position"],p["Ticker"],symbol,n,status])
+        summary.append([p["ID_position"],p["Ticker"],symbol,n,status,n-missing_adjusted,n-missing_volume, "OUI" if n>=200 and missing_adjusted==0 else "NON", "OUI" if n>=252 and missing_adjusted==0 else "NON"])
         time.sleep(0.35)
-    for filename,headers,data in [("HISTORIQUES_YAHOO_40.csv",HEAD,rows),("COUVERTURE_HISTORIQUES_YAHOO_40.csv",["ID_position","Ticker","Yahoo_symbol","Nb_seances","Statut"],summary)]:
+    for filename,headers,data in [("HISTORIQUES_YAHOO_40.csv",HEAD,rows),("COUVERTURE_HISTORIQUES_YAHOO_40.csv",["ID_position","Ticker","Yahoo_symbol","Nb_seances","Statut","Seances_ajustees","Seances_volume","MM200_eligible","Momentum_12m_eligible"],summary)]:
         target=D/filename;tmp=target.with_suffix(".tmp")
         with tmp.open("w",encoding="utf-8",newline="") as f:w=csv.writer(f);w.writerow(headers);w.writerows(data)
         tmp.replace(target)
