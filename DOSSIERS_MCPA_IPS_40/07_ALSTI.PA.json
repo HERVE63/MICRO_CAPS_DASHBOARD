@@ -122,21 +122,21 @@
         "commentaire": null
       },
       "marge_brute_pct": {
-        "valeur": null,
-        "unite": null,
-        "periode": null,
-        "date_source": null,
-        "source_url": null,
-        "statut": "A_COLLECTER",
+        "valeur": 64.3,
+        "unite": "pct",
+        "periode": "S1 2026",
+        "date_source": "2026-10-01",
+        "source_url": "https://www.zonebourse.com/actualite-bourse/stif-des-resultats-semestriels-2026-en-forte-progression-ce785ddad889f322",
+        "statut": "SOURCE_PUBLIQUE_VERIFIEE",
         "commentaire": null
       },
       "marge_ebitda_pct": {
-        "valeur": null,
-        "unite": null,
-        "periode": null,
-        "date_source": null,
-        "source_url": null,
-        "statut": "A_COLLECTER",
+        "valeur": 22.8,
+        "unite": "pct",
+        "periode": "S1 2026",
+        "date_source": "2026-10-01",
+        "source_url": "https://www.zonebourse.com/actualite-bourse/stif-des-resultats-semestriels-2026-en-forte-progression-ce785ddad889f322",
+        "statut": "SOURCE_PUBLIQUE_VERIFIEE",
         "commentaire": null
       },
       "marge_ebit_pct": {
@@ -423,13 +423,13 @@
         "commentaire": null
       },
       "previsions_ca_1a": {
-        "valeur": null,
-        "unite": null,
-        "periode": null,
-        "date_source": null,
-        "source_url": null,
-        "statut": "A_COLLECTER",
-        "commentaire": null
+        "valeur": 110,
+        "unite": "millions_EUR",
+        "periode": "objectif exercice 2026",
+        "date_source": "2026-10-01",
+        "source_url": "https://www.zonebourse.com/actualite-bourse/stif-des-resultats-semestriels-2026-en-forte-progression-ce785ddad889f322",
+        "statut": "SOURCE_PUBLIQUE_VERIFIEE",
+        "commentaire": "Prévision de la société, non consensus"
       },
       "previsions_bpa_1a": {
         "valeur": null,
@@ -468,13 +468,13 @@
         "commentaire": null
       },
       "catalyseurs_dates": {
-        "valeur": null,
-        "unite": null,
-        "periode": null,
-        "date_source": null,
-        "source_url": null,
-        "statut": "A_COLLECTER",
-        "commentaire": null
+        "valeur": "Nouvelles commandes BYD 5 M EUR pour 2027; diversification CATL; perte du client Tesla Megapack 3 en 2027",
+        "unite": "texte",
+        "periode": "2026-2027",
+        "date_source": "2026-10-01",
+        "source_url": "https://www.zonebourse.com/actualite-bourse/stif-des-resultats-semestriels-2026-en-forte-progression-ce785ddad889f322",
+        "statut": "SOURCE_PUBLIQUE_VERIFIEE",
+        "commentaire": "Risque client majeur; objectif CA 2027 ramené à 100 M EUR"
       },
       "taille_marche_adressable": {
         "valeur": null,
@@ -488,12 +488,12 @@
     },
     "risque": {
       "cash": {
-        "valeur": null,
-        "unite": null,
-        "periode": null,
-        "date_source": null,
-        "source_url": null,
-        "statut": "A_COLLECTER",
+        "valeur": 19.5,
+        "unite": "millions_EUR",
+        "periode": "30-06-2026",
+        "date_source": "2026-10-01",
+        "source_url": "https://www.zonebourse.com/actualite-bourse/stif-des-resultats-semestriels-2026-en-forte-progression-ce785ddad889f322",
+        "statut": "SOURCE_PUBLIQUE_VERIFIEE",
         "commentaire": null
       },
       "dette_brute": {
@@ -506,12 +506,12 @@
         "commentaire": null
       },
       "dette_nette": {
-        "valeur": null,
-        "unite": null,
-        "periode": null,
-        "date_source": null,
-        "source_url": null,
-        "statut": "A_COLLECTER",
+        "valeur": 26.3,
+        "unite": "millions_EUR",
+        "periode": "30-06-2026",
+        "date_source": "2026-10-01",
+        "source_url": "https://www.zonebourse.com/actualite-bourse/stif-des-resultats-semestriels-2026-en-forte-progression-ce785ddad889f322",
+        "statut": "SOURCE_PUBLIQUE_VERIFIEE",
         "commentaire": null
       },
       "dette_nette_ebitda": {
@@ -1027,7 +1027,35 @@
       "diversification": null
     }
   },
-  "preuves_complementaires": [],
+  "preuves_complementaires": [
+    {
+      "url": "https://www.zonebourse.com/actualite-bourse/stif-des-resultats-semestriels-2026-en-forte-progression-ce785ddad889f322",
+      "indicateur": "CA_S1_2026",
+      "valeur": 55.3,
+      "unite": "millions_EUR",
+      "periode": "S1 2026",
+      "date_collecte": "2026-11-04",
+      "statut": "SOURCE_PUBLIQUE_VERIFIEE"
+    },
+    {
+      "url": "https://www.zonebourse.com/actualite-bourse/stif-des-resultats-semestriels-2026-en-forte-progression-ce785ddad889f322",
+      "indicateur": "EBITDA_S1_2026",
+      "valeur": 12.6,
+      "unite": "millions_EUR",
+      "periode": "S1 2026",
+      "date_collecte": "2026-11-04",
+      "statut": "SOURCE_PUBLIQUE_VERIFIEE"
+    },
+    {
+      "url": "https://www.zonebourse.com/actualite-bourse/stif-des-resultats-semestriels-2026-en-forte-progression-ce785ddad889f322",
+      "indicateur": "RISQUE_CLIENT_TESLA",
+      "valeur": "Fin des volumes Tesla Megapack 3 en 2027; objectif CA 2027 100 M EUR",
+      "unite": "texte",
+      "periode": "2027",
+      "date_collecte": "2026-11-04",
+      "statut": "SOURCE_PUBLIQUE_VERIFIEE"
+    }
+  ],
   "anomalies": [],
   "statut_fiche": "A_COMPLETER",
   "arbitrage_autorise": false
