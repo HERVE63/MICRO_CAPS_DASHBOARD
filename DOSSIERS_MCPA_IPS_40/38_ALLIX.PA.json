@@ -468,12 +468,12 @@
         "commentaire": null
       },
       "catalyseurs_dates": {
-        "valeur": null,
-        "unite": null,
-        "periode": null,
-        "date_source": null,
-        "source_url": null,
-        "statut": "A_COLLECTER",
+        "valeur": "Objectif 2026 : résultat opérationnel et free cash-flow positifs; ARR 33,1 M EUR au 30 juin; développement PAM/IAM",
+        "unite": "texte",
+        "periode": "2026",
+        "date_source": "2026-10-08",
+        "source_url": "https://www.zonebourse.com/actualite-bourse/wallix-group-forte-amelioration-des-resultats-et-free-cash-flow-positif-des-le-1er-semestre-o-ce785ddfda8ef623",
+        "statut": "SOURCE_PUBLIQUE_VERIFIEE",
         "commentaire": null
       },
       "taille_marche_adressable": {
@@ -488,21 +488,21 @@
     },
     "risque": {
       "cash": {
-        "valeur": null,
-        "unite": null,
-        "periode": null,
-        "date_source": null,
-        "source_url": null,
-        "statut": "A_COLLECTER",
+        "valeur": 12.5,
+        "unite": "millions_EUR",
+        "periode": "30-06-2026",
+        "date_source": "2026-10-08",
+        "source_url": "https://www.zonebourse.com/actualite-bourse/wallix-group-forte-amelioration-des-resultats-et-free-cash-flow-positif-des-le-1er-semestre-o-ce785ddfda8ef623",
+        "statut": "SOURCE_PUBLIQUE_VERIFIEE",
         "commentaire": null
       },
       "dette_brute": {
-        "valeur": null,
-        "unite": null,
-        "periode": null,
-        "date_source": null,
-        "source_url": null,
-        "statut": "A_COLLECTER",
+        "valeur": 8,
+        "unite": "millions_EUR",
+        "periode": "30-06-2026",
+        "date_source": "2026-10-08",
+        "source_url": "https://www.zonebourse.com/actualite-bourse/wallix-group-forte-amelioration-des-resultats-et-free-cash-flow-positif-des-le-1er-semestre-o-ce785ddfda8ef623",
+        "statut": "SOURCE_PUBLIQUE_VERIFIEE",
         "commentaire": null
       },
       "dette_nette": {
@@ -1027,7 +1027,71 @@
       "diversification": null
     }
   },
-  "preuves_complementaires": [],
+  "preuves_complementaires": [
+    {
+      "url": "https://www.zonebourse.com/actualite-bourse/wallix-group-forte-amelioration-des-resultats-et-free-cash-flow-positif-des-le-1er-semestre-o-ce785ddfda8ef623",
+      "indicateur": "CA_S1_2026",
+      "valeur": 20.562,
+      "unite": "millions_EUR",
+      "periode": "S1 2026",
+      "date_collecte": "2026-11-04",
+      "statut": "SOURCE_PUBLIQUE_VERIFIEE"
+    },
+    {
+      "url": "https://www.zonebourse.com/actualite-bourse/wallix-group-forte-amelioration-des-resultats-et-free-cash-flow-positif-des-le-1er-semestre-o-ce785ddfda8ef623",
+      "indicateur": "Croissance_CA_S1_2026",
+      "valeur": 14.2,
+      "unite": "pct",
+      "periode": "S1 2026",
+      "date_collecte": "2026-11-04",
+      "statut": "SOURCE_PUBLIQUE_VERIFIEE"
+    },
+    {
+      "url": "https://www.zonebourse.com/actualite-bourse/wallix-group-forte-amelioration-des-resultats-et-free-cash-flow-positif-des-le-1er-semestre-o-ce785ddfda8ef623",
+      "indicateur": "ARR_30_06_2026",
+      "valeur": 33.1,
+      "unite": "millions_EUR",
+      "periode": "S1 2026",
+      "date_collecte": "2026-11-04",
+      "statut": "SOURCE_PUBLIQUE_VERIFIEE"
+    },
+    {
+      "url": "https://www.zonebourse.com/actualite-bourse/wallix-group-forte-amelioration-des-resultats-et-free-cash-flow-positif-des-le-1er-semestre-o-ce785ddfda8ef623",
+      "indicateur": "Resultat_exploitation_S1_2026",
+      "valeur": -1.199,
+      "unite": "millions_EUR",
+      "periode": "S1 2026",
+      "date_collecte": "2026-11-04",
+      "statut": "SOURCE_PUBLIQUE_VERIFIEE"
+    },
+    {
+      "url": "https://www.zonebourse.com/actualite-bourse/wallix-group-forte-amelioration-des-resultats-et-free-cash-flow-positif-des-le-1er-semestre-o-ce785ddfda8ef623",
+      "indicateur": "FCF_S1_2026",
+      "valeur": 0.2,
+      "unite": "millions_EUR",
+      "periode": "S1 2026",
+      "date_collecte": "2026-11-04",
+      "statut": "SOURCE_PUBLIQUE_VERIFIEE"
+    },
+    {
+      "url": "https://www.zonebourse.com/actualite-bourse/wallix-group-forte-amelioration-des-resultats-et-free-cash-flow-positif-des-le-1er-semestre-o-ce785ddfda8ef623",
+      "indicateur": "MRR_Croissance",
+      "valeur": 19.4,
+      "unite": "pct",
+      "periode": "S1 2026",
+      "date_collecte": "2026-11-04",
+      "statut": "SOURCE_PUBLIQUE_VERIFIEE"
+    },
+    {
+      "url": "https://www.zonebourse.com/actualite-bourse/wallix-group-forte-amelioration-des-resultats-et-free-cash-flow-positif-des-le-1er-semestre-o-ce785ddfda8ef623",
+      "indicateur": "Revenus_recurrents_part_CA",
+      "valeur": 81,
+      "unite": "pct",
+      "periode": "S1 2026",
+      "date_collecte": "2026-11-04",
+      "statut": "SOURCE_PUBLIQUE_VERIFIEE"
+    }
+  ],
   "anomalies": [],
   "statut_fiche": "A_COMPLETER",
   "arbitrage_autorise": false
