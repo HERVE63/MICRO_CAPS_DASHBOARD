@@ -43,6 +43,8 @@ jobs:
           fi
       - name: Relier techniques et fondamentaux dans une meme execution
         run: python -B SCRIPTS_ACTIFS/09P_COUVERTURE_PREUVES_40.py
+      - name: Preparer les dossiers de preuves des 40 titulaires
+        run: python -B SCRIPTS_ACTIFS/09R_PREPARER_DOSSIERS_40.py
       - name: Controle de la revue puis duels si dossiers valides
         run: |
           if python -B SCRIPTS_ACTIFS/09_CONTROLE_REVUE_MCPA_IPS.py; then
@@ -64,5 +66,6 @@ jobs:
             DONNEES/OBSERVATIONS_SEC_TITULAIRES_US.csv
             DONNEES/FAITS_SEC_TITULAIRES_US.csv
             DONNEES/COUVERTURE_PREUVE_MCPA_40.csv
+            DONNEES/DOSSIERS_PREPARATOIRES_40.csv
             DONNEES/CONTROLE_REVUE_HEBDOMADAIRE_MCPA_IPS.csv
             DONNEES/DUELS_PROCHAIN_EURO.csv
