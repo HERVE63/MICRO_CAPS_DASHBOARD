@@ -506,12 +506,12 @@
         "commentaire": null
       },
       "dette_nette": {
-        "valeur": null,
-        "unite": null,
-        "periode": null,
-        "date_source": null,
-        "source_url": null,
-        "statut": "A_COLLECTER",
+        "valeur": -8.4,
+        "unite": "millions_EUR",
+        "periode": "30-06-2026",
+        "date_source": "2026-09-21",
+        "source_url": "https://www.boursorama.com/cours/actualites/1rEPALSTW/",
+        "statut": "SOURCE_PUBLIQUE_VERIFIEE",
         "commentaire": null
       },
       "dette_nette_ebitda": {
@@ -1027,7 +1027,53 @@
       "diversification": null
     }
   },
-  "preuves_complementaires": [],
+  "preuves_complementaires": [
+    {
+      "url": "https://www.boursorama.com/cours/actualites/1rEPALSTW/",
+      "indicateur": "CA_S1_2026",
+      "valeur": 12.8,
+      "unite": "millions_EUR",
+      "periode": "S1 2026",
+      "date_collecte": "2026-11-04",
+      "statut": "SOURCE_PUBLIQUE_VERIFIEE"
+    },
+    {
+      "url": "https://www.boursorama.com/cours/actualites/1rEPALSTW/",
+      "indicateur": "Croissance_CA_S1_2026",
+      "valeur": 12,
+      "unite": "pct",
+      "periode": "S1 2026",
+      "date_collecte": "2026-11-04",
+      "statut": "SOURCE_PUBLIQUE_VERIFIEE"
+    },
+    {
+      "url": "https://www.boursorama.com/cours/actualites/1rEPALSTW/",
+      "indicateur": "EBITDA_S1_2026",
+      "valeur": 6.3,
+      "unite": "millions_EUR",
+      "periode": "S1 2026",
+      "date_collecte": "2026-11-04",
+      "statut": "SOURCE_PUBLIQUE_VERIFIEE"
+    },
+    {
+      "url": "https://www.boursorama.com/cours/actualites/1rEPALSTW/",
+      "indicateur": "EBIT_S1_2026",
+      "valeur": 1.7,
+      "unite": "millions_EUR",
+      "periode": "S1 2026",
+      "date_collecte": "2026-11-04",
+      "statut": "SOURCE_PUBLIQUE_VERIFIEE"
+    },
+    {
+      "url": "https://www.boursorama.com/cours/actualites/1rEPALSTW/",
+      "indicateur": "Resultat_net_S1_2026",
+      "valeur": 0.8,
+      "unite": "millions_EUR",
+      "periode": "S1 2026",
+      "date_collecte": "2026-11-04",
+      "statut": "SOURCE_PUBLIQUE_VERIFIEE"
+    }
+  ],
   "anomalies": [],
   "statut_fiche": "A_COMPLETER",
   "arbitrage_autorise": false
