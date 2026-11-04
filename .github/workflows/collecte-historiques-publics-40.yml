@@ -32,6 +32,7 @@ jobs:
           git add DONNEES/HISTORIQUES_YAHOO_40.csv DONNEES/COUVERTURE_HISTORIQUES_YAHOO_40.csv DONNEES/INDICATEURS_YAHOO_40.csv DONNEES/COUVERTURE_PREUVE_MCPA_40.csv
           if ! git diff --cached --quiet; then
             git commit -m "data: actualiser historiques et preuves des 40 titulaires [skip ci]"
+            git pull --rebase origin repair/microcaps-chain-20261030
             git push origin HEAD:repair/microcaps-chain-20261030
           fi
       - name: Archiver résultats et couverture
