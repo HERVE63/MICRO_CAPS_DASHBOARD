@@ -5,6 +5,10 @@ on:
     branches: [repair/microcaps-chain-20261030]
     paths:
       - '.github/workflows/chaine-integree-40.yml'
+      - 'SCRIPTS_ACTIFS/**'
+      - 'tests/**'
+      - 'DONNEES/REVUE_HEBDOMADAIRE_MCPA_IPS.csv'
+      - 'DONNEES/PREUVES_FONDAMENTALES_PUBLIQUES_*.csv'
   schedule:
     - cron: '30 18 * * 2'
 permissions:
