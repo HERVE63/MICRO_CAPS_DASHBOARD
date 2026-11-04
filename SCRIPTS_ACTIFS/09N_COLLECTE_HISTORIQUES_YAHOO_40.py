@@ -18,7 +18,7 @@ def main():
     if len(holdings)!=40:raise RuntimeError("40 positions required")
     rows=[]; summary=[]
     for p in holdings:
-        symbol=SYMBOL_FIX.get(p["Ticker"],p["Ticker"]); n=0; status="OK"; missing_adjusted=0
+        symbol=SYMBOL_FIX.get(p["Ticker"],p["Ticker"]); n=0; status="OK"; missing_adjusted=0; missing_volume=0
         try:
             obj,url=fetch(symbol)
             quote=obj["indicators"]["quote"][0]
@@ -28,9 +28,13 @@ def main():
                 if close is None:continue
                 adj=adjusted[i] if i<len(adjusted) else None
                 if adj is None: missing_adjusted+=1
-                rows.append([p["ID_position"],p["Ticker"],symbol,datetime.fromtimestamp(ts,timezone.utc).strftime("%Y-%m-%d"),close,adj if adj is not None else "",quote["volume"][i] if i<len(quote.get("volume",[])) else "", "MISSING_ADJUSTED" if adj is None else "OK",url]);n+=1
+                vol=quote.get("volume") or []
+                volume=vol[i] if i<len(vol) else None
+                if volume is None: missing_volume+=1
+                rows.append([p["ID_position"],p["Ticker"],symbol,datetime.fromtimestamp(ts,timezone.utc).strftime("%Y-%m-%d"),close,adj if adj is not None else "",volume if volume is not None else "", "MISSING_ADJUSTED" if adj is None else "OK",url]);n+=1
             if n<2:status="INSUFFICIENT_HISTORY"
             elif missing_adjusted:status="MISSING_ADJUSTED"
+            elif missing_volume:status="MISSING_VOLUME"
         except Exception as e:status="FAILED_"+type(e).__name__
         summary.append([p["ID_position"],p["Ticker"],symbol,n,status])
         time.sleep(0.35)
