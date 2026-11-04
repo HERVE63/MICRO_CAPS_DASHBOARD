@@ -12,13 +12,13 @@
   "blocs": {
     "identite": {
       "isin": {
-        "valeur": null,
-        "unite": null,
-        "periode": null,
-        "date_source": null,
-        "source_url": null,
-        "statut": "A_COLLECTER",
-        "commentaire": null
+        "valeur": "FR001400AJZ7",
+        "unite": "ISIN",
+        "periode": "2026",
+        "date_source": "2026-10-30",
+        "source_url": "https://www.zonebourse.com/cours/action/BROADPEAK-138444354/finances/",
+        "statut": "SOURCE_PUBLIQUE_VERIFIEE",
+        "commentaire": "Ne pas confondre prévisions et résultats réalisés"
       },
       "lei": {
         "valeur": null,
@@ -468,13 +468,13 @@
         "commentaire": null
       },
       "catalyseurs_dates": {
-        "valeur": null,
-        "unite": null,
-        "periode": null,
-        "date_source": null,
-        "source_url": null,
-        "statut": "A_COLLECTER",
-        "commentaire": null
+        "valeur": "Retour attendu à un EBIT positif en 2027 selon estimations Zonebourse; scénario soumis à risque d'exécution",
+        "unite": "texte",
+        "periode": "FY2027",
+        "date_source": "2026-10-30",
+        "source_url": "https://www.zonebourse.com/cours/action/BROADPEAK-138444354/finances/",
+        "statut": "SOURCE_PUBLIQUE_VERIFIEE",
+        "commentaire": "Ne pas confondre prévisions et résultats réalisés"
       },
       "taille_marche_adressable": {
         "valeur": null,
@@ -1027,7 +1027,62 @@
       "diversification": null
     }
   },
-  "preuves_complementaires": [],
+  "preuves_complementaires": [
+    {
+      "url": "https://www.zonebourse.com/cours/action/BROADPEAK-138444354/finances/",
+      "indicateur": "CA_2025",
+      "valeur": 44.38,
+      "unite": "millions_EUR",
+      "periode": "FY2025",
+      "date_collecte": "2026-11-04",
+      "statut": "SOURCE_PUBLIQUE_VERIFIEE"
+    },
+    {
+      "url": "https://www.zonebourse.com/cours/action/BROADPEAK-138444354/finances/",
+      "indicateur": "CA_2026_consensus",
+      "valeur": 44.6,
+      "unite": "millions_EUR",
+      "periode": "FY2026 estimation",
+      "date_collecte": "2026-11-04",
+      "statut": "SOURCE_PUBLIQUE_VERIFIEE"
+    },
+    {
+      "url": "https://www.zonebourse.com/cours/action/BROADPEAK-138444354/finances/",
+      "indicateur": "CA_2027_consensus",
+      "valeur": 50.15,
+      "unite": "millions_EUR",
+      "periode": "FY2027 estimation",
+      "date_collecte": "2026-11-04",
+      "statut": "SOURCE_PUBLIQUE_VERIFIEE"
+    },
+    {
+      "url": "https://www.zonebourse.com/cours/action/BROADPEAK-138444354/finances/",
+      "indicateur": "EBITDA_2026_consensus",
+      "valeur": 6.55,
+      "unite": "millions_EUR",
+      "periode": "FY2026 estimation",
+      "date_collecte": "2026-11-04",
+      "statut": "SOURCE_PUBLIQUE_VERIFIEE"
+    },
+    {
+      "url": "https://www.zonebourse.com/cours/action/BROADPEAK-138444354/finances/",
+      "indicateur": "EBITDA_2027_consensus",
+      "valeur": 9.9,
+      "unite": "millions_EUR",
+      "periode": "FY2027 estimation",
+      "date_collecte": "2026-11-04",
+      "statut": "SOURCE_PUBLIQUE_VERIFIEE"
+    },
+    {
+      "url": "https://www.zonebourse.com/cours/action/BROADPEAK-138444354/finances/",
+      "indicateur": "VE_CA_2026_consensus",
+      "valeur": 0.59,
+      "unite": "ratio",
+      "periode": "FY2026 estimation",
+      "date_collecte": "2026-11-04",
+      "statut": "SOURCE_PUBLIQUE_VERIFIEE"
+    }
+  ],
   "anomalies": [],
   "statut_fiche": "A_COMPLETER",
   "arbitrage_autorise": false
