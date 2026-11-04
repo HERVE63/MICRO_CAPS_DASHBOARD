@@ -1,0 +1,63 @@
+name: MICRO CAPS - chaine integree 40 titulaires
+on:
+  workflow_dispatch:
+  push:
+    branches: [repair/microcaps-chain-20261030]
+    paths:
+      - '.github/workflows/chaine-integree-40.yml'
+  schedule:
+    - cron: '30 18 * * 2'
+permissions:
+  contents: read
+concurrency:
+  group: microcaps-chaine-40
+  cancel-in-progress: false
+jobs:
+  collecte-et-confrontation:
+    runs-on: ubuntu-latest
+    timeout-minutes: 40
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Installer les dependances de controle
+        run: python -m pip install pandas pytest
+      - name: Tester la collecte sans reseau
+        run: python -m pytest -q tests/test_09n_collecte_historique_isolee.py
+      - name: Collecter les historiques et indicateurs des 40 titulaires
+        run: python -B SCRIPTS_ACTIFS/09N_COLLECTE_HISTORIQUES_YAHOO_40.py
+      - name: Collecter les fondamentaux SEC si identifiant disponible
+        env:
+          SEC_USER_AGENT: ${{ secrets.SEC_USER_AGENT }}
+        run: |
+          if [ -n "$SEC_USER_AGENT" ]; then
+            python -B SCRIPTS_ACTIFS/09K_COLLECTE_SEC_TITULAIRES_US.py
+            python -B SCRIPTS_ACTIFS/09L_COLLECTE_SEC_COMPANYFACTS_US.py
+          else
+            echo 'SEC_USER_AGENT absent : fondamentaux SEC non certifies.'
+          fi
+      - name: Relier techniques et fondamentaux dans une meme execution
+        run: python -B SCRIPTS_ACTIFS/09P_COUVERTURE_PREUVES_40.py
+      - name: Controle de la revue puis duels si dossiers valides
+        run: |
+          if python -B SCRIPTS_ACTIFS/09_CONTROLE_REVUE_MCPA_IPS.py; then
+            python -B SCRIPTS_ACTIFS/09B_DUEL_PROCHAIN_EURO.py
+          else
+            echo 'Revue incomplete : duels et arbitrages suspendus sans invention de scores.'
+          fi
+      - name: Archiver toutes les preuves
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: microcaps-chaine-40-${{ github.run_id }}
+          if-no-files-found: warn
+          retention-days: 30
+          path: |
+            DONNEES/COUVERTURE_HISTORIQUES_YAHOO_40.csv
+            DONNEES/INDICATEURS_YAHOO_40.csv
+            DONNEES/OBSERVATIONS_SEC_TITULAIRES_US.csv
+            DONNEES/FAITS_SEC_TITULAIRES_US.csv
+            DONNEES/COUVERTURE_PREUVE_MCPA_40.csv
+            DONNEES/CONTROLE_REVUE_HEBDOMADAIRE_MCPA_IPS.csv
+            DONNEES/DUELS_PROCHAIN_EURO.csv
