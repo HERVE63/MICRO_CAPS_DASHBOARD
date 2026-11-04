@@ -12,7 +12,7 @@ on:
   schedule:
     - cron: '30 18 * * 2'
 permissions:
-  contents: read
+  contents: write
 concurrency:
   group: microcaps-chaine-40
   cancel-in-progress: false
@@ -49,6 +49,17 @@ jobs:
         run: python -B SCRIPTS_ACTIFS/09T_ENRICHIR_FICHES_MCPA_40.py
       - name: Valider les 40 fiches et preparer la revue MCPA IPS
         run: python -B SCRIPTS_ACTIFS/09S_ADAPTATEUR_FICHES_MCPA_40.py
+      - name: Sauvegarder les 40 fiches enrichies dans la branche de travail
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add DOSSIERS_MCPA_IPS_40/ DONNEES/AUDIT_ENRICHISSEMENT_40.csv DONNEES/AUDIT_DOSSIERS_MCPA_IPS_40.csv
+          if ! git diff --cached --quiet; then
+            git commit -m "data: persist 40 MCPA dossier evidence [skip ci]"
+            git push origin HEAD:repair/microcaps-chain-20261030
+          else
+            echo "Aucune nouvelle donnée à sauvegarder."
+          fi
       - name: Controle de la revue puis duels si dossiers valides
         run: |
           if python -B SCRIPTS_ACTIFS/09_CONTROLE_REVUE_MCPA_IPS.py; then
