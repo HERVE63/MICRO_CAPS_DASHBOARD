@@ -1,0 +1,222 @@
+name: MICRO CAPS - PILOTE SEC US 5 ISOLE
+on:
+  workflow_dispatch:
+  push:
+    branches: [repair/microcaps-chain-20261030]
+    paths:
+      - 'SCRIPTS_ACTIFS/09F_PILOTE_SEC_US_5.py'
+      - 'TESTS/test_09f_pilote_sec_us_5_hors_reseau.py'
+      - 'SCRIPTS_ACTIFS/09G_REJOUER_SEC_ARCHIVE_07U_07V.py'
+      - 'TESTS/test_09g_replay_sec_archive_hors_reseau.py'
+      - 'SCRIPTS_ACTIFS/09H_AUDITER_PERIODES_SEC.py'
+      - 'TESTS/test_09h_audit_periodes_sec_hors_reseau.py'
+      - 'SCRIPTS_ACTIFS/09I_AUDITER_ACCESSIONS_SEC.py'
+      - 'TESTS/test_09i_audit_accessions_sec_hors_reseau.py'
+      - 'SCRIPTS_ACTIFS/09J_REVOIR_HISTORIQUE_SEC.py'
+      - 'TESTS/test_09j_historique_sec_hors_reseau.py'
+      - 'SCRIPTS_ACTIFS/07U_COLLECTE_COMPANYFACTS_SEC.py'
+      - 'SCRIPTS_ACTIFS/07V_NORMALISER_FAITS_SEC.py'
+      - '.github/workflows/pilote_sec_us_5_isole.yml'
+permissions:
+  contents: read
+jobs:
+  pilote:
+    if: github.ref == 'refs/heads/repair/microcaps-chain-20261030'
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: ${{ github.sha }}
+          sparse-checkout: |
+            SCRIPTS_ACTIFS
+            DONNEES
+            TESTS
+            .github/workflows
+          sparse-checkout-cone-mode: true
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Installer dependance des modules historiques 07U et 07V
+        run: pip install pandas
+      - name: Reutiliser et tester le pilote SEC sans reseau
+        run: python -B TESTS/test_09f_pilote_sec_us_5_hors_reseau.py
+      - name: Tester replay SEC 07U et 07V hors reseau, T0 et SHA256
+        run: python -B TESTS/test_09g_replay_sec_archive_hors_reseau.py
+      - name: Tester 09H périodes indépendantes, révisions, conflits et SHA256 hors réseau
+        run: python -B TESTS/test_09h_audit_periodes_sec_hors_reseau.py
+      - name: Tester 09I recoupement des accessions SEC sans réseau ni score
+        run: python -B TESTS/test_09i_audit_accessions_sec_hors_reseau.py
+      - name: Tester 09J historique SEC hors reseau et quarantaine des amendements
+        run: python -B TESTS/test_09j_historique_sec_hors_reseau.py
+      - name: Collecter les cinq titulaires US sur SEC sans modifier le depot
+        env:
+          SEC_USER_AGENT: ${{ secrets.SEC_USER_AGENT }}
+        run: python -B SCRIPTS_ACTIFS/09F_PILOTE_SEC_US_5.py
+      - name: Recalculer independamment SHA256 et refuser scores ou arbitrages
+        run: |
+          python - <<'PY'
+          import csv, hashlib, json
+          from pathlib import Path
+          dossiers = sorted(Path('AUDITS/SEC_PILOTE_US_5').glob('*/MANIFESTE.json'))
+          assert len(dossiers) == 1, 'Une seule collecte SEC isolée attendue'
+          manifest = json.loads(dossiers[0].read_text())
+          dossier = dossiers[0].parent
+          assert manifest['Univers'] == manifest['Lignes'] == 5
+          assert manifest['Notes_attribuees'] == manifest['Arbitrages'] == 0
+          assert manifest['Identites_SCE_certifiees'] == 0
+          assert manifest['Captures_brutes'] >= 1, 'Aucune capture primaire SEC reelle: ne pas valider collecte'
+          for rel, sha in manifest['Fichiers_SHA256'].items():
+              p = (dossier / rel).resolve()
+              assert p.is_relative_to(dossier.resolve()) and p.is_file()
+              assert hashlib.sha256(p.read_bytes()).hexdigest() == sha
+          for source in manifest['Sources']:
+              p = (dossier / source['Fichier_brut']).resolve()
+              assert p.is_relative_to(dossier.resolve()) and p.is_file()
+              assert hashlib.sha256(p.read_bytes()).hexdigest() == source['SHA256']
+              assert source['URL'].startswith(('https://www.sec.gov/', 'https://data.sec.gov/'))
+          with (dossier / 'DIAGNOSTIC_SEC_US_5.csv').open(newline='') as f:
+              rows = list(csv.DictReader(f))
+          assert len(rows) == 5 and len({r['ID_position'] for r in rows}) == 5
+          assert all(r['Score_SSI'] == 'MANQUANTE'
+                     and r['Score_MCPA'] == 'MANQUANTE'
+                     and r['Preuve_SCE_certifiee'] == 'NON' for r in rows)
+          print('SEC_US_5', json.dumps({
+              'lignes': len(rows), 'captures': len(manifest['Sources']),
+              'xbrl_non_certifies': manifest['XBRL_brut_a_verifier'],
+              'statuts': {r['Ticker']: r['Statut'] for r in rows},
+              'scores': 0, 'arbitrages': 0}, ensure_ascii=False))
+          PY
+      - name: Rejouer 07U et 07V sur archives SHA256 a T0 et a date courante
+        run: |
+          python - <<'PY'
+          import csv, hashlib, json, subprocess, sys
+          from pathlib import Path
+          archives = sorted(Path('AUDITS/SEC_PILOTE_US_5').glob('*/MANIFESTE.json'))
+          assert len(archives) == 1
+          subprocess.run([sys.executable, '-B', 'SCRIPTS_ACTIFS/09G_REJOUER_SEC_ARCHIVE_07U_07V.py',
+                          str(archives[0].parent)], check=True)
+          sortie = archives[0].parent / 'NORMALISATION_07U_07V'
+          m = json.loads((sortie / 'MANIFESTE_REPLAY.json').read_text())
+          assert m['Statut'] == 'REPLAY_SEC_NON_CERTIFIANT'
+          assert m['Notes_SSI'] == m['Notes_MCPA'] == m['Arbitrages'] == 0
+          assert len(m['Sources_reutilisees']) == 5, 'Une source SEC brute manque pour un titulaire US'
+          for rel, digest in m['Fichiers_SHA256'].items():
+              p = (sortie / rel).resolve()
+              assert p.is_relative_to(sortie.resolve()) and hashlib.sha256(p.read_bytes()).hexdigest() == digest
+          for label, limite in [('T0', '2026-10-01'), ('COURANT', m['Date_collecte'])]:
+              with (sortie / label / 'FAITS_SEC_COMPARABLES_SSI.csv').open(newline='') as f:
+                  lignes = list(csv.DictReader(f))
+              assert all(r['Date_depot'] <= limite for r in lignes)
+              assert all(r['Statut_preuve'] == 'A_VERIFIER_IDENTITE_ET_PERIODE' for r in lignes)
+              assert all(len(r['SHA256_brut_SEC']) == 64 for r in lignes)
+              assert all(r['Ticker'] in m['Sources_reutilisees'] and
+                         r['SHA256_brut_SEC'] == m['Sources_reutilisees'][r['Ticker']]['SHA256']
+                         for r in lignes), 'Lien fait-vers-capture SHA256 incoherent'
+              assert lignes, 'Aucun fait comparable : ne pas valider le replay'
+              print(label, len(lignes), 'faits comparables plausibles NON CERTIFIES')
+          PY
+      - name: Auditer les périodes SEC 09H sans score, ni conversion des cumuls
+        run: |
+          python - <<'PY'
+          import hashlib, json, subprocess, sys
+          from pathlib import Path
+          archives = sorted(Path('AUDITS/SEC_PILOTE_US_5').glob('*/MANIFESTE.json'))
+          assert len(archives) == 1
+          d = archives[0].parent
+          subprocess.run([sys.executable, '-B', 'SCRIPTS_ACTIFS/09H_AUDITER_PERIODES_SEC.py', str(d)], check=True)
+          a = d / 'AUDIT_PERIODES_09H'
+          m = json.loads((a / 'MANIFESTE_09H.json').read_text())
+          assert m['Statut'] == 'AUDIT_PERIODES_NON_CERTIFIANT'
+          assert (m['Notes_SSI'], m['Notes_MCPA'], m['Arbitrages']) == (0, 0, 0)
+          assert m['Source_manifeste_09G_SHA256'] == hashlib.sha256(
+              (d / 'NORMALISATION_07U_07V/MANIFESTE_REPLAY.json').read_bytes()).hexdigest()
+          for rel, digest in m['Fichiers_SHA256'].items():
+              p = (a / rel).resolve()
+              assert p.is_relative_to(a.resolve()) and hashlib.sha256(p.read_bytes()).hexdigest() == digest
+          import csv
+          with (a / 'DETAIL_CONFLITS_REVISIONS_09H.csv').open(newline='') as f:
+              details = list(csv.DictReader(f))
+          assert len(details) == sum(m['Audits'][k]['Observations_a_revoir']
+                                     for k in ('T0', 'COURANT'))
+          replay = json.loads((d / 'NORMALISATION_07U_07V/MANIFESTE_REPLAY.json').read_text())
+          for r in details:
+              assert r['Statut_groupe'] in (
+                  'EN_ATTENTE_DATA_CONFLIT_ALIAS', 'EN_ATTENTE_DATA_REVISION')
+              assert r['Statut_preuve'] == 'A_VERIFIER_IDENTITE_ET_PERIODE'
+              assert r['SHA256_brut_SEC'] == replay['Sources_reutilisees'][r['Ticker']]['SHA256']
+              assert r['Date_depot'] <= ('2026-10-01' if r['Horizon'] == 'T0'
+                                         else m['Date_collecte'])
+          for label in ('T0', 'COURANT'):
+              audit = m['Audits'][label]
+              assert audit['Groupes_a_revoir'] == sum(
+                  audit['Statuts'].get(x, 0) for x in (
+                      'EN_ATTENTE_DATA_CONFLIT_ALIAS', 'EN_ATTENTE_DATA_REVISION'))
+              assert audit['Periodes_distinctes'] > 0
+              assert audit['Notes_SSI'] == audit['Notes_MCPA'] == audit['Arbitrages'] == 0
+              print(label, audit)
+          PY
+      - name: Recouper les accessions des conflits 09H avec les submissions SEC archivées
+        run: |
+          python - <<'PY'
+          import csv, hashlib, json, subprocess, sys
+          from pathlib import Path
+          archives = sorted(Path('AUDITS/SEC_PILOTE_US_5').glob('*/MANIFESTE.json'))
+          assert len(archives) == 1
+          d = archives[0].parent
+          subprocess.run([sys.executable, '-B', 'SCRIPTS_ACTIFS/09I_AUDITER_ACCESSIONS_SEC.py', str(d)], check=True)
+          p = d / 'AUDIT_ACCESSIONS_09I'
+          m = json.loads((p / 'MANIFESTE_09I.json').read_text())
+          assert m['Statut'] == 'RECOUPEMENT_DEPOTS_SEC_NON_CERTIFIANT'
+          assert m['Notes_SSI'] == m['Notes_MCPA'] == m['Arbitrages'] == 0
+          for rel, digest in m['Fichiers_SHA256'].items():
+              assert hashlib.sha256((p / rel).read_bytes()).hexdigest() == digest
+          with (p / 'REVUE_ACCESSIONS_SEC_09I.csv').open(newline='') as f:
+              lignes = list(csv.DictReader(f))
+          assert len(lignes) == sum(a['Observations'] for a in m['Audits'].values())
+          assert len(lignes) > 0, 'Aucune révision réelle à auditer : vérifier 09H'
+          assert all(r['Statut_preuve'] == 'A_VERIFIER_IDENTITE_ET_PERIODE' for r in lignes)
+          assert all(r['Statut_accession_09I'] != 'CERTIFIE' for r in lignes)
+          print('09I', json.dumps(m['Audits'], ensure_ascii=False))
+          PY
+      - name: Rechercher les accessions historiques SEC sans score ni ordre
+        env:
+          SEC_USER_AGENT: ${{ secrets.SEC_USER_AGENT }}
+        run: |
+          python - <<'PY'
+          import csv,hashlib,json,subprocess,sys
+          from pathlib import Path
+          dossiers=sorted(Path('AUDITS/SEC_PILOTE_US_5').glob('*/MANIFESTE.json'))
+          assert len(dossiers)==1
+          d=dossiers[0].parent
+          subprocess.run([sys.executable,'-B','SCRIPTS_ACTIFS/09J_REVOIR_HISTORIQUE_SEC.py',str(d)],check=True)
+          out=d/'AUDIT_HISTORIQUE_09J'
+          m=json.loads((out/'MANIFESTE_09J.json').read_text())
+          assert m['Statut']=='AUDIT_HISTORIQUE_NON_CERTIFIANT'
+          assert (m['Notes_SSI'],m['Notes_MCPA'],m['Arbitrages'])==(0,0,0)
+          assert m['Source_manifeste_09I_SHA256']==hashlib.sha256(
+              (d/'AUDIT_ACCESSIONS_09I/MANIFESTE_09I.json').read_bytes()).hexdigest()
+          for rel,digest in m['Fichiers_SHA256'].items():
+              f=(out/rel).resolve()
+              assert f.is_relative_to(out.resolve()) and f.is_file()
+              assert hashlib.sha256(f.read_bytes()).hexdigest()==digest
+          with (out/'REVUE_HISTORIQUE_SEC_09J.csv').open(newline='') as f:
+              rows=list(csv.DictReader(f))
+          assert len(rows)==m['Accessions_distinctes']
+          assert all(r['Statut_preuve']=='A_VERIFIER_IDENTITE_ET_PERIODE' for r in rows)
+          print('09J SEC REEL',json.dumps({'accessions':len(rows),
+              'statuts':m['Statuts'],'captures':len(m['Captures'])},ensure_ascii=False))
+          PY
+      - name: Interdire toute modification des donnees et coffres
+        if: always()
+        run: |
+          git diff --exit-code -- DONNEES HISTORIQUE SAUVEGARDES CONFIG APPLICATION index.html
+          test -z "$(git status --porcelain -- DONNEES HISTORIQUE SAUVEGARDES CONFIG APPLICATION index.html)"
+      - name: Conserver les preuves et les echecs en artefact non fusionne
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: sec-pilote-us-5-${{ github.run_id }}-${{ github.run_attempt }}
+          path: AUDITS/SEC_PILOTE_US_5/
+          if-no-files-found: warn
+          retention-days: 90

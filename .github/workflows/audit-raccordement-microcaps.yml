@@ -1,0 +1,41 @@
+name: Audit lecture seule raccordement Micro Caps
+on:
+  push:
+    branches:
+      - repair/microcaps-chain-20261030
+    paths:
+      - 'SCRIPTS_ACTIFS/09G_AUDIT_RACCORDEMENT.py'
+      - 'SCRIPTS_ACTIFS/09H_CONTROLE_ORDRE_CHALLENGE.py'
+      - '.github/workflows/audit-raccordement-microcaps.yml'
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  audit:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - run: pip install pandas
+      - name: Tester 08A sur copie temporaire uniquement (aucune ecriture du registre officiel)
+        shell: bash
+        run: |
+          set -euo pipefail
+          original_sha="$(sha256sum DONNEES/CHASSE_CANDIDATS.csv | cut -d' ' -f1)"
+          temp_dir="$(mktemp -d)"
+          trap 'rm -rf "$temp_dir"' EXIT
+          mkdir -p "$temp_dir/SCRIPTS_ACTIFS" "$temp_dir/DONNEES"
+          cp SCRIPTS_ACTIFS/08A_IMPORT_SCREENER.py "$temp_dir/SCRIPTS_ACTIFS/"
+          cp DONNEES/SORTIE_SCREENER_CANDIDATS.csv "$temp_dir/DONNEES/"
+          cp DONNEES/CHASSE_CANDIDATS.csv "$temp_dir/DONNEES/"
+          python "$temp_dir/SCRIPTS_ACTIFS/08A_IMPORT_SCREENER.py"
+          test -s "$temp_dir/DONNEES/CHASSE_CANDIDATS.csv"
+          test -f "$temp_dir/DONNEES/CONTROLE_IMPORT_SCREENER.csv"
+          test "$original_sha" = "$(sha256sum DONNEES/CHASSE_CANDIDATS.csv | cut -d' ' -f1)"
+          echo "08A valide en bac a sable; registre versionne inchange."
+      - name: Controler les interfaces existantes sans arbitrer
+        run: python SCRIPTS_ACTIFS/09G_AUDIT_RACCORDEMENT.py
+      - name: Verifier l'ordre titulaires challengers duels sans arbitrage
+        run: python SCRIPTS_ACTIFS/09H_CONTROLE_ORDRE_CHALLENGE.py

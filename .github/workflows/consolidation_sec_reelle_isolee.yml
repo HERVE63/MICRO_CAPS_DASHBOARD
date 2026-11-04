@@ -1,0 +1,91 @@
+name: MICRO CAPS - CONSOLIDATION SEC REELLE ISOLEE
+on:
+  push:
+    branches: [repair/microcaps-chain-20261030]
+    paths:
+      - .github/workflows/consolidation_sec_reelle_isolee.yml
+      - SCRIPTS_ACTIFS/07AD_CONSOLIDER_COLLECTES_SEC.py
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  consolidation:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          sparse-checkout: |
+            SCRIPTS_ACTIFS
+            DONNEES
+            AUDITS/SEC
+            AUDITS/QUALIFICATION_US
+          sparse-checkout-cone-mode: true
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - run: python -m pip install pandas numpy
+      - name: Consolider les archives SEC reelles avec controle SHA256 des sources
+        run: python -B SCRIPTS_ACTIFS/07AD_CONSOLIDER_COLLECTES_SEC.py
+      - name: Verifier les 40 titulaires, aucune note et sceller les resultats
+        run: |
+          python - <<'PY'
+          import csv,hashlib,json,pathlib
+          root=pathlib.Path('AUDITS/SEC_CONSOLIDE')
+          dossiers=sorted(root.glob('*/MANIFESTE.json'))
+          assert len(dossiers)==1, 'Une seule consolidation attendue'
+          manifeste=dossiers[0]
+          bilan=json.loads(manifeste.read_text())
+          assert bilan['titulaires_couverts']==40, bilan
+          assert bilan['notes_attribuees']==0 and bilan['identites_validees_automatiquement']==0
+          assert bilan['archives_controlees']>=1, bilan
+          assert bilan['archives_qualification_us_controlees']>=1, bilan
+          assert bilan['titulaires_avec_pistes_SEC']>=1, bilan
+          sortie=manifeste.parent
+          assert set(bilan.get('fichiers_sha256',{}))=={'FAITS_SEC_BRUTS_CONSOLIDES.csv','COUVERTURE.csv','COUVERTURE_TITULAIRES.csv'}
+          for nom,sha in bilan['fichiers_sha256'].items():
+              assert hashlib.sha256((sortie/nom).read_bytes()).hexdigest()==sha, 'Sortie consolidee alteree: '+nom
+          assert len(bilan.get('manifestes_sources_sha256',{}))==bilan['archives_controlees']+bilan['archives_qualification_us_controlees']
+          for rel,sha in bilan['manifestes_sources_sha256'].items():
+              assert hashlib.sha256(pathlib.Path(rel).read_bytes()).hexdigest()==sha, 'Manifeste source altere: '+rel
+          with (sortie/'COUVERTURE_TITULAIRES.csv').open(newline='') as f:
+              lignes=list(csv.DictReader(f))
+          assert len(lignes)==40 and len({r['ID_position'] for r in lignes})==40
+          assert all(r['Statut_SSI']=='EN_ATTENTE_DATA' and r['Statut_MCPA']=='EN_ATTENTE_DATA' for r in lignes)
+          # Contrôle indépendant du point-in-time : jamais de fait publié à T0
+          # ou après T0 dans les faits considérés disponibles à l'origine.
+          with pathlib.Path('DONNEES/COHORTE_MICRO_CAPS_T0.csv').open(encoding='utf-8-sig',newline='') as f:
+              cohorte=list(csv.DictReader(f))
+          assert len(cohorte)==40
+          dates={((r['Ticker_cotation']+'.US') if r['Pays']=='USA' and not r['Ticker_cotation'].endswith('.US') else r['Ticker_cotation']):r['Date_T0'] for r in cohorte}
+          compte={t:0 for t in dates}
+          with (sortie/'FAITS_SEC_BRUTS_CONSOLIDES.csv').open(newline='') as f:
+              for fait in csv.DictReader(f):
+                  statut=fait['Statut_disponibilite_T0']
+                  t=fait['Ticker']
+                  if t not in dates:
+                      assert statut=='HORS_COHORTE_T0',(t,statut)
+                  elif statut=='DISPONIBLE_AVANT_T0':
+                      assert fait['Statut_chronologie']=='OK' and fait['Date_depot']<dates[t],fait
+                      compte[t]+=1
+                  elif statut=='POSTERIEUR_OU_JOUR_T0':
+                      assert fait['Statut_chronologie']=='OK' and fait['Date_depot']>=dates[t],fait
+                  else:
+                      assert statut=='CHRONOLOGIE_NON_VALIDEE',fait
+          assert all(int(r['Nb_faits_disponibles_T0'])==compte[r['Ticker']] for r in lignes)
+          assert sum(compte.values())==bilan['observations_disponibles_avant_T0']
+          empreintes={p.name:hashlib.sha256(p.read_bytes()).hexdigest() for p in sorted(sortie.glob('*')) if p.is_file()}
+          (sortie/'SHA256_RESULTATS.json').write_text(json.dumps(empreintes,indent=2,sort_keys=True)+'\n')
+          print('CONSOLIDATION REELLE :',json.dumps(bilan,ensure_ascii=False),flush=True)
+          print('SHA256 RESULTATS :',json.dumps(empreintes,sort_keys=True),flush=True)
+          PY
+      - name: Interdire toute mutation des references et de main
+        run: |
+          git diff --exit-code -- DONNEES AUDITS/SEC AUDITS/QUALIFICATION_US HISTORIQUE CONFIG
+          test -z "$(git status --porcelain -- DONNEES HISTORIQUE CONFIG AUDITS/SEC AUDITS/QUALIFICATION_US)"
+      - uses: actions/upload-artifact@v4
+        with:
+          name: consolidation-sec-reelle-auditee
+          path: AUDITS/SEC_CONSOLIDE/
+          if-no-files-found: error
+          retention-days: 30

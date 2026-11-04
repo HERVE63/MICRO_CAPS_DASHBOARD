@@ -10,7 +10,8 @@ def executer():
     df=pd.read_csv(SRC)
     m=pd.read_csv(MARCHE)
     if df['Ticker'].duplicated().any() or m['Ticker'].duplicated().any(): raise RuntimeError('Ticker duplique')
-    champs=['Momentum_3m_pct','Momentum_6m_pct','MM200','Au_dessus_MM200','Volume_monetaire_median_63s_local','Statut_donnees_marche']
+    if 'Momentum_12m_pct' not in m.columns: m['Momentum_12m_pct']=pd.NA
+    champs=['Momentum_3m_pct','Momentum_6m_pct','Momentum_12m_pct','MM200','Au_dessus_MM200','Volume_monetaire_median_63s_local','Statut_donnees_marche']
     df=df.drop(columns=[v for v in champs if v in df.columns]).merge(m[['Ticker']+champs],on='Ticker',how='left',validate='one_to_one')
     if df.empty: raise RuntimeError('Univers nettoye vide')
     req=['Momentum_3m_pct','Momentum_6m_pct','MM200','Au_dessus_MM200','Volume_monetaire_median_63s_local','Statut_donnees_marche']

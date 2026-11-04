@@ -1,0 +1,109 @@
+"""Régression hors réseau : SSI accepte ISIN/LEI uniquement sur preuves concordantes.
+Toutes les sociétés, documents et notes ci-dessous sont des fixtures fictives.
+Aucun score économique ni admission réelle ne provient de ce test.
+"""
+from pathlib import Path
+from tempfile import TemporaryDirectory
+import hashlib
+import importlib.util
+import sys
+import pandas as pd
+
+ROOT=Path(__file__).resolve().parents[1]
+sys.path.insert(0,str(ROOT/"SCRIPTS_ACTIFS"))
+from preuves_ssi import CHAMPS, valider_dossier, identifiant_dossier
+
+def test():
+    script=ROOT/"SCRIPTS_ACTIFS/07R_VALIDER_NOTES_SSI.py"
+    spec=importlib.util.spec_from_file_location("ssi_reglementaire_fixture",script)
+    m=importlib.util.module_from_spec(spec)
+    spec.loader.exec_module(m)
+    with TemporaryDirectory() as tmp:
+        base=Path(tmp)
+        d=base/"DONNEES"
+        d.mkdir()
+        brut=base/"preuve_fictive.bin"
+        brut.write_bytes(b"FIXTURE NON REGLEMENTAIRE - TEST HORS RESEAU")
+        sha=hashlib.sha256(brut.read_bytes()).hexdigest()
+        brut_identite2=base/"preuve_identite_independante.bin"
+        brut_identite2.write_bytes(b"DEUXIEME DOCUMENT PRIMAIRE FICTIF DISTINCT")
+        sha_identite2=hashlib.sha256(brut_identite2.read_bytes()).hexdigest()
+        ident="ISIN:US0378331005"  # exemple de checksum, pas une attribution d'emetteur
+        dossier=dict(Ticker="EXEMPLE.F",CIK="",Identifiant_emetteur_verifie=ident,
+                     Conflit_identite_CIK="NON",SCE_valide="OUI",
+                     Preuves_identite_SCE="SCE1|SCE2",
+                     Decision_eliminatoire="NON",Motif_eliminatoire="EX1")
+        preuves=[]
+        for i,(pid,bloc) in enumerate([("SCE1","IDENTITE_SCE"),("SCE2","IDENTITE_SCE"),
+                                       ("EX1","EXCLUSIONS")]+[("P"+str(n),"B"+str(n)) for n in range(1,8)]):
+            r=dict.fromkeys(CHAMPS,"")
+            r.update(ID_preuve=pid,Ticker="EXEMPLE.F",Bloc=bloc,
+                     Identifiant_emetteur=ident,Source_URL=("https://exchange.example/fixture/" if pid=="SCE2" else "https://issuer.example/fixture/")+pid,
+                     Type_source="DEPOT_REGLEMENTAIRE",Date_publication="2026-01-01",
+                     Fichier_brut=(brut_identite2.name if pid=="SCE2" else brut.name),
+                     SHA256=(sha_identite2 if pid=="SCE2" else sha),
+                     Statut_identite="VERIFIEE",Statut_verification="VERIFIEE",
+                     Verificateur="FIXTURE_INDEPENDANTE",Date_verification_UTC="2026-01-02T00:00:00Z",
+                     Justification="FICTION POUR TEST",Note="10" if bloc.startswith("B") else "")
+            preuves.append(r)
+        for n in range(1,8):
+            dossier["Note_B"+str(n)]="10"
+            dossier["Preuve_B"+str(n)]="P"+str(n)
+        reg=pd.DataFrame(preuves)
+        reg.to_csv(d/"REGISTRE_PREUVES_SSI.csv",index=False)
+        pd.DataFrame([dossier]).to_csv(d/"DOSSIERS_SSI_A_QUALIFIER.csv",index=False)
+        assert identifiant_dossier(pd.Series(dossier))==ident
+        notes,errors=valider_dossier(pd.Series(dossier),reg,base)
+        assert not errors and sum(notes)==70,(notes,errors)
+        # Deux URL et deux empreintes du meme editeur ne constituent
+        # pas deux sources SCE independantes.
+        meme_hote=reg.copy()
+        meme_hote.loc[meme_hote.ID_preuve.eq("SCE2"),"Source_URL"]="https://www.issuer.example/fixture/SCE2"
+        assert any("sources distinctes" in e for e in valider_dossier(pd.Series(dossier),meme_hote,base)[1])
+        # Deux sous-domaines du meme editeur ne sont pas deux sources
+        # independantes, meme avec deux URLs et deux SHA256 differents.
+        meme_editeur=reg.copy()
+        meme_editeur.loc[meme_editeur.ID_preuve.eq("SCE1"),"Source_URL"]="https://investors.issuer.example/fixture/SCE1"
+        meme_editeur.loc[meme_editeur.ID_preuve.eq("SCE2"),"Source_URL"]="https://reports.issuer.example/fixture/SCE2"
+        assert any("sources distinctes" in e for e in valider_dossier(pd.Series(dossier),meme_editeur,base)[1])
+        # Deux organisations sous un suffixe public compose restent distinctes.
+        uk=reg.copy()
+        uk.loc[uk.ID_preuve.eq("SCE1"),"Source_URL"]="https://issuer.co.uk/fixture/SCE1"
+        uk.loc[uk.ID_preuve.eq("SCE2"),"Source_URL"]="https://exchange.co.uk/fixture/SCE2"
+        assert not valider_dossier(pd.Series(dossier),uk,base)[1]
+        # Un utilisateur/mot de passe dans l'URL ne doit pas servir de preuve SCE.
+        identifiant_url=reg.copy()
+        identifiant_url.loc[identifiant_url.ID_preuve.eq("SCE2"),"Source_URL"]="https://user@exchange.example/fixture/SCE2"
+        assert any("sources distinctes" in e for e in valider_dossier(pd.Series(dossier),identifiant_url,base)[1])
+        # Deux URL distinctes ne suffisent pas si les octets archivés sont identiques.
+        meme_document=reg.copy()
+        masque=meme_document.ID_preuve.eq("SCE2")
+        meme_document.loc[masque,"Fichier_brut"]=brut.name
+        meme_document.loc[masque,"SHA256"]=sha
+        assert any("SHA256" in e for e in valider_dossier(pd.Series(dossier),meme_document,base)[1])
+        m.D,m.SRC,m.OUT,m.AUD=d,d/"DOSSIERS_SSI_A_QUALIFIER.csv",d/"RESULTATS_SSI.csv",d/"AUDIT_SSI.csv"
+        result=m.executer()
+        assert result.iloc[0].Statut_SSI=="ADMIS_SSI" and result.iloc[0].SSI=="70"
+        # Un identifiant auto-déclaré ne suffit pas : vérification des deux preuves.
+        for invalide in ("ISIN:US0378331006","ISIN:MANQUANTE","LEI:5493001KJTIIGC8Y1R13"):
+            autre=pd.Series({**dossier,"Identifiant_emetteur_verifie":invalide})
+            assert identifiant_dossier(autre)==""
+            assert valider_dossier(autre,reg,base)[1]
+        autre=pd.Series({**dossier,"CIK":"123"})
+        assert identifiant_dossier(autre)=="", "Un CIK malformé ne peut être masqué par un ISIN"
+        autre=pd.Series({**dossier,"CIK":"0000001234"})
+        assert identifiant_dossier(autre)=="", "Un CIK présent divergent ne peut être masqué par un ISIN"
+        autre=pd.Series({**dossier,"Conflit_identite_CIK":"OUI"})
+        assert valider_dossier(autre,reg,base)[1]
+        autre_reg=reg.copy()
+        autre_reg.loc[autre_reg.ID_preuve.eq("SCE2"),"Identifiant_emetteur"]="ISIN:US0378331006"
+        assert valider_dossier(pd.Series(dossier),autre_reg,base)[1]
+        autre_reg=reg.copy()
+        autre_reg.loc[autre_reg.ID_preuve.eq("P1"),"Identifiant_emetteur"]="CIK:0000001234"
+        assert valider_dossier(pd.Series(dossier),autre_reg,base)[1]
+        brut.write_bytes(b"DOCUMENT ALTERE")
+        assert valider_dossier(pd.Series(dossier),reg,base)[1]
+    print("SSI identité réglementaire : checksum, preuves, collision, SHA256 et cohorte fictive OK")
+
+if __name__=="__main__":
+    test()

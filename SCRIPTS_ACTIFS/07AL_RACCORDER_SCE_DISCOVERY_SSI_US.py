@@ -55,7 +55,7 @@ def ordonner(dossiers,instruments):
  return sorted(rows,key=lambda r:(not bool(r['Hash_SCE']),r['Hash_SCE'],r['Ticker']))
 def appliquer_revues(ordre,revues,preuves,base,recensement_sha,limite=None):
  """Une revue primaire identifiée lève les contrôles ; aucune collecte ne s'auto-valide."""
- from preuves_ssi import verifier
+ from preuves_ssi import verifier, domaines_sce_distincts
  if revues.Ticker.duplicated().any():raise RuntimeError('REVUES_IDENTITE_DUPLIQUEES')
  index={r['Ticker']:r for r in ordre}
  for _,v in revues.iterrows():
@@ -77,7 +77,8 @@ def appliquer_revues(ordre,revues,preuves,base,recensement_sha,limite=None):
    for _,q in z.iterrows():
     erreurs.extend(verifier(q,v.Ticker,bloc,base,limite))
     if q.Identifiant_emetteur!='CIK:'+v.CIK:erreurs.append('IDENTITE_PREUVE_DIVERGENTE')
-   if bloc=='IDENTITE_SCE' and (len(z)<2 or z.Source_URL.nunique()<2):erreurs.append('DEUX_SOURCES_IDENTITE_REQUISES')
+   if bloc=='IDENTITE_SCE' and (len(z)<2 or z.Source_URL.nunique()<2 or z.SHA256.nunique()<2 or not domaines_sce_distincts(z.Source_URL)):
+    erreurs.append('DEUX_SOURCES_IDENTITE_DISTINCTES_HOTES_URL_SHA256_REQUISES')
   if erreurs:
    r['Motifs']+=';'+';'.join(sorted(set(erreurs)));continue
   r.update(SCE_valide='OUI',Statut_SCE='IDENTITE_EXCLUSIONS_VERIFIEES',Motifs='REVUE_PRIMAIRE_IDENTIFIEE',Preuve_controle_exclusions=v.Preuve_exclusions,Preuves_identite_SCE=v.Preuves_identite)

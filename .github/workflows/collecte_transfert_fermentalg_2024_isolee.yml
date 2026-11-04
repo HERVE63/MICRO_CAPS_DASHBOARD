@@ -1,0 +1,109 @@
+name: MICRO CAPS - FERMENTALG TRANSFERT 2024 PRIMAIRE ISOLE
+on:
+  workflow_dispatch:
+  push:
+    branches: [repair/microcaps-chain-20261030]
+    paths:
+      - 'AUDITS/REPARATION/REGISTRE_FERMENTALG_TRANSFERT_2024.csv'
+permissions:
+  contents: write
+  actions: write
+concurrency:
+  group: microcaps-fermentalg-transfert-2024-isole
+  cancel-in-progress: false
+jobs:
+  capture:
+    if: github.ref_name == 'repair/microcaps-chain-20261030'
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: ${{ github.ref_name }}
+          sparse-checkout: |
+            SCRIPTS_ACTIFS
+            DONNEES
+            AUDITS/SOURCES_OFFICIELLES
+            AUDITS/REPARATION
+          sparse-checkout-cone-mode: true
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - run: pip install pandas
+      - name: Collecter le communique historique par 07AA sans recapturer Q1/S1
+        id: collecte
+        run: |
+          python -B SCRIPTS_ACTIFS/07AA_COLLECTE_DOCUMENTS_OFFICIELS.py --registre AUDITS/REPARATION/REGISTRE_FERMENTALG_TRANSFERT_2024.csv --couverture DONNEES/DOSSIERS_SSI_A_QUALIFIER.csv
+          python - <<'PY'
+          from pathlib import Path
+          import os, csv, hashlib, json
+          root=Path.cwd()
+          dossiers=sorted((root/'AUDITS/SOURCES_OFFICIELLES').glob('*/MANIFESTE.json'))
+          assert dossiers
+          dossier=dossiers[-1].parent
+          with open(os.environ['GITHUB_OUTPUT'],'a') as f:
+              f.write('dossier='+str(dossier.relative_to(root))+'\n')
+          with (dossier/'AUDIT_DOCUMENTS.csv').open(newline='',encoding='utf-8') as f:
+              rows=list(csv.DictReader(f))
+          assert len(rows)==1
+          r=rows[0]
+          assert r['ID_document']=='FERMENTALG_TRANSFERT_FALG_ALGAE_20240412'
+          assert r['Date_publication']=='2024-04-12'
+          assert r['Statut_date_publication']=='DATE_DECLAREE_A_VERIFIER'
+          assert r['Identifiant_emetteur']=='ISIN:FR0011271600'
+          assert r['Notes_attribuees']=='0'
+          assert r['Statut_identite'].startswith('A_VERIFIER')
+          m=json.loads((dossier/'MANIFESTE.json').read_text())
+          assert m['documents_configures']==1 and m['notes_attribuees']==0
+          assert m['registre_SHA256']==hashlib.sha256((root/'AUDITS/REPARATION/REGISTRE_FERMENTALG_TRANSFERT_2024.csv').read_bytes()).hexdigest()
+          for name,sha in m['fichiers'].items():
+              assert hashlib.sha256((dossier/name).read_bytes()).hexdigest()==sha
+          if r['Statut']=='DOCUMENT_COLLECTE_A_VERIFIER':
+              p=(root/r['Fichier_brut']).resolve()
+              assert p.parent==dossier.resolve()
+              b=p.read_bytes()
+              assert hashlib.sha256(b).hexdigest()==r['SHA256']
+              assert all(s in b.upper() for s in [b'FR0011271600',b'FERMENTALG',b'ALGAE',b'FALG'])
+              assert m['documents_collectes']==1
+              print('TRANSFERT_2024_CAPTURE_SHA256_NON_CERTIFIE',r['SHA256'])
+          else:
+              assert r['Statut']=='BLOQUE_SOURCE' and r.get('Motif')
+              assert not r.get('SHA256') and not r.get('Fichier_brut')
+              assert m['sources_bloquees']==1 and m['documents_collectes']==0
+              print('EN_ATTENTE_DATA_SOURCE',r['Motif'])
+          print('DATE_PUBLICATION_DECLAREE_NON_VERIFIEE; 1F6.F_NON_CERTIFIE; SSI_MCPA_MANQUANTES')
+          PY
+      - name: Garantir aucune mutation des donnees officielles
+        if: always()
+        run: git diff --exit-code -- DONNEES HISTORIQUE SAUVEGARDES APPLICATION index.html
+      - name: Conserver les captures et echecs en artefact
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: fermentalg-transfert-2024-${{ github.run_id }}-${{ github.run_attempt }}
+          path: ${{ steps.collecte.outputs.dossier }}
+          if-no-files-found: warn
+      - name: Publier uniquement audit SHA256 sur branche isolee
+        id: publication
+        if: ${{ success() && github.ref_name == 'repair/microcaps-chain-20261030' }}
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add AUDITS/SOURCES_OFFICIELLES
+          if ! git diff --cached --quiet; then
+            git commit -m "Archiver transfert Fermentalg 2024 SHA256 sans certification"
+            for essai in 1 2 3 4 5; do
+              git pull --rebase origin "$GITHUB_REF_NAME"
+              if git push origin "HEAD:$GITHUB_REF_NAME"; then
+                echo "published=true" >> "$GITHUB_OUTPUT"
+                break
+              fi
+              if [ "$essai" -eq 5 ]; then exit 1; fi
+              sleep $((essai * 2))
+            done
+          fi
+      - name: Regenerer SSI seulement apres publication
+        if: ${{ success() && steps.publication.outputs.published == 'true' && github.ref_name == 'repair/microcaps-chain-20261030' }}
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: gh workflow run preparer_dossiers_ssi.yml --ref "$GITHUB_REF_NAME"

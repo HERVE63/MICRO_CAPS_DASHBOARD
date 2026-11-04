@@ -12,6 +12,7 @@ Règles validées :
 """
 from pathlib import Path
 import importlib.util
+import re
 import pandas as pd
 
 BASE = Path(__file__).resolve().parent.parent
@@ -29,6 +30,16 @@ def calculer_duels(df):
     if df.empty:
         raise RuntimeError("Revue vide.")
 
+    # Le duel ne doit jamais utiliser un identifiant absent ou ambigu.
+    obligatoires = {"Type", "ID_position", "Societe", "MCPA", "Decision",
+                    "Challengers_compares"}
+    manquants = obligatoires - set(df.columns)
+    if manquants:
+        raise RuntimeError("Schema revue incomplet : " + ", ".join(sorted(manquants)))
+    identifiants = df["ID_position"].astype(str).str.strip()
+    if identifiants.eq("").any() or identifiants.duplicated().any():
+        raise RuntimeError("Identifiants de positions vides ou dupliques dans le duel.")
+
     d = df.copy()
     d["Type_N"] = d["Type"].map(_s)
     d["Decision_N"] = d["Decision"].map(_s)
@@ -45,13 +56,33 @@ def calculer_duels(df):
         | ((d["Type_N"] == "CHALLENGER") & d["Decision_N"].isin(DEST_CHALLENGER))
     ].copy()
 
+    # Les destinations admissibles sont celles du referentiel 09B.
+    # Un champ 'Challengers_compares' rempli de texte libre ne prouve pas
+    # qu'une destination a reellement ete confrontee a la source.
+    ids_revue = set(identifiants)
+    ids_destinations = set(destinations["ID_position"].astype(str).str.strip())
+
     rows = []
     for _, src in sources.iterrows():
         note_source = float(src["MCPA_N"])
         comparaison = str(src["Challengers_compares"]).strip()
-        if not comparaison:
+        if not comparaison or comparaison.upper() in {"NAN", "NONE"}:
             raise RuntimeError(f"Comparaison manquante pour {src['Societe']}.")
-
+        # Contrat documentaire : IDs de positions separes par | , ou ;
+        # 'AUCUNE' est admis uniquement lorsqu'aucune destination n'existe.
+        references = {x.strip() for x in re.split(r"[|,;]", comparaison) if x.strip()}
+        if not ids_destinations and comparaison.upper() == "AUCUNE":
+            references = set()
+        inconnus = references - ids_revue
+        if inconnus:
+            raise RuntimeError(
+                f"Comparaison de {src['Societe']} avec IDs inconnus : "
+                + ", ".join(sorted(inconnus)))
+        omis = ids_destinations - references
+        if omis:
+            raise RuntimeError(
+                f"Comparaison incomplete pour {src['Societe']} : destinations "
+                + ", ".join(sorted(omis)) + " non confrontees.")
         if destinations.empty:
             rows.append({
                 "ID_position_source": src["ID_position"],

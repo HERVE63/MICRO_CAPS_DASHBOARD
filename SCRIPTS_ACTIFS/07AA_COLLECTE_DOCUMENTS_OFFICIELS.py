@@ -41,7 +41,11 @@ def executer(registre=None, couverture_source=None):
                 row['Statut_date_publication']='INCONNUE_NE_PAS_UTILISER_RETROSPECTIVEMENT'
             elif pub>pd.Timestamp(now):raise ValueError('Date publication future')
             else:row['Statut_date_publication']='DATE_DECLAREE_A_VERIFIER'
-            if r.Type_source not in ['PUBLICATION_EMETTEUR','DEPOT_REGLEMENTAIRE']:raise ValueError('Source non primaire')
+            if r.Type_source not in ['PUBLICATION_EMETTEUR','DEPOT_REGLEMENTAIRE','DONNEE_MARCHE_IDENTITE']:raise ValueError('Source non primaire')
+            # Une fiche officielle d'operateur de marche est primaire pour une PISTE
+            # d'identite, jamais une preuve de bilan ni une certification SCE.
+            if r.Type_source=='DONNEE_MARCHE_IDENTITE' and not str(r.Statut_identite).startswith('A_VERIFIER'):
+                raise ValueError('Fiche marche reservee a une identite non certifiee')
             domaines=set(r.Domaine_autorise.split('|'))
             verifier_url(r.Source_URL,domaines)
             if not r.Source_habilitation_domaine.startswith('https://'):raise ValueError('Habilitation domaine absente')

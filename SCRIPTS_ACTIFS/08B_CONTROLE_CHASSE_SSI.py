@@ -17,12 +17,19 @@ CHAMPS = [
 def executer():
     if not CHASSE.exists():
         raise RuntimeError("Registre de chasse absent.")
-    chasse = pd.read_csv(CHASSE)
+    if CHASSE.stat().st_size == 0:
+        raise RuntimeError("Registre de chasse vide (fichier 0 octet) : relancer 08A_IMPORT_SCREENER.py.")
+    try:
+        chasse = pd.read_csv(CHASSE)
+    except pd.errors.EmptyDataError as exc:
+        raise RuntimeError("Registre de chasse sans en-tetes : relancer 08A_IMPORT_SCREENER.py.") from exc
     absents = [c for c in CHAMPS if c not in chasse.columns]
     if absents:
         raise RuntimeError("Colonnes chasse absentes : " + ", ".join(absents))
 
     erreurs = []
+    if chasse.empty:
+        erreurs.append("Registre de chasse vide : aucune qualification de bout en bout possible.")
     if len(chasse):
         if chasse.duplicated(subset=["Ticker","Date_detection"]).any():
             erreurs.append("Doublon ticker/date dans la chasse.")
@@ -31,6 +38,12 @@ def executer():
                 if pd.isna(r[c]) or str(r[c]).strip() == "":
                     erreurs.append(f"Ligne {i+1}: {c} manquant.")
 
+    if not RESULTATS.exists():
+        erreurs.append("Validation SSI non exécutée : RESULTATS_SSI.csv absent.")
+    else:
+        audit_ssi = pd.read_csv(RESULTATS, dtype=str, keep_default_na=False)
+        if "Statut_SSI" not in audit_ssi.columns:
+            erreurs.append("Résultats SSI vides ou sans statut.")
     revue = pd.read_csv(REVUE) if REVUE.exists() else pd.DataFrame()
     challengers = (
         revue[revue["Type"].astype(str).str.upper().eq("CHALLENGER")]
@@ -87,7 +100,7 @@ def executer():
     out = pd.DataFrame([{
         "Nb_candidats_chasse": len(chasse),
         "Nb_challengers_revue": len(challengers),
-        "Statut": "OK" if not erreurs else "BLOQUE",
+        "Statut": ("BLOQUE" if erreurs else "OK" if len(challengers) else "CHASSE_OK_QUALIFICATION_EN_ATTENTE"),
         "Nb_erreurs": len(erreurs),
         "Erreurs": " | ".join(erreurs)
     }])
@@ -96,6 +109,8 @@ def executer():
         raise RuntimeError("Chasse/SSI bloquee : " + " | ".join(erreurs[:20]))
     print(f"Chasse controlee : {len(chasse)} candidat(s).")
     print(f"Challengers admis en revue : {len(challengers)}.")
+    if not len(challengers):
+        print("Qualification SSI/MCPA non terminee : chasse operationnelle, chaine de selection incomplete.")
     return out
 
 if __name__ == "__main__":

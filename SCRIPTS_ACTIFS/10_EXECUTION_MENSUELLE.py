@@ -16,6 +16,7 @@ JOURNAL=BASE/"DONNEES/JOURNAL_ARBITRAGES_GERE.csv"
 DUELS=BASE/"DONNEES/DUELS_PROCHAIN_EURO.csv"
 REVUE=BASE/"DONNEES/REVUE_HEBDOMADAIRE_MCPA_IPS.csv"
 PARAMS=BASE/"CONFIG/PARAMETRES_ARBITRAGE_MICRO_CAPS.csv"
+COUVERTURE=BASE/"DONNEES/COUVERTURE_ARBITRAGE_GERE.csv"
 
 def charger(nom):
     p=SRC/nom; s=importlib.util.spec_from_file_location(nom.replace(".py",""),p)
@@ -34,8 +35,27 @@ def executer(dry_run=False):
     force=os.getenv("MICRO_CAPS_FORCE_MENSUEL","0")=="1"
     if force and not (dry_run or os.getenv("MICRO_CAPS_DRY_RUN","0")=="1"):
         raise RuntimeError("Forçage hors fenêtre interdit sans exception grave documentée")
-    if not force and not dernier_mardi(maintenant.date()):
+    hebdo=os.getenv("MICRO_CAPS_ARBITRAGE_HEBDO","0")=="1"
+    if not force and not (dernier_mardi(maintenant.date()) or (hebdo and maintenant.weekday()==1)):
         print("Hors fenêtre mensuelle : aucune opération.")
+        return pd.DataFrame()
+
+    # Une revue vide n'est pas un motif pour interrompre la valorisation.
+    # Publier la couverture des positions ACTIVES sans inventer de scores.
+    if not REVUE.exists():
+        raise RuntimeError("Revue MCPA/IPS absente : aucune decision autorisee.")
+    revue_existante=pd.read_csv(REVUE,dtype=str,keep_default_na=False)
+    if revue_existante.empty:
+        etat=charger("05C_REPLAY_PORTEFEUILLE_GERE.py").executer()
+        actifs=etat["positions"]
+        actifs=actifs[actifs["Statut"].astype(str).str.upper().eq("ACTIF")]
+        couverture=actifs[["ID_position","Societe","Ticker"]].copy()
+        couverture.insert(0,"Date_controle",maintenant.date().isoformat())
+        couverture["Statut_MCPA"]="EN_ATTENTE_DATA"
+        couverture["Decision_arbitrage"]="AUCUNE_SANS_REVUE_VALIDEE"
+        couverture["Operation_virtuelle"]="NON"
+        couverture.to_csv(COUVERTURE,index=False)
+        print(f"ARBITRAGE SUSPENDU : {len(couverture)} positions actives sans revue MCPA/IPS ; journal inchange.")
         return pd.DataFrame()
 
     # Recalcule les contrôles/duels sur la revue courante.
@@ -48,8 +68,11 @@ def executer(dry_run=False):
     journal=pd.read_csv(JOURNAL)
     replay=charger("05C_REPLAY_PORTEFEUILLE_GERE.py").executer()
     positions=replay["positions"]
-    if float(replay["cash"])>0.01:
-        raise RuntimeError("Cash antérieur non alloué : exécution mensuelle bloquée.")
+    # Le cash residuel legitime ne doit pas bloquer les rotations des positions.
+    # Seul le produit net des ventes du jour est realloue automatiquement.
+    cash_preexistant=float(replay["cash"])
+    if not __import__("math").isfinite(cash_preexistant) or cash_preexistant < -1e-8:
+        raise RuntimeError("Cash du replay invalide ou negatif : arbitrage bloque.")
 
     px=charger("03A_MOTEUR_CLOTURES_V3.py")
     fxm=charger("03B_MOTEUR_FX_V3.py")
@@ -78,8 +101,17 @@ def executer(dry_run=False):
     for source,grp in duels.groupby("ID_position_source",sort=False):
         if (grp["Statut_duel"]=="CONSERVER").all():
             continue
-        if not (grp["Statut_duel"]=="ALLOCATION_DETERMINEE").all():
+        # 09B peut décider une sortie vers CASH quand aucune destination
+        # admissible n\x27existe. Le replay 05C sait conserver ce produit net.
+        # Ne jamais fabriquer un achat pour forcer un réinvestissement.
+        cash_seul = (len(grp)==1 and str(grp.iloc[0]["Statut_duel"])=="CASH"
+                     and str(grp.iloc[0]["ID_position_destination"])=="CASH"
+                     and str(grp.iloc[0]["Type_destination"])=="CASH"
+                     and abs(float(grp.iloc[0]["Part_allocation"])-1.0)<1e-10)
+        if not cash_seul and not (grp["Statut_duel"]=="ALLOCATION_DETERMINEE").all():
             raise RuntimeError(f"Duel non exécutable pour {source}.")
+        if not cash_seul and abs(pd.to_numeric(grp["Part_allocation"],errors="raise").sum()-1.0)>1e-10:
+            raise RuntimeError(f"Répartition non équilibrée pour {source}.")
         ps=pos_active(source)
         cours_s,fx_s=prix_fx(ps["Ticker"],str(ps["Devise"]).upper())
         q=float(ps["Quantite"]); brut=q*cours_s*fx_s; frais_s=brut*tv; net=brut-frais_s
@@ -92,6 +124,9 @@ def executer(dry_run=False):
           "Motif":"Arbitrage mensuel après revues hebdomadaires","Decision_comite":"VENDRE"})
         lignes.append(row); seq+=1
 
+        if cash_seul:
+            # Vente seule : les espèces restent disponibles dans le portefeuille géré.
+            continue
         for k,(_,d) in enumerate(grp.iterrows(),1):
             montant=net*float(d["Part_allocation"])
             iddst=str(d["ID_position_destination"])

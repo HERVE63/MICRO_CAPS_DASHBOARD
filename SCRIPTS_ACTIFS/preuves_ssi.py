@@ -3,8 +3,9 @@ La collecte ne valide jamais sa propre preuve. Le registre reçoit des revues in
 append-only (humain ou assistant explicitement nommé) ; une correction référence l'ID remplacé et laisse l'historique intact.
 """
 from pathlib import Path
-from datetime import datetime, timezone
+from datetime import datetime, timezone, timedelta
 import hashlib, math, re
+from urllib.parse import urlsplit
 import pandas as pd
 MAX={'B1':20,'B2':15,'B3':15,'B4':20,'B5':10,'B6':10,'B7':10}
 CHAMPS=['ID_preuve','Remplace_ID','Ticker','Bloc','Identifiant_emetteur','Source_URL',
@@ -13,26 +14,183 @@ CHAMPS=['ID_preuve','Remplace_ID','Ticker','Bloc','Identifiant_emetteur','Source
 MANQUANTS={'','MANQUANTE','A_COMPLETER','NON_VERIFIE','N/A','NAN','NONE'}
 def manquant(v):return str(v).strip().upper() in MANQUANTS
 
+def checksum_isin_valide(isin):
+    """ISO 6166 / Luhn. Un checksum correct ne certifie PAS l'emetteur."""
+    if not re.fullmatch(r'[A-Z]{2}[A-Z0-9]{9}[0-9]', isin):
+        return False
+    chiffres=''.join(str(ord(c)-55) if 'A'<=c<='Z' else c for c in isin)
+    total=0
+    for pos,c in enumerate(reversed(chiffres)):
+        n=int(c)
+        if pos%2:
+            n*=2
+            n=n//10+n%10
+        total+=n
+    return total%10==0
+
+def checksum_lei_valide(lei):
+    """ISO 17442 / ISO 7064 mod 97-10, sans certification de l'identite."""
+    if not re.fullmatch(r'[A-Z0-9]{20}', lei):
+        return False
+    chiffres=''.join(str(ord(c)-55) if 'A'<=c<='Z' else c for c in lei)
+    # Calcul modulaire incrementiel pour ne pas dependre d'un entier geant.
+    reste=0
+    for c in chiffres:
+        reste=(reste*10+int(c))%97
+    return reste==1
+
+def horodatage_verification_utc_strict(value):
+    """Une revue de preuve exige une heure et un fuseau UTC explicites.
+
+    pandas.to_datetime(..., utc=True) traite silencieusement une date naive
+    comme UTC : ce comportement n'est pas une provenance horodatee.
+    """
+    texte = str(value).strip()
+    if not re.search(r'(?:Z|\+00:00)$', texte):
+        return False
+    try:
+        d = datetime.fromisoformat(texte.replace('Z', '+00:00'))
+        return (d.tzinfo is not None and d.utcoffset() == timedelta(0)
+                and ('T' in texte or ' ' in texte))
+    except (ValueError, TypeError, OverflowError):
+        return False
+
+
+def identifiant_reglementaire_formel_valide(ident):
+    """CIK exact ou ISIN/LEI avec checksum; la preuve primaire reste obligatoire."""
+    if re.fullmatch(r'CIK:[0-9]{10}', ident):
+        return True
+    if ident.startswith('ISIN:'):
+        return checksum_isin_valide(ident[5:])
+    if ident.startswith('LEI:'):
+        return checksum_lei_valide(ident[4:])
+    return False
+
+def identifiant_dossier(r):
+    """Identité attendue : CIK source valide OU ISIN/LEI explicitement vérifié.
+
+    Un ISIN/LEI déclaré ne devient jamais une preuve : verifier_identite_sce
+    exige deux documents primaires distincts concordants, puis chaque bloc
+    et chaque exclusion doivent porter le même identifiant. Un CIK source
+    présent mais malformé/divergent ne peut pas être contourné.
+    """
+    cik=str(r.get('CIK','')).strip()
+    ident=str(r.get('Identifiant_emetteur_verifie','')).strip()
+    if not manquant(cik):
+        if not re.fullmatch(r'[0-9]{10}',cik):
+            return ''
+        attendu='CIK:'+cik
+        return attendu if manquant(ident) or ident==attendu else ''
+    if (not manquant(ident) and ident.startswith(('ISIN:','LEI:'))
+            and identifiant_reglementaire_formel_valide(ident)):
+        return ident
+    return ''
+
 def registre(base,limite=None):
     p=base/'DONNEES/REGISTRE_PREUVES_SSI.csv'
     if not p.exists():return pd.DataFrame(columns=CHAMPS)
     d=pd.read_csv(p,dtype=str,keep_default_na=False)
     if not set(CHAMPS).issubset(d.columns):raise RuntimeError('Schéma registre preuves incomplet')
-    if d.ID_preuve.duplicated().any() or d.ID_preuve.map(manquant).any():raise RuntimeError('ID preuve invalide/dupliqué')
+    # Une collision d'ID ne doit ni attribuer la preuve a un mauvais emetteur,
+    # ni bloquer les dossiers sains. Exclure TOUTES les occurrences ambiguës :
+    # conserver la premiere rendrait l'issue dependante de l'ordre des lignes.
+    # Le registre CSV append-only n'est jamais modifie par cette quarantaine.
+    invalides = d.ID_preuve.map(manquant) | d.ID_preuve.duplicated(keep=False)
+    if invalides.any():
+        d = d.loc[~invalides].copy()
     if not d.empty:
-        dates=pd.to_datetime(d.Date_verification_UTC,utc=True,errors='coerce')
-        if dates.isna().any():raise RuntimeError('Date de vérification invalide')
-        if limite is not None: d=d[dates<=pd.Timestamp(limite)].copy()
-    # Seuls les remplacements validés peuvent retirer une preuve valide.
+        # Une date malformée ne doit pas arrêter la qualification des autres
+        # émetteurs. La ligne reste visible, mais verifier() la rejettera
+        # individuellement ; aucune preuve n'est corrigée ou inventée.
+        dates=d.Date_verification_UTC.map(
+            lambda value: pd.to_datetime(value,utc=True,errors='coerce'))
+        if limite is not None:
+            # NaT reste dans le registre pour un rejet explicite par verifier().
+            # Les preuves datées du futur ne sont jamais rendues admissibles.
+            d=d[dates.isna() | (dates<=pd.Timestamp(limite))].copy()
+    # Une tentative de remplacement erronée est mise en quarantaine PAR
+    # PREUVE, jamais par portefeuille. Le CSV source append-only est intact.
+    # Ni une identité divergente, ni un ordre chronologique impossible ne
+    # doivent révoquer l'ancienne preuve ou interrompre les autres dossiers.
+    rejets_remplacement=set()
     valides=d[d.Statut_verification.eq('VERIFIEE')]
-    for _,r in valides[~valides.Remplace_ID.map(manquant)].iterrows():
+    # Plusieurs revisions individuellement valides du meme ID parent sont
+    # incompatibles avec une chaine append-only univoque. Sans cette
+    # verification, la premiere ligne CSV gagnait arbitrairement et pouvait
+    # revoquer la preuve originale, rendant le resultat dependant de l'ordre.
+    # Une revision invalide ne doit pas bloquer une revision saine.
+    propositions={}
+    # Les lignes append-only peuvent arriver dans un ordre arbitraire.
+    # Traiter les revisions par heure de verification croissante garantit
+    # qu'une chaine P1 -> P2 -> P3 ne ressuscite pas P1 si P3 est lue avant P2.
+    # L'horodatage invalide est rejete individuellement par verifier().
+    revisions=valides[~valides.Remplace_ID.map(manquant)].copy()
+    revisions['_ordre_verification']=pd.to_datetime(
+        revisions.Date_verification_UTC,utc=True,errors='coerce')
+    revisions=revisions.sort_values(
+        ['_ordre_verification','ID_preuve'],kind='stable',na_position='last')
+    for _,r in revisions.iterrows():
         old=d[d.ID_preuve.eq(r.Remplace_ID)]
-        if len(old)!=1 or old.iloc[0].Ticker!=r.Ticker or old.iloc[0].Bloc!=r.Bloc:
-            raise RuntimeError('Remplacement de preuve incohérent')
-        if pd.Timestamp(r.Date_verification_UTC)<=pd.Timestamp(old.iloc[0].Date_verification_UTC):
-            raise RuntimeError('Remplacement de preuve non postérieur')
-        errors=verifier(r,r.Ticker,r.Bloc,base,limite)
-        if not errors:d=d[~d.ID_preuve.eq(r.Remplace_ID)]
+        # Une revision n'est admissible que si son parent est lui-meme
+        # integralement verifie (statut, date, provenance, fichier, SHA256).
+        # Sans cela PARENT_NON_VERIFIE -> FILLE_VERIFIEE -> PETITE_FILLE
+        # blanchirait indirectement une preuve invalide. Quarantainer
+        # avant de traiter les revisions, puis propager aux descendants.
+        if (len(old)!=1 or old.iloc[0].Ticker!=r.Ticker
+                or old.iloc[0].Bloc!=r.Bloc
+                or old.iloc[0].Identifiant_emetteur!=r.Identifiant_emetteur
+                or verifier(r,r.Ticker,r.Bloc,base,limite)
+                or (len(old)==1 and verifier(
+                    old.iloc[0],r.Ticker,r.Bloc,base,limite))):
+            rejets_remplacement.add(r.ID_preuve)
+            continue
+        ancien_horodatage=old.iloc[0].Date_verification_UTC
+        if (not horodatage_verification_utc_strict(ancien_horodatage)
+                or pd.Timestamp(r.Date_verification_UTC)<=pd.Timestamp(ancien_horodatage)):
+            rejets_remplacement.add(r.ID_preuve)
+            continue
+        propositions.setdefault(r.Remplace_ID,set()).add(r.ID_preuve)
+    for ids in propositions.values():
+        if len(ids)>1:
+            rejets_remplacement.update(ids)
+    # Fermer la quarantaine sur les descendants : P10 ne peut pas
+    # remplacer P2 si P2 a ete rejete pour concurrence avec P9.
+    # Sinon une chaine de revisions contournerait le rejet initial.
+    while True:
+        descendants=set(valides.loc[
+            valides.Remplace_ID.isin(rejets_remplacement), 'ID_preuve'
+        ])
+        nouveaux=descendants-rejets_remplacement
+        if not nouveaux:
+            break
+        rejets_remplacement.update(nouveaux)
+    for _,r in revisions.iterrows():
+        if r.ID_preuve in rejets_remplacement:
+            continue
+        if r.ID_preuve not in set(d.ID_preuve):
+            continue  # Une chaîne de remplacements a déjà révoqué cette ligne.
+        old=d[d.ID_preuve.eq(r.Remplace_ID)]
+        if (len(old)!=1 or old.iloc[0].Ticker!=r.Ticker
+                or old.iloc[0].Bloc!=r.Bloc
+                or old.iloc[0].Identifiant_emetteur!=r.Identifiant_emetteur):
+            rejets_remplacement.add(r.ID_preuve)
+            continue
+        if (verifier(r,r.Ticker,r.Bloc,base,limite)
+                or verifier(old.iloc[0],r.Ticker,r.Bloc,base,limite)):
+            rejets_remplacement.add(r.ID_preuve)
+            continue
+        ancien_horodatage=old.iloc[0].Date_verification_UTC
+        if not horodatage_verification_utc_strict(ancien_horodatage):
+            rejets_remplacement.add(r.ID_preuve)
+            continue  # Ordre chronologique indémontrable.
+        if pd.Timestamp(r.Date_verification_UTC)<=pd.Timestamp(ancien_horodatage):
+            rejets_remplacement.add(r.ID_preuve)
+            continue
+        d=d[~d.ID_preuve.eq(r.Remplace_ID)]
+    # La trace des tentatives invalides reste dans REGISTRE_PREUVES_SSI.csv ;
+    # elles sont exclues du registre ACTIF pour éviter toute admission par ID.
+    if rejets_remplacement:
+        d=d[~d.ID_preuve.isin(rejets_remplacement)].copy()
     return d
 
 def verifier(r,ticker,bloc,base,limite=None):
@@ -41,16 +199,22 @@ def verifier(r,ticker,bloc,base,limite=None):
     if r.Statut_verification!='VERIFIEE' or r.Statut_identite!='VERIFIEE':errors.append('identité/contenu non vérifié')
     for c in ['Identifiant_emetteur','Verificateur','Justification','SHA256']:
         if manquant(r[c]):errors.append(c+' manquant')
-    if not re.fullmatch(r'(?:CIK:[0-9]{10}|ISIN:[A-Z]{2}[A-Z0-9]{9}[0-9]|LEI:[A-Z0-9]{20})',r.Identifiant_emetteur):
+    if not identifiant_reglementaire_formel_valide(str(r.Identifiant_emetteur)):
         errors.append('identifiant émetteur invalide')
     if not r.Source_URL.startswith('https://'):errors.append('source sans URL HTTPS')
     types={'PUBLICATION_EMETTEUR','DEPOT_REGLEMENTAIRE'}
     if bloc=='B7':types.add('DONNEE_MARCHE')
+    # Les fiches officielles de marche ne peuvent prouver que l'identite,
+    # jamais les blocs financiers ni les exclusions. Revue SCE independante
+    # et verification du document brut toujours obligatoires.
+    if bloc=='IDENTITE_SCE':types.add('DONNEE_MARCHE_IDENTITE')
     if r.Type_source not in types:errors.append('source non primaire pour ce bloc')
     pub=pd.to_datetime(r.Date_publication,utc=True,errors='coerce')
     ver=pd.to_datetime(r.Date_verification_UTC,utc=True,errors='coerce')
     cutoff=pd.Timestamp(limite or datetime.now(timezone.utc))
-    if pd.isna(pub) or pd.isna(ver) or pub>ver or ver>cutoff:errors.append('dates futures/incohérentes')
+    if (not horodatage_verification_utc_strict(r.Date_verification_UTC)
+            or pd.isna(pub) or pd.isna(ver) or pub>ver or ver>cutoff):
+        errors.append('dates futures/incohérentes ou vérification sans UTC explicite')
     root=base.resolve();path=(base/r.Fichier_brut).resolve()
     if root not in path.parents or not path.is_file():errors.append('document brut absent/hors dépôt')
     elif hashlib.sha256(path.read_bytes()).hexdigest()!=r.SHA256:errors.append('empreinte document divergente')
@@ -61,15 +225,55 @@ def verifier(r,ticker,bloc,base,limite=None):
         except ValueError:errors.append('note invalide/hors barème')
     return errors
 
+def domaines_sce_distincts(urls):
+    """Refuser les sous-domaines d'un meme editeur comme sources independantes.
+
+    Heuristique conservatrice sur les domaines d'organisation : ce n'est pas
+    une certification des proprietaires. La revue SCE independante reste requise.
+    Les suffixes publics composes ci-dessous evitent de confondre deux societes
+    distinctes sous co.uk ou com.au. Un suffixe inconnu est traite prudemment.
+    """
+    suffixes_composes={
+        'co.uk','org.uk','gov.uk','ac.uk','com.au','net.au','org.au',
+        'co.jp','com.br','com.cn','co.nz','com.sg','com.hk','com.tw',
+        'co.kr','co.in'
+    }
+    organisations=[]
+    for url in urls:
+        try:
+            parsed=urlsplit(str(url))
+            h=(parsed.hostname or '').lower().rstrip('.')
+        except ValueError:
+            return False
+        if parsed.scheme!='https' or parsed.username or parsed.password:
+            return False
+        labels=h.split('.')
+        if len(labels)<2 or any(not x for x in labels):
+            return False
+        profondeur=3 if '.'.join(labels[-2:]) in suffixes_composes else 2
+        if len(labels)<profondeur:
+            return False
+        organisations.append('.'.join(labels[-profondeur:]))
+    return len(set(organisations))>=2
+
+
 def verifier_identite_sce(r,d,base,limite=None):
     erreurs=[]
-    if r.get('SCE_valide')!='OUI':return ['contrôles SCE non validés']
+    # Protection aussi pour les appels directs hors 07R : une collision CIK
+    # ou un statut absent/inconnu ne peut jamais etre leve par les notes.
+    if str(r.get('Conflit_identite_CIK','')).strip().upper()!='NON':
+        erreurs.append('collision CIK non levée ou contrôle CIK absent/invalide')
+    if r.get('SCE_valide')!='OUI':return erreurs+['contrôles SCE non validés']
     ids=[x.strip() for x in str(r.get('Preuves_identite_SCE','')).split('|') if x.strip()]
-    z=d[d.ID_preuve.isin(ids)];cik=str(r.get('CIK','')).strip()
-    if len(ids)<2 or len(ids)!=len(set(ids)) or len(z)!=len(ids) or z.Source_URL.nunique()<2:erreurs.append('deux preuves identité SCE requises')
+    z=d[d.ID_preuve.isin(ids)];ident=identifiant_dossier(r)
+    if not ident:erreurs.append('identifiant réglementaire du dossier absent, invalide ou contradictoire')
+    if (len(ids)<2 or len(ids)!=len(set(ids)) or len(z)!=len(ids)
+            or z.Source_URL.nunique()<2 or z.SHA256.nunique()<2
+            or not domaines_sce_distincts(z.Source_URL)):
+        erreurs.append('deux documents primaires de sources distinctes (hotes, URL et SHA256) requis pour identité SCE')
     for _,p in z.iterrows():
         erreurs.extend(verifier(p,r.Ticker,'IDENTITE_SCE',base,limite))
-        if not cik or p.Identifiant_emetteur!='CIK:'+cik:erreurs.append('identité SCE divergente du dossier')
+        if not ident or p.Identifiant_emetteur!=ident:erreurs.append('identité SCE divergente du dossier')
     return erreurs
 
 def valider_dossier(r,d,base,limite=None):
@@ -89,9 +293,13 @@ def valider_dossier(r,d,base,limite=None):
             notes.append(int(n))
         except ValueError:errors.append(bloc+': note non concordante avec preuve vérifiée')
     if len(identifiants)>1:errors.append('identité émetteur divergente entre blocs')
-    cik=str(r.get('CIK','')).strip()
-    if cik and any(x!='CIK:'+cik for x in identifiants):errors.append('identité des preuves différente du CIK du dossier')
-    if 'SCE_valide' in r:errors.extend(verifier_identite_sce(r,d,base,limite))
+    ident=identifiant_dossier(r)
+    if not ident:errors.append('identifiant réglementaire du dossier absent, invalide ou contradictoire')
+    if ident and any(x!=ident for x in identifiants):errors.append('identité des preuves différente de l\'identifiant du dossier')
+    # Le controle d'identite SCE est obligatoire, meme pour les anciens
+    # dossiers qui ne possedent pas encore la colonne SCE_valide.
+    # Ne jamais traiter une colonne absente comme une validation implicite.
+    errors.extend(verifier_identite_sce(r,d,base,limite))
     decision=str(r.get('Decision_eliminatoire','')).upper().strip()
     if decision!='NON':errors.append('exclusions non vérifiées')
     ids=str(r.get('Motif_eliminatoire','')).split('|')
@@ -114,8 +322,8 @@ def bilan_blocs_documentes(r,d,base,limite=None):
         preuves=d[d.ID_preuve.isin(ids)]
         if len(preuves)!=len(ids):continue
         if any(verifier(p,r.Ticker,bloc,base,limite) for _,p in preuves.iterrows()):continue
-        cik=str(r.get('CIK','')).strip()
-        if cik and any(p.Identifiant_emetteur!='CIK:'+cik for _,p in preuves.iterrows()):continue
+        ident=identifiant_dossier(r)
+        if not ident or any(p.Identifiant_emetteur!=ident for _,p in preuves.iterrows()):continue
         try:
             n=float(r.get('Note_'+bloc,''))
             if not math.isfinite(n) or not n.is_integer() or not 0<=n<=maximum:continue

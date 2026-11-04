@@ -1,0 +1,44 @@
+name: MICRO CAPS - collecte SEC titulaires (preuves, sans arbitrage)
+on:
+  workflow_dispatch:
+  pull_request:
+    branches: [main]
+  push:
+    branches: [repair/microcaps-chain-20261030]
+permissions:
+  contents: read
+jobs:
+  collecte-sec:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Vérifier l'identifiant SEC sans divulgation
+        env:
+          SEC_USER_AGENT: ${{ secrets.SEC_USER_AGENT }}
+        run: |
+          if [ -z "$SEC_USER_AGENT" ]; then
+            echo 'SEC_USER_AGENT absent : collecte bloquée, aucune donnée inventée.'
+            exit 1
+          fi
+      - name: Collecter l'index SEC et les faits XBRL pour les titulaires US
+        env:
+          SEC_USER_AGENT: ${{ secrets.SEC_USER_AGENT }}
+        run: |
+          python -B SCRIPTS_ACTIFS/09K_COLLECTE_SEC_TITULAIRES_US.py
+          python -B SCRIPTS_ACTIFS/09L_COLLECTE_SEC_COMPANYFACTS_US.py
+      - name: Publier les résultats comme artefacts vérifiables
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: collecte-sec-titulaires-${{ github.run_id }}
+          if-no-files-found: warn
+          path: |
+            DONNEES/OBSERVATIONS_SEC_TITULAIRES_US.csv
+            DONNEES/FAITS_SEC_TITULAIRES_US.csv
+            AUDITS/COLLECTE_SEC_TITULAIRES/
+            AUDITS/COLLECTE_SEC_COMPANYFACTS/
+          retention-days: 30
