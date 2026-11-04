@@ -122,13 +122,13 @@
         "commentaire": null
       },
       "marge_brute_pct": {
-        "valeur": null,
-        "unite": null,
-        "periode": null,
-        "date_source": null,
-        "source_url": null,
-        "statut": "A_COLLECTER",
-        "commentaire": null
+        "valeur": 39.4,
+        "unite": "pct",
+        "periode": "S1 2026",
+        "date_source": "2026-08-31",
+        "source_url": "https://www.zonebourse.com/actualite-bourse/memscap-resultats-1er-semestre-2026-ce7858ddd98efe2d",
+        "statut": "SOURCE_PUBLIQUE_VERIFIEE",
+        "commentaire": "Résultat publié; non annualisé"
       },
       "marge_ebitda_pct": {
         "valeur": null,
@@ -140,13 +140,13 @@
         "commentaire": null
       },
       "marge_ebit_pct": {
-        "valeur": null,
-        "unite": null,
-        "periode": null,
-        "date_source": null,
-        "source_url": null,
-        "statut": "A_COLLECTER",
-        "commentaire": null
+        "valeur": 7.364173512033434,
+        "unite": "pct",
+        "periode": "S1 2026",
+        "date_source": "2026-08-31",
+        "source_url": "https://www.zonebourse.com/actualite-bourse/memscap-resultats-1er-semestre-2026-ce7858ddd98efe2d",
+        "statut": "SOURCE_PUBLIQUE_VERIFIEE",
+        "commentaire": "Résultat publié; non annualisé"
       },
       "marge_nette_pct": {
         "valeur": null,
@@ -1027,7 +1027,53 @@
       "diversification": null
     }
   },
-  "preuves_complementaires": [],
+  "preuves_complementaires": [
+    {
+      "url": "https://www.zonebourse.com/actualite-bourse/memscap-resultats-1er-semestre-2026-ce7858ddd98efe2d",
+      "indicateur": "CA",
+      "valeur": 6.939,
+      "unite": "millions_EUR",
+      "periode": "S1 2026",
+      "date_collecte": "2026-11-04",
+      "statut": "SOURCE_PUBLIQUE_VERIFIEE"
+    },
+    {
+      "url": "https://www.zonebourse.com/actualite-bourse/memscap-resultats-1er-semestre-2026-ce7858ddd98efe2d",
+      "indicateur": "CA_comparatif",
+      "valeur": 6.144,
+      "unite": "millions_EUR",
+      "periode": "S1 2025",
+      "date_collecte": "2026-11-04",
+      "statut": "SOURCE_PUBLIQUE_VERIFIEE"
+    },
+    {
+      "url": "https://www.zonebourse.com/actualite-bourse/memscap-resultats-1er-semestre-2026-ce7858ddd98efe2d",
+      "indicateur": "Resultat_operationnel",
+      "valeur": 0.511,
+      "unite": "millions_EUR",
+      "periode": "S1 2026",
+      "date_collecte": "2026-11-04",
+      "statut": "SOURCE_PUBLIQUE_VERIFIEE"
+    },
+    {
+      "url": "https://www.zonebourse.com/actualite-bourse/memscap-resultats-1er-semestre-2026-ce7858ddd98efe2d",
+      "indicateur": "Resultat_net",
+      "valeur": 0.556,
+      "unite": "millions_EUR",
+      "periode": "S1 2026",
+      "date_collecte": "2026-11-04",
+      "statut": "SOURCE_PUBLIQUE_VERIFIEE"
+    },
+    {
+      "url": "https://www.zonebourse.com/actualite-bourse/memscap-resultats-1er-semestre-2026-ce7858ddd98efe2d",
+      "indicateur": "Part_CA_aeronautique",
+      "valeur": 69,
+      "unite": "pct",
+      "periode": "S1 2026",
+      "date_collecte": "2026-11-04",
+      "statut": "SOURCE_PUBLIQUE_VERIFIEE"
+    }
+  ],
   "anomalies": [],
   "statut_fiche": "A_COMPLETER",
   "arbitrage_autorise": false
