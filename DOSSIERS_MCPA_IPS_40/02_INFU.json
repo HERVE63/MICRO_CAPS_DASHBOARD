@@ -587,12 +587,12 @@
         "commentaire": null
       },
       "risque_gouvernance": {
-        "valeur": null,
-        "unite": null,
-        "periode": null,
-        "date_source": null,
-        "source_url": null,
-        "statut": "A_COLLECTER",
+        "valeur": "Résultats T3 2026 reportés; examen du traitement comptable de 4,2 M USD de coûts d'implémentation ERP, ajustement potentiel sans effet annoncé sur CA ou trésorerie.",
+        "unite": "texte",
+        "periode": "T3 2026",
+        "date_source": "2026-11-03",
+        "source_url": "https://www.sec.gov/Archives/edgar/data/1337013/000162828026069113/infu-20261103.htm",
+        "statut": "SOURCE_PRIMAIRE",
         "commentaire": null
       },
       "risque_reglementaire": {
@@ -1027,7 +1027,17 @@
       "diversification": null
     }
   },
-  "preuves_complementaires": [],
+  "preuves_complementaires": [
+    {
+      "url": "https://www.sec.gov/Archives/edgar/data/1337013/000162828026069113/infu-20261103.htm",
+      "indicateur": "Couts_ERP_sous_examen",
+      "valeur": 4.2,
+      "unite": "millions_USD",
+      "periode": "T3 2026",
+      "date_collecte": "2026-11-04",
+      "statut": "SOURCE_PRIMAIRE"
+    }
+  ],
   "anomalies": [],
   "statut_fiche": "A_COMPLETER",
   "arbitrage_autorise": false
