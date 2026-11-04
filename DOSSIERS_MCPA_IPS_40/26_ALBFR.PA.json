@@ -12,12 +12,12 @@
   "blocs": {
     "identite": {
       "isin": {
-        "valeur": null,
-        "unite": null,
-        "periode": null,
-        "date_source": null,
-        "source_url": null,
-        "statut": "A_COLLECTER",
+        "valeur": "FR0010202606",
+        "unite": "ISIN",
+        "periode": "2026",
+        "date_source": "2026-10-20",
+        "source_url": "https://www.zonebourse.com/actualite-bourse/sidetrade-nouveau-record-de-prises-de-commandes-ce785cd8da8cfe24",
+        "statut": "SOURCE_PUBLIQUE_VERIFIEE",
         "commentaire": null
       },
       "lei": {
@@ -84,12 +84,12 @@
         "commentaire": null
       },
       "flottant_pct": {
-        "valeur": null,
-        "unite": null,
-        "periode": null,
-        "date_source": null,
-        "source_url": null,
-        "statut": "A_COLLECTER",
+        "valeur": 51.81,
+        "unite": "pct",
+        "periode": "2026-11-03",
+        "date_source": "2026-10-20",
+        "source_url": "https://www.zonebourse.com/actualite-bourse/sidetrade-nouveau-record-de-prises-de-commandes-ce785cd8da8cfe24",
+        "statut": "SOURCE_PUBLIQUE_VERIFIEE",
         "commentaire": null
       },
       "actionnariat_dirigeants_pct": {
@@ -468,12 +468,12 @@
         "commentaire": null
       },
       "catalyseurs_dates": {
-        "valeur": null,
-        "unite": null,
-        "periode": null,
-        "date_source": null,
-        "source_url": null,
-        "statut": "A_COLLECTER",
+        "valeur": "Nouveaux ARR T3 2026 +348% sur un an; déploiements contrats 2027",
+        "unite": "texte",
+        "periode": "T3 2026",
+        "date_source": "2026-10-20",
+        "source_url": "https://www.zonebourse.com/actualite-bourse/sidetrade-nouveau-record-de-prises-de-commandes-ce785cd8da8cfe24",
+        "statut": "SOURCE_PUBLIQUE_VERIFIEE",
         "commentaire": null
       },
       "taille_marche_adressable": {
@@ -1027,7 +1027,53 @@
       "diversification": null
     }
   },
-  "preuves_complementaires": [],
+  "preuves_complementaires": [
+    {
+      "url": "https://www.zonebourse.com/actualite-bourse/sidetrade-nouveau-record-de-prises-de-commandes-ce785cd8da8cfe24",
+      "indicateur": "CA_S1_2026",
+      "valeur": 34.775,
+      "unite": "millions_EUR",
+      "periode": "S1 2026",
+      "date_collecte": "2026-11-04",
+      "statut": "SOURCE_PUBLIQUE_VERIFIEE"
+    },
+    {
+      "url": "https://www.zonebourse.com/actualite-bourse/sidetrade-nouveau-record-de-prises-de-commandes-ce785cd8da8cfe24",
+      "indicateur": "Croissance_CA_S1",
+      "valeur": 19,
+      "unite": "pct",
+      "periode": "S1 2026",
+      "date_collecte": "2026-11-04",
+      "statut": "SOURCE_PUBLIQUE_VERIFIEE"
+    },
+    {
+      "url": "https://www.zonebourse.com/actualite-bourse/sidetrade-nouveau-record-de-prises-de-commandes-ce785cd8da8cfe24",
+      "indicateur": "Nouveaux_ARR_9M",
+      "valeur": 7.76,
+      "unite": "millions_EUR",
+      "periode": "9M 2026",
+      "date_collecte": "2026-11-04",
+      "statut": "SOURCE_PUBLIQUE_VERIFIEE"
+    },
+    {
+      "url": "https://www.zonebourse.com/actualite-bourse/sidetrade-nouveau-record-de-prises-de-commandes-ce785cd8da8cfe24",
+      "indicateur": "CA_T3",
+      "valeur": 18.4,
+      "unite": "millions_EUR",
+      "periode": "T3 2026",
+      "date_collecte": "2026-11-04",
+      "statut": "SOURCE_PUBLIQUE_VERIFIEE"
+    },
+    {
+      "url": "https://www.zonebourse.com/actualite-bourse/sidetrade-nouveau-record-de-prises-de-commandes-ce785cd8da8cfe24",
+      "indicateur": "Croissance_CA_T3",
+      "valeur": 22,
+      "unite": "pct",
+      "periode": "T3 2026",
+      "date_collecte": "2026-11-04",
+      "statut": "SOURCE_PUBLIQUE_VERIFIEE"
+    }
+  ],
   "anomalies": [],
   "statut_fiche": "A_COMPLETER",
   "arbitrage_autorise": false
