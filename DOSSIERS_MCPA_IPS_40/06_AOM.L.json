@@ -113,22 +113,22 @@
     },
     "qualite": {
       "ca_ttm": {
-        "valeur": null,
-        "unite": null,
-        "periode": null,
-        "date_source": null,
-        "source_url": null,
-        "statut": "A_COLLECTER",
-        "commentaire": null
+        "valeur": 45.002,
+        "unite": "millions_GBP",
+        "periode": "FY 2026",
+        "date_source": "2026-07-02",
+        "source_url": "https://www.investegate.info/announcement/rns/activeops--aom/results-for-the-year-ended-31-march-2026/9648420",
+        "statut": "SOURCE_PUBLIQUE_VERIFIEE",
+        "commentaire": "Donnée publiée; voir période et nature de la mesure"
       },
       "marge_brute_pct": {
-        "valeur": null,
-        "unite": null,
-        "periode": null,
-        "date_source": null,
-        "source_url": null,
-        "statut": "A_COLLECTER",
-        "commentaire": null
+        "valeur": 84,
+        "unite": "pct",
+        "periode": "FY 2026",
+        "date_source": "2026-07-02",
+        "source_url": "https://www.investegate.info/announcement/rns/activeops--aom/results-for-the-year-ended-31-march-2026/9648420",
+        "statut": "SOURCE_PUBLIQUE_VERIFIEE",
+        "commentaire": "Donnée publiée; voir période et nature de la mesure"
       },
       "marge_ebitda_pct": {
         "valeur": null,
@@ -360,13 +360,13 @@
     },
     "croissance": {
       "croissance_ca_1a_pct": {
-        "valeur": null,
-        "unite": null,
-        "periode": null,
-        "date_source": null,
-        "source_url": null,
-        "statut": "A_COLLECTER",
-        "commentaire": null
+        "valeur": 48,
+        "unite": "pct",
+        "periode": "FY 2026",
+        "date_source": "2026-07-02",
+        "source_url": "https://www.investegate.info/announcement/rns/activeops--aom/results-for-the-year-ended-31-march-2026/9648420",
+        "statut": "SOURCE_PUBLIQUE_VERIFIEE",
+        "commentaire": "Donnée publiée; voir période et nature de la mesure"
       },
       "croissance_ca_3a_cagr_pct": {
         "valeur": null,
@@ -488,22 +488,22 @@
     },
     "risque": {
       "cash": {
-        "valeur": null,
-        "unite": null,
-        "periode": null,
-        "date_source": null,
-        "source_url": null,
-        "statut": "A_COLLECTER",
-        "commentaire": null
+        "valeur": 23.8,
+        "unite": "millions_GBP",
+        "periode": "31-03-2026",
+        "date_source": "2026-07-02",
+        "source_url": "https://www.investegate.info/announcement/rns/activeops--aom/results-for-the-year-ended-31-march-2026/9648420",
+        "statut": "SOURCE_PUBLIQUE_VERIFIEE",
+        "commentaire": "Donnée publiée; voir période et nature de la mesure"
       },
       "dette_brute": {
-        "valeur": null,
-        "unite": null,
-        "periode": null,
-        "date_source": null,
-        "source_url": null,
-        "statut": "A_COLLECTER",
-        "commentaire": null
+        "valeur": 0,
+        "unite": "millions_GBP",
+        "periode": "31-03-2026",
+        "date_source": "2026-07-02",
+        "source_url": "https://www.investegate.info/announcement/rns/activeops--aom/results-for-the-year-ended-31-march-2026/9648420",
+        "statut": "SOURCE_PUBLIQUE_VERIFIEE",
+        "commentaire": "Donnée publiée; voir période et nature de la mesure"
       },
       "dette_nette": {
         "valeur": null,
@@ -1027,7 +1027,53 @@
       "diversification": null
     }
   },
-  "preuves_complementaires": [],
+  "preuves_complementaires": [
+    {
+      "url": "https://www.investegate.info/announcement/rns/activeops--aom/results-for-the-year-ended-31-march-2026/9648420",
+      "indicateur": "EBITDA_ajuste",
+      "valeur": 4.3,
+      "unite": "millions_GBP",
+      "periode": "FY 2026",
+      "date_collecte": "2026-11-04",
+      "statut": "SOURCE_PUBLIQUE_VERIFIEE"
+    },
+    {
+      "url": "https://www.investegate.info/announcement/rns/activeops--aom/results-for-the-year-ended-31-march-2026/9648420",
+      "indicateur": "ARR",
+      "valeur": 41.5,
+      "unite": "millions_GBP",
+      "periode": "FY 2026",
+      "date_collecte": "2026-11-04",
+      "statut": "SOURCE_PUBLIQUE_VERIFIEE"
+    },
+    {
+      "url": "https://www.investegate.info/announcement/rns/activeops--aom/results-for-the-year-ended-31-march-2026/9648420",
+      "indicateur": "Croissance_ARR",
+      "valeur": 46,
+      "unite": "pct",
+      "periode": "FY 2026",
+      "date_collecte": "2026-11-04",
+      "statut": "SOURCE_PUBLIQUE_VERIFIEE"
+    },
+    {
+      "url": "https://www.investegate.info/announcement/rns/activeops--aom/results-for-the-year-ended-31-march-2026/9648420",
+      "indicateur": "Croissance_CA_organique",
+      "valeur": 28,
+      "unite": "pct",
+      "periode": "FY 2026",
+      "date_collecte": "2026-11-04",
+      "statut": "SOURCE_PUBLIQUE_VERIFIEE"
+    },
+    {
+      "url": "https://www.investegate.info/announcement/rns/activeops--aom/results-for-the-year-ended-31-march-2026/9648420",
+      "indicateur": "NRR",
+      "valeur": 119,
+      "unite": "pct",
+      "periode": "FY 2026",
+      "date_collecte": "2026-11-04",
+      "statut": "SOURCE_PUBLIQUE_VERIFIEE"
+    }
+  ],
   "anomalies": [],
   "statut_fiche": "A_COMPLETER",
   "arbitrage_autorise": false
