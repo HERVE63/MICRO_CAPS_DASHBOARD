@@ -1,6 +1,8 @@
 name: MICRO CAPS - historiques publics 40 titulaires
 on:
   workflow_dispatch:
+  schedule:
+    - cron: '15 6 * * 1-5'
   push:
     branches: [repair/microcaps-chain-20261030]
   pull_request:
