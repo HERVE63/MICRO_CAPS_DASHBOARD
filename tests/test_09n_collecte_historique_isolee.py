@@ -79,4 +79,6 @@ def test_09n_ne_certifie_pas_une_serie_sans_cours_ajustes(tmp_path, monkeypatch)
         historiques = list(csv.DictReader(f))
     assert len(historiques) == 80
     assert all(r["AdjClose"] == "" for r in historiques if r["Ticker"] == "TEST2")
+    assert all(r["Status"] == "MISSING_ADJUSTED" for r in historiques if r["Ticker"] == "TEST2")
+    assert all(r["Status"] == "OK" for r in historiques if r["Ticker"] != "TEST2")
     assert not (donnees / "REVUE_HEBDOMADAIRE_MCPA_IPS.csv").exists()
