@@ -38,6 +38,7 @@ jobs:
           git add DONNEES/OBSERVATIONS_SEC_TITULAIRES_US.csv DONNEES/FAITS_SEC_TITULAIRES_US.csv
           if ! git diff --cached --quiet; then
             git commit -m "data: actualiser faits SEC titulaires [skip ci]"
+            git pull --rebase origin repair/microcaps-chain-20261030
             git push origin HEAD:repair/microcaps-chain-20261030
           fi
       - name: Publier les résultats comme artefacts vérifiables
