@@ -28,7 +28,7 @@ def main():
                 if close is None:continue
                 adj=adjusted[i] if i<len(adjusted) else None
                 if adj is None: missing_adjusted+=1
-                rows.append([p["ID_position"],p["Ticker"],symbol,datetime.fromtimestamp(ts,timezone.utc).strftime("%Y-%m-%d"),close,adj if adj is not None else "",quote["volume"][i],"OK",url]);n+=1
+                rows.append([p["ID_position"],p["Ticker"],symbol,datetime.fromtimestamp(ts,timezone.utc).strftime("%Y-%m-%d"),close,adj if adj is not None else "",quote["volume"][i] if i<len(quote.get("volume",[])) else "", "MISSING_ADJUSTED" if adj is None else "OK",url]);n+=1
             if n<2:status="INSUFFICIENT_HISTORY"
             elif missing_adjusted:status="MISSING_ADJUSTED"
         except Exception as e:status="FAILED_"+type(e).__name__
