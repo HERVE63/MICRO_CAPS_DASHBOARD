@@ -278,4 +278,6 @@ def main():
  with (D/'COUVERTURE_FICHES_40_20261104.csv').open('w',newline='') as f:
   w=csv.DictWriter(f,fieldnames=list(report[0]));w.writeheader();w.writerows(report)
  print(json.dumps({'fiches_traitees':len(report),'champs_renseignes':sum(r['Renseignes'] for r in report),'total':sum(r['Champs_total'] for r in report),'notes_attribuees':0}))
+ if (D/'BILANS_ANNUELS_40_20261104.json').exists():
+  subprocess.check_call([__import__('sys').executable,str(BASE/'SCRIPTS_ACTIFS/10B_COMPLETER_CALCULS_ET_STATUTS_40.py')],cwd=BASE)
 if __name__=='__main__':main()

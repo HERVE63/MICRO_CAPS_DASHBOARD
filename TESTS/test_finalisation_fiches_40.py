@@ -33,7 +33,10 @@ class Audit40(unittest.TestCase):
   for x in self.docs.values():
    for block in x['blocs'].values():
     for c in block.values():
-     if c['valeur'] is None:self.assertEqual(c['recherche']['statut'],'MANQUANT_RECHERCHE_NON_CLOSE')
+     if c['valeur'] is None:
+      self.assertIn(c['recherche']['statut'],('MANQUANT_RECHERCHE_NON_CLOSE','NON_APPLICABLE','INDISPONIBLE_A_DATE_HISTORIQUE_COURT'))
+      self.assertTrue(c['recherche']['motif'])
+      if c['recherche']['statut']!='MANQUANT_RECHERCHE_NON_CLOSE':self.assertTrue(c['source_url'])
    self.assertEqual(x['audit_couverture']['indisponibilite_definitive_demontree'],[])
  def test_05_no_scores_or_orders(self):
   for x in self.docs.values():

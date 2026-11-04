@@ -144,13 +144,13 @@
         "date_collecte": "2026-11-04"
       },
       "marge_brute_pct": {
-        "valeur": 30.34,
+        "valeur": 30.5,
         "unite": "pct",
-        "periode": "TTM fournisseur; arrêté indiqué dans son tableau financier : May '26 May 31, 2026",
-        "date_source": "2026-11-04",
-        "source_url": "https://stockanalysis.com/quote/aim/LST/statistics/",
-        "statut": "SOURCE_SECONDAIRE_NON_RAPPROCHEE",
-        "commentaire": "Donnée de fournisseur secondaire; ni certification des comptes ni validation MCPA. Arrêté précis à rapprocher. Date rapprochée au tableau financier du même fournisseur, sans certification primaire.",
+        "periode": "S1 clos 31/05/2026",
+        "date_source": "2026-08-13",
+        "source_url": "https://www.lse.co.uk/rns/LST/interim-results-trading-update-investor-pres-wrhxeo39gpkbytz.html",
+        "statut": "SOURCE_PRIMAIRE",
+        "commentaire": null,
         "date_collecte": "2026-11-04"
       },
       "marge_ebitda_pct": {
@@ -215,18 +215,19 @@
       },
       "conversion_fcf_pct": {
         "valeur": null,
-        "unite": null,
-        "periode": null,
-        "date_source": null,
-        "source_url": null,
-        "statut": "A_COLLECTER",
-        "commentaire": null,
+        "unite": "sans objet",
+        "periode": "TTM fournisseur, arrêté à rapprocher",
+        "date_source": "2026-11-04",
+        "source_url": "https://stockanalysis.com/quote/aim/LST/statistics/",
+        "statut": "NON_APPLICABLE",
+        "commentaire": "résultat net TTM non positif : ratio de valorisation ou conversion non interprétable selon cette convention; aucune substitution par zéro.",
         "recherche": {
           "date": "2026-11-04",
-          "statut": "MANQUANT_RECHERCHE_NON_CLOSE",
-          "motif": "Aucune valeur vérifiée importée à cette étape; les recherches tracées ne démontrent pas une indisponibilité définitive.",
+          "statut": "NON_APPLICABLE",
+          "motif": "résultat net TTM non positif : ratio de valorisation ou conversion non interprétable selon cette convention; aucune substitution par zéro.",
           "journal": "journal_recherches"
-        }
+        },
+        "date_collecte": "2026-11-04"
       },
       "revenus_recurrents_pct": {
         "valeur": null,
@@ -244,19 +245,14 @@
         }
       },
       "concentration_clients_pct": {
-        "valeur": null,
-        "unite": null,
-        "periode": null,
-        "date_source": null,
-        "source_url": null,
-        "statut": "A_COLLECTER",
-        "commentaire": null,
-        "recherche": {
-          "date": "2026-11-04",
-          "statut": "MANQUANT_RECHERCHE_NON_CLOSE",
-          "motif": "Aucune valeur vérifiée importée à cette étape; les recherches tracées ne démontrent pas une indisponibilité définitive.",
-          "journal": "journal_recherches"
-        }
+        "valeur": 19.6,
+        "unite": "pct",
+        "periode": "S1 clos 31/05/2026",
+        "date_source": "2026-08-13",
+        "source_url": "https://www.lse.co.uk/rns/LST/interim-results-trading-update-investor-pres-wrhxeo39gpkbytz.html",
+        "statut": "SOURCE_PRIMAIRE",
+        "commentaire": "Premier client.",
+        "date_collecte": "2026-11-04"
       },
       "avantage_concurrentiel": {
         "valeur": null,
@@ -342,63 +338,67 @@
       },
       "ev_ebitda": {
         "valeur": null,
-        "unite": null,
-        "periode": null,
-        "date_source": null,
-        "source_url": null,
-        "statut": "A_COLLECTER",
-        "commentaire": null,
+        "unite": "sans objet",
+        "periode": "TTM fournisseur, arrêté à rapprocher",
+        "date_source": "2026-11-04",
+        "source_url": "https://stockanalysis.com/quote/aim/LST/statistics/",
+        "statut": "NON_APPLICABLE",
+        "commentaire": "EBITDA TTM non positif : ratio de valorisation ou conversion non interprétable selon cette convention; aucune substitution par zéro.",
         "recherche": {
           "date": "2026-11-04",
-          "statut": "MANQUANT_RECHERCHE_NON_CLOSE",
-          "motif": "Aucune valeur vérifiée importée à cette étape; les recherches tracées ne démontrent pas une indisponibilité définitive.",
+          "statut": "NON_APPLICABLE",
+          "motif": "EBITDA TTM non positif : ratio de valorisation ou conversion non interprétable selon cette convention; aucune substitution par zéro.",
           "journal": "journal_recherches"
-        }
+        },
+        "date_collecte": "2026-11-04"
       },
       "ev_ebit": {
         "valeur": null,
-        "unite": null,
-        "periode": null,
-        "date_source": null,
-        "source_url": null,
-        "statut": "A_COLLECTER",
-        "commentaire": null,
+        "unite": "sans objet",
+        "periode": "TTM fournisseur, arrêté à rapprocher",
+        "date_source": "2026-11-04",
+        "source_url": "https://stockanalysis.com/quote/aim/LST/statistics/",
+        "statut": "NON_APPLICABLE",
+        "commentaire": "EBIT TTM non positif : ratio de valorisation ou conversion non interprétable selon cette convention; aucune substitution par zéro.",
         "recherche": {
           "date": "2026-11-04",
-          "statut": "MANQUANT_RECHERCHE_NON_CLOSE",
-          "motif": "Aucune valeur vérifiée importée à cette étape; les recherches tracées ne démontrent pas une indisponibilité définitive.",
+          "statut": "NON_APPLICABLE",
+          "motif": "EBIT TTM non positif : ratio de valorisation ou conversion non interprétable selon cette convention; aucune substitution par zéro.",
           "journal": "journal_recherches"
-        }
+        },
+        "date_collecte": "2026-11-04"
       },
       "pe": {
         "valeur": null,
-        "unite": null,
-        "periode": null,
-        "date_source": null,
-        "source_url": null,
-        "statut": "A_COLLECTER",
-        "commentaire": null,
+        "unite": "sans objet",
+        "periode": "TTM fournisseur, arrêté à rapprocher",
+        "date_source": "2026-11-04",
+        "source_url": "https://stockanalysis.com/quote/aim/LST/statistics/",
+        "statut": "NON_APPLICABLE",
+        "commentaire": "résultat net TTM non positif : ratio de valorisation ou conversion non interprétable selon cette convention; aucune substitution par zéro.",
         "recherche": {
           "date": "2026-11-04",
-          "statut": "MANQUANT_RECHERCHE_NON_CLOSE",
-          "motif": "Aucune valeur vérifiée importée à cette étape; les recherches tracées ne démontrent pas une indisponibilité définitive.",
+          "statut": "NON_APPLICABLE",
+          "motif": "résultat net TTM non positif : ratio de valorisation ou conversion non interprétable selon cette convention; aucune substitution par zéro.",
           "journal": "journal_recherches"
-        }
+        },
+        "date_collecte": "2026-11-04"
       },
       "p_fcf": {
         "valeur": null,
-        "unite": null,
-        "periode": null,
-        "date_source": null,
-        "source_url": null,
-        "statut": "A_COLLECTER",
-        "commentaire": null,
+        "unite": "sans objet",
+        "periode": "TTM fournisseur, arrêté à rapprocher",
+        "date_source": "2026-11-04",
+        "source_url": "https://stockanalysis.com/quote/aim/LST/statistics/",
+        "statut": "NON_APPLICABLE",
+        "commentaire": "FCF TTM non positif : ratio de valorisation ou conversion non interprétable selon cette convention; aucune substitution par zéro.",
         "recherche": {
           "date": "2026-11-04",
-          "statut": "MANQUANT_RECHERCHE_NON_CLOSE",
-          "motif": "Aucune valeur vérifiée importée à cette étape; les recherches tracées ne démontrent pas une indisponibilité définitive.",
+          "statut": "NON_APPLICABLE",
+          "motif": "FCF TTM non positif : ratio de valorisation ou conversion non interprétable selon cette convention; aucune substitution par zéro.",
           "journal": "journal_recherches"
-        }
+        },
+        "date_collecte": "2026-11-04"
       },
       "p_b": {
         "valeur": 1.18,
@@ -504,18 +504,19 @@
       },
       "croissance_bpa_pct": {
         "valeur": null,
-        "unite": null,
-        "periode": null,
-        "date_source": null,
-        "source_url": null,
-        "statut": "A_COLLECTER",
-        "commentaire": null,
+        "unite": "sans objet",
+        "periode": "FY 2025 / FY 2024",
+        "date_source": "2026-11-04",
+        "source_url": "https://stockanalysis.com/quote/aim/LST/financials/",
+        "statut": "NON_APPLICABLE",
+        "commentaire": "Base annuelle EPS (Diluted) non positive; variation en pourcentage non interprétable. Comparer montants/signes, sans croissance fictive.",
         "recherche": {
           "date": "2026-11-04",
-          "statut": "MANQUANT_RECHERCHE_NON_CLOSE",
-          "motif": "Aucune valeur vérifiée importée à cette étape; les recherches tracées ne démontrent pas une indisponibilité définitive.",
+          "statut": "NON_APPLICABLE",
+          "motif": "Base annuelle EPS (Diluted) non positive; variation en pourcentage non interprétable. Comparer montants/signes, sans croissance fictive.",
           "journal": "journal_recherches"
-        }
+        },
+        "date_collecte": "2026-11-04"
       },
       "croissance_fcf_pct": {
         "valeur": -66.88741721854305,
@@ -633,19 +634,14 @@
         }
       },
       "catalyseurs_dates": {
-        "valeur": null,
-        "unite": null,
-        "periode": null,
-        "date_source": null,
-        "source_url": null,
-        "statut": "A_COLLECTER",
+        "valeur": "Guidance abaissée : CA FY2026 9–9,5 M GBP et perte avant impôts ajustée 0,8–1 M GBP; déblocage contrats PFP attendu FY2027, incertain.",
+        "unite": "texte",
+        "periode": "guidance FY2026 clos 30/11/2026",
+        "date_source": "2026-10-01",
+        "source_url": "https://www.lse.co.uk/rns/trading-update-sy0ulthl6x7cbuw.html",
+        "statut": "SOURCE_PRIMAIRE",
         "commentaire": null,
-        "recherche": {
-          "date": "2026-11-04",
-          "statut": "MANQUANT_RECHERCHE_NON_CLOSE",
-          "motif": "Aucune valeur vérifiée importée à cette étape; les recherches tracées ne démontrent pas une indisponibilité définitive.",
-          "journal": "journal_recherches"
-        }
+        "date_collecte": "2026-11-04"
       },
       "taille_marche_adressable": {
         "valeur": null,
@@ -665,13 +661,13 @@
     },
     "risque": {
       "cash": {
-        "valeur": 2440000.0,
-        "unite": "GBP",
-        "periode": "Dernier bilan affiché au 2026-11-04; date comptable exacte à rapprocher",
-        "date_source": "2026-11-04",
-        "source_url": "https://stockanalysis.com/quote/aim/LST/statistics/",
-        "statut": "SOURCE_SECONDAIRE_NON_RAPPROCHEE",
-        "commentaire": "Donnée de fournisseur secondaire; ni certification des comptes ni validation MCPA. Arrêté précis à rapprocher.",
+        "valeur": 2.44,
+        "unite": "millions_GBP",
+        "periode": "S1 clos 31/05/2026",
+        "date_source": "2026-08-13",
+        "source_url": "https://www.lse.co.uk/rns/LST/interim-results-trading-update-investor-pres-wrhxeo39gpkbytz.html",
+        "statut": "SOURCE_PRIMAIRE",
+        "commentaire": "Hors facilités non tirées 0,28 M.",
         "date_collecte": "2026-11-04"
       },
       "dette_brute": {
@@ -740,34 +736,24 @@
         "date_collecte": "2026-11-04"
       },
       "dilution_3a_pct": {
-        "valeur": null,
-        "unite": null,
-        "periode": null,
-        "date_source": null,
-        "source_url": null,
-        "statut": "A_COLLECTER",
-        "commentaire": null,
-        "recherche": {
-          "date": "2026-11-04",
-          "statut": "MANQUANT_RECHERCHE_NON_CLOSE",
-          "motif": "Aucune valeur vérifiée importée à cette étape; les recherches tracées ne démontrent pas une indisponibilité définitive.",
-          "journal": "journal_recherches"
-        }
+        "valeur": 91.22021246052252,
+        "unite": "pct",
+        "periode": "FY 2022 / FY 2025",
+        "date_source": "2026-11-04",
+        "source_url": "https://stockanalysis.com/quote/aim/LST/financials/balance-sheet/",
+        "statut": "CALCULE_SOURCE_SECONDAIRE",
+        "commentaire": "Variation des actions ordinaires de clôture sur trois exercices; chiffres fournisseur arrondis. Pas la dilution potentielle options/convertibles; splits à rapprocher.",
+        "date_collecte": "2026-11-04"
       },
       "risque_refinancement": {
-        "valeur": null,
-        "unite": null,
-        "periode": null,
-        "date_source": null,
-        "source_url": null,
-        "statut": "A_COLLECTER",
+        "valeur": "Incertitude significative de continuité : revenus AGT/PFP conditionnent covenant de liquidité 0,5 M GBP; possible renégociation/waiver.",
+        "unite": "texte",
+        "periode": "S1 clos 31/05/2026",
+        "date_source": "2026-08-13",
+        "source_url": "https://www.lse.co.uk/rns/LST/interim-results-trading-update-investor-pres-wrhxeo39gpkbytz.html",
+        "statut": "SOURCE_PRIMAIRE",
         "commentaire": null,
-        "recherche": {
-          "date": "2026-11-04",
-          "statut": "MANQUANT_RECHERCHE_NON_CLOSE",
-          "motif": "Aucune valeur vérifiée importée à cette étape; les recherches tracées ne démontrent pas une indisponibilité définitive.",
-          "journal": "journal_recherches"
-        }
+        "date_collecte": "2026-11-04"
       },
       "risque_pays": {
         "valeur": null,
@@ -810,34 +796,24 @@
         }
       },
       "risque_reglementaire": {
-        "valeur": null,
-        "unite": null,
-        "periode": null,
-        "date_source": null,
-        "source_url": null,
-        "statut": "A_COLLECTER",
+        "valeur": "Retards d’approbation sécurité incendie : deux contrats PFP reportés hors FY2026.",
+        "unite": "texte",
+        "periode": "guidance FY2026 clos 30/11/2026",
+        "date_source": "2026-10-01",
+        "source_url": "https://www.lse.co.uk/rns/trading-update-sy0ulthl6x7cbuw.html",
+        "statut": "SOURCE_PRIMAIRE",
         "commentaire": null,
-        "recherche": {
-          "date": "2026-11-04",
-          "statut": "MANQUANT_RECHERCHE_NON_CLOSE",
-          "motif": "Aucune valeur vérifiée importée à cette étape; les recherches tracées ne démontrent pas une indisponibilité définitive.",
-          "journal": "journal_recherches"
-        }
+        "date_collecte": "2026-11-04"
       },
       "risque_concentration": {
-        "valeur": null,
-        "unite": null,
-        "periode": null,
-        "date_source": null,
-        "source_url": null,
-        "statut": "A_COLLECTER",
+        "valeur": "Premier client : 19,6 % du CA S1.",
+        "unite": "texte",
+        "periode": "S1 clos 31/05/2026",
+        "date_source": "2026-08-13",
+        "source_url": "https://www.lse.co.uk/rns/LST/interim-results-trading-update-investor-pres-wrhxeo39gpkbytz.html",
+        "statut": "SOURCE_PRIMAIRE",
         "commentaire": null,
-        "recherche": {
-          "date": "2026-11-04",
-          "statut": "MANQUANT_RECHERCHE_NON_CLOSE",
-          "motif": "Aucune valeur vérifiée importée à cette étape; les recherches tracées ne démontrent pas une indisponibilité définitive.",
-          "journal": "journal_recherches"
-        }
+        "date_collecte": "2026-11-04"
       },
       "transactions_initiees_net_90j": {
         "valeur": null,
@@ -999,19 +975,14 @@
     },
     "diversification": {
       "zone_geographique": {
-        "valeur": null,
-        "unite": null,
-        "periode": null,
-        "date_source": null,
-        "source_url": null,
-        "statut": "A_COLLECTER",
+        "valeur": "Activité S1 réalisée au Royaume-Uni et dans l’Union européenne.",
+        "unite": "texte",
+        "periode": "S1 clos 31/05/2026",
+        "date_source": "2026-08-13",
+        "source_url": "https://www.lse.co.uk/rns/LST/interim-results-trading-update-investor-pres-wrhxeo39gpkbytz.html",
+        "statut": "SOURCE_PRIMAIRE",
         "commentaire": null,
-        "recherche": {
-          "date": "2026-11-04",
-          "statut": "MANQUANT_RECHERCHE_NON_CLOSE",
-          "motif": "Aucune valeur vérifiée importée à cette étape; les recherches tracées ne démontrent pas une indisponibilité définitive.",
-          "journal": "journal_recherches"
-        }
+        "date_collecte": "2026-11-04"
       },
       "exposition_sectorielle": {
         "valeur": "Technology",
@@ -1024,34 +995,46 @@
         "date_collecte": "2026-11-04"
       },
       "correlation_portefeuille": {
-        "valeur": null,
-        "unite": null,
-        "periode": null,
-        "date_source": null,
-        "source_url": null,
-        "statut": "A_COLLECTER",
-        "commentaire": null,
-        "recherche": {
-          "date": "2026-11-04",
-          "statut": "MANQUANT_RECHERCHE_NON_CLOSE",
-          "motif": "Aucune valeur vérifiée importée à cette étape; les recherches tracées ne démontrent pas une indisponibilité définitive.",
-          "journal": "journal_recherches"
-        }
+        "valeur": 0.17195894037861928,
+        "unite": "Pearson [-1,1]",
+        "periode": "2026-06-23 / 2026-11-03; 90 séances communes",
+        "date_source": "2026-11-04",
+        "source_url": "DONNEES/HISTORIQUES_YAHOO_40.csv",
+        "statut": "CALCULE_PROXY_CORRELATION",
+        "commentaire": "Proxy : rendements clôtures ajustées en devises locales, panier quotidien équipondéré des 39 autres lignes. Exclut la ligne; FX et poids réels non intégrés, donc pas corrélation du portefeuille EUR effectif.",
+        "date_collecte": "2026-11-04"
       },
       "concentration_theme": {
-        "valeur": null,
-        "unite": null,
-        "periode": null,
-        "date_source": null,
-        "source_url": null,
-        "statut": "A_COLLECTER",
-        "commentaire": null,
-        "recherche": {
-          "date": "2026-11-04",
-          "statut": "MANQUANT_RECHERCHE_NON_CLOSE",
-          "motif": "Aucune valeur vérifiée importée à cette étape; les recherches tracées ne démontrent pas une indisponibilité définitive.",
-          "journal": "journal_recherches"
-        }
+        "valeur": {
+          "classification": "Technology",
+          "nombre_lignes": 16,
+          "poids_initial_pct": 40.0,
+          "tickers": [
+            "IDN",
+            "OSS",
+            "AOM.L",
+            "MEMS.PA",
+            "MTEC.L",
+            "ALICA.PA",
+            "GENI.ST",
+            "LST.L",
+            "GROW.MI",
+            "ALBFR.PA",
+            "CER.L",
+            "PULS.L",
+            "ALBPK.PA",
+            "ALSTW.PA",
+            "AL2SI.PA",
+            "ALLIX.PA"
+          ]
+        },
+        "unite": "composition T0",
+        "periode": "40 lignes initiales équipondérées, 01/10/2026",
+        "date_source": "2026-11-04",
+        "source_url": "DONNEES/ETAT_INITIAL_PORTEFEUILLE_GERE.csv | https://stockanalysis.com/quote/aim/LST/company/",
+        "statut": "CALCULE_SOURCE_SECONDAIRE",
+        "commentaire": "Classification sectorielle secondaire; poids T0 et non poids actualisé, ni exposition économique détaillée. Une industrie n’est pas un thème fin.",
+        "date_collecte": "2026-11-04"
       },
       "interet_strategique": {
         "valeur": null,
@@ -1641,6 +1624,42 @@
       "statut": "SOURCE_SECONDAIRE_NON_RAPPROCHEE",
       "commentaire": "Donnée de fournisseur secondaire; ni certification des comptes ni validation MCPA. Arrêté précis à rapprocher. Date rapprochée au tableau financier du même fournisseur, sans certification primaire.",
       "date_collecte": "2026-11-04"
+    },
+    {
+      "bloc": "risque",
+      "champ": "cash",
+      "valeur": 2440000.0,
+      "unite": "GBP",
+      "periode": "Dernier bilan affiché au 2026-11-04; date comptable exacte à rapprocher",
+      "date_source": "2026-11-04",
+      "source_url": "https://stockanalysis.com/quote/aim/LST/statistics/",
+      "statut": "SOURCE_SECONDAIRE_NON_RAPPROCHEE",
+      "commentaire": "Donnée de fournisseur secondaire; ni certification des comptes ni validation MCPA. Arrêté précis à rapprocher.",
+      "date_collecte": "2026-11-04"
+    },
+    {
+      "bloc": null,
+      "champ": "actions_31mai2026",
+      "valeur": 993005500,
+      "unite": "titres",
+      "periode": "S1 clos 31/05/2026",
+      "date_source": "2026-08-13",
+      "source_url": "https://www.lse.co.uk/rns/LST/interim-results-trading-update-investor-pres-wrhxeo39gpkbytz.html",
+      "statut": "SOURCE_PRIMAIRE",
+      "commentaire": "333005500 au 30/11/2025; 660000000 actions nouvelles, pas une dilution sur trois ans.",
+      "date_collecte": "2026-11-04"
+    },
+    {
+      "bloc": "qualite",
+      "champ": "marge_brute_pct",
+      "valeur": 30.34,
+      "unite": "pct",
+      "periode": "TTM affiché au 2026-11-04; date exacte de fin non fournie sur la page statistiques",
+      "date_source": "2026-11-04",
+      "source_url": "https://stockanalysis.com/quote/aim/LST/statistics/",
+      "statut": "SOURCE_SECONDAIRE_NON_RAPPROCHEE",
+      "commentaire": "Donnée de fournisseur secondaire; ni certification des comptes ni validation MCPA. Arrêté précis à rapprocher.",
+      "date_collecte": "2026-11-04"
     }
   ],
   "journal_recherches": [
@@ -1786,20 +1805,35 @@
       "statut": "ECHEC_ACCES_OU_IDENTITE",
       "http": 404,
       "limite": "Les cellules Upgrade ne sont jamais converties en chiffres."
+    },
+    {
+      "famille": "EODHD_fondamentaux_execution_GitHub",
+      "date": "2026-11-04",
+      "endpoint_sans_secret": "/api/fundamentals/LST.LSE",
+      "http": "403",
+      "statut": "ACCES_REFUSE",
+      "preuve": "AUDITS/POURSUITE_FICHES_40_20261104/EODHD/COLLECTE_40.csv",
+      "limite": "Échec fournisseur, pas preuve que les données publiques sont inexistantes."
+    },
+    {
+      "famille": "bilan_annuel_actions",
+      "date": "2026-11-04",
+      "url": "https://stockanalysis.com/quote/aim/LST/financials/balance-sheet/",
+      "http": 200,
+      "statut": "SOURCE_SECONDAIRE_A_RAPPROCHER"
     }
   ],
   "audit_couverture": {
     "date": "2026-11-04",
     "champs_total": 108,
-    "champs_renseignes": 46,
-    "couverture_pct": 42.59,
-    "champs_secondaires_non_rapproches": 31,
+    "champs_renseignes": 55,
+    "couverture_pct": 50.93,
+    "champs_secondaires_non_rapproches": 29,
     "champs_manquants": [
       "identite.lei",
       "identite.marche",
       "qualite.conversion_fcf_pct",
       "qualite.revenus_recurrents_pct",
-      "qualite.concentration_clients_pct",
       "qualite.avantage_concurrentiel",
       "qualite.qualite_management",
       "valorisation.ev_ebitda",
@@ -1818,21 +1852,13 @@
       "croissance.revision_bpa_30j_pct",
       "croissance.revision_bpa_90j_pct",
       "croissance.peg",
-      "croissance.catalyseurs_dates",
       "croissance.taille_marche_adressable",
       "risque.dette_nette_ebitda",
-      "risque.dilution_3a_pct",
-      "risque.risque_refinancement",
       "risque.risque_pays",
       "risque.risque_gouvernance",
-      "risque.risque_reglementaire",
-      "risque.risque_concentration",
       "risque.transactions_initiees_net_90j",
       "risque.transactions_initiees_net_180j",
       "momentum.force_relative_indice",
-      "diversification.zone_geographique",
-      "diversification.correlation_portefeuille",
-      "diversification.concentration_theme",
       "diversification.interet_strategique",
       "diversification.complementarite_portefeuille",
       "complements.ssi",
@@ -1861,5 +1887,68 @@
     "indisponibilite_definitive_demontree": [],
     "statut": "TRAITE_MAIS_INCOMPLET",
     "cours_date_limite": "2026-11-03"
+  },
+  "audit_poursuite": {
+    "date": "2026-11-04",
+    "comptage": {
+      "RENSEIGNE": 55,
+      "NON_APPLICABLE": 6,
+      "INDISPONIBLE_A_DATE": 0,
+      "RECHERCHE_A_POURSUIVRE": 47
+    },
+    "couverture_valeurs_pct": 50.93,
+    "couverture_applicable_pct": 53.92,
+    "recherches_non_closes": [
+      "identite.lei",
+      "identite.marche",
+      "qualite.revenus_recurrents_pct",
+      "qualite.avantage_concurrentiel",
+      "qualite.qualite_management",
+      "valorisation.comparables_sectoriels",
+      "valorisation.valorisation_historique",
+      "valorisation.marge_securite_pct",
+      "croissance.croissance_ebitda_pct",
+      "croissance.carnet_commandes",
+      "croissance.book_to_bill",
+      "croissance.previsions_ca_1a",
+      "croissance.previsions_bpa_1a",
+      "croissance.revision_bpa_30j_pct",
+      "croissance.revision_bpa_90j_pct",
+      "croissance.peg",
+      "croissance.taille_marche_adressable",
+      "risque.dette_nette_ebitda",
+      "risque.risque_pays",
+      "risque.risque_gouvernance",
+      "risque.transactions_initiees_net_90j",
+      "risque.transactions_initiees_net_180j",
+      "momentum.force_relative_indice",
+      "diversification.interet_strategique",
+      "diversification.complementarite_portefeuille",
+      "complements.ssi",
+      "complements.ic_sur_5",
+      "complements.cx_sur_5",
+      "complements.delta",
+      "complements.wwws",
+      "complements.scenario_bear_3m_pct",
+      "complements.prob_bear_3m_pct",
+      "complements.scenario_central_3m_pct",
+      "complements.prob_central_3m_pct",
+      "complements.scenario_bull_3m_pct",
+      "complements.prob_bull_3m_pct",
+      "complements.scenario_bear_6m_pct",
+      "complements.prob_bear_6m_pct",
+      "complements.scenario_central_6m_pct",
+      "complements.prob_central_6m_pct",
+      "complements.scenario_bull_6m_pct",
+      "complements.prob_bull_6m_pct",
+      "complements.role_ips",
+      "complements.decision",
+      "complements.condition_renforcement",
+      "complements.condition_allegement_sortie",
+      "complements.challengers_compares"
+    ],
+    "notes_justifiees": false,
+    "validation_individuelle": "BLOQUEE_DONNEES_ET_ANALYSES_RESTANTES",
+    "aucune_indisponibilite_definitive_presumee": true
   }
 }

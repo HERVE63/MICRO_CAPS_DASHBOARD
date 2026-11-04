@@ -167,13 +167,13 @@
         "commentaire": "Source primaire; données non annualisées"
       },
       "marge_ebit_pct": {
-        "valeur": 27.81,
+        "valeur": 27.8,
         "unite": "pct",
-        "periode": "TTM fournisseur; arrêté indiqué dans son tableau financier : Sep '26 Sep 30, 2026",
-        "date_source": "2026-11-04",
-        "source_url": "https://stockanalysis.com/quote/xsat/PLEJD/statistics/",
-        "statut": "SOURCE_SECONDAIRE_NON_RAPPROCHEE",
-        "commentaire": "Donnée de fournisseur secondaire; ni certification des comptes ni validation MCPA. Arrêté précis à rapprocher. Date rapprochée au tableau financier du même fournisseur, sans certification primaire.",
+        "periode": "9M 2026",
+        "date_source": "2026-10-16",
+        "source_url": "https://news.cision.com/plejd/r/interim-report-third-quarter-2026,c4409397",
+        "statut": "SOURCE_PRIMAIRE",
+        "commentaire": null,
         "date_collecte": "2026-11-04"
       },
       "marge_nette_pct": {
@@ -678,33 +678,29 @@
       },
       "cash_runway_mois": {
         "valeur": null,
-        "unite": null,
-        "periode": null,
-        "date_source": null,
-        "source_url": null,
-        "statut": "A_COLLECTER",
-        "commentaire": null,
+        "unite": "sans objet",
+        "periode": "TTM fournisseur, arrêté à rapprocher",
+        "date_source": "2026-11-04",
+        "source_url": "https://stockanalysis.com/quote/xsat/PLEJD/statistics/",
+        "statut": "NON_APPLICABLE",
+        "commentaire": "FCF TTM non négatif : extrapolation cash/consommation FCF non applicable. Ne démontre pas absence de risque futur de liquidité.",
         "recherche": {
           "date": "2026-11-04",
-          "statut": "MANQUANT_RECHERCHE_NON_CLOSE",
-          "motif": "Aucune valeur vérifiée importée à cette étape; les recherches tracées ne démontrent pas une indisponibilité définitive.",
+          "statut": "NON_APPLICABLE",
+          "motif": "FCF TTM non négatif : extrapolation cash/consommation FCF non applicable. Ne démontre pas absence de risque futur de liquidité.",
           "journal": "journal_recherches"
-        }
+        },
+        "date_collecte": "2026-11-04"
       },
       "dilution_3a_pct": {
-        "valeur": null,
-        "unite": null,
-        "periode": null,
-        "date_source": null,
-        "source_url": null,
-        "statut": "A_COLLECTER",
-        "commentaire": null,
-        "recherche": {
-          "date": "2026-11-04",
-          "statut": "MANQUANT_RECHERCHE_NON_CLOSE",
-          "motif": "Aucune valeur vérifiée importée à cette étape; les recherches tracées ne démontrent pas une indisponibilité définitive.",
-          "journal": "journal_recherches"
-        }
+        "valeur": 4.388422035480843,
+        "unite": "pct",
+        "periode": "FY 2022 / FY 2025",
+        "date_source": "2026-11-04",
+        "source_url": "https://stockanalysis.com/quote/xsat/PLEJD/financials/balance-sheet/",
+        "statut": "CALCULE_SOURCE_SECONDAIRE",
+        "commentaire": "Variation des actions ordinaires de clôture sur trois exercices; chiffres fournisseur arrondis. Pas la dilution potentielle options/convertibles; splits à rapprocher.",
+        "date_collecte": "2026-11-04"
       },
       "risque_refinancement": {
         "valeur": null,
@@ -777,19 +773,14 @@
         }
       },
       "risque_concentration": {
-        "valeur": null,
-        "unite": null,
-        "periode": null,
-        "date_source": null,
-        "source_url": null,
-        "statut": "A_COLLECTER",
+        "valeur": "LPN-01 commercial : cycles de ventes plus longs que gamme résidentielle, adoption graduelle selon direction.",
+        "unite": "texte",
+        "periode": "9M 2026",
+        "date_source": "2026-10-16",
+        "source_url": "https://news.cision.com/plejd/r/interim-report-third-quarter-2026,c4409397",
+        "statut": "SOURCE_PRIMAIRE",
         "commentaire": null,
-        "recherche": {
-          "date": "2026-11-04",
-          "statut": "MANQUANT_RECHERCHE_NON_CLOSE",
-          "motif": "Aucune valeur vérifiée importée à cette étape; les recherches tracées ne démontrent pas une indisponibilité définitive.",
-          "journal": "journal_recherches"
-        }
+        "date_collecte": "2026-11-04"
       },
       "transactions_initiees_net_90j": {
         "valeur": null,
@@ -981,19 +972,14 @@
         }
       },
       "correlation_portefeuille": {
-        "valeur": null,
-        "unite": null,
-        "periode": null,
-        "date_source": null,
-        "source_url": null,
-        "statut": "A_COLLECTER",
-        "commentaire": null,
-        "recherche": {
-          "date": "2026-11-04",
-          "statut": "MANQUANT_RECHERCHE_NON_CLOSE",
-          "motif": "Aucune valeur vérifiée importée à cette étape; les recherches tracées ne démontrent pas une indisponibilité définitive.",
-          "journal": "journal_recherches"
-        }
+        "valeur": 0.09064114398244662,
+        "unite": "Pearson [-1,1]",
+        "periode": "2026-06-23 / 2026-11-03; 90 séances communes",
+        "date_source": "2026-11-04",
+        "source_url": "DONNEES/HISTORIQUES_YAHOO_40.csv",
+        "statut": "CALCULE_PROXY_CORRELATION",
+        "commentaire": "Proxy : rendements clôtures ajustées en devises locales, panier quotidien équipondéré des 39 autres lignes. Exclut la ligne; FX et poids réels non intégrés, donc pas corrélation du portefeuille EUR effectif.",
+        "date_collecte": "2026-11-04"
       },
       "concentration_theme": {
         "valeur": null,
@@ -1749,6 +1735,30 @@
       "statut": "SOURCE_SECONDAIRE_NON_RAPPROCHEE",
       "commentaire": "Convention explicitée : FCF/résultat net; pas de calcul si résultat net <=0. Date rapprochée au tableau financier du même fournisseur, sans certification primaire.",
       "date_collecte": "2026-11-04"
+    },
+    {
+      "bloc": "croissance",
+      "champ": "catalyseurs_dates",
+      "valeur": "Lancements TRL-01 et CMS-01 annoncés début 2027; expansion européenne accrue à compter de 2027.",
+      "unite": "texte",
+      "periode": "9M 2026",
+      "date_source": "2026-10-16",
+      "source_url": "https://news.cision.com/plejd/r/interim-report-third-quarter-2026,c4409397",
+      "statut": "SOURCE_PRIMAIRE",
+      "commentaire": "Projets annoncés, non commandes acquises.",
+      "date_collecte": "2026-11-04"
+    },
+    {
+      "bloc": "qualite",
+      "champ": "marge_ebit_pct",
+      "valeur": 27.81,
+      "unite": "pct",
+      "periode": "TTM affiché au 2026-11-04; date exacte de fin non fournie sur la page statistiques",
+      "date_source": "2026-11-04",
+      "source_url": "https://stockanalysis.com/quote/xsat/PLEJD/statistics/",
+      "statut": "SOURCE_SECONDAIRE_NON_RAPPROCHEE",
+      "commentaire": "Donnée de fournisseur secondaire; ni certification des comptes ni validation MCPA. Arrêté précis à rapprocher.",
+      "date_collecte": "2026-11-04"
     }
   ],
   "journal_recherches": [
@@ -1922,14 +1932,30 @@
       "statut": "SOURCE_SECONDAIRE_PREVISIONS",
       "http": 200,
       "limite": "Les cellules Upgrade ne sont jamais converties en chiffres."
+    },
+    {
+      "famille": "EODHD_fondamentaux_execution_GitHub",
+      "date": "2026-11-04",
+      "endpoint_sans_secret": "/api/fundamentals/PLEJD.ST",
+      "http": "403",
+      "statut": "ACCES_REFUSE",
+      "preuve": "AUDITS/POURSUITE_FICHES_40_20261104/EODHD/COLLECTE_40.csv",
+      "limite": "Échec fournisseur, pas preuve que les données publiques sont inexistantes."
+    },
+    {
+      "famille": "bilan_annuel_actions",
+      "date": "2026-11-04",
+      "url": "https://stockanalysis.com/quote/xsat/PLEJD/financials/balance-sheet/",
+      "http": 200,
+      "statut": "SOURCE_SECONDAIRE_A_RAPPROCHER"
     }
   ],
   "audit_couverture": {
     "date": "2026-11-04",
     "champs_total": 108,
-    "champs_renseignes": 54,
-    "couverture_pct": 50.0,
-    "champs_secondaires_non_rapproches": 36,
+    "champs_renseignes": 57,
+    "couverture_pct": 52.78,
+    "champs_secondaires_non_rapproches": 35,
     "champs_manquants": [
       "identite.lei",
       "identite.secteur",
@@ -1948,18 +1974,15 @@
       "croissance.revision_bpa_90j_pct",
       "croissance.taille_marche_adressable",
       "risque.cash_runway_mois",
-      "risque.dilution_3a_pct",
       "risque.risque_refinancement",
       "risque.risque_pays",
       "risque.risque_gouvernance",
       "risque.risque_reglementaire",
-      "risque.risque_concentration",
       "risque.transactions_initiees_net_90j",
       "risque.transactions_initiees_net_180j",
       "momentum.force_relative_indice",
       "diversification.zone_geographique",
       "diversification.exposition_sectorielle",
-      "diversification.correlation_portefeuille",
       "diversification.concentration_theme",
       "diversification.interet_strategique",
       "diversification.complementarite_portefeuille",
@@ -1989,5 +2012,71 @@
     "indisponibilite_definitive_demontree": [],
     "statut": "TRAITE_MAIS_INCOMPLET",
     "cours_date_limite": "2026-11-03"
+  },
+  "audit_poursuite": {
+    "date": "2026-11-04",
+    "comptage": {
+      "RENSEIGNE": 57,
+      "NON_APPLICABLE": 1,
+      "INDISPONIBLE_A_DATE": 0,
+      "RECHERCHE_A_POURSUIVRE": 50
+    },
+    "couverture_valeurs_pct": 52.78,
+    "couverture_applicable_pct": 53.27,
+    "recherches_non_closes": [
+      "identite.lei",
+      "identite.secteur",
+      "identite.marche",
+      "qualite.revenus_recurrents_pct",
+      "qualite.concentration_clients_pct",
+      "qualite.avantage_concurrentiel",
+      "qualite.qualite_management",
+      "valorisation.comparables_sectoriels",
+      "valorisation.valorisation_historique",
+      "valorisation.marge_securite_pct",
+      "croissance.croissance_ebitda_pct",
+      "croissance.carnet_commandes",
+      "croissance.book_to_bill",
+      "croissance.revision_bpa_30j_pct",
+      "croissance.revision_bpa_90j_pct",
+      "croissance.taille_marche_adressable",
+      "risque.risque_refinancement",
+      "risque.risque_pays",
+      "risque.risque_gouvernance",
+      "risque.risque_reglementaire",
+      "risque.transactions_initiees_net_90j",
+      "risque.transactions_initiees_net_180j",
+      "momentum.force_relative_indice",
+      "diversification.zone_geographique",
+      "diversification.exposition_sectorielle",
+      "diversification.concentration_theme",
+      "diversification.interet_strategique",
+      "diversification.complementarite_portefeuille",
+      "complements.ssi",
+      "complements.ic_sur_5",
+      "complements.cx_sur_5",
+      "complements.delta",
+      "complements.wwws",
+      "complements.scenario_bear_3m_pct",
+      "complements.prob_bear_3m_pct",
+      "complements.scenario_central_3m_pct",
+      "complements.prob_central_3m_pct",
+      "complements.scenario_bull_3m_pct",
+      "complements.prob_bull_3m_pct",
+      "complements.scenario_bear_6m_pct",
+      "complements.prob_bear_6m_pct",
+      "complements.scenario_central_6m_pct",
+      "complements.prob_central_6m_pct",
+      "complements.scenario_bull_6m_pct",
+      "complements.prob_bull_6m_pct",
+      "complements.role_ips",
+      "complements.decision",
+      "complements.condition_renforcement",
+      "complements.condition_allegement_sortie",
+      "complements.challengers_compares"
+    ],
+    "notes_justifiees": false,
+    "validation_individuelle": "BLOQUEE_DONNEES_ET_ANALYSES_RESTANTES",
+    "aucune_indisponibilite_definitive_presumee": true
   }
 }

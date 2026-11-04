@@ -817,5 +817,956 @@
         "unite": "millions_EUR"
       }
     ]
+  },
+  {
+    "ticker": "ALBPK.PA",
+    "url": "https://broadpeak.tv/wp-content/uploads/2026/10/26-1001-CP-BPK-RS-Vdef-FR-03.pdf",
+    "date_source": "2026-10-01",
+    "periode": "S1 2026 / bilan 30/06/2026",
+    "champs": [
+      {
+        "bloc": "qualite",
+        "champ": "marge_brute_pct",
+        "valeur": 74.3,
+        "unite": "pct",
+        "commentaire": null
+      },
+      {
+        "bloc": "qualite",
+        "champ": "marge_ebitda_pct",
+        "valeur": -13.3,
+        "unite": "pct",
+        "commentaire": "EBITDA publié, non ajusté du CIR."
+      },
+      {
+        "bloc": "qualite",
+        "champ": "marge_ebit_pct",
+        "valeur": -34.58374657254536,
+        "unite": "pct",
+        "commentaire": "EBIT/CA du semestre."
+      },
+      {
+        "bloc": "qualite",
+        "champ": "marge_nette_pct",
+        "valeur": -24.946035820547227,
+        "unite": "pct",
+        "commentaire": "RN/CA du semestre."
+      },
+      {
+        "bloc": "risque",
+        "champ": "cash",
+        "valeur": 2.4,
+        "unite": "millions_EUR",
+        "commentaire": null
+      },
+      {
+        "bloc": "risque",
+        "champ": "dette_brute",
+        "valeur": 9.2,
+        "unite": "millions_EUR",
+        "commentaire": null
+      },
+      {
+        "bloc": "risque",
+        "champ": "dette_nette",
+        "valeur": 6.8,
+        "unite": "millions_EUR",
+        "commentaire": null
+      },
+      {
+        "bloc": "risque",
+        "champ": "risque_refinancement",
+        "valeur": "Dette nette 6,8 M EUR; FCF S1 -1,2 M EUR. Encaissement post-clôture de CIR 4,1 M EUR. Échéancier à contrôler.",
+        "unite": "texte",
+        "commentaire": null
+      },
+      {
+        "bloc": "qualite",
+        "champ": "avantage_concurrentiel",
+        "valeur": "Solutions vidéo opérateurs; technologie Edgepeak distinguée au salon IBC. Prix technologique ≠ preuve de pouvoir de fixation des prix.",
+        "unite": "texte",
+        "commentaire": null
+      }
+    ]
+  },
+  {
+    "ticker": "ALBPK.PA",
+    "url": "https://broadpeak.tv/wp-content/uploads/2026/10/26-1027-CP-BPK-CA-T3-Vdef-FR.pdf",
+    "date_source": "2026-10-27",
+    "periode": "9M 2026",
+    "champs": [
+      {
+        "bloc": "qualite",
+        "champ": "revenus_recurrents_pct",
+        "valeur": 57,
+        "unite": "pct",
+        "commentaire": "Maintenance/SaaS; part publiée arrondie."
+      },
+      {
+        "bloc": "diversification",
+        "champ": "zone_geographique",
+        "valeur": "CA 9M : EMEA 14,337 M EUR; Amériques 10,735 M; APAC 2,185 M.",
+        "unite": "texte",
+        "commentaire": null
+      },
+      {
+        "bloc": "croissance",
+        "champ": "catalyseurs_dates",
+        "valeur": "CA annuel le 09/02/2027; objectif 2027 CA >50 M EUR et marge EBITDA ~15 %, confirmé le 27/10/2026.",
+        "unite": "texte",
+        "commentaire": "Objectifs de la direction, non résultats acquis."
+      },
+      {
+        "bloc": null,
+        "champ": "ca_9m",
+        "valeur": 27.257,
+        "unite": "millions_EUR",
+        "commentaire": null
+      },
+      {
+        "bloc": null,
+        "champ": "croissance_ca_9m_pct",
+        "valeur": -12.9,
+        "unite": "pct",
+        "commentaire": "Ne remplace pas croissance annuelle."
+      }
+    ]
+  },
+  {
+    "ticker": "ALMCE.PA",
+    "url": "https://www.webdisclosure.fr/press-release/mon-courtier-energie-groupe-epa-informations-privilegiees-communique-sur-comptes-resultats-lh5UJfkne2Y",
+    "date_source": "2026-10-19",
+    "periode": "S1 2026 / bilan 30/06/2026",
+    "champs": [
+      {
+        "bloc": "qualite",
+        "champ": "marge_ebitda_pct",
+        "valeur": 15.031214012970484,
+        "unite": "pct",
+        "commentaire": "EBITDA/CA."
+      },
+      {
+        "bloc": "qualite",
+        "champ": "marge_ebit_pct",
+        "valeur": 13.297775622765018,
+        "unite": "pct",
+        "commentaire": "EBIT/CA."
+      },
+      {
+        "bloc": "qualite",
+        "champ": "marge_nette_pct",
+        "valeur": 10.697618037456817,
+        "unite": "pct",
+        "commentaire": "RN part groupe/CA."
+      },
+      {
+        "bloc": "risque",
+        "champ": "cash",
+        "valeur": 3.944,
+        "unite": "millions_EUR",
+        "commentaire": "Disponibilités du bilan; trésorerie de clôture TFT 8,171 M EUR comprend un périmètre différent."
+      },
+      {
+        "bloc": "risque",
+        "champ": "dette_brute",
+        "valeur": 1.143,
+        "unite": "millions_EUR",
+        "commentaire": "Emprunts et dettes financières du bilan."
+      },
+      {
+        "bloc": "croissance",
+        "champ": "croissance_ebitda_pct",
+        "valeur": 44.1,
+        "unite": "pct",
+        "commentaire": "S1 contre S1, non croissance exercice entier."
+      },
+      {
+        "bloc": null,
+        "champ": "fcf_semestriel",
+        "valeur": 0.672,
+        "unite": "millions_EUR",
+        "commentaire": "CFO 1,255 - investissements corporels/incorporels 0,583; non TTM."
+      },
+      {
+        "bloc": "croissance",
+        "champ": "catalyseurs_dates",
+        "valeur": "Objectifs 2026 confirmés le 19/10/2026; projet de croissance externe étudié, non acquis.",
+        "unite": "texte",
+        "commentaire": null
+      },
+      {
+        "bloc": "risque",
+        "champ": "risque_concentration",
+        "valeur": "Renouvellements : 60 % du CA S1. Indicateur de fidélisation, pas revenu contractuel récurrent garanti.",
+        "unite": "texte",
+        "commentaire": null
+      }
+    ]
+  },
+  {
+    "ticker": "LST.L",
+    "url": "https://www.lse.co.uk/rns/LST/interim-results-trading-update-investor-pres-wrhxeo39gpkbytz.html",
+    "date_source": "2026-08-13",
+    "periode": "S1 clos 31/05/2026",
+    "champs": [
+      {
+        "bloc": "qualite",
+        "champ": "concentration_clients_pct",
+        "valeur": 19.6,
+        "unite": "pct",
+        "commentaire": "Premier client."
+      },
+      {
+        "bloc": "qualite",
+        "champ": "marge_brute_pct",
+        "valeur": 30.5,
+        "unite": "pct",
+        "commentaire": null
+      },
+      {
+        "bloc": "risque",
+        "champ": "cash",
+        "valeur": 2.44,
+        "unite": "millions_GBP",
+        "commentaire": "Hors facilités non tirées 0,28 M."
+      },
+      {
+        "bloc": "risque",
+        "champ": "risque_refinancement",
+        "valeur": "Incertitude significative de continuité : revenus AGT/PFP conditionnent covenant de liquidité 0,5 M GBP; possible renégociation/waiver.",
+        "unite": "texte",
+        "commentaire": null
+      },
+      {
+        "bloc": "risque",
+        "champ": "risque_concentration",
+        "valeur": "Premier client : 19,6 % du CA S1.",
+        "unite": "texte",
+        "commentaire": null
+      },
+      {
+        "bloc": null,
+        "champ": "actions_31mai2026",
+        "valeur": 993005500,
+        "unite": "titres",
+        "commentaire": "333005500 au 30/11/2025; 660000000 actions nouvelles, pas une dilution sur trois ans."
+      },
+      {
+        "bloc": "diversification",
+        "champ": "zone_geographique",
+        "valeur": "Activité S1 réalisée au Royaume-Uni et dans l’Union européenne.",
+        "unite": "texte",
+        "commentaire": null
+      }
+    ]
+  },
+  {
+    "ticker": "LST.L",
+    "url": "https://www.lse.co.uk/rns/trading-update-sy0ulthl6x7cbuw.html",
+    "date_source": "2026-10-01",
+    "periode": "guidance FY2026 clos 30/11/2026",
+    "champs": [
+      {
+        "bloc": "risque",
+        "champ": "risque_reglementaire",
+        "valeur": "Retards d’approbation sécurité incendie : deux contrats PFP reportés hors FY2026.",
+        "unite": "texte",
+        "commentaire": null
+      },
+      {
+        "bloc": "croissance",
+        "champ": "catalyseurs_dates",
+        "valeur": "Guidance abaissée : CA FY2026 9–9,5 M GBP et perte avant impôts ajustée 0,8–1 M GBP; déblocage contrats PFP attendu FY2027, incertain.",
+        "unite": "texte",
+        "commentaire": null
+      }
+    ]
+  },
+  {
+    "ticker": "KLD.V",
+    "url": "https://www.kenorlandminerals.com/_resources/financials/Kenorland-2026-Q2-FS.pdf?v=110409",
+    "date_source": "2026-08-21",
+    "periode": "bilan 30/06/2026 et S1 2026 non audité",
+    "champs": [
+      {
+        "bloc": "risque",
+        "champ": "cash",
+        "valeur": 13767377,
+        "unite": "CAD",
+        "commentaire": "Trésorerie, pas fonds de roulement."
+      },
+      {
+        "bloc": "risque",
+        "champ": "liquidite_courante",
+        "valeur": 5.019537612175252,
+        "unite": "ratio",
+        "commentaire": "Actifs courants/passifs courants."
+      },
+      {
+        "bloc": "risque",
+        "champ": "risque_refinancement",
+        "valeur": "Explorateur préproduction dépendant du financement externe; direction estime le fonds de roulement suffisant douze mois.",
+        "unite": "texte",
+        "commentaire": null
+      },
+      {
+        "bloc": "risque",
+        "champ": "risque_reglementaire",
+        "valeur": "Autorisations et récupération économique des actifs miniers incertaines; ressources exploratoires non assimilables à réserves productives.",
+        "unite": "texte",
+        "commentaire": null
+      },
+      {
+        "bloc": "risque",
+        "champ": "risque_gouvernance",
+        "valeur": "Paiements en actions S1 : 4,018 M CAD contre 0,911 M; comptes intermédiaires non revus par l’auditeur.",
+        "unite": "texte",
+        "commentaire": null
+      },
+      {
+        "bloc": null,
+        "champ": "actions_30juin2026",
+        "valeur": 80383870,
+        "unite": "titres",
+        "commentaire": null
+      },
+      {
+        "bloc": null,
+        "champ": "actions_31decembre2025",
+        "valeur": 78552767,
+        "unite": "titres",
+        "commentaire": null
+      }
+    ]
+  },
+  {
+    "ticker": "OSS",
+    "url": "https://onestopsystems.com/blogs/press-releases/one-stop-systems-reports-q3-2026-results",
+    "date_source": "2026-10-28",
+    "periode": "9M 2026",
+    "champs": [
+      {
+        "bloc": "qualite",
+        "champ": "avantage_concurrentiel",
+        "valeur": "Calcul embarqué renforcé pour défense, santé et aéronautique; qualifications industrielles. Avantage revendiqué, pouvoir tarifaire non mesuré.",
+        "unite": "texte",
+        "commentaire": null
+      },
+      {
+        "bloc": "risque",
+        "champ": "risque_concentration",
+        "valeur": "Exposition défense et clients industriels; créance douteuse 0,5 M USD sur ancien client en faillite au T3.",
+        "unite": "texte",
+        "commentaire": null
+      },
+      {
+        "bloc": "risque",
+        "champ": "risque_reglementaire",
+        "valeur": "Budgets fédéraux américains et disponibilité des composants mémoire peuvent modifier la trajectoire prévue.",
+        "unite": "texte",
+        "commentaire": null
+      },
+      {
+        "bloc": "croissance",
+        "champ": "catalyseurs_dates",
+        "valeur": "Guidance FY2026 relevée le 28/10 : croissance CA ~40 %, marge brute 40–42 %, EBITDA ajusté 0,5–1 M USD.",
+        "unite": "texte",
+        "commentaire": "Prévisions de la direction; bénéfice comptable non garanti."
+      },
+      {
+        "bloc": "croissance",
+        "champ": "book_to_bill",
+        "valeur": 1.46,
+        "unite": "ratio",
+        "commentaire": "Cumul neuf mois, pas trimestre seul."
+      }
+    ]
+  },
+  {
+    "ticker": "LWAY",
+    "url": "https://www.sec.gov/Archives/edgar/data/814586/000168316826006302/lifeway_i10q-063026.htm",
+    "date_source": "2026-08-13",
+    "periode": "S1 2026 et bilan 30/06/2026",
+    "champs": [
+      {
+        "bloc": "qualite",
+        "champ": "avantage_concurrentiel",
+        "valeur": "Premier producteur et distributeur de kéfir aux États-Unis selon le 10-Q; présence de marque et distribution. Part de marché chiffrée non fournie ici.",
+        "unite": "texte",
+        "commentaire": null
+      },
+      {
+        "bloc": "risque",
+        "champ": "risque_refinancement",
+        "valeur": "Revolver 25 M USD : tiré 22 M, disponible 3 M; échéance 05/02/2029, covenants respectés au 30/06. Facilité équipements non tirée 22 M, échéance de tirage juin 2027.",
+        "unite": "texte",
+        "commentaire": null
+      },
+      {
+        "bloc": "risque",
+        "champ": "risque_reglementaire",
+        "valeur": "Réglementation alimentaire et risques de chaîne d’approvisionnement/cybersécurité identifiés au 10-Q.",
+        "unite": "texte",
+        "commentaire": null
+      },
+      {
+        "bloc": "diversification",
+        "champ": "zone_geographique",
+        "valeur": "Marché principal : États-Unis selon le 10-Q; ventilation exhaustive du CA non extraite.",
+        "unite": "texte",
+        "commentaire": null
+      }
+    ]
+  },
+  {
+    "ticker": "CEMX.TO",
+    "url": "https://www.tmxnewsfile.com/release/321482/CEMATRIX-Announces-2026-Third-Quarter-Financial-Results",
+    "date_source": "2026-10-28",
+    "periode": "T3 2026 et bilan 30/09/2026",
+    "champs": [
+      {
+        "bloc": "risque",
+        "champ": "cash",
+        "valeur": 20.5,
+        "unite": "millions_CAD",
+        "commentaire": null
+      },
+      {
+        "bloc": "qualite",
+        "champ": "marge_brute_pct",
+        "valeur": 23,
+        "unite": "pct",
+        "commentaire": "Marge du T3 publiée arrondie."
+      },
+      {
+        "bloc": "qualite",
+        "champ": "marge_ebit_pct",
+        "valeur": 5.88235294117647,
+        "unite": "pct",
+        "commentaire": "Montants trimestriels arrondis."
+      },
+      {
+        "bloc": "qualite",
+        "champ": "marge_ebitda_pct",
+        "valeur": 11.76470588235294,
+        "unite": "pct",
+        "commentaire": "EBITDA ajusté non GAAP trimestriel."
+      },
+      {
+        "bloc": "risque",
+        "champ": "risque_concentration",
+        "valeur": "Calendrier de grands chantiers : plusieurs démarrages décalés d’août à septembre, baisse T3 de 22 % malgré hausse 9M de 16 %.",
+        "unite": "texte",
+        "commentaire": null
+      },
+      {
+        "bloc": "croissance",
+        "champ": "catalyseurs_dates",
+        "valeur": "Guidance T4 2026 : CA 18–22 M CAD, sensible aux dates de chantier et à l’hiver.",
+        "unite": "texte",
+        "commentaire": null
+      },
+      {
+        "bloc": "diversification",
+        "champ": "zone_geographique",
+        "valeur": "Béton cellulaire au Canada et aux États-Unis.",
+        "unite": "texte",
+        "commentaire": null
+      },
+      {
+        "bloc": null,
+        "champ": "dette_long_terme",
+        "valeur": 0,
+        "unite": "CAD",
+        "commentaire": "Direction : aucune dette long terme; ne signifie pas aucune location ni dette courante."
+      }
+    ]
+  },
+  {
+    "ticker": "TSTL.L",
+    "url": "https://data.fca.org.uk/artefacts/NSM/RNS/68ec648a-64aa-4dce-bac7-7989f6b4c365.html",
+    "date_source": "2026-10-19",
+    "periode": "FY2026 clos au 30/06/2026",
+    "champs": [
+      {
+        "bloc": "qualite",
+        "champ": "ca_ttm",
+        "valeur": 51.117,
+        "unite": "millions_GBP",
+        "commentaire": "Exercice annuel audité."
+      },
+      {
+        "bloc": "qualite",
+        "champ": "marge_brute_pct",
+        "valeur": 82.01968034117809,
+        "unite": "pct",
+        "commentaire": null
+      },
+      {
+        "bloc": "qualite",
+        "champ": "marge_ebit_pct",
+        "valeur": 21.21407750846098,
+        "unite": "pct",
+        "commentaire": null
+      },
+      {
+        "bloc": "qualite",
+        "champ": "marge_nette_pct",
+        "valeur": 15.619069976720073,
+        "unite": "pct",
+        "commentaire": null
+      },
+      {
+        "bloc": "qualite",
+        "champ": "avantage_concurrentiel",
+        "valeur": "Chimie propriétaire ClO2; 241 brevets/dessins dans 34 pays et compatibilités documentées auprès des fabricants. Concurrence croissante signalée.",
+        "unite": "texte",
+        "commentaire": null
+      },
+      {
+        "bloc": "qualite",
+        "champ": "qualite_management",
+        "valeur": "Transition CEO vers Chris Lee le 01/08/2026; expérience sectorielle, exécution post-nomination encore courte.",
+        "unite": "texte",
+        "commentaire": null
+      },
+      {
+        "bloc": "risque",
+        "champ": "cash",
+        "valeur": 15,
+        "unite": "millions_GBP",
+        "commentaire": "Cash/dépôts courts combinés 16 M dont placement court 1 M; cash strict 15 M."
+      },
+      {
+        "bloc": "diversification",
+        "champ": "zone_geographique",
+        "valeur": "FY2026 : Royaume-Uni 36 %, autres pays 64 %; Amériques encore modestes.",
+        "unite": "texte",
+        "commentaire": null
+      },
+      {
+        "bloc": "croissance",
+        "champ": "catalyseurs_dates",
+        "valeur": "Unifoam : disponibilité complète annoncée janvier 2027; 3T Pro lancé après clôture.",
+        "unite": "texte",
+        "commentaire": "Calendrier commercial annoncé; pas de revenus garantis."
+      }
+    ]
+  },
+  {
+    "ticker": "SFT.L",
+    "url": "https://www.softwarecircle.com/wp-content/uploads/2026/07/Final-Results-FY26-23-07-26.pdf",
+    "date_source": "2026-07-23",
+    "periode": "FY2026 clos 31/03/2026",
+    "champs": [
+      {
+        "bloc": "qualite",
+        "champ": "revenus_recurrents_pct",
+        "valeur": 75.33632286995515,
+        "unite": "pct",
+        "commentaire": "Licences/abonnements récurrents; calcul sur montants arrondis."
+      },
+      {
+        "bloc": "risque",
+        "champ": "cash",
+        "valeur": 3.937,
+        "unite": "millions_GBP",
+        "commentaire": null
+      },
+      {
+        "bloc": "risque",
+        "champ": "dette_brute",
+        "valeur": 15.351,
+        "unite": "millions_GBP",
+        "commentaire": "Passifs portant intérêts selon définition émetteur, comprend contreparties conditionnelles."
+      },
+      {
+        "bloc": "risque",
+        "champ": "dette_nette",
+        "valeur": 11.414,
+        "unite": "millions_GBP",
+        "commentaire": null
+      },
+      {
+        "bloc": "qualite",
+        "champ": "qualite_management",
+        "valeur": "Acquisitions : croissance organique des logiciels acquis 7 %, mais groupe -1 % avec Nettl. Discipline à suivre sur levier et earn-outs.",
+        "unite": "texte",
+        "commentaire": null
+      }
+    ]
+  },
+  {
+    "ticker": "SFT.L",
+    "url": "https://www.softwarecircle.com/wp-content/uploads/2026/05/L25.0m-Revolving-Credit-Facilit-y-Trading-Update-21-05-26.pdf",
+    "date_source": "2026-05-21",
+    "periode": "refinancement du 21/05/2026",
+    "champs": [
+      {
+        "bloc": "risque",
+        "champ": "risque_refinancement",
+        "valeur": "RCF Santander engagé 25 M GBP, échéance 20/05/2030, option un an; accordé pour refinancement et acquisitions. Accordéon 10 M non engagé.",
+        "unite": "texte",
+        "commentaire": null
+      }
+    ]
+  },
+  {
+    "ticker": "CTT.ST",
+    "url": "https://storage.mfn.se/7c2ba79d-136a-418c-b396-ba0b2a484bbe/ctt-systems-ab-interim-report-q3-2026.pdf",
+    "date_source": "2026-10-27",
+    "periode": "T3 2026 / bilan 30/09/2026",
+    "champs": [
+      {
+        "bloc": "risque",
+        "champ": "cash",
+        "valeur": 26.9,
+        "unite": "millions_SEK",
+        "commentaire": "Tableau de flux, montant plus précis que commentaire arrondi 27 M."
+      },
+      {
+        "bloc": "risque",
+        "champ": "dette_nette",
+        "valeur": 20,
+        "unite": "millions_SEK",
+        "commentaire": "Montant arrondi publié."
+      },
+      {
+        "bloc": "risque",
+        "champ": "risque_change",
+        "valeur": "Revenus principalement USD contre coûts surtout SEK; affaiblissement USD/SEK défavorable.",
+        "unite": "texte",
+        "commentaire": null
+      },
+      {
+        "bloc": "qualite",
+        "champ": "roe_pct",
+        "valeur": 15,
+        "unite": "pct",
+        "commentaire": "ROE R12 publié arrondi."
+      },
+      {
+        "bloc": "risque",
+        "champ": "couverture_interets",
+        "valeur": 37,
+        "unite": "ratio",
+        "commentaire": "Trimestre, non TTM."
+      },
+      {
+        "bloc": "croissance",
+        "champ": "catalyseurs_dates",
+        "valeur": "Résultats annuels 2026 le 05/02/2027; rapport annuel prévu le 31/03/2027.",
+        "unite": "texte",
+        "commentaire": null
+      },
+      {
+        "bloc": "qualite",
+        "champ": "avantage_concurrentiel",
+        "valeur": "Spécialiste du contrôle d’humidité aéronautique, fournisseur Boeing/Airbus; qualifications OEM, dépendance au cycle de livraisons.",
+        "unite": "texte",
+        "commentaire": null
+      }
+    ]
+  },
+  {
+    "ticker": "ALSTI.PA",
+    "url": "https://www.actusnews.com/fr/stif/cp/2026/10/01/des-resultats-semestriels-2026-en-forte-progression",
+    "date_source": "2026-10-01",
+    "periode": "S1 2026",
+    "champs": [
+      {
+        "bloc": "qualite",
+        "champ": "marge_brute_pct",
+        "valeur": 64.3,
+        "unite": "pct",
+        "commentaire": null
+      },
+      {
+        "bloc": "qualite",
+        "champ": "marge_ebitda_pct",
+        "valeur": 22.8,
+        "unite": "pct",
+        "commentaire": null
+      },
+      {
+        "bloc": "qualite",
+        "champ": "marge_ebit_pct",
+        "valeur": 20.07233273056058,
+        "unite": "pct",
+        "commentaire": "Résultat exploitation / CA."
+      },
+      {
+        "bloc": "qualite",
+        "champ": "marge_nette_pct",
+        "valeur": 13.5623869801085,
+        "unite": "pct",
+        "commentaire": "RN part groupe/CA."
+      },
+      {
+        "bloc": "risque",
+        "champ": "cash",
+        "valeur": 19.5,
+        "unite": "millions_EUR",
+        "commentaire": null
+      },
+      {
+        "bloc": "risque",
+        "champ": "dette_nette",
+        "valeur": 26.3,
+        "unite": "millions_EUR",
+        "commentaire": null
+      },
+      {
+        "bloc": "risque",
+        "champ": "risque_concentration",
+        "valeur": "Tesla USA : aucun volume prévu en 2027 après choix d’un autre système sur Megapack 3; adaptation capacités/coûts engagée.",
+        "unite": "texte",
+        "commentaire": null
+      },
+      {
+        "bloc": "croissance",
+        "champ": "catalyseurs_dates",
+        "valeur": "Objectifs direction 2027 abaissés : CA 100 M EUR, marge EBITDA ~15 %. Nouveaux clients BESS à suivre.",
+        "unite": "texte",
+        "commentaire": "Objectifs, pas consensus ni résultats acquis."
+      }
+    ]
+  },
+  {
+    "ticker": "ALICA.PA",
+    "url": "https://www.webdisclosure.fr/press-release/icape-holding-epa-inside-information-news-release-on-accounts-results-ZxHGgD77aKD",
+    "date_source": "2026-10-01",
+    "periode": "bilan 30/06/2026",
+    "champs": [
+      {
+        "bloc": "risque",
+        "champ": "cash",
+        "valeur": 18.3,
+        "unite": "millions_EUR",
+        "commentaire": "Définition émetteur; trésorerie bilan à rapprocher."
+      },
+      {
+        "bloc": "risque",
+        "champ": "dette_brute",
+        "valeur": 46.2,
+        "unite": "millions_EUR",
+        "commentaire": null
+      },
+      {
+        "bloc": "risque",
+        "champ": "dette_nette",
+        "valeur": 27.6,
+        "unite": "millions_EUR",
+        "commentaire": "Dette nette publiée; ne pas reconstruire sur les seuls chiffres arrondis."
+      },
+      {
+        "bloc": "risque",
+        "champ": "risque_refinancement",
+        "valeur": "Covenant bancaire respecté au 30/06/2026; dette nette publiée 27,6 M EUR. Échéances détaillées encore à extraire.",
+        "unite": "texte",
+        "commentaire": null
+      }
+    ]
+  },
+  {
+    "ticker": "TRT.L",
+    "url": "https://www.investegate.info/announcement/rns/transense-technologies--trt/final-results/9783219",
+    "date_source": "2026-09-22",
+    "periode": "FY2026 clos 30/06/2026",
+    "champs": [
+      {
+        "bloc": "qualite",
+        "champ": "ca_ttm",
+        "valeur": 4.63,
+        "unite": "millions_GBP",
+        "commentaire": null
+      },
+      {
+        "bloc": "qualite",
+        "champ": "marge_brute_pct",
+        "valeur": 88.1,
+        "unite": "pct",
+        "commentaire": null
+      },
+      {
+        "bloc": "risque",
+        "champ": "cash",
+        "valeur": 1.5,
+        "unite": "millions_GBP",
+        "commentaire": null
+      },
+      {
+        "bloc": "risque",
+        "champ": "risque_concentration",
+        "valeur": "Royalties Bridgestone iTrack : 2,04 M GBP sur CA 4,63 M; baisse de 34 %. Financement SAWsense dépend aussi du cash Translogik.",
+        "unite": "texte",
+        "commentaire": null
+      },
+      {
+        "bloc": "croissance",
+        "champ": "catalyseurs_dates",
+        "valeur": "Exécution SAWsense et Translogik à suivre après objectifs de croissance FY2026 manqués; aucune date ferme de grand contrat établie.",
+        "unite": "texte",
+        "commentaire": null
+      }
+    ]
+  },
+  {
+    "ticker": "CER.L",
+    "url": "https://www.tradingview.com/news/reuters.com%2C2026-09-14%3Anewsml_RSN5073Ua%3A0-reg-cerillion-plc-full-year-trading-update/",
+    "date_source": "2026-09-14",
+    "periode": "guidance FY2026 clos 30/09/2026",
+    "champs": [
+      {
+        "bloc": "croissance",
+        "champ": "catalyseurs_dates",
+        "valeur": "Résultats FY2026 attendus fin novembre 2026. Guidance du 14/09 : CA 46–48 M GBP contre consensus antérieur 52,8 M; marge EBITDA ajusté 43–45 %.",
+        "unite": "texte",
+        "commentaire": "Communiqué RNS relayé; pas une révision BPA datée 30/90 jours."
+      },
+      {
+        "bloc": "risque",
+        "champ": "risque_concentration",
+        "valeur": "Décalages de commandes clients, extensions et licences : résultats FY2026 sous consensus. Calendrier de reconnaissance des contrats matériel.",
+        "unite": "texte",
+        "commentaire": null
+      }
+    ]
+  },
+  {
+    "ticker": "PLEJD.ST",
+    "url": "https://news.cision.com/plejd/r/interim-report-third-quarter-2026,c4409397",
+    "date_source": "2026-10-16",
+    "periode": "9M 2026",
+    "champs": [
+      {
+        "bloc": "qualite",
+        "champ": "marge_brute_pct",
+        "valeur": 55.6,
+        "unite": "pct",
+        "commentaire": null
+      },
+      {
+        "bloc": "qualite",
+        "champ": "marge_ebitda_pct",
+        "valeur": 37.1,
+        "unite": "pct",
+        "commentaire": null
+      },
+      {
+        "bloc": "qualite",
+        "champ": "marge_ebit_pct",
+        "valeur": 27.8,
+        "unite": "pct",
+        "commentaire": null
+      },
+      {
+        "bloc": "croissance",
+        "champ": "catalyseurs_dates",
+        "valeur": "Lancements TRL-01 et CMS-01 annoncés début 2027; expansion européenne accrue à compter de 2027.",
+        "unite": "texte",
+        "commentaire": "Projets annoncés, non commandes acquises."
+      },
+      {
+        "bloc": "risque",
+        "champ": "risque_concentration",
+        "valeur": "LPN-01 commercial : cycles de ventes plus longs que gamme résidentielle, adoption graduelle selon direction.",
+        "unite": "texte",
+        "commentaire": null
+      }
+    ]
+  },
+  {
+    "ticker": "ALSTW.PA",
+    "url": "https://webdisclosure.com/press-release/stream-wide-epa-alstw-resultats-semestriels-2026-positifs-investissements-soutenus-pour-anticiper-la-croissance-future-1qnTT5jtPl4",
+    "date_source": "2026-09-21",
+    "periode": "S1 2026 / bilan 30/06/2026",
+    "champs": [
+      {
+        "bloc": "risque",
+        "champ": "cash",
+        "valeur": 14.599,
+        "unite": "millions_EUR",
+        "commentaire": "Trésorerie et équivalents; placements courants 5 M exclus."
+      },
+      {
+        "bloc": "risque",
+        "champ": "dette_brute",
+        "valeur": 6.178,
+        "unite": "millions_EUR",
+        "commentaire": "Passifs financiers 5,359 + 0,819 M, hors locations 3,178 M."
+      },
+      {
+        "bloc": "risque",
+        "champ": "dette_nette",
+        "valeur": -8.421,
+        "unite": "millions_EUR",
+        "commentaire": "Dette financière hors locations - cash strict; placements courants exclus."
+      },
+      {
+        "bloc": "risque",
+        "champ": "liquidite_courante",
+        "valeur": 1.9981781852374236,
+        "unite": "ratio",
+        "commentaire": "Bilan consolidé S1."
+      },
+      {
+        "bloc": "risque",
+        "champ": "risque_concentration",
+        "valeur": "Déploiement AT&T-FirstNet : dépenses support/ingénierie et infrastructure précèdent revenus SaaS; sensibilité au calendrier.",
+        "unite": "texte",
+        "commentaire": null
+      },
+      {
+        "bloc": "risque",
+        "champ": "risque_gouvernance",
+        "valeur": "Revue limitée des commissaires aux comptes encore en cours à la publication du 21/09/2026. Coûts juridiques américains exceptionnels 1 M EUR.",
+        "unite": "texte",
+        "commentaire": "Statut à la date du communiqué; rapport publié ultérieurement à contrôler."
+      },
+      {
+        "bloc": "qualite",
+        "champ": "avantage_concurrentiel",
+        "valeur": "Logiciels de communications critiques, projet SaaS AT&T-FirstNet; contrats de référence, pas preuve chiffrée de pouvoir tarifaire.",
+        "unite": "texte",
+        "commentaire": null
+      }
+    ]
+  },
+  {
+    "ticker": "ALSOG.PA",
+    "url": "https://sogeclair.com/fr/sog-news/communiques-de-presse/resultats-du-1er-semestre-2026",
+    "date_source": "2026-09-09",
+    "periode": "S1 2026",
+    "champs": [
+      {
+        "bloc": "diversification",
+        "champ": "zone_geographique",
+        "valeur": "CA S1 : Europe/Afrique 73 %, Amériques 24 %, Asie-Pacifique 3 %.",
+        "unite": "texte",
+        "commentaire": null
+      },
+      {
+        "bloc": "risque",
+        "champ": "dette_nette",
+        "valeur": 2.8,
+        "unite": "millions_EUR",
+        "commentaire": "Dette nette totale, incluant IFRS 16; hors IFRS 16 : cash net 4,9 M."
+      },
+      {
+        "bloc": "croissance",
+        "champ": "catalyseurs_dates",
+        "valeur": "Cession au S2 des activités Engineering dédiées à Airbus; effets commerciaux ferroviaires attendus S2 puis 2027.",
+        "unite": "texte",
+        "commentaire": "Perspectives direction, non résultats acquis."
+      },
+      {
+        "bloc": "risque",
+        "champ": "risque_concentration",
+        "valeur": "Retrait ingénierie aviation d’affaires en Europe; cession activités Airbus modifie le périmètre, comparaisons futures à retraiter.",
+        "unite": "texte",
+        "commentaire": null
+      }
+    ]
   }
 ]

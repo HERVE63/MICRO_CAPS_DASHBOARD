@@ -367,18 +367,19 @@
       },
       "p_fcf": {
         "valeur": null,
-        "unite": null,
-        "periode": null,
-        "date_source": null,
-        "source_url": null,
-        "statut": "A_COLLECTER",
-        "commentaire": null,
+        "unite": "sans objet",
+        "periode": "TTM fournisseur, arrêté à rapprocher",
+        "date_source": "2026-11-04",
+        "source_url": "https://stockanalysis.com/quote/epa/ALDMS/statistics/",
+        "statut": "NON_APPLICABLE",
+        "commentaire": "FCF TTM non positif : ratio de valorisation ou conversion non interprétable selon cette convention; aucune substitution par zéro.",
         "recherche": {
           "date": "2026-11-04",
-          "statut": "MANQUANT_RECHERCHE_NON_CLOSE",
-          "motif": "Aucune valeur vérifiée importée à cette étape; les recherches tracées ne démontrent pas une indisponibilité définitive.",
+          "statut": "NON_APPLICABLE",
+          "motif": "FCF TTM non positif : ratio de valorisation ou conversion non interprétable selon cette convention; aucune substitution par zéro.",
           "journal": "journal_recherches"
-        }
+        },
+        "date_collecte": "2026-11-04"
       },
       "p_b": {
         "valeur": 1.11,
@@ -484,18 +485,19 @@
       },
       "croissance_bpa_pct": {
         "valeur": null,
-        "unite": null,
-        "periode": null,
-        "date_source": null,
-        "source_url": null,
-        "statut": "A_COLLECTER",
-        "commentaire": null,
+        "unite": "sans objet",
+        "periode": "FY 2025 / FY 2024",
+        "date_source": "2026-11-04",
+        "source_url": "https://stockanalysis.com/quote/epa/ALDMS/financials/",
+        "statut": "NON_APPLICABLE",
+        "commentaire": "Base annuelle EPS (Diluted) non positive; variation en pourcentage non interprétable. Comparer montants/signes, sans croissance fictive.",
         "recherche": {
           "date": "2026-11-04",
-          "statut": "MANQUANT_RECHERCHE_NON_CLOSE",
-          "motif": "Aucune valeur vérifiée importée à cette étape; les recherches tracées ne démontrent pas une indisponibilité définitive.",
+          "statut": "NON_APPLICABLE",
+          "motif": "Base annuelle EPS (Diluted) non positive; variation en pourcentage non interprétable. Comparer montants/signes, sans croissance fictive.",
           "journal": "journal_recherches"
-        }
+        },
+        "date_collecte": "2026-11-04"
       },
       "croissance_fcf_pct": {
         "valeur": -8166.666666666667,
@@ -715,19 +717,14 @@
         "date_collecte": "2026-11-04"
       },
       "dilution_3a_pct": {
-        "valeur": null,
-        "unite": null,
-        "periode": null,
-        "date_source": null,
-        "source_url": null,
-        "statut": "A_COLLECTER",
-        "commentaire": null,
-        "recherche": {
-          "date": "2026-11-04",
-          "statut": "MANQUANT_RECHERCHE_NON_CLOSE",
-          "motif": "Aucune valeur vérifiée importée à cette étape; les recherches tracées ne démontrent pas une indisponibilité définitive.",
-          "journal": "journal_recherches"
-        }
+        "valeur": 60.794044665012414,
+        "unite": "pct",
+        "periode": "FY 2022 / FY 2025",
+        "date_source": "2026-11-04",
+        "source_url": "https://stockanalysis.com/quote/epa/ALDMS/financials/balance-sheet/",
+        "statut": "CALCULE_SOURCE_SECONDAIRE",
+        "commentaire": "Variation des actions ordinaires de clôture sur trois exercices; chiffres fournisseur arrondis. Pas la dilution potentielle options/convertibles; splits à rapprocher.",
+        "date_collecte": "2026-11-04"
       },
       "risque_refinancement": {
         "valeur": null,
@@ -1004,34 +1001,34 @@
         "date_collecte": "2026-11-04"
       },
       "correlation_portefeuille": {
-        "valeur": null,
-        "unite": null,
-        "periode": null,
-        "date_source": null,
-        "source_url": null,
-        "statut": "A_COLLECTER",
-        "commentaire": null,
-        "recherche": {
-          "date": "2026-11-04",
-          "statut": "MANQUANT_RECHERCHE_NON_CLOSE",
-          "motif": "Aucune valeur vérifiée importée à cette étape; les recherches tracées ne démontrent pas une indisponibilité définitive.",
-          "journal": "journal_recherches"
-        }
+        "valeur": 0.06848985240922051,
+        "unite": "Pearson [-1,1]",
+        "periode": "2026-06-23 / 2026-11-03; 90 séances communes",
+        "date_source": "2026-11-04",
+        "source_url": "DONNEES/HISTORIQUES_YAHOO_40.csv",
+        "statut": "CALCULE_PROXY_CORRELATION",
+        "commentaire": "Proxy : rendements clôtures ajustées en devises locales, panier quotidien équipondéré des 39 autres lignes. Exclut la ligne; FX et poids réels non intégrés, donc pas corrélation du portefeuille EUR effectif.",
+        "date_collecte": "2026-11-04"
       },
       "concentration_theme": {
-        "valeur": null,
-        "unite": null,
-        "periode": null,
-        "date_source": null,
-        "source_url": null,
-        "statut": "A_COLLECTER",
-        "commentaire": null,
-        "recherche": {
-          "date": "2026-11-04",
-          "statut": "MANQUANT_RECHERCHE_NON_CLOSE",
-          "motif": "Aucune valeur vérifiée importée à cette étape; les recherches tracées ne démontrent pas une indisponibilité définitive.",
-          "journal": "journal_recherches"
-        }
+        "valeur": {
+          "classification": "Healthcare",
+          "nombre_lignes": 4,
+          "poids_initial_pct": 10.0,
+          "tickers": [
+            "INFU",
+            "COV.V",
+            "TSTL.L",
+            "ALDMS.PA"
+          ]
+        },
+        "unite": "composition T0",
+        "periode": "40 lignes initiales équipondérées, 01/10/2026",
+        "date_source": "2026-11-04",
+        "source_url": "DONNEES/ETAT_INITIAL_PORTEFEUILLE_GERE.csv | https://stockanalysis.com/quote/epa/ALDMS/company/",
+        "statut": "CALCULE_SOURCE_SECONDAIRE",
+        "commentaire": "Classification sectorielle secondaire; poids T0 et non poids actualisé, ni exposition économique détaillée. Une industrie n’est pas un thème fin.",
+        "date_collecte": "2026-11-04"
       },
       "interet_strategique": {
         "valeur": null,
@@ -1818,13 +1815,29 @@
       "statut": "ECHEC_ACCES_OU_IDENTITE",
       "http": 404,
       "limite": "Les cellules Upgrade ne sont jamais converties en chiffres."
+    },
+    {
+      "famille": "EODHD_fondamentaux_execution_GitHub",
+      "date": "2026-11-04",
+      "endpoint_sans_secret": "/api/fundamentals/ALDMS.PA",
+      "http": "403",
+      "statut": "ACCES_REFUSE",
+      "preuve": "AUDITS/POURSUITE_FICHES_40_20261104/EODHD/COLLECTE_40.csv",
+      "limite": "Échec fournisseur, pas preuve que les données publiques sont inexistantes."
+    },
+    {
+      "famille": "bilan_annuel_actions",
+      "date": "2026-11-04",
+      "url": "https://stockanalysis.com/quote/epa/ALDMS/financials/balance-sheet/",
+      "http": 200,
+      "statut": "SOURCE_SECONDAIRE_A_RAPPROCHER"
     }
   ],
   "audit_couverture": {
     "date": "2026-11-04",
     "champs_total": 108,
-    "champs_renseignes": 50,
-    "couverture_pct": 46.3,
+    "champs_renseignes": 53,
+    "couverture_pct": 49.07,
     "champs_secondaires_non_rapproches": 36,
     "champs_manquants": [
       "identite.lei",
@@ -1848,7 +1861,6 @@
       "croissance.peg",
       "croissance.catalyseurs_dates",
       "croissance.taille_marche_adressable",
-      "risque.dilution_3a_pct",
       "risque.risque_refinancement",
       "risque.risque_pays",
       "risque.risque_change",
@@ -1859,8 +1871,6 @@
       "risque.transactions_initiees_net_180j",
       "momentum.force_relative_indice",
       "diversification.zone_geographique",
-      "diversification.correlation_portefeuille",
-      "diversification.concentration_theme",
       "diversification.interet_strategique",
       "diversification.complementarite_portefeuille",
       "complements.ssi",
@@ -1889,5 +1899,74 @@
     "indisponibilite_definitive_demontree": [],
     "statut": "TRAITE_MAIS_INCOMPLET",
     "cours_date_limite": "2026-11-03"
+  },
+  "audit_poursuite": {
+    "date": "2026-11-04",
+    "comptage": {
+      "RENSEIGNE": 53,
+      "NON_APPLICABLE": 2,
+      "INDISPONIBLE_A_DATE": 0,
+      "RECHERCHE_A_POURSUIVRE": 53
+    },
+    "couverture_valeurs_pct": 49.07,
+    "couverture_applicable_pct": 50.0,
+    "recherches_non_closes": [
+      "identite.lei",
+      "identite.marche",
+      "qualite.revenus_recurrents_pct",
+      "qualite.concentration_clients_pct",
+      "qualite.avantage_concurrentiel",
+      "qualite.qualite_management",
+      "valorisation.comparables_sectoriels",
+      "valorisation.valorisation_historique",
+      "valorisation.marge_securite_pct",
+      "croissance.croissance_ebitda_pct",
+      "croissance.carnet_commandes",
+      "croissance.book_to_bill",
+      "croissance.previsions_ca_1a",
+      "croissance.previsions_bpa_1a",
+      "croissance.revision_bpa_30j_pct",
+      "croissance.revision_bpa_90j_pct",
+      "croissance.peg",
+      "croissance.catalyseurs_dates",
+      "croissance.taille_marche_adressable",
+      "risque.risque_refinancement",
+      "risque.risque_pays",
+      "risque.risque_change",
+      "risque.risque_gouvernance",
+      "risque.risque_reglementaire",
+      "risque.risque_concentration",
+      "risque.transactions_initiees_net_90j",
+      "risque.transactions_initiees_net_180j",
+      "momentum.force_relative_indice",
+      "diversification.zone_geographique",
+      "diversification.interet_strategique",
+      "diversification.complementarite_portefeuille",
+      "complements.ssi",
+      "complements.ic_sur_5",
+      "complements.cx_sur_5",
+      "complements.delta",
+      "complements.wwws",
+      "complements.scenario_bear_3m_pct",
+      "complements.prob_bear_3m_pct",
+      "complements.scenario_central_3m_pct",
+      "complements.prob_central_3m_pct",
+      "complements.scenario_bull_3m_pct",
+      "complements.prob_bull_3m_pct",
+      "complements.scenario_bear_6m_pct",
+      "complements.prob_bear_6m_pct",
+      "complements.scenario_central_6m_pct",
+      "complements.prob_central_6m_pct",
+      "complements.scenario_bull_6m_pct",
+      "complements.prob_bull_6m_pct",
+      "complements.role_ips",
+      "complements.decision",
+      "complements.condition_renforcement",
+      "complements.condition_allegement_sortie",
+      "complements.challengers_compares"
+    ],
+    "notes_justifiees": false,
+    "validation_individuelle": "BLOQUEE_DONNEES_ET_ANALYSES_RESTANTES",
+    "aucune_indisponibilite_definitive_presumee": true
   }
 }
