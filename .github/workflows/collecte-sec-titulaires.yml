@@ -32,17 +32,6 @@ jobs:
         run: |
           python -B SCRIPTS_ACTIFS/09K_COLLECTE_SEC_TITULAIRES_US.py
           python -B SCRIPTS_ACTIFS/09L_COLLECTE_SEC_COMPANYFACTS_US.py
-      - name: Alimenter les données SEC opérationnelles
-        if: github.event_name == 'push' && github.ref == 'refs/heads/repair/microcaps-chain-20261030'
-        run: |
-          git config user.name "github-actions[bot]"
-          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add DONNEES/OBSERVATIONS_SEC_TITULAIRES_US.csv DONNEES/FAITS_SEC_TITULAIRES_US.csv
-          if ! git diff --cached --quiet; then
-            git commit -m "data: actualiser faits SEC titulaires [skip ci]"
-            git pull --rebase origin repair/microcaps-chain-20261030
-            git push origin HEAD:repair/microcaps-chain-20261030
-          fi
       - name: Publier les résultats comme artefacts vérifiables
         if: always()
         uses: actions/upload-artifact@v4
