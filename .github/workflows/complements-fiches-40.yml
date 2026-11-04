@@ -1,0 +1,46 @@
+name: Complements EODHD des 40 fiches
+on:
+  push:
+    branches: [repair/microcaps-chain-20261030]
+    paths: ['.github/workflows/complements-fiches-40.yml']
+  workflow_dispatch:
+permissions:
+  contents: write
+jobs:
+  collecte:
+    if: github.ref_name == 'repair/microcaps-chain-20261030'
+    runs-on: ubuntu-latest
+    timeout-minutes: 25
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: ${{ github.ref_name }}
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - run: python -m pip install pandas requests
+      - name: Collecte fournisseur sans notation ni ordre
+        env:
+          EODHD_API_TOKEN: ${{ secrets.EODHD_API_KEY || secrets.EODH_API_KEY }}
+        run: python -B SCRIPTS_ACTIFS/09D_COLLECTE_40_TITULAIRES.py
+      - name: Archiver et enregistrer uniquement les observations
+        run: |
+          python - <<'PY'
+          import shutil
+          from pathlib import Path
+          out=Path('AUDITS/POURSUITE_FICHES_40_20261104/EODHD')
+          out.mkdir(parents=True,exist_ok=True)
+          shutil.copy2('DONNEES/COLLECTE_DIRECTE_40_TITULAIRES.csv',out/'COLLECTE_40.csv')
+          for p in Path('AUDITS/HISTORIQUE_COLLECTES_HEBDOMADAIRES').glob('COLLECTE_40_*'):
+              shutil.copytree(p,out/p.name,dirs_exist_ok=True)
+          PY
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add AUDITS/POURSUITE_FICHES_40_20261104/EODHD
+          git diff --cached --quiet || git commit -m "data: observations EODHD des 40 fiches sans notation [skip ci]"
+          git push origin HEAD:repair/microcaps-chain-20261030
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: complements-eodhd-40
+          path: AUDITS/POURSUITE_FICHES_40_20261104/EODHD/
