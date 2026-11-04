@@ -1027,7 +1027,62 @@
       "diversification": null
     }
   },
-  "preuves_complementaires": [],
+  "preuves_complementaires": [
+    {
+      "url": "https://www.sec.gov/Archives/edgar/data/1075736/000165495426009477/cxdo_ex991.htm",
+      "indicateur": "CA_T3_2026",
+      "valeur": 25.2,
+      "unite": "millions_USD",
+      "periode": "T3 2026",
+      "date_collecte": "2026-11-04",
+      "statut": "SOURCE_PRIMAIRE"
+    },
+    {
+      "url": "https://www.sec.gov/Archives/edgar/data/1075736/000165495426009477/cxdo_ex991.htm",
+      "indicateur": "Croissance_CA_T3",
+      "valeur": 44,
+      "unite": "pct",
+      "periode": "T3 2026",
+      "date_collecte": "2026-11-04",
+      "statut": "SOURCE_PRIMAIRE"
+    },
+    {
+      "url": "https://www.sec.gov/Archives/edgar/data/1075736/000165495426009477/cxdo_ex991.htm",
+      "indicateur": "Resultat_net_GAAP_T3",
+      "valeur": 1.1,
+      "unite": "millions_USD",
+      "periode": "T3 2026",
+      "date_collecte": "2026-11-04",
+      "statut": "SOURCE_PRIMAIRE"
+    },
+    {
+      "url": "https://www.sec.gov/Archives/edgar/data/1075736/000165495426009477/cxdo_ex991.htm",
+      "indicateur": "Resultat_net_non_GAAP_T3",
+      "valeur": 4,
+      "unite": "millions_USD",
+      "periode": "T3 2026",
+      "date_collecte": "2026-11-04",
+      "statut": "SOURCE_PRIMAIRE"
+    },
+    {
+      "url": "https://www.sec.gov/Archives/edgar/data/1075736/000165495426009477/cxdo_ex991.htm",
+      "indicateur": "EBITDA_ajuste_T3",
+      "valeur": 4,
+      "unite": "millions_USD",
+      "periode": "T3 2026",
+      "date_collecte": "2026-11-04",
+      "statut": "SOURCE_PRIMAIRE"
+    },
+    {
+      "url": "https://www.sec.gov/Archives/edgar/data/1075736/000165495426009477/cxdo_ex991.htm",
+      "indicateur": "BPA_GAAP_T3",
+      "valeur": 0.03,
+      "unite": "USD",
+      "periode": "T3 2026",
+      "date_collecte": "2026-11-04",
+      "statut": "SOURCE_PRIMAIRE"
+    }
+  ],
   "anomalies": [],
   "statut_fiche": "A_COMPLETER",
   "arbitrage_autorise": false
