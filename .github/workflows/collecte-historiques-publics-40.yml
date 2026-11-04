@@ -22,7 +22,7 @@ jobs:
           python -m pytest -q tests/test_09n_collecte_historique_isolee.py
       - name: Collecte publique sans clé
         run: python -B SCRIPTS_ACTIFS/09N_COLLECTE_HISTORIQUES_YAHOO_40.py
-      - name: Archiver résultats et couverture
+      - name: Contrôle de couverture et preuves\n        run: python -B SCRIPTS_ACTIFS/09P_COUVERTURE_PREUVES_40.py\n      - name: Archiver résultats et couverture
         if: always()
         uses: actions/upload-artifact@v4
         with:
@@ -31,5 +31,5 @@ jobs:
           path: |
             DONNEES/HISTORIQUES_YAHOO_40.csv
             DONNEES/COUVERTURE_HISTORIQUES_YAHOO_40.csv
-            DONNEES/INDICATEURS_YAHOO_40.csv
+            DONNEES/INDICATEURS_YAHOO_40.csv\n            DONNEES/COUVERTURE_PREUVE_MCPA_40.csv
           retention-days: 30
