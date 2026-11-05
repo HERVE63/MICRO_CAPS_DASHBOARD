@@ -4,6 +4,7 @@ import concurrent.futures,datetime as dt,hashlib,html,http.cookiejar,json,re,url
 from html.parser import HTMLParser
 from pathlib import Path
 B=Path(__file__).resolve().parents[1];D=B/'DONNEES';DATE=dt.datetime.now(dt.timezone.utc).date().isoformat();OUT=D/('COMPLEMENTS_PUBLICS_40_'+DATE.replace('-','')+'.json')
+CACHE={x['ticker']:x for x in json.loads(OUT.read_text())} if OUT.exists() else {}
 class Tables(HTMLParser):
  def __init__(self):super().__init__();self.depth=0;self.cell=False;self.text='';self.row=[];self.rows=[]
  def handle_starttag(self,tag,attrs):
@@ -23,8 +24,7 @@ def raw(url,session=False):
 
 def collect(d,crumb):
  t=d['ticker'];r={'ticker':t,'date_collecte':DATE}
- cache={x['ticker']:x for x in json.loads(OUT.read_text())} if OUT.exists() else {}
- if t in cache:return cache[t]
+ if t in CACHE:return CACHE[t]
  targets=[tag for k,tag in [('croissance_ebitda_pct','annualEBITDA'),('croissance_bpa_pct','annualDilutedEPS'),('croissance_fcf_pct','annualFreeCashFlow')] if d['blocs']['croissance'][k]['valeur'] is None and d['blocs']['croissance'][k]['statut']!='NON_APPLICABLE']
  if targets:
   url='https://query1.finance.yahoo.com/ws/fundamentals-timeseries/v1/finance/timeseries/'+urllib.parse.quote(t)+'?'+urllib.parse.urlencode({'type':','.join(targets),'period1':1640995200,'period2':int(dt.datetime.now(dt.timezone.utc).timestamp())})
@@ -72,5 +72,7 @@ if __name__=='__main__':
  with concurrent.futures.ThreadPoolExecutor(max_workers=4) as ex:
   futures={ex.submit(collect,d,crumb):d['ticker'] for d in docs}
   for f in concurrent.futures.as_completed(futures):
-   rows.append(f.result());OUT.write_text(json.dumps(sorted(rows,key=lambda r:r['ticker']),ensure_ascii=False,indent=2)+'\n')
+   try:row=f.result()
+   except Exception as e:row={'ticker':futures[f],'date_collecte':DATE,'statut':'ERREUR_COLLECTEUR','erreur':type(e).__name__}
+   rows.append(row);tmp=OUT.with_suffix('.tmp');tmp.write_text(json.dumps(sorted(rows,key=lambda r:r['ticker']),ensure_ascii=False,indent=2)+'\n');tmp.replace(OUT)
  print(json.dumps({'fiches_traitees':len(rows),'revisions_avec_tendances':sum(bool(r.get('revisions',{}).get('tendances')) for r in rows),'ordres':0}))
