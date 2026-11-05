@@ -1,0 +1,48 @@
+name: Audit hors reseau des quarante fiches
+on:
+  push:
+    branches: [repair/microcaps-chain-20261030]
+    paths: [.github/workflows/audit-fiches-40.yml]
+  workflow_dispatch:
+permissions:
+  contents: read
+concurrency:
+  group: audit-fiches-40
+  cancel-in-progress: false
+jobs:
+  audit:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: repair/microcaps-chain-20261030
+          filter: blob:none
+          sparse-checkout-cone-mode: false
+          sparse-checkout: |
+            /SCRIPTS_ACTIFS/
+            /TESTS/
+            /DOSSIERS_MCPA_IPS_40/
+            /DONNEES/
+            /CONFIG/
+            /AUDITS/FINALISATION_FICHES_20261104/SEC/
+            /AUDITS/POURSUITE_FICHES_40_20261105/AMF/
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Charger la reference immuable pour comparaison
+        run: git fetch --filter=blob:none origin 076ba2accecd4bc0b161ecb9d5c020e0a08f7533
+      - name: Normaliser puis verifier les quarante fiches
+        run: |
+          mkdir -p /tmp/audit40
+          git rev-parse HEAD > /tmp/audit40/revision.txt
+          python -m py_compile SCRIPTS_ACTIFS/09X_ENRICHIR_AUDITER_40.py
+          python SCRIPTS_ACTIFS/09X_ENRICHIR_AUDITER_40.py 2>&1 | tee /tmp/audit40/import.log
+          python -m unittest TESTS.test_finalisation_fiches_40 TESTS.test_poursuite_fiches_40 TESTS.test_complements_publics_40 TESTS.test_declarations_amf_14 -v 2>&1 | tee /tmp/audit40/tests.log
+          git diff --stat > /tmp/audit40/modifications.txt
+          git diff -- DOSSIERS_MCPA_IPS_40 > /tmp/audit40/normalisation.patch
+      - name: Conserver les preuves de test
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: audit-fiches-40
+          path: /tmp/audit40/
