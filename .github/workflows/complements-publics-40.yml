@@ -2,7 +2,7 @@ name: Complements publics des 40 fiches
 on:
   push:
     branches: [repair/microcaps-chain-20261030]
-    paths: [.github/workflows/complements-publics-40.yml]
+    paths: [.github/workflows/complements-publics-40.yml, SCRIPTS_ACTIFS/10G_COLLECTE_COMPLEMENTS_PUBLICS_40.py]
   workflow_dispatch:
 permissions:
   contents: write
@@ -22,6 +22,7 @@ jobs:
       - name: Collecter les seules familles manquantes
         run: python SCRIPTS_ACTIFS/10G_COLLECTE_COMPLEMENTS_PUBLICS_40.py
       - name: Archiver avant toute publication
+        if: always()
         uses: actions/upload-artifact@v4
         with:
           name: complements-publics-40
