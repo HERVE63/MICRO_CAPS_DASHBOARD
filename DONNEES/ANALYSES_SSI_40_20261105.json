@@ -112,6 +112,453 @@
         "MCPA, IC/CX, scénarios et confrontation restent à documenter.",
         "Réévaluer le bilan, la concentration et l'alignement lors de la prochaine publication."
       ]
+    },
+    {
+      "ticker": "INFU",
+      "date_analyse": "2026-11-05",
+      "bareme": "CONFIG/BAREME_SSI_V1_0.json",
+      "nature": "JUGEMENT_ANALYSTE_DOCUMENTE_NON_AUTOMATIQUE",
+      "blocs": [
+        {
+          "bloc": "B1",
+          "note": 15,
+          "maximum": 20,
+          "justification": "RCF jusqu'au 15/07/2030, covenants respectés au 30/06 et disponible 54,243 M USD; cash faible (~1 M), FCF positif. Robustesse acceptable haute, abaissée par l'incertitude comptable ERP annoncée en novembre.",
+          "preuves": [
+            "https://ir.infusystem.com/sec-filings/all-sec-filings/content/0001628280-26-052462/infu-20260630.htm",
+            "https://www.sec.gov/Archives/edgar/data/1337013/000162828026069113/infu-20261103.htm",
+            "https://data.sec.gov/api/xbrl/companyfacts/CIK0001337013.json"
+          ]
+        },
+        {
+          "bloc": "B2",
+          "note": 12,
+          "maximum": 15,
+          "justification": "Rentabilité TTM démontrée : marge nette proche de 6 %, FCF 22,906 M USD selon la convention CFO moins capex corporels. Note conditionnelle à l'examen ERP; aucune absence de retraitement présumée.",
+          "preuves": [
+            "https://ir.infusystem.com/sec-filings/all-sec-filings/content/0001628280-26-052462/infu-20260630.htm",
+            "https://www.sec.gov/Archives/edgar/data/1337013/000162828026069113/infu-20261103.htm",
+            "https://data.sec.gov/api/xbrl/companyfacts/CIK0001337013.json"
+          ]
+        },
+        {
+          "bloc": "B3",
+          "note": 10,
+          "maximum": 15,
+          "justification": "CA FY2025 +6,36 %, CAGR trois ans ~9,28 %. Croissance démontrée, mais pas de preuve de forte accélération permettant la classe 12–15.",
+          "preuves": [
+            "https://ir.infusystem.com/sec-filings/all-sec-filings/content/0001628280-26-052462/infu-20260630.htm",
+            "https://www.sec.gov/Archives/edgar/data/1337013/000162828026069113/infu-20261103.htm",
+            "https://data.sec.gov/api/xbrl/companyfacts/CIK0001337013.json"
+          ]
+        },
+        {
+          "bloc": "B4",
+          "note": 14,
+          "maximum": 20,
+          "justification": "869 260 titres déjà émis, directs et indirects, soit ~4,30 % de la base du proxy au 20/03; options et RSU exclues. Bas de la classe 2–10 % compte tenu de l'ancienneté de la photographie.",
+          "preuves": [
+            "https://www.sec.gov/Archives/edgar/data/1337013/000162828026024635/infu-20260410.htm",
+            "https://ir.infusystem.com/sec-filings/all-sec-filings/content/0001628280-26-052462/infu-20260630.htm",
+            "https://www.sec.gov/Archives/edgar/data/1337013/000162828026069113/infu-20261103.htm"
+          ]
+        },
+        {
+          "bloc": "B5",
+          "note": 5,
+          "maximum": 10,
+          "justification": "Politique de revue des parties liées et baisse des titres sur trois ans; l'examen du traitement ERP de 4,2 M USD et le report des résultats constituent un risque de discipline comptable qui exclut une gouvernance jugée satisfaisante.",
+          "preuves": [
+            "https://www.sec.gov/Archives/edgar/data/1337013/000162828026024635/infu-20260410.htm",
+            "https://ir.infusystem.com/sec-filings/all-sec-filings/content/0001628280-26-052462/infu-20260630.htm",
+            "https://www.sec.gov/Archives/edgar/data/1337013/000162828026069113/infu-20261103.htm",
+            "https://data.sec.gov/api/xbrl/companyfacts/CIK0001337013.json"
+          ]
+        },
+        {
+          "bloc": "B6",
+          "note": 4,
+          "maximum": 10,
+          "justification": "Rapports SEC disponibles mais résultats T3 reportés le 03/11 pour vérifications comptables. Information exploitable historiquement, fiabilité du prochain arrêté non encore confirmée : classe 4–6 au bas de fourchette.",
+          "preuves": [
+            "https://ir.infusystem.com/sec-filings/all-sec-filings/content/0001628280-26-052462/infu-20260630.htm",
+            "https://www.sec.gov/Archives/edgar/data/1337013/000162828026069113/infu-20261103.htm",
+            "https://data.sec.gov/api/xbrl/companyfacts/CIK0001337013.json"
+          ]
+        },
+        {
+          "bloc": "B7",
+          "note": 9,
+          "maximum": 10,
+          "justification": "Volume notionnel moyen ~1,55 M EUR/jour sur 20 séances, NYSE American. Bonne négociabilité relative à cet univers; profondeur et spread non contrôlés, donc pas 10/10.",
+          "preuves": [
+            "https://ir.infusystem.com/sec-filings/all-sec-filings/content/0001628280-26-052462/infu-20260630.htm",
+            "https://www.sec.gov/Archives/edgar/data/1337013/000162828026069113/infu-20261103.htm",
+            "https://query1.finance.yahoo.com/v8/finance/chart/INFU?range=5y&interval=1d&events=div%2Csplits | https://www.ecb.europa.eu/stats/policy_and_exchange_rates/euro_reference_exchange_rates/html/index.cn.html"
+          ]
+        }
+      ],
+      "total": 69,
+      "seuil_admission": 65,
+      "conclusion": "SEUIL_SSI_ATTEINT_SUR_PREUVES_DATEES",
+      "limites": [
+        "SSI ne vaut ni notation MCPA complète ni autorisation d’arbitrage.",
+        "Photographies financières et de détention datées; aucun ratio secondaire présenté comme audité.",
+        "Réexaminer les anomalies et nouvelles publications avant validation du filtrage."
+      ]
+    },
+    {
+      "ticker": "OSS",
+      "date_analyse": "2026-11-05",
+      "bareme": "CONFIG/BAREME_SSI_V1_0.json",
+      "nature": "JUGEMENT_ANALYSTE_DOCUMENTE_NON_AUTOMATIQUE",
+      "blocs": [
+        {
+          "bloc": "B1",
+          "note": 12,
+          "maximum": 20,
+          "justification": "Cash, équivalents et placements courts 18,9 M USD au 30/09, contre consommation opérationnelle neuf mois 12,4 M incluant transaction juridique. Financement exploitable à court terme, mais forte consommation et stocks; classe acceptable, pas solide.",
+          "preuves": [
+            "https://onestopsystems.com/blogs/press-releases/one-stop-systems-reports-q3-2026-results",
+            "https://data.sec.gov/api/xbrl/companyfacts/CIK0001394056.json"
+          ]
+        },
+        {
+          "bloc": "B2",
+          "note": 6,
+          "maximum": 15,
+          "justification": "Activités poursuivies encore déficitaires au T3 (-0,6 M USD), malgré EBITDA ajusté positif 0,3 M. Amélioration crédible mais non rentabilité GAAP établie; le bénéfice TTM incluant d'autres périmètres ne suffit pas.",
+          "preuves": [
+            "https://onestopsystems.com/blogs/press-releases/one-stop-systems-reports-q3-2026-results",
+            "https://data.sec.gov/api/xbrl/companyfacts/CIK0001394056.json"
+          ]
+        },
+        {
+          "bloc": "B3",
+          "note": 13,
+          "maximum": 15,
+          "justification": "Croissance neuf mois des activités poursuivies 48,3 %, book-to-bill 1,46. Demande robuste; sensibilité aux commandes industrielles et budgets défense empêche la borne maximale.",
+          "preuves": [
+            "https://onestopsystems.com/blogs/press-releases/one-stop-systems-reports-q3-2026-results",
+            "https://data.sec.gov/api/xbrl/companyfacts/CIK0001394056.json"
+          ]
+        },
+        {
+          "bloc": "B4",
+          "note": 14,
+          "maximum": 20,
+          "justification": "675 394 titres émis pour dirigeants/administrateurs au 20/03, ~2,73 %; options et RSU exclues. Engagement réel dans la classe 2–10 %, photographie ancienne et faible part du CEO justifient le bas de la classe.",
+          "preuves": [
+            "https://www.sec.gov/Archives/edgar/data/1394056/000119312526156058/oss-20260414.htm",
+            "https://onestopsystems.com/blogs/press-releases/one-stop-systems-reports-q3-2026-results"
+          ]
+        },
+        {
+          "bloc": "B5",
+          "note": 6,
+          "maximum": 10,
+          "justification": "Quatre administrateurs indépendants et comité audit/risques actif selon proxy; stock-options et coûts de litige rendent le capital moins discipliné que la classe 8–10. Note acceptable, aucune conclusion de faute fondée sur le seul règlement.",
+          "preuves": [
+            "https://www.sec.gov/Archives/edgar/data/1394056/000119312526156058/oss-20260414.htm",
+            "https://onestopsystems.com/blogs/press-releases/one-stop-systems-reports-q3-2026-results",
+            "https://data.sec.gov/api/xbrl/companyfacts/CIK0001394056.json"
+          ]
+        },
+        {
+          "bloc": "B6",
+          "note": 8,
+          "maximum": 10,
+          "justification": "Publication T3 du 28/10 détaillant opérations poursuivies, retraitement Bressner et ajustements non-GAAP. Information de bonne qualité, limite de comparaison avec les anciennes séries TTM explicitée.",
+          "preuves": [
+            "https://onestopsystems.com/blogs/press-releases/one-stop-systems-reports-q3-2026-results",
+            "https://data.sec.gov/api/xbrl/companyfacts/CIK0001394056.json"
+          ]
+        },
+        {
+          "bloc": "B7",
+          "note": 9,
+          "maximum": 10,
+          "justification": "Proxy de liquidité 20 séances ~7,73 M EUR/jour, Nasdaq. Bonne pour la cohorte; volatilité et absence de mesure de profondeur excluent 10/10.",
+          "preuves": [
+            "https://onestopsystems.com/blogs/press-releases/one-stop-systems-reports-q3-2026-results",
+            "https://query1.finance.yahoo.com/v8/finance/chart/OSS?range=5y&interval=1d&events=div%2Csplits | https://www.ecb.europa.eu/stats/policy_and_exchange_rates/euro_reference_exchange_rates/html/index.cn.html"
+          ]
+        }
+      ],
+      "total": 68,
+      "seuil_admission": 65,
+      "conclusion": "SEUIL_SSI_ATTEINT_SUR_PREUVES_DATEES",
+      "limites": [
+        "SSI ne vaut ni notation MCPA complète ni autorisation d’arbitrage.",
+        "Photographies financières et de détention datées; aucun ratio secondaire présenté comme audité.",
+        "Réexaminer les anomalies et nouvelles publications avant validation du filtrage."
+      ]
+    },
+    {
+      "ticker": "CXDO",
+      "date_analyse": "2026-11-05",
+      "bareme": "CONFIG/BAREME_SSI_V1_0.json",
+      "nature": "JUGEMENT_ANALYSTE_DOCUMENTE_NON_AUTOMATIQUE",
+      "blocs": [
+        {
+          "bloc": "B1",
+          "note": 17,
+          "maximum": 20,
+          "justification": "Cash 22,84 M USD et dette fournisseur ~5,4 M USD dans le dernier bilan affiché; génération FCF positive. Trésorerie nette protège le financement; note solide modérée par acquisitions et échéancier détaillé non rapproché.",
+          "preuves": [
+            "https://data.sec.gov/api/xbrl/companyfacts/CIK0001075736.json",
+            "https://www.sec.gov/Archives/edgar/data/1075736/000165495426009040/cxdo_def14a.htm"
+          ]
+        },
+        {
+          "bloc": "B2",
+          "note": 12,
+          "maximum": 15,
+          "justification": "Résultat net TTM positif, marge ~4,48 % et FCF ~12,02 M USD. Rentabilité réelle mais marge comptable encore limitée et coût des acquisitions à surveiller.",
+          "preuves": [
+            "https://data.sec.gov/api/xbrl/companyfacts/CIK0001075736.json",
+            "https://www.sec.gov/Archives/edgar/data/1075736/000165495426009040/cxdo_def14a.htm"
+          ]
+        },
+        {
+          "bloc": "B3",
+          "note": 11,
+          "maximum": 15,
+          "justification": "CA FY2025 +12,05 %, modèle télécoms cloud et logiciels. Croissance démontrée; part organique et effet des acquisitions ne permettent pas de noter une accélération structurelle maximale.",
+          "preuves": [
+            "https://data.sec.gov/api/xbrl/companyfacts/CIK0001075736.json",
+            "https://www.sec.gov/Archives/edgar/data/1075736/000165495426009040/cxdo_def14a.htm"
+          ]
+        },
+        {
+          "bloc": "B4",
+          "note": 16,
+          "maximum": 20,
+          "justification": "10 600 077 titres déjà émis au 06/10, ~31,77 % de la base; droits futurs exclus. Présence de trusts/fondation et contrôle concentré : exposition personnelle non égale au bloc contrôlé. Pas de classe >10 % avec gouvernance exemplaire présumée.",
+          "preuves": [
+            "https://www.sec.gov/Archives/edgar/data/1075736/000165495426009040/cxdo_def14a.htm"
+          ]
+        },
+        {
+          "bloc": "B5",
+          "note": 6,
+          "maximum": 10,
+          "justification": "Le proxy décrit plusieurs retards Section 16, dont une attribution non déposée à cette date. Contrepoids documentaires présents mais conformité déclarative imparfaite : acceptable, sans prime de gouvernance.",
+          "preuves": [
+            "https://www.sec.gov/Archives/edgar/data/1075736/000165495426009040/cxdo_def14a.htm",
+            "https://data.sec.gov/api/xbrl/companyfacts/CIK0001075736.json"
+          ]
+        },
+        {
+          "bloc": "B6",
+          "note": 8,
+          "maximum": 10,
+          "justification": "Rapports financiers réguliers et proxy récent détaillé; historique d'initiés amendé/incomplet sur certaines fenêtres conservé comme tel. Bonne information financière, pas certification d'un registre d'initiés exhaustif.",
+          "preuves": [
+            "https://data.sec.gov/api/xbrl/companyfacts/CIK0001075736.json",
+            "https://www.sec.gov/Archives/edgar/data/1075736/000165495426009040/cxdo_def14a.htm"
+          ]
+        },
+        {
+          "bloc": "B7",
+          "note": 9,
+          "maximum": 10,
+          "justification": "Volume notionnel moyen ~1,02 M EUR/jour, Nasdaq. Bonne liquidité relative pour la cohorte; spread et profondeur non mesurés.",
+          "preuves": [
+            "https://query1.finance.yahoo.com/v8/finance/chart/CXDO?range=5y&interval=1d&events=div%2Csplits | https://www.ecb.europa.eu/stats/policy_and_exchange_rates/euro_reference_exchange_rates/html/index.cn.html"
+          ]
+        }
+      ],
+      "total": 79,
+      "seuil_admission": 65,
+      "conclusion": "SEUIL_SSI_ATTEINT_SUR_PREUVES_DATEES",
+      "limites": [
+        "SSI ne vaut ni notation MCPA complète ni autorisation d’arbitrage.",
+        "Photographies financières et de détention datées; aucun ratio secondaire présenté comme audité.",
+        "Réexaminer les anomalies et nouvelles publications avant validation du filtrage."
+      ]
+    },
+    {
+      "ticker": "LWAY",
+      "date_analyse": "2026-11-05",
+      "bareme": "CONFIG/BAREME_SSI_V1_0.json",
+      "nature": "JUGEMENT_ANALYSTE_DOCUMENTE_NON_AUTOMATIQUE",
+      "blocs": [
+        {
+          "bloc": "B1",
+          "note": 12,
+          "maximum": 20,
+          "justification": "Crédit renouvelable tiré 22 M USD, échéance février 2029; 3 M disponibles et ligne équipements 22 M non tirée sous conditions au 30/06. Investissements élevés et FCF négatif : robustesse acceptable, pas trésorerie libre de toute contrainte.",
+          "preuves": [
+            "https://www.sec.gov/Archives/edgar/data/814586/000168316826006302/lifeway_i10q-063026.htm",
+            "https://data.sec.gov/api/xbrl/companyfacts/CIK0000814586.json",
+            "https://markets.ft.markitdigital.com/data/announce/detail?dockey=600-202608130900PR_NEWS_USPRX____DC25616-1"
+          ]
+        },
+        {
+          "bloc": "B2",
+          "note": 11,
+          "maximum": 15,
+          "justification": "Résultat net TTM positif, mais marge brute semestrielle en retrait et marge récente sous pression. Profitabilité historiquement démontrée sans note de résilience élevée; CAPEX affecte la conversion en cash.",
+          "preuves": [
+            "https://www.sec.gov/Archives/edgar/data/814586/000168316826006302/lifeway_i10q-063026.htm",
+            "https://data.sec.gov/api/xbrl/companyfacts/CIK0000814586.json",
+            "https://markets.ft.markitdigital.com/data/announce/detail?dockey=600-202608130900PR_NEWS_USPRX____DC25616-1"
+          ]
+        },
+        {
+          "bloc": "B3",
+          "note": 12,
+          "maximum": 15,
+          "justification": "CA S1 +29,9 % tiré par volumes de kéfir, avec projet de capacité industrielle. Forte dynamique commerciale; exposition aux intrants et au financement de croissance empêche la note maximale.",
+          "preuves": [
+            "https://www.sec.gov/Archives/edgar/data/814586/000168316826006302/lifeway_i10q-063026.htm",
+            "https://data.sec.gov/api/xbrl/companyfacts/CIK0000814586.json",
+            "https://markets.ft.markitdigital.com/data/announce/detail?dockey=600-202608130900PR_NEWS_USPRX____DC25616-1"
+          ]
+        },
+        {
+          "bloc": "B4",
+          "note": 16,
+          "maximum": 20,
+          "justification": "2 636 119 titres émis hors droits/phantom au 20/04, ~17,25 %. Propriétés familiales partagées, limites de gouvernance et photographie ancienne excluent une note de gouvernance exemplaire même au-delà de 10 %.",
+          "preuves": [
+            "https://www.sec.gov/Archives/edgar/data/814586/000168316826003375/lifeway_idef14a.htm",
+            "https://www.sec.gov/Archives/edgar/data/814586/000168316826006302/lifeway_i10q-063026.htm"
+          ]
+        },
+        {
+          "bloc": "B5",
+          "note": 5,
+          "maximum": 10,
+          "justification": "Accord Danone sur rémunérations en titres et plusieurs dépôts Section 16 tardifs. Le contrôle familial et l'allocation de cash sous tension conduisent à la classe de risque élevé, sans présumer de concert ou d'irrégularité non établie.",
+          "preuves": [
+            "https://www.sec.gov/Archives/edgar/data/814586/000168316826003375/lifeway_idef14a.htm",
+            "https://www.sec.gov/Archives/edgar/data/814586/000168316826006302/lifeway_i10q-063026.htm",
+            "https://data.sec.gov/api/xbrl/companyfacts/CIK0000814586.json",
+            "https://markets.ft.markitdigital.com/data/announce/detail?dockey=600-202608130900PR_NEWS_USPRX____DC25616-1"
+          ]
+        },
+        {
+          "bloc": "B6",
+          "note": 8,
+          "maximum": 10,
+          "justification": "10-Q et proxy disponibles, financements et covenants explicités. Information exploitable de bonne qualité; limites déclaratives d'initiés et changement d'actionnariat maintenus.",
+          "preuves": [
+            "https://www.sec.gov/Archives/edgar/data/814586/000168316826006302/lifeway_i10q-063026.htm",
+            "https://data.sec.gov/api/xbrl/companyfacts/CIK0000814586.json",
+            "https://markets.ft.markitdigital.com/data/announce/detail?dockey=600-202608130900PR_NEWS_USPRX____DC25616-1"
+          ]
+        },
+        {
+          "bloc": "B7",
+          "note": 9,
+          "maximum": 10,
+          "justification": "Volume notionnel moyen ~2,06 M EUR/jour, Nasdaq. Bonne pour la cohorte, sans mesure directe de spread ni profondeur.",
+          "preuves": [
+            "https://www.sec.gov/Archives/edgar/data/814586/000168316826006302/lifeway_i10q-063026.htm",
+            "https://query1.finance.yahoo.com/v8/finance/chart/LWAY?range=5y&interval=1d&events=div%2Csplits | https://www.ecb.europa.eu/stats/policy_and_exchange_rates/euro_reference_exchange_rates/html/index.cn.html"
+          ]
+        }
+      ],
+      "total": 73,
+      "seuil_admission": 65,
+      "conclusion": "SEUIL_SSI_ATTEINT_SUR_PREUVES_DATEES",
+      "limites": [
+        "SSI ne vaut ni notation MCPA complète ni autorisation d’arbitrage.",
+        "Photographies financières et de détention datées; aucun ratio secondaire présenté comme audité.",
+        "Réexaminer les anomalies et nouvelles publications avant validation du filtrage."
+      ]
+    },
+    {
+      "ticker": "LST.L",
+      "date_analyse": "2026-11-05",
+      "bareme": "CONFIG/BAREME_SSI_V1_0.json",
+      "nature": "JUGEMENT_ANALYSTE_DOCUMENTE_NON_AUTOMATIQUE",
+      "blocs": [
+        {
+          "bloc": "B1",
+          "note": 3,
+          "maximum": 20,
+          "justification": "Le rapport S1 signale une incertitude significative de continuité et un covenant de liquidité de 0,5 M GBP dépendant des encaissements AGT/PFP. La trésorerie publiée 2,44 M n'élimine pas le risque de waiver : classe critique, sans confondre facilité non tirée et cash.",
+          "preuves": [
+            "https://www.lse.co.uk/rns/LST/interim-results-trading-update-investor-pres-wrhxeo39gpkbytz.html",
+            "https://www.lse.co.uk/rns/trading-update-sy0ulthl6x7cbuw.html",
+            "https://lightsciencetechnologiesholdings.com/investors/"
+          ]
+        },
+        {
+          "bloc": "B2",
+          "note": 3,
+          "maximum": 15,
+          "justification": "Pertes et guidance d'octobre encore déficitaire, perte avant impôt ajustée FY2026 attendue 0,8–1 M GBP. Aucune rentabilité nette durable démontrée : classe déficitaire.",
+          "preuves": [
+            "https://www.lse.co.uk/rns/LST/interim-results-trading-update-investor-pres-wrhxeo39gpkbytz.html",
+            "https://www.lse.co.uk/rns/trading-update-sy0ulthl6x7cbuw.html",
+            "https://lightsciencetechnologiesholdings.com/investors/"
+          ]
+        },
+        {
+          "bloc": "B3",
+          "note": 4,
+          "maximum": 15,
+          "justification": "CA FY2026 attendu seulement 9–9,5 M GBP et retards réglementaires sur deux contrats PFP reportés hors exercice. Redressement possible mais croissance solide non démontrée : haut de la classe contraction.",
+          "preuves": [
+            "https://www.lse.co.uk/rns/LST/interim-results-trading-update-investor-pres-wrhxeo39gpkbytz.html",
+            "https://www.lse.co.uk/rns/trading-update-sy0ulthl6x7cbuw.html",
+            "https://lightsciencetechnologiesholdings.com/investors/"
+          ]
+        },
+        {
+          "bloc": "B4",
+          "note": 14,
+          "maximum": 20,
+          "justification": "Président Graham Cooley : 41,5 M titres déjà émis, 4,18 % au 02/11. Exposition actuelle documentée dans la classe 2–10 %. Les 9,69 % de l'ancien CEO Simon Deacon ne sont pas additionnés au groupe dirigeant actuel.",
+          "preuves": [
+            "https://www.lse.co.uk/rns/LST/interim-results-trading-update-investor-pres-wrhxeo39gpkbytz.html",
+            "https://www.lse.co.uk/rns/trading-update-sy0ulthl6x7cbuw.html",
+            "https://lightsciencetechnologiesholdings.com/investors/"
+          ]
+        },
+        {
+          "bloc": "B5",
+          "note": 4,
+          "maximum": 10,
+          "justification": "660 M actions nouvelles entre novembre 2025 et mai 2026, transition de direction et faibles marges de sécurité sur les covenants. Risque élevé d'allocation/dilution, sans qualifier les financements de toxiques sans preuve.",
+          "preuves": [
+            "https://www.lse.co.uk/rns/LST/interim-results-trading-update-investor-pres-wrhxeo39gpkbytz.html",
+            "https://www.lse.co.uk/rns/trading-update-sy0ulthl6x7cbuw.html",
+            "https://lightsciencetechnologiesholdings.com/investors/"
+          ]
+        },
+        {
+          "bloc": "B6",
+          "note": 6,
+          "maximum": 10,
+          "justification": "Communications S1 et avertissement d'octobre exploitables. Pourcentages non publics contradictoires sur la page officielle du 02/11 et continuité dépendante des hypothèses : classe utilisable, pas bonne transparence certifiée.",
+          "preuves": [
+            "https://www.lse.co.uk/rns/LST/interim-results-trading-update-investor-pres-wrhxeo39gpkbytz.html",
+            "https://www.lse.co.uk/rns/trading-update-sy0ulthl6x7cbuw.html",
+            "https://lightsciencetechnologiesholdings.com/investors/"
+          ]
+        },
+        {
+          "bloc": "B7",
+          "note": 5,
+          "maximum": 10,
+          "justification": "Volume notionnel moyen 20 séances ~57 kEUR/jour, AIM. Liquidité faible et absence de données de spread : classe 4–6, ce qui limite tout arbitrage même virtuel réaliste.",
+          "preuves": [
+            "https://query1.finance.yahoo.com/v8/finance/chart/LST.L?range=5y&interval=1d&events=div%2Csplits | https://www.ecb.europa.eu/stats/policy_and_exchange_rates/euro_reference_exchange_rates/html/index.cn.html"
+          ]
+        }
+      ],
+      "total": 39,
+      "seuil_admission": 65,
+      "conclusion": "SEUIL_SSI_NON_ATTEINT",
+      "limites": [
+        "SSI inférieur à 65 : dossier exclu à ce stade du filtrage positif; aucune note MCPA de substitution attribuée.",
+        "Analyse datée du 05/11; ne constitue pas la revue hebdomadaire du mardi ni un ordre."
+      ]
     }
   ]
 }

@@ -311,7 +311,7 @@
         "date_collecte": "2026-11-04"
       },
       "valeur_entreprise": {
-        "valeur": 285480000.0,
+        "valeur": 285480000,
         "unite": "USD",
         "periode": "valorisation affichée au 2026-11-04",
         "date_source": "2026-11-04",
@@ -554,7 +554,7 @@
         }
       },
       "previsions_ca_1a": {
-        "valeur": 145160000.0,
+        "valeur": 145160000,
         "unite": "USD",
         "periode": "exercice annuel prévisionnel clos au 2026-12-31",
         "date_source": "2026-11-04",
@@ -648,7 +648,7 @@
     },
     "risque": {
       "cash": {
-        "valeur": 964000.0,
+        "valeur": 964000,
         "unite": "USD",
         "periode": "Dernier bilan affiché au 2026-11-04; date comptable exacte à rapprocher",
         "date_source": "2026-11-04",
@@ -658,7 +658,7 @@
         "date_collecte": "2026-11-04"
       },
       "dette_brute": {
-        "valeur": 24530000.0,
+        "valeur": 24530000,
         "unite": "USD",
         "periode": "Dernier bilan affiché au 2026-11-04; date comptable exacte à rapprocher",
         "date_source": "2026-11-04",
@@ -668,7 +668,7 @@
         "date_collecte": "2026-11-04"
       },
       "dette_nette": {
-        "valeur": 23570000.0,
+        "valeur": 23570000,
         "unite": "USD",
         "periode": "Dernier bilan affiché au 2026-11-04; date comptable exacte à rapprocher",
         "date_source": "2026-11-04",
@@ -823,7 +823,7 @@
         "date_collecte": "2026-11-04"
       },
       "transactions_initiees_net_180j": {
-        "valeur": 131469.0,
+        "valeur": 131469,
         "unite": "USD",
         "periode": "180 jours calendaires clos au 2026-11-04",
         "date_source": "2026-11-04",
@@ -926,7 +926,7 @@
         "commentaire": "Ratio (titre ajusté converti en USD / URTH ajusté) sur chaque fenêtre, moins 1. Ancrages communs titre/ETF/FX; GBp constant annulé dans le ratio. URTH est un proxy ETF avec frais/écart de suivi; horaires de clôture non synchrones. Fenêtres impossibles avant IPO omises, jamais extrapolées."
       },
       "volume_moyen_20j": {
-        "valeur": 127135.0,
+        "valeur": 127135,
         "unite": "titres",
         "periode": "20 dernières séances",
         "date_source": "2026-11-03",
@@ -1016,7 +1016,7 @@
         "valeur": {
           "classification": "Healthcare",
           "nombre_lignes": 4,
-          "poids_initial_pct": 10.0,
+          "poids_initial_pct": 10,
           "tickers": [
             "INFU",
             "COV.V",
@@ -1065,19 +1065,14 @@
     },
     "complements": {
       "ssi": {
-        "valeur": null,
-        "unite": null,
-        "periode": null,
-        "date_source": null,
-        "source_url": null,
-        "statut": "A_COLLECTER",
-        "commentaire": null,
-        "recherche": {
-          "date": "2026-11-04",
-          "statut": "MANQUANT_RECHERCHE_NON_CLOSE",
-          "motif": "Analyse MCPA/IPS argumentée encore nécessaire; ce champ ne doit pas être rempli par une statistique de fournisseur.",
-          "journal": "journal_recherches"
-        }
+        "valeur": 69,
+        "unite": "points / 100",
+        "periode": "Analyse au 05/11/2026; périodes des preuves détaillées dans la note SSI",
+        "date_source": "2026-11-05",
+        "date_collecte": "2026-11-05",
+        "source_url": "https://github.com/HERVE63/MICRO_CAPS_DASHBOARD/blob/repair/microcaps-chain-20261030/DONNEES/ANALYSES_SSI_40_20261105.json",
+        "statut": "ANALYSE_JUGEMENT_DOCUMENTE",
+        "commentaire": "SSI 69/100 : B1 15, B2 12, B3 10, B4 14, B5 5, B6 4, B7 9. SEUIL_SSI_ATTEINT_SUR_PREUVES_DATEES. Ne vaut pas validation MCPA ni arbitrage."
       },
       "ic_sur_5": {
         "valeur": null,
@@ -1442,7 +1437,7 @@
     {
       "bloc": "qualite",
       "champ": "ca_ttm",
-      "valeur": 143340000.0,
+      "valeur": 143340000,
       "unite": "USD",
       "periode": "TTM affiché au 2026-11-04; date exacte de fin non fournie sur la page statistiques",
       "date_source": "2026-11-04",
@@ -1454,7 +1449,7 @@
     {
       "bloc": "qualite",
       "champ": "fcf_ttm",
-      "valeur": 12550000.0,
+      "valeur": 12550000,
       "unite": "USD",
       "periode": "TTM affiché au 2026-11-04; date exacte de fin non fournie sur la page statistiques",
       "date_source": "2026-11-04",
@@ -1781,8 +1776,8 @@
       "valeur": {
         "exercice": "2026-12-31",
         "courant": 0.46,
-        "J_30": 0.0,
-        "J_90": 0.0,
+        "J_30": 0,
+        "J_90": 0,
         "nombre_analystes": 1
       },
       "unite": "USD/action",
@@ -2324,8 +2319,8 @@
   "audit_couverture": {
     "date": "2026-11-05",
     "champs_total": 108,
-    "champs_renseignes": 65,
-    "couverture_pct": 60.19,
+    "champs_renseignes": 66,
+    "couverture_pct": 61.11,
     "champs_secondaires_non_rapproches": 31,
     "champs_manquants": [
       "identite.lei",
@@ -2349,7 +2344,6 @@
       "diversification.zone_geographique",
       "diversification.interet_strategique",
       "diversification.complementarite_portefeuille",
-      "complements.ssi",
       "complements.ic_sur_5",
       "complements.cx_sur_5",
       "complements.delta",
@@ -2379,13 +2373,13 @@
   "audit_poursuite": {
     "date": "2026-11-05",
     "comptage": {
-      "RENSEIGNE": 65,
+      "RENSEIGNE": 66,
       "NON_APPLICABLE": 3,
       "INDISPONIBLE_A_DATE": 0,
-      "RECHERCHE_A_POURSUIVRE": 40
+      "RECHERCHE_A_POURSUIVRE": 39
     },
-    "couverture_valeurs_pct": 60.19,
-    "couverture_applicable_pct": 61.9,
+    "couverture_valeurs_pct": 61.11,
+    "couverture_applicable_pct": 62.86,
     "recherches_non_closes": [
       "identite.lei",
       "identite.marche",
@@ -2405,7 +2399,6 @@
       "diversification.zone_geographique",
       "diversification.interet_strategique",
       "diversification.complementarite_portefeuille",
-      "complements.ssi",
       "complements.ic_sur_5",
       "complements.cx_sur_5",
       "complements.delta",

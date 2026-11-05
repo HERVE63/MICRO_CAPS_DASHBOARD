@@ -1089,19 +1089,14 @@
     },
     "complements": {
       "ssi": {
-        "valeur": null,
-        "unite": null,
-        "periode": null,
-        "date_source": null,
-        "source_url": null,
-        "statut": "A_COLLECTER",
-        "commentaire": null,
-        "recherche": {
-          "date": "2026-11-04",
-          "statut": "MANQUANT_RECHERCHE_NON_CLOSE",
-          "motif": "Analyse MCPA/IPS argumentée encore nécessaire; ce champ ne doit pas être rempli par une statistique de fournisseur.",
-          "journal": "journal_recherches"
-        }
+        "valeur": 39,
+        "unite": "points / 100",
+        "periode": "Analyse au 05/11/2026; périodes des preuves détaillées dans la note SSI",
+        "date_source": "2026-11-05",
+        "date_collecte": "2026-11-05",
+        "source_url": "https://github.com/HERVE63/MICRO_CAPS_DASHBOARD/blob/repair/microcaps-chain-20261030/DONNEES/ANALYSES_SSI_40_20261105.json",
+        "statut": "ANALYSE_JUGEMENT_DOCUMENTE",
+        "commentaire": "SSI 39/100 : B1 3, B2 3, B3 4, B4 14, B5 4, B6 6, B7 5. SEUIL_SSI_NON_ATTEINT. Ne vaut pas validation MCPA ni arbitrage."
       },
       "ic_sur_5": {
         "valeur": null,
@@ -2221,8 +2216,8 @@
   "audit_couverture": {
     "date": "2026-11-05",
     "champs_total": 108,
-    "champs_renseignes": 60,
-    "couverture_pct": 55.56,
+    "champs_renseignes": 61,
+    "couverture_pct": 56.48,
     "champs_secondaires_non_rapproches": 31,
     "champs_manquants": [
       "identite.lei",
@@ -2251,7 +2246,6 @@
       "risque.transactions_initiees_net_180j",
       "diversification.interet_strategique",
       "diversification.complementarite_portefeuille",
-      "complements.ssi",
       "complements.ic_sur_5",
       "complements.cx_sur_5",
       "complements.delta",
@@ -2281,13 +2275,13 @@
   "audit_poursuite": {
     "date": "2026-11-05",
     "comptage": {
-      "RENSEIGNE": 60,
+      "RENSEIGNE": 61,
       "NON_APPLICABLE": 8,
       "INDISPONIBLE_A_DATE": 0,
-      "RECHERCHE_A_POURSUIVRE": 40
+      "RECHERCHE_A_POURSUIVRE": 39
     },
-    "couverture_valeurs_pct": 55.56,
-    "couverture_applicable_pct": 60,
+    "couverture_valeurs_pct": 56.48,
+    "couverture_applicable_pct": 61,
     "recherches_non_closes": [
       "identite.lei",
       "qualite.revenus_recurrents_pct",
@@ -2307,7 +2301,6 @@
       "risque.transactions_initiees_net_180j",
       "diversification.interet_strategique",
       "diversification.complementarite_portefeuille",
-      "complements.ssi",
       "complements.ic_sur_5",
       "complements.cx_sur_5",
       "complements.delta",
