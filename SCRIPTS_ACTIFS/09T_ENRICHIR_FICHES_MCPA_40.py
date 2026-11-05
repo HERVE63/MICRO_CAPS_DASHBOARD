@@ -17,7 +17,13 @@ def put(doc,block,key,value,unit,period,date,url,status='SOURCE_COLLECTEE',comme
  return True
 def main():
  indicators={r['Ticker']:r for r in load('INDICATEURS_YAHOO_40.csv')}
- public=load('PREUVES_FONDAMENTALES_PUBLIQUES_20261104.csv')
+ public=[]
+ for source_path in sorted(D.glob('PREUVES_FONDAMENTALES_PUBLIQUES_*.csv')):
+  public.extend(load(source_path.name))
+ complements={}
+ for source_path in sorted(D.glob('COMPLEMENTS_PUBLICS_40_*.json')):
+  for observation in json.loads(source_path.read_text(encoding='utf-8')):
+   complements[observation['ticker']]=observation
  mapping={'CA':('qualite','ca_ttm'),'Marge_EBITDA':('qualite','marge_ebitda_pct'),'Croissance_CA':('croissance','croissance_ca_1a_pct'),'Croissance_EBITDA':('croissance','croissance_ebitda_pct'),'Croissance_commandes':('croissance','book_to_bill'),'EBITDA':('qualite','marge_ebitda_pct'),'Tresorerie':('risque','cash'),'Dette_nette':('risque','dette_nette'),'Carnet_commandes':('croissance','carnet_commandes')}
  # CA, EBITDA and orders growth cannot be treated as TTM, EBITDA margin or book-to-bill.
  mapping.pop('CA');mapping.pop('EBITDA');mapping.pop('Croissance_commandes')
@@ -40,6 +46,16 @@ def main():
    if metric not in mapping:continue
    block,key=mapping[metric]
    changed+=put(x,block,key,float(e['Valeur']),e['Unite'],e['Periode'],e['Date_collecte'],e['Source_URL'],'SOURCE_PUBLIQUE',metric)
+  # 10G supplies secondary-source observations, not automatically validated fundamentals.
+  # Preserve provenance and never manufacture a value or an MCPA score.
+  observation=complements.get(t,{})
+  for section in ('series_annuelles','valorisation_historique','revisions'):
+   item=observation.get(section,{})
+   if not item or not item.get('statut','').startswith('SOURCE_SECONDAIRE'):continue
+   marker=(item.get('url'),section,observation.get('date_collecte'))
+   if not any((p.get('url'),p.get('indicateur'),p.get('periode'))==marker for p in x['preuves_complementaires']):
+    x['preuves_complementaires'].append({'url':item.get('url'),'indicateur':section,'valeur':None,'unite':None,'periode':observation.get('date_collecte'),'date_collecte':observation.get('date_collecte'),'statut':'A_VERIFIER_AVANT_NOTATION','sha256_reponse':item.get('sha256_reponse'),'donnees_brutes':{k:item[k] for k in ('series','lignes','tendances') if k in item}})
+    changed+=1
   existing={(e.get('url'),e.get('indicateur'),e.get('periode')) for e in x['preuves_complementaires']}
   for e in evidence:
    marker=(e['Source_URL'],e['Indicateur'],e['Periode'])
