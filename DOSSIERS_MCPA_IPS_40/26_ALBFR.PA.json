@@ -86,7 +86,7 @@
         }
       },
       "capitalisation_eur": {
-        "valeur": 289200000.0,
+        "valeur": 289200000,
         "unite": "EUR",
         "periode": "capitalisation fournisseur et référence BCE du 2026-11-04",
         "date_source": "2026-11-04",
@@ -105,7 +105,7 @@
         "commentaire": null
       },
       "actionnariat_dirigeants_pct": {
-        "valeur": 36.0,
+        "valeur": 36,
         "unite": "pct",
         "periode": "détentions déclarées, dates hétérogènes du fournisseur",
         "date_source": "2026-11-04",
@@ -127,7 +127,7 @@
     },
     "qualite": {
       "ca_ttm": {
-        "valeur": 67340000.0,
+        "valeur": 67340000,
         "unite": "EUR",
         "periode": "TTM fournisseur; arrêté indiqué dans son tableau financier : Jun '26 Jun 30, 2026",
         "date_source": "2026-11-04",
@@ -197,7 +197,7 @@
         "date_collecte": "2026-11-04"
       },
       "fcf_ttm": {
-        "valeur": 7530000.0,
+        "valeur": 7530000,
         "unite": "EUR",
         "periode": "TTM fournisseur; arrêté indiqué dans son tableau financier : Jun '26 Jun 30, 2026",
         "date_source": "2026-11-04",
@@ -274,7 +274,7 @@
     },
     "valorisation": {
       "cours": {
-        "valeur": 199.0,
+        "valeur": 199,
         "unite": "EUR",
         "periode": "cloture 2026-11-03",
         "date_source": "2026-11-03",
@@ -294,7 +294,7 @@
         "date_collecte": "2026-11-04"
       },
       "capitalisation": {
-        "valeur": 289200000.0,
+        "valeur": 289200000,
         "unite": "EUR",
         "periode": "cotation au 2026-11-04",
         "date_source": "2026-11-04",
@@ -304,7 +304,7 @@
         "date_collecte": "2026-11-04"
       },
       "valeur_entreprise": {
-        "valeur": 297290000.0,
+        "valeur": 297290000,
         "unite": "EUR",
         "periode": "valorisation affichée au 2026-11-04",
         "date_source": "2026-11-04",
@@ -547,7 +547,7 @@
         }
       },
       "previsions_ca_1a": {
-        "valeur": 71830000.0,
+        "valeur": 71830000,
         "unite": "EUR",
         "periode": "exercice annuel prévisionnel clos au 2026-12-31",
         "date_source": "2026-11-04",
@@ -638,7 +638,7 @@
         "date_collecte": "2026-11-04"
       },
       "dette_brute": {
-        "valeur": 28040000.0,
+        "valeur": 28040000,
         "unite": "EUR",
         "periode": "Dernier bilan affiché au 2026-11-04; date comptable exacte à rapprocher",
         "date_source": "2026-11-04",
@@ -648,7 +648,7 @@
         "date_collecte": "2026-11-04"
       },
       "dette_nette": {
-        "valeur": 8090000.0,
+        "valeur": 8090000,
         "unite": "EUR",
         "periode": "Dernier bilan affiché au 2026-11-04; date comptable exacte à rapprocher",
         "date_source": "2026-11-04",
@@ -1007,7 +1007,7 @@
         "valeur": {
           "classification": "Technology",
           "nombre_lignes": 16,
-          "poids_initial_pct": 40.0,
+          "poids_initial_pct": 40,
           "tickers": [
             "IDN",
             "OSS",
@@ -1565,7 +1565,7 @@
     {
       "bloc": "risque",
       "champ": "cash",
-      "valeur": 19950000.0,
+      "valeur": 19950000,
       "unite": "EUR",
       "periode": "Dernier bilan affiché au 2026-11-04; date comptable exacte à rapprocher",
       "date_source": "2026-11-04",
@@ -1733,7 +1733,7 @@
     {
       "bloc": "qualite",
       "champ": "ca_ttm",
-      "valeur": 67340000.0,
+      "valeur": 67340000,
       "unite": "EUR",
       "periode": "TTM fournisseur; arrêté indiqué dans son tableau financier : Jun '26 Jun 30, 2026",
       "date_source": "2026-11-04",
@@ -1745,7 +1745,7 @@
     {
       "bloc": "qualite",
       "champ": "fcf_ttm",
-      "valeur": 7530000.0,
+      "valeur": 7530000,
       "unite": "EUR",
       "periode": "TTM fournisseur; arrêté indiqué dans son tableau financier : Jun '26 Jun 30, 2026",
       "date_source": "2026-11-04",
@@ -2003,6 +2003,22 @@
       "source_url": "https://query1.finance.yahoo.com/v10/finance/quoteSummary/ALBFR.PA?modules=assetProfile,majorHoldersBreakdown,insiderHolders,insiderTransactions",
       "statut": "SOURCE_SECONDAIRE_GOUVERNANCE_A_RAPPROCHER",
       "commentaire": "Titres détenus séparés des options/attributions. Dates/fonctions de chaque ligne à contrôler : les anciens dirigeants peuvent subsister. Ne pas additionner les détentions directes et indirectes sans éliminer les doubles comptes. Pas de certification de couverture des transactions, ni note SSI déduite."
+    },
+    {
+      "bloc": null,
+      "champ": "actionnariat_physique_hors_droits_a_60j",
+      "valeur": {
+        "olivier_novasque_pct_arrondi": 36,
+        "autodetenues": 85300,
+        "salaries_nominatif_pct_arrondi": 7
+      },
+      "unite": "titres et pct",
+      "periode": "au 31/12/2025, rapport de gestion p.11",
+      "date_source": "2026-04-22",
+      "source_url": "https://www.sidetrade.com/wp-content/uploads/2026/04/SidetradeSA-Rapport-de-Gestion_2025.pdf",
+      "statut": "SOURCE_PRIMAIRE",
+      "commentaire": "Participation nominative en capital et droits de vote du CEO arrondie au pourcent; salariés distincts et non additionnés automatiquement aux dirigeants.",
+      "date_collecte": "2026-11-05"
     }
   ],
   "journal_recherches": [

@@ -91,7 +91,7 @@
         }
       },
       "capitalisation_eur": {
-        "valeur": 20240000.0,
+        "valeur": 20240000,
         "unite": "EUR",
         "periode": "capitalisation fournisseur et référence BCE du 2026-11-04",
         "date_source": "2026-11-04",
@@ -133,7 +133,7 @@
     },
     "qualite": {
       "ca_ttm": {
-        "valeur": 46840000.0,
+        "valeur": 46840000,
         "unite": "EUR",
         "periode": "TTM fournisseur; arrêté indiqué dans son tableau financier : Jun '26 Jun 30, 2026",
         "date_source": "2026-11-04",
@@ -316,7 +316,7 @@
         "date_collecte": "2026-11-04"
       },
       "capitalisation": {
-        "valeur": 20240000.0,
+        "valeur": 20240000,
         "unite": "EUR",
         "periode": "cotation au 2026-11-04",
         "date_source": "2026-11-04",
@@ -326,7 +326,7 @@
         "date_collecte": "2026-11-04"
       },
       "valeur_entreprise": {
-        "valeur": 25730000.0,
+        "valeur": 25730000,
         "unite": "EUR",
         "periode": "valorisation affichée au 2026-11-04",
         "date_source": "2026-11-04",
@@ -595,7 +595,7 @@
         }
       },
       "previsions_ca_1a": {
-        "valeur": 43550000.0,
+        "valeur": 43550000,
         "unite": "EUR",
         "periode": "exercice annuel prévisionnel clos au 2026-12-31",
         "date_source": "2026-11-04",
@@ -1054,7 +1054,7 @@
         "valeur": {
           "classification": "Technology",
           "nombre_lignes": 16,
-          "poids_initial_pct": 40.0,
+          "poids_initial_pct": 40,
           "tickers": [
             "IDN",
             "OSS",
@@ -1621,7 +1621,7 @@
     {
       "bloc": "qualite",
       "champ": "ca_ttm",
-      "valeur": 46840000.0,
+      "valeur": 46840000,
       "unite": "EUR",
       "periode": "TTM fournisseur; arrêté indiqué dans son tableau financier : Jun '26 Jun 30, 2026",
       "date_source": "2026-11-04",
@@ -1954,6 +1954,25 @@
       "source_url": "https://query1.finance.yahoo.com/v10/finance/quoteSummary/ALBPK.PA?modules=assetProfile,majorHoldersBreakdown,insiderHolders,insiderTransactions",
       "statut": "SOURCE_SECONDAIRE_GOUVERNANCE_A_RAPPROCHER",
       "commentaire": "Titres détenus séparés des options/attributions. Dates/fonctions de chaque ligne à contrôler : les anciens dirigeants peuvent subsister. Ne pas additionner les détentions directes et indirectes sans éliminer les doubles comptes. Pas de certification de couverture des transactions, ni note SSI déduite."
+    },
+    {
+      "bloc": null,
+      "champ": "actionnariat_physique_hors_droits_a_60j",
+      "valeur": {
+        "jacques_le_mancq": 3144659,
+        "fabrice_bellanger": 1254426,
+        "dominique_colombel": 460762,
+        "actions_emises": 12541686,
+        "eutelsat_actions": 1757563,
+        "vantiva_actions": 1022500
+      },
+      "unite": "titres et pct",
+      "periode": "au 31/12/2025, rapport annuel p.25 et 45",
+      "date_source": "2026-04-30",
+      "source_url": "https://broadpeak.tv/wp-content/uploads/2026/04/Broadpeak-_RFA_2025Publie.pdf",
+      "statut": "SOURCE_PRIMAIRE",
+      "commentaire": "Participations des administrateurs physiques distinctes des sociétés Eutelsat et Vantiva; celles-ci ne sont pas des patrimoines personnels de leurs représentants.",
+      "date_collecte": "2026-11-05"
     }
   ],
   "journal_recherches": [
@@ -2202,7 +2221,7 @@
     "date": "2026-11-05",
     "champs_total": 108,
     "champs_renseignes": 54,
-    "couverture_pct": 50.0,
+    "couverture_pct": 50,
     "champs_secondaires_non_rapproches": 21,
     "champs_manquants": [
       "identite.lei",
@@ -2272,7 +2291,7 @@
       "INDISPONIBLE_A_DATE": 0,
       "RECHERCHE_A_POURSUIVRE": 48
     },
-    "couverture_valeurs_pct": 50.0,
+    "couverture_valeurs_pct": 50,
     "couverture_applicable_pct": 52.94,
     "recherches_non_closes": [
       "identite.lei",

@@ -2351,5 +2351,376 @@
         "statut": "ANALYSE_DOCUMENTAIRE_SOURCE_PRIMAIRE"
       }
     ]
+  },
+  {
+    "ticker": "MEMS.PA",
+    "url": "https://memscap.com/wp-content/uploads/2026/04/Rapport-annuel-Memscap-2025-29_04_2026.pdf",
+    "date_source": "2026-04-29",
+    "periode": "au 31/12/2025, rapport annuel p.56",
+    "champs": [
+      {
+        "bloc": null,
+        "champ": "actionnariat_physique_hors_droits_a_60j",
+        "valeur": {
+          "jean_michel_karam_actions": 680566,
+          "jean_michel_karam_pct": 8.83,
+          "administrateurs_total_actions": 829552,
+          "administrateurs_pct": 10.76,
+          "actions_emises": 7706902
+        },
+        "unite": "titres et pct",
+        "commentaire": "Actions existantes, options distinctes. Situation historique; ne pas confondre la participation personnelle du CEO et le total administrateurs."
+      }
+    ]
+  },
+  {
+    "ticker": "ALBPK.PA",
+    "url": "https://broadpeak.tv/wp-content/uploads/2026/04/Broadpeak-_RFA_2025Publie.pdf",
+    "date_source": "2026-04-30",
+    "periode": "au 31/12/2025, rapport annuel p.25 et 45",
+    "champs": [
+      {
+        "bloc": null,
+        "champ": "actionnariat_physique_hors_droits_a_60j",
+        "valeur": {
+          "jacques_le_mancq": 3144659,
+          "fabrice_bellanger": 1254426,
+          "dominique_colombel": 460762,
+          "actions_emises": 12541686,
+          "eutelsat_actions": 1757563,
+          "vantiva_actions": 1022500
+        },
+        "unite": "titres et pct",
+        "commentaire": "Participations des administrateurs physiques distinctes des sociétés Eutelsat et Vantiva; celles-ci ne sont pas des patrimoines personnels de leurs représentants."
+      }
+    ]
+  },
+  {
+    "ticker": "ALBFR.PA",
+    "url": "https://www.sidetrade.com/wp-content/uploads/2026/04/SidetradeSA-Rapport-de-Gestion_2025.pdf",
+    "date_source": "2026-04-22",
+    "periode": "au 31/12/2025, rapport de gestion p.11",
+    "champs": [
+      {
+        "bloc": null,
+        "champ": "actionnariat_physique_hors_droits_a_60j",
+        "valeur": {
+          "olivier_novasque_pct_arrondi": 36,
+          "autodetenues": 85300,
+          "salaries_nominatif_pct_arrondi": 7
+        },
+        "unite": "titres et pct",
+        "commentaire": "Participation nominative en capital et droits de vote du CEO arrondie au pourcent; salariés distincts et non additionnés automatiquement aux dirigeants."
+      }
+    ]
+  },
+  {
+    "ticker": "ALICA.PA",
+    "url": "https://www.icape-group.com/wp-content/uploads/2026/04/Icape-Holding-Rapport-Financier-Annuel-2025-vdef.pdf",
+    "date_source": "2026-04-03",
+    "periode": "au 31/12/2025, rapport annuel p.74-75",
+    "champs": [
+      {
+        "bloc": null,
+        "champ": "actionnariat_physique_hors_droits_a_60j",
+        "valeur": {
+          "thierry_ballenghien_direct_pct": 13.76,
+          "balwen_holding_pct": 37.2,
+          "thierry_ballenghien_part_balwen_pct": 50.1
+        },
+        "unite": "titres et pct",
+        "commentaire": "Contrôle familial et pacte de concert documentés. La totalité de Balwen ne représente pas le patrimoine économique personnel de Thierry Ballenghien. Cessions de juin 2026 à rapprocher, pas position actuelle."
+      }
+    ]
+  },
+  {
+    "ticker": "FTG.TO",
+    "url": "https://www.ftgcorp.com/wp-content/uploads/2026/03/FTG-2025-Circular_v04.pdf",
+    "date_source": "2026-02-23",
+    "periode": "circular du 23/02/2026, p.3 et 5",
+    "champs": [
+      {
+        "bloc": null,
+        "champ": "actionnariat_physique_hors_droits_a_60j",
+        "valeur": {
+          "bradley_bourne_actions": 2759966,
+          "bradley_bourne_psu_separees": 40000,
+          "actions_emises": 25173390,
+          "part_actions_pct": 10.963823307071475
+        },
+        "unite": "titres et pct",
+        "commentaire": "Actions ordinaires détenues/contrôlées directement ou indirectement selon le circular. PSU exclues; situation historique."
+      }
+    ]
+  },
+  {
+    "ticker": "ELVA.TO",
+    "url": "https://www.sec.gov/Archives/edgar/data/1844450/000175392626001897/g085981_ex99-1.htm",
+    "date_source": "2026-01-15",
+    "periode": "circular au 15/01/2026",
+    "champs": [
+      {
+        "bloc": null,
+        "champ": "actionnariat_physique_hors_droits_a_60j",
+        "valeur": {
+          "sankar_das_gupta_actions": 10270751,
+          "actions_emises": 48000813,
+          "part_pct": 21.4
+        },
+        "unite": "titres et pct",
+        "commentaire": "Actions existantes détenues/contrôlées par le président exécutif; ne pas ajouter options ni supposer une propriété personnelle de toutes participations indirectes. Situation historique."
+      }
+    ]
+  },
+  {
+    "ticker": "COV.V",
+    "url": "https://s202.q4cdn.com/814608179/files/doc_downloads/2026/02/MIC.pdf",
+    "date_source": "2026-02-20",
+    "periode": "positions au 06/02/2026, circular p.8-9",
+    "champs": [
+      {
+        "bloc": null,
+        "champ": "actionnariat_physique_hors_droits_a_60j",
+        "valeur": {
+          "actions_emises": 27618077,
+          "abe_schwartz_actions": 8160912,
+          "martin_goldfarb_groupe_actions": 4601563,
+          "joseph_cordiano_actions": 202400,
+          "kim_crooks_actions": 29850,
+          "ron_smith_actions": 30000,
+          "ceo_brent_ashton_case_actions": "tiret",
+          "ceo_options_separees": 800000
+        },
+        "unite": "titres et pct",
+        "commentaire": "Tiret conservé comme publication du tableau, pas conversion implicite en zéro. Groupe Goldfarb et participations contrôlées distincts de propriété personnelle; options et DSU exclus."
+      }
+    ]
+  },
+  {
+    "ticker": "ROK.V",
+    "url": "https://rokresources.ca/assets/rok-resources-circular-print-copy.pdf",
+    "date_source": "2026-10-30",
+    "periode": "circular daté 22/10/2026, publié 30/10; référence du tableau 22/10",
+    "champs": [
+      {
+        "bloc": null,
+        "champ": "actionnariat_physique_hors_droits_a_60j",
+        "valeur": {
+          "actions_emises_19oct": 219768307,
+          "administrateurs": [
+            {
+              "nom": "Cameron Taylor",
+              "actions": 7576910
+            },
+            {
+              "nom": "David French",
+              "actions": 200000
+            },
+            {
+              "nom": "Peter Yates",
+              "actions": 504999
+            },
+            {
+              "nom": "Jeff Chisholm",
+              "actions": 4336922
+            },
+            {
+              "nom": "Kent McDougall",
+              "actions": 3184000
+            },
+            {
+              "nom": "Thomas MacInnis",
+              "actions": 3698500
+            }
+          ]
+        },
+        "unite": "titres et pct",
+        "commentaire": "Actions bénéficiaires directes/indirectes ou contrôlées, informations des administrateurs sans vérification indépendante de l'émetteur. Aucune option incluse."
+      }
+    ]
+  },
+  {
+    "ticker": "CEMX.TO",
+    "url": "https://cematrix.com/_resources/financials/2026q1mic.pdf",
+    "date_source": "2026-04-29",
+    "periode": "au circular du 29/04/2026, pages 5-6",
+    "champs": [
+      {
+        "bloc": null,
+        "champ": "actionnariat_physique_hors_droits_a_60j",
+        "valeur": {
+          "actions_emises": 149787365,
+          "administrateurs": [
+            {
+              "nom": "Steve Bjornson",
+              "actions": 224551
+            },
+            {
+              "nom": "Patrick N Breen",
+              "actions": 375000
+            },
+            {
+              "nom": "Anna Maria Cuglietta",
+              "actions": 88235
+            },
+            {
+              "nom": "Minaz Lalani",
+              "actions": 717571
+            },
+            {
+              "nom": "John Kim",
+              "actions": 524064
+            }
+          ]
+        },
+        "unite": "titres et pct",
+        "commentaire": "Conseil distinct de la direction exécutive : CEO non inclus dans ce tableau. RSU et options séparées; pas de total dirigeants exhaustif déduit."
+      }
+    ]
+  },
+  {
+    "ticker": "KLD.V",
+    "url": "https://www.kenorlandminerals.com/_resources/agm/KLD_2026_Information_Circular.pdf?v=110204",
+    "date_source": "2026-08-27",
+    "periode": "circular daté 18/08/2026, tableau administrateurs",
+    "champs": [
+      {
+        "bloc": null,
+        "champ": "actionnariat_physique_hors_droits_a_60j",
+        "valeur": {
+          "zachary_flood_actions": 5472888,
+          "options_CEO_31dec2025_separees": 1575000
+        },
+        "unite": "titres et pct",
+        "commentaire": "CEO en actions existantes séparées des options. Deux dates différentes explicitement conservées; financement d'octobre-novembre à rapprocher avant pourcentage courant."
+      }
+    ]
+  },
+  {
+    "ticker": "PLEJD.ST",
+    "url": "https://www.plejd.com/en-dk/investors/management",
+    "date_source": "2026-11-05",
+    "periode": "page non datée consultée le 05/11/2026; date effective de chaque détention non publiée",
+    "champs": [
+      {
+        "bloc": null,
+        "champ": "actionnariat_physique_hors_droits_a_60j",
+        "valeur": {
+          "direction": [
+            {
+              "nom": "Babak Esfahani",
+              "actions": 380000
+            },
+            {
+              "nom": "Linda Kjellberg",
+              "actions": 10265,
+              "perimetre": "directes et proches"
+            },
+            {
+              "nom": "Mikael Blixman",
+              "actions": 7775
+            },
+            {
+              "nom": "Gustav Josefsson",
+              "actions": 337342
+            },
+            {
+              "nom": "Iman Karimi",
+              "actions": 287781
+            },
+            {
+              "nom": "Rikard Sköldin",
+              "actions": 8087
+            }
+          ]
+        },
+        "unite": "titres et pct",
+        "commentaire": "Déclaration officielle de titres détenus, pas date de position certifiée. Proches du CFO inclus, pas de double comptage supposé."
+      }
+    ]
+  },
+  {
+    "ticker": "GENI.ST",
+    "url": "https://www.generic.se/en/for_investerare/insynshandel/",
+    "date_source": "2026-11-05",
+    "periode": "page non datée consultée le 05/11/2026",
+    "champs": [
+      {
+        "bloc": null,
+        "champ": "actionnariat_physique_hors_droits_a_60j",
+        "valeur": {
+          "direction": [
+            {
+              "nom": "Héléne Henriksson",
+              "actions": 4000
+            },
+            {
+              "nom": "Jenny Björk",
+              "actions": 0
+            },
+            {
+              "nom": "Magnus Rasmusson",
+              "actions": 7052
+            },
+            {
+              "nom": "Madelene Persson",
+              "actions": 6600
+            },
+            {
+              "nom": "Fredrik Parkell",
+              "actions": 0
+            }
+          ],
+          "administrateurs": [
+            {
+              "nom": "Erik Ivarsson",
+              "actions": 27000
+            },
+            {
+              "nom": "Hans Krantz",
+              "actions": 1281555
+            },
+            {
+              "nom": "Bengt-Arne Molin",
+              "actions": 6730
+            },
+            {
+              "nom": "Johanna Berlinde",
+              "actions": 0
+            },
+            {
+              "nom": "Johan Martinsson",
+              "actions": 5000
+            }
+          ],
+          "martin_gren_famille_societes": 3010000
+        },
+        "unite": "titres et pct",
+        "commentaire": "Zéros explicitement publiés. Martin Gren est classé grand actionnaire, pas dirigeant; détentions de sociétés/famille non assimilées à du capital personnel."
+      }
+    ]
+  },
+  {
+    "ticker": "GROW.MI",
+    "url": "https://www.growens.io/en/shareholders/",
+    "date_source": "2026-11-05",
+    "periode": "page non datée consultée le 05/11/2026; cohérente avec présentation novembre 2025, actualisation à rapprocher",
+    "champs": [
+      {
+        "bloc": null,
+        "champ": "actionnariat_physique_hors_droits_a_60j",
+        "valeur": {
+          "actions_emises_page": 15393343,
+          "gorni_via_poliedriq_pct": 11.762,
+          "miscia_via_am0_pct": 10.433,
+          "monfredini_via_mm_pct": 11.619,
+          "azzali_via_yugen_pct": 10.045,
+          "bettoni_via_linea_pct": 11.038,
+          "autodetention_pct_page": 9.283
+        },
+        "unite": "titres et pct",
+        "commentaire": "Détentions via sociétés personnelles distinctes des droits futurs. État de page potentiellement ancien; autodétention différente du fournisseur 2026, ne pas remplacer ce dernier sans réconciliation."
+      }
+    ]
   }
 ]

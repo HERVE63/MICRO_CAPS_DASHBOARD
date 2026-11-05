@@ -134,7 +134,7 @@
     },
     "qualite": {
       "ca_ttm": {
-        "valeur": 50450000.0,
+        "valeur": 50450000,
         "unite": "CAD",
         "periode": "TTM fournisseur; arrêté indiqué dans son tableau financier : Sep '26 Sep 30, 2026",
         "date_source": "2026-11-04",
@@ -204,7 +204,7 @@
         "date_collecte": "2026-11-04"
       },
       "fcf_ttm": {
-        "valeur": 12780000.0,
+        "valeur": 12780000,
         "unite": "CAD",
         "periode": "TTM fournisseur; arrêté indiqué dans son tableau financier : Sep '26 Sep 30, 2026",
         "date_source": "2026-11-04",
@@ -306,7 +306,7 @@
         "date_collecte": "2026-11-04"
       },
       "capitalisation": {
-        "valeur": 71880000.0,
+        "valeur": 71880000,
         "unite": "CAD",
         "periode": "cotation au 2026-11-04",
         "date_source": "2026-11-04",
@@ -316,7 +316,7 @@
         "date_collecte": "2026-11-04"
       },
       "valeur_entreprise": {
-        "valeur": 54620000.0,
+        "valeur": 54620000,
         "unite": "CAD",
         "periode": "valorisation affichée au 2026-11-04",
         "date_source": "2026-11-04",
@@ -578,7 +578,7 @@
         }
       },
       "revision_bpa_30j_pct": {
-        "valeur": 0.0,
+        "valeur": 0,
         "unite": "pct",
         "periode": "consensus annuel clos au 2026-12-31",
         "date_source": "2026-11-05",
@@ -588,7 +588,7 @@
         "date_collecte": "2026-11-05"
       },
       "revision_bpa_90j_pct": {
-        "valeur": 0.0,
+        "valeur": 0,
         "unite": "pct",
         "periode": "consensus annuel clos au 2026-12-31",
         "date_source": "2026-11-05",
@@ -650,7 +650,7 @@
         "date_collecte": "2026-11-04"
       },
       "dette_brute": {
-        "valeur": 3250000.0,
+        "valeur": 3250000,
         "unite": "CAD",
         "periode": "Dernier bilan affiché au 2026-11-04; date comptable exacte à rapprocher",
         "date_source": "2026-11-04",
@@ -660,7 +660,7 @@
         "date_collecte": "2026-11-04"
       },
       "dette_nette": {
-        "valeur": -17250000.0,
+        "valeur": -17250000,
         "unite": "CAD",
         "periode": "Dernier bilan affiché au 2026-11-04; date comptable exacte à rapprocher",
         "date_source": "2026-11-04",
@@ -929,7 +929,7 @@
         "commentaire": "Ratio (titre ajusté converti en USD / URTH ajusté) sur chaque fenêtre, moins 1. Ancrages communs titre/ETF/FX; GBp constant annulé dans le ratio. URTH est un proxy ETF avec frais/écart de suivi; horaires de clôture non synchrones. Fenêtres impossibles avant IPO omises, jamais extrapolées."
       },
       "volume_moyen_20j": {
-        "valeur": 117055.0,
+        "valeur": 117055,
         "unite": "titres",
         "periode": "20 dernières séances",
         "date_source": "2026-11-03",
@@ -1640,7 +1640,7 @@
     {
       "bloc": "qualite",
       "champ": "ca_ttm",
-      "valeur": 50450000.0,
+      "valeur": 50450000,
       "unite": "CAD",
       "periode": "TTM fournisseur; arrêté indiqué dans son tableau financier : Sep '26 Sep 30, 2026",
       "date_source": "2026-11-04",
@@ -1652,7 +1652,7 @@
     {
       "bloc": "qualite",
       "champ": "fcf_ttm",
-      "valeur": 12780000.0,
+      "valeur": 12780000,
       "unite": "CAD",
       "periode": "TTM fournisseur; arrêté indiqué dans son tableau financier : Sep '26 Sep 30, 2026",
       "date_source": "2026-11-04",
@@ -1748,7 +1748,7 @@
     {
       "bloc": "risque",
       "champ": "cash",
-      "valeur": 20510000.0,
+      "valeur": 20510000,
       "unite": "CAD",
       "periode": "Dernier bilan affiché au 2026-11-04; date comptable exacte à rapprocher",
       "date_source": "2026-11-04",
@@ -1920,6 +1920,42 @@
       "source_url": "https://query1.finance.yahoo.com/v10/finance/quoteSummary/CEMX.TO?modules=assetProfile,majorHoldersBreakdown,insiderHolders,insiderTransactions",
       "statut": "SOURCE_SECONDAIRE_GOUVERNANCE_A_RAPPROCHER",
       "commentaire": "Titres détenus séparés des options/attributions. Dates/fonctions de chaque ligne à contrôler : les anciens dirigeants peuvent subsister. Ne pas additionner les détentions directes et indirectes sans éliminer les doubles comptes. Pas de certification de couverture des transactions, ni note SSI déduite."
+    },
+    {
+      "bloc": null,
+      "champ": "actionnariat_physique_hors_droits_a_60j",
+      "valeur": {
+        "actions_emises": 149787365,
+        "administrateurs": [
+          {
+            "nom": "Steve Bjornson",
+            "actions": 224551
+          },
+          {
+            "nom": "Patrick N Breen",
+            "actions": 375000
+          },
+          {
+            "nom": "Anna Maria Cuglietta",
+            "actions": 88235
+          },
+          {
+            "nom": "Minaz Lalani",
+            "actions": 717571
+          },
+          {
+            "nom": "John Kim",
+            "actions": 524064
+          }
+        ]
+      },
+      "unite": "titres et pct",
+      "periode": "au circular du 29/04/2026, pages 5-6",
+      "date_source": "2026-04-29",
+      "source_url": "https://cematrix.com/_resources/financials/2026q1mic.pdf",
+      "statut": "SOURCE_PRIMAIRE",
+      "commentaire": "Conseil distinct de la direction exécutive : CEO non inclus dans ce tableau. RSU et options séparées; pas de total dirigeants exhaustif déduit.",
+      "date_collecte": "2026-11-05"
     }
   ],
   "journal_recherches": [

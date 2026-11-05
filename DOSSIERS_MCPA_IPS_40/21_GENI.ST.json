@@ -134,7 +134,7 @@
     },
     "qualite": {
       "ca_ttm": {
-        "valeur": 192180000.0,
+        "valeur": 192180000,
         "unite": "SEK",
         "periode": "TTM fournisseur; arrêté indiqué dans son tableau financier : Jun '26 Jun 30, 2026",
         "date_source": "2026-11-04",
@@ -306,7 +306,7 @@
         "date_collecte": "2026-11-04"
       },
       "capitalisation": {
-        "valeur": 478770000.0,
+        "valeur": 478770000,
         "unite": "SEK",
         "periode": "cotation au 2026-11-04",
         "date_source": "2026-11-04",
@@ -316,7 +316,7 @@
         "date_collecte": "2026-11-04"
       },
       "valeur_entreprise": {
-        "valeur": 432990000.0,
+        "valeur": 432990000,
         "unite": "SEK",
         "periode": "valorisation affichée au 2026-11-04",
         "date_source": "2026-11-04",
@@ -656,7 +656,7 @@
     },
     "risque": {
       "cash": {
-        "valeur": 45780000.0,
+        "valeur": 45780000,
         "unite": "SEK",
         "periode": "Dernier bilan affiché au 2026-11-04; date comptable exacte à rapprocher",
         "date_source": "2026-11-04",
@@ -681,7 +681,7 @@
         }
       },
       "dette_nette": {
-        "valeur": -45780000.0,
+        "valeur": -45780000,
         "unite": "SEK",
         "periode": "Dernier bilan affiché au 2026-11-04; date comptable exacte à rapprocher",
         "date_source": "2026-11-04",
@@ -742,7 +742,7 @@
         "date_collecte": "2026-11-04"
       },
       "dilution_3a_pct": {
-        "valeur": 0.0,
+        "valeur": 0,
         "unite": "pct",
         "periode": "FY 2022 / FY 2025",
         "date_source": "2026-11-04",
@@ -1050,7 +1050,7 @@
         "valeur": {
           "classification": "Technology",
           "nombre_lignes": 16,
-          "poids_initial_pct": 40.0,
+          "poids_initial_pct": 40,
           "tickers": [
             "IDN",
             "OSS",
@@ -1706,7 +1706,7 @@
     {
       "bloc": "qualite",
       "champ": "ca_ttm",
-      "valeur": 192180000.0,
+      "valeur": 192180000,
       "unite": "SEK",
       "periode": "TTM fournisseur; arrêté indiqué dans son tableau financier : Jun '26 Jun 30, 2026",
       "date_source": "2026-11-04",
@@ -1896,6 +1896,64 @@
       "source_url": "https://query1.finance.yahoo.com/v10/finance/quoteSummary/GENI.ST?modules=assetProfile,majorHoldersBreakdown,insiderHolders,insiderTransactions",
       "statut": "SOURCE_SECONDAIRE_GOUVERNANCE_A_RAPPROCHER",
       "commentaire": "Titres détenus séparés des options/attributions. Dates/fonctions de chaque ligne à contrôler : les anciens dirigeants peuvent subsister. Ne pas additionner les détentions directes et indirectes sans éliminer les doubles comptes. Pas de certification de couverture des transactions, ni note SSI déduite."
+    },
+    {
+      "bloc": null,
+      "champ": "actionnariat_physique_hors_droits_a_60j",
+      "valeur": {
+        "direction": [
+          {
+            "nom": "Héléne Henriksson",
+            "actions": 4000
+          },
+          {
+            "nom": "Jenny Björk",
+            "actions": 0
+          },
+          {
+            "nom": "Magnus Rasmusson",
+            "actions": 7052
+          },
+          {
+            "nom": "Madelene Persson",
+            "actions": 6600
+          },
+          {
+            "nom": "Fredrik Parkell",
+            "actions": 0
+          }
+        ],
+        "administrateurs": [
+          {
+            "nom": "Erik Ivarsson",
+            "actions": 27000
+          },
+          {
+            "nom": "Hans Krantz",
+            "actions": 1281555
+          },
+          {
+            "nom": "Bengt-Arne Molin",
+            "actions": 6730
+          },
+          {
+            "nom": "Johanna Berlinde",
+            "actions": 0
+          },
+          {
+            "nom": "Johan Martinsson",
+            "actions": 5000
+          }
+        ],
+        "martin_gren_famille_societes": 3010000
+      },
+      "unite": "titres et pct",
+      "periode": "page non datée consultée le 05/11/2026",
+      "date_source": "2026-11-05",
+      "source_url": "https://www.generic.se/en/for_investerare/insynshandel/",
+      "statut": "SOURCE_PRIMAIRE_PAGE_NON_DATEE",
+      "commentaire": "Zéros explicitement publiés. Martin Gren est classé grand actionnaire, pas dirigeant; détentions de sociétés/famille non assimilées à du capital personnel.",
+      "date_collecte": "2026-11-05"
     }
   ],
   "journal_recherches": [

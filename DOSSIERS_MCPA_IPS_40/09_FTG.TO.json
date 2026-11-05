@@ -134,7 +134,7 @@
     },
     "qualite": {
       "ca_ttm": {
-        "valeur": 215790000.0,
+        "valeur": 215790000,
         "unite": "CAD",
         "periode": "TTM fournisseur; arrêté indiqué dans son tableau financier : Aug '26 Aug 28, 2026",
         "date_source": "2026-11-04",
@@ -204,7 +204,7 @@
         "date_collecte": "2026-11-04"
       },
       "fcf_ttm": {
-        "valeur": 20950000.0,
+        "valeur": 20950000,
         "unite": "CAD",
         "periode": "TTM fournisseur; arrêté indiqué dans son tableau financier : Aug '26 Aug 28, 2026",
         "date_source": "2026-11-04",
@@ -306,7 +306,7 @@
         "date_collecte": "2026-11-04"
       },
       "capitalisation": {
-        "valeur": 779370000.0,
+        "valeur": 779370000,
         "unite": "CAD",
         "periode": "cotation au 2026-11-04",
         "date_source": "2026-11-04",
@@ -316,7 +316,7 @@
         "date_collecte": "2026-11-04"
       },
       "valeur_entreprise": {
-        "valeur": 798820000.0,
+        "valeur": 798820000,
         "unite": "CAD",
         "periode": "valorisation affichée au 2026-11-04",
         "date_source": "2026-11-04",
@@ -546,7 +546,7 @@
         "commentaire": "Résultat publié; non annualisé"
       },
       "previsions_ca_1a": {
-        "valeur": 224630000.0,
+        "valeur": 224630000,
         "unite": "CAD",
         "periode": "exercice annuel prévisionnel clos au 2026-11-30",
         "date_source": "2026-11-04",
@@ -633,7 +633,7 @@
     },
     "risque": {
       "cash": {
-        "valeur": 12750000.0,
+        "valeur": 12750000,
         "unite": "CAD",
         "periode": "Dernier bilan affiché au 2026-11-04; date comptable exacte à rapprocher",
         "date_source": "2026-11-04",
@@ -643,7 +643,7 @@
         "date_collecte": "2026-11-04"
       },
       "dette_brute": {
-        "valeur": 31450000.0,
+        "valeur": 31450000,
         "unite": "CAD",
         "periode": "Dernier bilan affiché au 2026-11-04; date comptable exacte à rapprocher",
         "date_source": "2026-11-04",
@@ -926,7 +926,7 @@
         "commentaire": "Ratio (titre ajusté converti en USD / URTH ajusté) sur chaque fenêtre, moins 1. Ancrages communs titre/ETF/FX; GBp constant annulé dans le ratio. URTH est un proxy ETF avec frais/écart de suivi; horaires de clôture non synchrones. Fenêtres impossibles avant IPO omises, jamais extrapolées."
       },
       "volume_moyen_20j": {
-        "valeur": 160030.0,
+        "valeur": 160030,
         "unite": "titres",
         "periode": "20 dernières séances",
         "date_source": "2026-11-03",
@@ -1492,7 +1492,7 @@
     {
       "bloc": "risque",
       "champ": "dette_nette",
-      "valeur": 18700000.0,
+      "valeur": 18700000,
       "unite": "CAD",
       "periode": "Dernier bilan affiché au 2026-11-04; date comptable exacte à rapprocher",
       "date_source": "2026-11-04",
@@ -1684,7 +1684,7 @@
     {
       "bloc": "qualite",
       "champ": "ca_ttm",
-      "valeur": 215790000.0,
+      "valeur": 215790000,
       "unite": "CAD",
       "periode": "TTM fournisseur; arrêté indiqué dans son tableau financier : Aug '26 Aug 28, 2026",
       "date_source": "2026-11-04",
@@ -1696,7 +1696,7 @@
     {
       "bloc": "qualite",
       "champ": "fcf_ttm",
-      "valeur": 20950000.0,
+      "valeur": 20950000,
       "unite": "CAD",
       "periode": "TTM fournisseur; arrêté indiqué dans son tableau financier : Aug '26 Aug 28, 2026",
       "date_source": "2026-11-04",
@@ -2165,6 +2165,23 @@
       "source_url": "https://query1.finance.yahoo.com/v10/finance/quoteSummary/FTG.TO?modules=assetProfile,majorHoldersBreakdown,insiderHolders,insiderTransactions",
       "statut": "SOURCE_SECONDAIRE_GOUVERNANCE_A_RAPPROCHER",
       "commentaire": "Titres détenus séparés des options/attributions. Dates/fonctions de chaque ligne à contrôler : les anciens dirigeants peuvent subsister. Ne pas additionner les détentions directes et indirectes sans éliminer les doubles comptes. Pas de certification de couverture des transactions, ni note SSI déduite."
+    },
+    {
+      "bloc": null,
+      "champ": "actionnariat_physique_hors_droits_a_60j",
+      "valeur": {
+        "bradley_bourne_actions": 2759966,
+        "bradley_bourne_psu_separees": 40000,
+        "actions_emises": 25173390,
+        "part_actions_pct": 10.963823307071475
+      },
+      "unite": "titres et pct",
+      "periode": "circular du 23/02/2026, p.3 et 5",
+      "date_source": "2026-02-23",
+      "source_url": "https://www.ftgcorp.com/wp-content/uploads/2026/03/FTG-2025-Circular_v04.pdf",
+      "statut": "SOURCE_PRIMAIRE",
+      "commentaire": "Actions ordinaires détenues/contrôlées directement ou indirectement selon le circular. PSU exclues; situation historique.",
+      "date_collecte": "2026-11-05"
     }
   ],
   "journal_recherches": [

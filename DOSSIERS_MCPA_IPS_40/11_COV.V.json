@@ -134,7 +134,7 @@
     },
     "qualite": {
       "ca_ttm": {
-        "valeur": 34350000.0,
+        "valeur": 34350000,
         "unite": "CAD",
         "periode": "TTM fournisseur; arrêté indiqué dans son tableau financier : Jun '26 Jun 30, 2026",
         "date_source": "2026-11-04",
@@ -203,7 +203,7 @@
         "date_collecte": "2026-11-04"
       },
       "fcf_ttm": {
-        "valeur": 5550000.0,
+        "valeur": 5550000,
         "unite": "CAD",
         "periode": "TTM fournisseur; arrêté indiqué dans son tableau financier : Jun '26 Jun 30, 2026",
         "date_source": "2026-11-04",
@@ -305,7 +305,7 @@
         "date_collecte": "2026-11-04"
       },
       "capitalisation": {
-        "valeur": 117650000.0,
+        "valeur": 117650000,
         "unite": "CAD",
         "periode": "cotation au 2026-11-04",
         "date_source": "2026-11-04",
@@ -315,7 +315,7 @@
         "date_collecte": "2026-11-04"
       },
       "valeur_entreprise": {
-        "valeur": 99950000.0,
+        "valeur": 99950000,
         "unite": "CAD",
         "periode": "valorisation affichée au 2026-11-04",
         "date_source": "2026-11-04",
@@ -325,7 +325,7 @@
         "date_collecte": "2026-11-04"
       },
       "ev_ca": {
-        "valeur": 3.0,
+        "valeur": 3,
         "unite": "ratio",
         "periode": "TTM fournisseur; arrêté indiqué dans son tableau financier : Jun '26 Jun 30, 2026",
         "date_source": "2026-11-04",
@@ -416,7 +416,7 @@
             "arrete": "Sep '25 Sep 30, 2025",
             "ratios": {
               "PE Ratio": 27.98,
-              "P/FCF Ratio": 35.0
+              "P/FCF Ratio": 35
             }
           },
           {
@@ -657,7 +657,7 @@
         "commentaire": "Source primaire; données non annualisées"
       },
       "dette_nette": {
-        "valeur": -17700000.0,
+        "valeur": -17700000,
         "unite": "CAD",
         "periode": "Dernier bilan affiché au 2026-11-04; date comptable exacte à rapprocher",
         "date_source": "2026-11-04",
@@ -936,7 +936,7 @@
         "commentaire": "Ratio (titre ajusté converti en USD / URTH ajusté) sur chaque fenêtre, moins 1. Ancrages communs titre/ETF/FX; GBp constant annulé dans le ratio. URTH est un proxy ETF avec frais/écart de suivi; horaires de clôture non synchrones. Fenêtres impossibles avant IPO omises, jamais extrapolées."
       },
       "volume_moyen_20j": {
-        "valeur": 17475.0,
+        "valeur": 17475,
         "unite": "titres",
         "periode": "20 dernières séances",
         "date_source": "2026-11-03",
@@ -1026,7 +1026,7 @@
         "valeur": {
           "classification": "Healthcare",
           "nombre_lignes": 4,
-          "poids_initial_pct": 10.0,
+          "poids_initial_pct": 10,
           "tickers": [
             "INFU",
             "COV.V",
@@ -1497,7 +1497,7 @@
     {
       "bloc": "risque",
       "champ": "cash",
-      "valeur": 19390000.0,
+      "valeur": 19390000,
       "unite": "CAD",
       "periode": "Dernier bilan affiché au 2026-11-04; date comptable exacte à rapprocher",
       "date_source": "2026-11-04",
@@ -1509,7 +1509,7 @@
     {
       "bloc": "risque",
       "champ": "dette_brute",
-      "valeur": 1690000.0,
+      "valeur": 1690000,
       "unite": "CAD",
       "periode": "Dernier bilan affiché au 2026-11-04; date comptable exacte à rapprocher",
       "date_source": "2026-11-04",
@@ -1713,7 +1713,7 @@
     {
       "bloc": "valorisation",
       "champ": "ev_ca",
-      "valeur": 3.0,
+      "valeur": 3,
       "unite": "ratio",
       "periode": "TTM fournisseur; arrêté indiqué dans son tableau financier : Jun '26 Jun 30, 2026",
       "date_source": "2026-11-04",
@@ -1773,7 +1773,7 @@
     {
       "bloc": "qualite",
       "champ": "ca_ttm",
-      "valeur": 34350000.0,
+      "valeur": 34350000,
       "unite": "CAD",
       "periode": "TTM fournisseur; arrêté indiqué dans son tableau financier : Jun '26 Jun 30, 2026",
       "date_source": "2026-11-04",
@@ -1785,7 +1785,7 @@
     {
       "bloc": "qualite",
       "champ": "fcf_ttm",
-      "valeur": 5550000.0,
+      "valeur": 5550000,
       "unite": "CAD",
       "periode": "TTM fournisseur; arrêté indiqué dans son tableau financier : Jun '26 Jun 30, 2026",
       "date_source": "2026-11-04",
@@ -2063,6 +2063,27 @@
       "source_url": "https://query1.finance.yahoo.com/v10/finance/quoteSummary/COV.V?modules=assetProfile,majorHoldersBreakdown,insiderHolders,insiderTransactions",
       "statut": "SOURCE_SECONDAIRE_GOUVERNANCE_A_RAPPROCHER",
       "commentaire": "Titres détenus séparés des options/attributions. Dates/fonctions de chaque ligne à contrôler : les anciens dirigeants peuvent subsister. Ne pas additionner les détentions directes et indirectes sans éliminer les doubles comptes. Pas de certification de couverture des transactions, ni note SSI déduite."
+    },
+    {
+      "bloc": null,
+      "champ": "actionnariat_physique_hors_droits_a_60j",
+      "valeur": {
+        "actions_emises": 27618077,
+        "abe_schwartz_actions": 8160912,
+        "martin_goldfarb_groupe_actions": 4601563,
+        "joseph_cordiano_actions": 202400,
+        "kim_crooks_actions": 29850,
+        "ron_smith_actions": 30000,
+        "ceo_brent_ashton_case_actions": "tiret",
+        "ceo_options_separees": 800000
+      },
+      "unite": "titres et pct",
+      "periode": "positions au 06/02/2026, circular p.8-9",
+      "date_source": "2026-02-20",
+      "source_url": "https://s202.q4cdn.com/814608179/files/doc_downloads/2026/02/MIC.pdf",
+      "statut": "SOURCE_PRIMAIRE",
+      "commentaire": "Tiret conservé comme publication du tableau, pas conversion implicite en zéro. Groupe Goldfarb et participations contrôlées distincts de propriété personnelle; options et DSU exclus.",
+      "date_collecte": "2026-11-05"
     }
   ],
   "journal_recherches": [

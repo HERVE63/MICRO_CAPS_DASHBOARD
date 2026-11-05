@@ -87,7 +87,7 @@
         }
       },
       "capitalisation_eur": {
-        "valeur": 78000000.0,
+        "valeur": 78000000,
         "unite": "EUR",
         "periode": "capitalisation fournisseur et référence BCE du 2026-11-04",
         "date_source": "2026-11-04",
@@ -129,7 +129,7 @@
     },
     "qualite": {
       "ca_ttm": {
-        "valeur": 212910000.0,
+        "valeur": 212910000,
         "unite": "EUR",
         "periode": "TTM fournisseur; arrêté indiqué dans son tableau financier : Jun '26 Jun 30, 2026",
         "date_source": "2026-11-04",
@@ -199,7 +199,7 @@
         "date_collecte": "2026-11-04"
       },
       "fcf_ttm": {
-        "valeur": 1950000.0,
+        "valeur": 1950000,
         "unite": "EUR",
         "periode": "TTM fournisseur; arrêté indiqué dans son tableau financier : Jun '26 Jun 30, 2026",
         "date_source": "2026-11-04",
@@ -301,7 +301,7 @@
         "date_collecte": "2026-11-04"
       },
       "capitalisation": {
-        "valeur": 78000000.0,
+        "valeur": 78000000,
         "unite": "EUR",
         "periode": "cotation au 2026-11-04",
         "date_source": "2026-11-04",
@@ -311,7 +311,7 @@
         "date_collecte": "2026-11-04"
       },
       "valeur_entreprise": {
-        "valeur": 111120000.0,
+        "valeur": 111120000,
         "unite": "EUR",
         "periode": "valorisation affichée au 2026-11-04",
         "date_source": "2026-11-04",
@@ -544,7 +544,7 @@
         }
       },
       "previsions_ca_1a": {
-        "valeur": 238160000.0,
+        "valeur": 238160000,
         "unite": "EUR",
         "periode": "exercice annuel prévisionnel clos au 2026-12-31",
         "date_source": "2026-11-04",
@@ -999,7 +999,7 @@
         "valeur": {
           "classification": "Technology",
           "nombre_lignes": 16,
-          "poids_initial_pct": 40.0,
+          "poids_initial_pct": 40,
           "tickers": [
             "IDN",
             "OSS",
@@ -1647,7 +1647,7 @@
     {
       "bloc": "qualite",
       "champ": "ca_ttm",
-      "valeur": 212910000.0,
+      "valeur": 212910000,
       "unite": "EUR",
       "periode": "TTM fournisseur; arrêté indiqué dans son tableau financier : Jun '26 Jun 30, 2026",
       "date_source": "2026-11-04",
@@ -1659,7 +1659,7 @@
     {
       "bloc": "qualite",
       "champ": "fcf_ttm",
-      "valeur": 1950000.0,
+      "valeur": 1950000,
       "unite": "EUR",
       "periode": "TTM fournisseur; arrêté indiqué dans son tableau financier : Jun '26 Jun 30, 2026",
       "date_source": "2026-11-04",
@@ -1755,7 +1755,7 @@
     {
       "bloc": "risque",
       "champ": "cash",
-      "valeur": 18340000.0,
+      "valeur": 18340000,
       "unite": "EUR",
       "periode": "Dernier bilan affiché au 2026-11-04; date comptable exacte à rapprocher",
       "date_source": "2026-11-04",
@@ -1767,7 +1767,7 @@
     {
       "bloc": "risque",
       "champ": "dette_brute",
-      "valeur": 52730000.0,
+      "valeur": 52730000,
       "unite": "EUR",
       "periode": "Dernier bilan affiché au 2026-11-04; date comptable exacte à rapprocher",
       "date_source": "2026-11-04",
@@ -1779,7 +1779,7 @@
     {
       "bloc": "risque",
       "champ": "dette_nette",
-      "valeur": 34390000.0,
+      "valeur": 34390000,
       "unite": "EUR",
       "periode": "Dernier bilan affiché au 2026-11-04; date comptable exacte à rapprocher",
       "date_source": "2026-11-04",
@@ -1968,6 +1968,22 @@
       "source_url": "https://query1.finance.yahoo.com/v10/finance/quoteSummary/ALICA.PA?modules=assetProfile,majorHoldersBreakdown,insiderHolders,insiderTransactions",
       "statut": "SOURCE_SECONDAIRE_GOUVERNANCE_A_RAPPROCHER",
       "commentaire": "Titres détenus séparés des options/attributions. Dates/fonctions de chaque ligne à contrôler : les anciens dirigeants peuvent subsister. Ne pas additionner les détentions directes et indirectes sans éliminer les doubles comptes. Pas de certification de couverture des transactions, ni note SSI déduite."
+    },
+    {
+      "bloc": null,
+      "champ": "actionnariat_physique_hors_droits_a_60j",
+      "valeur": {
+        "thierry_ballenghien_direct_pct": 13.76,
+        "balwen_holding_pct": 37.2,
+        "thierry_ballenghien_part_balwen_pct": 50.1
+      },
+      "unite": "titres et pct",
+      "periode": "au 31/12/2025, rapport annuel p.74-75",
+      "date_source": "2026-04-03",
+      "source_url": "https://www.icape-group.com/wp-content/uploads/2026/04/Icape-Holding-Rapport-Financier-Annuel-2025-vdef.pdf",
+      "statut": "SOURCE_PRIMAIRE",
+      "commentaire": "Contrôle familial et pacte de concert documentés. La totalité de Balwen ne représente pas le patrimoine économique personnel de Thierry Ballenghien. Cessions de juin 2026 à rapprocher, pas position actuelle.",
+      "date_collecte": "2026-11-05"
     }
   ],
   "journal_recherches": [

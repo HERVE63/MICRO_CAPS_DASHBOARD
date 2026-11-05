@@ -134,7 +134,7 @@
     },
     "qualite": {
       "ca_ttm": {
-        "valeur": 102000000.0,
+        "valeur": 102000000,
         "unite": "CAD",
         "periode": "TTM fournisseur; arrêté indiqué dans son tableau financier : Jun '26 Jun 30, 2026",
         "date_source": "2026-11-04",
@@ -204,7 +204,7 @@
         "date_collecte": "2026-11-04"
       },
       "fcf_ttm": {
-        "valeur": -22200000.0,
+        "valeur": -22200000,
         "unite": "CAD",
         "periode": "TTM fournisseur; arrêté indiqué dans son tableau financier : Jun '26 Jun 30, 2026",
         "date_source": "2026-11-04",
@@ -306,7 +306,7 @@
         "date_collecte": "2026-11-04"
       },
       "capitalisation": {
-        "valeur": 351990000.0,
+        "valeur": 351990000,
         "unite": "CAD",
         "periode": "cotation au 2026-11-04",
         "date_source": "2026-11-04",
@@ -316,7 +316,7 @@
         "date_collecte": "2026-11-04"
       },
       "valeur_entreprise": {
-        "valeur": 391720000.0,
+        "valeur": 391720000,
         "unite": "CAD",
         "periode": "valorisation affichée au 2026-11-04",
         "date_source": "2026-11-04",
@@ -573,7 +573,7 @@
         }
       },
       "revision_bpa_30j_pct": {
-        "valeur": 0.0,
+        "valeur": 0,
         "unite": "pct",
         "periode": "consensus annuel clos au 2027-09-30",
         "date_source": "2026-11-05",
@@ -644,7 +644,7 @@
         "date_collecte": "2026-11-04"
       },
       "dette_brute": {
-        "valeur": 58310000.0,
+        "valeur": 58310000,
         "unite": "CAD",
         "periode": "Dernier bilan affiché au 2026-11-04; date comptable exacte à rapprocher",
         "date_source": "2026-11-04",
@@ -654,7 +654,7 @@
         "date_collecte": "2026-11-04"
       },
       "dette_nette": {
-        "valeur": 39720000.0,
+        "valeur": 39720000,
         "unite": "CAD",
         "periode": "Dernier bilan affiché au 2026-11-04; date comptable exacte à rapprocher",
         "date_source": "2026-11-04",
@@ -922,7 +922,7 @@
         "commentaire": "Ratio (titre ajusté converti en USD / URTH ajusté) sur chaque fenêtre, moins 1. Ancrages communs titre/ETF/FX; GBp constant annulé dans le ratio. URTH est un proxy ETF avec frais/écart de suivi; horaires de clôture non synchrones. Fenêtres impossibles avant IPO omises, jamais extrapolées."
       },
       "volume_moyen_20j": {
-        "valeur": 182670.0,
+        "valeur": 182670,
         "unite": "titres",
         "periode": "20 dernières séances",
         "date_source": "2026-11-03",
@@ -1488,7 +1488,7 @@
     {
       "bloc": "qualite",
       "champ": "marge_brute_pct",
-      "valeur": 33.0,
+      "valeur": 33,
       "unite": "pct",
       "periode": "TTM affiché au 2026-11-04; date exacte de fin non fournie sur la page statistiques",
       "date_source": "2026-11-04",
@@ -1512,7 +1512,7 @@
     {
       "bloc": "risque",
       "champ": "cash",
-      "valeur": 18580000.0,
+      "valeur": 18580000,
       "unite": "CAD",
       "periode": "Dernier bilan affiché au 2026-11-04; date comptable exacte à rapprocher",
       "date_source": "2026-11-04",
@@ -1656,7 +1656,7 @@
     {
       "bloc": "qualite",
       "champ": "ca_ttm",
-      "valeur": 102000000.0,
+      "valeur": 102000000,
       "unite": "CAD",
       "periode": "TTM fournisseur; arrêté indiqué dans son tableau financier : Jun '26 Jun 30, 2026",
       "date_source": "2026-11-04",
@@ -1668,7 +1668,7 @@
     {
       "bloc": "qualite",
       "champ": "fcf_ttm",
-      "valeur": -22200000.0,
+      "valeur": -22200000,
       "unite": "CAD",
       "periode": "TTM fournisseur; arrêté indiqué dans son tableau financier : Jun '26 Jun 30, 2026",
       "date_source": "2026-11-04",
@@ -1985,6 +1985,22 @@
       "source_url": "https://query1.finance.yahoo.com/v10/finance/quoteSummary/ELVA.TO?modules=assetProfile,majorHoldersBreakdown,insiderHolders,insiderTransactions",
       "statut": "SOURCE_SECONDAIRE_GOUVERNANCE_A_RAPPROCHER",
       "commentaire": "Titres détenus séparés des options/attributions. Dates/fonctions de chaque ligne à contrôler : les anciens dirigeants peuvent subsister. Ne pas additionner les détentions directes et indirectes sans éliminer les doubles comptes. Pas de certification de couverture des transactions, ni note SSI déduite."
+    },
+    {
+      "bloc": null,
+      "champ": "actionnariat_physique_hors_droits_a_60j",
+      "valeur": {
+        "sankar_das_gupta_actions": 10270751,
+        "actions_emises": 48000813,
+        "part_pct": 21.4
+      },
+      "unite": "titres et pct",
+      "periode": "circular au 15/01/2026",
+      "date_source": "2026-01-15",
+      "source_url": "https://www.sec.gov/Archives/edgar/data/1844450/000175392626001897/g085981_ex99-1.htm",
+      "statut": "SOURCE_PRIMAIRE",
+      "commentaire": "Actions existantes détenues/contrôlées par le président exécutif; ne pas ajouter options ni supposer une propriété personnelle de toutes participations indirectes. Situation historique.",
+      "date_collecte": "2026-11-05"
     }
   ],
   "journal_recherches": [

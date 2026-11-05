@@ -139,7 +139,7 @@
     },
     "qualite": {
       "ca_ttm": {
-        "valeur": 1150000000.0,
+        "valeur": 1150000000,
         "unite": "SEK",
         "periode": "TTM fournisseur; arrêté indiqué dans son tableau financier : Sep '26 Sep 30, 2026",
         "date_source": "2026-11-04",
@@ -207,7 +207,7 @@
         "date_collecte": "2026-11-04"
       },
       "fcf_ttm": {
-        "valeur": 191160000.0,
+        "valeur": 191160000,
         "unite": "SEK",
         "periode": "TTM fournisseur; arrêté indiqué dans son tableau financier : Sep '26 Sep 30, 2026",
         "date_source": "2026-11-04",
@@ -289,7 +289,7 @@
     },
     "valorisation": {
       "cours": {
-        "valeur": 851.0,
+        "valeur": 851,
         "unite": "SEK",
         "periode": "cloture 2026-11-03",
         "date_source": "2026-11-03",
@@ -309,7 +309,7 @@
         "date_collecte": "2026-11-04"
       },
       "capitalisation": {
-        "valeur": 10590000000.0,
+        "valeur": 10590000000,
         "unite": "SEK",
         "periode": "cotation au 2026-11-04",
         "date_source": "2026-11-04",
@@ -319,7 +319,7 @@
         "date_collecte": "2026-11-04"
       },
       "valeur_entreprise": {
-        "valeur": 10460000000.0,
+        "valeur": 10460000000,
         "unite": "SEK",
         "periode": "valorisation affichée au 2026-11-04",
         "date_source": "2026-11-04",
@@ -562,7 +562,7 @@
         }
       },
       "previsions_ca_1a": {
-        "valeur": 1230000000.0,
+        "valeur": 1230000000,
         "unite": "SEK",
         "periode": "exercice annuel prévisionnel clos au 2026-12-31",
         "date_source": "2026-11-04",
@@ -638,7 +638,7 @@
     },
     "risque": {
       "cash": {
-        "valeur": 200040000.0,
+        "valeur": 200040000,
         "unite": "SEK",
         "periode": "Dernier bilan affiché au 2026-11-04; date comptable exacte à rapprocher",
         "date_source": "2026-11-04",
@@ -648,7 +648,7 @@
         "date_collecte": "2026-11-04"
       },
       "dette_brute": {
-        "valeur": 99890000.0,
+        "valeur": 99890000,
         "unite": "SEK",
         "periode": "Dernier bilan affiché au 2026-11-04; date comptable exacte à rapprocher",
         "date_source": "2026-11-04",
@@ -658,7 +658,7 @@
         "date_collecte": "2026-11-04"
       },
       "dette_nette": {
-        "valeur": -100150000.0,
+        "valeur": -100150000,
         "unite": "SEK",
         "periode": "Dernier bilan affiché au 2026-11-04; date comptable exacte à rapprocher",
         "date_source": "2026-11-04",
@@ -1692,7 +1692,7 @@
     {
       "bloc": "qualite",
       "champ": "ca_ttm",
-      "valeur": 1150000000.0,
+      "valeur": 1150000000,
       "unite": "SEK",
       "periode": "TTM fournisseur; arrêté indiqué dans son tableau financier : Sep '26 Sep 30, 2026",
       "date_source": "2026-11-04",
@@ -1704,7 +1704,7 @@
     {
       "bloc": "qualite",
       "champ": "fcf_ttm",
-      "valeur": 191160000.0,
+      "valeur": 191160000,
       "unite": "SEK",
       "periode": "TTM fournisseur; arrêté indiqué dans son tableau financier : Sep '26 Sep 30, 2026",
       "date_source": "2026-11-04",
@@ -1936,6 +1936,46 @@
       "source_url": "https://query1.finance.yahoo.com/v10/finance/quoteSummary/PLEJD.ST?modules=assetProfile,majorHoldersBreakdown,insiderHolders,insiderTransactions",
       "statut": "SOURCE_SECONDAIRE_GOUVERNANCE_A_RAPPROCHER",
       "commentaire": "Titres détenus séparés des options/attributions. Dates/fonctions de chaque ligne à contrôler : les anciens dirigeants peuvent subsister. Ne pas additionner les détentions directes et indirectes sans éliminer les doubles comptes. Pas de certification de couverture des transactions, ni note SSI déduite."
+    },
+    {
+      "bloc": null,
+      "champ": "actionnariat_physique_hors_droits_a_60j",
+      "valeur": {
+        "direction": [
+          {
+            "nom": "Babak Esfahani",
+            "actions": 380000
+          },
+          {
+            "nom": "Linda Kjellberg",
+            "actions": 10265,
+            "perimetre": "directes et proches"
+          },
+          {
+            "nom": "Mikael Blixman",
+            "actions": 7775
+          },
+          {
+            "nom": "Gustav Josefsson",
+            "actions": 337342
+          },
+          {
+            "nom": "Iman Karimi",
+            "actions": 287781
+          },
+          {
+            "nom": "Rikard Sköldin",
+            "actions": 8087
+          }
+        ]
+      },
+      "unite": "titres et pct",
+      "periode": "page non datée consultée le 05/11/2026; date effective de chaque détention non publiée",
+      "date_source": "2026-11-05",
+      "source_url": "https://www.plejd.com/en-dk/investors/management",
+      "statut": "SOURCE_PRIMAIRE_PAGE_NON_DATEE",
+      "commentaire": "Déclaration officielle de titres détenus, pas date de position certifiée. Proches du CFO inclus, pas de double comptage supposé.",
+      "date_collecte": "2026-11-05"
     }
   ],
   "journal_recherches": [

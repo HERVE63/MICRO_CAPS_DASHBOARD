@@ -92,7 +92,7 @@
         }
       },
       "capitalisation_eur": {
-        "valeur": 36670000.0,
+        "valeur": 36670000,
         "unite": "EUR",
         "periode": "capitalisation fournisseur et référence BCE du 2026-11-04",
         "date_source": "2026-11-04",
@@ -134,7 +134,7 @@
     },
     "qualite": {
       "ca_ttm": {
-        "valeur": 13490000.0,
+        "valeur": 13490000,
         "unite": "EUR",
         "periode": "TTM fournisseur; arrêté indiqué dans son tableau financier : Sep '26 Sep 30, 2026",
         "date_source": "2026-11-04",
@@ -202,7 +202,7 @@
         "date_collecte": "2026-11-04"
       },
       "fcf_ttm": {
-        "valeur": 1300000.0,
+        "valeur": 1300000,
         "unite": "EUR",
         "periode": "TTM fournisseur; arrêté indiqué dans son tableau financier : Sep '26 Sep 30, 2026",
         "date_source": "2026-11-04",
@@ -304,7 +304,7 @@
         "date_collecte": "2026-11-04"
       },
       "capitalisation": {
-        "valeur": 36670000.0,
+        "valeur": 36670000,
         "unite": "EUR",
         "periode": "cotation au 2026-11-04",
         "date_source": "2026-11-04",
@@ -314,7 +314,7 @@
         "date_collecte": "2026-11-04"
       },
       "valeur_entreprise": {
-        "valeur": 37410000.0,
+        "valeur": 37410000,
         "unite": "EUR",
         "periode": "valorisation affichée au 2026-11-04",
         "date_source": "2026-11-04",
@@ -647,7 +647,7 @@
     },
     "risque": {
       "cash": {
-        "valeur": 4230000.0,
+        "valeur": 4230000,
         "unite": "EUR",
         "periode": "Dernier bilan affiché au 2026-11-04; date comptable exacte à rapprocher",
         "date_source": "2026-11-04",
@@ -657,7 +657,7 @@
         "date_collecte": "2026-11-04"
       },
       "dette_brute": {
-        "valeur": 4970000.0,
+        "valeur": 4970000,
         "unite": "EUR",
         "periode": "Dernier bilan affiché au 2026-11-04; date comptable exacte à rapprocher",
         "date_source": "2026-11-04",
@@ -667,7 +667,7 @@
         "date_collecte": "2026-11-04"
       },
       "dette_nette": {
-        "valeur": 744000.0,
+        "valeur": 744000,
         "unite": "EUR",
         "periode": "Dernier bilan affiché au 2026-11-04; date comptable exacte à rapprocher",
         "date_source": "2026-11-04",
@@ -1021,7 +1021,7 @@
         "valeur": {
           "classification": "Technology",
           "nombre_lignes": 16,
-          "poids_initial_pct": 40.0,
+          "poids_initial_pct": 40,
           "tickers": [
             "IDN",
             "OSS",
@@ -1747,7 +1747,7 @@
     {
       "bloc": "qualite",
       "champ": "ca_ttm",
-      "valeur": 13490000.0,
+      "valeur": 13490000,
       "unite": "EUR",
       "periode": "TTM fournisseur; arrêté indiqué dans son tableau financier : Sep '26 Sep 30, 2026",
       "date_source": "2026-11-04",
@@ -1759,7 +1759,7 @@
     {
       "bloc": "qualite",
       "champ": "fcf_ttm",
-      "valeur": 1300000.0,
+      "valeur": 1300000,
       "unite": "EUR",
       "periode": "TTM fournisseur; arrêté indiqué dans son tableau financier : Sep '26 Sep 30, 2026",
       "date_source": "2026-11-04",
@@ -1904,6 +1904,24 @@
       "source_url": "https://query1.finance.yahoo.com/v10/finance/quoteSummary/MEMS.PA?modules=assetProfile,majorHoldersBreakdown,insiderHolders,insiderTransactions",
       "statut": "SOURCE_SECONDAIRE_GOUVERNANCE_A_RAPPROCHER",
       "commentaire": "Titres détenus séparés des options/attributions. Dates/fonctions de chaque ligne à contrôler : les anciens dirigeants peuvent subsister. Ne pas additionner les détentions directes et indirectes sans éliminer les doubles comptes. Pas de certification de couverture des transactions, ni note SSI déduite."
+    },
+    {
+      "bloc": null,
+      "champ": "actionnariat_physique_hors_droits_a_60j",
+      "valeur": {
+        "jean_michel_karam_actions": 680566,
+        "jean_michel_karam_pct": 8.83,
+        "administrateurs_total_actions": 829552,
+        "administrateurs_pct": 10.76,
+        "actions_emises": 7706902
+      },
+      "unite": "titres et pct",
+      "periode": "au 31/12/2025, rapport annuel p.56",
+      "date_source": "2026-04-29",
+      "source_url": "https://memscap.com/wp-content/uploads/2026/04/Rapport-annuel-Memscap-2025-29_04_2026.pdf",
+      "statut": "SOURCE_PRIMAIRE",
+      "commentaire": "Actions existantes, options distinctes. Situation historique; ne pas confondre la participation personnelle du CEO et le total administrateurs.",
+      "date_collecte": "2026-11-05"
     }
   ],
   "journal_recherches": [

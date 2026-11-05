@@ -92,7 +92,7 @@
         }
       },
       "capitalisation_eur": {
-        "valeur": 23670000.0,
+        "valeur": 23670000,
         "unite": "EUR",
         "periode": "capitalisation fournisseur et référence BCE du 2026-11-04",
         "date_source": "2026-11-04",
@@ -139,7 +139,7 @@
     },
     "qualite": {
       "ca_ttm": {
-        "valeur": 81600000.0,
+        "valeur": 81600000,
         "unite": "EUR",
         "periode": "TTM fournisseur; arrêté indiqué dans son tableau financier : Jun '26 Jun 30, 2026",
         "date_source": "2026-11-04",
@@ -209,7 +209,7 @@
         "date_collecte": "2026-11-04"
       },
       "fcf_ttm": {
-        "valeur": 1610000.0,
+        "valeur": 1610000,
         "unite": "EUR",
         "periode": "TTM fournisseur; arrêté indiqué dans son tableau financier : Jun '26 Jun 30, 2026",
         "date_source": "2026-11-04",
@@ -317,7 +317,7 @@
         "date_collecte": "2026-11-04"
       },
       "capitalisation": {
-        "valeur": 23670000.0,
+        "valeur": 23670000,
         "unite": "EUR",
         "periode": "cotation au 2026-11-04",
         "date_source": "2026-11-04",
@@ -327,7 +327,7 @@
         "date_collecte": "2026-11-04"
       },
       "valeur_entreprise": {
-        "valeur": 27640000.0,
+        "valeur": 27640000,
         "unite": "EUR",
         "periode": "valorisation affichée au 2026-11-04",
         "date_source": "2026-11-04",
@@ -707,7 +707,7 @@
         "date_collecte": "2026-11-04"
       },
       "dette_brute": {
-        "valeur": 7530000.0,
+        "valeur": 7530000,
         "unite": "EUR",
         "periode": "Dernier bilan affiché au 2026-11-04; date comptable exacte à rapprocher",
         "date_source": "2026-11-04",
@@ -1096,7 +1096,7 @@
         "valeur": {
           "classification": "Technology",
           "nombre_lignes": 16,
-          "poids_initial_pct": 40.0,
+          "poids_initial_pct": 40,
           "tickers": [
             "IDN",
             "OSS",
@@ -1560,7 +1560,7 @@
     {
       "bloc": "risque",
       "champ": "cash",
-      "valeur": 3550000.0,
+      "valeur": 3550000,
       "unite": "EUR",
       "periode": "Dernier bilan affiché au 2026-11-04; date comptable exacte à rapprocher",
       "date_source": "2026-11-04",
@@ -1572,7 +1572,7 @@
     {
       "bloc": "risque",
       "champ": "dette_nette",
-      "valeur": 3980000.0,
+      "valeur": 3980000,
       "unite": "EUR",
       "periode": "Dernier bilan affiché au 2026-11-04; date comptable exacte à rapprocher",
       "date_source": "2026-11-04",
@@ -1740,7 +1740,7 @@
     {
       "bloc": "qualite",
       "champ": "ca_ttm",
-      "valeur": 81600000.0,
+      "valeur": 81600000,
       "unite": "EUR",
       "periode": "TTM fournisseur; arrêté indiqué dans son tableau financier : Jun '26 Jun 30, 2026",
       "date_source": "2026-11-04",
@@ -1752,7 +1752,7 @@
     {
       "bloc": "qualite",
       "champ": "fcf_ttm",
-      "valeur": 1610000.0,
+      "valeur": 1610000,
       "unite": "EUR",
       "periode": "TTM fournisseur; arrêté indiqué dans son tableau financier : Jun '26 Jun 30, 2026",
       "date_source": "2026-11-04",
@@ -1876,6 +1876,26 @@
       "source_url": "https://query1.finance.yahoo.com/v10/finance/quoteSummary/GROW.MI?modules=assetProfile,majorHoldersBreakdown,insiderHolders,insiderTransactions",
       "statut": "SOURCE_SECONDAIRE_GOUVERNANCE_A_RAPPROCHER",
       "commentaire": "Titres détenus séparés des options/attributions. Dates/fonctions de chaque ligne à contrôler : les anciens dirigeants peuvent subsister. Ne pas additionner les détentions directes et indirectes sans éliminer les doubles comptes. Pas de certification de couverture des transactions, ni note SSI déduite."
+    },
+    {
+      "bloc": null,
+      "champ": "actionnariat_physique_hors_droits_a_60j",
+      "valeur": {
+        "actions_emises_page": 15393343,
+        "gorni_via_poliedriq_pct": 11.762,
+        "miscia_via_am0_pct": 10.433,
+        "monfredini_via_mm_pct": 11.619,
+        "azzali_via_yugen_pct": 10.045,
+        "bettoni_via_linea_pct": 11.038,
+        "autodetention_pct_page": 9.283
+      },
+      "unite": "titres et pct",
+      "periode": "page non datée consultée le 05/11/2026; cohérente avec présentation novembre 2025, actualisation à rapprocher",
+      "date_source": "2026-11-05",
+      "source_url": "https://www.growens.io/en/shareholders/",
+      "statut": "SOURCE_PRIMAIRE_PAGE_NON_DATEE",
+      "commentaire": "Détentions via sociétés personnelles distinctes des droits futurs. État de page potentiellement ancien; autodétention différente du fournisseur 2026, ne pas remplacer ce dernier sans réconciliation.",
+      "date_collecte": "2026-11-05"
     }
   ],
   "journal_recherches": [
