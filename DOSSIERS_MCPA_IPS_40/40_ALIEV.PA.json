@@ -494,16 +494,17 @@
       },
       "croissance_ebitda_pct": {
         "valeur": null,
-        "unite": null,
-        "periode": null,
-        "date_source": null,
-        "source_url": null,
-        "statut": "A_COLLECTER",
-        "commentaire": null,
+        "unite": "sans objet",
+        "periode": "2024-12-31 / 2025-12-31",
+        "date_source": "2026-11-05",
+        "source_url": "https://query1.finance.yahoo.com/ws/fundamentals-timeseries/v1/finance/timeseries/ALIEV.PA?type=annualEBITDA&period1=1640995200&period2=1793872601",
+        "statut": "NON_APPLICABLE",
+        "commentaire": "Base annuelle annualEBITDA non positive; pas de pourcentage interprétable selon cette convention. Comparer montants et signes.",
+        "date_collecte": "2026-11-05",
         "recherche": {
-          "date": "2026-11-04",
-          "statut": "MANQUANT_RECHERCHE_NON_CLOSE",
-          "motif": "Aucune valeur vérifiée importée à cette étape; les recherches tracées ne démontrent pas une indisponibilité définitive.",
+          "date": "2026-11-05",
+          "statut": "NON_APPLICABLE",
+          "motif": "Base annuelle annualEBITDA non positive; pas de pourcentage interprétable selon cette convention. Comparer montants et signes.",
           "journal": "journal_recherches"
         }
       },
@@ -956,19 +957,30 @@
         "date_collecte": "2026-11-04"
       },
       "force_relative_indice": {
-        "valeur": null,
-        "unite": null,
-        "periode": null,
-        "date_source": null,
-        "source_url": null,
-        "statut": "A_COLLECTER",
-        "commentaire": null,
-        "recherche": {
-          "date": "2026-11-04",
-          "statut": "MANQUANT_RECHERCHE_NON_CLOSE",
-          "motif": "Aucune valeur vérifiée importée à cette étape; les recherches tracées ne démontrent pas une indisponibilité définitive.",
-          "journal": "journal_recherches"
-        }
+        "valeur": {
+          "1m": {
+            "debut": "2026-10-01",
+            "fin": "2026-11-03",
+            "valeur_pct": -9.577639525771954
+          },
+          "3m": {
+            "debut": "2026-08-03",
+            "fin": "2026-11-03",
+            "valeur_pct": -17.306023779113232
+          },
+          "6m": {
+            "debut": "2026-04-30",
+            "fin": "2026-11-03",
+            "valeur_pct": -21.827990565053344
+          }
+        },
+        "unite": "pct relatif en USD",
+        "periode": "1/3/6/12 mois disponibles au 2026-11-03",
+        "date_source": "2026-11-05",
+        "date_collecte": "2026-11-05",
+        "source_url": "DONNEES/HISTORIQUES_YAHOO_40.csv | DONNEES/REFERENCE_RELATIVE_MSCI_WORLD_20261105.json | https://www.ishares.com/us/products/239696/ishares-msci-world-etf",
+        "statut": "CALCULE_FORCE_RELATIVE_PROXY_MSCI_WORLD",
+        "commentaire": "Ratio (titre ajusté converti en USD / URTH ajusté) sur chaque fenêtre, moins 1. Ancrages communs titre/ETF/FX; GBp constant annulé dans le ratio. URTH est un proxy ETF avec frais/écart de suivi; horaires de clôture non synchrones. Fenêtres impossibles avant IPO omises, jamais extrapolées."
       },
       "volume_moyen_20j": {
         "valeur": 3955.05,
@@ -1902,13 +1914,37 @@
       "url": "https://stockanalysis.com/quote/epa/ALIEV/financials/balance-sheet/",
       "http": 200,
       "statut": "SOURCE_SECONDAIRE_A_RAPPROCHER"
+    },
+    {
+      "famille": "complement_public_series_annuelles",
+      "date": "2026-11-05",
+      "url": "https://query1.finance.yahoo.com/ws/fundamentals-timeseries/v1/finance/timeseries/ALIEV.PA?type=annualEBITDA&period1=1640995200&period2=1793872601",
+      "http": 200,
+      "statut": "SOURCE_SECONDAIRE_SERIES_DATEES",
+      "limite": "Échec ou champ absent ne prouve pas une indisponibilité définitive."
+    },
+    {
+      "famille": "complement_public_valorisation_historique",
+      "date": "2026-11-05",
+      "url": "https://stockanalysis.com/quote/epa/ALIEV/financials/ratios/",
+      "http": 200,
+      "statut": "SOURCE_SECONDAIRE_HISTORIQUE",
+      "limite": "Échec ou champ absent ne prouve pas une indisponibilité définitive."
+    },
+    {
+      "famille": "complement_public_revisions",
+      "date": "2026-11-05",
+      "url": "https://query1.finance.yahoo.com/v10/finance/quoteSummary/ALIEV.PA?modules=earningsTrend",
+      "http": 200,
+      "statut": "SOURCE_SECONDAIRE_CONSENSUS_DATE",
+      "limite": "Échec ou champ absent ne prouve pas une indisponibilité définitive."
     }
   ],
   "audit_couverture": {
-    "date": "2026-11-04",
+    "date": "2026-11-05",
     "champs_total": 108,
-    "champs_renseignes": 43,
-    "couverture_pct": 39.81,
+    "champs_renseignes": 44,
+    "couverture_pct": 40.74,
     "champs_secondaires_non_rapproches": 24,
     "champs_manquants": [
       "identite.lei",
@@ -1948,7 +1984,6 @@
       "risque.transactions_initiees_net_180j",
       "momentum.prix_vers_mm200",
       "momentum.momentum_12m_pct",
-      "momentum.force_relative_indice",
       "momentum.tendance_mm200",
       "momentum.drawdown_12m_pct",
       "diversification.zone_geographique",
@@ -1982,15 +2017,15 @@
     "cours_date_limite": "2026-11-03"
   },
   "audit_poursuite": {
-    "date": "2026-11-04",
+    "date": "2026-11-05",
     "comptage": {
-      "RENSEIGNE": 43,
-      "NON_APPLICABLE": 7,
+      "RENSEIGNE": 44,
+      "NON_APPLICABLE": 8,
       "INDISPONIBLE_A_DATE": 4,
-      "RECHERCHE_A_POURSUIVRE": 54
+      "RECHERCHE_A_POURSUIVRE": 52
     },
-    "couverture_valeurs_pct": 39.81,
-    "couverture_applicable_pct": 42.57,
+    "couverture_valeurs_pct": 40.74,
+    "couverture_applicable_pct": 44.0,
     "recherches_non_closes": [
       "identite.lei",
       "identite.marche",
@@ -2001,7 +2036,6 @@
       "valorisation.valorisation_historique",
       "valorisation.marge_securite_pct",
       "croissance.croissance_ca_3a_cagr_pct",
-      "croissance.croissance_ebitda_pct",
       "croissance.carnet_commandes",
       "croissance.book_to_bill",
       "croissance.previsions_ca_1a",
@@ -2020,7 +2054,6 @@
       "risque.risque_concentration",
       "risque.transactions_initiees_net_90j",
       "risque.transactions_initiees_net_180j",
-      "momentum.force_relative_indice",
       "diversification.zone_geographique",
       "diversification.interet_strategique",
       "diversification.complementarite_portefeuille",

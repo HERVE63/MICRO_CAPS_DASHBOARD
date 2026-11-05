@@ -411,19 +411,38 @@
         }
       },
       "valorisation_historique": {
-        "valeur": null,
-        "unite": null,
-        "periode": null,
-        "date_source": null,
-        "source_url": null,
-        "statut": "A_COLLECTER",
-        "commentaire": null,
-        "recherche": {
-          "date": "2026-11-04",
-          "statut": "MANQUANT_RECHERCHE_NON_CLOSE",
-          "motif": "Analyse MCPA/IPS argumentée encore nécessaire; ce champ ne doit pas être rempli par une statistique de fournisseur.",
-          "journal": "journal_recherches"
-        }
+        "valeur": [
+          {
+            "exercice": "FY 2025",
+            "arrete": "Dec '25 Dec 31, 2025",
+            "ratios": {
+              "PE Ratio": 13.27,
+              "P/FCF Ratio": 16.34
+            }
+          },
+          {
+            "exercice": "FY 2024",
+            "arrete": "Dec '24 Dec 31, 2024",
+            "ratios": {
+              "PE Ratio": 144.85,
+              "P/FCF Ratio": 13.47
+            }
+          },
+          {
+            "exercice": "FY 2023",
+            "arrete": "Dec '23 Dec 31, 2023",
+            "ratios": {
+              "PE Ratio": 30.12
+            }
+          }
+        ],
+        "unite": "multiples historiques",
+        "periode": "clôtures annuelles, hors Current",
+        "date_source": "2026-11-05",
+        "source_url": "https://stockanalysis.com/quote/tsx/CEMX/financials/ratios/",
+        "statut": "SOURCE_SECONDAIRE_DATEE_A_RAPPROCHER",
+        "commentaire": "Multiples de clôtures annuelles fournisseur, pas juste valeur ni moyenne sectorielle. n/a omis sans conversion en zéro; retraitements à rapprocher.",
+        "date_collecte": "2026-11-05"
       },
       "marge_securite_pct": {
         "valeur": null,
@@ -463,19 +482,14 @@
         "date_collecte": "2026-11-04"
       },
       "croissance_ebitda_pct": {
-        "valeur": null,
-        "unite": null,
-        "periode": null,
-        "date_source": null,
-        "source_url": null,
-        "statut": "A_COLLECTER",
-        "commentaire": null,
-        "recherche": {
-          "date": "2026-11-04",
-          "statut": "MANQUANT_RECHERCHE_NON_CLOSE",
-          "motif": "Aucune valeur vérifiée importée à cette étape; les recherches tracées ne démontrent pas une indisponibilité définitive.",
-          "journal": "journal_recherches"
-        }
+        "valeur": 201.59872102318147,
+        "unite": "pct",
+        "periode": "2024-12-31 / 2025-12-31",
+        "date_source": "2026-11-05",
+        "source_url": "https://query1.finance.yahoo.com/ws/fundamentals-timeseries/v1/finance/timeseries/CEMX.TO?type=annualEBITDA&period1=1640995200&period2=1793872599",
+        "statut": "SOURCE_SECONDAIRE_DATEE_A_RAPPROCHER",
+        "commentaire": "Yahoo annualEBITDA; devise commune CAD. Arrêté aligné sur dernier exercice connu; source secondaire non rapprochée.",
+        "date_collecte": "2026-11-05"
       },
       "croissance_bpa_pct": {
         "valeur": null,
@@ -564,34 +578,24 @@
         }
       },
       "revision_bpa_30j_pct": {
-        "valeur": null,
-        "unite": null,
-        "periode": null,
-        "date_source": null,
-        "source_url": null,
-        "statut": "A_COLLECTER",
-        "commentaire": null,
-        "recherche": {
-          "date": "2026-11-04",
-          "statut": "MANQUANT_RECHERCHE_NON_CLOSE",
-          "motif": "Pas de série datée de consensus BPA à J, J-30/J-90 validée; évolution objectif de cours ou guidance non substituable.",
-          "journal": "journal_recherches"
-        }
+        "valeur": 0.0,
+        "unite": "pct",
+        "periode": "consensus annuel clos au 2026-12-31",
+        "date_source": "2026-11-05",
+        "source_url": "https://query1.finance.yahoo.com/v10/finance/quoteSummary/CEMX.TO?modules=earningsTrend",
+        "statut": "SOURCE_SECONDAIRE_DATEE_A_RAPPROCHER",
+        "commentaire": "Consensus Yahoo pour un même exercice : BPA actuel 0.04, BPA à J-30 0.04, devise CAD. Variation (actuel/antérieur -1). Pas une révision d’objectif de cours; instantanés de consensus secondaires à rapprocher.",
+        "date_collecte": "2026-11-05"
       },
       "revision_bpa_90j_pct": {
-        "valeur": null,
-        "unite": null,
-        "periode": null,
-        "date_source": null,
-        "source_url": null,
-        "statut": "A_COLLECTER",
-        "commentaire": null,
-        "recherche": {
-          "date": "2026-11-04",
-          "statut": "MANQUANT_RECHERCHE_NON_CLOSE",
-          "motif": "Pas de série datée de consensus BPA à J, J-30/J-90 validée; évolution objectif de cours ou guidance non substituable.",
-          "journal": "journal_recherches"
-        }
+        "valeur": 0.0,
+        "unite": "pct",
+        "periode": "consensus annuel clos au 2026-12-31",
+        "date_source": "2026-11-05",
+        "source_url": "https://query1.finance.yahoo.com/v10/finance/quoteSummary/CEMX.TO?modules=earningsTrend",
+        "statut": "SOURCE_SECONDAIRE_DATEE_A_RAPPROCHER",
+        "commentaire": "Consensus Yahoo pour un même exercice : BPA actuel 0.04, BPA à J-90 0.04, devise CAD. Variation (actuel/antérieur -1). Pas une révision d’objectif de cours; instantanés de consensus secondaires à rapprocher.",
+        "date_collecte": "2026-11-05"
       },
       "peg": {
         "valeur": null,
@@ -894,19 +898,35 @@
         "date_collecte": "2026-11-04"
       },
       "force_relative_indice": {
-        "valeur": null,
-        "unite": null,
-        "periode": null,
-        "date_source": null,
-        "source_url": null,
-        "statut": "A_COLLECTER",
-        "commentaire": null,
-        "recherche": {
-          "date": "2026-11-04",
-          "statut": "MANQUANT_RECHERCHE_NON_CLOSE",
-          "motif": "Aucune valeur vérifiée importée à cette étape; les recherches tracées ne démontrent pas une indisponibilité définitive.",
-          "journal": "journal_recherches"
-        }
+        "valeur": {
+          "1m": {
+            "debut": "2026-10-01",
+            "fin": "2026-11-03",
+            "valeur_pct": 0.38450594917360803
+          },
+          "3m": {
+            "debut": "2026-07-30",
+            "fin": "2026-11-03",
+            "valeur_pct": -8.093456697949064
+          },
+          "6m": {
+            "debut": "2026-04-30",
+            "fin": "2026-11-03",
+            "valeur_pct": -18.992738527002974
+          },
+          "12m": {
+            "debut": "2025-11-03",
+            "fin": "2026-11-03",
+            "valeur_pct": 10.302062265694856
+          }
+        },
+        "unite": "pct relatif en USD",
+        "periode": "1/3/6/12 mois disponibles au 2026-11-03",
+        "date_source": "2026-11-05",
+        "date_collecte": "2026-11-05",
+        "source_url": "DONNEES/HISTORIQUES_YAHOO_40.csv | DONNEES/REFERENCE_RELATIVE_MSCI_WORLD_20261105.json | https://www.ishares.com/us/products/239696/ishares-msci-world-etf",
+        "statut": "CALCULE_FORCE_RELATIVE_PROXY_MSCI_WORLD",
+        "commentaire": "Ratio (titre ajusté converti en USD / URTH ajusté) sur chaque fenêtre, moins 1. Ancrages communs titre/ETF/FX; GBp constant annulé dans le ratio. URTH est un proxy ETF avec frais/écart de suivi; horaires de clôture non synchrones. Fenêtres impossibles avant IPO omises, jamais extrapolées."
       },
       "volume_moyen_20j": {
         "valeur": 117055.0,
@@ -1784,6 +1804,24 @@
       "statut": "SOURCE_SECONDAIRE_NON_RAPPROCHEE",
       "commentaire": "Donnée de fournisseur secondaire; ni certification des comptes ni validation MCPA. Arrêté précis à rapprocher.",
       "date_collecte": "2026-11-04"
+    },
+    {
+      "bloc": "croissance",
+      "champ": "instantanes_consensus_bpa",
+      "valeur": {
+        "exercice": "2026-12-31",
+        "courant": 0.04,
+        "J_30": 0.04,
+        "J_90": 0.04,
+        "nombre_analystes": 1
+      },
+      "unite": "CAD/action",
+      "periode": "consensus annuel clos au 2026-12-31",
+      "date_source": "2026-11-05",
+      "source_url": "https://query1.finance.yahoo.com/v10/finance/quoteSummary/CEMX.TO?modules=earningsTrend",
+      "statut": "SOURCE_SECONDAIRE_CONSENSUS_DATE",
+      "commentaire": "BPA généralement ajusté; identité demandée par ticker dans URL API, pas validation primaire.",
+      "date_collecte": "2026-11-05"
     }
   ],
   "journal_recherches": [
@@ -1953,14 +1991,38 @@
       "url": "https://stockanalysis.com/quote/tsx/CEMX/financials/balance-sheet/",
       "http": 200,
       "statut": "SOURCE_SECONDAIRE_A_RAPPROCHER"
+    },
+    {
+      "famille": "complement_public_series_annuelles",
+      "date": "2026-11-05",
+      "url": "https://query1.finance.yahoo.com/ws/fundamentals-timeseries/v1/finance/timeseries/CEMX.TO?type=annualEBITDA&period1=1640995200&period2=1793872599",
+      "http": 200,
+      "statut": "SOURCE_SECONDAIRE_SERIES_DATEES",
+      "limite": "Échec ou champ absent ne prouve pas une indisponibilité définitive."
+    },
+    {
+      "famille": "complement_public_valorisation_historique",
+      "date": "2026-11-05",
+      "url": "https://stockanalysis.com/quote/tsx/CEMX/financials/ratios/",
+      "http": 200,
+      "statut": "SOURCE_SECONDAIRE_HISTORIQUE",
+      "limite": "Échec ou champ absent ne prouve pas une indisponibilité définitive."
+    },
+    {
+      "famille": "complement_public_revisions",
+      "date": "2026-11-05",
+      "url": "https://query1.finance.yahoo.com/v10/finance/quoteSummary/CEMX.TO?modules=earningsTrend",
+      "http": 200,
+      "statut": "SOURCE_SECONDAIRE_CONSENSUS_DATE",
+      "limite": "Échec ou champ absent ne prouve pas une indisponibilité définitive."
     }
   ],
   "audit_couverture": {
-    "date": "2026-11-04",
+    "date": "2026-11-05",
     "champs_total": 108,
-    "champs_renseignes": 57,
-    "couverture_pct": 52.78,
-    "champs_secondaires_non_rapproches": 32,
+    "champs_renseignes": 62,
+    "couverture_pct": 57.41,
+    "champs_secondaires_non_rapproches": 36,
     "champs_manquants": [
       "identite.lei",
       "identite.marche",
@@ -1969,16 +2031,12 @@
       "qualite.avantage_concurrentiel",
       "qualite.qualite_management",
       "valorisation.comparables_sectoriels",
-      "valorisation.valorisation_historique",
       "valorisation.marge_securite_pct",
-      "croissance.croissance_ebitda_pct",
       "croissance.croissance_bpa_pct",
       "croissance.carnet_commandes",
       "croissance.book_to_bill",
       "croissance.previsions_ca_1a",
       "croissance.previsions_bpa_1a",
-      "croissance.revision_bpa_30j_pct",
-      "croissance.revision_bpa_90j_pct",
       "croissance.peg",
       "croissance.taille_marche_adressable",
       "risque.cash_runway_mois",
@@ -1988,7 +2046,6 @@
       "risque.risque_reglementaire",
       "risque.transactions_initiees_net_90j",
       "risque.transactions_initiees_net_180j",
-      "momentum.force_relative_indice",
       "diversification.interet_strategique",
       "diversification.complementarite_portefeuille",
       "complements.ssi",
@@ -2019,15 +2076,15 @@
     "cours_date_limite": "2026-11-03"
   },
   "audit_poursuite": {
-    "date": "2026-11-04",
+    "date": "2026-11-05",
     "comptage": {
-      "RENSEIGNE": 57,
+      "RENSEIGNE": 62,
       "NON_APPLICABLE": 2,
       "INDISPONIBLE_A_DATE": 0,
-      "RECHERCHE_A_POURSUIVRE": 49
+      "RECHERCHE_A_POURSUIVRE": 44
     },
-    "couverture_valeurs_pct": 52.78,
-    "couverture_applicable_pct": 53.77,
+    "couverture_valeurs_pct": 57.41,
+    "couverture_applicable_pct": 58.49,
     "recherches_non_closes": [
       "identite.lei",
       "identite.marche",
@@ -2036,15 +2093,11 @@
       "qualite.avantage_concurrentiel",
       "qualite.qualite_management",
       "valorisation.comparables_sectoriels",
-      "valorisation.valorisation_historique",
       "valorisation.marge_securite_pct",
-      "croissance.croissance_ebitda_pct",
       "croissance.carnet_commandes",
       "croissance.book_to_bill",
       "croissance.previsions_ca_1a",
       "croissance.previsions_bpa_1a",
-      "croissance.revision_bpa_30j_pct",
-      "croissance.revision_bpa_90j_pct",
       "croissance.peg",
       "croissance.taille_marche_adressable",
       "risque.risque_refinancement",
@@ -2053,7 +2106,6 @@
       "risque.risque_reglementaire",
       "risque.transactions_initiees_net_90j",
       "risque.transactions_initiees_net_180j",
-      "momentum.force_relative_indice",
       "diversification.interet_strategique",
       "diversification.complementarite_portefeuille",
       "complements.ssi",

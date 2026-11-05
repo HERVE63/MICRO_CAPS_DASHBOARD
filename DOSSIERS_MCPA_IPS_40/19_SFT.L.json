@@ -413,19 +413,50 @@
         }
       },
       "valorisation_historique": {
-        "valeur": null,
-        "unite": null,
-        "periode": null,
-        "date_source": null,
-        "source_url": null,
-        "statut": "A_COLLECTER",
-        "commentaire": null,
-        "recherche": {
-          "date": "2026-11-04",
-          "statut": "MANQUANT_RECHERCHE_NON_CLOSE",
-          "motif": "Analyse MCPA/IPS argumentée encore nécessaire; ce champ ne doit pas être rempli par une statistique de fournisseur.",
-          "journal": "journal_recherches"
-        }
+        "valeur": [
+          {
+            "exercice": "FY 2026",
+            "arrete": "Mar '26 Mar 31, 2026",
+            "ratios": {
+              "P/FCF Ratio": 10.39
+            }
+          },
+          {
+            "exercice": "FY 2025",
+            "arrete": "Mar '25 Mar 31, 2025",
+            "ratios": {
+              "P/FCF Ratio": 40.08
+            }
+          },
+          {
+            "exercice": "FY 2024",
+            "arrete": "Mar '24 Mar 31, 2024",
+            "ratios": {
+              "P/FCF Ratio": 31.59
+            }
+          },
+          {
+            "exercice": "FY 2023",
+            "arrete": "Mar '23 Mar 31, 2023",
+            "ratios": {
+              "P/FCF Ratio": 42.7
+            }
+          },
+          {
+            "exercice": "FY 2022",
+            "arrete": "Mar '22 Mar 31, 2022",
+            "ratios": {
+              "P/FCF Ratio": 57.25
+            }
+          }
+        ],
+        "unite": "multiples historiques",
+        "periode": "clôtures annuelles, hors Current",
+        "date_source": "2026-11-05",
+        "source_url": "https://stockanalysis.com/quote/aim/SFT/financials/ratios/",
+        "statut": "SOURCE_SECONDAIRE_DATEE_A_RAPPROCHER",
+        "commentaire": "Multiples de clôtures annuelles fournisseur, pas juste valeur ni moyenne sectorielle. n/a omis sans conversion en zéro; retraitements à rapprocher.",
+        "date_collecte": "2026-11-05"
       },
       "marge_securite_pct": {
         "valeur": null,
@@ -465,19 +496,14 @@
         "date_collecte": "2026-11-04"
       },
       "croissance_ebitda_pct": {
-        "valeur": null,
-        "unite": null,
-        "periode": null,
-        "date_source": null,
-        "source_url": null,
-        "statut": "A_COLLECTER",
-        "commentaire": null,
-        "recherche": {
-          "date": "2026-11-04",
-          "statut": "MANQUANT_RECHERCHE_NON_CLOSE",
-          "motif": "Aucune valeur vérifiée importée à cette étape; les recherches tracées ne démontrent pas une indisponibilité définitive.",
-          "journal": "journal_recherches"
-        }
+        "valeur": 31.581051369178503,
+        "unite": "pct",
+        "periode": "2025-03-31 / 2026-03-31",
+        "date_source": "2026-11-05",
+        "source_url": "https://query1.finance.yahoo.com/ws/fundamentals-timeseries/v1/finance/timeseries/SFT.L?type=annualEBITDA&period1=1640995200&period2=1793872600",
+        "statut": "SOURCE_SECONDAIRE_DATEE_A_RAPPROCHER",
+        "commentaire": "Yahoo annualEBITDA; devise commune GBP. Arrêté aligné sur dernier exercice connu; source secondaire non rapprochée.",
+        "date_collecte": "2026-11-05"
       },
       "croissance_bpa_pct": {
         "valeur": null,
@@ -901,19 +927,35 @@
         "date_collecte": "2026-11-04"
       },
       "force_relative_indice": {
-        "valeur": null,
-        "unite": null,
-        "periode": null,
-        "date_source": null,
-        "source_url": null,
-        "statut": "A_COLLECTER",
-        "commentaire": null,
-        "recherche": {
-          "date": "2026-11-04",
-          "statut": "MANQUANT_RECHERCHE_NON_CLOSE",
-          "motif": "Aucune valeur vérifiée importée à cette étape; les recherches tracées ne démontrent pas une indisponibilité définitive.",
-          "journal": "journal_recherches"
-        }
+        "valeur": {
+          "1m": {
+            "debut": "2026-10-01",
+            "fin": "2026-11-03",
+            "valeur_pct": -1.8380259337500982
+          },
+          "3m": {
+            "debut": "2026-08-03",
+            "fin": "2026-11-03",
+            "valeur_pct": 10.074905882904496
+          },
+          "6m": {
+            "debut": "2026-04-30",
+            "fin": "2026-11-03",
+            "valeur_pct": 5.360171557914306
+          },
+          "12m": {
+            "debut": "2025-11-03",
+            "fin": "2026-11-03",
+            "valeur_pct": -33.988256715650586
+          }
+        },
+        "unite": "pct relatif en USD",
+        "periode": "1/3/6/12 mois disponibles au 2026-11-03",
+        "date_source": "2026-11-05",
+        "date_collecte": "2026-11-05",
+        "source_url": "DONNEES/HISTORIQUES_YAHOO_40.csv | DONNEES/REFERENCE_RELATIVE_MSCI_WORLD_20261105.json | https://www.ishares.com/us/products/239696/ishares-msci-world-etf",
+        "statut": "CALCULE_FORCE_RELATIVE_PROXY_MSCI_WORLD",
+        "commentaire": "Ratio (titre ajusté converti en USD / URTH ajusté) sur chaque fenêtre, moins 1. Ancrages communs titre/ETF/FX; GBp constant annulé dans le ratio. URTH est un proxy ETF avec frais/écart de suivi; horaires de clôture non synchrones. Fenêtres impossibles avant IPO omises, jamais extrapolées."
       },
       "volume_moyen_20j": {
         "valeur": 170173.85,
@@ -1844,14 +1886,38 @@
       "url": "https://stockanalysis.com/quote/aim/SFT/financials/balance-sheet/",
       "http": 200,
       "statut": "SOURCE_SECONDAIRE_A_RAPPROCHER"
+    },
+    {
+      "famille": "complement_public_series_annuelles",
+      "date": "2026-11-05",
+      "url": "https://query1.finance.yahoo.com/ws/fundamentals-timeseries/v1/finance/timeseries/SFT.L?type=annualEBITDA&period1=1640995200&period2=1793872600",
+      "http": 200,
+      "statut": "SOURCE_SECONDAIRE_SERIES_DATEES",
+      "limite": "Échec ou champ absent ne prouve pas une indisponibilité définitive."
+    },
+    {
+      "famille": "complement_public_valorisation_historique",
+      "date": "2026-11-05",
+      "url": "https://stockanalysis.com/quote/aim/SFT/financials/ratios/",
+      "http": 200,
+      "statut": "SOURCE_SECONDAIRE_HISTORIQUE",
+      "limite": "Échec ou champ absent ne prouve pas une indisponibilité définitive."
+    },
+    {
+      "famille": "complement_public_revisions",
+      "date": "2026-11-05",
+      "url": "https://query1.finance.yahoo.com/v10/finance/quoteSummary/SFT.L?modules=earningsTrend",
+      "http": 200,
+      "statut": "SOURCE_SECONDAIRE_CONSENSUS_DATE",
+      "limite": "Échec ou champ absent ne prouve pas une indisponibilité définitive."
     }
   ],
   "audit_couverture": {
-    "date": "2026-11-04",
+    "date": "2026-11-05",
     "champs_total": 108,
-    "champs_renseignes": 55,
-    "couverture_pct": 50.93,
-    "champs_secondaires_non_rapproches": 31,
+    "champs_renseignes": 58,
+    "couverture_pct": 53.7,
+    "champs_secondaires_non_rapproches": 33,
     "champs_manquants": [
       "identite.lei",
       "identite.marche",
@@ -1860,9 +1926,7 @@
       "qualite.avantage_concurrentiel",
       "valorisation.pe",
       "valorisation.comparables_sectoriels",
-      "valorisation.valorisation_historique",
       "valorisation.marge_securite_pct",
-      "croissance.croissance_ebitda_pct",
       "croissance.croissance_bpa_pct",
       "croissance.carnet_commandes",
       "croissance.book_to_bill",
@@ -1880,7 +1944,6 @@
       "risque.risque_concentration",
       "risque.transactions_initiees_net_90j",
       "risque.transactions_initiees_net_180j",
-      "momentum.force_relative_indice",
       "diversification.zone_geographique",
       "diversification.interet_strategique",
       "diversification.complementarite_portefeuille",
@@ -1912,24 +1975,22 @@
     "cours_date_limite": "2026-11-03"
   },
   "audit_poursuite": {
-    "date": "2026-11-04",
+    "date": "2026-11-05",
     "comptage": {
-      "RENSEIGNE": 55,
+      "RENSEIGNE": 58,
       "NON_APPLICABLE": 4,
       "INDISPONIBLE_A_DATE": 0,
-      "RECHERCHE_A_POURSUIVRE": 49
+      "RECHERCHE_A_POURSUIVRE": 46
     },
-    "couverture_valeurs_pct": 50.93,
-    "couverture_applicable_pct": 52.88,
+    "couverture_valeurs_pct": 53.7,
+    "couverture_applicable_pct": 55.77,
     "recherches_non_closes": [
       "identite.lei",
       "identite.marche",
       "qualite.concentration_clients_pct",
       "qualite.avantage_concurrentiel",
       "valorisation.comparables_sectoriels",
-      "valorisation.valorisation_historique",
       "valorisation.marge_securite_pct",
-      "croissance.croissance_ebitda_pct",
       "croissance.carnet_commandes",
       "croissance.book_to_bill",
       "croissance.previsions_ca_1a",
@@ -1945,7 +2006,6 @@
       "risque.risque_concentration",
       "risque.transactions_initiees_net_90j",
       "risque.transactions_initiees_net_180j",
-      "momentum.force_relative_indice",
       "diversification.zone_geographique",
       "diversification.interet_strategique",
       "diversification.complementarite_portefeuille",

@@ -417,19 +417,29 @@
         }
       },
       "valorisation_historique": {
-        "valeur": null,
-        "unite": null,
-        "periode": null,
-        "date_source": null,
-        "source_url": null,
-        "statut": "A_COLLECTER",
-        "commentaire": null,
-        "recherche": {
-          "date": "2026-11-04",
-          "statut": "MANQUANT_RECHERCHE_NON_CLOSE",
-          "motif": "Analyse MCPA/IPS argumentée encore nécessaire; ce champ ne doit pas être rempli par une statistique de fournisseur.",
-          "journal": "journal_recherches"
-        }
+        "valeur": [
+          {
+            "exercice": "FY 2025",
+            "arrete": "Sep '25 Sep 30, 2025",
+            "ratios": {
+              "PE Ratio": 70.21
+            }
+          },
+          {
+            "exercice": "FY 2024",
+            "arrete": "Sep '24 Sep 30, 2024",
+            "ratios": {
+              "P/FCF Ratio": 87.45
+            }
+          }
+        ],
+        "unite": "multiples historiques",
+        "periode": "clôtures annuelles, hors Current",
+        "date_source": "2026-11-05",
+        "source_url": "https://stockanalysis.com/quote/tsx/ELVA/financials/ratios/",
+        "statut": "SOURCE_SECONDAIRE_DATEE_A_RAPPROCHER",
+        "commentaire": "Multiples de clôtures annuelles fournisseur, pas juste valeur ni moyenne sectorielle. n/a omis sans conversion en zéro; retraitements à rapprocher.",
+        "date_collecte": "2026-11-05"
       },
       "marge_securite_pct": {
         "valeur": null,
@@ -469,19 +479,14 @@
         "date_collecte": "2026-11-04"
       },
       "croissance_ebitda_pct": {
-        "valeur": null,
-        "unite": null,
-        "periode": null,
-        "date_source": null,
-        "source_url": null,
-        "statut": "A_COLLECTER",
-        "commentaire": null,
-        "recherche": {
-          "date": "2026-11-04",
-          "statut": "MANQUANT_RECHERCHE_NON_CLOSE",
-          "motif": "Aucune valeur vérifiée importée à cette étape; les recherches tracées ne démontrent pas une indisponibilité définitive.",
-          "journal": "journal_recherches"
-        }
+        "valeur": 86.08071135430917,
+        "unite": "pct",
+        "periode": "2024-09-30 / 2025-09-30",
+        "date_source": "2026-11-05",
+        "source_url": "https://query1.finance.yahoo.com/ws/fundamentals-timeseries/v1/finance/timeseries/ELVA.TO?type=annualEBITDA&period1=1640995200&period2=1793872599",
+        "statut": "SOURCE_SECONDAIRE_DATEE_A_RAPPROCHER",
+        "commentaire": "Yahoo annualEBITDA; devise commune USD. Arrêté aligné sur dernier exercice connu; source secondaire non rapprochée.",
+        "date_collecte": "2026-11-05"
       },
       "croissance_bpa_pct": {
         "valeur": null,
@@ -568,34 +573,24 @@
         }
       },
       "revision_bpa_30j_pct": {
-        "valeur": null,
-        "unite": null,
-        "periode": null,
-        "date_source": null,
-        "source_url": null,
-        "statut": "A_COLLECTER",
-        "commentaire": null,
-        "recherche": {
-          "date": "2026-11-04",
-          "statut": "MANQUANT_RECHERCHE_NON_CLOSE",
-          "motif": "Pas de série datée de consensus BPA à J, J-30/J-90 validée; évolution objectif de cours ou guidance non substituable.",
-          "journal": "journal_recherches"
-        }
+        "valeur": 0.0,
+        "unite": "pct",
+        "periode": "consensus annuel clos au 2027-09-30",
+        "date_source": "2026-11-05",
+        "source_url": "https://query1.finance.yahoo.com/v10/finance/quoteSummary/ELVA.TO?modules=earningsTrend",
+        "statut": "SOURCE_SECONDAIRE_DATEE_A_RAPPROCHER",
+        "commentaire": "Consensus Yahoo pour un même exercice : BPA actuel 0.274, BPA à J-30 0.274, devise USD. Variation (actuel/antérieur -1). Pas une révision d’objectif de cours; instantanés de consensus secondaires à rapprocher.",
+        "date_collecte": "2026-11-05"
       },
       "revision_bpa_90j_pct": {
-        "valeur": null,
-        "unite": null,
-        "periode": null,
-        "date_source": null,
-        "source_url": null,
-        "statut": "A_COLLECTER",
-        "commentaire": null,
-        "recherche": {
-          "date": "2026-11-04",
-          "statut": "MANQUANT_RECHERCHE_NON_CLOSE",
-          "motif": "Pas de série datée de consensus BPA à J, J-30/J-90 validée; évolution objectif de cours ou guidance non substituable.",
-          "journal": "journal_recherches"
-        }
+        "valeur": -19.41176470588235,
+        "unite": "pct",
+        "periode": "consensus annuel clos au 2027-09-30",
+        "date_source": "2026-11-05",
+        "source_url": "https://query1.finance.yahoo.com/v10/finance/quoteSummary/ELVA.TO?modules=earningsTrend",
+        "statut": "SOURCE_SECONDAIRE_DATEE_A_RAPPROCHER",
+        "commentaire": "Consensus Yahoo pour un même exercice : BPA actuel 0.274, BPA à J-90 0.34, devise USD. Variation (actuel/antérieur -1). Pas une révision d’objectif de cours; instantanés de consensus secondaires à rapprocher.",
+        "date_collecte": "2026-11-05"
       },
       "peg": {
         "valeur": null,
@@ -896,19 +891,35 @@
         "date_collecte": "2026-11-04"
       },
       "force_relative_indice": {
-        "valeur": null,
-        "unite": null,
-        "periode": null,
-        "date_source": null,
-        "source_url": null,
-        "statut": "A_COLLECTER",
-        "commentaire": null,
-        "recherche": {
-          "date": "2026-11-04",
-          "statut": "MANQUANT_RECHERCHE_NON_CLOSE",
-          "motif": "Aucune valeur vérifiée importée à cette étape; les recherches tracées ne démontrent pas une indisponibilité définitive.",
-          "journal": "journal_recherches"
-        }
+        "valeur": {
+          "1m": {
+            "debut": "2026-10-01",
+            "fin": "2026-11-03",
+            "valeur_pct": -17.390767747681824
+          },
+          "3m": {
+            "debut": "2026-07-30",
+            "fin": "2026-11-03",
+            "valeur_pct": -38.72897109379678
+          },
+          "6m": {
+            "debut": "2026-04-30",
+            "fin": "2026-11-03",
+            "valeur_pct": -45.73778613086572
+          },
+          "12m": {
+            "debut": "2025-11-03",
+            "fin": "2026-11-03",
+            "valeur_pct": -26.71040723737701
+          }
+        },
+        "unite": "pct relatif en USD",
+        "periode": "1/3/6/12 mois disponibles au 2026-11-03",
+        "date_source": "2026-11-05",
+        "date_collecte": "2026-11-05",
+        "source_url": "DONNEES/HISTORIQUES_YAHOO_40.csv | DONNEES/REFERENCE_RELATIVE_MSCI_WORLD_20261105.json | https://www.ishares.com/us/products/239696/ishares-msci-world-etf",
+        "statut": "CALCULE_FORCE_RELATIVE_PROXY_MSCI_WORLD",
+        "commentaire": "Ratio (titre ajusté converti en USD / URTH ajusté) sur chaque fenêtre, moins 1. Ancrages communs titre/ETF/FX; GBp constant annulé dans le ratio. URTH est un proxy ETF avec frais/écart de suivi; horaires de clôture non synchrones. Fenêtres impossibles avant IPO omises, jamais extrapolées."
       },
       "volume_moyen_20j": {
         "valeur": 182670.0,
@@ -1725,6 +1736,24 @@
       "statut": "SOURCE_SECONDAIRE_NON_RAPPROCHEE",
       "commentaire": "Convention explicitée : FCF/résultat net; pas de calcul si résultat net <=0. Date rapprochée au tableau financier du même fournisseur, sans certification primaire.",
       "date_collecte": "2026-11-04"
+    },
+    {
+      "bloc": "croissance",
+      "champ": "instantanes_consensus_bpa",
+      "valeur": {
+        "exercice": "2027-09-30",
+        "courant": 0.274,
+        "J_30": 0.274,
+        "J_90": 0.34,
+        "nombre_analystes": 5
+      },
+      "unite": "USD/action",
+      "periode": "consensus annuel clos au 2027-09-30",
+      "date_source": "2026-11-05",
+      "source_url": "https://query1.finance.yahoo.com/v10/finance/quoteSummary/ELVA.TO?modules=earningsTrend",
+      "statut": "SOURCE_SECONDAIRE_CONSENSUS_DATE",
+      "commentaire": "BPA généralement ajusté; identité demandée par ticker dans URL API, pas validation primaire.",
+      "date_collecte": "2026-11-05"
     }
   ],
   "journal_recherches": [
@@ -1918,14 +1947,38 @@
       "url": "https://stockanalysis.com/quote/tsx/ELVA/financials/balance-sheet/",
       "http": 200,
       "statut": "SOURCE_SECONDAIRE_A_RAPPROCHER"
+    },
+    {
+      "famille": "complement_public_series_annuelles",
+      "date": "2026-11-05",
+      "url": "https://query1.finance.yahoo.com/ws/fundamentals-timeseries/v1/finance/timeseries/ELVA.TO?type=annualEBITDA&period1=1640995200&period2=1793872599",
+      "http": 200,
+      "statut": "SOURCE_SECONDAIRE_SERIES_DATEES",
+      "limite": "Échec ou champ absent ne prouve pas une indisponibilité définitive."
+    },
+    {
+      "famille": "complement_public_valorisation_historique",
+      "date": "2026-11-05",
+      "url": "https://stockanalysis.com/quote/tsx/ELVA/financials/ratios/",
+      "http": 200,
+      "statut": "SOURCE_SECONDAIRE_HISTORIQUE",
+      "limite": "Échec ou champ absent ne prouve pas une indisponibilité définitive."
+    },
+    {
+      "famille": "complement_public_revisions",
+      "date": "2026-11-05",
+      "url": "https://query1.finance.yahoo.com/v10/finance/quoteSummary/ELVA.TO?modules=earningsTrend",
+      "http": 200,
+      "statut": "SOURCE_SECONDAIRE_CONSENSUS_DATE",
+      "limite": "Échec ou champ absent ne prouve pas une indisponibilité définitive."
     }
   ],
   "audit_couverture": {
-    "date": "2026-11-04",
+    "date": "2026-11-05",
     "champs_total": 108,
-    "champs_renseignes": 56,
-    "couverture_pct": 51.85,
-    "champs_secondaires_non_rapproches": 33,
+    "champs_renseignes": 61,
+    "couverture_pct": 56.48,
+    "champs_secondaires_non_rapproches": 37,
     "champs_manquants": [
       "identite.lei",
       "identite.marche",
@@ -1935,15 +1988,11 @@
       "qualite.qualite_management",
       "valorisation.p_fcf",
       "valorisation.comparables_sectoriels",
-      "valorisation.valorisation_historique",
       "valorisation.marge_securite_pct",
-      "croissance.croissance_ebitda_pct",
       "croissance.croissance_bpa_pct",
       "croissance.carnet_commandes",
       "croissance.book_to_bill",
       "croissance.previsions_bpa_1a",
-      "croissance.revision_bpa_30j_pct",
-      "croissance.revision_bpa_90j_pct",
       "croissance.peg",
       "croissance.taille_marche_adressable",
       "risque.risque_refinancement",
@@ -1953,7 +2002,6 @@
       "risque.risque_concentration",
       "risque.transactions_initiees_net_90j",
       "risque.transactions_initiees_net_180j",
-      "momentum.force_relative_indice",
       "diversification.zone_geographique",
       "diversification.interet_strategique",
       "diversification.complementarite_portefeuille",
@@ -1985,15 +2033,15 @@
     "cours_date_limite": "2026-11-03"
   },
   "audit_poursuite": {
-    "date": "2026-11-04",
+    "date": "2026-11-05",
     "comptage": {
-      "RENSEIGNE": 56,
+      "RENSEIGNE": 61,
       "NON_APPLICABLE": 2,
       "INDISPONIBLE_A_DATE": 0,
-      "RECHERCHE_A_POURSUIVRE": 50
+      "RECHERCHE_A_POURSUIVRE": 45
     },
-    "couverture_valeurs_pct": 51.85,
-    "couverture_applicable_pct": 52.83,
+    "couverture_valeurs_pct": 56.48,
+    "couverture_applicable_pct": 57.55,
     "recherches_non_closes": [
       "identite.lei",
       "identite.marche",
@@ -2002,14 +2050,10 @@
       "qualite.avantage_concurrentiel",
       "qualite.qualite_management",
       "valorisation.comparables_sectoriels",
-      "valorisation.valorisation_historique",
       "valorisation.marge_securite_pct",
-      "croissance.croissance_ebitda_pct",
       "croissance.carnet_commandes",
       "croissance.book_to_bill",
       "croissance.previsions_bpa_1a",
-      "croissance.revision_bpa_30j_pct",
-      "croissance.revision_bpa_90j_pct",
       "croissance.peg",
       "croissance.taille_marche_adressable",
       "risque.risque_refinancement",
@@ -2019,7 +2063,6 @@
       "risque.risque_concentration",
       "risque.transactions_initiees_net_90j",
       "risque.transactions_initiees_net_180j",
-      "momentum.force_relative_indice",
       "diversification.zone_geographique",
       "diversification.interet_strategique",
       "diversification.complementarite_portefeuille",

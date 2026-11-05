@@ -8,6 +8,8 @@ class PublicEvidence(unittest.TestCase):
   self.tmp=tempfile.TemporaryDirectory();self.b=Path(self.tmp.name);self.d=self.b/'DONNEES';self.f=self.b/'DOSSIERS_MCPA_IPS_40';self.d.mkdir();self.f.mkdir();M.B=self.b;M.D=self.d;M.F=self.f
   self.paths=sorted((B/'DOSSIERS_MCPA_IPS_40').glob('*.json'));self.docs=[json.loads(p.read_text()) for p in self.paths]
   self.annual=json.loads((B/'DONNEES/IDENTITES_CROISSANCE_40_20261104.json').read_text());self.records=[dict(ticker=d['ticker'],date_collecte='2026-11-05') for d in self.docs];self.idn=next(d for d in self.docs if d['ticker']=='IDN');self.record=next(r for r in self.records if r['ticker']=='IDN')
+  for key in ('revision_bpa_30j_pct','revision_bpa_90j_pct'):
+   c=self.idn['blocs']['croissance'][key];c.update(valeur=None,statut='A_COLLECTER');c['recherche']={'date':'2026-11-05','statut':'MANQUANT_RECHERCHE_NON_CLOSE','motif':'FIXTURE'}
  def tearDown(self):self.tmp.cleanup()
  def write(self):
   for p,d in zip(self.paths,self.docs):(self.f/p.name).write_text(json.dumps(d))

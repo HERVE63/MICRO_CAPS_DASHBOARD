@@ -136,9 +136,55 @@
     },
     "valorisation_historique": {
       "url": "https://stockanalysis.com/quote/epa/AL2SI/financials/ratios/",
-      "http": 403,
-      "statut": "ECHEC",
-      "erreur": "HTTPError"
+      "echecs_precedents": [
+        {
+          "url": "https://stockanalysis.com/quote/epa/AL2SI/financials/ratios/",
+          "http": 403,
+          "statut": "ECHEC",
+          "erreur": "HTTPError"
+        }
+      ],
+      "http": 200,
+      "statut": "SOURCE_SECONDAIRE_HISTORIQUE",
+      "sha256_reponse": "3c5f61d1e8668437b2c6735e1639bc4e411829d497052c68ecf873f964d367b2",
+      "lignes": [
+        [
+          "Fiscal Year",
+          "Current",
+          "FY 2026",
+          "FY 2025",
+          "FY 2024",
+          "FY 2023",
+          "FY 2022"
+        ],
+        [
+          "Period Ending",
+          "Nov '26 Nov 4, 2026",
+          "Jun '26 Jun 30, 2026",
+          "Jun '25 Jun 30, 2025",
+          "Jun '24 Jun 30, 2024",
+          "Feb '23 Feb 28, 2023",
+          "Feb '22 Feb 28, 2022"
+        ],
+        [
+          "PE Ratio",
+          "23.73",
+          "40.74",
+          "69.63",
+          "-",
+          "-",
+          "-"
+        ],
+        [
+          "P/FCF Ratio",
+          "58.34",
+          "-",
+          "446.28",
+          "-",
+          "11.68",
+          "6.92"
+        ]
+      ]
     },
     "revisions": {
       "url": "https://query1.finance.yahoo.com/v10/finance/quoteSummary/AL2SI.PA?modules=earningsTrend",
@@ -558,9 +604,55 @@
     },
     "valorisation_historique": {
       "url": "https://stockanalysis.com/quote/epa/ALBFR/financials/ratios/",
-      "http": 403,
-      "statut": "ECHEC",
-      "erreur": "HTTPError"
+      "echecs_precedents": [
+        {
+          "url": "https://stockanalysis.com/quote/epa/ALBFR/financials/ratios/",
+          "http": 403,
+          "statut": "ECHEC",
+          "erreur": "HTTPError"
+        }
+      ],
+      "http": 200,
+      "statut": "SOURCE_SECONDAIRE_HISTORIQUE",
+      "sha256_reponse": "3e31fb1f64018383a70ee197b61e832f9f519fb45750154e08d41b1e9a5a4454",
+      "lignes": [
+        [
+          "Fiscal Year",
+          "Current",
+          "FY 2025",
+          "FY 2024",
+          "FY 2023",
+          "FY 2022",
+          "FY 2021"
+        ],
+        [
+          "Period Ending",
+          "Nov '26 Nov 4, 2026",
+          "Dec '25 Dec 31, 2025",
+          "Dec '24 Dec 31, 2024",
+          "Dec '23 Dec 31, 2023",
+          "Dec '22 Dec 31, 2022",
+          "Dec '21 Dec 31, 2021"
+        ],
+        [
+          "PE Ratio",
+          "30.90",
+          "37.86",
+          "39.64",
+          "39.79",
+          "60.71",
+          "49.78"
+        ],
+        [
+          "P/FCF Ratio",
+          "38.43",
+          "81.03",
+          "36.53",
+          "42.23",
+          "67.04",
+          "35.14"
+        ]
+      ]
     },
     "revisions": {
       "url": "https://query1.finance.yahoo.com/v10/finance/quoteSummary/ALBFR.PA?modules=earningsTrend",
@@ -989,9 +1081,55 @@
     },
     "valorisation_historique": {
       "url": "https://stockanalysis.com/quote/epa/ALBPK/financials/ratios/",
-      "http": 403,
-      "statut": "ECHEC",
-      "erreur": "HTTPError"
+      "echecs_precedents": [
+        {
+          "url": "https://stockanalysis.com/quote/epa/ALBPK/financials/ratios/",
+          "http": 403,
+          "statut": "ECHEC",
+          "erreur": "HTTPError"
+        }
+      ],
+      "http": 200,
+      "statut": "SOURCE_SECONDAIRE_HISTORIQUE",
+      "sha256_reponse": "e2373b4f803ca5570664801cf7ea56c29ee4dbb4bde0892de3965b59755bf727",
+      "lignes": [
+        [
+          "Fiscal Year",
+          "Current",
+          "FY 2025",
+          "FY 2024",
+          "FY 2023",
+          "FY 2022",
+          "FY 2021"
+        ],
+        [
+          "Period Ending",
+          "Nov '26 Nov 4, 2026",
+          "Dec '25 Dec 31, 2025",
+          "Dec '24 Dec 31, 2024",
+          "Dec '23 Dec 31, 2023",
+          "Dec '22 Dec 31, 2022",
+          "Dec '21 Dec 31, 2021"
+        ],
+        [
+          "PE Ratio",
+          "-",
+          "-",
+          "-",
+          "-",
+          "49.62",
+          "-"
+        ],
+        [
+          "P/FCF Ratio",
+          "-",
+          "29.78",
+          "18.27",
+          "-",
+          "-",
+          "-"
+        ]
+      ]
     },
     "revisions": {
       "url": "https://query1.finance.yahoo.com/v10/finance/quoteSummary/ALBPK.PA?modules=earningsTrend",
@@ -1479,9 +1617,55 @@
     },
     "valorisation_historique": {
       "url": "https://stockanalysis.com/quote/epa/ALCUR/financials/ratios/",
-      "http": 403,
-      "statut": "ECHEC",
-      "erreur": "HTTPError"
+      "echecs_precedents": [
+        {
+          "url": "https://stockanalysis.com/quote/epa/ALCUR/financials/ratios/",
+          "http": 403,
+          "statut": "ECHEC",
+          "erreur": "HTTPError"
+        }
+      ],
+      "http": 200,
+      "statut": "SOURCE_SECONDAIRE_HISTORIQUE",
+      "sha256_reponse": "8489507093d8f3e5e393107cc6e825d41a661e9643681c7a5823ded92c8ef0d7",
+      "lignes": [
+        [
+          "Fiscal Year",
+          "Current",
+          "FY 2025",
+          "FY 2024",
+          "FY 2023",
+          "FY 2022",
+          "FY 2021"
+        ],
+        [
+          "Period Ending",
+          "Nov '26 Nov 4, 2026",
+          "Dec '25 Dec 31, 2025",
+          "Dec '24 Dec 31, 2024",
+          "Dec '23 Dec 31, 2023",
+          "Dec '22 Dec 31, 2022",
+          "Dec '21 Dec 31, 2021"
+        ],
+        [
+          "PE Ratio",
+          "-",
+          "-",
+          "15.09",
+          "8.11",
+          "225.23",
+          "-"
+        ],
+        [
+          "P/FCF Ratio",
+          "17.31",
+          "20.06",
+          "-",
+          "-",
+          "-",
+          "-"
+        ]
+      ]
     },
     "revisions": {
       "url": "https://query1.finance.yahoo.com/v10/finance/quoteSummary/ALCUR.PA?modules=earningsTrend",
@@ -1910,9 +2094,46 @@
     },
     "valorisation_historique": {
       "url": "https://stockanalysis.com/quote/epa/ALDMS/financials/ratios/",
-      "http": 403,
-      "statut": "ECHEC",
-      "erreur": "HTTPError"
+      "echecs_precedents": [
+        {
+          "url": "https://stockanalysis.com/quote/epa/ALDMS/financials/ratios/",
+          "http": 403,
+          "statut": "ECHEC",
+          "erreur": "HTTPError"
+        }
+      ],
+      "http": 200,
+      "statut": "SOURCE_SECONDAIRE_HISTORIQUE",
+      "sha256_reponse": "149b24601459f6bcfa6fdb679b99f538f152a4839ea2c40a42e95c99c1cf9ccc",
+      "lignes": [
+        [
+          "Fiscal Year",
+          "Current",
+          "FY 2025",
+          "FY 2024",
+          "FY 2023",
+          "FY 2022",
+          "FY 2021"
+        ],
+        [
+          "Period Ending",
+          "Nov '26 Nov 4, 2026",
+          "Dec '25 Dec 31, 2025",
+          "Dec '24 Dec 31, 2024",
+          "Dec '23 Dec 31, 2023",
+          "Dec '22 Dec 31, 2022",
+          "Dec '21 Dec 31, 2021"
+        ],
+        [
+          "P/FCF Ratio",
+          "-",
+          "-",
+          "452.45",
+          "-",
+          "-",
+          "-"
+        ]
+      ]
     },
     "revisions": {
       "url": "https://query1.finance.yahoo.com/v10/finance/quoteSummary/ALDMS.PA?modules=earningsTrend",
@@ -2400,9 +2621,55 @@
     },
     "valorisation_historique": {
       "url": "https://stockanalysis.com/quote/epa/ALESE/financials/ratios/",
-      "http": 403,
-      "statut": "ECHEC",
-      "erreur": "HTTPError"
+      "echecs_precedents": [
+        {
+          "url": "https://stockanalysis.com/quote/epa/ALESE/financials/ratios/",
+          "http": 403,
+          "statut": "ECHEC",
+          "erreur": "HTTPError"
+        }
+      ],
+      "http": 200,
+      "statut": "SOURCE_SECONDAIRE_HISTORIQUE",
+      "sha256_reponse": "93184c0d6ea8ac9e116845e1fcc936192e89e9aae0955d76f7e58cc91c7aad40",
+      "lignes": [
+        [
+          "Fiscal Year",
+          "Current",
+          "FY 2025",
+          "FY 2024",
+          "FY 2024",
+          "FY 2023",
+          "FY 2022"
+        ],
+        [
+          "Period Ending",
+          "Nov '26 Nov 4, 2026",
+          "Dec '25 Dec 31, 2025",
+          "Dec '24 Dec 31, 2024",
+          "Mar '24 Mar 31, 2024",
+          "Mar '23 Mar 31, 2023",
+          "Mar '22 Mar 31, 2022"
+        ],
+        [
+          "PE Ratio",
+          "59.99",
+          "163.96",
+          "-",
+          "-",
+          "-",
+          "-"
+        ],
+        [
+          "P/FCF Ratio",
+          "-",
+          "8.96",
+          "11.92",
+          "-",
+          "-",
+          "-"
+        ]
+      ]
     },
     "revisions": {
       "url": "https://query1.finance.yahoo.com/v10/finance/quoteSummary/ALESE.PA?modules=earningsTrend",
@@ -2881,9 +3148,55 @@
     },
     "valorisation_historique": {
       "url": "https://stockanalysis.com/quote/epa/ALICA/financials/ratios/",
-      "http": 403,
-      "statut": "ECHEC",
-      "erreur": "HTTPError"
+      "echecs_precedents": [
+        {
+          "url": "https://stockanalysis.com/quote/epa/ALICA/financials/ratios/",
+          "http": 403,
+          "statut": "ECHEC",
+          "erreur": "HTTPError"
+        }
+      ],
+      "http": 200,
+      "statut": "SOURCE_SECONDAIRE_HISTORIQUE",
+      "sha256_reponse": "3030077a22955e0e94bae892bb9abad55de492732e929fb291c4f9cf9a60bffe",
+      "lignes": [
+        [
+          "Fiscal Year",
+          "Current",
+          "FY 2025",
+          "FY 2024",
+          "FY 2023",
+          "FY 2022",
+          "FY 2021"
+        ],
+        [
+          "Period Ending",
+          "Nov '26 Nov 4, 2026",
+          "Dec '25 Dec 31, 2025",
+          "Dec '24 Dec 31, 2024",
+          "Dec '23 Dec 31, 2023",
+          "Dec '22 Dec 31, 2022",
+          "Dec '21 Dec 31, 2021"
+        ],
+        [
+          "PE Ratio",
+          "503.22",
+          "-",
+          "21.74",
+          "31.13",
+          "23.40",
+          "-"
+        ],
+        [
+          "P/FCF Ratio",
+          "40.08",
+          "10.55",
+          "15.08",
+          "15.80",
+          "-",
+          "-"
+        ]
+      ]
     },
     "revisions": {
       "url": "https://query1.finance.yahoo.com/v10/finance/quoteSummary/ALICA.PA?modules=earningsTrend",
@@ -3301,9 +3614,33 @@
     },
     "valorisation_historique": {
       "url": "https://stockanalysis.com/quote/epa/ALIEV/financials/ratios/",
-      "http": 403,
-      "statut": "ECHEC",
-      "erreur": "HTTPError"
+      "echecs_precedents": [
+        {
+          "url": "https://stockanalysis.com/quote/epa/ALIEV/financials/ratios/",
+          "http": 403,
+          "statut": "ECHEC",
+          "erreur": "HTTPError"
+        }
+      ],
+      "http": 200,
+      "statut": "SOURCE_SECONDAIRE_HISTORIQUE",
+      "sha256_reponse": "f0c6c523e437f62a4946247a9e52dad87f3d11117a4f9605197bffa1d0a45688",
+      "lignes": [
+        [
+          "Fiscal Year",
+          "Current",
+          "FY 2025",
+          "FY 2024",
+          "FY 2023"
+        ],
+        [
+          "Period Ending",
+          "Nov '26 Nov 4, 2026",
+          "Dec '25 Dec 31, 2025",
+          "Dec '24 Dec 31, 2024",
+          "Dec '23 Dec 31, 2023"
+        ]
+      ]
     },
     "revisions": {
       "url": "https://query1.finance.yahoo.com/v10/finance/quoteSummary/ALIEV.PA?modules=earningsTrend",
@@ -3612,9 +3949,46 @@
     },
     "valorisation_historique": {
       "url": "https://stockanalysis.com/quote/epa/ALLIX/financials/ratios/",
-      "http": 403,
-      "statut": "ECHEC",
-      "erreur": "HTTPError"
+      "echecs_precedents": [
+        {
+          "url": "https://stockanalysis.com/quote/epa/ALLIX/financials/ratios/",
+          "http": 403,
+          "statut": "ECHEC",
+          "erreur": "HTTPError"
+        }
+      ],
+      "http": 200,
+      "statut": "SOURCE_SECONDAIRE_HISTORIQUE",
+      "sha256_reponse": "8c79b971e3c4f8680f519e78102a4ac679042a33234150ca2fe0f408ddb9d995",
+      "lignes": [
+        [
+          "Fiscal Year",
+          "Current",
+          "FY 2025",
+          "FY 2024",
+          "FY 2023",
+          "FY 2022",
+          "FY 2021"
+        ],
+        [
+          "Period Ending",
+          "Nov '26 Nov 4, 2026",
+          "Dec '25 Dec 31, 2025",
+          "Dec '24 Dec 31, 2024",
+          "Dec '23 Dec 31, 2023",
+          "Dec '22 Dec 31, 2022",
+          "Dec '21 Dec 31, 2021"
+        ],
+        [
+          "P/FCF Ratio",
+          "53.16",
+          "155.15",
+          "-",
+          "-",
+          "-",
+          "795.08"
+        ]
+      ]
     },
     "revisions": {
       "url": "https://query1.finance.yahoo.com/v10/finance/quoteSummary/ALLIX.PA?modules=earningsTrend",
@@ -3974,9 +4348,55 @@
     "date_collecte": "2026-11-05",
     "valorisation_historique": {
       "url": "https://stockanalysis.com/quote/epa/ALMCE/financials/ratios/",
-      "http": 403,
-      "statut": "ECHEC",
-      "erreur": "HTTPError"
+      "echecs_precedents": [
+        {
+          "url": "https://stockanalysis.com/quote/epa/ALMCE/financials/ratios/",
+          "http": 403,
+          "statut": "ECHEC",
+          "erreur": "HTTPError"
+        }
+      ],
+      "http": 200,
+      "statut": "SOURCE_SECONDAIRE_HISTORIQUE",
+      "sha256_reponse": "c1f391177f32544d950620e3b0542eb1e348ecc5a14b5902166bca62e185d583",
+      "lignes": [
+        [
+          "Fiscal Year",
+          "Current",
+          "FY 2025",
+          "FY 2024",
+          "FY 2023",
+          "FY 2022",
+          "FY 2021"
+        ],
+        [
+          "Period Ending",
+          "Nov '26 Nov 4, 2026",
+          "Dec '25 Dec 31, 2025",
+          "Dec '24 Dec 31, 2024",
+          "Dec '23 Dec 31, 2023",
+          "Dec '22 Dec 31, 2022",
+          "Dec '21 Dec 31, 2021"
+        ],
+        [
+          "PE Ratio",
+          "7.00",
+          "8.72",
+          "-",
+          "24.30",
+          "-",
+          "-"
+        ],
+        [
+          "P/FCF Ratio",
+          "11.85",
+          "11.46",
+          "70.81",
+          "-",
+          "-",
+          "-"
+        ]
+      ]
     },
     "revisions": {
       "url": "https://query1.finance.yahoo.com/v10/finance/quoteSummary/ALMCE.PA?modules=earningsTrend",
@@ -4405,9 +4825,55 @@
     },
     "valorisation_historique": {
       "url": "https://stockanalysis.com/quote/epa/ALSOG/financials/ratios/",
-      "http": 403,
-      "statut": "ECHEC",
-      "erreur": "HTTPError"
+      "echecs_precedents": [
+        {
+          "url": "https://stockanalysis.com/quote/epa/ALSOG/financials/ratios/",
+          "http": 403,
+          "statut": "ECHEC",
+          "erreur": "HTTPError"
+        }
+      ],
+      "http": 200,
+      "statut": "SOURCE_SECONDAIRE_HISTORIQUE",
+      "sha256_reponse": "401d4b6c958acaf0c9a782708904947b1a31b2b3a073e39fce4096bbc175bdb1",
+      "lignes": [
+        [
+          "Fiscal Year",
+          "Current",
+          "FY 2025",
+          "FY 2024",
+          "FY 2023",
+          "FY 2022",
+          "FY 2021"
+        ],
+        [
+          "Period Ending",
+          "Nov '26 Nov 4, 2026",
+          "Dec '25 Dec 31, 2025",
+          "Dec '24 Dec 31, 2024",
+          "Dec '23 Dec 31, 2023",
+          "Dec '22 Dec 31, 2022",
+          "Dec '21 Dec 31, 2021"
+        ],
+        [
+          "PE Ratio",
+          "11.85",
+          "13.80",
+          "12.04",
+          "18.04",
+          "30.81",
+          "27.77"
+        ],
+        [
+          "P/FCF Ratio",
+          "4.16",
+          "4.77",
+          "3.48",
+          "14.24",
+          "-",
+          "-"
+        ]
+      ]
     },
     "revisions": {
       "url": "https://query1.finance.yahoo.com/v10/finance/quoteSummary/ALSOG.PA?modules=earningsTrend",
@@ -4836,9 +5302,55 @@
     },
     "valorisation_historique": {
       "url": "https://stockanalysis.com/quote/epa/ALSTI/financials/ratios/",
-      "http": 403,
-      "statut": "ECHEC",
-      "erreur": "HTTPError"
+      "echecs_precedents": [
+        {
+          "url": "https://stockanalysis.com/quote/epa/ALSTI/financials/ratios/",
+          "http": 403,
+          "statut": "ECHEC",
+          "erreur": "HTTPError"
+        }
+      ],
+      "http": 200,
+      "statut": "SOURCE_SECONDAIRE_HISTORIQUE",
+      "sha256_reponse": "a97e37c1da68f044e03e88c48906281cbec22d10d0771811d1c0deb2f12f7adc",
+      "lignes": [
+        [
+          "Fiscal Year",
+          "Current",
+          "FY 2025",
+          "FY 2024",
+          "FY 2023",
+          "FY 2022",
+          "FY 2021"
+        ],
+        [
+          "Period Ending",
+          "Nov '26 Nov 4, 2026",
+          "Dec '25 Dec 31, 2025",
+          "Dec '24 Dec 31, 2024",
+          "Dec '23 Dec 31, 2023",
+          "Dec '22 Dec 31, 2022",
+          "Dec '21 Dec 31, 2021"
+        ],
+        [
+          "PE Ratio",
+          "8.47",
+          "23.47",
+          "13.87",
+          "18.23",
+          "-",
+          "-"
+        ],
+        [
+          "P/FCF Ratio",
+          "21.16",
+          "60.39",
+          "13.96",
+          "-",
+          "-",
+          "-"
+        ]
+      ]
     },
     "revisions": {
       "url": "https://query1.finance.yahoo.com/v10/finance/quoteSummary/ALSTI.PA?modules=earningsTrend",
@@ -5267,9 +5779,55 @@
     },
     "valorisation_historique": {
       "url": "https://stockanalysis.com/quote/epa/ALSTW/financials/ratios/",
-      "http": 403,
-      "statut": "ECHEC",
-      "erreur": "HTTPError"
+      "echecs_precedents": [
+        {
+          "url": "https://stockanalysis.com/quote/epa/ALSTW/financials/ratios/",
+          "http": 403,
+          "statut": "ECHEC",
+          "erreur": "HTTPError"
+        }
+      ],
+      "http": 200,
+      "statut": "SOURCE_SECONDAIRE_HISTORIQUE",
+      "sha256_reponse": "fce3f9e6f5eaf34247e67a6a14cc1403f31a8f71d64a206987995a2af20cbd80",
+      "lignes": [
+        [
+          "Fiscal Year",
+          "Current",
+          "FY 2025",
+          "FY 2024",
+          "FY 2023",
+          "FY 2022",
+          "FY 2021"
+        ],
+        [
+          "Period Ending",
+          "Nov '26 Nov 4, 2026",
+          "Dec '25 Dec 31, 2025",
+          "Dec '24 Dec 31, 2024",
+          "Dec '23 Dec 31, 2023",
+          "Dec '22 Dec 31, 2022",
+          "Dec '21 Dec 31, 2021"
+        ],
+        [
+          "PE Ratio",
+          "34.99",
+          "30.86",
+          "17.94",
+          "13.99",
+          "14.30",
+          "24.95"
+        ],
+        [
+          "P/FCF Ratio",
+          "52.42",
+          "36.78",
+          "71.99",
+          "-",
+          "292.87",
+          "112.22"
+        ]
+      ]
     },
     "revisions": {
       "url": "https://query1.finance.yahoo.com/v10/finance/quoteSummary/ALSTW.PA?modules=earningsTrend",
@@ -5748,9 +6306,55 @@
     },
     "valorisation_historique": {
       "url": "https://stockanalysis.com/quote/aim/AOM/financials/ratios/",
-      "http": 403,
-      "statut": "ECHEC",
-      "erreur": "HTTPError"
+      "echecs_precedents": [
+        {
+          "url": "https://stockanalysis.com/quote/aim/AOM/financials/ratios/",
+          "http": 403,
+          "statut": "ECHEC",
+          "erreur": "HTTPError"
+        }
+      ],
+      "http": 200,
+      "statut": "SOURCE_SECONDAIRE_HISTORIQUE",
+      "sha256_reponse": "8a21d96e61fe9bb2328a955ce29fe8e24e0b0d5d7929a0aa128e310be49c2031",
+      "lignes": [
+        [
+          "Fiscal Year",
+          "Current",
+          "FY 2026",
+          "FY 2025",
+          "FY 2024",
+          "FY 2023",
+          "FY 2022"
+        ],
+        [
+          "Period Ending",
+          "Nov '26 Nov 4, 2026",
+          "Mar '26 Mar 31, 2026",
+          "Mar '25 Mar 31, 2025",
+          "Mar '24 Mar 31, 2024",
+          "Mar '23 Mar 31, 2023",
+          "Mar '22 Mar 31, 2022"
+        ],
+        [
+          "PE Ratio",
+          "-",
+          "-",
+          "56.88",
+          "84.88",
+          "-",
+          "-"
+        ],
+        [
+          "P/FCF Ratio",
+          "5.39",
+          "10.37",
+          "14.17",
+          "19.55",
+          "19.42",
+          "-"
+        ]
+      ]
     },
     "revisions": {
       "url": "https://query1.finance.yahoo.com/v10/finance/quoteSummary/AOM.L?modules=earningsTrend",
@@ -6179,9 +6783,55 @@
     },
     "valorisation_historique": {
       "url": "https://stockanalysis.com/quote/tsx/CEMX/financials/ratios/",
-      "http": 403,
-      "statut": "ECHEC",
-      "erreur": "HTTPError"
+      "echecs_precedents": [
+        {
+          "url": "https://stockanalysis.com/quote/tsx/CEMX/financials/ratios/",
+          "http": 403,
+          "statut": "ECHEC",
+          "erreur": "HTTPError"
+        }
+      ],
+      "http": 200,
+      "statut": "SOURCE_SECONDAIRE_HISTORIQUE",
+      "sha256_reponse": "211a3c81e9e4df871635babe9e1916be886fa47ab0f3161c354a66856655ac7a",
+      "lignes": [
+        [
+          "Fiscal Year",
+          "Current",
+          "FY 2025",
+          "FY 2024",
+          "FY 2023",
+          "FY 2022",
+          "FY 2021"
+        ],
+        [
+          "Period Ending",
+          "Nov '26 Nov 4, 2026",
+          "Dec '25 Dec 31, 2025",
+          "Dec '24 Dec 31, 2024",
+          "Dec '23 Dec 31, 2023",
+          "Dec '22 Dec 31, 2022",
+          "Dec '21 Dec 31, 2021"
+        ],
+        [
+          "PE Ratio",
+          "15.88",
+          "13.27",
+          "144.85",
+          "30.12",
+          "-",
+          "-"
+        ],
+        [
+          "P/FCF Ratio",
+          "5.57",
+          "16.34",
+          "13.47",
+          "-",
+          "-",
+          "-"
+        ]
+      ]
     },
     "revisions": {
       "url": "https://query1.finance.yahoo.com/v10/finance/quoteSummary/CEMX.TO?modules=earningsTrend",
@@ -6661,9 +7311,55 @@
     },
     "valorisation_historique": {
       "url": "https://stockanalysis.com/quote/aim/CER/financials/ratios/",
-      "http": 403,
-      "statut": "ECHEC",
-      "erreur": "HTTPError"
+      "echecs_precedents": [
+        {
+          "url": "https://stockanalysis.com/quote/aim/CER/financials/ratios/",
+          "http": 403,
+          "statut": "ECHEC",
+          "erreur": "HTTPError"
+        }
+      ],
+      "http": 200,
+      "statut": "SOURCE_SECONDAIRE_HISTORIQUE",
+      "sha256_reponse": "c39425592278710ce68c7f4cac16810a59d113dea684852499330c8fcead61e6",
+      "lignes": [
+        [
+          "Fiscal Year",
+          "Current",
+          "FY 2025",
+          "FY 2024",
+          "FY 2023",
+          "FY 2022",
+          "FY 2021"
+        ],
+        [
+          "Period Ending",
+          "Nov '26 Nov 4, 2026",
+          "Sep '25 Sep 30, 2025",
+          "Sep '24 Sep 30, 2024",
+          "Sep '23 Sep 30, 2023",
+          "Sep '22 Sep 30, 2022",
+          "Sep '21 Sep 30, 2021"
+        ],
+        [
+          "PE Ratio",
+          "15.76",
+          "26.81",
+          "34.84",
+          "30.36",
+          "32.50",
+          "36.05"
+        ],
+        [
+          "P/FCF Ratio",
+          "30.45",
+          "34.77",
+          "48.33",
+          "41.44",
+          "25.93",
+          "24.39"
+        ]
+      ]
     },
     "revisions": {
       "url": "https://query1.finance.yahoo.com/v10/finance/quoteSummary/CER.L?modules=earningsTrend",
@@ -7092,9 +7788,55 @@
     },
     "valorisation_historique": {
       "url": "https://stockanalysis.com/quote/tsxv/COV/financials/ratios/",
-      "http": 403,
-      "statut": "ECHEC",
-      "erreur": "HTTPError"
+      "echecs_precedents": [
+        {
+          "url": "https://stockanalysis.com/quote/tsxv/COV/financials/ratios/",
+          "http": 403,
+          "statut": "ECHEC",
+          "erreur": "HTTPError"
+        }
+      ],
+      "http": 200,
+      "statut": "SOURCE_SECONDAIRE_HISTORIQUE",
+      "sha256_reponse": "1adceb13566e42d1f5edab968a1b9fe3f5b79843a946c5b7e8387a6cff0a9438",
+      "lignes": [
+        [
+          "Fiscal Year",
+          "Current",
+          "FY 2025",
+          "FY 2024",
+          "FY 2023",
+          "FY 2022",
+          "FY 2021"
+        ],
+        [
+          "Period Ending",
+          "Nov '26 Nov 4, 2026",
+          "Sep '25 Sep 30, 2025",
+          "Sep '24 Sep 30, 2024",
+          "Sep '23 Sep 30, 2023",
+          "Sep '22 Sep 30, 2022",
+          "Sep '21 Sep 30, 2021"
+        ],
+        [
+          "PE Ratio",
+          "26.75",
+          "27.98",
+          "34.38",
+          "-",
+          "-",
+          "2.79"
+        ],
+        [
+          "P/FCF Ratio",
+          "21.22",
+          "35.00",
+          "28.84",
+          "-",
+          "-",
+          "498.71"
+        ]
+      ]
     },
     "revisions": {
       "url": "https://query1.finance.yahoo.com/v10/finance/quoteSummary/COV.V?modules=earningsTrend",
@@ -7580,9 +8322,55 @@
     },
     "valorisation_historique": {
       "url": "https://stockanalysis.com/quote/sto/CTT/financials/ratios/",
-      "http": 403,
-      "statut": "ECHEC",
-      "erreur": "HTTPError"
+      "echecs_precedents": [
+        {
+          "url": "https://stockanalysis.com/quote/sto/CTT/financials/ratios/",
+          "http": 403,
+          "statut": "ECHEC",
+          "erreur": "HTTPError"
+        }
+      ],
+      "http": 200,
+      "statut": "SOURCE_SECONDAIRE_HISTORIQUE",
+      "sha256_reponse": "0ecb022dcfc75e4c8193300fb303ed0d311723e65cb7f05f8fbbd2f33f5c48d5",
+      "lignes": [
+        [
+          "Fiscal Year",
+          "Current",
+          "FY 2025",
+          "FY 2024",
+          "FY 2023",
+          "FY 2022",
+          "FY 2021"
+        ],
+        [
+          "Period Ending",
+          "Nov '26 Nov 4, 2026",
+          "Dec '25 Dec 31, 2025",
+          "Dec '24 Dec 31, 2024",
+          "Dec '23 Dec 31, 2023",
+          "Dec '22 Dec 31, 2022",
+          "Dec '21 Dec 31, 2021"
+        ],
+        [
+          "PE Ratio",
+          "45.65",
+          "64.66",
+          "41.18",
+          "30.04",
+          "40.35",
+          "191.03"
+        ],
+        [
+          "P/FCF Ratio",
+          "89.19",
+          "73.62",
+          "55.27",
+          "25.32",
+          "44.36",
+          "90.12"
+        ]
+      ]
     },
     "revisions": {
       "url": "https://query1.finance.yahoo.com/v10/finance/quoteSummary/CTT.ST?modules=earningsTrend",
@@ -8018,9 +8806,55 @@
     },
     "valorisation_historique": {
       "url": "https://stockanalysis.com/stocks/cxdo/financials/ratios/",
-      "http": 403,
-      "statut": "ECHEC",
-      "erreur": "HTTPError"
+      "echecs_precedents": [
+        {
+          "url": "https://stockanalysis.com/stocks/cxdo/financials/ratios/",
+          "http": 403,
+          "statut": "ECHEC",
+          "erreur": "HTTPError"
+        }
+      ],
+      "http": 200,
+      "statut": "SOURCE_SECONDAIRE_HISTORIQUE",
+      "sha256_reponse": "1e15f229d43a3f7f46a82f6ed6c298098b065b73c7776f33f5cffff4ae15a8da",
+      "lignes": [
+        [
+          "Fiscal Year",
+          "Current",
+          "FY 2025",
+          "FY 2024",
+          "FY 2023",
+          "FY 2022",
+          "FY 2021"
+        ],
+        [
+          "Period Ending",
+          "Nov '26 Nov 4, 2026",
+          "Dec '25 Dec 31, 2025",
+          "Dec '24 Dec 31, 2024",
+          "Dec '23 Dec 31, 2023",
+          "Dec '22 Dec 31, 2022",
+          "Dec '21 Dec 31, 2021"
+        ],
+        [
+          "PE Ratio",
+          "43.79",
+          "39.21",
+          "84.52",
+          "-",
+          "-",
+          "-"
+        ],
+        [
+          "P/FCF Ratio",
+          "14.53",
+          "21.43",
+          "22.65",
+          "37.06",
+          "-",
+          "-"
+        ]
+      ]
     },
     "revisions": {
       "url": "https://query1.finance.yahoo.com/v10/finance/quoteSummary/CXDO?modules=earningsTrend",
@@ -8569,9 +9403,55 @@
     },
     "valorisation_historique": {
       "url": "https://stockanalysis.com/quote/tsx/ELVA/financials/ratios/",
-      "http": 403,
-      "statut": "ECHEC",
-      "erreur": "HTTPError"
+      "echecs_precedents": [
+        {
+          "url": "https://stockanalysis.com/quote/tsx/ELVA/financials/ratios/",
+          "http": 403,
+          "statut": "ECHEC",
+          "erreur": "HTTPError"
+        }
+      ],
+      "http": 200,
+      "statut": "SOURCE_SECONDAIRE_HISTORIQUE",
+      "sha256_reponse": "b1615c76ba6945f3d2f7eba6b43d86d7ecd8a5c5405fbdac4d678be2988e2836",
+      "lignes": [
+        [
+          "Fiscal Year",
+          "Current",
+          "FY 2025",
+          "FY 2024",
+          "FY 2023",
+          "FY 2022",
+          "FY 2021"
+        ],
+        [
+          "Period Ending",
+          "Nov '26 Nov 4, 2026",
+          "Sep '25 Sep 30, 2025",
+          "Sep '24 Sep 30, 2024",
+          "Sep '23 Sep 30, 2023",
+          "Sep '22 Sep 30, 2022",
+          "Sep '21 Sep 30, 2021"
+        ],
+        [
+          "PE Ratio",
+          "53.32",
+          "70.21",
+          "-",
+          "-",
+          "-",
+          "-"
+        ],
+        [
+          "P/FCF Ratio",
+          "-",
+          "-",
+          "87.45",
+          "-",
+          "-",
+          "-"
+        ]
+      ]
     },
     "revisions": {
       "url": "https://query1.finance.yahoo.com/v10/finance/quoteSummary/ELVA.TO?modules=earningsTrend",
@@ -9120,9 +10000,55 @@
     },
     "valorisation_historique": {
       "url": "https://stockanalysis.com/quote/tsx/FTG/financials/ratios/",
-      "http": 403,
-      "statut": "ECHEC",
-      "erreur": "HTTPError"
+      "echecs_precedents": [
+        {
+          "url": "https://stockanalysis.com/quote/tsx/FTG/financials/ratios/",
+          "http": 403,
+          "statut": "ECHEC",
+          "erreur": "HTTPError"
+        }
+      ],
+      "http": 200,
+      "statut": "SOURCE_SECONDAIRE_HISTORIQUE",
+      "sha256_reponse": "10d9d98cae48ec98a5d51592a905007e891f3c44215b8a8b697b3d8e14646109",
+      "lignes": [
+        [
+          "Fiscal Year",
+          "Current",
+          "FY 2025",
+          "FY 2024",
+          "FY 2023",
+          "FY 2022",
+          "FY 2021"
+        ],
+        [
+          "Period Ending",
+          "Nov '26 Nov 4, 2026",
+          "Nov '25 Nov 30, 2025",
+          "Nov '24 Nov 30, 2024",
+          "Nov '23 Nov 30, 2023",
+          "Nov '22 Nov 30, 2022",
+          "Nov '21 Nov 30, 2021"
+        ],
+        [
+          "PE Ratio",
+          "35.19",
+          "21.85",
+          "16.11",
+          "9.22",
+          "64.04",
+          "224.82"
+        ],
+        [
+          "P/FCF Ratio",
+          "37.21",
+          "21.58",
+          "24.09",
+          "22.47",
+          "-",
+          "12.16"
+        ]
+      ]
     },
     "revisions": {
       "url": "https://query1.finance.yahoo.com/v10/finance/quoteSummary/FTG.TO?modules=earningsTrend",
@@ -9659,9 +10585,55 @@
     },
     "valorisation_historique": {
       "url": "https://stockanalysis.com/quote/sto/GENI/financials/ratios/",
-      "http": 403,
-      "statut": "ECHEC",
-      "erreur": "HTTPError"
+      "echecs_precedents": [
+        {
+          "url": "https://stockanalysis.com/quote/sto/GENI/financials/ratios/",
+          "http": 403,
+          "statut": "ECHEC",
+          "erreur": "HTTPError"
+        }
+      ],
+      "http": 200,
+      "statut": "SOURCE_SECONDAIRE_HISTORIQUE",
+      "sha256_reponse": "aea8199ed0f7a87ff064dddef356fcc402f203e3cecc5a6b1dcc77f0e0f98179",
+      "lignes": [
+        [
+          "Fiscal Year",
+          "Current",
+          "FY 2025",
+          "FY 2024",
+          "FY 2023",
+          "FY 2022",
+          "FY 2021"
+        ],
+        [
+          "Period Ending",
+          "Nov '26 Nov 4, 2026",
+          "Dec '25 Dec 31, 2025",
+          "Dec '24 Dec 31, 2024",
+          "Dec '23 Dec 31, 2023",
+          "Dec '22 Dec 31, 2022",
+          "Dec '21 Dec 31, 2021"
+        ],
+        [
+          "PE Ratio",
+          "14.96",
+          "18.38",
+          "24.81",
+          "27.32",
+          "20.44",
+          "55.88"
+        ],
+        [
+          "P/FCF Ratio",
+          "14.89",
+          "14.63",
+          "28.41",
+          "30.74",
+          "26.25",
+          "53.07"
+        ]
+      ]
     },
     "revisions": {
       "url": "https://query1.finance.yahoo.com/v10/finance/quoteSummary/GENI.ST?modules=earningsTrend",
@@ -10204,9 +11176,55 @@
     },
     "valorisation_historique": {
       "url": "https://stockanalysis.com/quote/bit/GROW/financials/ratios/",
-      "http": 403,
-      "statut": "ECHEC",
-      "erreur": "HTTPError"
+      "echecs_precedents": [
+        {
+          "url": "https://stockanalysis.com/quote/bit/GROW/financials/ratios/",
+          "http": 403,
+          "statut": "ECHEC",
+          "erreur": "HTTPError"
+        }
+      ],
+      "http": 200,
+      "statut": "SOURCE_SECONDAIRE_HISTORIQUE",
+      "sha256_reponse": "93c96bdcff805ae74b106756c90a66aaa619161c172a46c79bded1ffa689d558",
+      "lignes": [
+        [
+          "Fiscal Year",
+          "Current",
+          "FY 2025",
+          "FY 2024",
+          "FY 2023",
+          "FY 2022",
+          "FY 2021"
+        ],
+        [
+          "Period Ending",
+          "Nov '26 Nov 4, 2026",
+          "Dec '25 Dec 31, 2025",
+          "Dec '24 Dec 31, 2024",
+          "Dec '23 Dec 31, 2023",
+          "Dec '22 Dec 31, 2022",
+          "Dec '21 Dec 31, 2021"
+        ],
+        [
+          "PE Ratio",
+          "-",
+          "-",
+          "-",
+          "1.05",
+          "-",
+          "192.34"
+        ],
+        [
+          "P/FCF Ratio",
+          "14.74",
+          "-",
+          "-",
+          "-",
+          "25.75",
+          "8.56"
+        ]
+      ]
     },
     "revisions": {
       "url": "https://query1.finance.yahoo.com/v10/finance/quoteSummary/GROW.MI?modules=earningsTrend",
@@ -10635,9 +11653,55 @@
     },
     "valorisation_historique": {
       "url": "https://stockanalysis.com/quote/aim/HDD/financials/ratios/",
-      "http": 403,
-      "statut": "ECHEC",
-      "erreur": "HTTPError"
+      "echecs_precedents": [
+        {
+          "url": "https://stockanalysis.com/quote/aim/HDD/financials/ratios/",
+          "http": 403,
+          "statut": "ECHEC",
+          "erreur": "HTTPError"
+        }
+      ],
+      "http": 200,
+      "statut": "SOURCE_SECONDAIRE_HISTORIQUE",
+      "sha256_reponse": "da01eeeef6ed223dbac407814c48be8bdd7b6e09bf096d740fd2f9e9c7ccff70",
+      "lignes": [
+        [
+          "Fiscal Year",
+          "Current",
+          "FY 2025",
+          "FY 2024",
+          "FY 2023",
+          "FY 2022",
+          "FY 2021"
+        ],
+        [
+          "Period Ending",
+          "Nov '26 Nov 4, 2026",
+          "Sep '25 Sep 30, 2025",
+          "Sep '24 Sep 30, 2024",
+          "Sep '23 Sep 30, 2023",
+          "Sep '22 Sep 30, 2022",
+          "Sep '21 Sep 30, 2021"
+        ],
+        [
+          "PE Ratio",
+          "77.06",
+          "32.65",
+          "-",
+          "-",
+          "-",
+          "-"
+        ],
+        [
+          "P/FCF Ratio",
+          "117.70",
+          "9.79",
+          "-",
+          "120.96",
+          "-",
+          "-"
+        ]
+      ]
     },
     "revisions": {
       "url": "https://query1.finance.yahoo.com/v10/finance/quoteSummary/HDD.L?modules=earningsTrend",
@@ -10997,9 +12061,55 @@
     "date_collecte": "2026-11-05",
     "valorisation_historique": {
       "url": "https://stockanalysis.com/quote/aim/HSP/financials/ratios/",
-      "http": 403,
-      "statut": "ECHEC",
-      "erreur": "HTTPError"
+      "echecs_precedents": [
+        {
+          "url": "https://stockanalysis.com/quote/aim/HSP/financials/ratios/",
+          "http": 403,
+          "statut": "ECHEC",
+          "erreur": "HTTPError"
+        }
+      ],
+      "http": 200,
+      "statut": "SOURCE_SECONDAIRE_HISTORIQUE",
+      "sha256_reponse": "e9a77e11acc416cfbacd377a55f08aaf45c909d1466f65facb61d39dcbb0fea0",
+      "lignes": [
+        [
+          "Fiscal Year",
+          "Current",
+          "FY 2026",
+          "FY 2025",
+          "FY 2024",
+          "FY 2023",
+          "FY 2022"
+        ],
+        [
+          "Period Ending",
+          "Nov '26 Nov 4, 2026",
+          "May '26 May 31, 2026",
+          "May '25 May 31, 2025",
+          "May '24 May 31, 2024",
+          "May '23 May 31, 2023",
+          "May '22 May 31, 2022"
+        ],
+        [
+          "PE Ratio",
+          "9.52",
+          "7.94",
+          "15.21",
+          "14.96",
+          "4.59",
+          "5.15"
+        ],
+        [
+          "P/FCF Ratio",
+          "10.06",
+          "9.19",
+          "8.67",
+          "9.03",
+          "10.30",
+          "-"
+        ]
+      ]
     },
     "revisions": {
       "url": "https://query1.finance.yahoo.com/v10/finance/quoteSummary/HSP.L?modules=earningsTrend",
@@ -11428,9 +12538,55 @@
     },
     "valorisation_historique": {
       "url": "https://stockanalysis.com/stocks/idn/financials/ratios/",
-      "http": 403,
-      "statut": "ECHEC",
-      "erreur": "HTTPError"
+      "echecs_precedents": [
+        {
+          "url": "https://stockanalysis.com/stocks/idn/financials/ratios/",
+          "http": 403,
+          "statut": "ECHEC",
+          "erreur": "HTTPError"
+        }
+      ],
+      "http": 200,
+      "statut": "SOURCE_SECONDAIRE_HISTORIQUE",
+      "sha256_reponse": "9dfbf20d95d79759d317f090c415f11663592065f1879699bc361f8be7a5bde2",
+      "lignes": [
+        [
+          "Fiscal Year",
+          "Current",
+          "FY 2025",
+          "FY 2024",
+          "FY 2023",
+          "FY 2022",
+          "FY 2021"
+        ],
+        [
+          "Period Ending",
+          "Nov '26 Nov 4, 2026",
+          "Dec '25 Dec 31, 2025",
+          "Dec '24 Dec 31, 2024",
+          "Dec '23 Dec 31, 2023",
+          "Dec '22 Dec 31, 2022",
+          "Dec '21 Dec 31, 2021"
+        ],
+        [
+          "PE Ratio",
+          "14.37",
+          "106.02",
+          "-",
+          "-",
+          "-",
+          "-"
+        ],
+        [
+          "P/FCF Ratio",
+          "15.07",
+          "30.07",
+          "-",
+          "-",
+          "-",
+          "190.75"
+        ]
+      ]
     },
     "revisions": {
       "url": "https://query1.finance.yahoo.com/v10/finance/quoteSummary/IDN?modules=earningsTrend",
@@ -11979,9 +13135,55 @@
     },
     "valorisation_historique": {
       "url": "https://stockanalysis.com/stocks/infu/financials/ratios/",
-      "http": 403,
-      "statut": "ECHEC",
-      "erreur": "HTTPError"
+      "echecs_precedents": [
+        {
+          "url": "https://stockanalysis.com/stocks/infu/financials/ratios/",
+          "http": 403,
+          "statut": "ECHEC",
+          "erreur": "HTTPError"
+        }
+      ],
+      "http": 200,
+      "statut": "SOURCE_SECONDAIRE_HISTORIQUE",
+      "sha256_reponse": "d62eb37071c3640810b2625f4393a36afe26cf45ab97f731588cffc53d79a483",
+      "lignes": [
+        [
+          "Fiscal Year",
+          "Current",
+          "FY 2025",
+          "FY 2024",
+          "FY 2023",
+          "FY 2022",
+          "FY 2021"
+        ],
+        [
+          "Period Ending",
+          "Nov '26 Nov 4, 2026",
+          "Dec '25 Dec 31, 2025",
+          "Dec '24 Dec 31, 2024",
+          "Dec '23 Dec 31, 2023",
+          "Dec '22 Dec 31, 2022",
+          "Dec '21 Dec 31, 2021"
+        ],
+        [
+          "PE Ratio",
+          "32.81",
+          "27.53",
+          "76.62",
+          "256.05",
+          "9960.96",
+          "247.65"
+        ],
+        [
+          "P/FCF Ratio",
+          "20.87",
+          "11.60",
+          "68.42",
+          "2106.36",
+          "73.45",
+          "211.84"
+        ]
+      ]
     },
     "revisions": {
       "url": "https://query1.finance.yahoo.com/v10/finance/quoteSummary/INFU?modules=earningsTrend",
@@ -12512,9 +13714,46 @@
     },
     "valorisation_historique": {
       "url": "https://stockanalysis.com/quote/tsxv/KLD/financials/ratios/",
-      "http": 403,
-      "statut": "ECHEC",
-      "erreur": "HTTPError"
+      "echecs_precedents": [
+        {
+          "url": "https://stockanalysis.com/quote/tsxv/KLD/financials/ratios/",
+          "http": 403,
+          "statut": "ECHEC",
+          "erreur": "HTTPError"
+        }
+      ],
+      "http": 200,
+      "statut": "SOURCE_SECONDAIRE_HISTORIQUE",
+      "sha256_reponse": "40b39fc38212441a2b064377c39d703fcfd3753bca844cbc2afd80774766e734",
+      "lignes": [
+        [
+          "Fiscal Year",
+          "Current",
+          "FY 2025",
+          "FY 2024",
+          "FY 2023",
+          "FY 2022",
+          "FY 2021"
+        ],
+        [
+          "Period Ending",
+          "Nov '26 Nov 4, 2026",
+          "Dec '25 Dec 31, 2025",
+          "Dec '24 Dec 31, 2024",
+          "Dec '23 Dec 31, 2023",
+          "Dec '22 Dec 31, 2022",
+          "Dec '21 Dec 31, 2021"
+        ],
+        [
+          "PE Ratio",
+          "-",
+          "-",
+          "-",
+          "-",
+          "3.00",
+          "37.60"
+        ]
+      ]
     },
     "revisions": {
       "url": "https://query1.finance.yahoo.com/v10/finance/quoteSummary/KLD.V?modules=earningsTrend",
@@ -12823,9 +14062,46 @@
     },
     "valorisation_historique": {
       "url": "https://stockanalysis.com/quote/aim/LST/financials/ratios/",
-      "http": 403,
-      "statut": "ECHEC",
-      "erreur": "HTTPError"
+      "echecs_precedents": [
+        {
+          "url": "https://stockanalysis.com/quote/aim/LST/financials/ratios/",
+          "http": 403,
+          "statut": "ECHEC",
+          "erreur": "HTTPError"
+        }
+      ],
+      "http": 200,
+      "statut": "SOURCE_SECONDAIRE_HISTORIQUE",
+      "sha256_reponse": "47b11a0369ef04a10124cf6f5bb08c3fbebfc8478004b76ecf88aecc6898b99c",
+      "lignes": [
+        [
+          "Fiscal Year",
+          "Current",
+          "FY 2025",
+          "FY 2024",
+          "FY 2023",
+          "FY 2022",
+          "FY 2021"
+        ],
+        [
+          "Period Ending",
+          "Nov '26 Nov 4, 2026",
+          "Nov '25 Nov 30, 2025",
+          "Nov '24 Nov 30, 2024",
+          "Nov '23 Nov 30, 2023",
+          "Nov '22 Nov 30, 2022",
+          "Nov '21 Nov 30, 2021"
+        ],
+        [
+          "P/FCF Ratio",
+          "-",
+          "32.30",
+          "5.09",
+          "58.42",
+          "-",
+          "-"
+        ]
+      ]
     },
     "revisions": {
       "url": "https://query1.finance.yahoo.com/v10/finance/quoteSummary/LST.L?modules=earningsTrend",
@@ -13254,9 +14530,55 @@
     },
     "valorisation_historique": {
       "url": "https://stockanalysis.com/stocks/lway/financials/ratios/",
-      "http": 403,
-      "statut": "ECHEC",
-      "erreur": "HTTPError"
+      "echecs_precedents": [
+        {
+          "url": "https://stockanalysis.com/stocks/lway/financials/ratios/",
+          "http": 403,
+          "statut": "ECHEC",
+          "erreur": "HTTPError"
+        }
+      ],
+      "http": 200,
+      "statut": "SOURCE_SECONDAIRE_HISTORIQUE",
+      "sha256_reponse": "723ed55133a9e3a74463db6c3c089dcf6e2e4e4726d9f5e94822e2b357e60865",
+      "lignes": [
+        [
+          "Fiscal Year",
+          "Current",
+          "FY 2025",
+          "FY 2024",
+          "FY 2023",
+          "FY 2022",
+          "FY 2021"
+        ],
+        [
+          "Period Ending",
+          "Nov '26 Nov 4, 2026",
+          "Dec '25 Dec 31, 2025",
+          "Dec '24 Dec 31, 2024",
+          "Dec '23 Dec 31, 2023",
+          "Dec '22 Dec 31, 2022",
+          "Dec '21 Dec 31, 2021"
+        ],
+        [
+          "PE Ratio",
+          "32.21",
+          "26.63",
+          "40.72",
+          "17.33",
+          "93.07",
+          "21.44"
+        ],
+        [
+          "P/FCF Ratio",
+          "-",
+          "-",
+          "58.65",
+          "15.65",
+          "159.85",
+          "19.50"
+        ]
+      ]
     },
     "revisions": {
       "url": "https://query1.finance.yahoo.com/v10/finance/quoteSummary/LWAY?modules=earningsTrend",
@@ -13778,9 +15100,55 @@
     },
     "valorisation_historique": {
       "url": "https://stockanalysis.com/quote/epa/MEMS/financials/ratios/",
-      "http": 403,
-      "statut": "ECHEC",
-      "erreur": "HTTPError"
+      "echecs_precedents": [
+        {
+          "url": "https://stockanalysis.com/quote/epa/MEMS/financials/ratios/",
+          "http": 403,
+          "statut": "ECHEC",
+          "erreur": "HTTPError"
+        }
+      ],
+      "http": 200,
+      "statut": "SOURCE_SECONDAIRE_HISTORIQUE",
+      "sha256_reponse": "2c4537f8b37df0cabf0997b400a21a272a78e7aee9091dcbf815d4c7b8bd3d3c",
+      "lignes": [
+        [
+          "Fiscal Year",
+          "Current",
+          "FY 2025",
+          "FY 2024",
+          "FY 2023",
+          "FY 2022",
+          "FY 2021"
+        ],
+        [
+          "Period Ending",
+          "Nov '26 Nov 4, 2026",
+          "Dec '25 Dec 31, 2025",
+          "Dec '24 Dec 31, 2024",
+          "Dec '23 Dec 31, 2023",
+          "Dec '22 Dec 31, 2022",
+          "Dec '21 Dec 31, 2021"
+        ],
+        [
+          "PE Ratio",
+          "30.46",
+          "35.09",
+          "28.37",
+          "20.99",
+          "9.89",
+          "-"
+        ],
+        [
+          "P/FCF Ratio",
+          "28.12",
+          "24.80",
+          "113.97",
+          "31.94",
+          "-",
+          "6.33"
+        ]
+      ]
     },
     "revisions": {
       "url": "https://query1.finance.yahoo.com/v10/finance/quoteSummary/MEMS.PA?modules=earningsTrend",
@@ -14134,9 +15502,55 @@
     "date_collecte": "2026-11-05",
     "valorisation_historique": {
       "url": "https://stockanalysis.com/quote/aim/MTEC/financials/ratios/",
-      "http": 403,
-      "statut": "ECHEC",
-      "erreur": "HTTPError"
+      "echecs_precedents": [
+        {
+          "url": "https://stockanalysis.com/quote/aim/MTEC/financials/ratios/",
+          "http": 403,
+          "statut": "ECHEC",
+          "erreur": "HTTPError"
+        }
+      ],
+      "http": 200,
+      "statut": "SOURCE_SECONDAIRE_HISTORIQUE",
+      "sha256_reponse": "f48472c3daf93b20ef860e6bb79f5aaf1ffbd91ef3fdb01332de0ffa908ff2c2",
+      "lignes": [
+        [
+          "Fiscal Year",
+          "Current",
+          "FY 2026",
+          "FY 2025",
+          "FY 2024",
+          "FY 2023",
+          "FY 2022"
+        ],
+        [
+          "Period Ending",
+          "Nov '26 Nov 4, 2026",
+          "May '26 May 31, 2026",
+          "May '25 May 31, 2025",
+          "May '24 May 31, 2024",
+          "May '23 May 31, 2023",
+          "May '22 May 31, 2022"
+        ],
+        [
+          "PE Ratio",
+          "24.43",
+          "16.73",
+          "32.40",
+          "-",
+          "-",
+          "-"
+        ],
+        [
+          "P/FCF Ratio",
+          "17.16",
+          "12.80",
+          "15.47",
+          "34.67",
+          "-",
+          "42.29"
+        ]
+      ]
     },
     "revisions": {
       "url": "https://query1.finance.yahoo.com/v10/finance/quoteSummary/MTEC.L?modules=earningsTrend",
@@ -14565,9 +15979,55 @@
     },
     "valorisation_historique": {
       "url": "https://stockanalysis.com/stocks/oss/financials/ratios/",
-      "http": 403,
-      "statut": "ECHEC",
-      "erreur": "HTTPError"
+      "echecs_precedents": [
+        {
+          "url": "https://stockanalysis.com/stocks/oss/financials/ratios/",
+          "http": 403,
+          "statut": "ECHEC",
+          "erreur": "HTTPError"
+        }
+      ],
+      "http": 200,
+      "statut": "SOURCE_SECONDAIRE_HISTORIQUE",
+      "sha256_reponse": "de6905d2621271f99210ddc52e9714fd2ee8fac16a2165df72fcd57776d0889e",
+      "lignes": [
+        [
+          "Fiscal Year",
+          "Current",
+          "FY 2025",
+          "FY 2024",
+          "FY 2023",
+          "FY 2022",
+          "FY 2021"
+        ],
+        [
+          "Period Ending",
+          "Nov '26 Nov 4, 2026",
+          "Dec '25 Dec 31, 2025",
+          "Dec '24 Dec 31, 2024",
+          "Dec '23 Dec 31, 2023",
+          "Dec '22 Dec 31, 2022",
+          "Dec '21 Dec 31, 2021"
+        ],
+        [
+          "PE Ratio",
+          "268.94",
+          "34.60",
+          "-",
+          "-",
+          "-",
+          "39.61"
+        ],
+        [
+          "P/FCF Ratio",
+          "-",
+          "-",
+          "-",
+          "-",
+          "-",
+          "18.27"
+        ]
+      ]
     },
     "revisions": {
       "url": "https://query1.finance.yahoo.com/v10/finance/quoteSummary/OSS?modules=earningsTrend",
@@ -15116,9 +16576,55 @@
     },
     "valorisation_historique": {
       "url": "https://stockanalysis.com/quote/xsat/PLEJD/financials/ratios/",
-      "http": 403,
-      "statut": "ECHEC",
-      "erreur": "HTTPError"
+      "echecs_precedents": [
+        {
+          "url": "https://stockanalysis.com/quote/xsat/PLEJD/financials/ratios/",
+          "http": 403,
+          "statut": "ECHEC",
+          "erreur": "HTTPError"
+        }
+      ],
+      "http": 200,
+      "statut": "SOURCE_SECONDAIRE_HISTORIQUE",
+      "sha256_reponse": "e9c6ee86ee0a30cbb7ff581415123326e81945b5d62b5f832d701c93bf75fb74",
+      "lignes": [
+        [
+          "Fiscal Year",
+          "Current",
+          "FY 2025",
+          "FY 2024",
+          "FY 2023",
+          "FY 2022",
+          "FY 2021"
+        ],
+        [
+          "Period Ending",
+          "Sep '26 Sep 29, 2026",
+          "Dec '25 Dec 31, 2025",
+          "Dec '24 Dec 31, 2024",
+          "Dec '23 Dec 31, 2023",
+          "Dec '22 Dec 31, 2022",
+          "Dec '21 Dec 31, 2021"
+        ],
+        [
+          "PE Ratio",
+          "41.90",
+          "45.09",
+          "39.52",
+          "41.52",
+          "35.51",
+          "103.69"
+        ],
+        [
+          "P/FCF Ratio",
+          "55.43",
+          "44.85",
+          "30.81",
+          "48.27",
+          "117.41",
+          "168.24"
+        ]
+      ]
     },
     "revisions": {
       "url": "https://query1.finance.yahoo.com/v10/finance/quoteSummary/PLEJD.ST?modules=earningsTrend",
@@ -15660,9 +17166,46 @@
     },
     "valorisation_historique": {
       "url": "https://stockanalysis.com/quote/aim/PULS/financials/ratios/",
-      "http": 403,
-      "statut": "ECHEC",
-      "erreur": "HTTPError"
+      "echecs_precedents": [
+        {
+          "url": "https://stockanalysis.com/quote/aim/PULS/financials/ratios/",
+          "http": 403,
+          "statut": "ECHEC",
+          "erreur": "HTTPError"
+        }
+      ],
+      "http": 200,
+      "statut": "SOURCE_SECONDAIRE_HISTORIQUE",
+      "sha256_reponse": "ed600fda579e30e646ad3ab3b6a3f362c206013a0f97601bfd9d9ca1eadb6da8",
+      "lignes": [
+        [
+          "Fiscal Year",
+          "Current",
+          "FY 2025",
+          "FY 2024",
+          "FY 2023",
+          "FY 2022",
+          "FY 2021"
+        ],
+        [
+          "Period Ending",
+          "Oct '26 Oct 27, 2026",
+          "Nov '25 Nov 30, 2025",
+          "Nov '24 Nov 30, 2024",
+          "Nov '23 Nov 30, 2023",
+          "Nov '22 Nov 30, 2022",
+          "Nov '21 Nov 30, 2021"
+        ],
+        [
+          "P/FCF Ratio",
+          "3.22",
+          "10.21",
+          "-",
+          "9.04",
+          "56.98",
+          "-"
+        ]
+      ]
     },
     "revisions": {
       "url": "https://query1.finance.yahoo.com/v10/finance/quoteSummary/PULS.L?modules=earningsTrend",
@@ -16091,9 +17634,55 @@
     },
     "valorisation_historique": {
       "url": "https://stockanalysis.com/quote/tsxv/ROK/financials/ratios/",
-      "http": 403,
-      "statut": "ECHEC",
-      "erreur": "HTTPError"
+      "echecs_precedents": [
+        {
+          "url": "https://stockanalysis.com/quote/tsxv/ROK/financials/ratios/",
+          "http": 403,
+          "statut": "ECHEC",
+          "erreur": "HTTPError"
+        }
+      ],
+      "http": 200,
+      "statut": "SOURCE_SECONDAIRE_HISTORIQUE",
+      "sha256_reponse": "53e21d476158da46236c39875464dcec70443fa809a1194d59842e312395087d",
+      "lignes": [
+        [
+          "Fiscal Year",
+          "Current",
+          "FY 2025",
+          "FY 2024",
+          "FY 2023",
+          "FY 2022",
+          "FY 2021"
+        ],
+        [
+          "Period Ending",
+          "Nov '26 Nov 4, 2026",
+          "Dec '25 Dec 31, 2025",
+          "Dec '24 Dec 31, 2024",
+          "Dec '23 Dec 31, 2023",
+          "Dec '22 Dec 31, 2022",
+          "Dec '21 Dec 31, 2021"
+        ],
+        [
+          "PE Ratio",
+          "-",
+          "-",
+          "-",
+          "-",
+          "1.27",
+          "-"
+        ],
+        [
+          "P/FCF Ratio",
+          "6.92",
+          "3.69",
+          "9.40",
+          "-",
+          "10.84",
+          "-"
+        ]
+      ]
     },
     "revisions": {
       "url": "https://query1.finance.yahoo.com/v10/finance/quoteSummary/ROK.V?modules=earningsTrend",
@@ -16628,9 +18217,46 @@
     },
     "valorisation_historique": {
       "url": "https://stockanalysis.com/quote/aim/SFT/financials/ratios/",
-      "http": 403,
-      "statut": "ECHEC",
-      "erreur": "HTTPError"
+      "echecs_precedents": [
+        {
+          "url": "https://stockanalysis.com/quote/aim/SFT/financials/ratios/",
+          "http": 403,
+          "statut": "ECHEC",
+          "erreur": "HTTPError"
+        }
+      ],
+      "http": 200,
+      "statut": "SOURCE_SECONDAIRE_HISTORIQUE",
+      "sha256_reponse": "55cca67268206aa2a8658bad6cde5008b40a6f7f09345af95920686d8c2497f0",
+      "lignes": [
+        [
+          "Fiscal Year",
+          "Current",
+          "FY 2026",
+          "FY 2025",
+          "FY 2024",
+          "FY 2023",
+          "FY 2022"
+        ],
+        [
+          "Period Ending",
+          "Nov '26 Nov 4, 2026",
+          "Mar '26 Mar 31, 2026",
+          "Mar '25 Mar 31, 2025",
+          "Mar '24 Mar 31, 2024",
+          "Mar '23 Mar 31, 2023",
+          "Mar '22 Mar 31, 2022"
+        ],
+        [
+          "P/FCF Ratio",
+          "11.58",
+          "10.39",
+          "40.08",
+          "31.59",
+          "42.70",
+          "57.25"
+        ]
+      ]
     },
     "revisions": {
       "url": "https://query1.finance.yahoo.com/v10/finance/quoteSummary/SFT.L?modules=earningsTrend",
@@ -16998,9 +18624,55 @@
     },
     "valorisation_historique": {
       "url": "https://stockanalysis.com/quote/aim/TRT/financials/ratios/",
-      "http": 403,
-      "statut": "ECHEC",
-      "erreur": "HTTPError"
+      "echecs_precedents": [
+        {
+          "url": "https://stockanalysis.com/quote/aim/TRT/financials/ratios/",
+          "http": 403,
+          "statut": "ECHEC",
+          "erreur": "HTTPError"
+        }
+      ],
+      "http": 200,
+      "statut": "SOURCE_SECONDAIRE_HISTORIQUE",
+      "sha256_reponse": "4ef32321c725a6dc9777d6fc3594bdaa9de289459dbe8d601bc2fca01f55ab37",
+      "lignes": [
+        [
+          "Fiscal Year",
+          "Current",
+          "FY 2026",
+          "FY 2025",
+          "FY 2024",
+          "FY 2023",
+          "FY 2022"
+        ],
+        [
+          "Period Ending",
+          "Nov '26 Nov 4, 2026",
+          "Jun '26 Jun 30, 2026",
+          "Jun '25 Jun 30, 2025",
+          "Jun '24 Jun 30, 2024",
+          "Jun '23 Jun 30, 2023",
+          "Jun '22 Jun 30, 2022"
+        ],
+        [
+          "PE Ratio",
+          "-",
+          "-",
+          "17.02",
+          "12.16",
+          "9.63",
+          "11.41"
+        ],
+        [
+          "P/FCF Ratio",
+          "17.73",
+          "20.75",
+          "19.81",
+          "16.76",
+          "23.71",
+          "27.48"
+        ]
+      ]
     },
     "revisions": {
       "url": "https://query1.finance.yahoo.com/v10/finance/quoteSummary/TRT.L?modules=earningsTrend",
@@ -17369,9 +19041,55 @@
     },
     "valorisation_historique": {
       "url": "https://stockanalysis.com/quote/aim/TSTL/financials/ratios/",
-      "http": 403,
-      "statut": "ECHEC",
-      "erreur": "HTTPError"
+      "echecs_precedents": [
+        {
+          "url": "https://stockanalysis.com/quote/aim/TSTL/financials/ratios/",
+          "http": 403,
+          "statut": "ECHEC",
+          "erreur": "HTTPError"
+        }
+      ],
+      "http": 200,
+      "statut": "SOURCE_SECONDAIRE_HISTORIQUE",
+      "sha256_reponse": "c07fe760beaef9b7be0f0a08cd05bfb3de4d444a453cf2bb328434efc00797ff",
+      "lignes": [
+        [
+          "Fiscal Year",
+          "Current",
+          "FY 2026",
+          "FY 2025",
+          "FY 2024",
+          "FY 2023",
+          "FY 2022"
+        ],
+        [
+          "Period Ending",
+          "Nov '26 Nov 4, 2026",
+          "Jun '26 Jun 30, 2026",
+          "Jun '25 Jun 30, 2025",
+          "Jun '24 Jun 30, 2024",
+          "Jun '23 Jun 30, 2023",
+          "Jun '22 Jun 30, 2022"
+        ],
+        [
+          "PE Ratio",
+          "23.87",
+          "24.05",
+          "29.46",
+          "33.52",
+          "37.65",
+          "168.66"
+        ],
+        [
+          "P/FCF Ratio",
+          "18.31",
+          "18.38",
+          "20.68",
+          "22.31",
+          "21.99",
+          "30.71"
+        ]
+      ]
     },
     "revisions": {
       "url": "https://query1.finance.yahoo.com/v10/finance/quoteSummary/TSTL.L?modules=earningsTrend",
@@ -17800,9 +19518,55 @@
     },
     "valorisation_historique": {
       "url": "https://stockanalysis.com/quote/tsxv/ZOMD/financials/ratios/",
-      "http": 403,
-      "statut": "ECHEC",
-      "erreur": "HTTPError"
+      "echecs_precedents": [
+        {
+          "url": "https://stockanalysis.com/quote/tsxv/ZOMD/financials/ratios/",
+          "http": 403,
+          "statut": "ECHEC",
+          "erreur": "HTTPError"
+        }
+      ],
+      "http": 200,
+      "statut": "SOURCE_SECONDAIRE_HISTORIQUE",
+      "sha256_reponse": "87d6774358cc67a471386195eda949ef9363571f91f3905fc1577b8efdcc5e9b",
+      "lignes": [
+        [
+          "Fiscal Year",
+          "Current",
+          "FY 2025",
+          "FY 2024",
+          "FY 2023",
+          "FY 2022",
+          "FY 2021"
+        ],
+        [
+          "Period Ending",
+          "Nov '26 Nov 4, 2026",
+          "Dec '25 Dec 31, 2025",
+          "Dec '24 Dec 31, 2024",
+          "Dec '23 Dec 31, 2023",
+          "Dec '22 Dec 31, 2022",
+          "Dec '21 Dec 31, 2021"
+        ],
+        [
+          "PE Ratio",
+          "5.58",
+          "5.95",
+          "6.39",
+          "-",
+          "-",
+          "14.60"
+        ],
+        [
+          "P/FCF Ratio",
+          "2.87",
+          "4.94",
+          "7.51",
+          "11.72",
+          "8.13",
+          "9.61"
+        ]
+      ]
     },
     "revisions": {
       "url": "https://query1.finance.yahoo.com/v10/finance/quoteSummary/ZOMD.V?modules=earningsTrend",
