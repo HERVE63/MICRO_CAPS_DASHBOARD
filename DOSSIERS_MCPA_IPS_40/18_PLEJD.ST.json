@@ -1479,6 +1479,599 @@
       "periode": "T3 2026",
       "date_collecte": "2026-11-04",
       "statut": "SOURCE_PUBLIQUE_VERIFIEE"
+    },
+    {
+      "url": "https://query1.finance.yahoo.com/ws/fundamentals-timeseries/v1/finance/timeseries/PLEJD.ST?type=annualEBITDA&period1=1640995200&period2=1793872600",
+      "indicateur": "series_annuelles",
+      "valeur": null,
+      "unite": null,
+      "periode": "2026-11-05",
+      "date_collecte": "2026-11-05",
+      "statut": "A_VERIFIER_AVANT_NOTATION",
+      "sha256_reponse": "513e1834d710ba25cb510c3103ac64bdf4b22689252153c21d0b5db354580b8f",
+      "donnees_brutes": {
+        "series": [
+          {
+            "meta": {
+              "symbol": [
+                "PLEJD.ST"
+              ],
+              "type": [
+                "annualEBITDA"
+              ]
+            },
+            "timestamp": [
+              1672444800,
+              1703980800,
+              1735603200,
+              1767139200
+            ],
+            "annualEBITDA": [
+              {
+                "dataId": 20190,
+                "asOfDate": "2022-12-31",
+                "periodType": "12M",
+                "currencyCode": "SEK",
+                "reportedValue": {
+                  "raw": 118558000.0,
+                  "fmt": "118.56M"
+                }
+              },
+              {
+                "dataId": 20190,
+                "asOfDate": "2023-12-31",
+                "periodType": "12M",
+                "currencyCode": "SEK",
+                "reportedValue": {
+                  "raw": 115032000.0,
+                  "fmt": "115.03M"
+                }
+              },
+              {
+                "dataId": 20190,
+                "asOfDate": "2024-12-31",
+                "periodType": "12M",
+                "currencyCode": "SEK",
+                "reportedValue": {
+                  "raw": 202627000.0,
+                  "fmt": "202.63M"
+                }
+              },
+              {
+                "dataId": 20190,
+                "asOfDate": "2025-12-31",
+                "periodType": "12M",
+                "currencyCode": "SEK",
+                "reportedValue": {
+                  "raw": 317834000.0,
+                  "fmt": "317.83M"
+                }
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "url": "https://stockanalysis.com/quote/xsat/PLEJD/financials/ratios/",
+      "indicateur": "valorisation_historique",
+      "valeur": null,
+      "unite": null,
+      "periode": "2026-11-05",
+      "date_collecte": "2026-11-05",
+      "statut": "A_VERIFIER_AVANT_NOTATION",
+      "sha256_reponse": "e9c6ee86ee0a30cbb7ff581415123326e81945b5d62b5f832d701c93bf75fb74",
+      "donnees_brutes": {
+        "lignes": [
+          [
+            "Fiscal Year",
+            "Current",
+            "FY 2025",
+            "FY 2024",
+            "FY 2023",
+            "FY 2022",
+            "FY 2021"
+          ],
+          [
+            "Period Ending",
+            "Sep '26 Sep 29, 2026",
+            "Dec '25 Dec 31, 2025",
+            "Dec '24 Dec 31, 2024",
+            "Dec '23 Dec 31, 2023",
+            "Dec '22 Dec 31, 2022",
+            "Dec '21 Dec 31, 2021"
+          ],
+          [
+            "PE Ratio",
+            "41.90",
+            "45.09",
+            "39.52",
+            "41.52",
+            "35.51",
+            "103.69"
+          ],
+          [
+            "P/FCF Ratio",
+            "55.43",
+            "44.85",
+            "30.81",
+            "48.27",
+            "117.41",
+            "168.24"
+          ]
+        ]
+      }
+    },
+    {
+      "url": "https://query1.finance.yahoo.com/v10/finance/quoteSummary/PLEJD.ST?modules=earningsTrend",
+      "indicateur": "revisions",
+      "valeur": null,
+      "unite": null,
+      "periode": "2026-11-05",
+      "date_collecte": "2026-11-05",
+      "statut": "A_VERIFIER_AVANT_NOTATION",
+      "sha256_reponse": "c7d13b8f39be5173115b8112e163b3e0d82a99d6d9e23c05ee023cda5a52dad3",
+      "donnees_brutes": {
+        "tendances": [
+          {
+            "maxAge": 1,
+            "period": "0q",
+            "endDate": "2026-12-31",
+            "growth": {
+              "raw": 0.4377,
+              "fmt": "43.77%"
+            },
+            "earningsEstimate": {
+              "avg": {
+                "raw": 8.02234,
+                "fmt": "8.02"
+              },
+              "low": {
+                "raw": 7.55,
+                "fmt": "7.55"
+              },
+              "high": {
+                "raw": 8.31703,
+                "fmt": "8.32"
+              },
+              "yearAgoEps": {
+                "raw": 5.58,
+                "fmt": "5.58"
+              },
+              "numberOfAnalysts": {
+                "raw": 3,
+                "fmt": "3",
+                "longFmt": "3"
+              },
+              "growth": {
+                "raw": 0.4377,
+                "fmt": "43.77%"
+              },
+              "earningsCurrency": "SEK"
+            },
+            "revenueEstimate": {
+              "avg": {
+                "raw": 368849070,
+                "fmt": "368.85M",
+                "longFmt": "368,849,070"
+              },
+              "low": {
+                "raw": 357000000,
+                "fmt": "357M",
+                "longFmt": "357,000,000"
+              },
+              "high": {
+                "raw": 378547200,
+                "fmt": "378.55M",
+                "longFmt": "378,547,200"
+              },
+              "numberOfAnalysts": {
+                "raw": 3,
+                "fmt": "3",
+                "longFmt": "3"
+              },
+              "yearAgoRevenue": {
+                "raw": 288333000,
+                "fmt": "288.33M",
+                "longFmt": "288,333,000"
+              },
+              "growth": {
+                "raw": 0.2792,
+                "fmt": "27.92%"
+              },
+              "revenueCurrency": "SEK"
+            },
+            "epsTrend": {
+              "current": {
+                "raw": 8.02234,
+                "fmt": "8.02"
+              },
+              "7daysAgo": {
+                "raw": 8.92,
+                "fmt": "8.92"
+              },
+              "30daysAgo": {
+                "raw": 8.88232,
+                "fmt": "8.88"
+              },
+              "60daysAgo": {
+                "raw": 8.88232,
+                "fmt": "8.88"
+              },
+              "90daysAgo": {
+                "raw": 8.6,
+                "fmt": "8.6"
+              },
+              "epsTrendCurrency": "SEK"
+            },
+            "epsRevisions": {
+              "upLast7days": {
+                "raw": 0,
+                "fmt": null,
+                "longFmt": "0"
+              },
+              "upLast30days": {
+                "raw": 0,
+                "fmt": null,
+                "longFmt": "0"
+              },
+              "downLast30days": {
+                "raw": 2,
+                "fmt": "2",
+                "longFmt": "2"
+              },
+              "downLast7Days": {
+                "raw": 1,
+                "fmt": "1",
+                "longFmt": "1"
+              },
+              "downLast90days": {},
+              "epsRevisionsCurrency": "SEK"
+            }
+          },
+          {
+            "maxAge": 1,
+            "period": "+1q",
+            "endDate": "2027-03-31",
+            "growth": {
+              "raw": 0.19129999,
+              "fmt": "19.13%"
+            },
+            "earningsEstimate": {
+              "avg": {
+                "raw": 8.87514,
+                "fmt": "8.88"
+              },
+              "low": {
+                "raw": 8.87514,
+                "fmt": "8.88"
+              },
+              "high": {
+                "raw": 8.87514,
+                "fmt": "8.88"
+              },
+              "yearAgoEps": {
+                "raw": 7.45,
+                "fmt": "7.45"
+              },
+              "numberOfAnalysts": {
+                "raw": 1,
+                "fmt": "1",
+                "longFmt": "1"
+              },
+              "growth": {
+                "raw": 0.19129999,
+                "fmt": "19.13%"
+              },
+              "earningsCurrency": "SEK"
+            },
+            "revenueEstimate": {
+              "avg": {
+                "raw": 0,
+                "fmt": null,
+                "longFmt": "0"
+              },
+              "low": {
+                "raw": 0,
+                "fmt": null,
+                "longFmt": "0"
+              },
+              "high": {
+                "raw": 0,
+                "fmt": null,
+                "longFmt": "0"
+              },
+              "numberOfAnalysts": {
+                "raw": 0,
+                "fmt": null,
+                "longFmt": "0"
+              },
+              "yearAgoRevenue": {},
+              "growth": {},
+              "revenueCurrency": null
+            },
+            "epsTrend": {
+              "current": {
+                "raw": 8.87514,
+                "fmt": "8.88"
+              },
+              "7daysAgo": {
+                "raw": 0.0,
+                "fmt": "0"
+              },
+              "30daysAgo": {
+                "raw": 8.84052,
+                "fmt": "8.84"
+              },
+              "60daysAgo": {
+                "raw": 8.84052,
+                "fmt": "8.84"
+              },
+              "90daysAgo": {
+                "raw": 8.84052,
+                "fmt": "8.84"
+              },
+              "epsTrendCurrency": "SEK"
+            },
+            "epsRevisions": {
+              "upLast7days": {
+                "raw": 0,
+                "fmt": null,
+                "longFmt": "0"
+              },
+              "upLast30days": {
+                "raw": 0,
+                "fmt": null,
+                "longFmt": "0"
+              },
+              "downLast30days": {
+                "raw": 0,
+                "fmt": null,
+                "longFmt": "0"
+              },
+              "downLast7Days": {
+                "raw": 0,
+                "fmt": null,
+                "longFmt": "0"
+              },
+              "downLast90days": {},
+              "epsRevisionsCurrency": "SEK"
+            }
+          },
+          {
+            "maxAge": 1,
+            "period": "0y",
+            "endDate": "2026-12-31",
+            "growth": {
+              "raw": 0.53970003,
+              "fmt": "53.97%"
+            },
+            "earningsEstimate": {
+              "avg": {
+                "raw": 24.66631,
+                "fmt": "24.67"
+              },
+              "low": {
+                "raw": 24.32,
+                "fmt": "24.32"
+              },
+              "high": {
+                "raw": 24.87894,
+                "fmt": "24.88"
+              },
+              "yearAgoEps": {
+                "raw": 16.02,
+                "fmt": "16.02"
+              },
+              "numberOfAnalysts": {
+                "raw": 3,
+                "fmt": "3",
+                "longFmt": "3"
+              },
+              "growth": {
+                "raw": 0.53970003,
+                "fmt": "53.97%"
+              },
+              "earningsCurrency": "SEK"
+            },
+            "revenueEstimate": {
+              "avg": {
+                "raw": 1233890730,
+                "fmt": "1.23B",
+                "longFmt": "1,233,890,730"
+              },
+              "low": {
+                "raw": 1221800000,
+                "fmt": "1.22B",
+                "longFmt": "1,221,800,000"
+              },
+              "high": {
+                "raw": 1243872200,
+                "fmt": "1.24B",
+                "longFmt": "1,243,872,200"
+              },
+              "numberOfAnalysts": {
+                "raw": 3,
+                "fmt": "3",
+                "longFmt": "3"
+              },
+              "yearAgoRevenue": {
+                "raw": 934767000,
+                "fmt": "934.77M",
+                "longFmt": "934,767,000"
+              },
+              "growth": {
+                "raw": 0.32,
+                "fmt": "32.00%"
+              },
+              "revenueCurrency": "SEK"
+            },
+            "epsTrend": {
+              "current": {
+                "raw": 24.66631,
+                "fmt": "24.67"
+              },
+              "7daysAgo": {
+                "raw": 24.38,
+                "fmt": "24.38"
+              },
+              "30daysAgo": {
+                "raw": 25.32584,
+                "fmt": "25.33"
+              },
+              "60daysAgo": {
+                "raw": 25.32584,
+                "fmt": "25.33"
+              },
+              "90daysAgo": {
+                "raw": 24.355,
+                "fmt": "24.35"
+              },
+              "epsTrendCurrency": "SEK"
+            },
+            "epsRevisions": {
+              "upLast7days": {
+                "raw": 2,
+                "fmt": "2",
+                "longFmt": "2"
+              },
+              "upLast30days": {
+                "raw": 2,
+                "fmt": "2",
+                "longFmt": "2"
+              },
+              "downLast30days": {
+                "raw": 1,
+                "fmt": "1",
+                "longFmt": "1"
+              },
+              "downLast7Days": {
+                "raw": 1,
+                "fmt": "1",
+                "longFmt": "1"
+              },
+              "downLast90days": {},
+              "epsRevisionsCurrency": "SEK"
+            }
+          },
+          {
+            "maxAge": 1,
+            "period": "+1y",
+            "endDate": "2027-12-31",
+            "growth": {
+              "raw": 0.3348,
+              "fmt": "33.48%"
+            },
+            "earningsEstimate": {
+              "avg": {
+                "raw": 32.92554,
+                "fmt": "32.93"
+              },
+              "low": {
+                "raw": 32.3,
+                "fmt": "32.3"
+              },
+              "high": {
+                "raw": 33.63,
+                "fmt": "33.63"
+              },
+              "yearAgoEps": {
+                "raw": 24.66631,
+                "fmt": "24.67"
+              },
+              "numberOfAnalysts": {
+                "raw": 3,
+                "fmt": "3",
+                "longFmt": "3"
+              },
+              "growth": {
+                "raw": 0.3348,
+                "fmt": "33.48%"
+              },
+              "earningsCurrency": "SEK"
+            },
+            "revenueEstimate": {
+              "avg": {
+                "raw": 1523329450,
+                "fmt": "1.52B",
+                "longFmt": "1,523,329,450"
+              },
+              "low": {
+                "raw": 1486500000,
+                "fmt": "1.49B",
+                "longFmt": "1,486,500,000"
+              },
+              "high": {
+                "raw": 1543000000,
+                "fmt": "1.54B",
+                "longFmt": "1,543,000,000"
+              },
+              "numberOfAnalysts": {
+                "raw": 3,
+                "fmt": "3",
+                "longFmt": "3"
+              },
+              "yearAgoRevenue": {
+                "raw": 1233890730,
+                "fmt": "1.23B",
+                "longFmt": "1,233,890,730"
+              },
+              "growth": {
+                "raw": 0.2346,
+                "fmt": "23.46%"
+              },
+              "revenueCurrency": "SEK"
+            },
+            "epsTrend": {
+              "current": {
+                "raw": 32.92554,
+                "fmt": "32.93"
+              },
+              "7daysAgo": {
+                "raw": 33.20667,
+                "fmt": "33.21"
+              },
+              "30daysAgo": {
+                "raw": 34.40801,
+                "fmt": "34.41"
+              },
+              "60daysAgo": {
+                "raw": 34.40801,
+                "fmt": "34.41"
+              },
+              "90daysAgo": {
+                "raw": 34.42468,
+                "fmt": "34.42"
+              },
+              "epsTrendCurrency": "SEK"
+            },
+            "epsRevisions": {
+              "upLast7days": {
+                "raw": 1,
+                "fmt": "1",
+                "longFmt": "1"
+              },
+              "upLast30days": {
+                "raw": 1,
+                "fmt": "1",
+                "longFmt": "1"
+              },
+              "downLast30days": {
+                "raw": 2,
+                "fmt": "2",
+                "longFmt": "2"
+              },
+              "downLast7Days": {
+                "raw": 2,
+                "fmt": "2",
+                "longFmt": "2"
+              },
+              "downLast90days": {},
+              "epsRevisionsCurrency": "SEK"
+            }
+          }
+        ]
+      }
     }
   ],
   "anomalies": [],
