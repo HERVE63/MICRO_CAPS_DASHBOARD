@@ -498,13 +498,13 @@
         "date_collecte": "2026-11-04"
       },
       "carnet_commandes": {
-        "valeur": null,
-        "unite": null,
-        "periode": null,
-        "date_source": null,
-        "source_url": null,
-        "statut": "A_COLLECTER",
-        "commentaire": null,
+        "valeur": 82.1,
+        "unite": "millions_GBP",
+        "periode": "S1 2026",
+        "date_source": "2026-11-04",
+        "source_url": "https://www.lse.co.uk/rns/interim-results-sw7lzp5gv6o27op.html",
+        "statut": "SOURCE_PUBLIQUE",
+        "commentaire": "Carnet_commandes",
         "recherche": {
           "date": "2026-11-04",
           "statut": "MANQUANT_RECHERCHE_NON_CLOSE",
@@ -1443,6 +1443,69 @@
       "periode": "FY2026 prévision",
       "date_collecte": "2026-11-04",
       "statut": "SOURCE_PUBLIQUE_VERIFIEE"
+    },
+    {
+      "url": "https://www.londonstockexchange.com/en/news/article/CER/interim-results/8be0-7f-f6-81-84-49b9ae",
+      "indicateur": "Croissance_commandes",
+      "valeur": "102",
+      "unite": "pct",
+      "periode": "S1 2026",
+      "date_collecte": "2026-11-04",
+      "statut": "A_VERIFIER_AVANT_NOTATION"
+    },
+    {
+      "url": "https://www.londonstockexchange.com/en/news/article/CER/interim-results/8be0-7f-f6-81-84-49b9ae",
+      "indicateur": "Croissance_CA",
+      "valeur": "-14",
+      "unite": "pct",
+      "periode": "S1 2026",
+      "date_collecte": "2026-11-04",
+      "statut": "A_VERIFIER_AVANT_NOTATION"
+    },
+    {
+      "url": "https://www.londonstockexchange.com/en/news/article/CER/interim-results/8be0-7f-f6-81-84-49b9ae",
+      "indicateur": "Croissance_EBITDA_ajuste",
+      "valeur": "-38",
+      "unite": "pct",
+      "periode": "S1 2026",
+      "date_collecte": "2026-11-04",
+      "statut": "A_VERIFIER_AVANT_NOTATION"
+    },
+    {
+      "url": "https://www.lse.co.uk/rns/interim-results-sw7lzp5gv6o27op.html",
+      "indicateur": "CA",
+      "valeur": "18",
+      "unite": "millions_GBP",
+      "periode": "S1 2026",
+      "date_collecte": "2026-11-04",
+      "statut": "A_VERIFIER_AVANT_NOTATION"
+    },
+    {
+      "url": "https://www.lse.co.uk/rns/interim-results-sw7lzp5gv6o27op.html",
+      "indicateur": "EBITDA_ajuste",
+      "valeur": "6.2",
+      "unite": "millions_GBP",
+      "periode": "S1 2026",
+      "date_collecte": "2026-11-04",
+      "statut": "A_VERIFIER_AVANT_NOTATION"
+    },
+    {
+      "url": "https://www.lse.co.uk/rns/interim-results-sw7lzp5gv6o27op.html",
+      "indicateur": "Tresorerie_nette",
+      "valeur": "32.5",
+      "unite": "millions_GBP",
+      "periode": "S1 2026",
+      "date_collecte": "2026-11-04",
+      "statut": "A_VERIFIER_AVANT_NOTATION"
+    },
+    {
+      "url": "https://www.lse.co.uk/rns/interim-results-sw7lzp5gv6o27op.html",
+      "indicateur": "Carnet_commandes",
+      "valeur": "82.1",
+      "unite": "millions_GBP",
+      "periode": "S1 2026",
+      "date_collecte": "2026-11-04",
+      "statut": "A_VERIFIER_AVANT_NOTATION"
     }
   ],
   "anomalies": [],
