@@ -1,0 +1,40 @@
+name: Complements publics des 40 fiches
+on:
+  push:
+    branches: [repair/microcaps-chain-20261030]
+    paths: [.github/workflows/complements-publics-40.yml]
+  workflow_dispatch:
+permissions:
+  contents: write
+concurrency:
+  group: complements-publics-40
+  cancel-in-progress: false
+jobs:
+  collecte:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: repair/microcaps-chain-20261030
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Collecter les seules familles manquantes
+        run: python SCRIPTS_ACTIFS/10G_COLLECTE_COMPLEMENTS_PUBLICS_40.py
+      - name: Archiver avant toute publication
+        uses: actions/upload-artifact@v4
+        with:
+          name: complements-publics-40
+          path: DONNEES/COMPLEMENTS_PUBLICS_40_*.json
+      - name: Sauvegarder sans ecraser les mises a jour concurrentes
+        run: |
+          git fetch origin repair/microcaps-chain-20261030
+          git worktree add /tmp/microcaps-persist origin/repair/microcaps-chain-20261030
+          cp DONNEES/COMPLEMENTS_PUBLICS_40_*.json /tmp/microcaps-persist/DONNEES/
+          cd /tmp/microcaps-persist
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add DONNEES/COMPLEMENTS_PUBLICS_40_*.json
+          if git diff --cached --quiet; then exit 0; fi
+          git commit -m "data: sources publiques complementaires des 40 fiches [skip ci]"
+          git push origin HEAD:repair/microcaps-chain-20261030
