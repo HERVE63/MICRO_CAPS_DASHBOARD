@@ -31,8 +31,11 @@ jobs:
           python-version: "3.12"
       - name: Charger la reference immuable pour comparaison
         run: git fetch --filter=blob:none origin 076ba2accecd4bc0b161ecb9d5c020e0a08f7533
+      - name: Installer le lecteur PDF
+        run: sudo apt-get update -qq && sudo apt-get install -y -qq poppler-utils
       - name: Normaliser puis verifier les quarante fiches
         run: |
+          set -euo pipefail
           mkdir -p /tmp/audit40
           git rev-parse HEAD > /tmp/audit40/revision.txt
           python -m py_compile SCRIPTS_ACTIFS/09X_ENRICHIR_AUDITER_40.py
