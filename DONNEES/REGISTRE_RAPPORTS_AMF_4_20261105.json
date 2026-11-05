@@ -1,0 +1,78 @@
+[
+  {
+    "ticker": "ALSTI.PA",
+    "societe": "STIF",
+    "isin": "FR001400MDW2",
+    "jeton": "RS00007968",
+    "date_collecte": "2026-11-05",
+    "records": [],
+    "recherches": [
+      {
+        "url": "https://bdif.amf-france.org/back/api/v1/informations?Jetons=RS00007968&DateDebut=2026-01-01T00%3A00%3A00.000Z&DateFin=2026-11-05T23%3A59%3A59.000Z&From=0&Size=100",
+        "http": 200,
+        "sha256": "1129b1c0836d2750f8cd901ab60608bc233f2380059b7eaad72f4c94e38b3378",
+        "total": 1,
+        "offset": 0
+      }
+    ],
+    "pagination_complete": true,
+    "statut": "REGISTRE_CONSULTE_SANS_PREJUGER_CONTENU"
+  },
+  {
+    "ticker": "ALSTW.PA",
+    "societe": "StreamWIDE",
+    "isin": "FR0010528059",
+    "jeton": "RS00004690",
+    "date_collecte": "2026-11-05",
+    "records": [],
+    "recherches": [
+      {
+        "url": "https://bdif.amf-france.org/back/api/v1/informations?Jetons=RS00004690&DateDebut=2026-01-01T00%3A00%3A00.000Z&DateFin=2026-11-05T23%3A59%3A59.000Z&From=0&Size=100",
+        "http": 200,
+        "sha256": "d1a92e140d01df1a124811885506f0d125db2fac4dc4e2a951a88a13b73403ca",
+        "total": 6,
+        "offset": 0
+      }
+    ],
+    "pagination_complete": true,
+    "statut": "REGISTRE_CONSULTE_SANS_PREJUGER_CONTENU"
+  },
+  {
+    "ticker": "ALLIX.PA",
+    "societe": "WALLIX",
+    "isin": "FR0010131409",
+    "jeton": "RS00006015",
+    "date_collecte": "2026-11-05",
+    "records": [],
+    "recherches": [
+      {
+        "url": "https://bdif.amf-france.org/back/api/v1/informations?Jetons=RS00006015&DateDebut=2026-01-01T00%3A00%3A00.000Z&DateFin=2026-11-05T23%3A59%3A59.000Z&From=0&Size=100",
+        "http": 200,
+        "sha256": "5af51b022af915c402068e52b543382ca45d743937d3d18e2cdff1e5bc079d9b",
+        "total": 2,
+        "offset": 0
+      }
+    ],
+    "pagination_complete": true,
+    "statut": "REGISTRE_CONSULTE_SANS_PREJUGER_CONTENU"
+  },
+  {
+    "ticker": "ALCUR.PA",
+    "societe": "Arcure",
+    "isin": "FR0013398997",
+    "jeton": "RS00006711",
+    "date_collecte": "2026-11-05",
+    "records": [],
+    "recherches": [
+      {
+        "url": "https://bdif.amf-france.org/back/api/v1/informations?Jetons=RS00006711&DateDebut=2026-01-01T00%3A00%3A00.000Z&DateFin=2026-11-05T23%3A59%3A59.000Z&From=0&Size=100",
+        "http": 200,
+        "sha256": "6d412c54e7b2df9f62d2f3a8d58de8e56a6af4baccb909992a5a629887cf9131",
+        "total": 0,
+        "offset": 0
+      }
+    ],
+    "pagination_complete": true,
+    "statut": "REGISTRE_CONSULTE_SANS_PREJUGER_CONTENU"
+  }
+]
