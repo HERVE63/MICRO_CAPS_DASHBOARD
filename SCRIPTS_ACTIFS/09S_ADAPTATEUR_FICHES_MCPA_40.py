@@ -79,6 +79,11 @@ def main():
    export.append(row)
  with (D/'AUDIT_DOSSIERS_MCPA_IPS_40.csv').open('w',newline='',encoding='utf-8') as f:
   w=csv.DictWriter(f,fieldnames=['ID_position','Ticker','Statut','Problemes']);w.writeheader();w.writerows(sorted(audit,key=lambda r:r['ID_position']))
+ # Export de diagnostic distinct : jamais consomme par le validateur 09 ni les duels.
+ # Conserve uniquement les fiches individuellement admissibles, sans modifier la revue officielle.
+ with (D/'FICHES_MCPA_IPS_ELIGIBLES_40.csv').open('w',newline='',encoding='utf-8') as f:
+  w=csv.DictWriter(f,fieldnames=COLS);w.writeheader();w.writerows(sorted(export,key=lambda r:int(r['ID_position'])))
+ print(f'Couverture individuelle prouvee : {len(export)}/40 ; arbitrage verrouille tant que la revue stricte echoue')
  if len(export)==40:
   with (D/'REVUE_HEBDOMADAIRE_MCPA_IPS.csv').open('w',newline='',encoding='utf-8') as f:
    w=csv.DictWriter(f,fieldnames=COLS);w.writeheader();w.writerows(sorted(export,key=lambda r:int(r['ID_position'])))
