@@ -77,19 +77,14 @@
         "date_collecte": "2026-11-04"
       },
       "marche": {
-        "valeur": null,
-        "unite": null,
-        "periode": null,
-        "date_source": null,
-        "source_url": null,
-        "statut": "A_COLLECTER",
+        "valeur": "AIM, London Stock Exchange; libre transfert des titres",
+        "unite": "texte",
+        "periode": "actionnariat au 31/05/2026; page mise à jour le 08/10/2026",
+        "date_source": "2026-10-08",
+        "source_url": "https://investors.madetech.com/share-information/",
+        "statut": "SOURCE_PRIMAIRE",
         "commentaire": null,
-        "recherche": {
-          "date": "2026-11-04",
-          "statut": "MANQUANT_RECHERCHE_NON_CLOSE",
-          "motif": "Aucune valeur vérifiée importée à cette étape; les recherches tracées ne démontrent pas une indisponibilité définitive.",
-          "journal": "journal_recherches"
-        }
+        "date_collecte": "2026-11-05"
       },
       "capitalisation_eur": {
         "valeur": 91984184.04025881,
@@ -204,7 +199,7 @@
         "date_collecte": "2026-11-04"
       },
       "fcf_ttm": {
-        "valeur": 4470000.0,
+        "valeur": 4470000,
         "unite": "GBP",
         "periode": "TTM fournisseur; arrêté indiqué dans son tableau financier : May '26 May 31, 2026",
         "date_source": "2026-11-04",
@@ -306,7 +301,7 @@
         "date_collecte": "2026-11-04"
       },
       "capitalisation": {
-        "valeur": 76770000.0,
+        "valeur": 76770000,
         "unite": "GBP",
         "periode": "cotation au 2026-11-04",
         "date_source": "2026-11-04",
@@ -316,7 +311,7 @@
         "date_collecte": "2026-11-04"
       },
       "valeur_entreprise": {
-        "valeur": 63100000.0,
+        "valeur": 63100000,
         "unite": "GBP",
         "periode": "valorisation affichée au 2026-11-04",
         "date_source": "2026-11-04",
@@ -544,7 +539,7 @@
         }
       },
       "previsions_ca_1a": {
-        "valeur": 63980000.0,
+        "valeur": 63980000,
         "unite": "GBP",
         "periode": "exercice annuel prévisionnel clos au 2027-05-31",
         "date_source": "2026-11-04",
@@ -641,7 +636,7 @@
         "date_collecte": "2026-11-04"
       },
       "dette_brute": {
-        "valeur": 798000.0,
+        "valeur": 798000,
         "unite": "GBP",
         "periode": "Dernier bilan affiché au 2026-11-04; date comptable exacte à rapprocher",
         "date_source": "2026-11-04",
@@ -651,7 +646,7 @@
         "date_collecte": "2026-11-04"
       },
       "dette_nette": {
-        "valeur": -13670000.0,
+        "valeur": -13670000,
         "unite": "GBP",
         "periode": "Dernier bilan affiché au 2026-11-04; date comptable exacte à rapprocher",
         "date_source": "2026-11-04",
@@ -757,19 +752,14 @@
         "date_collecte": "2026-11-04"
       },
       "risque_gouvernance": {
-        "valeur": null,
-        "unite": null,
-        "periode": null,
-        "date_source": null,
-        "source_url": null,
-        "statut": "A_COLLECTER",
+        "valeur": "Participation de contrôle relative via RMAC Family Capital (28,53 % au 31/05/2026), personne étroitement liée à Rory MacDonald. Intérêt aligné possible, contre-pouvoirs à apprécier; pas de présomption de détention personnelle équivalente.",
+        "unite": "texte",
+        "periode": "actionnariat au 31/05/2026; page mise à jour le 08/10/2026",
+        "date_source": "2026-10-08",
+        "source_url": "https://investors.madetech.com/share-information/",
+        "statut": "ANALYSE_DOCUMENTAIRE_SOURCE_PRIMAIRE",
         "commentaire": null,
-        "recherche": {
-          "date": "2026-11-04",
-          "statut": "MANQUANT_RECHERCHE_NON_CLOSE",
-          "motif": "Aucune valeur vérifiée importée à cette étape; les recherches tracées ne démontrent pas une indisponibilité définitive.",
-          "journal": "journal_recherches"
-        }
+        "date_collecte": "2026-11-05"
       },
       "risque_reglementaire": {
         "valeur": null,
@@ -1015,7 +1005,7 @@
         "valeur": {
           "classification": "Technology",
           "nombre_lignes": 16,
-          "poids_initial_pct": 40.0,
+          "poids_initial_pct": 40,
           "tickers": [
             "IDN",
             "OSS",
@@ -1479,7 +1469,7 @@
     {
       "bloc": "qualite",
       "champ": "ca_ttm",
-      "valeur": 58880000.0,
+      "valeur": 58880000,
       "unite": "GBP",
       "periode": "TTM affiché au 2026-11-04; date exacte de fin non fournie sur la page statistiques",
       "date_source": "2026-11-04",
@@ -1539,7 +1529,7 @@
     {
       "bloc": "risque",
       "champ": "cash",
-      "valeur": 14470000.0,
+      "valeur": 14470000,
       "unite": "GBP",
       "periode": "Dernier bilan affiché au 2026-11-04; date comptable exacte à rapprocher",
       "date_source": "2026-11-04",
@@ -1587,7 +1577,7 @@
     {
       "bloc": "croissance",
       "champ": "croissance_bpa_pct",
-      "valeur": 100.0,
+      "valeur": 100,
       "unite": "pct",
       "periode": "FY 2026 / FY 2025; clôture May '26 May 31, 2026",
       "date_source": "2026-11-04",
@@ -1695,7 +1685,7 @@
     {
       "bloc": "qualite",
       "champ": "fcf_ttm",
-      "valeur": 4470000.0,
+      "valeur": 4470000,
       "unite": "GBP",
       "periode": "TTM fournisseur; arrêté indiqué dans son tableau financier : May '26 May 31, 2026",
       "date_source": "2026-11-04",
@@ -1967,6 +1957,37 @@
       "source_url": "https://query1.finance.yahoo.com/v10/finance/quoteSummary/MTEC.L?modules=assetProfile,majorHoldersBreakdown,insiderHolders,insiderTransactions",
       "statut": "SOURCE_SECONDAIRE_GOUVERNANCE_A_RAPPROCHER",
       "commentaire": "Titres détenus séparés des options/attributions. Dates/fonctions de chaque ligne à contrôler : les anciens dirigeants peuvent subsister. Ne pas additionner les détentions directes et indirectes sans éliminer les doubles comptes. Pas de certification de couverture des transactions, ni note SSI déduite."
+    },
+    {
+      "bloc": null,
+      "champ": "actionnariat_physique_hors_droits_a_60j",
+      "valeur": {
+        "actions_emises": 149287059,
+        "actions_autodetenues": 0,
+        "participations": [
+          {
+            "nom": "RMAC Family Capital Ltd",
+            "pct": 28.53,
+            "lien": "entité contrôlée par l'administrateur Rory MacDonald"
+          },
+          {
+            "nom": "Chris Blackburn",
+            "pct": 14.5
+          },
+          {
+            "nom": "Luke Morton",
+            "pct": 4.03
+          }
+        ],
+        "limite": "Pas de somme assimilée à une détention personnelle des dirigeants; situation datée."
+      },
+      "unite": "titres et pct",
+      "periode": "actionnariat au 31/05/2026; page mise à jour le 08/10/2026",
+      "date_source": "2026-10-08",
+      "source_url": "https://investors.madetech.com/share-information/",
+      "statut": "SOURCE_PRIMAIRE",
+      "commentaire": null,
+      "date_collecte": "2026-11-05"
     }
   ],
   "journal_recherches": [
@@ -2181,12 +2202,11 @@
   "audit_couverture": {
     "date": "2026-11-05",
     "champs_total": 108,
-    "champs_renseignes": 63,
-    "couverture_pct": 58.33,
+    "champs_renseignes": 65,
+    "couverture_pct": 60.19,
     "champs_secondaires_non_rapproches": 35,
     "champs_manquants": [
       "identite.lei",
-      "identite.marche",
       "qualite.revenus_recurrents_pct",
       "qualite.concentration_clients_pct",
       "qualite.avantage_concurrentiel",
@@ -2200,7 +2220,6 @@
       "risque.cash_runway_mois",
       "risque.risque_refinancement",
       "risque.risque_pays",
-      "risque.risque_gouvernance",
       "risque.risque_reglementaire",
       "risque.risque_concentration",
       "risque.transactions_initiees_net_90j",
@@ -2238,16 +2257,15 @@
   "audit_poursuite": {
     "date": "2026-11-05",
     "comptage": {
-      "RENSEIGNE": 63,
+      "RENSEIGNE": 65,
       "NON_APPLICABLE": 1,
       "INDISPONIBLE_A_DATE": 0,
-      "RECHERCHE_A_POURSUIVRE": 44
+      "RECHERCHE_A_POURSUIVRE": 42
     },
-    "couverture_valeurs_pct": 58.33,
-    "couverture_applicable_pct": 58.88,
+    "couverture_valeurs_pct": 60.19,
+    "couverture_applicable_pct": 60.75,
     "recherches_non_closes": [
       "identite.lei",
-      "identite.marche",
       "qualite.revenus_recurrents_pct",
       "qualite.concentration_clients_pct",
       "qualite.avantage_concurrentiel",
@@ -2260,7 +2278,6 @@
       "croissance.taille_marche_adressable",
       "risque.risque_refinancement",
       "risque.risque_pays",
-      "risque.risque_gouvernance",
       "risque.risque_reglementaire",
       "risque.risque_concentration",
       "risque.transactions_initiees_net_90j",

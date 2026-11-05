@@ -204,7 +204,7 @@
         "date_collecte": "2026-11-04"
       },
       "fcf_ttm": {
-        "valeur": 26540000.0,
+        "valeur": 26540000,
         "unite": "GBP",
         "periode": "TTM fournisseur; arrêté indiqué dans son tableau financier : May '26 May 31, 2026",
         "date_source": "2026-11-04",
@@ -306,7 +306,7 @@
         "date_collecte": "2026-11-04"
       },
       "capitalisation": {
-        "valeur": 267130000.0,
+        "valeur": 267130000,
         "unite": "GBP",
         "periode": "cotation au 2026-11-04",
         "date_source": "2026-11-04",
@@ -316,7 +316,7 @@
         "date_collecte": "2026-11-04"
       },
       "valeur_entreprise": {
-        "valeur": 284880000.0,
+        "valeur": 284880000,
         "unite": "GBP",
         "periode": "valorisation affichée au 2026-11-04",
         "date_source": "2026-11-04",
@@ -558,7 +558,7 @@
         }
       },
       "previsions_ca_1a": {
-        "valeur": 292050000.0,
+        "valeur": 292050000,
         "unite": "GBP",
         "periode": "exercice annuel prévisionnel clos au 2027-05-31",
         "date_source": "2026-11-04",
@@ -655,7 +655,7 @@
         "date_collecte": "2026-11-04"
       },
       "dette_brute": {
-        "valeur": 40430000.0,
+        "valeur": 40430000,
         "unite": "GBP",
         "periode": "Dernier bilan affiché au 2026-11-04; date comptable exacte à rapprocher",
         "date_source": "2026-11-04",
@@ -665,7 +665,7 @@
         "date_collecte": "2026-11-04"
       },
       "dette_nette": {
-        "valeur": 18790000.0,
+        "valeur": 18790000,
         "unite": "GBP",
         "periode": "Dernier bilan affiché au 2026-11-04; date comptable exacte à rapprocher",
         "date_source": "2026-11-04",
@@ -695,7 +695,7 @@
         "date_collecte": "2026-11-04"
       },
       "liquidite_courante": {
-        "valeur": 2.0,
+        "valeur": 2,
         "unite": "ratio",
         "periode": "Dernier bilan affiché au 2026-11-04; date comptable exacte à rapprocher",
         "date_source": "2026-11-04",
@@ -1486,7 +1486,7 @@
     {
       "bloc": "risque",
       "champ": "cash",
-      "valeur": 21640000.0,
+      "valeur": 21640000,
       "unite": "GBP",
       "periode": "Dernier bilan affiché au 2026-11-04; date comptable exacte à rapprocher",
       "date_source": "2026-11-04",
@@ -1498,7 +1498,7 @@
     {
       "bloc": "qualite",
       "champ": "ca_ttm",
-      "valeur": 351390000.0,
+      "valeur": 351390000,
       "unite": "GBP",
       "periode": "TTM affiché au 2026-11-04; date exacte de fin non fournie sur la page statistiques",
       "date_source": "2026-11-04",
@@ -1660,7 +1660,7 @@
     {
       "bloc": "qualite",
       "champ": "fcf_ttm",
-      "valeur": 26540000.0,
+      "valeur": 26540000,
       "unite": "GBP",
       "periode": "TTM fournisseur; arrêté indiqué dans son tableau financier : May '26 May 31, 2026",
       "date_source": "2026-11-04",
@@ -2091,6 +2091,44 @@
       "source_url": "https://query1.finance.yahoo.com/v10/finance/quoteSummary/HSP.L?modules=assetProfile,majorHoldersBreakdown,insiderHolders,insiderTransactions",
       "statut": "SOURCE_SECONDAIRE_GOUVERNANCE_A_RAPPROCHER",
       "commentaire": "Titres détenus séparés des options/attributions. Dates/fonctions de chaque ligne à contrôler : les anciens dirigeants peuvent subsister. Ne pas additionner les détentions directes et indirectes sans éliminer les doubles comptes. Pas de certification de couverture des transactions, ni note SSI déduite."
+    },
+    {
+      "bloc": null,
+      "champ": "actionnariat_physique_hors_droits_a_60j",
+      "valeur": {
+        "dirigeants": [
+          {
+            "nom": "Roger McDowell",
+            "actions": 411057
+          },
+          {
+            "nom": "Gordon Banham",
+            "actions": 2600761
+          },
+          {
+            "nom": "Stephen Craigen",
+            "actions": 22343
+          },
+          {
+            "nom": "Nigel Halkes",
+            "actions": 4645
+          },
+          {
+            "nom": "Nicholas Mills",
+            "actions": 9289
+          }
+        ],
+        "droits_vote": 30704511,
+        "autodetenues": 831304,
+        "limite": "Situation historique après tender; fonctions susceptibles d'avoir changé. Réduction proportionnelle via rachat, pas preuve à elle seule de conviction baissière."
+      },
+      "unite": "titres",
+      "periode": "après offre de rachat de mai 2026; fonctions à cette date",
+      "date_source": "2026-05-06",
+      "source_url": "https://www.investegate.co.uk/index.php/announcement/rns/hargreaves-services--hsp/director-pdmr-shareholding-total-voting-rights/9555353",
+      "statut": "SOURCE_PRIMAIRE",
+      "commentaire": null,
+      "date_collecte": "2026-11-05"
     }
   ],
   "journal_recherches": [

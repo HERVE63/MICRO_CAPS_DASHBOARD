@@ -76,19 +76,14 @@
         "date_collecte": "2026-11-04"
       },
       "marche": {
-        "valeur": null,
-        "unite": null,
-        "periode": null,
-        "date_source": null,
-        "source_url": null,
-        "statut": "A_COLLECTER",
+        "valeur": "AIM, London Stock Exchange; admission depuis 2005",
+        "unite": "texte",
+        "periode": "déclaration lors de la nomination, effet au 01/08/2026",
+        "date_source": "2026-06-17",
+        "source_url": "https://www.lse.co.uk/rns/TSTL/appointment-of-ceo-74b834r88woa7ra.html?mobile_view=mobile",
+        "statut": "SOURCE_PRIMAIRE",
         "commentaire": null,
-        "recherche": {
-          "date": "2026-11-04",
-          "statut": "MANQUANT_RECHERCHE_NON_CLOSE",
-          "motif": "Aucune valeur vérifiée importée à cette étape; les recherches tracées ne démontrent pas une indisponibilité définitive.",
-          "journal": "journal_recherches"
-        }
+        "date_collecte": "2026-11-05"
       },
       "capitalisation_eur": {
         "valeur": 229247543.73352504,
@@ -201,7 +196,7 @@
         "date_collecte": "2026-11-04"
       },
       "fcf_ttm": {
-        "valeur": 10450000.0,
+        "valeur": 10450000,
         "unite": "GBP",
         "periode": "TTM fournisseur; arrêté indiqué dans son tableau financier : Jun '26 Jun 30, 2026",
         "date_source": "2026-11-04",
@@ -293,7 +288,7 @@
         "date_collecte": "2026-11-04"
       },
       "capitalisation": {
-        "valeur": 191330000.0,
+        "valeur": 191330000,
         "unite": "GBP",
         "periode": "cotation au 2026-11-04",
         "date_source": "2026-11-04",
@@ -303,7 +298,7 @@
         "date_collecte": "2026-11-04"
       },
       "valeur_entreprise": {
-        "valeur": 181180000.0,
+        "valeur": 181180000,
         "unite": "GBP",
         "periode": "valorisation affichée au 2026-11-04",
         "date_source": "2026-11-04",
@@ -551,7 +546,7 @@
         }
       },
       "previsions_ca_1a": {
-        "valeur": 56110000.0,
+        "valeur": 56110000,
         "unite": "GBP",
         "periode": "exercice annuel prévisionnel clos au 2027-06-30",
         "date_source": "2026-11-04",
@@ -638,7 +633,7 @@
         "date_collecte": "2026-11-04"
       },
       "dette_brute": {
-        "valeur": 5860000.0,
+        "valeur": 5860000,
         "unite": "GBP",
         "periode": "Dernier bilan affiché au 2026-11-04; date comptable exacte à rapprocher",
         "date_source": "2026-11-04",
@@ -648,7 +643,7 @@
         "date_collecte": "2026-11-04"
       },
       "dette_nette": {
-        "valeur": -10150000.0,
+        "valeur": -10150000,
         "unite": "GBP",
         "periode": "Dernier bilan affiché au 2026-11-04; date comptable exacte à rapprocher",
         "date_source": "2026-11-04",
@@ -678,7 +673,7 @@
         "date_collecte": "2026-11-04"
       },
       "liquidite_courante": {
-        "valeur": 4.0,
+        "valeur": 4,
         "unite": "ratio",
         "periode": "Dernier bilan affiché au 2026-11-04; date comptable exacte à rapprocher",
         "date_source": "2026-11-04",
@@ -1007,7 +1002,7 @@
         "valeur": {
           "classification": "Healthcare",
           "nombre_lignes": 4,
-          "poids_initial_pct": 10.0,
+          "poids_initial_pct": 10,
           "tickers": [
             "INFU",
             "COV.V",
@@ -1451,7 +1446,7 @@
     {
       "bloc": "qualite",
       "champ": "ca_ttm",
-      "valeur": 51120000.0,
+      "valeur": 51120000,
       "unite": "GBP",
       "periode": "TTM affiché au 2026-11-04; date exacte de fin non fournie sur la page statistiques",
       "date_source": "2026-11-04",
@@ -1667,7 +1662,7 @@
     {
       "bloc": "qualite",
       "champ": "fcf_ttm",
-      "valeur": 10450000.0,
+      "valeur": 10450000,
       "unite": "GBP",
       "periode": "TTM fournisseur; arrêté indiqué dans son tableau financier : Jun '26 Jun 30, 2026",
       "date_source": "2026-11-04",
@@ -1775,7 +1770,7 @@
     {
       "bloc": "risque",
       "champ": "cash",
-      "valeur": 16000000.0,
+      "valeur": 16000000,
       "unite": "GBP",
       "periode": "Dernier bilan affiché au 2026-11-04; date comptable exacte à rapprocher",
       "date_source": "2026-11-04",
@@ -2115,6 +2110,36 @@
       "source_url": "https://query1.finance.yahoo.com/v10/finance/quoteSummary/TSTL.L?modules=assetProfile,majorHoldersBreakdown,insiderHolders,insiderTransactions",
       "statut": "SOURCE_SECONDAIRE_GOUVERNANCE_A_RAPPROCHER",
       "commentaire": "Titres détenus séparés des options/attributions. Dates/fonctions de chaque ligne à contrôler : les anciens dirigeants peuvent subsister. Ne pas additionner les détentions directes et indirectes sans éliminer les doubles comptes. Pas de certification de couverture des transactions, ni note SSI déduite."
+    },
+    {
+      "bloc": null,
+      "champ": "actionnariat_physique_hors_droits_a_60j",
+      "valeur": {
+        "nom": "Christopher Paul Lee",
+        "actions": 0,
+        "options": 0,
+        "date_position": "2026-06-17",
+        "limite": "Absence de titres déclarée à la nomination; ne prouve pas une absence de détention au 05/11/2026 ni celle des autres administrateurs."
+      },
+      "unite": "titres",
+      "periode": "déclaration lors de la nomination, effet au 01/08/2026",
+      "date_source": "2026-06-17",
+      "source_url": "https://www.lse.co.uk/rns/TSTL/appointment-of-ceo-74b834r88woa7ra.html?mobile_view=mobile",
+      "statut": "SOURCE_PRIMAIRE",
+      "commentaire": null,
+      "date_collecte": "2026-11-05"
+    },
+    {
+      "bloc": "qualite",
+      "champ": "qualite_management",
+      "valeur": "Nouveau CEO Chris Lee depuis août 2026, expérience internationale de dispositifs médicaux. Son historique de performance chez Tristel reste court : ne pas attribuer les résultats annuels clos avant son arrivée à son exécution.",
+      "unite": "texte",
+      "periode": "déclaration lors de la nomination, effet au 01/08/2026",
+      "date_source": "2026-06-17",
+      "source_url": "https://www.lse.co.uk/rns/TSTL/appointment-of-ceo-74b834r88woa7ra.html?mobile_view=mobile",
+      "statut": "ANALYSE_DOCUMENTAIRE_SOURCE_PRIMAIRE",
+      "commentaire": null,
+      "date_collecte": "2026-11-05"
     }
   ],
   "journal_recherches": [
@@ -2333,12 +2358,11 @@
   "audit_couverture": {
     "date": "2026-11-05",
     "champs_total": 108,
-    "champs_renseignes": 66,
-    "couverture_pct": 61.11,
+    "champs_renseignes": 67,
+    "couverture_pct": 62.04,
     "champs_secondaires_non_rapproches": 37,
     "champs_manquants": [
       "identite.lei",
-      "identite.marche",
       "qualite.revenus_recurrents_pct",
       "qualite.concentration_clients_pct",
       "valorisation.comparables_sectoriels",
@@ -2387,16 +2411,15 @@
   "audit_poursuite": {
     "date": "2026-11-05",
     "comptage": {
-      "RENSEIGNE": 66,
+      "RENSEIGNE": 67,
       "NON_APPLICABLE": 1,
       "INDISPONIBLE_A_DATE": 0,
-      "RECHERCHE_A_POURSUIVRE": 41
+      "RECHERCHE_A_POURSUIVRE": 40
     },
-    "couverture_valeurs_pct": 61.11,
-    "couverture_applicable_pct": 61.68,
+    "couverture_valeurs_pct": 62.04,
+    "couverture_applicable_pct": 62.62,
     "recherches_non_closes": [
       "identite.lei",
-      "identite.marche",
       "qualite.revenus_recurrents_pct",
       "qualite.concentration_clients_pct",
       "valorisation.comparables_sectoriels",

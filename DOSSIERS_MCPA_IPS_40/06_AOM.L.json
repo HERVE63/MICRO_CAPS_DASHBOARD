@@ -202,7 +202,7 @@
         "date_collecte": "2026-11-04"
       },
       "fcf_ttm": {
-        "valeur": 11850000.0,
+        "valeur": 11850000,
         "unite": "GBP",
         "periode": "TTM fournisseur; arrêté indiqué dans son tableau financier : Mar '26 Mar 31, 2026",
         "date_source": "2026-11-04",
@@ -310,7 +310,7 @@
         "date_collecte": "2026-11-04"
       },
       "capitalisation": {
-        "valeur": 63840000.0,
+        "valeur": 63840000,
         "unite": "GBP",
         "periode": "cotation au 2026-11-04",
         "date_source": "2026-11-04",
@@ -320,7 +320,7 @@
         "date_collecte": "2026-11-04"
       },
       "valeur_entreprise": {
-        "valeur": 40160000.0,
+        "valeur": 40160000,
         "unite": "GBP",
         "periode": "valorisation affichée au 2026-11-04",
         "date_source": "2026-11-04",
@@ -558,7 +558,7 @@
         }
       },
       "previsions_ca_1a": {
-        "valeur": 47770000.0,
+        "valeur": 47770000,
         "unite": "GBP",
         "periode": "exercice annuel prévisionnel clos au 2027-03-31",
         "date_source": "2026-11-04",
@@ -578,7 +578,7 @@
         "date_collecte": "2026-11-04"
       },
       "revision_bpa_30j_pct": {
-        "valeur": 0.0,
+        "valeur": 0,
         "unite": "pct",
         "periode": "consensus annuel clos au 2027-03-31",
         "date_source": "2026-11-05",
@@ -588,7 +588,7 @@
         "date_collecte": "2026-11-05"
       },
       "revision_bpa_90j_pct": {
-        "valeur": 0.0,
+        "valeur": 0,
         "unite": "pct",
         "periode": "consensus annuel clos au 2027-03-31",
         "date_source": "2026-11-05",
@@ -658,7 +658,7 @@
         "commentaire": "Donnée publiée; voir période et nature de la mesure"
       },
       "dette_nette": {
-        "valeur": -23680000.0,
+        "valeur": -23680000,
         "unite": "GBP",
         "periode": "Dernier bilan affiché au 2026-11-04; date comptable exacte à rapprocher",
         "date_source": "2026-11-04",
@@ -1017,7 +1017,7 @@
         "valeur": {
           "classification": "Technology",
           "nombre_lignes": 16,
-          "poids_initial_pct": 40.0,
+          "poids_initial_pct": 40,
           "tickers": [
             "IDN",
             "OSS",
@@ -1491,7 +1491,7 @@
     {
       "bloc": "qualite",
       "champ": "ca_ttm",
-      "valeur": 45000000.0,
+      "valeur": 45000000,
       "unite": "GBP",
       "periode": "TTM affiché au 2026-11-04; date exacte de fin non fournie sur la page statistiques",
       "date_source": "2026-11-04",
@@ -1503,7 +1503,7 @@
     {
       "bloc": "risque",
       "champ": "cash",
-      "valeur": 23810000.0,
+      "valeur": 23810000,
       "unite": "GBP",
       "periode": "Dernier bilan affiché au 2026-11-04; date comptable exacte à rapprocher",
       "date_source": "2026-11-04",
@@ -1515,7 +1515,7 @@
     {
       "bloc": "risque",
       "champ": "dette_brute",
-      "valeur": 126000.0,
+      "valeur": 126000,
       "unite": "GBP",
       "periode": "Dernier bilan affiché au 2026-11-04; date comptable exacte à rapprocher",
       "date_source": "2026-11-04",
@@ -1707,7 +1707,7 @@
     {
       "bloc": "qualite",
       "champ": "fcf_ttm",
-      "valeur": 11850000.0,
+      "valeur": 11850000,
       "unite": "GBP",
       "periode": "TTM fournisseur; arrêté indiqué dans son tableau financier : Mar '26 Mar 31, 2026",
       "date_source": "2026-11-04",
@@ -2173,6 +2173,38 @@
       "source_url": "https://query1.finance.yahoo.com/v10/finance/quoteSummary/AOM.L?modules=assetProfile,majorHoldersBreakdown,insiderHolders,insiderTransactions",
       "statut": "SOURCE_SECONDAIRE_GOUVERNANCE_A_RAPPROCHER",
       "commentaire": "Titres détenus séparés des options/attributions. Dates/fonctions de chaque ligne à contrôler : les anciens dirigeants peuvent subsister. Ne pas additionner les détentions directes et indirectes sans éliminer les doubles comptes. Pas de certification de couverture des transactions, ni note SSI déduite."
+    },
+    {
+      "bloc": null,
+      "champ": "actionnariat_physique_hors_droits_a_60j",
+      "valeur": {
+        "actions_emises": 71364180,
+        "dirigeants": [
+          {
+            "nom": "Richard Jeffery",
+            "actions": 8907858,
+            "pct": 12.47
+          },
+          {
+            "nom": "Michael McLaren",
+            "actions": 59523,
+            "pct": 0.08
+          },
+          {
+            "nom": "Hilary Wright",
+            "actions": 11904,
+            "pct": 0.02
+          }
+        ],
+        "limite": "Le moteur de recherche indexe une version au 28/10/2026 différente; la page ouverte restitue le 16/07. Valeurs conservées comme état historique, actualisation non confirmée."
+      },
+      "unite": "titres et pct",
+      "periode": "version de page effectivement lue au 05/11 : état au 16/07/2026",
+      "date_source": "2026-07-16",
+      "source_url": "https://investors.activeops.com/investors/significant-shareholders/",
+      "statut": "SOURCE_PRIMAIRE",
+      "commentaire": null,
+      "date_collecte": "2026-11-05"
     }
   ],
   "journal_recherches": [

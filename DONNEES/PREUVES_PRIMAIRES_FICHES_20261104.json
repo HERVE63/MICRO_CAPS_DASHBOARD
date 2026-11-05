@@ -1937,5 +1937,419 @@
         "commentaire": "Appréciation documentaire, pas note de gouvernance ni certification indépendante."
       }
     ]
+  },
+  {
+    "ticker": "MTEC.L",
+    "url": "https://investors.madetech.com/share-information/",
+    "date_source": "2026-10-08",
+    "periode": "actionnariat au 31/05/2026; page mise à jour le 08/10/2026",
+    "champs": [
+      {
+        "bloc": null,
+        "champ": "actionnariat_physique_hors_droits_a_60j",
+        "valeur": {
+          "actions_emises": 149287059,
+          "actions_autodetenues": 0,
+          "participations": [
+            {
+              "nom": "RMAC Family Capital Ltd",
+              "pct": 28.53,
+              "lien": "entité contrôlée par l'administrateur Rory MacDonald"
+            },
+            {
+              "nom": "Chris Blackburn",
+              "pct": 14.5
+            },
+            {
+              "nom": "Luke Morton",
+              "pct": 4.03
+            }
+          ],
+          "limite": "Pas de somme assimilée à une détention personnelle des dirigeants; situation datée."
+        },
+        "unite": "titres et pct"
+      },
+      {
+        "bloc": "identite",
+        "champ": "marche",
+        "valeur": "AIM, London Stock Exchange; libre transfert des titres",
+        "unite": "texte"
+      },
+      {
+        "bloc": "risque",
+        "champ": "risque_gouvernance",
+        "valeur": "Participation de contrôle relative via RMAC Family Capital (28,53 % au 31/05/2026), personne étroitement liée à Rory MacDonald. Intérêt aligné possible, contre-pouvoirs à apprécier; pas de présomption de détention personnelle équivalente.",
+        "unite": "texte",
+        "statut": "ANALYSE_DOCUMENTAIRE_SOURCE_PRIMAIRE"
+      }
+    ]
+  },
+  {
+    "ticker": "PULS.L",
+    "url": "https://www.pulsargroup.com/investors/aim-rule-26/",
+    "date_source": "2026-07-15",
+    "periode": "actionnariat et gouvernance publiés au 15/07/2026, avant annonces ultérieures de financement",
+    "champs": [
+      {
+        "bloc": null,
+        "champ": "actionnariat_physique_hors_droits_a_60j",
+        "valeur": {
+          "actions_emises": 138419122,
+          "autodetenues": 2825646,
+          "droits_vote": 135593476,
+          "dirigeants": [
+            {
+              "nom": "Joanna Arnold",
+              "actions": 793754
+            },
+            {
+              "nom": "Christopher Satterthwaite",
+              "actions": 120911
+            },
+            {
+              "nom": "Mark Fautley",
+              "actions": 119284
+            },
+            {
+              "nom": "Christopher Pilling",
+              "actions": 50000
+            },
+            {
+              "nom": "Sarah Vawda",
+              "actions": 29823
+            }
+          ],
+          "kestrel_pct": 28.63,
+          "limite": "Kestrel est un investisseur institutionnel; pas du patrimoine personnel des administrateurs. État antérieur à l'opération de financement d'octobre."
+        },
+        "unite": "titres et pct"
+      },
+      {
+        "bloc": "identite",
+        "champ": "marche",
+        "valeur": "AIM, London Stock Exchange; pas d'autre marché déclaré",
+        "unite": "texte"
+      },
+      {
+        "bloc": "qualite",
+        "champ": "qualite_management",
+        "valeur": "Séparation présidence/direction; comités d'audit et de rémunération présidés par des non-exécutifs indépendants selon l'émetteur. Nominations traitées par le conseil entier; efficacité de contrôle non certifiée par cette seule déclaration.",
+        "unite": "texte",
+        "statut": "ANALYSE_DOCUMENTAIRE_SOURCE_PRIMAIRE"
+      }
+    ]
+  },
+  {
+    "ticker": "SFT.L",
+    "url": "https://www.softwarecircle.com/company-information/",
+    "date_source": "2026-09-10",
+    "periode": "participations des administrateurs au 10/09/2026",
+    "champs": [
+      {
+        "bloc": null,
+        "champ": "actionnariat_physique_hors_droits_a_60j",
+        "valeur": {
+          "dirigeants": [
+            {
+              "nom": "M S Riechert",
+              "actions": 3192573
+            },
+            {
+              "nom": "R A Lightfoot",
+              "actions": 619510
+            },
+            {
+              "nom": "I S Brown",
+              "actions": 238220
+            },
+            {
+              "nom": "G G Cockerill",
+              "actions": 204054
+            },
+            {
+              "nom": "S G Barrell",
+              "actions": 128034
+            }
+          ],
+          "limite": "Détentions bénéficiaires en actions ordinaires; ne pas ajouter les participations de fonds aux patrimoines personnels. Dénominateur affiché daté de novembre 2023, pourcentage courant non calculé."
+        },
+        "unite": "titres"
+      },
+      {
+        "bloc": "identite",
+        "champ": "marche",
+        "valeur": "AIM, London Stock Exchange; libre transfert des titres",
+        "unite": "texte"
+      },
+      {
+        "bloc": "diversification",
+        "champ": "zone_geographique",
+        "valeur": "Principales opérations : Royaume-Uni, Irlande et Pays-Bas; ventilation du CA non fournie par cette page.",
+        "unite": "texte"
+      },
+      {
+        "bloc": "qualite",
+        "champ": "avantage_concurrentiel",
+        "valeur": "Logiciels de marchés verticaux exploités de façon décentralisée après acquisition : spécialisation et continuité des équipes peuvent favoriser la fidélité. Aucune preuve chiffrée de pouvoir tarifaire apportée par cette page.",
+        "unite": "texte",
+        "statut": "ANALYSE_DOCUMENTAIRE_SOURCE_PRIMAIRE"
+      }
+    ]
+  },
+  {
+    "ticker": "CER.L",
+    "url": "https://www.cerillion.com/investors/major-shareholders/",
+    "date_source": "2026-07-24",
+    "periode": "actionnariat publié, référence de flottant au 24/07/2026",
+    "champs": [
+      {
+        "bloc": null,
+        "champ": "actionnariat_physique_hors_droits_a_60j",
+        "valeur": {
+          "louis_hall_pct": 20.12,
+          "actions_emises_page": 29546558,
+          "autodetenues_page": 5049,
+          "limite": "Part publiée en capital émis, pas options. Actualisation de chaque ligne non garantie par la date du seul flottant."
+        },
+        "unite": "titres et pct"
+      },
+      {
+        "bloc": "identite",
+        "champ": "marche",
+        "valeur": "AIM, London Stock Exchange; pas d'autre marché déclaré",
+        "unite": "texte"
+      }
+    ]
+  },
+  {
+    "ticker": "TRT.L",
+    "url": "https://www.transense.com/investors/significant-shareholders",
+    "date_source": "2026-10-06",
+    "periode": "dernières notifications au 06/10/2026",
+    "champs": [
+      {
+        "bloc": null,
+        "champ": "actionnariat_physique_hors_droits_a_60j",
+        "valeur": {
+          "dirigeants": [
+            {
+              "nom": "N Rogers",
+              "actions": 300000
+            },
+            {
+              "nom": "R Maughan",
+              "actions": 149219
+            },
+            {
+              "nom": "M Segal",
+              "actions": 77057
+            },
+            {
+              "nom": "S Parker",
+              "actions": 18172
+            }
+          ],
+          "total_actions": 544448,
+          "droits_vote_publies": 15219884,
+          "actions_emises": 16437740,
+          "autodetenues_page": 1217856,
+          "limite": "Incohérence arithmétique de 28 titres entre actions émises moins autodétention et droits de vote publiés; ne pas corriger silencieusement. Pas d'options ajoutées."
+        },
+        "unite": "titres"
+      },
+      {
+        "bloc": "identite",
+        "champ": "marche",
+        "valeur": "AIM, London Stock Exchange",
+        "unite": "texte"
+      }
+    ]
+  },
+  {
+    "ticker": "LST.L",
+    "url": "https://lightsciencetechnologiesholdings.com/investors/",
+    "date_source": "2026-11-02",
+    "periode": "page investisseurs mise à jour le 02/11/2026",
+    "champs": [
+      {
+        "bloc": null,
+        "champ": "actionnariat_physique_hors_droits_a_60j",
+        "valeur": {
+          "actions_emises": 993005500,
+          "autodetenues": 0,
+          "graham_cooley_actions": 41500000,
+          "graham_cooley_pct": 4.18,
+          "simon_deacon_actions": 96203613,
+          "simon_deacon_pct": 9.69,
+          "limite": "Départ de Simon Deacon annoncé le 21/10 : ne pas le compter automatiquement parmi les dirigeants actuels. La page affiche deux pourcentages contradictoires de titres non publics : 30,26 % et 41,10 %."
+        },
+        "unite": "titres et pct"
+      },
+      {
+        "bloc": "identite",
+        "champ": "marche",
+        "valeur": "AIM, London Stock Exchange",
+        "unite": "texte"
+      },
+      {
+        "bloc": "risque",
+        "champ": "risque_gouvernance",
+        "valeur": "Transition de direction annoncée le 21/10/2026. Transparence du flottant à rapprocher : deux sections de la page officielle du 02/11 indiquent des proportions non publiques incompatibles (30,26 % et 41,10 %).",
+        "unite": "texte",
+        "statut": "ANALYSE_DOCUMENTAIRE_SOURCE_PRIMAIRE"
+      }
+    ]
+  },
+  {
+    "ticker": "AOM.L",
+    "url": "https://investors.activeops.com/investors/significant-shareholders/",
+    "date_source": "2026-07-16",
+    "periode": "version de page effectivement lue au 05/11 : état au 16/07/2026",
+    "champs": [
+      {
+        "bloc": null,
+        "champ": "actionnariat_physique_hors_droits_a_60j",
+        "valeur": {
+          "actions_emises": 71364180,
+          "dirigeants": [
+            {
+              "nom": "Richard Jeffery",
+              "actions": 8907858,
+              "pct": 12.47
+            },
+            {
+              "nom": "Michael McLaren",
+              "actions": 59523,
+              "pct": 0.08
+            },
+            {
+              "nom": "Hilary Wright",
+              "actions": 11904,
+              "pct": 0.02
+            }
+          ],
+          "limite": "Le moteur de recherche indexe une version au 28/10/2026 différente; la page ouverte restitue le 16/07. Valeurs conservées comme état historique, actualisation non confirmée."
+        },
+        "unite": "titres et pct"
+      }
+    ]
+  },
+  {
+    "ticker": "HSP.L",
+    "url": "https://www.investegate.co.uk/index.php/announcement/rns/hargreaves-services--hsp/director-pdmr-shareholding-total-voting-rights/9555353",
+    "date_source": "2026-05-06",
+    "periode": "après offre de rachat de mai 2026; fonctions à cette date",
+    "champs": [
+      {
+        "bloc": null,
+        "champ": "actionnariat_physique_hors_droits_a_60j",
+        "valeur": {
+          "dirigeants": [
+            {
+              "nom": "Roger McDowell",
+              "actions": 411057
+            },
+            {
+              "nom": "Gordon Banham",
+              "actions": 2600761
+            },
+            {
+              "nom": "Stephen Craigen",
+              "actions": 22343
+            },
+            {
+              "nom": "Nigel Halkes",
+              "actions": 4645
+            },
+            {
+              "nom": "Nicholas Mills",
+              "actions": 9289
+            }
+          ],
+          "droits_vote": 30704511,
+          "autodetenues": 831304,
+          "limite": "Situation historique après tender; fonctions susceptibles d'avoir changé. Réduction proportionnelle via rachat, pas preuve à elle seule de conviction baissière."
+        },
+        "unite": "titres"
+      }
+    ]
+  },
+  {
+    "ticker": "HDD.L",
+    "url": "https://www.hardide.com/wp-content/uploads/2026/02/Annual-Report-2025.pdf",
+    "date_source": "2026-02-25",
+    "periode": "actions au 30/09/2025 et événement postérieur signalé au rapport 2025, pages 24 et 67",
+    "champs": [
+      {
+        "bloc": null,
+        "champ": "actionnariat_physique_hors_droits_a_60j",
+        "valeur": {
+          "dirigeants": [
+            {
+              "nom": "Andrew Magson",
+              "actions": 556176
+            },
+            {
+              "nom": "Andrew Boyce",
+              "actions": 1
+            },
+            {
+              "nom": "Bryan Allcock",
+              "actions": 63451
+            },
+            {
+              "nom": "Matthew Hamblin",
+              "actions": 288552
+            },
+            {
+              "nom": "Yuri Zhuk",
+              "actions": 221189
+            },
+            {
+              "nom": "Simon Hallam",
+              "actions": 10526
+            }
+          ],
+          "boyce_famille_entites_associees": 10052557,
+          "magson_apres_cloture": 741361,
+          "options_ceo": 3300000,
+          "limite": "Titres de la famille et entités représentées par Boyce distincts de sa propriété personnelle. Options du CEO exclues des actions. Données historiques à actualiser."
+        },
+        "unite": "titres"
+      }
+    ]
+  },
+  {
+    "ticker": "TSTL.L",
+    "url": "https://www.lse.co.uk/rns/TSTL/appointment-of-ceo-74b834r88woa7ra.html?mobile_view=mobile",
+    "date_source": "2026-06-17",
+    "periode": "déclaration lors de la nomination, effet au 01/08/2026",
+    "champs": [
+      {
+        "bloc": null,
+        "champ": "actionnariat_physique_hors_droits_a_60j",
+        "valeur": {
+          "nom": "Christopher Paul Lee",
+          "actions": 0,
+          "options": 0,
+          "date_position": "2026-06-17",
+          "limite": "Absence de titres déclarée à la nomination; ne prouve pas une absence de détention au 05/11/2026 ni celle des autres administrateurs."
+        },
+        "unite": "titres"
+      },
+      {
+        "bloc": "identite",
+        "champ": "marche",
+        "valeur": "AIM, London Stock Exchange; admission depuis 2005",
+        "unite": "texte"
+      },
+      {
+        "bloc": "qualite",
+        "champ": "qualite_management",
+        "valeur": "Nouveau CEO Chris Lee depuis août 2026, expérience internationale de dispositifs médicaux. Son historique de performance chez Tristel reste court : ne pas attribuer les résultats annuels clos avant son arrivée à son exécution.",
+        "unite": "texte",
+        "statut": "ANALYSE_DOCUMENTAIRE_SOURCE_PRIMAIRE"
+      }
+    ]
   }
 ]

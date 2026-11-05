@@ -77,19 +77,14 @@
         "date_collecte": "2026-11-04"
       },
       "marche": {
-        "valeur": null,
-        "unite": null,
-        "periode": null,
-        "date_source": null,
-        "source_url": null,
-        "statut": "A_COLLECTER",
+        "valeur": "AIM, London Stock Exchange; libre transfert des titres",
+        "unite": "texte",
+        "periode": "participations des administrateurs au 10/09/2026",
+        "date_source": "2026-09-10",
+        "source_url": "https://www.softwarecircle.com/company-information/",
+        "statut": "SOURCE_PRIMAIRE",
         "commentaire": null,
-        "recherche": {
-          "date": "2026-11-04",
-          "statut": "MANQUANT_RECHERCHE_NON_CLOSE",
-          "motif": "Aucune valeur vérifiée importée à cette étape; les recherches tracées ne démontrent pas une indisponibilité définitive.",
-          "journal": "journal_recherches"
-        }
+        "date_collecte": "2026-11-05"
       },
       "capitalisation_eur": {
         "valeur": 81787682.72226216,
@@ -134,7 +129,7 @@
     },
     "qualite": {
       "ca_ttm": {
-        "valeur": 22260000.0,
+        "valeur": 22260000,
         "unite": "GBP",
         "periode": "TTM fournisseur; arrêté indiqué dans son tableau financier : Mar '26 Mar 31, 2026",
         "date_source": "2026-11-04",
@@ -204,7 +199,7 @@
         "date_collecte": "2026-11-04"
       },
       "fcf_ttm": {
-        "valeur": 5900000.0,
+        "valeur": 5900000,
         "unite": "GBP",
         "periode": "TTM fournisseur; arrêté indiqué dans son tableau financier : Mar '26 Mar 31, 2026",
         "date_source": "2026-11-04",
@@ -255,19 +250,14 @@
         }
       },
       "avantage_concurrentiel": {
-        "valeur": null,
-        "unite": null,
-        "periode": null,
-        "date_source": null,
-        "source_url": null,
-        "statut": "A_COLLECTER",
+        "valeur": "Logiciels de marchés verticaux exploités de façon décentralisée après acquisition : spécialisation et continuité des équipes peuvent favoriser la fidélité. Aucune preuve chiffrée de pouvoir tarifaire apportée par cette page.",
+        "unite": "texte",
+        "periode": "participations des administrateurs au 10/09/2026",
+        "date_source": "2026-09-10",
+        "source_url": "https://www.softwarecircle.com/company-information/",
+        "statut": "ANALYSE_DOCUMENTAIRE_SOURCE_PRIMAIRE",
         "commentaire": null,
-        "recherche": {
-          "date": "2026-11-04",
-          "statut": "MANQUANT_RECHERCHE_NON_CLOSE",
-          "motif": "Analyse MCPA/IPS argumentée encore nécessaire; ce champ ne doit pas être rempli par une statistique de fournisseur.",
-          "journal": "journal_recherches"
-        }
+        "date_collecte": "2026-11-05"
       },
       "qualite_management": {
         "valeur": "Acquisitions : croissance organique des logiciels acquis 7 %, mais groupe -1 % avec Nettl. Discipline à suivre sur levier et earn-outs.",
@@ -302,7 +292,7 @@
         "date_collecte": "2026-11-04"
       },
       "capitalisation": {
-        "valeur": 68260000.0,
+        "valeur": 68260000,
         "unite": "GBP",
         "periode": "cotation au 2026-11-04",
         "date_source": "2026-11-04",
@@ -312,7 +302,7 @@
         "date_collecte": "2026-11-04"
       },
       "valeur_entreprise": {
-        "valeur": 79680000.0,
+        "valeur": 79680000,
         "unite": "GBP",
         "periode": "valorisation affichée au 2026-11-04",
         "date_source": "2026-11-04",
@@ -1010,19 +1000,14 @@
     },
     "diversification": {
       "zone_geographique": {
-        "valeur": null,
-        "unite": null,
-        "periode": null,
-        "date_source": null,
-        "source_url": null,
-        "statut": "A_COLLECTER",
+        "valeur": "Principales opérations : Royaume-Uni, Irlande et Pays-Bas; ventilation du CA non fournie par cette page.",
+        "unite": "texte",
+        "periode": "participations des administrateurs au 10/09/2026",
+        "date_source": "2026-09-10",
+        "source_url": "https://www.softwarecircle.com/company-information/",
+        "statut": "SOURCE_PRIMAIRE",
         "commentaire": null,
-        "recherche": {
-          "date": "2026-11-04",
-          "statut": "MANQUANT_RECHERCHE_NON_CLOSE",
-          "motif": "Aucune valeur vérifiée importée à cette étape; les recherches tracées ne démontrent pas une indisponibilité définitive.",
-          "journal": "journal_recherches"
-        }
+        "date_collecte": "2026-11-05"
       },
       "exposition_sectorielle": {
         "valeur": "Industrials",
@@ -1601,7 +1586,7 @@
     {
       "bloc": "qualite",
       "champ": "ca_ttm",
-      "valeur": 22260000.0,
+      "valeur": 22260000,
       "unite": "GBP",
       "periode": "TTM fournisseur; arrêté indiqué dans son tableau financier : Mar '26 Mar 31, 2026",
       "date_source": "2026-11-04",
@@ -1613,7 +1598,7 @@
     {
       "bloc": "qualite",
       "champ": "fcf_ttm",
-      "valeur": 5900000.0,
+      "valeur": 5900000,
       "unite": "GBP",
       "periode": "TTM fournisseur; arrêté indiqué dans son tableau financier : Mar '26 Mar 31, 2026",
       "date_source": "2026-11-04",
@@ -1697,7 +1682,7 @@
     {
       "bloc": "risque",
       "champ": "cash",
-      "valeur": 3940000.0,
+      "valeur": 3940000,
       "unite": "GBP",
       "periode": "Dernier bilan affiché au 2026-11-04; date comptable exacte à rapprocher",
       "date_source": "2026-11-04",
@@ -1709,7 +1694,7 @@
     {
       "bloc": "risque",
       "champ": "dette_brute",
-      "valeur": 15350000.0,
+      "valeur": 15350000,
       "unite": "GBP",
       "periode": "Dernier bilan affiché au 2026-11-04; date comptable exacte à rapprocher",
       "date_source": "2026-11-04",
@@ -1721,7 +1706,7 @@
     {
       "bloc": "risque",
       "champ": "dette_nette",
-      "valeur": 11410000.0,
+      "valeur": 11410000,
       "unite": "GBP",
       "periode": "Dernier bilan affiché au 2026-11-04; date comptable exacte à rapprocher",
       "date_source": "2026-11-04",
@@ -2025,6 +2010,42 @@
       "source_url": "https://query1.finance.yahoo.com/v10/finance/quoteSummary/SFT.L?modules=assetProfile,majorHoldersBreakdown,insiderHolders,insiderTransactions",
       "statut": "SOURCE_SECONDAIRE_GOUVERNANCE_A_RAPPROCHER",
       "commentaire": "Titres détenus séparés des options/attributions. Dates/fonctions de chaque ligne à contrôler : les anciens dirigeants peuvent subsister. Ne pas additionner les détentions directes et indirectes sans éliminer les doubles comptes. Pas de certification de couverture des transactions, ni note SSI déduite."
+    },
+    {
+      "bloc": null,
+      "champ": "actionnariat_physique_hors_droits_a_60j",
+      "valeur": {
+        "dirigeants": [
+          {
+            "nom": "M S Riechert",
+            "actions": 3192573
+          },
+          {
+            "nom": "R A Lightfoot",
+            "actions": 619510
+          },
+          {
+            "nom": "I S Brown",
+            "actions": 238220
+          },
+          {
+            "nom": "G G Cockerill",
+            "actions": 204054
+          },
+          {
+            "nom": "S G Barrell",
+            "actions": 128034
+          }
+        ],
+        "limite": "Détentions bénéficiaires en actions ordinaires; ne pas ajouter les participations de fonds aux patrimoines personnels. Dénominateur affiché daté de novembre 2023, pourcentage courant non calculé."
+      },
+      "unite": "titres",
+      "periode": "participations des administrateurs au 10/09/2026",
+      "date_source": "2026-09-10",
+      "source_url": "https://www.softwarecircle.com/company-information/",
+      "statut": "SOURCE_PRIMAIRE",
+      "commentaire": null,
+      "date_collecte": "2026-11-05"
     }
   ],
   "journal_recherches": [
@@ -2219,15 +2240,13 @@
   "audit_couverture": {
     "date": "2026-11-05",
     "champs_total": 108,
-    "champs_renseignes": 58,
-    "couverture_pct": 53.7,
+    "champs_renseignes": 61,
+    "couverture_pct": 56.48,
     "champs_secondaires_non_rapproches": 33,
     "champs_manquants": [
       "identite.lei",
-      "identite.marche",
       "qualite.conversion_fcf_pct",
       "qualite.concentration_clients_pct",
-      "qualite.avantage_concurrentiel",
       "valorisation.pe",
       "valorisation.comparables_sectoriels",
       "valorisation.marge_securite_pct",
@@ -2248,7 +2267,6 @@
       "risque.risque_concentration",
       "risque.transactions_initiees_net_90j",
       "risque.transactions_initiees_net_180j",
-      "diversification.zone_geographique",
       "diversification.interet_strategique",
       "diversification.complementarite_portefeuille",
       "complements.ssi",
@@ -2281,18 +2299,16 @@
   "audit_poursuite": {
     "date": "2026-11-05",
     "comptage": {
-      "RENSEIGNE": 58,
+      "RENSEIGNE": 61,
       "NON_APPLICABLE": 4,
       "INDISPONIBLE_A_DATE": 0,
-      "RECHERCHE_A_POURSUIVRE": 46
+      "RECHERCHE_A_POURSUIVRE": 43
     },
-    "couverture_valeurs_pct": 53.7,
-    "couverture_applicable_pct": 55.77,
+    "couverture_valeurs_pct": 56.48,
+    "couverture_applicable_pct": 58.65,
     "recherches_non_closes": [
       "identite.lei",
-      "identite.marche",
       "qualite.concentration_clients_pct",
-      "qualite.avantage_concurrentiel",
       "valorisation.comparables_sectoriels",
       "valorisation.marge_securite_pct",
       "croissance.carnet_commandes",
@@ -2310,7 +2326,6 @@
       "risque.risque_concentration",
       "risque.transactions_initiees_net_90j",
       "risque.transactions_initiees_net_180j",
-      "diversification.zone_geographique",
       "diversification.interet_strategique",
       "diversification.complementarite_portefeuille",
       "complements.ssi",

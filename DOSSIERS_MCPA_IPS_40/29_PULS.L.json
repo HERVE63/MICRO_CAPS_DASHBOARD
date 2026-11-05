@@ -77,19 +77,14 @@
         "date_collecte": "2026-11-04"
       },
       "marche": {
-        "valeur": null,
-        "unite": null,
-        "periode": null,
-        "date_source": null,
-        "source_url": null,
-        "statut": "A_COLLECTER",
+        "valeur": "AIM, London Stock Exchange; pas d'autre marché déclaré",
+        "unite": "texte",
+        "periode": "actionnariat et gouvernance publiés au 15/07/2026, avant annonces ultérieures de financement",
+        "date_source": "2026-07-15",
+        "source_url": "https://www.pulsargroup.com/investors/aim-rule-26/",
+        "statut": "SOURCE_PRIMAIRE",
         "commentaire": null,
-        "recherche": {
-          "date": "2026-11-04",
-          "statut": "MANQUANT_RECHERCHE_NON_CLOSE",
-          "motif": "Aucune valeur vérifiée importée à cette étape; les recherches tracées ne démontrent pas une indisponibilité définitive.",
-          "journal": "journal_recherches"
-        }
+        "date_collecte": "2026-11-05"
       },
       "capitalisation_eur": {
         "valeur": 23963575.365444522,
@@ -204,7 +199,7 @@
         "date_collecte": "2026-11-04"
       },
       "fcf_ttm": {
-        "valeur": 6210000.0,
+        "valeur": 6210000,
         "unite": "GBP",
         "periode": "TTM fournisseur; arrêté indiqué dans son tableau financier : May '26 May 31, 2026",
         "date_source": "2026-11-04",
@@ -270,19 +265,14 @@
         }
       },
       "qualite_management": {
-        "valeur": null,
-        "unite": null,
-        "periode": null,
-        "date_source": null,
-        "source_url": null,
-        "statut": "A_COLLECTER",
+        "valeur": "Séparation présidence/direction; comités d'audit et de rémunération présidés par des non-exécutifs indépendants selon l'émetteur. Nominations traitées par le conseil entier; efficacité de contrôle non certifiée par cette seule déclaration.",
+        "unite": "texte",
+        "periode": "actionnariat et gouvernance publiés au 15/07/2026, avant annonces ultérieures de financement",
+        "date_source": "2026-07-15",
+        "source_url": "https://www.pulsargroup.com/investors/aim-rule-26/",
+        "statut": "ANALYSE_DOCUMENTAIRE_SOURCE_PRIMAIRE",
         "commentaire": null,
-        "recherche": {
-          "date": "2026-11-04",
-          "statut": "MANQUANT_RECHERCHE_NON_CLOSE",
-          "motif": "Analyse MCPA/IPS argumentée encore nécessaire; ce champ ne doit pas être rempli par une statistique de fournisseur.",
-          "journal": "journal_recherches"
-        }
+        "date_collecte": "2026-11-05"
       }
     },
     "valorisation": {
@@ -307,7 +297,7 @@
         "date_collecte": "2026-11-04"
       },
       "capitalisation": {
-        "valeur": 20000000.0,
+        "valeur": 20000000,
         "unite": "GBP",
         "periode": "cotation au 2026-11-04",
         "date_source": "2026-11-04",
@@ -317,7 +307,7 @@
         "date_collecte": "2026-11-04"
       },
       "valeur_entreprise": {
-        "valeur": 27720000.0,
+        "valeur": 27720000,
         "unite": "GBP",
         "periode": "valorisation affichée au 2026-11-04",
         "date_source": "2026-11-04",
@@ -656,7 +646,7 @@
     },
     "risque": {
       "cash": {
-        "valeur": 1490000.0,
+        "valeur": 1490000,
         "unite": "GBP",
         "periode": "Dernier bilan affiché au 2026-11-04; date comptable exacte à rapprocher",
         "date_source": "2026-11-04",
@@ -666,7 +656,7 @@
         "date_collecte": "2026-11-04"
       },
       "dette_brute": {
-        "valeur": 9210000.0,
+        "valeur": 9210000,
         "unite": "GBP",
         "periode": "Dernier bilan affiché au 2026-11-04; date comptable exacte à rapprocher",
         "date_source": "2026-11-04",
@@ -676,7 +666,7 @@
         "date_collecte": "2026-11-04"
       },
       "dette_nette": {
-        "valeur": 7720000.0,
+        "valeur": 7720000,
         "unite": "GBP",
         "periode": "Dernier bilan affiché au 2026-11-04; date comptable exacte à rapprocher",
         "date_source": "2026-11-04",
@@ -960,7 +950,7 @@
         "date_collecte": "2026-11-04"
       },
       "ratio_volume": {
-        "valeur": 0.0,
+        "valeur": 0,
         "unite": "ratio",
         "periode": "dernière séance / moyenne 20 séances",
         "date_source": "2026-11-03",
@@ -1040,7 +1030,7 @@
         "valeur": {
           "classification": "Technology",
           "nombre_lignes": 16,
-          "poids_initial_pct": 40.0,
+          "poids_initial_pct": 40,
           "tickers": [
             "IDN",
             "OSS",
@@ -1660,7 +1650,7 @@
     {
       "bloc": "qualite",
       "champ": "fcf_ttm",
-      "valeur": 6210000.0,
+      "valeur": 6210000,
       "unite": "GBP",
       "periode": "TTM fournisseur; arrêté indiqué dans son tableau financier : May '26 May 31, 2026",
       "date_source": "2026-11-04",
@@ -2082,6 +2072,46 @@
       "source_url": "https://query1.finance.yahoo.com/v10/finance/quoteSummary/PULS.L?modules=assetProfile,majorHoldersBreakdown,insiderHolders,insiderTransactions",
       "statut": "SOURCE_SECONDAIRE_GOUVERNANCE_A_RAPPROCHER",
       "commentaire": "Titres détenus séparés des options/attributions. Dates/fonctions de chaque ligne à contrôler : les anciens dirigeants peuvent subsister. Ne pas additionner les détentions directes et indirectes sans éliminer les doubles comptes. Pas de certification de couverture des transactions, ni note SSI déduite."
+    },
+    {
+      "bloc": null,
+      "champ": "actionnariat_physique_hors_droits_a_60j",
+      "valeur": {
+        "actions_emises": 138419122,
+        "autodetenues": 2825646,
+        "droits_vote": 135593476,
+        "dirigeants": [
+          {
+            "nom": "Joanna Arnold",
+            "actions": 793754
+          },
+          {
+            "nom": "Christopher Satterthwaite",
+            "actions": 120911
+          },
+          {
+            "nom": "Mark Fautley",
+            "actions": 119284
+          },
+          {
+            "nom": "Christopher Pilling",
+            "actions": 50000
+          },
+          {
+            "nom": "Sarah Vawda",
+            "actions": 29823
+          }
+        ],
+        "kestrel_pct": 28.63,
+        "limite": "Kestrel est un investisseur institutionnel; pas du patrimoine personnel des administrateurs. État antérieur à l'opération de financement d'octobre."
+      },
+      "unite": "titres et pct",
+      "periode": "actionnariat et gouvernance publiés au 15/07/2026, avant annonces ultérieures de financement",
+      "date_source": "2026-07-15",
+      "source_url": "https://www.pulsargroup.com/investors/aim-rule-26/",
+      "statut": "SOURCE_PRIMAIRE",
+      "commentaire": null,
+      "date_collecte": "2026-11-05"
     }
   ],
   "journal_recherches": [
@@ -2260,16 +2290,14 @@
   "audit_couverture": {
     "date": "2026-11-05",
     "champs_total": 108,
-    "champs_renseignes": 57,
-    "couverture_pct": 52.78,
+    "champs_renseignes": 59,
+    "couverture_pct": 54.63,
     "champs_secondaires_non_rapproches": 36,
     "champs_manquants": [
       "identite.lei",
-      "identite.marche",
       "qualite.conversion_fcf_pct",
       "qualite.concentration_clients_pct",
       "qualite.avantage_concurrentiel",
-      "qualite.qualite_management",
       "valorisation.pe",
       "valorisation.comparables_sectoriels",
       "valorisation.marge_securite_pct",
@@ -2323,19 +2351,17 @@
   "audit_poursuite": {
     "date": "2026-11-05",
     "comptage": {
-      "RENSEIGNE": 57,
+      "RENSEIGNE": 59,
       "NON_APPLICABLE": 5,
       "INDISPONIBLE_A_DATE": 0,
-      "RECHERCHE_A_POURSUIVRE": 46
+      "RECHERCHE_A_POURSUIVRE": 44
     },
-    "couverture_valeurs_pct": 52.78,
-    "couverture_applicable_pct": 55.34,
+    "couverture_valeurs_pct": 54.63,
+    "couverture_applicable_pct": 57.28,
     "recherches_non_closes": [
       "identite.lei",
-      "identite.marche",
       "qualite.concentration_clients_pct",
       "qualite.avantage_concurrentiel",
-      "qualite.qualite_management",
       "valorisation.comparables_sectoriels",
       "valorisation.marge_securite_pct",
       "croissance.carnet_commandes",

@@ -77,19 +77,14 @@
         "date_collecte": "2026-11-04"
       },
       "marche": {
-        "valeur": null,
-        "unite": null,
-        "periode": null,
-        "date_source": null,
-        "source_url": null,
-        "statut": "A_COLLECTER",
+        "valeur": "AIM, London Stock Exchange",
+        "unite": "texte",
+        "periode": "page investisseurs mise à jour le 02/11/2026",
+        "date_source": "2026-11-02",
+        "source_url": "https://lightsciencetechnologiesholdings.com/investors/",
+        "statut": "SOURCE_PRIMAIRE",
         "commentaire": null,
-        "recherche": {
-          "date": "2026-11-04",
-          "statut": "MANQUANT_RECHERCHE_NON_CLOSE",
-          "motif": "Aucune valeur vérifiée importée à cette étape; les recherches tracées ne démontrent pas une indisponibilité définitive.",
-          "journal": "journal_recherches"
-        }
+        "date_collecte": "2026-11-05"
       },
       "capitalisation_eur": {
         "valeur": 9932901.988976754,
@@ -134,7 +129,7 @@
     },
     "qualite": {
       "ca_ttm": {
-        "valeur": 7300000.0,
+        "valeur": 7300000,
         "unite": "GBP",
         "periode": "TTM fournisseur; arrêté indiqué dans son tableau financier : May '26 May 31, 2026",
         "date_source": "2026-11-04",
@@ -204,7 +199,7 @@
         "date_collecte": "2026-11-04"
       },
       "fcf_ttm": {
-        "valeur": -1030000.0,
+        "valeur": -1030000,
         "unite": "GBP",
         "periode": "TTM fournisseur; arrêté indiqué dans son tableau financier : May '26 May 31, 2026",
         "date_source": "2026-11-04",
@@ -317,7 +312,7 @@
         "date_collecte": "2026-11-04"
       },
       "valeur_entreprise": {
-        "valeur": 7130000.0,
+        "valeur": 7130000,
         "unite": "GBP",
         "periode": "valorisation affichée au 2026-11-04",
         "date_source": "2026-11-04",
@@ -685,7 +680,7 @@
         "date_collecte": "2026-11-04"
       },
       "dette_brute": {
-        "valeur": 1280000.0,
+        "valeur": 1280000,
         "unite": "GBP",
         "periode": "Dernier bilan affiché au 2026-11-04; date comptable exacte à rapprocher",
         "date_source": "2026-11-04",
@@ -695,7 +690,7 @@
         "date_collecte": "2026-11-04"
       },
       "dette_nette": {
-        "valeur": -1160000.0,
+        "valeur": -1160000,
         "unite": "GBP",
         "periode": "Dernier bilan affiché au 2026-11-04; date comptable exacte à rapprocher",
         "date_source": "2026-11-04",
@@ -795,19 +790,14 @@
         "date_collecte": "2026-11-04"
       },
       "risque_gouvernance": {
-        "valeur": null,
-        "unite": null,
-        "periode": null,
-        "date_source": null,
-        "source_url": null,
-        "statut": "A_COLLECTER",
+        "valeur": "Transition de direction annoncée le 21/10/2026. Transparence du flottant à rapprocher : deux sections de la page officielle du 02/11 indiquent des proportions non publiques incompatibles (30,26 % et 41,10 %).",
+        "unite": "texte",
+        "periode": "page investisseurs mise à jour le 02/11/2026",
+        "date_source": "2026-11-02",
+        "source_url": "https://lightsciencetechnologiesholdings.com/investors/",
+        "statut": "ANALYSE_DOCUMENTAIRE_SOURCE_PRIMAIRE",
         "commentaire": null,
-        "recherche": {
-          "date": "2026-11-04",
-          "statut": "MANQUANT_RECHERCHE_NON_CLOSE",
-          "motif": "Aucune valeur vérifiée importée à cette étape; les recherches tracées ne démontrent pas une indisponibilité définitive.",
-          "journal": "journal_recherches"
-        }
+        "date_collecte": "2026-11-05"
       },
       "risque_reglementaire": {
         "valeur": "Retards d’approbation sécurité incendie : deux contrats PFP reportés hors FY2026.",
@@ -1038,7 +1028,7 @@
         "valeur": {
           "classification": "Technology",
           "nombre_lignes": 16,
-          "poids_initial_pct": 40.0,
+          "poids_initial_pct": 40,
           "tickers": [
             "IDN",
             "OSS",
@@ -1574,7 +1564,7 @@
     {
       "bloc": "qualite",
       "champ": "ca_ttm",
-      "valeur": 7300000.0,
+      "valeur": 7300000,
       "unite": "GBP",
       "periode": "TTM fournisseur; arrêté indiqué dans son tableau financier : May '26 May 31, 2026",
       "date_source": "2026-11-04",
@@ -1586,7 +1576,7 @@
     {
       "bloc": "qualite",
       "champ": "fcf_ttm",
-      "valeur": -1030000.0,
+      "valeur": -1030000,
       "unite": "GBP",
       "periode": "TTM fournisseur; arrêté indiqué dans son tableau financier : May '26 May 31, 2026",
       "date_source": "2026-11-04",
@@ -1658,7 +1648,7 @@
     {
       "bloc": "risque",
       "champ": "cash",
-      "valeur": 2440000.0,
+      "valeur": 2440000,
       "unite": "GBP",
       "periode": "Dernier bilan affiché au 2026-11-04; date comptable exacte à rapprocher",
       "date_source": "2026-11-04",
@@ -1697,8 +1687,8 @@
       "valeur": {
         "exercice": "2026-11-30",
         "courant": -0.001,
-        "J_30": 0.0,
-        "J_90": 0.0,
+        "J_30": 0,
+        "J_90": 0,
         "nombre_analystes": 1
       },
       "unite": "GBP/action",
@@ -2013,6 +2003,26 @@
       "source_url": "https://query1.finance.yahoo.com/v10/finance/quoteSummary/LST.L?modules=assetProfile,majorHoldersBreakdown,insiderHolders,insiderTransactions",
       "statut": "SOURCE_SECONDAIRE_GOUVERNANCE_A_RAPPROCHER",
       "commentaire": "Titres détenus séparés des options/attributions. Dates/fonctions de chaque ligne à contrôler : les anciens dirigeants peuvent subsister. Ne pas additionner les détentions directes et indirectes sans éliminer les doubles comptes. Pas de certification de couverture des transactions, ni note SSI déduite."
+    },
+    {
+      "bloc": null,
+      "champ": "actionnariat_physique_hors_droits_a_60j",
+      "valeur": {
+        "actions_emises": 993005500,
+        "autodetenues": 0,
+        "graham_cooley_actions": 41500000,
+        "graham_cooley_pct": 4.18,
+        "simon_deacon_actions": 96203613,
+        "simon_deacon_pct": 9.69,
+        "limite": "Départ de Simon Deacon annoncé le 21/10 : ne pas le compter automatiquement parmi les dirigeants actuels. La page affiche deux pourcentages contradictoires de titres non publics : 30,26 % et 41,10 %."
+      },
+      "unite": "titres et pct",
+      "periode": "page investisseurs mise à jour le 02/11/2026",
+      "date_source": "2026-11-02",
+      "source_url": "https://lightsciencetechnologiesholdings.com/investors/",
+      "statut": "SOURCE_PRIMAIRE",
+      "commentaire": null,
+      "date_collecte": "2026-11-05"
     }
   ],
   "journal_recherches": [
@@ -2211,12 +2221,11 @@
   "audit_couverture": {
     "date": "2026-11-05",
     "champs_total": 108,
-    "champs_renseignes": 58,
-    "couverture_pct": 53.7,
+    "champs_renseignes": 60,
+    "couverture_pct": 55.56,
     "champs_secondaires_non_rapproches": 31,
     "champs_manquants": [
       "identite.lei",
-      "identite.marche",
       "qualite.conversion_fcf_pct",
       "qualite.revenus_recurrents_pct",
       "qualite.avantage_concurrentiel",
@@ -2238,7 +2247,6 @@
       "croissance.taille_marche_adressable",
       "risque.dette_nette_ebitda",
       "risque.risque_pays",
-      "risque.risque_gouvernance",
       "risque.transactions_initiees_net_90j",
       "risque.transactions_initiees_net_180j",
       "diversification.interet_strategique",
@@ -2273,16 +2281,15 @@
   "audit_poursuite": {
     "date": "2026-11-05",
     "comptage": {
-      "RENSEIGNE": 58,
+      "RENSEIGNE": 60,
       "NON_APPLICABLE": 8,
       "INDISPONIBLE_A_DATE": 0,
-      "RECHERCHE_A_POURSUIVRE": 42
+      "RECHERCHE_A_POURSUIVRE": 40
     },
-    "couverture_valeurs_pct": 53.7,
-    "couverture_applicable_pct": 58.0,
+    "couverture_valeurs_pct": 55.56,
+    "couverture_applicable_pct": 60,
     "recherches_non_closes": [
       "identite.lei",
-      "identite.marche",
       "qualite.revenus_recurrents_pct",
       "qualite.avantage_concurrentiel",
       "qualite.qualite_management",
@@ -2296,7 +2303,6 @@
       "croissance.taille_marche_adressable",
       "risque.dette_nette_ebitda",
       "risque.risque_pays",
-      "risque.risque_gouvernance",
       "risque.transactions_initiees_net_90j",
       "risque.transactions_initiees_net_180j",
       "diversification.interet_strategique",

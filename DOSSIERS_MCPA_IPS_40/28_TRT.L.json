@@ -77,19 +77,14 @@
         "date_collecte": "2026-11-04"
       },
       "marche": {
-        "valeur": null,
-        "unite": null,
-        "periode": null,
-        "date_source": null,
-        "source_url": null,
-        "statut": "A_COLLECTER",
+        "valeur": "AIM, London Stock Exchange",
+        "unite": "texte",
+        "periode": "dernières notifications au 06/10/2026",
+        "date_source": "2026-10-06",
+        "source_url": "https://www.transense.com/investors/significant-shareholders",
+        "statut": "SOURCE_PRIMAIRE",
         "commentaire": null,
-        "recherche": {
-          "date": "2026-11-04",
-          "statut": "MANQUANT_RECHERCHE_NON_CLOSE",
-          "motif": "Aucune valeur vérifiée importée à cette étape; les recherches tracées ne démontrent pas une indisponibilité définitive.",
-          "journal": "journal_recherches"
-        }
+        "date_collecte": "2026-11-05"
       },
       "capitalisation_eur": {
         "valeur": 7476635.514018691,
@@ -204,7 +199,7 @@
         "date_collecte": "2026-11-04"
       },
       "fcf_ttm": {
-        "valeur": 352000.0,
+        "valeur": 352000,
         "unite": "GBP",
         "periode": "TTM fournisseur; arrêté indiqué dans son tableau financier : Jun '26 Jun 30, 2026",
         "date_source": "2026-11-04",
@@ -312,7 +307,7 @@
         "date_collecte": "2026-11-04"
       },
       "capitalisation": {
-        "valeur": 6240000.0,
+        "valeur": 6240000,
         "unite": "GBP",
         "periode": "cotation au 2026-11-04",
         "date_source": "2026-11-04",
@@ -322,7 +317,7 @@
         "date_collecte": "2026-11-04"
       },
       "valeur_entreprise": {
-        "valeur": 5980000.0,
+        "valeur": 5980000,
         "unite": "GBP",
         "periode": "valorisation affichée au 2026-11-04",
         "date_source": "2026-11-04",
@@ -606,7 +601,7 @@
         }
       },
       "revision_bpa_30j_pct": {
-        "valeur": 0.0,
+        "valeur": 0,
         "unite": "pct",
         "periode": "consensus annuel clos au 2027-06-30",
         "date_source": "2026-11-05",
@@ -616,7 +611,7 @@
         "date_collecte": "2026-11-05"
       },
       "revision_bpa_90j_pct": {
-        "valeur": 0.0,
+        "valeur": 0,
         "unite": "pct",
         "periode": "consensus annuel clos au 2027-06-30",
         "date_source": "2026-11-05",
@@ -678,7 +673,7 @@
         "date_collecte": "2026-11-04"
       },
       "dette_brute": {
-        "valeur": 1240000.0,
+        "valeur": 1240000,
         "unite": "GBP",
         "periode": "Dernier bilan affiché au 2026-11-04; date comptable exacte à rapprocher",
         "date_source": "2026-11-04",
@@ -688,7 +683,7 @@
         "date_collecte": "2026-11-04"
       },
       "dette_nette": {
-        "valeur": -256000.0,
+        "valeur": -256000,
         "unite": "GBP",
         "periode": "Dernier bilan affiché au 2026-11-04; date comptable exacte à rapprocher",
         "date_source": "2026-11-04",
@@ -967,7 +962,7 @@
         "date_collecte": "2026-11-04"
       },
       "ratio_volume": {
-        "valeur": 0.0,
+        "valeur": 0,
         "unite": "ratio",
         "periode": "dernière séance / moyenne 20 séances",
         "date_source": "2026-11-03",
@@ -1580,7 +1575,7 @@
     {
       "bloc": "qualite",
       "champ": "ca_ttm",
-      "valeur": 4630000.0,
+      "valeur": 4630000,
       "unite": "GBP",
       "periode": "TTM fournisseur; arrêté indiqué dans son tableau financier : Jun '26 Jun 30, 2026",
       "date_source": "2026-11-04",
@@ -1592,7 +1587,7 @@
     {
       "bloc": "qualite",
       "champ": "fcf_ttm",
-      "valeur": 352000.0,
+      "valeur": 352000,
       "unite": "GBP",
       "periode": "TTM fournisseur; arrêté indiqué dans son tableau financier : Jun '26 Jun 30, 2026",
       "date_source": "2026-11-04",
@@ -1676,7 +1671,7 @@
     {
       "bloc": "risque",
       "champ": "cash",
-      "valeur": 1500000.0,
+      "valeur": 1500000,
       "unite": "GBP",
       "periode": "Dernier bilan affiché au 2026-11-04; date comptable exacte à rapprocher",
       "date_source": "2026-11-04",
@@ -1688,7 +1683,7 @@
     {
       "bloc": "qualite",
       "champ": "ca_ttm",
-      "valeur": 4630000.0,
+      "valeur": 4630000,
       "unite": "GBP",
       "periode": "TTM affiché au 2026-11-04; date exacte de fin non fournie sur la page statistiques",
       "date_source": "2026-11-04",
@@ -2083,6 +2078,42 @@
       "source_url": "https://query1.finance.yahoo.com/v10/finance/quoteSummary/TRT.L?modules=assetProfile,majorHoldersBreakdown,insiderHolders,insiderTransactions",
       "statut": "SOURCE_SECONDAIRE_GOUVERNANCE_A_RAPPROCHER",
       "commentaire": "Titres détenus séparés des options/attributions. Dates/fonctions de chaque ligne à contrôler : les anciens dirigeants peuvent subsister. Ne pas additionner les détentions directes et indirectes sans éliminer les doubles comptes. Pas de certification de couverture des transactions, ni note SSI déduite."
+    },
+    {
+      "bloc": null,
+      "champ": "actionnariat_physique_hors_droits_a_60j",
+      "valeur": {
+        "dirigeants": [
+          {
+            "nom": "N Rogers",
+            "actions": 300000
+          },
+          {
+            "nom": "R Maughan",
+            "actions": 149219
+          },
+          {
+            "nom": "M Segal",
+            "actions": 77057
+          },
+          {
+            "nom": "S Parker",
+            "actions": 18172
+          }
+        ],
+        "total_actions": 544448,
+        "droits_vote_publies": 15219884,
+        "actions_emises": 16437740,
+        "autodetenues_page": 1217856,
+        "limite": "Incohérence arithmétique de 28 titres entre actions émises moins autodétention et droits de vote publiés; ne pas corriger silencieusement. Pas d'options ajoutées."
+      },
+      "unite": "titres",
+      "periode": "dernières notifications au 06/10/2026",
+      "date_source": "2026-10-06",
+      "source_url": "https://www.transense.com/investors/significant-shareholders",
+      "statut": "SOURCE_PRIMAIRE",
+      "commentaire": null,
+      "date_collecte": "2026-11-05"
     }
   ],
   "journal_recherches": [
@@ -2261,12 +2292,11 @@
   "audit_couverture": {
     "date": "2026-11-05",
     "champs_total": 108,
-    "champs_renseignes": 59,
-    "couverture_pct": 54.63,
+    "champs_renseignes": 60,
+    "couverture_pct": 55.56,
     "champs_secondaires_non_rapproches": 35,
     "champs_manquants": [
       "identite.lei",
-      "identite.marche",
       "qualite.conversion_fcf_pct",
       "qualite.revenus_recurrents_pct",
       "qualite.concentration_clients_pct",
@@ -2322,16 +2352,15 @@
   "audit_poursuite": {
     "date": "2026-11-05",
     "comptage": {
-      "RENSEIGNE": 59,
+      "RENSEIGNE": 60,
       "NON_APPLICABLE": 4,
       "INDISPONIBLE_A_DATE": 0,
-      "RECHERCHE_A_POURSUIVRE": 45
+      "RECHERCHE_A_POURSUIVRE": 44
     },
-    "couverture_valeurs_pct": 54.63,
-    "couverture_applicable_pct": 56.73,
+    "couverture_valeurs_pct": 55.56,
+    "couverture_applicable_pct": 57.69,
     "recherches_non_closes": [
       "identite.lei",
-      "identite.marche",
       "qualite.revenus_recurrents_pct",
       "qualite.concentration_clients_pct",
       "qualite.avantage_concurrentiel",
