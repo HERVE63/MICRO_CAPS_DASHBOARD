@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """Validate 40 JSON dossiers and export a review compatible with 09_CONTROLE_REVUE_MCPA_IPS.
-Never replace the live review unless every dossier is complete and validated.
+Export only individually validated dossiers to the review; strict validator 09 remains the gate for any duel or trade.
 """
 import csv,json,math
 from datetime import date
@@ -84,11 +84,10 @@ def main():
  with (D/'FICHES_MCPA_IPS_ELIGIBLES_40.csv').open('w',newline='',encoding='utf-8') as f:
   w=csv.DictWriter(f,fieldnames=COLS);w.writeheader();w.writerows(sorted(export,key=lambda r:int(r['ID_position'])))
  print(f'Couverture individuelle prouvee : {len(export)}/40 ; arbitrage verrouille tant que la revue stricte echoue')
- if len(export)==40:
-  with (D/'REVUE_HEBDOMADAIRE_MCPA_IPS.csv').open('w',newline='',encoding='utf-8') as f:
-   w=csv.DictWriter(f,fieldnames=COLS);w.writeheader();w.writerows(sorted(export,key=lambda r:int(r['ID_position'])))
-  print('40 dossiers validated and exported')
- else:
-  print(f'{len(export)}/40 dossiers eligible; review unchanged')
+ # Revue progressive : jamais de ligne non prouvee. Le validateur strict 09
+ # demeure obligatoire avant les duels et tout journal virtuel.
+ with (D/'REVUE_HEBDOMADAIRE_MCPA_IPS.csv').open('w',newline='',encoding='utf-8') as f:
+  w=csv.DictWriter(f,fieldnames=COLS);w.writeheader();w.writerows(sorted(export,key=lambda r:int(r['ID_position'])))
+ print(f'Revue progressive exportee : {len(export)}/40 dossiers prouves; controle strict 09 requis')
  return len(export)
 if __name__=='__main__':main()
