@@ -129,7 +129,7 @@
     },
     "qualite": {
       "ca_ttm": {
-        "valeur": 38540000,
+        "valeur": 38540000.0,
         "unite": "EUR",
         "periode": "TTM fournisseur; arrêté indiqué dans son tableau financier : Jun '26 Jun 30, 2026",
         "date_source": "2026-11-04",
@@ -139,7 +139,7 @@
         "date_collecte": "2026-11-04"
       },
       "marge_brute_pct": {
-        "valeur": 73,
+        "valeur": 73.0,
         "unite": "pct",
         "periode": "TTM fournisseur; arrêté indiqué dans son tableau financier : Jun '26 Jun 30, 2026",
         "date_source": "2026-11-04",
@@ -199,7 +199,7 @@
         "date_collecte": "2026-11-04"
       },
       "fcf_ttm": {
-        "valeur": -656000,
+        "valeur": -656000.0,
         "unite": "EUR",
         "periode": "TTM fournisseur; arrêté indiqué dans son tableau financier : Jun '26 Jun 30, 2026",
         "date_source": "2026-11-04",
@@ -2184,7 +2184,7 @@
       "RECHERCHE_A_POURSUIVRE": 49
     },
     "couverture_valeurs_pct": 43.52,
-    "couverture_applicable_pct": 47,
+    "couverture_applicable_pct": 47.0,
     "recherches_non_closes": [
       "identite.marche",
       "qualite.concentration_clients_pct",

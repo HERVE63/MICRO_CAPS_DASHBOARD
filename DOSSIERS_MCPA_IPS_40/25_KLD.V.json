@@ -134,7 +134,7 @@
     },
     "qualite": {
       "ca_ttm": {
-        "valeur": 4340000,
+        "valeur": 4340000.0,
         "unite": "CAD",
         "periode": "TTM fournisseur; arrêté indiqué dans son tableau financier : Jun '26 Jun 30, 2026",
         "date_source": "2026-11-04",
@@ -204,7 +204,7 @@
         "date_collecte": "2026-11-04"
       },
       "fcf_ttm": {
-        "valeur": -22640000,
+        "valeur": -22640000.0,
         "unite": "CAD",
         "periode": "TTM fournisseur; arrêté indiqué dans son tableau financier : Jun '26 Jun 30, 2026",
         "date_source": "2026-11-04",
@@ -2302,7 +2302,7 @@
       "RECHERCHE_A_POURSUIVRE": 47
     },
     "couverture_valeurs_pct": 49.07,
-    "couverture_applicable_pct": 53,
+    "couverture_applicable_pct": 53.0,
     "recherches_non_closes": [
       "identite.lei",
       "identite.marche",

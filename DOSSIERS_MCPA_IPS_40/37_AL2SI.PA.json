@@ -201,7 +201,7 @@
         "date_collecte": "2026-11-04"
       },
       "fcf_ttm": {
-        "valeur": 6920000,
+        "valeur": 6920000.0,
         "unite": "EUR",
         "periode": "TTM fournisseur; arrêté indiqué dans son tableau financier : Jun '26 Jun 30, 2026",
         "date_source": "2026-11-04",
@@ -1869,6 +1869,18 @@
       "statut": "SOURCE_PRIMAIRE",
       "commentaire": "Holding détenue à 100 % par Alain Wilmouth. Actions distinctes des droits futurs; concentration du contrôle ne suffit pas à conclure à une gouvernance saine.",
       "date_collecte": "2026-11-05"
+    },
+    {
+      "bloc": "qualite",
+      "champ": "marge_brute_pct",
+      "valeur": 100.0,
+      "unite": "pct",
+      "periode": "TTM affiché au 2026-11-04; date exacte de fin non fournie sur la page statistiques",
+      "date_source": "2026-11-04",
+      "source_url": "https://stockanalysis.com/quote/epa/AL2SI/statistics/",
+      "statut": "ANOMALIE_CLASSIFICATION_FOURNISSEUR",
+      "commentaire": "Marge brute fournisseur incompatible ou non comparable avec présentation primaire; pas d’import dans le champ.",
+      "date_collecte": "2026-11-04"
     }
   ],
   "journal_recherches": [

@@ -129,7 +129,7 @@
     },
     "qualite": {
       "ca_ttm": {
-        "valeur": 7300000,
+        "valeur": 7300000.0,
         "unite": "GBP",
         "periode": "TTM fournisseur; arrêté indiqué dans son tableau financier : May '26 May 31, 2026",
         "date_source": "2026-11-04",
@@ -199,7 +199,7 @@
         "date_collecte": "2026-11-04"
       },
       "fcf_ttm": {
-        "valeur": -1030000,
+        "valeur": -1030000.0,
         "unite": "GBP",
         "periode": "TTM fournisseur; arrêté indiqué dans son tableau financier : May '26 May 31, 2026",
         "date_source": "2026-11-04",
@@ -2281,7 +2281,7 @@
       "RECHERCHE_A_POURSUIVRE": 39
     },
     "couverture_valeurs_pct": 56.48,
-    "couverture_applicable_pct": 61,
+    "couverture_applicable_pct": 61.0,
     "recherches_non_closes": [
       "identite.lei",
       "qualite.revenus_recurrents_pct",
