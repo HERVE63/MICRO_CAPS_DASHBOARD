@@ -25,7 +25,8 @@ jobs:
             /DONNEES/
             /CONFIG/
             /AUDITS/FINALISATION_FICHES_20261104/SEC/
-            /AUDITS/POURSUITE_FICHES_40_20261105/AMF/
+            /AUDITS/POURSUITE_FICHES_40_20261105/
+            /AUDITS/POURSUITE_FICHES_40_20261104/
       - uses: actions/setup-python@v5
         with:
           python-version: "3.12"
