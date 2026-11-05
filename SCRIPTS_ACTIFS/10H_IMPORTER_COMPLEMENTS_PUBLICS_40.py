@@ -58,7 +58,7 @@ def main():
     if v is not None:row['ratios'][label]=v
    if row['ratios']:history.append(row)
   if history:put(d,'valorisation','valorisation_historique',history,'multiples historiques','clôtures annuelles, hors Current',dict(vr,date_collecte=date),'Multiples de clôtures annuelles fournisseur, pas juste valeur ni moyenne sectorielle. n/a omis sans conversion en zéro; retraitements à rapprocher.')
-  rr=r.get('revisions',{});trends=sorted([x for x in rr.get('tendances',[]) if x.get('period') in ('0y','+1y') and x.get('endDate','')>=date],key=lambda x:x['endDate'])
+  rr=r.get('revisions',{});trends=sorted([x for x in rr.get('tendances',[]) if x.get('period') in ('0y','+1y') and isinstance(x.get('endDate'),str) and x['endDate']>=date],key=lambda x:x['endDate'])
   if trends:
    t=trends[0];eps=t.get('epsTrend',{});current=num(eps.get('current'));period='consensus annuel clos au '+t['endDate'];pr=dict(rr,date_collecte=date);count=num(t.get('earningsEstimate',{}).get('numberOfAnalysts'));currency=eps.get('epsTrendCurrency') or t.get('earningsEstimate',{}).get('earningsCurrency')
    for days in (30,90):
