@@ -5,7 +5,7 @@ on:
     paths: [.github/workflows/audit-fiches-40.yml]
   workflow_dispatch:
 permissions:
-  contents: read
+  contents: write
 concurrency:
   group: audit-fiches-40
   cancel-in-progress: false
@@ -42,6 +42,7 @@ jobs:
           python -m py_compile SCRIPTS_ACTIFS/09X_ENRICHIR_AUDITER_40.py
           python SCRIPTS_ACTIFS/09X_ENRICHIR_AUDITER_40.py 2>&1 | tee /tmp/audit40/import.log
           python -m unittest TESTS.test_finalisation_fiches_40 TESTS.test_poursuite_fiches_40 TESTS.test_complements_publics_40 TESTS.test_declarations_amf_14 -v 2>&1 | tee /tmp/audit40/tests.log
+          python SCRIPTS_ACTIFS/09X_ENRICHIR_AUDITER_40.py > /tmp/audit40/import-final.log
           git diff --stat > /tmp/audit40/modifications.txt
           git diff -- DOSSIERS_MCPA_IPS_40 > /tmp/audit40/normalisation.patch
       - name: Conserver les preuves de test
@@ -50,3 +51,15 @@ jobs:
         with:
           name: audit-fiches-40
           path: /tmp/audit40/
+      - name: Sauvegarder uniquement les fiches et leur couverture apres tests
+        run: |
+          set -euo pipefail
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add DOSSIERS_MCPA_IPS_40 DONNEES/COUVERTURE_POURSUITE_40_20261105.csv DONNEES/MATRICE_CHAMPS_POURSUITE_40_20261105.json
+          if git diff --cached --quiet; then exit 0; fi
+          git commit -m "data: normalisation auditee des quarante fiches apres 39 tests [skip ci]"
+          git restore .
+          git fetch origin repair/microcaps-chain-20261030
+          git rebase FETCH_HEAD
+          git push origin HEAD:repair/microcaps-chain-20261030
