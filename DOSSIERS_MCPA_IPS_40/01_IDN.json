@@ -295,7 +295,7 @@
         "date_collecte": "2026-11-04"
       },
       "capitalisation": {
-        "valeur": 42460000.0,
+        "valeur": 42460000,
         "unite": "USD",
         "periode": "cotation au 2026-11-04",
         "date_source": "2026-11-04",
@@ -305,7 +305,7 @@
         "date_collecte": "2026-11-04"
       },
       "valeur_entreprise": {
-        "valeur": 30620000.0,
+        "valeur": 30620000,
         "unite": "USD",
         "periode": "valorisation affichée au 2026-11-04",
         "date_source": "2026-11-04",
@@ -335,7 +335,7 @@
         "date_collecte": "2026-11-04"
       },
       "ev_ebit": {
-        "valeur": 11.0,
+        "valeur": 11,
         "unite": "ratio",
         "periode": "TTM fournisseur; arrêté indiqué dans son tableau financier : Jun '26 Jun 30, 2026",
         "date_source": "2026-11-04",
@@ -541,7 +541,7 @@
         }
       },
       "previsions_ca_1a": {
-        "valeur": 22170000.0,
+        "valeur": 22170000,
         "unite": "USD",
         "periode": "exercice annuel prévisionnel clos au 2026-12-31",
         "date_source": "2026-11-04",
@@ -646,7 +646,7 @@
         "commentaire": "Information publiée; prévisions distinguées des faits"
       },
       "dette_nette": {
-        "valeur": -11840000.0,
+        "valeur": -11840000,
         "unite": "USD",
         "periode": "Dernier bilan affiché au 2026-11-04; date comptable exacte à rapprocher",
         "date_source": "2026-11-04",
@@ -806,7 +806,7 @@
         "date_collecte": "2026-11-04"
       },
       "transactions_initiees_net_180j": {
-        "valeur": -23421.0,
+        "valeur": -23421,
         "unite": "USD",
         "periode": "180 jours calendaires clos au 2026-11-04",
         "date_source": "2026-11-04",
@@ -909,7 +909,7 @@
         "commentaire": "Ratio (titre ajusté converti en USD / URTH ajusté) sur chaque fenêtre, moins 1. Ancrages communs titre/ETF/FX; GBp constant annulé dans le ratio. URTH est un proxy ETF avec frais/écart de suivi; horaires de clôture non synchrones. Fenêtres impossibles avant IPO omises, jamais extrapolées."
       },
       "volume_moyen_20j": {
-        "valeur": 247905.0,
+        "valeur": 247905,
         "unite": "titres",
         "periode": "20 dernières séances",
         "date_source": "2026-11-03",
@@ -999,7 +999,7 @@
         "valeur": {
           "classification": "Technology",
           "nombre_lignes": 16,
-          "poids_initial_pct": 40.0,
+          "poids_initial_pct": 40,
           "tickers": [
             "IDN",
             "OSS",
@@ -1060,19 +1060,14 @@
     },
     "complements": {
       "ssi": {
-        "valeur": null,
-        "unite": null,
-        "periode": null,
-        "date_source": null,
-        "source_url": null,
-        "statut": "A_COLLECTER",
-        "commentaire": null,
-        "recherche": {
-          "date": "2026-11-04",
-          "statut": "MANQUANT_RECHERCHE_NON_CLOSE",
-          "motif": "Analyse MCPA/IPS argumentée encore nécessaire; ce champ ne doit pas être rempli par une statistique de fournisseur.",
-          "journal": "journal_recherches"
-        }
+        "valeur": 75,
+        "unite": "points / 100",
+        "periode": "Analyse au 05/11/2026; périodes financières et de détention détaillées dans la note SSI",
+        "date_source": "2026-11-05",
+        "date_collecte": "2026-11-05",
+        "source_url": "https://github.com/HERVE63/MICRO_CAPS_DASHBOARD/blob/repair/microcaps-chain-20261030/DONNEES/ANALYSES_SSI_40_20261105.json",
+        "statut": "ANALYSE_JUGEMENT_DOCUMENTE",
+        "commentaire": "SSI 75/100 : B1 17, B2 13, B3 8, B4 14, B5 6, B6 9, B7 8. Justifications, sources et limites dans la note. Ne vaut pas validation MCPA ni arbitrage."
       },
       "ic_sur_5": {
         "valeur": null,
@@ -1485,7 +1480,7 @@
     {
       "bloc": "qualite",
       "champ": "ca_ttm",
-      "valeur": 24110000.0,
+      "valeur": 24110000,
       "unite": "USD",
       "periode": "TTM affiché au 2026-11-04; date exacte de fin non fournie sur la page statistiques",
       "date_source": "2026-11-04",
@@ -1497,7 +1492,7 @@
     {
       "bloc": "qualite",
       "champ": "fcf_ttm",
-      "valeur": 2810000.0,
+      "valeur": 2810000,
       "unite": "USD",
       "periode": "TTM affiché au 2026-11-04; date exacte de fin non fournie sur la page statistiques",
       "date_source": "2026-11-04",
@@ -1509,7 +1504,7 @@
     {
       "bloc": "risque",
       "champ": "cash",
-      "valeur": 11840000.0,
+      "valeur": 11840000,
       "unite": "USD",
       "periode": "Dernier bilan affiché au 2026-11-04; date comptable exacte à rapprocher",
       "date_source": "2026-11-04",
@@ -1725,7 +1720,7 @@
     {
       "bloc": "valorisation",
       "champ": "ev_ebit",
-      "valeur": 11.0,
+      "valeur": 11,
       "unite": "ratio",
       "periode": "TTM fournisseur; arrêté indiqué dans son tableau financier : Jun '26 Jun 30, 2026",
       "date_source": "2026-11-04",
@@ -2294,8 +2289,8 @@
   "audit_couverture": {
     "date": "2026-11-05",
     "champs_total": 108,
-    "champs_renseignes": 63,
-    "couverture_pct": 58.33,
+    "champs_renseignes": 64,
+    "couverture_pct": 59.26,
     "champs_secondaires_non_rapproches": 25,
     "champs_manquants": [
       "identite.lei",
@@ -2321,7 +2316,6 @@
       "diversification.zone_geographique",
       "diversification.interet_strategique",
       "diversification.complementarite_portefeuille",
-      "complements.ssi",
       "complements.ic_sur_5",
       "complements.cx_sur_5",
       "complements.delta",
@@ -2351,13 +2345,13 @@
   "audit_poursuite": {
     "date": "2026-11-05",
     "comptage": {
-      "RENSEIGNE": 63,
+      "RENSEIGNE": 64,
       "NON_APPLICABLE": 4,
       "INDISPONIBLE_A_DATE": 0,
-      "RECHERCHE_A_POURSUIVRE": 41
+      "RECHERCHE_A_POURSUIVRE": 40
     },
-    "couverture_valeurs_pct": 58.33,
-    "couverture_applicable_pct": 60.58,
+    "couverture_valeurs_pct": 59.26,
+    "couverture_applicable_pct": 61.54,
     "recherches_non_closes": [
       "identite.lei",
       "identite.marche",
@@ -2378,7 +2372,6 @@
       "diversification.zone_geographique",
       "diversification.interet_strategique",
       "diversification.complementarite_portefeuille",
-      "complements.ssi",
       "complements.ic_sur_5",
       "complements.cx_sur_5",
       "complements.delta",

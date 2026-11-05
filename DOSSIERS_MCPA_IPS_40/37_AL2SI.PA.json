@@ -86,7 +86,7 @@
         }
       },
       "capitalisation_eur": {
-        "valeur": 403450000.0,
+        "valeur": 403450000,
         "unite": "EUR",
         "periode": "capitalisation fournisseur et référence BCE du 2026-11-04",
         "date_source": "2026-11-04",
@@ -201,7 +201,7 @@
         "date_collecte": "2026-11-04"
       },
       "fcf_ttm": {
-        "valeur": 6920000.0,
+        "valeur": 6920000,
         "unite": "EUR",
         "periode": "TTM fournisseur; arrêté indiqué dans son tableau financier : Jun '26 Jun 30, 2026",
         "date_source": "2026-11-04",
@@ -303,7 +303,7 @@
         "date_collecte": "2026-11-04"
       },
       "capitalisation": {
-        "valeur": 403450000.0,
+        "valeur": 403450000,
         "unite": "EUR",
         "periode": "cotation au 2026-11-04",
         "date_source": "2026-11-04",
@@ -313,7 +313,7 @@
         "date_collecte": "2026-11-04"
       },
       "valeur_entreprise": {
-        "valeur": 397650000.0,
+        "valeur": 397650000,
         "unite": "EUR",
         "periode": "valorisation affichée au 2026-11-04",
         "date_source": "2026-11-04",
@@ -559,7 +559,7 @@
         }
       },
       "previsions_ca_1a": {
-        "valeur": 1160000000.0,
+        "valeur": 1160000000,
         "unite": "EUR",
         "periode": "exercice annuel prévisionnel clos au 2027-06-30",
         "date_source": "2026-11-04",
@@ -659,7 +659,7 @@
         "commentaire": "Donnée publiée; voir période et nature de la mesure"
       },
       "dette_nette": {
-        "valeur": -5800000.0,
+        "valeur": -5800000,
         "unite": "EUR",
         "periode": "Dernier bilan affiché au 2026-11-04; date comptable exacte à rapprocher",
         "date_source": "2026-11-04",
@@ -824,7 +824,7 @@
         "commentaire": "Achats moins ventes d’actions au comptant déclarés et publiés à la date de collecte; exercices/attributions/dons distingués. Cessions liées à des programmes signalées. Hors frais, produits des prix/volumes déclarés. Pas preuve d’absence de transactions non publiées. Source détaillée et PDF archivés : DONNEES/DECLARATIONS_AMF_14_20261105.json. Un zéro décrit le net des déclarations couvertes; il ne certifie pas une absence de transactions réelles."
       },
       "transactions_initiees_net_180j": {
-        "valeur": 98275.0,
+        "valeur": 98275,
         "unite": "EUR",
         "periode": "2026-05-09 / 2026-11-05; 180 jours calendaires",
         "date_source": "2026-11-05",
@@ -1017,7 +1017,7 @@
         "valeur": {
           "classification": "Technology",
           "nombre_lignes": 16,
-          "poids_initial_pct": 40.0,
+          "poids_initial_pct": 40,
           "tickers": [
             "IDN",
             "OSS",
@@ -1491,7 +1491,7 @@
     {
       "bloc": "qualite",
       "champ": "ca_ttm",
-      "valeur": 386500000.0,
+      "valeur": 386500000,
       "unite": "EUR",
       "periode": "TTM affiché au 2026-11-04; date exacte de fin non fournie sur la page statistiques",
       "date_source": "2026-11-04",
@@ -1503,7 +1503,7 @@
     {
       "bloc": "risque",
       "champ": "cash",
-      "valeur": 14200000.0,
+      "valeur": 14200000,
       "unite": "EUR",
       "periode": "Dernier bilan affiché au 2026-11-04; date comptable exacte à rapprocher",
       "date_source": "2026-11-04",
@@ -1515,7 +1515,7 @@
     {
       "bloc": "risque",
       "champ": "dette_brute",
-      "valeur": 8400000.0,
+      "valeur": 8400000,
       "unite": "EUR",
       "periode": "Dernier bilan affiché au 2026-11-04; date comptable exacte à rapprocher",
       "date_source": "2026-11-04",
@@ -1527,7 +1527,7 @@
     {
       "bloc": "qualite",
       "champ": "marge_brute_pct",
-      "valeur": 100.0,
+      "valeur": 100,
       "unite": "pct",
       "periode": "TTM affiché au 2026-11-04; date exacte de fin non fournie sur la page statistiques",
       "date_source": "2026-11-04",
@@ -1635,7 +1635,7 @@
     {
       "bloc": "croissance",
       "champ": "croissance_ca_1a_pct",
-      "valeur": 75.0,
+      "valeur": 75,
       "unite": "pct",
       "periode": "FY 2026 / FY 2025; clôture Jun '26 Jun 30, 2026",
       "date_source": "2026-11-04",
@@ -1731,7 +1731,7 @@
     {
       "bloc": "qualite",
       "champ": "fcf_ttm",
-      "valeur": 6920000.0,
+      "valeur": 6920000,
       "unite": "EUR",
       "periode": "TTM fournisseur; arrêté indiqué dans son tableau financier : Jun '26 Jun 30, 2026",
       "date_source": "2026-11-04",
@@ -1852,6 +1852,23 @@
       "source_url": "https://query1.finance.yahoo.com/v10/finance/quoteSummary/AL2SI.PA?modules=assetProfile,majorHoldersBreakdown,insiderHolders,insiderTransactions",
       "statut": "SOURCE_SECONDAIRE_GOUVERNANCE_A_RAPPROCHER",
       "commentaire": "Titres détenus séparés des options/attributions. Dates/fonctions de chaque ligne à contrôler : les anciens dirigeants peuvent subsister. Ne pas additionner les détentions directes et indirectes sans éliminer les doubles comptes. Pas de certification de couverture des transactions, ni note SSI déduite."
+    },
+    {
+      "bloc": null,
+      "champ": "actionnariat_physique_hors_droits_a_60j",
+      "valeur": {
+        "holding_alain_wilmouth": 10509960,
+        "alain_wilmouth_direct": 1014502,
+        "michel_wilmouth": 914142,
+        "actions_emises": 22596441
+      },
+      "unite": "titres et pct",
+      "periode": "actionnariat au 30/06/2026 selon page investisseurs",
+      "date_source": "2026-06-30",
+      "source_url": "https://investors.2crsi.com/financial-structure",
+      "statut": "SOURCE_PRIMAIRE",
+      "commentaire": "Holding détenue à 100 % par Alain Wilmouth. Actions distinctes des droits futurs; concentration du contrôle ne suffit pas à conclure à une gouvernance saine.",
+      "date_collecte": "2026-11-05"
     }
   ],
   "journal_recherches": [

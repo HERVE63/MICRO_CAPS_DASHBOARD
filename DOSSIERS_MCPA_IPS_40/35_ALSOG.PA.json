@@ -92,7 +92,7 @@
         }
       },
       "capitalisation_eur": {
-        "valeur": 80970000.0,
+        "valeur": 80970000,
         "unite": "EUR",
         "periode": "capitalisation fournisseur et référence BCE du 2026-11-04",
         "date_source": "2026-11-04",
@@ -134,7 +134,7 @@
     },
     "qualite": {
       "ca_ttm": {
-        "valeur": 157770000.0,
+        "valeur": 157770000,
         "unite": "EUR",
         "periode": "TTM fournisseur; arrêté indiqué dans son tableau financier : Jun '26 Jun 30, 2026",
         "date_source": "2026-11-04",
@@ -203,7 +203,7 @@
         "date_collecte": "2026-11-04"
       },
       "fcf_ttm": {
-        "valeur": 19480000.0,
+        "valeur": 19480000,
         "unite": "EUR",
         "periode": "TTM fournisseur; arrêté indiqué dans son tableau financier : Jun '26 Jun 30, 2026",
         "date_source": "2026-11-04",
@@ -305,7 +305,7 @@
         "date_collecte": "2026-11-04"
       },
       "capitalisation": {
-        "valeur": 80970000.0,
+        "valeur": 80970000,
         "unite": "EUR",
         "periode": "cotation au 2026-11-04",
         "date_source": "2026-11-04",
@@ -315,7 +315,7 @@
         "date_collecte": "2026-11-04"
       },
       "valeur_entreprise": {
-        "valeur": 97670000.0,
+        "valeur": 97670000,
         "unite": "EUR",
         "periode": "valorisation affichée au 2026-11-04",
         "date_source": "2026-11-04",
@@ -647,7 +647,7 @@
     },
     "risque": {
       "cash": {
-        "valeur": 21890000.0,
+        "valeur": 21890000,
         "unite": "EUR",
         "periode": "Dernier bilan affiché au 2026-11-04; date comptable exacte à rapprocher",
         "date_source": "2026-11-04",
@@ -657,7 +657,7 @@
         "date_collecte": "2026-11-04"
       },
       "dette_brute": {
-        "valeur": 24170000.0,
+        "valeur": 24170000,
         "unite": "EUR",
         "periode": "Dernier bilan affiché au 2026-11-04; date comptable exacte à rapprocher",
         "date_source": "2026-11-04",
@@ -723,7 +723,7 @@
         "date_collecte": "2026-11-04"
       },
       "dilution_3a_pct": {
-        "valeur": 0.0,
+        "valeur": 0,
         "unite": "pct",
         "periode": "FY 2022 / FY 2025",
         "date_source": "2026-11-04",
@@ -1693,7 +1693,7 @@
     {
       "bloc": "qualite",
       "champ": "ca_ttm",
-      "valeur": 157770000.0,
+      "valeur": 157770000,
       "unite": "EUR",
       "periode": "TTM fournisseur; arrêté indiqué dans son tableau financier : Jun '26 Jun 30, 2026",
       "date_source": "2026-11-04",
@@ -1705,7 +1705,7 @@
     {
       "bloc": "qualite",
       "champ": "fcf_ttm",
-      "valeur": 19480000.0,
+      "valeur": 19480000,
       "unite": "EUR",
       "periode": "TTM fournisseur; arrêté indiqué dans son tableau financier : Jun '26 Jun 30, 2026",
       "date_source": "2026-11-04",
@@ -1789,7 +1789,7 @@
     {
       "bloc": "risque",
       "champ": "dette_nette",
-      "valeur": 2290000.0,
+      "valeur": 2290000,
       "unite": "EUR",
       "periode": "Dernier bilan affiché au 2026-11-04; date comptable exacte à rapprocher",
       "date_source": "2026-11-04",
@@ -2011,6 +2011,24 @@
       "source_url": "https://query1.finance.yahoo.com/v10/finance/quoteSummary/ALSOG.PA?modules=assetProfile,majorHoldersBreakdown,insiderHolders,insiderTransactions",
       "statut": "SOURCE_SECONDAIRE_GOUVERNANCE_A_RAPPROCHER",
       "commentaire": "Titres détenus séparés des options/attributions. Dates/fonctions de chaque ligne à contrôler : les anciens dirigeants peuvent subsister. Ne pas additionner les détentions directes et indirectes sans éliminer les doubles comptes. Pas de certification de couverture des transactions, ni note SSI déduite."
+    },
+    {
+      "bloc": null,
+      "champ": "actionnariat_physique_hors_droits_a_60j",
+      "valeur": {
+        "philippe_robardey_direct": 795612,
+        "keys_controlee_par_philippe": 198035,
+        "concert_familial_actions": 2227950,
+        "concert_pct": 69.52,
+        "actions_emises": 3204901
+      },
+      "unite": "titres et pct",
+      "periode": "au 31/12/2025, URD p.193 et 196",
+      "date_source": "2026-04-27",
+      "source_url": "https://sogeclair.com/fr/media/2435/download?attachment=",
+      "statut": "SOURCE_PRIMAIRE",
+      "commentaire": "KEY'S contrôlée mais détenue par 62 collaborateurs : totalité non assimilée au patrimoine économique personnel. Démembrement de 306 804 actions entre membres de la famille; usufruits non ajoutés une seconde fois aux actions.",
+      "date_collecte": "2026-11-05"
     }
   ],
   "journal_recherches": [

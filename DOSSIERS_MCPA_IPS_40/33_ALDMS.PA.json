@@ -92,7 +92,7 @@
         }
       },
       "capitalisation_eur": {
-        "valeur": 23540000.0,
+        "valeur": 23540000,
         "unite": "EUR",
         "periode": "capitalisation fournisseur et référence BCE du 2026-11-04",
         "date_source": "2026-11-04",
@@ -134,7 +134,7 @@
     },
     "qualite": {
       "ca_ttm": {
-        "valeur": 51410000.0,
+        "valeur": 51410000,
         "unite": "EUR",
         "periode": "TTM fournisseur; arrêté indiqué dans son tableau financier : Jun '26 Jun 30, 2026",
         "date_source": "2026-11-04",
@@ -204,7 +204,7 @@
         "date_collecte": "2026-11-04"
       },
       "fcf_ttm": {
-        "valeur": -4530000.0,
+        "valeur": -4530000,
         "unite": "EUR",
         "periode": "TTM fournisseur; arrêté indiqué dans son tableau financier : Jun '26 Jun 30, 2026",
         "date_source": "2026-11-04",
@@ -306,7 +306,7 @@
         "date_collecte": "2026-11-04"
       },
       "capitalisation": {
-        "valeur": 23540000.0,
+        "valeur": 23540000,
         "unite": "EUR",
         "periode": "cotation au 2026-11-04",
         "date_source": "2026-11-04",
@@ -316,7 +316,7 @@
         "date_collecte": "2026-11-04"
       },
       "valeur_entreprise": {
-        "valeur": 40180000.0,
+        "valeur": 40180000,
         "unite": "EUR",
         "periode": "valorisation affichée au 2026-11-04",
         "date_source": "2026-11-04",
@@ -635,7 +635,7 @@
     },
     "risque": {
       "cash": {
-        "valeur": 4290000.0,
+        "valeur": 4290000,
         "unite": "EUR",
         "periode": "Dernier bilan affiché au 2026-11-04; date comptable exacte à rapprocher",
         "date_source": "2026-11-04",
@@ -645,7 +645,7 @@
         "date_collecte": "2026-11-04"
       },
       "dette_brute": {
-        "valeur": 19290000.0,
+        "valeur": 19290000,
         "unite": "EUR",
         "periode": "Dernier bilan affiché au 2026-11-04; date comptable exacte à rapprocher",
         "date_source": "2026-11-04",
@@ -655,7 +655,7 @@
         "date_collecte": "2026-11-04"
       },
       "dette_nette": {
-        "valeur": 14990000.0,
+        "valeur": 14990000,
         "unite": "EUR",
         "periode": "Dernier bilan affiché au 2026-11-04; date comptable exacte à rapprocher",
         "date_source": "2026-11-04",
@@ -815,7 +815,7 @@
         "commentaire": "Achats moins ventes d’actions au comptant déclarés et publiés à la date de collecte; exercices/attributions/dons distingués. Cessions liées à des programmes signalées. Hors frais, produits des prix/volumes déclarés. Pas preuve d’absence de transactions non publiées. Source détaillée et PDF archivés : DONNEES/DECLARATIONS_AMF_14_20261105.json. Un zéro décrit le net des déclarations couvertes; il ne certifie pas une absence de transactions réelles."
       },
       "transactions_initiees_net_180j": {
-        "valeur": 0.0,
+        "valeur": 0,
         "unite": "EUR",
         "periode": "2026-05-09 / 2026-11-05; 180 jours calendaires",
         "date_source": "2026-11-05",
@@ -1008,7 +1008,7 @@
         "valeur": {
           "classification": "Healthcare",
           "nombre_lignes": 4,
-          "poids_initial_pct": 10.0,
+          "poids_initial_pct": 10,
           "tickers": [
             "INFU",
             "COV.V",
@@ -1568,7 +1568,7 @@
     {
       "bloc": "qualite",
       "champ": "ca_ttm",
-      "valeur": 51410000.0,
+      "valeur": 51410000,
       "unite": "EUR",
       "periode": "TTM fournisseur; arrêté indiqué dans son tableau financier : Jun '26 Jun 30, 2026",
       "date_source": "2026-11-04",
@@ -1580,7 +1580,7 @@
     {
       "bloc": "qualite",
       "champ": "fcf_ttm",
-      "valeur": -4530000.0,
+      "valeur": -4530000,
       "unite": "EUR",
       "periode": "TTM fournisseur; arrêté indiqué dans son tableau financier : Jun '26 Jun 30, 2026",
       "date_source": "2026-11-04",
@@ -1787,6 +1787,24 @@
       "source_url": "https://query1.finance.yahoo.com/v10/finance/quoteSummary/ALDMS.PA?modules=assetProfile,majorHoldersBreakdown,insiderHolders,insiderTransactions",
       "statut": "SOURCE_SECONDAIRE_GOUVERNANCE_A_RAPPROCHER",
       "commentaire": "Titres détenus séparés des options/attributions. Dates/fonctions de chaque ligne à contrôler : les anciens dirigeants peuvent subsister. Ne pas additionner les détentions directes et indirectes sans éliminer les doubles comptes. Pas de certification de couverture des transactions, ni note SSI déduite."
+    },
+    {
+      "bloc": null,
+      "champ": "actionnariat_physique_hors_droits_a_60j",
+      "valeur": {
+        "samuel_sancerni_actions": 711844,
+        "samuel_sancerni_pct": 2.7,
+        "regis_roche_actions": 186200,
+        "comite_executif_actions_separes": 116200,
+        "actions_emises": 26651711
+      },
+      "unite": "titres et pct",
+      "periode": "tableau après augmentation de capital réalisée au 27/08/2025, page 3",
+      "date_source": "2025-08-27",
+      "source_url": "https://www.dms-imaging.com/wp-content/uploads/2025/08/FR_CP_2025_08_27_DMS-GROUP_DMS-GROUP_AUGMENTATIONCPTL.pdf",
+      "statut": "SOURCE_PRIMAIRE",
+      "commentaire": "Tableau post-opération, non position de novembre 2026. Investisseurs institutionnels et comité exécutif séparés; ne pas sommer sans vérifier les périmètres. Source identifie bien FR0012202497 et non l'ancienne DMS Imaging belge.",
+      "date_collecte": "2026-11-05"
     }
   ],
   "journal_recherches": [

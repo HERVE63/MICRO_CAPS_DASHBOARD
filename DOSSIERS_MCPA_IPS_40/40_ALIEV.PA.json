@@ -87,7 +87,7 @@
         }
       },
       "capitalisation_eur": {
-        "valeur": 78180000.0,
+        "valeur": 78180000,
         "unite": "EUR",
         "periode": "capitalisation fournisseur et référence BCE du 2026-11-04",
         "date_source": "2026-11-04",
@@ -129,7 +129,7 @@
     },
     "qualite": {
       "ca_ttm": {
-        "valeur": 38540000.0,
+        "valeur": 38540000,
         "unite": "EUR",
         "periode": "TTM fournisseur; arrêté indiqué dans son tableau financier : Jun '26 Jun 30, 2026",
         "date_source": "2026-11-04",
@@ -139,7 +139,7 @@
         "date_collecte": "2026-11-04"
       },
       "marge_brute_pct": {
-        "valeur": 73.0,
+        "valeur": 73,
         "unite": "pct",
         "periode": "TTM fournisseur; arrêté indiqué dans son tableau financier : Jun '26 Jun 30, 2026",
         "date_source": "2026-11-04",
@@ -199,7 +199,7 @@
         "date_collecte": "2026-11-04"
       },
       "fcf_ttm": {
-        "valeur": -656000.0,
+        "valeur": -656000,
         "unite": "EUR",
         "periode": "TTM fournisseur; arrêté indiqué dans son tableau financier : Jun '26 Jun 30, 2026",
         "date_source": "2026-11-04",
@@ -302,7 +302,7 @@
         "date_collecte": "2026-11-04"
       },
       "capitalisation": {
-        "valeur": 78180000.0,
+        "valeur": 78180000,
         "unite": "EUR",
         "periode": "cotation au 2026-11-04",
         "date_source": "2026-11-04",
@@ -312,7 +312,7 @@
         "date_collecte": "2026-11-04"
       },
       "valeur_entreprise": {
-        "valeur": 67230000.0,
+        "valeur": 67230000,
         "unite": "EUR",
         "periode": "valorisation affichée au 2026-11-04",
         "date_source": "2026-11-04",
@@ -848,7 +848,7 @@
         }
       },
       "transactions_initiees_net_90j": {
-        "valeur": 311100.0,
+        "valeur": 311100,
         "unite": "EUR",
         "periode": "2026-08-07 / 2026-11-05; 90 jours calendaires",
         "date_source": "2026-11-05",
@@ -1070,7 +1070,7 @@
         "valeur": {
           "classification": "Consumer Staples",
           "nombre_lignes": 2,
-          "poids_initial_pct": 5.0,
+          "poids_initial_pct": 5,
           "tickers": [
             "LWAY",
             "ALIEV.PA"
@@ -1546,7 +1546,7 @@
     {
       "bloc": "risque",
       "champ": "cash",
-      "valeur": 14940000.0,
+      "valeur": 14940000,
       "unite": "EUR",
       "periode": "Dernier bilan affiché au 2026-11-04; date comptable exacte à rapprocher",
       "date_source": "2026-11-04",
@@ -1558,7 +1558,7 @@
     {
       "bloc": "risque",
       "champ": "dette_brute",
-      "valeur": 4050000.0,
+      "valeur": 4050000,
       "unite": "EUR",
       "periode": "Dernier bilan affiché au 2026-11-04; date comptable exacte à rapprocher",
       "date_source": "2026-11-04",
@@ -1570,7 +1570,7 @@
     {
       "bloc": "risque",
       "champ": "dette_nette",
-      "valeur": -10890000.0,
+      "valeur": -10890000,
       "unite": "EUR",
       "periode": "Dernier bilan affiché au 2026-11-04; date comptable exacte à rapprocher",
       "date_source": "2026-11-04",
@@ -1678,7 +1678,7 @@
     {
       "bloc": "qualite",
       "champ": "ca_ttm",
-      "valeur": 38540000.0,
+      "valeur": 38540000,
       "unite": "EUR",
       "periode": "TTM fournisseur; arrêté indiqué dans son tableau financier : Jun '26 Jun 30, 2026",
       "date_source": "2026-11-04",
@@ -1690,7 +1690,7 @@
     {
       "bloc": "qualite",
       "champ": "fcf_ttm",
-      "valeur": -656000.0,
+      "valeur": -656000,
       "unite": "EUR",
       "periode": "TTM fournisseur; arrêté indiqué dans son tableau financier : Jun '26 Jun 30, 2026",
       "date_source": "2026-11-04",
@@ -1702,7 +1702,7 @@
     {
       "bloc": "qualite",
       "champ": "marge_brute_pct",
-      "valeur": 73.0,
+      "valeur": 73,
       "unite": "pct",
       "periode": "TTM fournisseur; arrêté indiqué dans son tableau financier : Jun '26 Jun 30, 2026",
       "date_source": "2026-11-04",
@@ -1865,6 +1865,23 @@
       "source_url": "https://query1.finance.yahoo.com/v10/finance/quoteSummary/ALIEV.PA?modules=assetProfile,majorHoldersBreakdown,insiderHolders,insiderTransactions",
       "statut": "SOURCE_SECONDAIRE_GOUVERNANCE_A_RAPPROCHER",
       "commentaire": "Titres détenus séparés des options/attributions. Dates/fonctions de chaque ligne à contrôler : les anciens dirigeants peuvent subsister. Ne pas additionner les détentions directes et indirectes sans éliminer les doubles comptes. Pas de certification de couverture des transactions, ni note SSI déduite."
+    },
+    {
+      "bloc": null,
+      "champ": "actionnariat_physique_hors_droits_a_60j",
+      "valeur": {
+        "jean_karam_actions_existantes": 1358516,
+        "actions_emises_avant_offre": 9274292,
+        "part_avant_offre_pct": 14.65,
+        "jean_karam_base_diluee_potentielle": 1458516
+      },
+      "unite": "titres et pct",
+      "periode": "avant offre, document d'information p.68-69",
+      "date_source": "2026-03-10",
+      "source_url": "https://live.euronext.com/sites/default/files/2026-03/DOCUMENT%20DINFORMATION%20-%20IEVA%20GROUP.pdf?VersionId=CAqXfj5cdFmV9tzV05TthQw9UC9FBec5",
+      "statut": "SOURCE_PRIMAIRE",
+      "commentaire": "Ne pas utiliser les simulations de participation après offre comme résultats réalisés. Base diluée inclut droits futurs; position pré-IPO conservée comme historique, achats AMF 2026 séparés.",
+      "date_collecte": "2026-11-05"
     }
   ],
   "journal_recherches": [
@@ -2167,7 +2184,7 @@
       "RECHERCHE_A_POURSUIVRE": 49
     },
     "couverture_valeurs_pct": 43.52,
-    "couverture_applicable_pct": 47.0,
+    "couverture_applicable_pct": 47,
     "recherches_non_closes": [
       "identite.marche",
       "qualite.concentration_clients_pct",

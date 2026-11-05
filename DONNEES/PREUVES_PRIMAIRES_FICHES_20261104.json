@@ -1967,7 +1967,8 @@
           ],
           "limite": "Pas de somme assimilée à une détention personnelle des dirigeants; situation datée."
         },
-        "unite": "titres et pct"
+        "unite": "titres et pct",
+        "statut": "SOURCE_PRIMAIRE"
       },
       {
         "bloc": "identite",
@@ -1982,7 +1983,8 @@
         "unite": "texte",
         "statut": "ANALYSE_DOCUMENTAIRE_SOURCE_PRIMAIRE"
       }
-    ]
+    ],
+    "date_collecte": "2026-11-05"
   },
   {
     "ticker": "PULS.L",
@@ -2022,7 +2024,8 @@
           "kestrel_pct": 28.63,
           "limite": "Kestrel est un investisseur institutionnel; pas du patrimoine personnel des administrateurs. État antérieur à l'opération de financement d'octobre."
         },
-        "unite": "titres et pct"
+        "unite": "titres et pct",
+        "statut": "SOURCE_PRIMAIRE"
       },
       {
         "bloc": "identite",
@@ -2037,7 +2040,8 @@
         "unite": "texte",
         "statut": "ANALYSE_DOCUMENTAIRE_SOURCE_PRIMAIRE"
       }
-    ]
+    ],
+    "date_collecte": "2026-11-05"
   },
   {
     "ticker": "SFT.L",
@@ -2073,7 +2077,8 @@
           ],
           "limite": "Détentions bénéficiaires en actions ordinaires; ne pas ajouter les participations de fonds aux patrimoines personnels. Dénominateur affiché daté de novembre 2023, pourcentage courant non calculé."
         },
-        "unite": "titres"
+        "unite": "titres",
+        "statut": "SOURCE_PRIMAIRE"
       },
       {
         "bloc": "identite",
@@ -2094,7 +2099,8 @@
         "unite": "texte",
         "statut": "ANALYSE_DOCUMENTAIRE_SOURCE_PRIMAIRE"
       }
-    ]
+    ],
+    "date_collecte": "2026-11-05"
   },
   {
     "ticker": "CER.L",
@@ -2111,7 +2117,8 @@
           "autodetenues_page": 5049,
           "limite": "Part publiée en capital émis, pas options. Actualisation de chaque ligne non garantie par la date du seul flottant."
         },
-        "unite": "titres et pct"
+        "unite": "titres et pct",
+        "statut": "SOURCE_PRIMAIRE"
       },
       {
         "bloc": "identite",
@@ -2119,7 +2126,8 @@
         "valeur": "AIM, London Stock Exchange; pas d'autre marché déclaré",
         "unite": "texte"
       }
-    ]
+    ],
+    "date_collecte": "2026-11-05"
   },
   {
     "ticker": "TRT.L",
@@ -2155,7 +2163,8 @@
           "autodetenues_page": 1217856,
           "limite": "Incohérence arithmétique de 28 titres entre actions émises moins autodétention et droits de vote publiés; ne pas corriger silencieusement. Pas d'options ajoutées."
         },
-        "unite": "titres"
+        "unite": "titres",
+        "statut": "SOURCE_PRIMAIRE"
       },
       {
         "bloc": "identite",
@@ -2163,7 +2172,8 @@
         "valeur": "AIM, London Stock Exchange",
         "unite": "texte"
       }
-    ]
+    ],
+    "date_collecte": "2026-11-05"
   },
   {
     "ticker": "LST.L",
@@ -2183,7 +2193,8 @@
           "simon_deacon_pct": 9.69,
           "limite": "Départ de Simon Deacon annoncé le 21/10 : ne pas le compter automatiquement parmi les dirigeants actuels. La page affiche deux pourcentages contradictoires de titres non publics : 30,26 % et 41,10 %."
         },
-        "unite": "titres et pct"
+        "unite": "titres et pct",
+        "statut": "SOURCE_PRIMAIRE"
       },
       {
         "bloc": "identite",
@@ -2198,7 +2209,8 @@
         "unite": "texte",
         "statut": "ANALYSE_DOCUMENTAIRE_SOURCE_PRIMAIRE"
       }
-    ]
+    ],
+    "date_collecte": "2026-11-05"
   },
   {
     "ticker": "AOM.L",
@@ -2230,9 +2242,11 @@
           ],
           "limite": "Le moteur de recherche indexe une version au 28/10/2026 différente; la page ouverte restitue le 16/07. Valeurs conservées comme état historique, actualisation non confirmée."
         },
-        "unite": "titres et pct"
+        "unite": "titres et pct",
+        "statut": "SOURCE_PRIMAIRE"
       }
-    ]
+    ],
+    "date_collecte": "2026-11-05"
   },
   {
     "ticker": "HSP.L",
@@ -2270,9 +2284,11 @@
           "autodetenues": 831304,
           "limite": "Situation historique après tender; fonctions susceptibles d'avoir changé. Réduction proportionnelle via rachat, pas preuve à elle seule de conviction baissière."
         },
-        "unite": "titres"
+        "unite": "titres",
+        "statut": "SOURCE_PRIMAIRE"
       }
-    ]
+    ],
+    "date_collecte": "2026-11-05"
   },
   {
     "ticker": "HDD.L",
@@ -2315,9 +2331,11 @@
           "options_ceo": 3300000,
           "limite": "Titres de la famille et entités représentées par Boyce distincts de sa propriété personnelle. Options du CEO exclues des actions. Données historiques à actualiser."
         },
-        "unite": "titres"
+        "unite": "titres",
+        "statut": "SOURCE_PRIMAIRE"
       }
-    ]
+    ],
+    "date_collecte": "2026-11-05"
   },
   {
     "ticker": "TSTL.L",
@@ -2335,7 +2353,8 @@
           "date_position": "2026-06-17",
           "limite": "Absence de titres déclarée à la nomination; ne prouve pas une absence de détention au 05/11/2026 ni celle des autres administrateurs."
         },
-        "unite": "titres"
+        "unite": "titres",
+        "statut": "SOURCE_PRIMAIRE"
       },
       {
         "bloc": "identite",
@@ -2350,7 +2369,8 @@
         "unite": "texte",
         "statut": "ANALYSE_DOCUMENTAIRE_SOURCE_PRIMAIRE"
       }
-    ]
+    ],
+    "date_collecte": "2026-11-05"
   },
   {
     "ticker": "MEMS.PA",
@@ -2369,9 +2389,11 @@
           "actions_emises": 7706902
         },
         "unite": "titres et pct",
-        "commentaire": "Actions existantes, options distinctes. Situation historique; ne pas confondre la participation personnelle du CEO et le total administrateurs."
+        "commentaire": "Actions existantes, options distinctes. Situation historique; ne pas confondre la participation personnelle du CEO et le total administrateurs.",
+        "statut": "SOURCE_PRIMAIRE"
       }
-    ]
+    ],
+    "date_collecte": "2026-11-05"
   },
   {
     "ticker": "ALBPK.PA",
@@ -2391,9 +2413,11 @@
           "vantiva_actions": 1022500
         },
         "unite": "titres et pct",
-        "commentaire": "Participations des administrateurs physiques distinctes des sociétés Eutelsat et Vantiva; celles-ci ne sont pas des patrimoines personnels de leurs représentants."
+        "commentaire": "Participations des administrateurs physiques distinctes des sociétés Eutelsat et Vantiva; celles-ci ne sont pas des patrimoines personnels de leurs représentants.",
+        "statut": "SOURCE_PRIMAIRE"
       }
-    ]
+    ],
+    "date_collecte": "2026-11-05"
   },
   {
     "ticker": "ALBFR.PA",
@@ -2410,9 +2434,11 @@
           "salaries_nominatif_pct_arrondi": 7
         },
         "unite": "titres et pct",
-        "commentaire": "Participation nominative en capital et droits de vote du CEO arrondie au pourcent; salariés distincts et non additionnés automatiquement aux dirigeants."
+        "commentaire": "Participation nominative en capital et droits de vote du CEO arrondie au pourcent; salariés distincts et non additionnés automatiquement aux dirigeants.",
+        "statut": "SOURCE_PRIMAIRE"
       }
-    ]
+    ],
+    "date_collecte": "2026-11-05"
   },
   {
     "ticker": "ALICA.PA",
@@ -2429,9 +2455,11 @@
           "thierry_ballenghien_part_balwen_pct": 50.1
         },
         "unite": "titres et pct",
-        "commentaire": "Contrôle familial et pacte de concert documentés. La totalité de Balwen ne représente pas le patrimoine économique personnel de Thierry Ballenghien. Cessions de juin 2026 à rapprocher, pas position actuelle."
+        "commentaire": "Contrôle familial et pacte de concert documentés. La totalité de Balwen ne représente pas le patrimoine économique personnel de Thierry Ballenghien. Cessions de juin 2026 à rapprocher, pas position actuelle.",
+        "statut": "SOURCE_PRIMAIRE"
       }
-    ]
+    ],
+    "date_collecte": "2026-11-05"
   },
   {
     "ticker": "FTG.TO",
@@ -2449,9 +2477,11 @@
           "part_actions_pct": 10.963823307071475
         },
         "unite": "titres et pct",
-        "commentaire": "Actions ordinaires détenues/contrôlées directement ou indirectement selon le circular. PSU exclues; situation historique."
+        "commentaire": "Actions ordinaires détenues/contrôlées directement ou indirectement selon le circular. PSU exclues; situation historique.",
+        "statut": "SOURCE_PRIMAIRE"
       }
-    ]
+    ],
+    "date_collecte": "2026-11-05"
   },
   {
     "ticker": "ELVA.TO",
@@ -2468,9 +2498,11 @@
           "part_pct": 21.4
         },
         "unite": "titres et pct",
-        "commentaire": "Actions existantes détenues/contrôlées par le président exécutif; ne pas ajouter options ni supposer une propriété personnelle de toutes participations indirectes. Situation historique."
+        "commentaire": "Actions existantes détenues/contrôlées par le président exécutif; ne pas ajouter options ni supposer une propriété personnelle de toutes participations indirectes. Situation historique.",
+        "statut": "SOURCE_PRIMAIRE"
       }
-    ]
+    ],
+    "date_collecte": "2026-11-05"
   },
   {
     "ticker": "COV.V",
@@ -2492,9 +2524,11 @@
           "ceo_options_separees": 800000
         },
         "unite": "titres et pct",
-        "commentaire": "Tiret conservé comme publication du tableau, pas conversion implicite en zéro. Groupe Goldfarb et participations contrôlées distincts de propriété personnelle; options et DSU exclus."
+        "commentaire": "Tiret conservé comme publication du tableau, pas conversion implicite en zéro. Groupe Goldfarb et participations contrôlées distincts de propriété personnelle; options et DSU exclus.",
+        "statut": "SOURCE_PRIMAIRE"
       }
-    ]
+    ],
+    "date_collecte": "2026-11-05"
   },
   {
     "ticker": "ROK.V",
@@ -2535,9 +2569,11 @@
           ]
         },
         "unite": "titres et pct",
-        "commentaire": "Actions bénéficiaires directes/indirectes ou contrôlées, informations des administrateurs sans vérification indépendante de l'émetteur. Aucune option incluse."
+        "commentaire": "Actions bénéficiaires directes/indirectes ou contrôlées, informations des administrateurs sans vérification indépendante de l'émetteur. Aucune option incluse.",
+        "statut": "SOURCE_PRIMAIRE"
       }
-    ]
+    ],
+    "date_collecte": "2026-11-05"
   },
   {
     "ticker": "CEMX.TO",
@@ -2574,9 +2610,11 @@
           ]
         },
         "unite": "titres et pct",
-        "commentaire": "Conseil distinct de la direction exécutive : CEO non inclus dans ce tableau. RSU et options séparées; pas de total dirigeants exhaustif déduit."
+        "commentaire": "Conseil distinct de la direction exécutive : CEO non inclus dans ce tableau. RSU et options séparées; pas de total dirigeants exhaustif déduit.",
+        "statut": "SOURCE_PRIMAIRE"
       }
-    ]
+    ],
+    "date_collecte": "2026-11-05"
   },
   {
     "ticker": "KLD.V",
@@ -2592,9 +2630,11 @@
           "options_CEO_31dec2025_separees": 1575000
         },
         "unite": "titres et pct",
-        "commentaire": "CEO en actions existantes séparées des options. Deux dates différentes explicitement conservées; financement d'octobre-novembre à rapprocher avant pourcentage courant."
+        "commentaire": "CEO en actions existantes séparées des options. Deux dates différentes explicitement conservées; financement d'octobre-novembre à rapprocher avant pourcentage courant.",
+        "statut": "SOURCE_PRIMAIRE"
       }
-    ]
+    ],
+    "date_collecte": "2026-11-05"
   },
   {
     "ticker": "PLEJD.ST",
@@ -2635,9 +2675,11 @@
           ]
         },
         "unite": "titres et pct",
-        "commentaire": "Déclaration officielle de titres détenus, pas date de position certifiée. Proches du CFO inclus, pas de double comptage supposé."
+        "commentaire": "Déclaration officielle de titres détenus, pas date de position certifiée. Proches du CFO inclus, pas de double comptage supposé.",
+        "statut": "SOURCE_PRIMAIRE_PAGE_NON_DATEE"
       }
-    ]
+    ],
+    "date_collecte": "2026-11-05"
   },
   {
     "ticker": "GENI.ST",
@@ -2696,9 +2738,11 @@
           "martin_gren_famille_societes": 3010000
         },
         "unite": "titres et pct",
-        "commentaire": "Zéros explicitement publiés. Martin Gren est classé grand actionnaire, pas dirigeant; détentions de sociétés/famille non assimilées à du capital personnel."
+        "commentaire": "Zéros explicitement publiés. Martin Gren est classé grand actionnaire, pas dirigeant; détentions de sociétés/famille non assimilées à du capital personnel.",
+        "statut": "SOURCE_PRIMAIRE_PAGE_NON_DATEE"
       }
-    ]
+    ],
+    "date_collecte": "2026-11-05"
   },
   {
     "ticker": "GROW.MI",
@@ -2719,7 +2763,245 @@
           "autodetention_pct_page": 9.283
         },
         "unite": "titres et pct",
-        "commentaire": "Détentions via sociétés personnelles distinctes des droits futurs. État de page potentiellement ancien; autodétention différente du fournisseur 2026, ne pas remplacer ce dernier sans réconciliation."
+        "commentaire": "Détentions via sociétés personnelles distinctes des droits futurs. État de page potentiellement ancien; autodétention différente du fournisseur 2026, ne pas remplacer ce dernier sans réconciliation.",
+        "statut": "SOURCE_PRIMAIRE_PAGE_NON_DATEE"
+      }
+    ],
+    "date_collecte": "2026-11-05"
+  },
+  {
+    "ticker": "ALSTI.PA",
+    "url": "https://www.zonebourse.com/actualite-bourse/stif-rapport-financier-annuel-ce7f58d8da8cf127",
+    "date_source": "2026-04-30",
+    "date_collecte": "2026-11-05",
+    "periode": "rapport annuel 2025 reproduit par Zonebourse; position au 31/12/2025",
+    "champs": [
+      {
+        "bloc": null,
+        "champ": "actionnariat_physique_hors_droits_a_60j",
+        "valeur": {
+          "jb_participations": 2026657,
+          "jb_pct": 39.46,
+          "manuel_burgos": 376637,
+          "valerie_burgos": 216608,
+          "jose_burgos_direct": 400,
+          "actions_emises": 5135455
+        },
+        "unite": "titres et pct",
+        "commentaire": "JB est contrôlée par José Burgos; total de la holding distinct de sa détention directe personnelle. Données historiques, source originale actuellement inaccessible.",
+        "statut": "SOURCE_PRIMAIRE_REPRODUITE_A_RAPPROCHER"
+      }
+    ]
+  },
+  {
+    "ticker": "ALESE.PA",
+    "url": "https://entech-se.com/wp-content/uploads/2026/04/Entech_Rapport-Annuel_2025.pdf",
+    "date_source": "2026-04-22",
+    "date_collecte": "2026-11-05",
+    "periode": "au 31/12/2025, rapport annuel p.18 et 22",
+    "champs": [
+      {
+        "bloc": null,
+        "champ": "actionnariat_physique_hors_droits_a_60j",
+        "valeur": {
+          "enjoy_actions": 7518217,
+          "enjoy_pct": 51.12,
+          "christopher_franquet_direct": 1607,
+          "mefasude_actions": 1833245,
+          "mefasude_pct": 12.46,
+          "actions_emises": 14707247
+        },
+        "unite": "titres et pct",
+        "commentaire": "Enjoy est détenue par Christopher Franquet sauf une action appartenant à son épouse; Mefasude est la holding de Laurent Meyer. Concert distinct des participations personnelles. Avenant janvier 2026 autorisant certaines cessions à rapprocher.",
+        "statut": "SOURCE_PRIMAIRE"
+      }
+    ]
+  },
+  {
+    "ticker": "ALDMS.PA",
+    "url": "https://www.dms-imaging.com/wp-content/uploads/2025/08/FR_CP_2025_08_27_DMS-GROUP_DMS-GROUP_AUGMENTATIONCPTL.pdf",
+    "date_source": "2025-08-27",
+    "date_collecte": "2026-11-05",
+    "periode": "tableau après augmentation de capital réalisée au 27/08/2025, page 3",
+    "champs": [
+      {
+        "bloc": null,
+        "champ": "actionnariat_physique_hors_droits_a_60j",
+        "valeur": {
+          "samuel_sancerni_actions": 711844,
+          "samuel_sancerni_pct": 2.7,
+          "regis_roche_actions": 186200,
+          "comite_executif_actions_separes": 116200,
+          "actions_emises": 26651711
+        },
+        "unite": "titres et pct",
+        "commentaire": "Tableau post-opération, non position de novembre 2026. Investisseurs institutionnels et comité exécutif séparés; ne pas sommer sans vérifier les périmètres. Source identifie bien FR0012202497 et non l'ancienne DMS Imaging belge.",
+        "statut": "SOURCE_PRIMAIRE"
+      }
+    ]
+  },
+  {
+    "ticker": "ALMCE.PA",
+    "url": "https://mce-finance.com/images/PDF/docs/fr/2026/Rapport_annuel_VF_29_04_2026_compressed.pdf",
+    "date_source": "2026-04-29",
+    "date_collecte": "2026-11-05",
+    "periode": "au 31/12/2025, rapport annuel p.50-51",
+    "champs": [
+      {
+        "bloc": null,
+        "champ": "actionnariat_physique_hors_droits_a_60j",
+        "valeur": {
+          "uni_groupe_actions": 955787,
+          "groupe_axell_actions": 955787,
+          "titun_consulting_actions": 659099,
+          "jinery_actions": 219688,
+          "actions_emises": 3657862
+        },
+        "unite": "titres et pct",
+        "commentaire": "Titun contrôlée à 100 % par Charlie Evrard, CEO à la date du rapport; Hugo Larricq figure sur le site actuel, donc ne pas attribuer ces titres au CEO actuel. Uni et Axell comprennent plusieurs propriétaires.",
+        "statut": "SOURCE_PRIMAIRE"
+      }
+    ]
+  },
+  {
+    "ticker": "ALSOG.PA",
+    "url": "https://sogeclair.com/fr/media/2435/download?attachment=",
+    "date_source": "2026-04-27",
+    "date_collecte": "2026-11-05",
+    "periode": "au 31/12/2025, URD p.193 et 196",
+    "champs": [
+      {
+        "bloc": null,
+        "champ": "actionnariat_physique_hors_droits_a_60j",
+        "valeur": {
+          "philippe_robardey_direct": 795612,
+          "keys_controlee_par_philippe": 198035,
+          "concert_familial_actions": 2227950,
+          "concert_pct": 69.52,
+          "actions_emises": 3204901
+        },
+        "unite": "titres et pct",
+        "commentaire": "KEY'S contrôlée mais détenue par 62 collaborateurs : totalité non assimilée au patrimoine économique personnel. Démembrement de 306 804 actions entre membres de la famille; usufruits non ajoutés une seconde fois aux actions.",
+        "statut": "SOURCE_PRIMAIRE"
+      }
+    ]
+  },
+  {
+    "ticker": "AL2SI.PA",
+    "url": "https://investors.2crsi.com/financial-structure",
+    "date_source": "2026-06-30",
+    "date_collecte": "2026-11-05",
+    "periode": "actionnariat au 30/06/2026 selon page investisseurs",
+    "champs": [
+      {
+        "bloc": null,
+        "champ": "actionnariat_physique_hors_droits_a_60j",
+        "valeur": {
+          "holding_alain_wilmouth": 10509960,
+          "alain_wilmouth_direct": 1014502,
+          "michel_wilmouth": 914142,
+          "actions_emises": 22596441
+        },
+        "unite": "titres et pct",
+        "commentaire": "Holding détenue à 100 % par Alain Wilmouth. Actions distinctes des droits futurs; concentration du contrôle ne suffit pas à conclure à une gouvernance saine.",
+        "statut": "SOURCE_PRIMAIRE"
+      }
+    ]
+  },
+  {
+    "ticker": "ALLIX.PA",
+    "url": "https://www.zonebourse.com/actualite-bourse/wallix-rapport-financier-annuel-2025-ce7f59dbdd8ff321",
+    "date_source": "2026-04-21",
+    "date_collecte": "2026-11-05",
+    "periode": "au 28/02/2026, rapport annuel 2025 reproduit",
+    "champs": [
+      {
+        "bloc": null,
+        "champ": "actionnariat_physique_hors_droits_a_60j",
+        "valeur": {
+          "jean_noel_de_galzain_actions_directes": 179338,
+          "jinco_holding_familiale": 409882,
+          "amaury_rosset_actions": 267976,
+          "total_dirigeants_actions": 857196,
+          "actions_emises": 6743070,
+          "droits_futurs_dirigeants_exclus": 55000
+        },
+        "unite": "titres et pct",
+        "commentaire": "Titres déjà émis séparés des AGA en acquisition. Holding familiale contrôlée non assimilée à la seule propriété économique personnelle. Tableau source original à récupérer; opérations ultérieures AMF séparées.",
+        "statut": "SOURCE_PRIMAIRE_REPRODUITE_A_RAPPROCHER"
+      }
+    ]
+  },
+  {
+    "ticker": "ALIEV.PA",
+    "url": "https://live.euronext.com/sites/default/files/2026-03/DOCUMENT%20DINFORMATION%20-%20IEVA%20GROUP.pdf?VersionId=CAqXfj5cdFmV9tzV05TthQw9UC9FBec5",
+    "date_source": "2026-03-10",
+    "date_collecte": "2026-11-05",
+    "periode": "avant offre, document d'information p.68-69",
+    "champs": [
+      {
+        "bloc": null,
+        "champ": "actionnariat_physique_hors_droits_a_60j",
+        "valeur": {
+          "jean_karam_actions_existantes": 1358516,
+          "actions_emises_avant_offre": 9274292,
+          "part_avant_offre_pct": 14.65,
+          "jean_karam_base_diluee_potentielle": 1458516
+        },
+        "unite": "titres et pct",
+        "commentaire": "Ne pas utiliser les simulations de participation après offre comme résultats réalisés. Base diluée inclut droits futurs; position pré-IPO conservée comme historique, achats AMF 2026 séparés.",
+        "statut": "SOURCE_PRIMAIRE"
+      }
+    ]
+  },
+  {
+    "ticker": "CTT.ST",
+    "url": "https://www.ctt.se/investors/corporate-governance/board-of-directors/tomas-torlof/",
+    "date_source": "2026-11-05",
+    "date_collecte": "2026-11-05",
+    "periode": "page non datée consultée le 05/11/2026",
+    "champs": [
+      {
+        "bloc": null,
+        "champ": "actionnariat_physique_hors_droits_a_60j",
+        "valeur": {
+          "tomas_torlof_actions_directes_ou_proches": 1825000,
+          "fonction": "président du conseil",
+          "relation": "administrateur Trulscom Förvaltning AB"
+        },
+        "unite": "titres et pct",
+        "commentaire": "Détentions directes ou liées selon la page; ne pas présenter comme détention personnelle directe exclusive. Indépendant de la direction mais dépendant des grands actionnaires selon l'émetteur.",
+        "statut": "SOURCE_PRIMAIRE_PAGE_NON_DATEE"
+      }
+    ]
+  },
+  {
+    "ticker": "ZOMD.V",
+    "url": "https://cdn.financialreports.eu/financialreports/media/filings/47173/2026/RNS/47173_rns_2026-05-07_5357ac20-53de-4e60-b888-cac1bd8d9298.pdf",
+    "date_source": "2026-05-07",
+    "date_collecte": "2026-11-05",
+    "periode": "circular daté 25/04/2026, publié 07/05; titres au 24/04",
+    "champs": [
+      {
+        "bloc": null,
+        "champ": "actionnariat_physique_hors_droits_a_60j",
+        "valeur": {
+          "amit_bohensky": 8877139,
+          "amnon_argaman": 5932322,
+          "darryl_cardey": 70000,
+          "avigur_zmora": 185616,
+          "actions_emises": 100794352
+        },
+        "unite": "titres et pct",
+        "commentaire": "Copie numérique du circular réglementaire. Titres de vote bénéficiaires/contrôlés directs ou indirects, pas droits futurs; CEO non administrateur non couvert par ce tableau.",
+        "statut": "SOURCE_PRIMAIRE_REPRODUITE"
+      },
+      {
+        "bloc": "risque",
+        "champ": "risque_gouvernance",
+        "valeur": "Le circular décrit un comité d'audit avec deux membres non indépendants sur trois. Exemption TSXV déclarée; structure légalement permise, mais contre-pouvoir d'audit plus faible qu'un comité entièrement indépendant.",
+        "unite": "texte",
+        "statut": "ANALYSE_DOCUMENTAIRE_SOURCE_PRIMAIRE"
       }
     ]
   }

@@ -134,7 +134,7 @@
     },
     "qualite": {
       "ca_ttm": {
-        "valeur": 54240000.0,
+        "valeur": 54240000,
         "unite": "CAD",
         "periode": "TTM fournisseur; arrêté indiqué dans son tableau financier : Jun '26 Jun 30, 2026",
         "date_source": "2026-11-04",
@@ -204,7 +204,7 @@
         "date_collecte": "2026-11-04"
       },
       "fcf_ttm": {
-        "valeur": 12980000.0,
+        "valeur": 12980000,
         "unite": "CAD",
         "periode": "TTM fournisseur; arrêté indiqué dans son tableau financier : Jun '26 Jun 30, 2026",
         "date_source": "2026-11-04",
@@ -306,7 +306,7 @@
         "date_collecte": "2026-11-04"
       },
       "capitalisation": {
-        "valeur": 37290000.0,
+        "valeur": 37290000,
         "unite": "CAD",
         "periode": "cotation au 2026-11-04",
         "date_source": "2026-11-04",
@@ -316,7 +316,7 @@
         "date_collecte": "2026-11-04"
       },
       "valeur_entreprise": {
-        "valeur": 7350000.0,
+        "valeur": 7350000,
         "unite": "CAD",
         "periode": "valorisation affichée au 2026-11-04",
         "date_source": "2026-11-04",
@@ -507,7 +507,7 @@
         "date_collecte": "2026-11-05"
       },
       "croissance_bpa_pct": {
-        "valeur": 75.0,
+        "valeur": 75,
         "unite": "pct",
         "periode": "FY 2025 / FY 2024; clôture Dec '25 Dec 31, 2025",
         "date_source": "2026-11-04",
@@ -676,7 +676,7 @@
         "date_collecte": "2026-11-04"
       },
       "dette_brute": {
-        "valeur": 2130000.0,
+        "valeur": 2130000,
         "unite": "CAD",
         "periode": "Dernier bilan affiché au 2026-11-04; date comptable exacte à rapprocher",
         "date_source": "2026-11-04",
@@ -686,7 +686,7 @@
         "date_collecte": "2026-11-04"
       },
       "dette_nette": {
-        "valeur": -29940000.0,
+        "valeur": -29940000,
         "unite": "CAD",
         "periode": "Dernier bilan affiché au 2026-11-04; date comptable exacte à rapprocher",
         "date_source": "2026-11-04",
@@ -792,19 +792,14 @@
         "date_collecte": "2026-11-04"
       },
       "risque_gouvernance": {
-        "valeur": null,
-        "unite": null,
-        "periode": null,
-        "date_source": null,
-        "source_url": null,
-        "statut": "A_COLLECTER",
+        "valeur": "Le circular décrit un comité d'audit avec deux membres non indépendants sur trois. Exemption TSXV déclarée; structure légalement permise, mais contre-pouvoir d'audit plus faible qu'un comité entièrement indépendant.",
+        "unite": "texte",
+        "periode": "circular daté 25/04/2026, publié 07/05; titres au 24/04",
+        "date_source": "2026-05-07",
+        "source_url": "https://cdn.financialreports.eu/financialreports/media/filings/47173/2026/RNS/47173_rns_2026-05-07_5357ac20-53de-4e60-b888-cac1bd8d9298.pdf",
+        "statut": "ANALYSE_DOCUMENTAIRE_SOURCE_PRIMAIRE",
         "commentaire": null,
-        "recherche": {
-          "date": "2026-11-04",
-          "statut": "MANQUANT_RECHERCHE_NON_CLOSE",
-          "motif": "Aucune valeur vérifiée importée à cette étape; les recherches tracées ne démontrent pas une indisponibilité définitive.",
-          "journal": "journal_recherches"
-        }
+        "date_collecte": "2026-11-05"
       },
       "risque_reglementaire": {
         "valeur": null,
@@ -955,7 +950,7 @@
         "commentaire": "Ratio (titre ajusté converti en USD / URTH ajusté) sur chaque fenêtre, moins 1. Ancrages communs titre/ETF/FX; GBp constant annulé dans le ratio. URTH est un proxy ETF avec frais/écart de suivi; horaires de clôture non synchrones. Fenêtres impossibles avant IPO omises, jamais extrapolées."
       },
       "volume_moyen_20j": {
-        "valeur": 67445.0,
+        "valeur": 67445,
         "unite": "titres",
         "periode": "20 dernières séances",
         "date_source": "2026-11-03",
@@ -1045,7 +1040,7 @@
         "valeur": {
           "classification": "Communication Services",
           "nombre_lignes": 2,
-          "poids_initial_pct": 5.0,
+          "poids_initial_pct": 5,
           "tickers": [
             "CXDO",
             "ZOMD.V"
@@ -1531,7 +1526,7 @@
     {
       "bloc": "risque",
       "champ": "cash",
-      "valeur": 32070000.0,
+      "valeur": 32070000,
       "unite": "CAD",
       "periode": "Dernier bilan affiché au 2026-11-04; date comptable exacte à rapprocher",
       "date_source": "2026-11-04",
@@ -1567,7 +1562,7 @@
     {
       "bloc": "croissance",
       "champ": "croissance_bpa_pct",
-      "valeur": 75.0,
+      "valeur": 75,
       "unite": "pct",
       "periode": "FY 2025 / FY 2024; clôture Dec '25 Dec 31, 2025",
       "date_source": "2026-11-04",
@@ -1699,7 +1694,7 @@
     {
       "bloc": "qualite",
       "champ": "ca_ttm",
-      "valeur": 54240000.0,
+      "valeur": 54240000,
       "unite": "CAD",
       "periode": "TTM fournisseur; arrêté indiqué dans son tableau financier : Jun '26 Jun 30, 2026",
       "date_source": "2026-11-04",
@@ -1711,7 +1706,7 @@
     {
       "bloc": "qualite",
       "champ": "fcf_ttm",
-      "valeur": 12980000.0,
+      "valeur": 12980000,
       "unite": "CAD",
       "periode": "TTM fournisseur; arrêté indiqué dans son tableau financier : Jun '26 Jun 30, 2026",
       "date_source": "2026-11-04",
@@ -1774,8 +1769,8 @@
       "valeur": {
         "exercice": "2026-12-31",
         "courant": 0.025,
-        "J_30": 0.0,
-        "J_90": 0.0,
+        "J_30": 0,
+        "J_90": 0,
         "nombre_analystes": 2
       },
       "unite": "USD/action",
@@ -1999,6 +1994,24 @@
       "source_url": "https://query1.finance.yahoo.com/v10/finance/quoteSummary/ZOMD.V?modules=assetProfile,majorHoldersBreakdown,insiderHolders,insiderTransactions",
       "statut": "SOURCE_SECONDAIRE_GOUVERNANCE_A_RAPPROCHER",
       "commentaire": "Titres détenus séparés des options/attributions. Dates/fonctions de chaque ligne à contrôler : les anciens dirigeants peuvent subsister. Ne pas additionner les détentions directes et indirectes sans éliminer les doubles comptes. Pas de certification de couverture des transactions, ni note SSI déduite."
+    },
+    {
+      "bloc": null,
+      "champ": "actionnariat_physique_hors_droits_a_60j",
+      "valeur": {
+        "amit_bohensky": 8877139,
+        "amnon_argaman": 5932322,
+        "darryl_cardey": 70000,
+        "avigur_zmora": 185616,
+        "actions_emises": 100794352
+      },
+      "unite": "titres et pct",
+      "periode": "circular daté 25/04/2026, publié 07/05; titres au 24/04",
+      "date_source": "2026-05-07",
+      "source_url": "https://cdn.financialreports.eu/financialreports/media/filings/47173/2026/RNS/47173_rns_2026-05-07_5357ac20-53de-4e60-b888-cac1bd8d9298.pdf",
+      "statut": "SOURCE_PRIMAIRE_REPRODUITE",
+      "commentaire": "Copie numérique du circular réglementaire. Titres de vote bénéficiaires/contrôlés directs ou indirects, pas droits futurs; CEO non administrateur non couvert par ce tableau.",
+      "date_collecte": "2026-11-05"
     }
   ],
   "journal_recherches": [
@@ -2197,8 +2210,8 @@
   "audit_couverture": {
     "date": "2026-11-05",
     "champs_total": 108,
-    "champs_renseignes": 59,
-    "couverture_pct": 54.63,
+    "champs_renseignes": 60,
+    "couverture_pct": 55.56,
     "champs_secondaires_non_rapproches": 35,
     "champs_manquants": [
       "identite.lei",
@@ -2221,7 +2234,6 @@
       "risque.cash_runway_mois",
       "risque.risque_refinancement",
       "risque.risque_pays",
-      "risque.risque_gouvernance",
       "risque.risque_reglementaire",
       "risque.transactions_initiees_net_90j",
       "risque.transactions_initiees_net_180j",
@@ -2258,13 +2270,13 @@
   "audit_poursuite": {
     "date": "2026-11-05",
     "comptage": {
-      "RENSEIGNE": 59,
+      "RENSEIGNE": 60,
       "NON_APPLICABLE": 3,
       "INDISPONIBLE_A_DATE": 0,
-      "RECHERCHE_A_POURSUIVRE": 46
+      "RECHERCHE_A_POURSUIVRE": 45
     },
-    "couverture_valeurs_pct": 54.63,
-    "couverture_applicable_pct": 56.19,
+    "couverture_valeurs_pct": 55.56,
+    "couverture_applicable_pct": 57.14,
     "recherches_non_closes": [
       "identite.lei",
       "identite.marche",
@@ -2283,7 +2295,6 @@
       "croissance.taille_marche_adressable",
       "risque.risque_refinancement",
       "risque.risque_pays",
-      "risque.risque_gouvernance",
       "risque.risque_reglementaire",
       "risque.transactions_initiees_net_90j",
       "risque.transactions_initiees_net_180j",

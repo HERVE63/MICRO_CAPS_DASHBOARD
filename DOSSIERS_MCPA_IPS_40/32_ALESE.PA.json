@@ -87,7 +87,7 @@
         }
       },
       "capitalisation_eur": {
-        "valeur": 131430000.0,
+        "valeur": 131430000,
         "unite": "EUR",
         "periode": "capitalisation fournisseur et référence BCE du 2026-11-04",
         "date_source": "2026-11-04",
@@ -139,7 +139,7 @@
     },
     "qualite": {
       "ca_ttm": {
-        "valeur": 120330000.0,
+        "valeur": 120330000,
         "unite": "EUR",
         "periode": "TTM fournisseur; arrêté indiqué dans son tableau financier : Jun '26 Jun 30, 2026",
         "date_source": "2026-11-04",
@@ -219,7 +219,7 @@
         }
       },
       "fcf_ttm": {
-        "valeur": -5440000.0,
+        "valeur": -5440000,
         "unite": "EUR",
         "periode": "TTM fournisseur; arrêté indiqué dans son tableau financier : Jun '26 Jun 30, 2026",
         "date_source": "2026-11-04",
@@ -321,7 +321,7 @@
         "date_collecte": "2026-11-04"
       },
       "capitalisation": {
-        "valeur": 131430000.0,
+        "valeur": 131430000,
         "unite": "EUR",
         "periode": "cotation au 2026-11-04",
         "date_source": "2026-11-04",
@@ -331,7 +331,7 @@
         "date_collecte": "2026-11-04"
       },
       "valeur_entreprise": {
-        "valeur": 151360000.0,
+        "valeur": 151360000,
         "unite": "EUR",
         "periode": "valorisation affichée au 2026-11-04",
         "date_source": "2026-11-04",
@@ -587,7 +587,7 @@
         "date_collecte": "2026-11-04"
       },
       "revision_bpa_30j_pct": {
-        "valeur": 0.0,
+        "valeur": 0,
         "unite": "pct",
         "periode": "consensus annuel clos au 2026-12-31",
         "date_source": "2026-11-05",
@@ -1512,7 +1512,7 @@
     {
       "bloc": "qualite",
       "champ": "marge_nette_pct",
-      "valeur": 2.0,
+      "valeur": 2,
       "unite": "pct",
       "periode": "TTM affiché au 2026-11-04; date exacte de fin non fournie sur la page statistiques",
       "date_source": "2026-11-04",
@@ -1524,7 +1524,7 @@
     {
       "bloc": "risque",
       "champ": "cash",
-      "valeur": 18930000.0,
+      "valeur": 18930000,
       "unite": "EUR",
       "periode": "Dernier bilan affiché au 2026-11-04; date comptable exacte à rapprocher",
       "date_source": "2026-11-04",
@@ -1536,7 +1536,7 @@
     {
       "bloc": "risque",
       "champ": "dette_brute",
-      "valeur": 38860000.0,
+      "valeur": 38860000,
       "unite": "EUR",
       "periode": "Dernier bilan affiché au 2026-11-04; date comptable exacte à rapprocher",
       "date_source": "2026-11-04",
@@ -1548,7 +1548,7 @@
     {
       "bloc": "risque",
       "champ": "dette_nette",
-      "valeur": 19930000.0,
+      "valeur": 19930000,
       "unite": "EUR",
       "periode": "Dernier bilan affiché au 2026-11-04; date comptable exacte à rapprocher",
       "date_source": "2026-11-04",
@@ -1656,7 +1656,7 @@
     {
       "bloc": "qualite",
       "champ": "ca_ttm",
-      "valeur": 120330000.0,
+      "valeur": 120330000,
       "unite": "EUR",
       "periode": "TTM fournisseur; arrêté indiqué dans son tableau financier : Jun '26 Jun 30, 2026",
       "date_source": "2026-11-04",
@@ -1668,7 +1668,7 @@
     {
       "bloc": "qualite",
       "champ": "fcf_ttm",
-      "valeur": -5440000.0,
+      "valeur": -5440000,
       "unite": "EUR",
       "periode": "TTM fournisseur; arrêté indiqué dans son tableau financier : Jun '26 Jun 30, 2026",
       "date_source": "2026-11-04",
@@ -1716,7 +1716,7 @@
     {
       "bloc": "croissance",
       "champ": "previsions_ca_1a",
-      "valeur": 136750000.0,
+      "valeur": 136750000,
       "unite": "EUR",
       "periode": "exercice annuel prévisionnel clos au 2026-12-31",
       "date_source": "2026-11-04",
@@ -1826,6 +1826,25 @@
       "source_url": "https://query1.finance.yahoo.com/v10/finance/quoteSummary/ALESE.PA?modules=assetProfile,majorHoldersBreakdown,insiderHolders,insiderTransactions",
       "statut": "SOURCE_SECONDAIRE_GOUVERNANCE_A_RAPPROCHER",
       "commentaire": "Titres détenus séparés des options/attributions. Dates/fonctions de chaque ligne à contrôler : les anciens dirigeants peuvent subsister. Ne pas additionner les détentions directes et indirectes sans éliminer les doubles comptes. Pas de certification de couverture des transactions, ni note SSI déduite."
+    },
+    {
+      "bloc": null,
+      "champ": "actionnariat_physique_hors_droits_a_60j",
+      "valeur": {
+        "enjoy_actions": 7518217,
+        "enjoy_pct": 51.12,
+        "christopher_franquet_direct": 1607,
+        "mefasude_actions": 1833245,
+        "mefasude_pct": 12.46,
+        "actions_emises": 14707247
+      },
+      "unite": "titres et pct",
+      "periode": "au 31/12/2025, rapport annuel p.18 et 22",
+      "date_source": "2026-04-22",
+      "source_url": "https://entech-se.com/wp-content/uploads/2026/04/Entech_Rapport-Annuel_2025.pdf",
+      "statut": "SOURCE_PRIMAIRE",
+      "commentaire": "Enjoy est détenue par Christopher Franquet sauf une action appartenant à son épouse; Mefasude est la holding de Laurent Meyer. Concert distinct des participations personnelles. Avenant janvier 2026 autorisant certaines cessions à rapprocher.",
+      "date_collecte": "2026-11-05"
     }
   ],
   "journal_recherches": [

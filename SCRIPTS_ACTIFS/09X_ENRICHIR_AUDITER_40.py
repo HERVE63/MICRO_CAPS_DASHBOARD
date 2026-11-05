@@ -242,12 +242,14 @@ def main():
   for evidence in primaries:
    if evidence['ticker']!=t:continue
    for v in evidence['champs']:
-    if v['bloc'] and v['champ'] in x['blocs'][v['bloc']]:put(x,v['bloc'],v['champ'],cell(v['valeur'],v['unite'],v.get('periode',evidence['periode']),evidence['date_source'],evidence['url'],v.get('statut','SOURCE_PRIMAIRE'),v.get('commentaire')))
-    else:x['observations_complementaires'].append(dict(bloc=v.get('bloc'),champ=v['champ'],**cell(v['valeur'],v['unite'],v.get('periode',evidence['periode']),evidence['date_source'],evidence['url'],v.get('statut','SOURCE_PRIMAIRE'),v.get('commentaire'))))
+    c=cell(v['valeur'],v['unite'],v.get('periode',evidence['periode']),evidence['date_source'],evidence['url'],v.get('statut','SOURCE_PRIMAIRE'),v.get('commentaire'))
+    c['date_collecte']=evidence.get('date_collecte',DATE)
+    if v['bloc'] and v['champ'] in x['blocs'][v['bloc']]:put(x,v['bloc'],v['champ'],c)
+    else:x['observations_complementaires'].append(dict(bloc=v.get('bloc'),champ=v['champ'],**c))
   if t in insiders:
    for days,v in insiders[t]['totaux'].items():
     if v['valeur'] is not None:put(x,'risque',f'transactions_initiees_net_{days}j',cell(v['valeur'],'USD',f'{days} jours calendaires clos au '+DATE,DATE,'https://data.sec.gov/submissions/CIK'+str(load(BASE/f'AUDITS/FINALISATION_FICHES_20261104/SEC/{t}_submissions.json')['cik']).zfill(10)+'.json','DEPOTS_SEC_FENETRE_CONTROLEE','Achats P moins ventes S, hors dons, attributions, exercices et dérivés; détails et erreurs dans INITIES_5_US.json.'))
-  x['journal_recherches']=[]
+  x.setdefault('journal_recherches',[])
   token=norm(x['societe'].split()[0]);aliases={'ALDMS.PA':['diagnosticmedical','dmsgroup'],'AL2SI.PA':['2crsi'],'ALIEV.PA':['ieva'],'GENI.ST':['generic'],'FTG.TO':['firan'],'ALMCE.PA':['moncourtier']}.get(t,[token])
   for batch in research:
    if (x['id_position']-1)//4!=batch['start']//4:continue
@@ -273,6 +275,7 @@ def main():
   x['statut_fiche']='ENRICHIE_NON_VALIDEE';x['arbitrage_autorise']=False
   # Re-running the import must not multiply evidence or calendars.
   x['observations_complementaires']=list({json.dumps(v,sort_keys=True,ensure_ascii=False):v for v in x['observations_complementaires']}.values())
+  x['journal_recherches']=list({json.dumps(v,sort_keys=True,ensure_ascii=False):v for v in x['journal_recherches']}.values())
   path.write_text(json.dumps(x,ensure_ascii=False,indent=2,allow_nan=False)+'\n')
   report.append({'ID_position':x['id_position'],'Societe':x['societe'],'Ticker':t,'Champs_total':len(cells),'Renseignes':filled,'Couverture_pct':x['audit_couverture']['couverture_pct'],'Secondaires_non_rapproches':secondary_n,'Manquants':len(missing),'Statut':'ENRICHIE_NON_VALIDEE'})
  with (D/'COUVERTURE_FICHES_40_20261104.csv').open('w',newline='') as f:

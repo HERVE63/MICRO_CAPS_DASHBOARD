@@ -87,7 +87,7 @@
         }
       },
       "capitalisation_eur": {
-        "valeur": 96650000.0,
+        "valeur": 96650000,
         "unite": "EUR",
         "periode": "capitalisation fournisseur et référence BCE du 2026-11-04",
         "date_source": "2026-11-04",
@@ -129,7 +129,7 @@
     },
     "qualite": {
       "ca_ttm": {
-        "valeur": 90860000.0,
+        "valeur": 90860000,
         "unite": "EUR",
         "periode": "TTM fournisseur; arrêté indiqué dans son tableau financier : Dec '25 Dec 31, 2025",
         "date_source": "2026-11-04",
@@ -197,7 +197,7 @@
         "date_collecte": "2026-11-04"
       },
       "fcf_ttm": {
-        "valeur": 4570000.0,
+        "valeur": 4570000,
         "unite": "EUR",
         "periode": "TTM fournisseur; arrêté indiqué dans son tableau financier : Dec '25 Dec 31, 2025",
         "date_source": "2026-11-04",
@@ -299,7 +299,7 @@
         "date_collecte": "2026-11-04"
       },
       "capitalisation": {
-        "valeur": 96650000.0,
+        "valeur": 96650000,
         "unite": "EUR",
         "periode": "cotation au 2026-11-04",
         "date_source": "2026-11-04",
@@ -309,7 +309,7 @@
         "date_collecte": "2026-11-04"
       },
       "valeur_entreprise": {
-        "valeur": 122490000.0,
+        "valeur": 122490000,
         "unite": "EUR",
         "periode": "valorisation affichée au 2026-11-04",
         "date_source": "2026-11-04",
@@ -624,7 +624,7 @@
         "commentaire": null
       },
       "dette_brute": {
-        "valeur": 43110000.0,
+        "valeur": 43110000,
         "unite": "EUR",
         "periode": "Dernier bilan affiché au 2026-11-04; date comptable exacte à rapprocher",
         "date_source": "2026-11-04",
@@ -794,7 +794,7 @@
         "commentaire": "Achats moins ventes d’actions au comptant déclarés et publiés à la date de collecte; exercices/attributions/dons distingués. Cessions liées à des programmes signalées. Hors frais, produits des prix/volumes déclarés. Pas preuve d’absence de transactions non publiées. Source détaillée et PDF archivés : DONNEES/DECLARATIONS_AMF_14_20261105.json. Un zéro décrit le net des déclarations couvertes; il ne certifie pas une absence de transactions réelles."
       },
       "transactions_initiees_net_180j": {
-        "valeur": -377475.0,
+        "valeur": -377475,
         "unite": "EUR",
         "periode": "2026-05-09 / 2026-11-05; 180 jours calendaires",
         "date_source": "2026-11-05",
@@ -1499,7 +1499,7 @@
     {
       "bloc": "risque",
       "champ": "cash",
-      "valeur": 18810000.0,
+      "valeur": 18810000,
       "unite": "EUR",
       "periode": "Dernier bilan affiché au 2026-11-04; date comptable exacte à rapprocher",
       "date_source": "2026-11-04",
@@ -1535,7 +1535,7 @@
     {
       "bloc": "risque",
       "champ": "dette_nette",
-      "valeur": 24300000.0,
+      "valeur": 24300000,
       "unite": "EUR",
       "periode": "Dernier bilan affiché au 2026-11-04; date comptable exacte à rapprocher",
       "date_source": "2026-11-04",
@@ -1727,7 +1727,7 @@
     {
       "bloc": "qualite",
       "champ": "ca_ttm",
-      "valeur": 90860000.0,
+      "valeur": 90860000,
       "unite": "EUR",
       "periode": "TTM fournisseur; arrêté indiqué dans son tableau financier : Dec '25 Dec 31, 2025",
       "date_source": "2026-11-04",
@@ -1739,7 +1739,7 @@
     {
       "bloc": "qualite",
       "champ": "fcf_ttm",
-      "valeur": 4570000.0,
+      "valeur": 4570000,
       "unite": "EUR",
       "periode": "TTM fournisseur; arrêté indiqué dans son tableau financier : Dec '25 Dec 31, 2025",
       "date_source": "2026-11-04",
@@ -1811,7 +1811,7 @@
     {
       "bloc": "croissance",
       "champ": "previsions_ca_1a",
-      "valeur": 104850000.0,
+      "valeur": 104850000,
       "unite": "EUR",
       "periode": "exercice annuel prévisionnel clos au 2026-12-31",
       "date_source": "2026-11-04",
@@ -2040,6 +2040,25 @@
       "source_url": "https://query1.finance.yahoo.com/v10/finance/quoteSummary/ALSTI.PA?modules=assetProfile,majorHoldersBreakdown,insiderHolders,insiderTransactions",
       "statut": "SOURCE_SECONDAIRE_GOUVERNANCE_A_RAPPROCHER",
       "commentaire": "Titres détenus séparés des options/attributions. Dates/fonctions de chaque ligne à contrôler : les anciens dirigeants peuvent subsister. Ne pas additionner les détentions directes et indirectes sans éliminer les doubles comptes. Pas de certification de couverture des transactions, ni note SSI déduite."
+    },
+    {
+      "bloc": null,
+      "champ": "actionnariat_physique_hors_droits_a_60j",
+      "valeur": {
+        "jb_participations": 2026657,
+        "jb_pct": 39.46,
+        "manuel_burgos": 376637,
+        "valerie_burgos": 216608,
+        "jose_burgos_direct": 400,
+        "actions_emises": 5135455
+      },
+      "unite": "titres et pct",
+      "periode": "rapport annuel 2025 reproduit par Zonebourse; position au 31/12/2025",
+      "date_source": "2026-04-30",
+      "source_url": "https://www.zonebourse.com/actualite-bourse/stif-rapport-financier-annuel-ce7f58d8da8cf127",
+      "statut": "SOURCE_PRIMAIRE_REPRODUITE_A_RAPPROCHER",
+      "commentaire": "JB est contrôlée par José Burgos; total de la holding distinct de sa détention directe personnelle. Données historiques, source originale actuellement inaccessible.",
+      "date_collecte": "2026-11-05"
     }
   ],
   "journal_recherches": [

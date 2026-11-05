@@ -134,7 +134,7 @@
     },
     "qualite": {
       "ca_ttm": {
-        "valeur": 275100000.0,
+        "valeur": 275100000,
         "unite": "SEK",
         "periode": "TTM fournisseur; arrêté indiqué dans son tableau financier : Sep '26 Sep 30, 2026",
         "date_source": "2026-11-04",
@@ -204,7 +204,7 @@
         "date_collecte": "2026-11-04"
       },
       "fcf_ttm": {
-        "valeur": 20200000.0,
+        "valeur": 20200000,
         "unite": "SEK",
         "periode": "TTM fournisseur; arrêté indiqué dans son tableau financier : Sep '26 Sep 30, 2026",
         "date_source": "2026-11-04",
@@ -301,7 +301,7 @@
         "date_collecte": "2026-11-04"
       },
       "capitalisation": {
-        "valeur": 1810000000.0,
+        "valeur": 1810000000,
         "unite": "SEK",
         "periode": "cotation au 2026-11-04",
         "date_source": "2026-11-04",
@@ -311,7 +311,7 @@
         "date_collecte": "2026-11-04"
       },
       "valeur_entreprise": {
-        "valeur": 1830000000.0,
+        "valeur": 1830000000,
         "unite": "SEK",
         "periode": "valorisation affichée au 2026-11-04",
         "date_source": "2026-11-04",
@@ -656,7 +656,7 @@
         "date_collecte": "2026-11-04"
       },
       "dette_brute": {
-        "valeur": 47400000.0,
+        "valeur": 47400000,
         "unite": "SEK",
         "periode": "Dernier bilan affiché au 2026-11-04; date comptable exacte à rapprocher",
         "date_source": "2026-11-04",
@@ -722,7 +722,7 @@
         "date_collecte": "2026-11-04"
       },
       "dilution_3a_pct": {
-        "valeur": 0.0,
+        "valeur": 0,
         "unite": "pct",
         "periode": "FY 2022 / FY 2025",
         "date_source": "2026-11-04",
@@ -1631,7 +1631,7 @@
     {
       "bloc": "qualite",
       "champ": "ca_ttm",
-      "valeur": 275100000.0,
+      "valeur": 275100000,
       "unite": "SEK",
       "periode": "TTM fournisseur; arrêté indiqué dans son tableau financier : Sep '26 Sep 30, 2026",
       "date_source": "2026-11-04",
@@ -1643,7 +1643,7 @@
     {
       "bloc": "qualite",
       "champ": "fcf_ttm",
-      "valeur": 20200000.0,
+      "valeur": 20200000,
       "unite": "SEK",
       "periode": "TTM fournisseur; arrêté indiqué dans son tableau financier : Sep '26 Sep 30, 2026",
       "date_source": "2026-11-04",
@@ -1739,7 +1739,7 @@
     {
       "bloc": "risque",
       "champ": "cash",
-      "valeur": 26900000.0,
+      "valeur": 26900000,
       "unite": "SEK",
       "periode": "Dernier bilan affiché au 2026-11-04; date comptable exacte à rapprocher",
       "date_source": "2026-11-04",
@@ -1751,7 +1751,7 @@
     {
       "bloc": "risque",
       "champ": "dette_nette",
-      "valeur": 20500000.0,
+      "valeur": 20500000,
       "unite": "SEK",
       "periode": "Dernier bilan affiché au 2026-11-04; date comptable exacte à rapprocher",
       "date_source": "2026-11-04",
@@ -1947,6 +1947,22 @@
       "source_url": "https://query1.finance.yahoo.com/v10/finance/quoteSummary/CTT.ST?modules=assetProfile,majorHoldersBreakdown,insiderHolders,insiderTransactions",
       "statut": "SOURCE_SECONDAIRE_GOUVERNANCE_A_RAPPROCHER",
       "commentaire": "Titres détenus séparés des options/attributions. Dates/fonctions de chaque ligne à contrôler : les anciens dirigeants peuvent subsister. Ne pas additionner les détentions directes et indirectes sans éliminer les doubles comptes. Pas de certification de couverture des transactions, ni note SSI déduite."
+    },
+    {
+      "bloc": null,
+      "champ": "actionnariat_physique_hors_droits_a_60j",
+      "valeur": {
+        "tomas_torlof_actions_directes_ou_proches": 1825000,
+        "fonction": "président du conseil",
+        "relation": "administrateur Trulscom Förvaltning AB"
+      },
+      "unite": "titres et pct",
+      "periode": "page non datée consultée le 05/11/2026",
+      "date_source": "2026-11-05",
+      "source_url": "https://www.ctt.se/investors/corporate-governance/board-of-directors/tomas-torlof/",
+      "statut": "SOURCE_PRIMAIRE_PAGE_NON_DATEE",
+      "commentaire": "Détentions directes ou liées selon la page; ne pas présenter comme détention personnelle directe exclusive. Indépendant de la direction mais dépendant des grands actionnaires selon l'émetteur.",
+      "date_collecte": "2026-11-05"
     }
   ],
   "journal_recherches": [

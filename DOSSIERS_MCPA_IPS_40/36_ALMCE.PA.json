@@ -87,7 +87,7 @@
         }
       },
       "capitalisation_eur": {
-        "valeur": 19420000.0,
+        "valeur": 19420000,
         "unite": "EUR",
         "periode": "capitalisation fournisseur et référence BCE du 2026-11-04",
         "date_source": "2026-11-04",
@@ -134,7 +134,7 @@
     },
     "qualite": {
       "ca_ttm": {
-        "valeur": 30540000.0,
+        "valeur": 30540000,
         "unite": "EUR",
         "periode": "TTM fournisseur; arrêté indiqué dans son tableau financier : Jun '26 Jun 30, 2026",
         "date_source": "2026-11-04",
@@ -204,7 +204,7 @@
         "date_collecte": "2026-11-04"
       },
       "fcf_ttm": {
-        "valeur": 1640000.0,
+        "valeur": 1640000,
         "unite": "EUR",
         "periode": "TTM fournisseur; arrêté indiqué dans son tableau financier : Jun '26 Jun 30, 2026",
         "date_source": "2026-11-04",
@@ -306,7 +306,7 @@
         "date_collecte": "2026-11-04"
       },
       "capitalisation": {
-        "valeur": 19420000.0,
+        "valeur": 19420000,
         "unite": "EUR",
         "periode": "cotation au 2026-11-04",
         "date_source": "2026-11-04",
@@ -316,7 +316,7 @@
         "date_collecte": "2026-11-04"
       },
       "valeur_entreprise": {
-        "valeur": 11970000.0,
+        "valeur": 11970000,
         "unite": "EUR",
         "periode": "valorisation affichée au 2026-11-04",
         "date_source": "2026-11-04",
@@ -346,7 +346,7 @@
         "date_collecte": "2026-11-04"
       },
       "ev_ebit": {
-        "valeur": 4.0,
+        "valeur": 4,
         "unite": "ratio",
         "periode": "TTM fournisseur; arrêté indiqué dans son tableau financier : Jun '26 Jun 30, 2026",
         "date_source": "2026-11-04",
@@ -356,7 +356,7 @@
         "date_collecte": "2026-11-04"
       },
       "pe": {
-        "valeur": 7.0,
+        "valeur": 7,
         "unite": "ratio",
         "periode": "TTM fournisseur; arrêté indiqué dans son tableau financier : Jun '26 Jun 30, 2026",
         "date_source": "2026-11-04",
@@ -659,7 +659,7 @@
         "date_collecte": "2026-11-04"
       },
       "dette_nette": {
-        "valeur": -7380000.0,
+        "valeur": -7380000,
         "unite": "EUR",
         "periode": "Dernier bilan affiché au 2026-11-04; date comptable exacte à rapprocher",
         "date_source": "2026-11-04",
@@ -1482,7 +1482,7 @@
     {
       "bloc": "valorisation",
       "champ": "pe",
-      "valeur": 7.0,
+      "valeur": 7,
       "unite": "ratio",
       "periode": "TTM fournisseur; arrêté indiqué dans son tableau financier : Jun '26 Jun 30, 2026",
       "date_source": "2026-11-04",
@@ -1530,7 +1530,7 @@
     {
       "bloc": "valorisation",
       "champ": "ev_ebit",
-      "valeur": 4.0,
+      "valeur": 4,
       "unite": "ratio",
       "periode": "TTM fournisseur; arrêté indiqué dans son tableau financier : Jun '26 Jun 30, 2026",
       "date_source": "2026-11-04",
@@ -1578,7 +1578,7 @@
     {
       "bloc": "qualite",
       "champ": "ca_ttm",
-      "valeur": 30540000.0,
+      "valeur": 30540000,
       "unite": "EUR",
       "periode": "TTM fournisseur; arrêté indiqué dans son tableau financier : Jun '26 Jun 30, 2026",
       "date_source": "2026-11-04",
@@ -1590,7 +1590,7 @@
     {
       "bloc": "qualite",
       "champ": "fcf_ttm",
-      "valeur": 1640000.0,
+      "valeur": 1640000,
       "unite": "EUR",
       "periode": "TTM fournisseur; arrêté indiqué dans son tableau financier : Jun '26 Jun 30, 2026",
       "date_source": "2026-11-04",
@@ -1686,7 +1686,7 @@
     {
       "bloc": "risque",
       "champ": "cash",
-      "valeur": 8530000.0,
+      "valeur": 8530000,
       "unite": "EUR",
       "periode": "Dernier bilan affiché au 2026-11-04; date comptable exacte à rapprocher",
       "date_source": "2026-11-04",
@@ -1698,7 +1698,7 @@
     {
       "bloc": "risque",
       "champ": "dette_brute",
-      "valeur": 1140000.0,
+      "valeur": 1140000,
       "unite": "EUR",
       "periode": "Dernier bilan affiché au 2026-11-04; date comptable exacte à rapprocher",
       "date_source": "2026-11-04",
@@ -1859,6 +1859,24 @@
       "source_url": "https://query1.finance.yahoo.com/v10/finance/quoteSummary/ALMCE.PA?modules=assetProfile,majorHoldersBreakdown,insiderHolders,insiderTransactions",
       "statut": "SOURCE_SECONDAIRE_GOUVERNANCE_A_RAPPROCHER",
       "commentaire": "Titres détenus séparés des options/attributions. Dates/fonctions de chaque ligne à contrôler : les anciens dirigeants peuvent subsister. Ne pas additionner les détentions directes et indirectes sans éliminer les doubles comptes. Pas de certification de couverture des transactions, ni note SSI déduite."
+    },
+    {
+      "bloc": null,
+      "champ": "actionnariat_physique_hors_droits_a_60j",
+      "valeur": {
+        "uni_groupe_actions": 955787,
+        "groupe_axell_actions": 955787,
+        "titun_consulting_actions": 659099,
+        "jinery_actions": 219688,
+        "actions_emises": 3657862
+      },
+      "unite": "titres et pct",
+      "periode": "au 31/12/2025, rapport annuel p.50-51",
+      "date_source": "2026-04-29",
+      "source_url": "https://mce-finance.com/images/PDF/docs/fr/2026/Rapport_annuel_VF_29_04_2026_compressed.pdf",
+      "statut": "SOURCE_PRIMAIRE",
+      "commentaire": "Titun contrôlée à 100 % par Charlie Evrard, CEO à la date du rapport; Hugo Larricq figure sur le site actuel, donc ne pas attribuer ces titres au CEO actuel. Uni et Axell comprennent plusieurs propriétaires.",
+      "date_collecte": "2026-11-05"
     }
   ],
   "journal_recherches": [

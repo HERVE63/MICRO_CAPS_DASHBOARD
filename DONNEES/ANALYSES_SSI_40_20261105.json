@@ -1,0 +1,117 @@
+{
+  "date": "2026-11-05",
+  "nature": "ANALYSES_PROGRESSIVES_NON_VALIDATION_MCPA",
+  "analyses": [
+    {
+      "ticker": "IDN",
+      "date_analyse": "2026-11-05",
+      "bareme": "CONFIG/BAREME_SSI_V1_0.json",
+      "nature": "JUGEMENT_ANALYSTE_DOCUMENTE_NON_AUTOMATIQUE",
+      "blocs": [
+        {
+          "bloc": "B1",
+          "note": 17,
+          "maximum": 20,
+          "justification": "11,8 M USD de cash et absence de dette financière publiés au 30/06; FCF TTM positif. Classe solide, sans maximum en raison du risque commercial à venir et d'un bilan semestriel.",
+          "preuves": [
+            "https://www.intellicheck.com/newsroom/intellicheck-reports-second-quarter-2026-results",
+            "https://data.sec.gov/api/xbrl/companyfacts/CIK0001040896.json"
+          ],
+          "champs": [
+            "risque.cash",
+            "risque.dette_brute",
+            "qualite.fcf_ttm"
+          ]
+        },
+        {
+          "bloc": "B2",
+          "note": 13,
+          "maximum": 15,
+          "justification": "Résultat net TTM positif, marge nette ~13 % et FCF 2,81 M USD. Rentabilité démontrée, mais recul futur des volumes du premier client susceptible de peser sur l'absorption des coûts.",
+          "preuves": [
+            "https://data.sec.gov/api/xbrl/companyfacts/CIK0001040896.json",
+            "https://www.intellicheck.com/newsroom/intellicheck-reports-second-quarter-2026-results"
+          ],
+          "champs": [
+            "qualite.marge_nette_pct",
+            "qualite.fcf_ttm"
+          ]
+        },
+        {
+          "bloc": "B3",
+          "note": 8,
+          "maximum": 15,
+          "justification": "Croissance historique du CA TTM ~13,3 %, contrebalancée par la réduction annoncée des volumes d'un client représentant 29 % du S1. La solidité prospective ne justifie pas la classe croissance forte; récurrence contractuelle non chiffrée.",
+          "preuves": [
+            "https://data.sec.gov/api/xbrl/companyfacts/CIK0001040896.json",
+            "https://www.intellicheck.com/newsroom/intellicheck-reports-second-quarter-2026-results"
+          ],
+          "champs": [
+            "croissance.croissance_ca_1a_pct",
+            "qualite.concentration_clients_pct",
+            "risque.risque_concentration"
+          ]
+        },
+        {
+          "bloc": "B4",
+          "note": 14,
+          "maximum": 20,
+          "justification": "1 035 081 titres déjà émis pour administrateurs/dirigeants hors 535 098 options à 60 jours, soit ~5,11 % de la base du proxy. Note basse de la classe 2–10 % : dates de détention anciennes et 13 882 titres du conjoint dont le CEO décline la propriété; aucun exercice ni attribution compté comme achat.",
+          "preuves": [
+            "https://www.sec.gov/Archives/edgar/data/1040896/000104089626000012/idn-20260401.htm"
+          ],
+          "observations": [
+            "actionnariat_physique_hors_droits_a_60j"
+          ],
+          "limite": "État au 23/03/2026, pas total de détention courant certifié; les déclarations SEC de flux sont documentées séparément."
+        },
+        {
+          "bloc": "B5",
+          "note": 6,
+          "maximum": 10,
+          "justification": "Contrôle d'audit indépendant décrit au proxy; dilution du nombre d'actions annuel sur trois ans ~6,7 %. Bonus 2025 concentrés sur le CA avec accélérateurs non plafonnés, donc discipline seulement acceptable.",
+          "preuves": [
+            "https://www.sec.gov/Archives/edgar/data/1040896/000104089626000012/idn-20260401.htm",
+            "https://stockanalysis.com/stocks/idn/financials/balance-sheet/"
+          ],
+          "champs": [
+            "risque.dilution_3a_pct"
+          ],
+          "observations": [
+            "risque_gouvernance"
+          ]
+        },
+        {
+          "bloc": "B6",
+          "note": 9,
+          "maximum": 10,
+          "justification": "États annuels et intermédiaires déposés auprès de la SEC, périodes TTM rapprochées. Rapports exploitables et réguliers; les états intermédiaires ne sont pas assimilés à un audit annuel.",
+          "preuves": [
+            "https://data.sec.gov/api/xbrl/companyfacts/CIK0001040896.json",
+            "https://www.sec.gov/Archives/edgar/data/1040896/000104089626000012/idn-20260401.htm"
+          ]
+        },
+        {
+          "bloc": "B7",
+          "note": 8,
+          "maximum": 10,
+          "justification": "Nasdaq et proxy de volume notionnel moyen sur 20 séances ~508 kEUR/jour. Liquidité correcte pour cet univers; spread et profondeur non mesurés, ce qui exclut la note maximale.",
+          "preuves": [
+            "https://query1.finance.yahoo.com/v8/finance/chart/IDN?range=5y&interval=1d&events=div%2Csplits | https://www.ecb.europa.eu/stats/policy_and_exchange_rates/euro_reference_exchange_rates/html/index.cn.html"
+          ],
+          "champs": [
+            "identite.liquidite_moyenne_eur_20j"
+          ]
+        }
+      ],
+      "total": 75,
+      "seuil_admission": 65,
+      "conclusion": "SEUIL_SSI_ATTEINT_SUR_PREUVES_DATEES",
+      "limites": [
+        "SSI ne vaut ni notation MCPA complète ni autorisation d'arbitrage.",
+        "MCPA, IC/CX, scénarios et confrontation restent à documenter.",
+        "Réévaluer le bilan, la concentration et l'alignement lors de la prochaine publication."
+      ]
+    }
+  ]
+}
