@@ -1813,6 +1813,140 @@
       "statut": "SOURCE_SECONDAIRE_CONSENSUS_DATE",
       "commentaire": "BPA généralement ajusté; identité demandée par ticker dans URL API, pas validation primaire.",
       "date_collecte": "2026-11-05"
+    },
+    {
+      "bloc": "qualite",
+      "champ": "dirigeants_et_detentions_documentes",
+      "valeur": {
+        "dirigeants_declares_fournisseur": [
+          {
+            "name": "Mr. Henrik  Hojer",
+            "title": "Chief Executive Officer",
+            "yearBorn": 1966,
+            "fiscalYear": 2025,
+            "totalPay": {
+              "raw": 4028000,
+              "fmt": "4.03M",
+              "longFmt": "4,028,000"
+            },
+            "exercisedValue": {
+              "raw": 0,
+              "fmt": null,
+              "longFmt": "0"
+            },
+            "unexercisedValue": {
+              "raw": 0,
+              "fmt": null,
+              "longFmt": "0"
+            }
+          },
+          {
+            "name": "Mr. Markus  Berg",
+            "title": "CFO & Head of Sustainability",
+            "yearBorn": 1980,
+            "fiscalYear": 2025,
+            "exercisedValue": {
+              "raw": 0,
+              "fmt": null,
+              "longFmt": "0"
+            },
+            "unexercisedValue": {
+              "raw": 0,
+              "fmt": null,
+              "longFmt": "0"
+            }
+          },
+          {
+            "name": "Mr. Mikael  Stavaeus",
+            "title": "CTO & Head of Sustainability",
+            "yearBorn": 1975,
+            "fiscalYear": 2025,
+            "exercisedValue": {
+              "raw": 0,
+              "fmt": null,
+              "longFmt": "0"
+            },
+            "unexercisedValue": {
+              "raw": 0,
+              "fmt": null,
+              "longFmt": "0"
+            }
+          },
+          {
+            "name": "Ms. Maria  Wester",
+            "title": "Head of Quality & HR",
+            "yearBorn": 1966,
+            "fiscalYear": 2025,
+            "exercisedValue": {
+              "raw": 0,
+              "fmt": null,
+              "longFmt": "0"
+            },
+            "unexercisedValue": {
+              "raw": 0,
+              "fmt": null,
+              "longFmt": "0"
+            }
+          },
+          {
+            "name": "Mr. Ola  Haggfeldt",
+            "title": "Chief Commercial Officer",
+            "yearBorn": 1969,
+            "fiscalYear": 2025,
+            "exercisedValue": {
+              "raw": 0,
+              "fmt": null,
+              "longFmt": "0"
+            },
+            "unexercisedValue": {
+              "raw": 0,
+              "fmt": null,
+              "longFmt": "0"
+            }
+          },
+          {
+            "name": "Mr. Henrik  Wolf",
+            "title": "Head of Production",
+            "yearBorn": 1979,
+            "fiscalYear": 2025,
+            "exercisedValue": {
+              "raw": 0,
+              "fmt": null,
+              "longFmt": "0"
+            },
+            "unexercisedValue": {
+              "raw": 0,
+              "fmt": null,
+              "longFmt": "0"
+            }
+          },
+          {
+            "name": "Mr. Johnny  Cronstrom",
+            "title": "Head of Product Management",
+            "yearBorn": 1977,
+            "fiscalYear": 2025,
+            "exercisedValue": {
+              "raw": 0,
+              "fmt": null,
+              "longFmt": "0"
+            },
+            "unexercisedValue": {
+              "raw": 0,
+              "fmt": null,
+              "longFmt": "0"
+            }
+          }
+        ],
+        "detentions_initiees": [],
+        "fichier_transactions_secondaires": "DONNEES/GOUVERNANCE_PUBLIQUE_40_20261105.json"
+      },
+      "unite": "detentions et profils professionnels",
+      "periode": "dates individuelles du fournisseur; collecte 2026-11-05",
+      "date_source": "2026-11-05",
+      "date_collecte": "2026-11-05",
+      "source_url": "https://query1.finance.yahoo.com/v10/finance/quoteSummary/CTT.ST?modules=assetProfile,majorHoldersBreakdown,insiderHolders,insiderTransactions",
+      "statut": "SOURCE_SECONDAIRE_GOUVERNANCE_A_RAPPROCHER",
+      "commentaire": "Titres détenus séparés des options/attributions. Dates/fonctions de chaque ligne à contrôler : les anciens dirigeants peuvent subsister. Ne pas additionner les détentions directes et indirectes sans éliminer les doubles comptes. Pas de certification de couverture des transactions, ni note SSI déduite."
     }
   ],
   "journal_recherches": [
@@ -2030,6 +2164,14 @@
       "http": 200,
       "statut": "SOURCE_SECONDAIRE_CONSENSUS_DATE",
       "limite": "Échec ou champ absent ne prouve pas une indisponibilité définitive."
+    },
+    {
+      "famille": "gouvernance_et_detentions_Yahoo",
+      "date": "2026-11-05",
+      "url": "https://query1.finance.yahoo.com/v10/finance/quoteSummary/CTT.ST?modules=assetProfile,majorHoldersBreakdown,insiderHolders,insiderTransactions",
+      "http": 200,
+      "statut": "SOURCE_SECONDAIRE_GOUVERNANCE_NON_RAPPROCHEE",
+      "limite": "Initiés fournisseur ≠ dirigeants stricts; transactions potentiellement partielles, jamais total net exhaustif par défaut. Options et attributions distinctes des achats au comptant."
     }
   ],
   "audit_couverture": {

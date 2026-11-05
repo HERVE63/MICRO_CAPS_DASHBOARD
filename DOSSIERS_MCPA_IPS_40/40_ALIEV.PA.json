@@ -22,19 +22,14 @@
         "date_collecte": "2026-11-04"
       },
       "lei": {
-        "valeur": null,
-        "unite": null,
-        "periode": null,
-        "date_source": null,
-        "source_url": null,
-        "statut": "A_COLLECTER",
-        "commentaire": null,
-        "recherche": {
-          "date": "2026-11-04",
-          "statut": "MANQUANT_RECHERCHE_NON_CLOSE",
-          "motif": "Aucune valeur vérifiée importée à cette étape; les recherches tracées ne démontrent pas une indisponibilité définitive.",
-          "journal": "journal_recherches"
-        }
+        "valeur": "9695008NTA6DK2RSN932",
+        "unite": "LEI",
+        "periode": "déclaration publiée 2026-05-22",
+        "date_source": "2026-05-22",
+        "date_collecte": "2026-11-05",
+        "source_url": "https://bdif.amf-france.org/back/api/v1/documents/2026/2026DD1116192/F798D322654BDA92E1BC995F93D67F568D6C3503EFD7FB1C2E679221EB60F7C5.pdf",
+        "statut": "SOURCE_PRIMAIRE_DECLARANT_AMF",
+        "commentaire": "Identifiant déclaré, ISIN contrôlé dans le même document et checksum LEI mod-97 valide; statut courant du registre GLEIF non vérifié."
       },
       "pays": {
         "valeur": "France",
@@ -853,34 +848,24 @@
         }
       },
       "transactions_initiees_net_90j": {
-        "valeur": null,
-        "unite": null,
-        "periode": null,
-        "date_source": null,
-        "source_url": null,
-        "statut": "A_COLLECTER",
-        "commentaire": null,
-        "recherche": {
-          "date": "2026-11-04",
-          "statut": "MANQUANT_RECHERCHE_NON_CLOSE",
-          "motif": "Registre complet des transactions, codes et prix non validé sur toute la fenêtre; transaction isolée ≠ net exhaustif.",
-          "journal": "journal_recherches"
-        }
+        "valeur": 311100.0,
+        "unite": "EUR",
+        "periode": "2026-08-07 / 2026-11-05; 90 jours calendaires",
+        "date_source": "2026-11-05",
+        "date_collecte": "2026-11-05",
+        "source_url": "https://bdif.amf-france.org/back/api/v1/informations?Jetons=RS00008533&TypesInformation=DD&DateDebut=2026-01-01T00%3A00%3A00.000Z&DateFin=2026-11-05T23%3A59%3A59.000Z&From=0&Size=100",
+        "statut": "CALCULE_DEPOTS_PRIMAIRES_AMF",
+        "commentaire": "Achats moins ventes d’actions au comptant déclarés et publiés à la date de collecte; exercices/attributions/dons distingués. Cessions liées à des programmes signalées. Hors frais, produits des prix/volumes déclarés. Pas preuve d’absence de transactions non publiées. Source détaillée et PDF archivés : DONNEES/DECLARATIONS_AMF_14_20261105.json. Un zéro décrit le net des déclarations couvertes; il ne certifie pas une absence de transactions réelles."
       },
       "transactions_initiees_net_180j": {
-        "valeur": null,
-        "unite": null,
-        "periode": null,
-        "date_source": null,
-        "source_url": null,
-        "statut": "A_COLLECTER",
-        "commentaire": null,
-        "recherche": {
-          "date": "2026-11-04",
-          "statut": "MANQUANT_RECHERCHE_NON_CLOSE",
-          "motif": "Registre complet des transactions, codes et prix non validé sur toute la fenêtre; transaction isolée ≠ net exhaustif.",
-          "journal": "journal_recherches"
-        }
+        "valeur": 400374.6865,
+        "unite": "EUR",
+        "periode": "2026-05-09 / 2026-11-05; 180 jours calendaires",
+        "date_source": "2026-11-05",
+        "date_collecte": "2026-11-05",
+        "source_url": "https://bdif.amf-france.org/back/api/v1/informations?Jetons=RS00008533&TypesInformation=DD&DateDebut=2026-01-01T00%3A00%3A00.000Z&DateFin=2026-11-05T23%3A59%3A59.000Z&From=0&Size=100",
+        "statut": "CALCULE_DEPOTS_PRIMAIRES_AMF",
+        "commentaire": "Achats moins ventes d’actions au comptant déclarés et publiés à la date de collecte; exercices/attributions/dons distingués. Cessions liées à des programmes signalées. Hors frais, produits des prix/volumes déclarés. Pas preuve d’absence de transactions non publiées. Source détaillée et PDF archivés : DONNEES/DECLARATIONS_AMF_14_20261105.json. Un zéro décrit le net des déclarations couvertes; il ne certifie pas une absence de transactions réelles."
       }
     },
     "momentum": {
@@ -1749,6 +1734,137 @@
       "statut": "SOURCE_SECONDAIRE_NON_RAPPROCHEE",
       "commentaire": "Donnée de fournisseur secondaire; ni certification des comptes ni validation MCPA. Arrêté précis à rapprocher. Date rapprochée au tableau financier du même fournisseur, sans certification primaire.",
       "date_collecte": "2026-11-04"
+    },
+    {
+      "bloc": "qualite",
+      "champ": "dirigeants_et_detentions_documentes",
+      "valeur": {
+        "dirigeants_declares_fournisseur": [
+          {
+            "name": "Dr. Jean Michel Karam Ph.D.",
+            "title": "Founder, CEO, President & Chairman",
+            "yearBorn": 1970,
+            "exercisedValue": {
+              "raw": 0,
+              "fmt": null,
+              "longFmt": "0"
+            },
+            "unexercisedValue": {
+              "raw": 0,
+              "fmt": null,
+              "longFmt": "0"
+            }
+          },
+          {
+            "name": "Mr. Yann  Cousinet",
+            "title": "Chief Financial Officer",
+            "exercisedValue": {
+              "raw": 0,
+              "fmt": null,
+              "longFmt": "0"
+            },
+            "unexercisedValue": {
+              "raw": 0,
+              "fmt": null,
+              "longFmt": "0"
+            }
+          },
+          {
+            "name": "David  Moulinier",
+            "title": "Executive Vice President of Digital, Tech & AI",
+            "exercisedValue": {
+              "raw": 0,
+              "fmt": null,
+              "longFmt": "0"
+            },
+            "unexercisedValue": {
+              "raw": 0,
+              "fmt": null,
+              "longFmt": "0"
+            }
+          },
+          {
+            "name": "Veronique  Coradin",
+            "title": "Chief People & Transformation Officer",
+            "exercisedValue": {
+              "raw": 0,
+              "fmt": null,
+              "longFmt": "0"
+            },
+            "unexercisedValue": {
+              "raw": 0,
+              "fmt": null,
+              "longFmt": "0"
+            }
+          },
+          {
+            "name": "Ms. Celine  Orjubin",
+            "title": "Executive Vice President of My Little Paris",
+            "exercisedValue": {
+              "raw": 0,
+              "fmt": null,
+              "longFmt": "0"
+            },
+            "unexercisedValue": {
+              "raw": 0,
+              "fmt": null,
+              "longFmt": "0"
+            }
+          },
+          {
+            "name": "Ms. Salome Lespagnol Dubbe",
+            "title": "Executive Vice President of M&A, Beauty & Retail",
+            "yearBorn": 1983,
+            "exercisedValue": {
+              "raw": 0,
+              "fmt": null,
+              "longFmt": "0"
+            },
+            "unexercisedValue": {
+              "raw": 0,
+              "fmt": null,
+              "longFmt": "0"
+            }
+          },
+          {
+            "name": "Pascal  Ränsch",
+            "title": "Executive Vice President of Growth & Sourcing",
+            "exercisedValue": {
+              "raw": 0,
+              "fmt": null,
+              "longFmt": "0"
+            },
+            "unexercisedValue": {
+              "raw": 0,
+              "fmt": null,
+              "longFmt": "0"
+            }
+          },
+          {
+            "name": "Mr. Gabriele  Betti",
+            "title": "Deputy CEO",
+            "exercisedValue": {
+              "raw": 0,
+              "fmt": null,
+              "longFmt": "0"
+            },
+            "unexercisedValue": {
+              "raw": 0,
+              "fmt": null,
+              "longFmt": "0"
+            }
+          }
+        ],
+        "detentions_initiees": [],
+        "fichier_transactions_secondaires": "DONNEES/GOUVERNANCE_PUBLIQUE_40_20261105.json"
+      },
+      "unite": "detentions et profils professionnels",
+      "periode": "dates individuelles du fournisseur; collecte 2026-11-05",
+      "date_source": "2026-11-05",
+      "date_collecte": "2026-11-05",
+      "source_url": "https://query1.finance.yahoo.com/v10/finance/quoteSummary/ALIEV.PA?modules=assetProfile,majorHoldersBreakdown,insiderHolders,insiderTransactions",
+      "statut": "SOURCE_SECONDAIRE_GOUVERNANCE_A_RAPPROCHER",
+      "commentaire": "Titres détenus séparés des options/attributions. Dates/fonctions de chaque ligne à contrôler : les anciens dirigeants peuvent subsister. Ne pas additionner les détentions directes et indirectes sans éliminer les doubles comptes. Pas de certification de couverture des transactions, ni note SSI déduite."
     }
   ],
   "journal_recherches": [
@@ -1938,16 +2054,44 @@
       "http": 200,
       "statut": "SOURCE_SECONDAIRE_CONSENSUS_DATE",
       "limite": "Échec ou champ absent ne prouve pas une indisponibilité définitive."
+    },
+    {
+      "famille": "gouvernance_et_detentions_Yahoo",
+      "date": "2026-11-05",
+      "url": "https://query1.finance.yahoo.com/v10/finance/quoteSummary/ALIEV.PA?modules=assetProfile,majorHoldersBreakdown,insiderHolders,insiderTransactions",
+      "http": 200,
+      "statut": "SOURCE_SECONDAIRE_GOUVERNANCE_NON_RAPPROCHEE",
+      "limite": "Initiés fournisseur ≠ dirigeants stricts; transactions potentiellement partielles, jamais total net exhaustif par défaut. Options et attributions distinctes des achats au comptant."
+    },
+    {
+      "famille": "registre_AMF_identite_AMF",
+      "date": "2026-11-05",
+      "url": "https://bdif.amf-france.org/back/api/v1/informations?RechercheTexte=IEVA+GROUP&From=0&Size=50",
+      "http": 200,
+      "sha256_reponse": "a50645d779fbb29ff43047d0a110f8f88a31795e0410d0691d5bfea7393b4069",
+      "total": 11,
+      "jeton": "RS00008533",
+      "limite": "Déclarations publiées par l’AMF, établies sous responsabilité du déclarant; ne prouve pas absence de transactions non publiées."
+    },
+    {
+      "famille": "registre_AMF_declarations_2026",
+      "date": "2026-11-05",
+      "url": "https://bdif.amf-france.org/back/api/v1/informations?Jetons=RS00008533&TypesInformation=DD&DateDebut=2026-01-01T00%3A00%3A00.000Z&DateFin=2026-11-05T23%3A59%3A59.000Z&From=0&Size=100",
+      "http": 200,
+      "sha256_reponse": "a50645d779fbb29ff43047d0a110f8f88a31795e0410d0691d5bfea7393b4069",
+      "total": 11,
+      "from_index": 0,
+      "jeton": "RS00008533",
+      "limite": "Déclarations publiées par l’AMF, établies sous responsabilité du déclarant; ne prouve pas absence de transactions non publiées."
     }
   ],
   "audit_couverture": {
     "date": "2026-11-05",
     "champs_total": 108,
-    "champs_renseignes": 44,
-    "couverture_pct": 40.74,
+    "champs_renseignes": 47,
+    "couverture_pct": 43.52,
     "champs_secondaires_non_rapproches": 24,
     "champs_manquants": [
-      "identite.lei",
       "identite.marche",
       "qualite.conversion_fcf_pct",
       "qualite.concentration_clients_pct",
@@ -1980,8 +2124,6 @@
       "risque.risque_gouvernance",
       "risque.risque_reglementaire",
       "risque.risque_concentration",
-      "risque.transactions_initiees_net_90j",
-      "risque.transactions_initiees_net_180j",
       "momentum.prix_vers_mm200",
       "momentum.momentum_12m_pct",
       "momentum.tendance_mm200",
@@ -2019,15 +2161,14 @@
   "audit_poursuite": {
     "date": "2026-11-05",
     "comptage": {
-      "RENSEIGNE": 44,
+      "RENSEIGNE": 47,
       "NON_APPLICABLE": 8,
       "INDISPONIBLE_A_DATE": 4,
-      "RECHERCHE_A_POURSUIVRE": 52
+      "RECHERCHE_A_POURSUIVRE": 49
     },
-    "couverture_valeurs_pct": 40.74,
-    "couverture_applicable_pct": 44.0,
+    "couverture_valeurs_pct": 43.52,
+    "couverture_applicable_pct": 47.0,
     "recherches_non_closes": [
-      "identite.lei",
       "identite.marche",
       "qualite.concentration_clients_pct",
       "qualite.avantage_concurrentiel",
@@ -2052,8 +2193,6 @@
       "risque.risque_gouvernance",
       "risque.risque_reglementaire",
       "risque.risque_concentration",
-      "risque.transactions_initiees_net_90j",
-      "risque.transactions_initiees_net_180j",
       "diversification.zone_geographique",
       "diversification.interet_strategique",
       "diversification.complementarite_portefeuille",

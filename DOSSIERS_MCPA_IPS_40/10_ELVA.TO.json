@@ -1754,6 +1754,237 @@
       "statut": "SOURCE_SECONDAIRE_CONSENSUS_DATE",
       "commentaire": "BPA généralement ajusté; identité demandée par ticker dans URL API, pas validation primaire.",
       "date_collecte": "2026-11-05"
+    },
+    {
+      "bloc": "qualite",
+      "champ": "dirigeants_et_detentions_documentes",
+      "valeur": {
+        "dirigeants_declares_fournisseur": [
+          {
+            "name": "Dr. Sankar Das Gupta Ph.D.",
+            "title": "Co-Founder & Executive Chairman",
+            "yearBorn": 1951,
+            "fiscalYear": 2025,
+            "totalPay": {
+              "raw": 311968,
+              "fmt": "311.97k",
+              "longFmt": "311,968"
+            },
+            "exercisedValue": {
+              "raw": 0,
+              "fmt": null,
+              "longFmt": "0"
+            },
+            "unexercisedValue": {
+              "raw": 2970975,
+              "fmt": "2.97M",
+              "longFmt": "2,970,975"
+            }
+          },
+          {
+            "name": "Dr. Rajshekar Das Gupta Ph.D.",
+            "title": "CEO & Director",
+            "yearBorn": 1984,
+            "fiscalYear": 2025,
+            "totalPay": {
+              "raw": 718470,
+              "fmt": "718.47k",
+              "longFmt": "718,470"
+            },
+            "exercisedValue": {
+              "raw": 0,
+              "fmt": null,
+              "longFmt": "0"
+            },
+            "unexercisedValue": {
+              "raw": 9608670,
+              "fmt": "9.61M",
+              "longFmt": "9,608,670"
+            }
+          },
+          {
+            "name": "Dr. James K. Jacobs MA, Ph.D.",
+            "title": "Co-Founder & Director",
+            "yearBorn": 1949,
+            "fiscalYear": 2025,
+            "totalPay": {
+              "raw": 10013,
+              "fmt": "10.01k",
+              "longFmt": "10,013"
+            },
+            "exercisedValue": {
+              "raw": 0,
+              "fmt": null,
+              "longFmt": "0"
+            },
+            "unexercisedValue": {
+              "raw": 196107,
+              "fmt": "196.11k",
+              "longFmt": "196,107"
+            }
+          },
+          {
+            "name": "Mr. Francis John Gibson",
+            "title": "CFO & Secretary",
+            "fiscalYear": 2025,
+            "totalPay": {
+              "raw": 358368,
+              "fmt": "358.37k",
+              "longFmt": "358,368"
+            },
+            "exercisedValue": {
+              "raw": 0,
+              "fmt": null,
+              "longFmt": "0"
+            },
+            "unexercisedValue": {
+              "raw": 834592,
+              "fmt": "834.59k",
+              "longFmt": "834,592"
+            }
+          },
+          {
+            "name": "Mr. Jason  Roy",
+            "title": "Vice President of Corporate Development & Investor Relations",
+            "fiscalYear": 2025,
+            "exercisedValue": {
+              "raw": 0,
+              "fmt": null,
+              "longFmt": "0"
+            },
+            "unexercisedValue": {
+              "raw": 0,
+              "fmt": null,
+              "longFmt": "0"
+            }
+          },
+          {
+            "name": "Dr. Jeremy  Dang Ph.D.",
+            "title": "Vice President of Business & Project Development",
+            "fiscalYear": 2025,
+            "exercisedValue": {
+              "raw": 0,
+              "fmt": null,
+              "longFmt": "0"
+            },
+            "unexercisedValue": {
+              "raw": 0,
+              "fmt": null,
+              "longFmt": "0"
+            }
+          }
+        ],
+        "detentions_initiees": [
+          {
+            "maxAge": 1,
+            "name": "Dang (Jeremy Ph.D.)",
+            "relation": "Deemed Insider - 6 Months before becoming Insider",
+            "url": "",
+            "transactionDescription": "Acquisition or disposition in the public market",
+            "latestTransDate": {
+              "raw": 1793577600,
+              "fmt": "2026-11-02"
+            },
+            "positionDirect": {
+              "raw": 256333,
+              "fmt": "256.33k",
+              "longFmt": "256,333"
+            },
+            "positionDirectDate": {
+              "raw": 1793577600,
+              "fmt": "2026-11-02"
+            }
+          },
+          {
+            "maxAge": 1,
+            "name": "Das Gupta (Sankar)",
+            "relation": "10% Security Holder of Issuer",
+            "url": "",
+            "transactionDescription": "Exercise of warrants",
+            "latestTransDate": {
+              "raw": 1768521600,
+              "fmt": "2026-01-16"
+            },
+            "positionDirect": {
+              "raw": 11690751,
+              "fmt": "11.69M",
+              "longFmt": "11,690,751"
+            },
+            "positionDirectDate": {
+              "raw": 1768521600,
+              "fmt": "2026-01-16"
+            }
+          },
+          {
+            "maxAge": 1,
+            "name": "Dasgupta (Rajshekar)",
+            "relation": "Senior Officer of Issuer",
+            "url": "",
+            "transactionDescription": "Exercise of options",
+            "latestTransDate": {
+              "raw": 1784851200,
+              "fmt": "2026-07-24"
+            },
+            "positionDirect": {
+              "raw": 1176633,
+              "fmt": "1.18M",
+              "longFmt": "1,176,633"
+            },
+            "positionDirectDate": {
+              "raw": 1784851200,
+              "fmt": "2026-07-24"
+            }
+          },
+          {
+            "maxAge": 1,
+            "name": "Gibson (Francis John)",
+            "relation": "Senior Officer of Issuer",
+            "url": "",
+            "transactionDescription": "Acquisition or disposition in the public market",
+            "latestTransDate": {
+              "raw": 1788480000,
+              "fmt": "2026-09-04"
+            },
+            "positionDirect": {
+              "raw": 46144,
+              "fmt": "46.14k",
+              "longFmt": "46,144"
+            },
+            "positionDirectDate": {
+              "raw": 1788480000,
+              "fmt": "2026-09-04"
+            }
+          },
+          {
+            "maxAge": 1,
+            "name": "Hansson (Carolyn Mary)",
+            "relation": "Director of Issuer",
+            "url": "",
+            "transactionDescription": "Acquisition or disposition by gift",
+            "latestTransDate": {
+              "raw": 1781222400,
+              "fmt": "2026-06-12"
+            },
+            "positionDirect": {
+              "raw": 252680,
+              "fmt": "252.68k",
+              "longFmt": "252,680"
+            },
+            "positionDirectDate": {
+              "raw": 1781222400,
+              "fmt": "2026-06-12"
+            }
+          }
+        ],
+        "fichier_transactions_secondaires": "DONNEES/GOUVERNANCE_PUBLIQUE_40_20261105.json"
+      },
+      "unite": "detentions et profils professionnels",
+      "periode": "dates individuelles du fournisseur; collecte 2026-11-05",
+      "date_source": "2026-11-05",
+      "date_collecte": "2026-11-05",
+      "source_url": "https://query1.finance.yahoo.com/v10/finance/quoteSummary/ELVA.TO?modules=assetProfile,majorHoldersBreakdown,insiderHolders,insiderTransactions",
+      "statut": "SOURCE_SECONDAIRE_GOUVERNANCE_A_RAPPROCHER",
+      "commentaire": "Titres détenus séparés des options/attributions. Dates/fonctions de chaque ligne à contrôler : les anciens dirigeants peuvent subsister. Ne pas additionner les détentions directes et indirectes sans éliminer les doubles comptes. Pas de certification de couverture des transactions, ni note SSI déduite."
     }
   ],
   "journal_recherches": [
@@ -1971,6 +2202,14 @@
       "http": 200,
       "statut": "SOURCE_SECONDAIRE_CONSENSUS_DATE",
       "limite": "Échec ou champ absent ne prouve pas une indisponibilité définitive."
+    },
+    {
+      "famille": "gouvernance_et_detentions_Yahoo",
+      "date": "2026-11-05",
+      "url": "https://query1.finance.yahoo.com/v10/finance/quoteSummary/ELVA.TO?modules=assetProfile,majorHoldersBreakdown,insiderHolders,insiderTransactions",
+      "http": 200,
+      "statut": "SOURCE_SECONDAIRE_GOUVERNANCE_NON_RAPPROCHEE",
+      "limite": "Initiés fournisseur ≠ dirigeants stricts; transactions potentiellement partielles, jamais total net exhaustif par défaut. Options et attributions distinctes des achats au comptant."
     }
   ],
   "audit_couverture": {

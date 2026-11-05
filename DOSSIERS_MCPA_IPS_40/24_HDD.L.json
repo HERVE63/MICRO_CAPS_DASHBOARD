@@ -1750,6 +1750,302 @@
       "statut": "SOURCE_SECONDAIRE_CONSENSUS_DATE",
       "commentaire": "BPA généralement ajusté; identité demandée par ticker dans URL API, pas validation primaire.",
       "date_collecte": "2026-11-05"
+    },
+    {
+      "bloc": "qualite",
+      "champ": "dirigeants_et_detentions_documentes",
+      "valeur": {
+        "dirigeants_declares_fournisseur": [
+          {
+            "name": "Mr. Matthew Roger Hamblin",
+            "title": "CEO & Director",
+            "yearBorn": 1974,
+            "fiscalYear": 2025,
+            "totalPay": {
+              "raw": 276000,
+              "fmt": "276k",
+              "longFmt": "276,000"
+            },
+            "exercisedValue": {
+              "raw": 0,
+              "fmt": null,
+              "longFmt": "0"
+            },
+            "unexercisedValue": {
+              "raw": 0,
+              "fmt": null,
+              "longFmt": "0"
+            }
+          },
+          {
+            "name": "Dr. Yuri Nikolaevich Zhuk",
+            "title": "Co-Founder & CTO",
+            "yearBorn": 1961,
+            "fiscalYear": 2025,
+            "totalPay": {
+              "raw": 163000,
+              "fmt": "163k",
+              "longFmt": "163,000"
+            },
+            "exercisedValue": {
+              "raw": 0,
+              "fmt": null,
+              "longFmt": "0"
+            },
+            "unexercisedValue": {
+              "raw": 0,
+              "fmt": null,
+              "longFmt": "0"
+            }
+          },
+          {
+            "name": "Mr. Simon Andrew Hallam",
+            "title": "Finance Director, Company Secretary & Director",
+            "yearBorn": 1966,
+            "fiscalYear": 2025,
+            "totalPay": {
+              "raw": 147000,
+              "fmt": "147k",
+              "longFmt": "147,000"
+            },
+            "exercisedValue": {
+              "raw": 0,
+              "fmt": null,
+              "longFmt": "0"
+            },
+            "unexercisedValue": {
+              "raw": 0,
+              "fmt": null,
+              "longFmt": "0"
+            }
+          },
+          {
+            "name": "Steve  Guse",
+            "title": "Vice President of Operations",
+            "fiscalYear": 2025,
+            "exercisedValue": {
+              "raw": 0,
+              "fmt": null,
+              "longFmt": "0"
+            },
+            "unexercisedValue": {
+              "raw": 0,
+              "fmt": null,
+              "longFmt": "0"
+            }
+          }
+        ],
+        "detentions_initiees": [
+          {
+            "maxAge": 1,
+            "name": "A Badenoch & Associates",
+            "relation": "",
+            "url": "",
+            "transactionDescription": "Annual Return",
+            "latestTransDate": {
+              "raw": 1738627200,
+              "fmt": "2025-02-04"
+            },
+            "positionDirect": {
+              "raw": 4116666,
+              "fmt": "4.12M",
+              "longFmt": "4,116,666"
+            },
+            "positionDirectDate": {
+              "raw": 1738627200,
+              "fmt": "2025-02-04"
+            }
+          },
+          {
+            "maxAge": 1,
+            "name": "Boyce (Andrew)",
+            "relation": "",
+            "url": "",
+            "transactionDescription": "Annual Return",
+            "latestTransDate": {
+              "raw": 1767139200,
+              "fmt": "2025-12-31"
+            },
+            "positionDirect": {
+              "raw": 10052558,
+              "fmt": "10.05M",
+              "longFmt": "10,052,558"
+            },
+            "positionDirectDate": {
+              "raw": 1767139200,
+              "fmt": "2025-12-31"
+            }
+          },
+          {
+            "maxAge": 1,
+            "name": "Evershed (Patrick)",
+            "relation": "",
+            "url": "",
+            "transactionDescription": "Annual Return",
+            "latestTransDate": {
+              "raw": 1767139200,
+              "fmt": "2025-12-31"
+            },
+            "positionDirect": {
+              "raw": 4065437,
+              "fmt": "4.07M",
+              "longFmt": "4,065,437"
+            },
+            "positionDirectDate": {
+              "raw": 1767139200,
+              "fmt": "2025-12-31"
+            }
+          },
+          {
+            "maxAge": 1,
+            "name": "Hargreave Hale Ltd",
+            "relation": "",
+            "url": "",
+            "transactionDescription": "Decrease",
+            "latestTransDate": {
+              "raw": 1784678400,
+              "fmt": "2026-07-22"
+            },
+            "positionDirect": {
+              "raw": 7792581,
+              "fmt": "7.79M",
+              "longFmt": "7,792,581"
+            },
+            "positionDirectDate": {
+              "raw": 1784678400,
+              "fmt": "2026-07-22"
+            }
+          },
+          {
+            "maxAge": 1,
+            "name": "Hargreaves Lansdown Plc",
+            "relation": "",
+            "url": "",
+            "transactionDescription": "Annual Return",
+            "latestTransDate": {
+              "raw": 1767139200,
+              "fmt": "2025-12-31"
+            },
+            "positionDirect": {
+              "raw": 4161143,
+              "fmt": "4.16M",
+              "longFmt": "4,161,143"
+            },
+            "positionDirectDate": {
+              "raw": 1767139200,
+              "fmt": "2025-12-31"
+            }
+          },
+          {
+            "maxAge": 1,
+            "name": "James Brearley & Sons",
+            "relation": "",
+            "url": "",
+            "transactionDescription": "Annual Return",
+            "latestTransDate": {
+              "raw": 1767139200,
+              "fmt": "2025-12-31"
+            },
+            "positionDirect": {
+              "raw": 2378020,
+              "fmt": "2.38M",
+              "longFmt": "2,378,020"
+            },
+            "positionDirectDate": {
+              "raw": 1767139200,
+              "fmt": "2025-12-31"
+            }
+          },
+          {
+            "maxAge": 1,
+            "name": "Lobbenberg (John Peter)",
+            "relation": "",
+            "url": "",
+            "transactionDescription": "Annual Return",
+            "latestTransDate": {
+              "raw": 1767139200,
+              "fmt": "2025-12-31"
+            },
+            "positionDirect": {
+              "raw": 2910488,
+              "fmt": "2.91M",
+              "longFmt": "2,910,488"
+            },
+            "positionDirectDate": {
+              "raw": 1767139200,
+              "fmt": "2025-12-31"
+            }
+          },
+          {
+            "maxAge": 1,
+            "name": "Robert & Virginia Millington",
+            "relation": "",
+            "url": "",
+            "transactionDescription": "Annual Return",
+            "latestTransDate": {
+              "raw": 1767139200,
+              "fmt": "2025-12-31"
+            },
+            "positionDirect": {
+              "raw": 2450000,
+              "fmt": "2.45M",
+              "longFmt": "2,450,000"
+            },
+            "positionDirectDate": {
+              "raw": 1767139200,
+              "fmt": "2025-12-31"
+            }
+          },
+          {
+            "maxAge": 1,
+            "name": "Simpkin (Timothy)",
+            "relation": "",
+            "url": "",
+            "transactionDescription": "Annual Return",
+            "latestTransDate": {
+              "raw": 1767139200,
+              "fmt": "2025-12-31"
+            },
+            "positionDirect": {
+              "raw": 3168155,
+              "fmt": "3.17M",
+              "longFmt": "3,168,155"
+            },
+            "positionDirectDate": {
+              "raw": 1767139200,
+              "fmt": "2025-12-31"
+            }
+          },
+          {
+            "maxAge": 1,
+            "name": "Unicorn Asset Management Ltd",
+            "relation": "",
+            "url": "",
+            "transactionDescription": "Annual Return",
+            "latestTransDate": {
+              "raw": 1767139200,
+              "fmt": "2025-12-31"
+            },
+            "positionDirect": {
+              "raw": 3179608,
+              "fmt": "3.18M",
+              "longFmt": "3,179,608"
+            },
+            "positionDirectDate": {
+              "raw": 1767139200,
+              "fmt": "2025-12-31"
+            }
+          }
+        ],
+        "fichier_transactions_secondaires": "DONNEES/GOUVERNANCE_PUBLIQUE_40_20261105.json"
+      },
+      "unite": "detentions et profils professionnels",
+      "periode": "dates individuelles du fournisseur; collecte 2026-11-05",
+      "date_source": "2026-11-05",
+      "date_collecte": "2026-11-05",
+      "source_url": "https://query1.finance.yahoo.com/v10/finance/quoteSummary/HDD.L?modules=assetProfile,majorHoldersBreakdown,insiderHolders,insiderTransactions",
+      "statut": "SOURCE_SECONDAIRE_GOUVERNANCE_A_RAPPROCHER",
+      "commentaire": "Titres détenus séparés des options/attributions. Dates/fonctions de chaque ligne à contrôler : les anciens dirigeants peuvent subsister. Ne pas additionner les détentions directes et indirectes sans éliminer les doubles comptes. Pas de certification de couverture des transactions, ni note SSI déduite."
     }
   ],
   "journal_recherches": [
@@ -1971,6 +2267,14 @@
       "http": 200,
       "statut": "SOURCE_SECONDAIRE_CONSENSUS_DATE",
       "limite": "Échec ou champ absent ne prouve pas une indisponibilité définitive."
+    },
+    {
+      "famille": "gouvernance_et_detentions_Yahoo",
+      "date": "2026-11-05",
+      "url": "https://query1.finance.yahoo.com/v10/finance/quoteSummary/HDD.L?modules=assetProfile,majorHoldersBreakdown,insiderHolders,insiderTransactions",
+      "http": 200,
+      "statut": "SOURCE_SECONDAIRE_GOUVERNANCE_NON_RAPPROCHEE",
+      "limite": "Initiés fournisseur ≠ dirigeants stricts; transactions potentiellement partielles, jamais total net exhaustif par défaut. Options et attributions distinctes des achats au comptant."
     }
   ],
   "audit_couverture": {

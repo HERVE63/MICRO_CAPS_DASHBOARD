@@ -1708,6 +1708,311 @@
       "statut": "SOURCE_SECONDAIRE_CONSENSUS_DATE",
       "commentaire": "BPA généralement ajusté; identité demandée par ticker dans URL API, pas validation primaire.",
       "date_collecte": "2026-11-05"
+    },
+    {
+      "bloc": "qualite",
+      "champ": "dirigeants_et_detentions_documentes",
+      "valeur": {
+        "dirigeants_declares_fournisseur": [
+          {
+            "name": "Mr. Andrew Mark Hempsall",
+            "title": "Interim CEO, COO & Executive Director",
+            "yearBorn": 1969,
+            "fiscalYear": 2025,
+            "totalPay": {
+              "raw": 121000,
+              "fmt": "121k",
+              "longFmt": "121,000"
+            },
+            "exercisedValue": {
+              "raw": 0,
+              "fmt": null,
+              "longFmt": "0"
+            },
+            "unexercisedValue": {
+              "raw": 0,
+              "fmt": null,
+              "longFmt": "0"
+            }
+          },
+          {
+            "name": "Mr. James Edwards Snooks",
+            "title": "CFO, Company Secretary & Executive Director",
+            "yearBorn": 1971,
+            "fiscalYear": 2025,
+            "totalPay": {
+              "raw": 123000,
+              "fmt": "123k",
+              "longFmt": "123,000"
+            },
+            "exercisedValue": {
+              "raw": 0,
+              "fmt": null,
+              "longFmt": "0"
+            },
+            "unexercisedValue": {
+              "raw": 0,
+              "fmt": null,
+              "longFmt": "0"
+            }
+          },
+          {
+            "name": "Amanda  Bushell",
+            "title": "Head of HR & Executive Assistant to CEO",
+            "fiscalYear": 2025,
+            "exercisedValue": {
+              "raw": 0,
+              "fmt": null,
+              "longFmt": "0"
+            },
+            "unexercisedValue": {
+              "raw": 0,
+              "fmt": null,
+              "longFmt": "0"
+            }
+          },
+          {
+            "name": "Mr. Shaun  Tasker",
+            "title": "Managing Director of LSTH IFB",
+            "fiscalYear": 2025,
+            "exercisedValue": {
+              "raw": 0,
+              "fmt": null,
+              "longFmt": "0"
+            },
+            "unexercisedValue": {
+              "raw": 0,
+              "fmt": null,
+              "longFmt": "0"
+            }
+          },
+          {
+            "name": "Daryl  Hollands",
+            "title": "Financial Controller",
+            "fiscalYear": 2025,
+            "exercisedValue": {
+              "raw": 0,
+              "fmt": null,
+              "longFmt": "0"
+            },
+            "unexercisedValue": {
+              "raw": 0,
+              "fmt": null,
+              "longFmt": "0"
+            }
+          }
+        ],
+        "detentions_initiees": [
+          {
+            "maxAge": 1,
+            "name": "Beaumont-Dark Family Office",
+            "relation": "",
+            "url": "",
+            "transactionDescription": "Annual Return",
+            "latestTransDate": {
+              "raw": 1778457600,
+              "fmt": "2026-05-11"
+            },
+            "positionDirect": {
+              "raw": 150000000,
+              "fmt": "150M",
+              "longFmt": "150,000,000"
+            },
+            "positionDirectDate": {
+              "raw": 1778457600,
+              "fmt": "2026-05-11"
+            }
+          },
+          {
+            "maxAge": 1,
+            "name": "Cooley (Graham)",
+            "relation": "",
+            "url": "",
+            "transactionDescription": "Annual Return",
+            "latestTransDate": {
+              "raw": 1778457600,
+              "fmt": "2026-05-11"
+            },
+            "positionDirect": {
+              "raw": 41500000,
+              "fmt": "41.5M",
+              "longFmt": "41,500,000"
+            },
+            "positionDirectDate": {
+              "raw": 1778457600,
+              "fmt": "2026-05-11"
+            }
+          },
+          {
+            "maxAge": 1,
+            "name": "Deacon (Simon Lincoln)",
+            "relation": "",
+            "url": "",
+            "transactionDescription": "Annual Return",
+            "latestTransDate": {
+              "raw": 1778457600,
+              "fmt": "2026-05-11"
+            },
+            "positionDirect": {
+              "raw": 96203613,
+              "fmt": "96.2M",
+              "longFmt": "96,203,613"
+            },
+            "positionDirectDate": {
+              "raw": 1778457600,
+              "fmt": "2026-05-11"
+            }
+          },
+          {
+            "maxAge": 1,
+            "name": "Dowgate Group Ltd.",
+            "relation": "",
+            "url": "",
+            "transactionDescription": "Decrease",
+            "latestTransDate": {
+              "raw": 1790208000,
+              "fmt": "2026-09-24"
+            },
+            "positionDirect": {
+              "raw": 97550000,
+              "fmt": "97.55M",
+              "longFmt": "97,550,000"
+            },
+            "positionDirectDate": {
+              "raw": 1790208000,
+              "fmt": "2026-09-24"
+            }
+          },
+          {
+            "maxAge": 1,
+            "name": "Guinness Asset Management Ltd",
+            "relation": "",
+            "url": "",
+            "transactionDescription": "Holding",
+            "latestTransDate": {
+              "raw": 1776124800,
+              "fmt": "2026-04-14"
+            },
+            "positionDirect": {
+              "raw": 19550000,
+              "fmt": "19.55M",
+              "longFmt": "19,550,000"
+            },
+            "positionDirectDate": {
+              "raw": 1776124800,
+              "fmt": "2026-04-14"
+            }
+          },
+          {
+            "maxAge": 1,
+            "name": "Holliday (Daniel J)",
+            "relation": "",
+            "url": "",
+            "transactionDescription": "Increase",
+            "latestTransDate": {
+              "raw": 1793232000,
+              "fmt": "2026-10-29"
+            },
+            "positionDirect": {
+              "raw": 32000000,
+              "fmt": "32M",
+              "longFmt": "32,000,000"
+            },
+            "positionDirectDate": {
+              "raw": 1793232000,
+              "fmt": "2026-10-29"
+            }
+          },
+          {
+            "maxAge": 1,
+            "name": "LSTH Trustee",
+            "relation": "",
+            "url": "",
+            "transactionDescription": "Annual Return",
+            "latestTransDate": {
+              "raw": 1778457600,
+              "fmt": "2026-05-11"
+            },
+            "positionDirect": {
+              "raw": 8900000,
+              "fmt": "8.9M",
+              "longFmt": "8,900,000"
+            },
+            "positionDirectDate": {
+              "raw": 1778457600,
+              "fmt": "2026-05-11"
+            }
+          },
+          {
+            "maxAge": 1,
+            "name": "Oberon Investments Ltd.",
+            "relation": "",
+            "url": "",
+            "transactionDescription": "Annual Return",
+            "latestTransDate": {
+              "raw": 1778457600,
+              "fmt": "2026-05-11"
+            },
+            "positionDirect": {
+              "raw": 62500000,
+              "fmt": "62.5M",
+              "longFmt": "62,500,000"
+            },
+            "positionDirectDate": {
+              "raw": 1778457600,
+              "fmt": "2026-05-11"
+            }
+          },
+          {
+            "maxAge": 1,
+            "name": "Premier Miton Group Plc",
+            "relation": "",
+            "url": "",
+            "transactionDescription": "Decrease",
+            "latestTransDate": {
+              "raw": 1779062400,
+              "fmt": "2026-05-18"
+            },
+            "positionDirect": {
+              "raw": 49272504,
+              "fmt": "49.27M",
+              "longFmt": "49,272,504"
+            },
+            "positionDirectDate": {
+              "raw": 1779062400,
+              "fmt": "2026-05-18"
+            }
+          },
+          {
+            "maxAge": 1,
+            "name": "Puma Investment Management Ltd.",
+            "relation": "",
+            "url": "",
+            "transactionDescription": "Annual Return",
+            "latestTransDate": {
+              "raw": 1778457600,
+              "fmt": "2026-05-11"
+            },
+            "positionDirect": {
+              "raw": 30000000,
+              "fmt": "30M",
+              "longFmt": "30,000,000"
+            },
+            "positionDirectDate": {
+              "raw": 1778457600,
+              "fmt": "2026-05-11"
+            }
+          }
+        ],
+        "fichier_transactions_secondaires": "DONNEES/GOUVERNANCE_PUBLIQUE_40_20261105.json"
+      },
+      "unite": "detentions et profils professionnels",
+      "periode": "dates individuelles du fournisseur; collecte 2026-11-05",
+      "date_source": "2026-11-05",
+      "date_collecte": "2026-11-05",
+      "source_url": "https://query1.finance.yahoo.com/v10/finance/quoteSummary/LST.L?modules=assetProfile,majorHoldersBreakdown,insiderHolders,insiderTransactions",
+      "statut": "SOURCE_SECONDAIRE_GOUVERNANCE_A_RAPPROCHER",
+      "commentaire": "Titres détenus séparés des options/attributions. Dates/fonctions de chaque ligne à contrôler : les anciens dirigeants peuvent subsister. Ne pas additionner les détentions directes et indirectes sans éliminer les doubles comptes. Pas de certification de couverture des transactions, ni note SSI déduite."
     }
   ],
   "journal_recherches": [
@@ -1893,6 +2198,14 @@
       "http": 200,
       "statut": "SOURCE_SECONDAIRE_CONSENSUS_DATE",
       "limite": "Échec ou champ absent ne prouve pas une indisponibilité définitive."
+    },
+    {
+      "famille": "gouvernance_et_detentions_Yahoo",
+      "date": "2026-11-05",
+      "url": "https://query1.finance.yahoo.com/v10/finance/quoteSummary/LST.L?modules=assetProfile,majorHoldersBreakdown,insiderHolders,insiderTransactions",
+      "http": 200,
+      "statut": "SOURCE_SECONDAIRE_GOUVERNANCE_NON_RAPPROCHEE",
+      "limite": "Initiés fournisseur ≠ dirigeants stricts; transactions potentiellement partielles, jamais total net exhaustif par défaut. Options et attributions distinctes des achats au comptant."
     }
   ],
   "audit_couverture": {

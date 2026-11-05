@@ -1726,6 +1726,363 @@
       "statut": "SOURCE_SECONDAIRE_CONSENSUS_DATE",
       "commentaire": "BPA généralement ajusté; identité demandée par ticker dans URL API, pas validation primaire.",
       "date_collecte": "2026-11-05"
+    },
+    {
+      "bloc": "qualite",
+      "champ": "dirigeants_et_detentions_documentes",
+      "valeur": {
+        "dirigeants_declares_fournisseur": [
+          {
+            "name": "Mr. Nigel Foster Rogers FCA",
+            "title": "Executive Chairman",
+            "yearBorn": 1961,
+            "fiscalYear": 2026,
+            "totalPay": {
+              "raw": 68100,
+              "fmt": "68.1k",
+              "longFmt": "68,100"
+            },
+            "exercisedValue": {
+              "raw": 0,
+              "fmt": null,
+              "longFmt": "0"
+            },
+            "unexercisedValue": {
+              "raw": 57000,
+              "fmt": "57k",
+              "longFmt": "57,000"
+            }
+          },
+          {
+            "name": "Mr. Ryan  Maughan",
+            "title": "MD & Executive Director",
+            "yearBorn": 1979,
+            "fiscalYear": 2026,
+            "totalPay": {
+              "raw": 251445,
+              "fmt": "251.44k",
+              "longFmt": "251,445"
+            },
+            "exercisedValue": {
+              "raw": 0,
+              "fmt": null,
+              "longFmt": "0"
+            },
+            "unexercisedValue": {
+              "raw": 104500,
+              "fmt": "104.5k",
+              "longFmt": "104,500"
+            }
+          },
+          {
+            "name": "Mr. Melvyn  Segal FCA",
+            "title": "CFO, Company Secretary & Executive Director",
+            "yearBorn": 1955,
+            "fiscalYear": 2026,
+            "totalPay": {
+              "raw": 175485,
+              "fmt": "175.49k",
+              "longFmt": "175,485"
+            },
+            "exercisedValue": {
+              "raw": 0,
+              "fmt": null,
+              "longFmt": "0"
+            },
+            "unexercisedValue": {
+              "raw": 28500,
+              "fmt": "28.5k",
+              "longFmt": "28,500"
+            }
+          },
+          {
+            "name": "Mr. Andy  Joyner",
+            "title": "Operations Director",
+            "fiscalYear": 2026,
+            "exercisedValue": {
+              "raw": 0,
+              "fmt": null,
+              "longFmt": "0"
+            },
+            "unexercisedValue": {
+              "raw": 0,
+              "fmt": null,
+              "longFmt": "0"
+            }
+          },
+          {
+            "name": "Mr. Jordan  Taylor",
+            "title": "Business Development & Marketing Manager",
+            "fiscalYear": 2026,
+            "exercisedValue": {
+              "raw": 0,
+              "fmt": null,
+              "longFmt": "0"
+            },
+            "unexercisedValue": {
+              "raw": 0,
+              "fmt": null,
+              "longFmt": "0"
+            }
+          },
+          {
+            "name": "Mr. James Anthony Harold Perry",
+            "title": "Life President",
+            "yearBorn": 1939,
+            "fiscalYear": 2026,
+            "exercisedValue": {
+              "raw": 0,
+              "fmt": null,
+              "longFmt": "0"
+            },
+            "unexercisedValue": {
+              "raw": 0,
+              "fmt": null,
+              "longFmt": "0"
+            }
+          },
+          {
+            "name": "John  Beckley B.Eng(Hons)",
+            "title": "Head of Electronics",
+            "fiscalYear": 2026,
+            "exercisedValue": {
+              "raw": 0,
+              "fmt": null,
+              "longFmt": "0"
+            },
+            "unexercisedValue": {
+              "raw": 0,
+              "fmt": null,
+              "longFmt": "0"
+            }
+          },
+          {
+            "name": "Dr. Victor  Kalinin",
+            "title": "Chief Scientific Consultant",
+            "fiscalYear": 2026,
+            "exercisedValue": {
+              "raw": 0,
+              "fmt": null,
+              "longFmt": "0"
+            },
+            "unexercisedValue": {
+              "raw": 0,
+              "fmt": null,
+              "longFmt": "0"
+            }
+          }
+        ],
+        "detentions_initiees": [
+          {
+            "maxAge": 1,
+            "name": "Criseren Investments Limited",
+            "relation": "",
+            "url": "",
+            "transactionDescription": "Annual Return",
+            "latestTransDate": {
+              "raw": 1791244800,
+              "fmt": "2026-10-06"
+            },
+            "positionDirect": {
+              "raw": 1610004,
+              "fmt": "1.61M",
+              "longFmt": "1,610,004"
+            },
+            "positionDirectDate": {
+              "raw": 1791244800,
+              "fmt": "2026-10-06"
+            }
+          },
+          {
+            "maxAge": 1,
+            "name": "Doxa Partners LLP",
+            "relation": "",
+            "url": "",
+            "transactionDescription": "Annual Return",
+            "latestTransDate": {
+              "raw": 1758412800,
+              "fmt": "2025-09-21"
+            },
+            "positionDirect": {
+              "raw": 1054867,
+              "fmt": "1.05M",
+              "longFmt": "1,054,867"
+            },
+            "positionDirectDate": {
+              "raw": 1758412800,
+              "fmt": "2025-09-21"
+            }
+          },
+          {
+            "maxAge": 1,
+            "name": "Harwood Capital LLP",
+            "relation": "",
+            "url": "",
+            "transactionDescription": "Annual Return",
+            "latestTransDate": {
+              "raw": 1758412800,
+              "fmt": "2025-09-21"
+            },
+            "positionDirect": {
+              "raw": 600000,
+              "fmt": "600k",
+              "longFmt": "600,000"
+            },
+            "positionDirectDate": {
+              "raw": 1758412800,
+              "fmt": "2025-09-21"
+            }
+          },
+          {
+            "maxAge": 1,
+            "name": "Lobbenberg (John Peter)",
+            "relation": "",
+            "url": "",
+            "transactionDescription": "Annual Return",
+            "latestTransDate": {
+              "raw": 1791244800,
+              "fmt": "2026-10-06"
+            },
+            "positionDirect": {
+              "raw": 968979,
+              "fmt": "968.98k",
+              "longFmt": "968,979"
+            },
+            "positionDirectDate": {
+              "raw": 1791244800,
+              "fmt": "2026-10-06"
+            }
+          },
+          {
+            "maxAge": 1,
+            "name": "Maughan (Ryan)",
+            "relation": "",
+            "url": "",
+            "transactionDescription": "Annual Return",
+            "latestTransDate": {
+              "raw": 1791244800,
+              "fmt": "2026-10-06"
+            },
+            "positionDirect": {
+              "raw": 149219,
+              "fmt": "149.22k",
+              "longFmt": "149,219"
+            },
+            "positionDirectDate": {
+              "raw": 1791244800,
+              "fmt": "2026-10-06"
+            }
+          },
+          {
+            "maxAge": 1,
+            "name": "Parker (Stephen)",
+            "relation": "",
+            "url": "",
+            "transactionDescription": "Annual Return",
+            "latestTransDate": {
+              "raw": 1791244800,
+              "fmt": "2026-10-06"
+            },
+            "positionDirect": {
+              "raw": 18172,
+              "fmt": "18.17k",
+              "longFmt": "18,172"
+            },
+            "positionDirectDate": {
+              "raw": 1791244800,
+              "fmt": "2026-10-06"
+            }
+          },
+          {
+            "maxAge": 1,
+            "name": "Rogers (Nigel Foster)",
+            "relation": "",
+            "url": "",
+            "transactionDescription": "Annual Return",
+            "latestTransDate": {
+              "raw": 1791244800,
+              "fmt": "2026-10-06"
+            },
+            "positionDirect": {
+              "raw": 300000,
+              "fmt": "300k",
+              "longFmt": "300,000"
+            },
+            "positionDirectDate": {
+              "raw": 1791244800,
+              "fmt": "2026-10-06"
+            }
+          },
+          {
+            "maxAge": 1,
+            "name": "Segal (Melvyn)",
+            "relation": "",
+            "url": "",
+            "transactionDescription": "Annual Return",
+            "latestTransDate": {
+              "raw": 1791244800,
+              "fmt": "2026-10-06"
+            },
+            "positionDirect": {
+              "raw": 77057,
+              "fmt": "77.06k",
+              "longFmt": "77,057"
+            },
+            "positionDirectDate": {
+              "raw": 1791244800,
+              "fmt": "2026-10-06"
+            }
+          },
+          {
+            "maxAge": 1,
+            "name": "Steward (Dion)",
+            "relation": "",
+            "url": "",
+            "transactionDescription": "Annual Return",
+            "latestTransDate": {
+              "raw": 1791244800,
+              "fmt": "2026-10-06"
+            },
+            "positionDirect": {
+              "raw": 484950,
+              "fmt": "484.95k",
+              "longFmt": "484,950"
+            },
+            "positionDirectDate": {
+              "raw": 1791244800,
+              "fmt": "2026-10-06"
+            }
+          },
+          {
+            "maxAge": 1,
+            "name": "Transense Technologies plc",
+            "relation": "",
+            "url": "",
+            "transactionDescription": "Annual Return",
+            "latestTransDate": {
+              "raw": 1791244800,
+              "fmt": "2026-10-06"
+            },
+            "positionDirect": {
+              "raw": 1217856,
+              "fmt": "1.22M",
+              "longFmt": "1,217,856"
+            },
+            "positionDirectDate": {
+              "raw": 1791244800,
+              "fmt": "2026-10-06"
+            }
+          }
+        ],
+        "fichier_transactions_secondaires": "DONNEES/GOUVERNANCE_PUBLIQUE_40_20261105.json"
+      },
+      "unite": "detentions et profils professionnels",
+      "periode": "dates individuelles du fournisseur; collecte 2026-11-05",
+      "date_source": "2026-11-05",
+      "date_collecte": "2026-11-05",
+      "source_url": "https://query1.finance.yahoo.com/v10/finance/quoteSummary/TRT.L?modules=assetProfile,majorHoldersBreakdown,insiderHolders,insiderTransactions",
+      "statut": "SOURCE_SECONDAIRE_GOUVERNANCE_A_RAPPROCHER",
+      "commentaire": "Titres détenus séparés des options/attributions. Dates/fonctions de chaque ligne à contrôler : les anciens dirigeants peuvent subsister. Ne pas additionner les détentions directes et indirectes sans éliminer les doubles comptes. Pas de certification de couverture des transactions, ni note SSI déduite."
     }
   ],
   "journal_recherches": [
@@ -1891,6 +2248,14 @@
       "http": 200,
       "statut": "SOURCE_SECONDAIRE_CONSENSUS_DATE",
       "limite": "Échec ou champ absent ne prouve pas une indisponibilité définitive."
+    },
+    {
+      "famille": "gouvernance_et_detentions_Yahoo",
+      "date": "2026-11-05",
+      "url": "https://query1.finance.yahoo.com/v10/finance/quoteSummary/TRT.L?modules=assetProfile,majorHoldersBreakdown,insiderHolders,insiderTransactions",
+      "http": 200,
+      "statut": "SOURCE_SECONDAIRE_GOUVERNANCE_NON_RAPPROCHEE",
+      "limite": "Initiés fournisseur ≠ dirigeants stricts; transactions potentiellement partielles, jamais total net exhaustif par défaut. Options et attributions distinctes des achats au comptant."
     }
   ],
   "audit_couverture": {

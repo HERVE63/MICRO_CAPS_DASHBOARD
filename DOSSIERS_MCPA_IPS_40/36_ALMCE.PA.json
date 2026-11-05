@@ -22,19 +22,14 @@
         "date_collecte": "2026-11-04"
       },
       "lei": {
-        "valeur": null,
-        "unite": null,
-        "periode": null,
-        "date_source": null,
-        "source_url": null,
-        "statut": "A_COLLECTER",
-        "commentaire": null,
-        "recherche": {
-          "date": "2026-11-04",
-          "statut": "MANQUANT_RECHERCHE_NON_CLOSE",
-          "motif": "Aucune valeur vérifiée importée à cette étape; les recherches tracées ne démontrent pas une indisponibilité définitive.",
-          "journal": "journal_recherches"
-        }
+        "valeur": "96950004ATVK481LKN90",
+        "unite": "LEI",
+        "periode": "déclaration publiée 2026-06-08",
+        "date_source": "2026-06-08",
+        "date_collecte": "2026-11-05",
+        "source_url": "https://bdif.amf-france.org/back/api/v1/documents/2026/2026DD1119302/17AD56065B08D227E393E7444D277C3F64D14D59D41461A7107D357D2A67319B.pdf",
+        "statut": "SOURCE_PRIMAIRE_DECLARANT_AMF",
+        "commentaire": "Identifiant déclaré, ISIN contrôlé dans le même document et checksum LEI mod-97 valide; statut courant du registre GLEIF non vérifié."
       },
       "pays": {
         "valeur": "France",
@@ -815,34 +810,24 @@
         "date_collecte": "2026-11-04"
       },
       "transactions_initiees_net_90j": {
-        "valeur": null,
-        "unite": null,
-        "periode": null,
-        "date_source": null,
-        "source_url": null,
-        "statut": "A_COLLECTER",
-        "commentaire": null,
-        "recherche": {
-          "date": "2026-11-04",
-          "statut": "MANQUANT_RECHERCHE_NON_CLOSE",
-          "motif": "Registre complet des transactions, codes et prix non validé sur toute la fenêtre; transaction isolée ≠ net exhaustif.",
-          "journal": "journal_recherches"
-        }
+        "valeur": -98928.0084,
+        "unite": "EUR",
+        "periode": "2026-08-07 / 2026-11-05; 90 jours calendaires",
+        "date_source": "2026-11-05",
+        "date_collecte": "2026-11-05",
+        "source_url": "https://bdif.amf-france.org/back/api/v1/informations?Jetons=RS00007856&TypesInformation=DD&DateDebut=2026-01-01T00%3A00%3A00.000Z&DateFin=2026-11-05T23%3A59%3A59.000Z&From=0&Size=100",
+        "statut": "CALCULE_DEPOTS_PRIMAIRES_AMF",
+        "commentaire": "Achats moins ventes d’actions au comptant déclarés et publiés à la date de collecte; exercices/attributions/dons distingués. Cessions liées à des programmes signalées. Hors frais, produits des prix/volumes déclarés. Pas preuve d’absence de transactions non publiées. Source détaillée et PDF archivés : DONNEES/DECLARATIONS_AMF_14_20261105.json. Un zéro décrit le net des déclarations couvertes; il ne certifie pas une absence de transactions réelles."
       },
       "transactions_initiees_net_180j": {
-        "valeur": null,
-        "unite": null,
-        "periode": null,
-        "date_source": null,
-        "source_url": null,
-        "statut": "A_COLLECTER",
-        "commentaire": null,
-        "recherche": {
-          "date": "2026-11-04",
-          "statut": "MANQUANT_RECHERCHE_NON_CLOSE",
-          "motif": "Registre complet des transactions, codes et prix non validé sur toute la fenêtre; transaction isolée ≠ net exhaustif.",
-          "journal": "journal_recherches"
-        }
+        "valeur": -445117.2602,
+        "unite": "EUR",
+        "periode": "2026-05-09 / 2026-11-05; 180 jours calendaires",
+        "date_source": "2026-11-05",
+        "date_collecte": "2026-11-05",
+        "source_url": "https://bdif.amf-france.org/back/api/v1/informations?Jetons=RS00007856&TypesInformation=DD&DateDebut=2026-01-01T00%3A00%3A00.000Z&DateFin=2026-11-05T23%3A59%3A59.000Z&From=0&Size=100",
+        "statut": "CALCULE_DEPOTS_PRIMAIRES_AMF",
+        "commentaire": "Achats moins ventes d’actions au comptant déclarés et publiés à la date de collecte; exercices/attributions/dons distingués. Cessions liées à des programmes signalées. Hors frais, produits des prix/volumes déclarés. Pas preuve d’absence de transactions non publiées. Source détaillée et PDF archivés : DONNEES/DECLARATIONS_AMF_14_20261105.json. Un zéro décrit le net des déclarations couvertes; il ne certifie pas une absence de transactions réelles."
       }
     },
     "momentum": {
@@ -1787,6 +1772,93 @@
       "statut": "SOURCE_SECONDAIRE_CONSENSUS_DATE",
       "commentaire": "BPA généralement ajusté; identité demandée par ticker dans URL API, pas validation primaire.",
       "date_collecte": "2026-11-05"
+    },
+    {
+      "bloc": "qualite",
+      "champ": "dirigeants_et_detentions_documentes",
+      "valeur": {
+        "dirigeants_declares_fournisseur": [
+          {
+            "name": "Mr. Hugo  Larricq",
+            "title": "CEO & Chairman of the Board of Director",
+            "exercisedValue": {
+              "raw": 0,
+              "fmt": null,
+              "longFmt": "0"
+            },
+            "unexercisedValue": {
+              "raw": 0,
+              "fmt": null,
+              "longFmt": "0"
+            }
+          },
+          {
+            "name": "Emilien  Thomet",
+            "title": "Financial & Administrative Manager",
+            "exercisedValue": {
+              "raw": 0,
+              "fmt": null,
+              "longFmt": "0"
+            },
+            "unexercisedValue": {
+              "raw": 0,
+              "fmt": null,
+              "longFmt": "0"
+            }
+          },
+          {
+            "name": "Isabelle  Breget",
+            "title": "Legal Responsible",
+            "exercisedValue": {
+              "raw": 0,
+              "fmt": null,
+              "longFmt": "0"
+            },
+            "unexercisedValue": {
+              "raw": 0,
+              "fmt": null,
+              "longFmt": "0"
+            }
+          },
+          {
+            "name": "Jules  Pourchon",
+            "title": "Communication Manager",
+            "exercisedValue": {
+              "raw": 0,
+              "fmt": null,
+              "longFmt": "0"
+            },
+            "unexercisedValue": {
+              "raw": 0,
+              "fmt": null,
+              "longFmt": "0"
+            }
+          },
+          {
+            "name": "Carine  Courcoux",
+            "title": "Human Resources Manager",
+            "exercisedValue": {
+              "raw": 0,
+              "fmt": null,
+              "longFmt": "0"
+            },
+            "unexercisedValue": {
+              "raw": 0,
+              "fmt": null,
+              "longFmt": "0"
+            }
+          }
+        ],
+        "detentions_initiees": [],
+        "fichier_transactions_secondaires": "DONNEES/GOUVERNANCE_PUBLIQUE_40_20261105.json"
+      },
+      "unite": "detentions et profils professionnels",
+      "periode": "dates individuelles du fournisseur; collecte 2026-11-05",
+      "date_source": "2026-11-05",
+      "date_collecte": "2026-11-05",
+      "source_url": "https://query1.finance.yahoo.com/v10/finance/quoteSummary/ALMCE.PA?modules=assetProfile,majorHoldersBreakdown,insiderHolders,insiderTransactions",
+      "statut": "SOURCE_SECONDAIRE_GOUVERNANCE_A_RAPPROCHER",
+      "commentaire": "Titres détenus séparés des options/attributions. Dates/fonctions de chaque ligne à contrôler : les anciens dirigeants peuvent subsister. Ne pas additionner les détentions directes et indirectes sans éliminer les doubles comptes. Pas de certification de couverture des transactions, ni note SSI déduite."
     }
   ],
   "journal_recherches": [
@@ -2000,16 +2072,44 @@
       "http": 200,
       "statut": "SOURCE_SECONDAIRE_CONSENSUS_DATE",
       "limite": "Échec ou champ absent ne prouve pas une indisponibilité définitive."
+    },
+    {
+      "famille": "gouvernance_et_detentions_Yahoo",
+      "date": "2026-11-05",
+      "url": "https://query1.finance.yahoo.com/v10/finance/quoteSummary/ALMCE.PA?modules=assetProfile,majorHoldersBreakdown,insiderHolders,insiderTransactions",
+      "http": 200,
+      "statut": "SOURCE_SECONDAIRE_GOUVERNANCE_NON_RAPPROCHEE",
+      "limite": "Initiés fournisseur ≠ dirigeants stricts; transactions potentiellement partielles, jamais total net exhaustif par défaut. Options et attributions distinctes des achats au comptant."
+    },
+    {
+      "famille": "registre_AMF_identite_AMF",
+      "date": "2026-11-05",
+      "url": "https://bdif.amf-france.org/back/api/v1/informations?RechercheTexte=MON+COURTIER+ENERGIE+GROUPE&From=0&Size=50",
+      "http": 200,
+      "sha256_reponse": "4d08b80abf0587699924c84294942c347be9dc1ff728745b649d4c01c915a809",
+      "total": 37,
+      "jeton": "RS00007856",
+      "limite": "Déclarations publiées par l’AMF, établies sous responsabilité du déclarant; ne prouve pas absence de transactions non publiées."
+    },
+    {
+      "famille": "registre_AMF_declarations_2026",
+      "date": "2026-11-05",
+      "url": "https://bdif.amf-france.org/back/api/v1/informations?Jetons=RS00007856&TypesInformation=DD&DateDebut=2026-01-01T00%3A00%3A00.000Z&DateFin=2026-11-05T23%3A59%3A59.000Z&From=0&Size=100",
+      "http": 200,
+      "sha256_reponse": "ff9614fe1c2632b0ab239e3b3631b8d33bc83bfa05a81a0b508b900220f31bd4",
+      "total": 30,
+      "from_index": 0,
+      "jeton": "RS00007856",
+      "limite": "Déclarations publiées par l’AMF, établies sous responsabilité du déclarant; ne prouve pas absence de transactions non publiées."
     }
   ],
   "audit_couverture": {
     "date": "2026-11-05",
     "champs_total": 108,
-    "champs_renseignes": 59,
-    "couverture_pct": 54.63,
+    "champs_renseignes": 62,
+    "couverture_pct": 57.41,
     "champs_secondaires_non_rapproches": 33,
     "champs_manquants": [
-      "identite.lei",
       "identite.marche",
       "identite.actionnariat_dirigeants_pct",
       "qualite.revenus_recurrents_pct",
@@ -2031,8 +2131,6 @@
       "risque.risque_change",
       "risque.risque_gouvernance",
       "risque.risque_reglementaire",
-      "risque.transactions_initiees_net_90j",
-      "risque.transactions_initiees_net_180j",
       "diversification.zone_geographique",
       "diversification.interet_strategique",
       "diversification.complementarite_portefeuille",
@@ -2066,15 +2164,14 @@
   "audit_poursuite": {
     "date": "2026-11-05",
     "comptage": {
-      "RENSEIGNE": 59,
+      "RENSEIGNE": 62,
       "NON_APPLICABLE": 2,
       "INDISPONIBLE_A_DATE": 0,
-      "RECHERCHE_A_POURSUIVRE": 47
+      "RECHERCHE_A_POURSUIVRE": 44
     },
-    "couverture_valeurs_pct": 54.63,
-    "couverture_applicable_pct": 55.66,
+    "couverture_valeurs_pct": 57.41,
+    "couverture_applicable_pct": 58.49,
     "recherches_non_closes": [
-      "identite.lei",
       "identite.marche",
       "identite.actionnariat_dirigeants_pct",
       "qualite.revenus_recurrents_pct",
@@ -2094,8 +2191,6 @@
       "risque.risque_change",
       "risque.risque_gouvernance",
       "risque.risque_reglementaire",
-      "risque.transactions_initiees_net_90j",
-      "risque.transactions_initiees_net_180j",
       "diversification.zone_geographique",
       "diversification.interet_strategique",
       "diversification.complementarite_portefeuille",

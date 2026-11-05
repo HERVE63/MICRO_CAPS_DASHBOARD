@@ -1,0 +1,4591 @@
+[
+  {
+    "ticker": "ALSTI.PA",
+    "societe": "STIF",
+    "isin": "FR001400MDW2",
+    "date_collecte": "2026-11-05",
+    "recherches": [
+      {
+        "famille": "identite_AMF",
+        "url": "https://bdif.amf-france.org/back/api/v1/informations?RechercheTexte=STIF&From=0&Size=50",
+        "http": 200,
+        "sha256_reponse": "8cfe932875d9b987131a0bdcb7eb402298858d646ee1061cf9d691414d30e7e7",
+        "total": 6085
+      },
+      {
+        "famille": "declarations_2026",
+        "url": "https://bdif.amf-france.org/back/api/v1/informations?Jetons=RS00007968&TypesInformation=DD&DateDebut=2026-01-01T00%3A00%3A00.000Z&DateFin=2026-11-05T23%3A59%3A59.000Z&From=0&Size=100",
+        "http": 200,
+        "sha256_reponse": "f2b81a540746b1bb11c62daa4b0e26204de2db6c11a529be608cdf1b070e2a33",
+        "total": 1,
+        "from_index": 0
+      }
+    ],
+    "declarations": [
+      {
+        "numero": "2026DD1123581",
+        "date_publication": "2026-06-30T18:06:09.9410463+02:00",
+        "url": "https://bdif.amf-france.org/back/api/v1/documents/2026/2026DD1123581/5A873E245DC57FEB722039274D4108DD1F447A08883DCACFAFF9FF9D36DD832C.pdf",
+        "http": 200,
+        "sha256_pdf": "e9ab5036f2ebd17c92def488e81b792e0a6d9dbcbbf4e9fdc490128283165443",
+        "archive_pdf": "AUDITS/POURSUITE_FICHES_40_20261105/AMF/2026DD1123581.pdf",
+        "lei": "969500GLYIINCC3AIY93",
+        "transactions": [
+          {
+            "index_operation": 1,
+            "modification": false,
+            "date_transaction": "2026-06-26",
+            "nature": "Cession",
+            "instrument": "Action",
+            "liee_options_attributions": "NON",
+            "prix": 53.925,
+            "devise": "EUR",
+            "volume": 7000.0,
+            "operations_elementaires": [
+              {
+                "prix": 53.925,
+                "volume": 7000.0
+              }
+            ],
+            "valeur_nette": -377475.0,
+            "statut": "OPERATION_DECLAREE_PARSEE"
+          }
+        ],
+        "statut": "DECLARATION_PARSEE"
+      }
+    ],
+    "erreurs": [],
+    "totaux": {
+      "90": {
+        "debut": "2026-08-07",
+        "fin": "2026-11-05",
+        "valeur": 0,
+        "unite": "EUR",
+        "nombre_transactions": 0,
+        "statut": "DEPOTS_AMF_FENETRE_CONTROLEE",
+        "limite": "Achats moins ventes d’actions au comptant déclarés et publiés à la date de collecte; exercices/attributions/dons distingués. Cessions liées à des programmes signalées. Hors frais, produits des prix/volumes déclarés. Pas preuve d’absence de transactions non publiées."
+      },
+      "180": {
+        "debut": "2026-05-09",
+        "fin": "2026-11-05",
+        "valeur": -377475.0,
+        "unite": "EUR",
+        "nombre_transactions": 1,
+        "statut": "DEPOTS_AMF_FENETRE_CONTROLEE",
+        "limite": "Achats moins ventes d’actions au comptant déclarés et publiés à la date de collecte; exercices/attributions/dons distingués. Cessions liées à des programmes signalées. Hors frais, produits des prix/volumes déclarés. Pas preuve d’absence de transactions non publiées."
+      }
+    },
+    "jeton": "RS00007968",
+    "nom_AMF": "STIF",
+    "nombre_declarations_2026": 1,
+    "pagination_complete": true,
+    "statut": "RECHERCHE_REGISTRE_PRIMAIRE_EFFECTUEE"
+  },
+  {
+    "ticker": "MEMS.PA",
+    "societe": "MEMSCAP",
+    "isin": "FR0010298620",
+    "date_collecte": "2026-11-05",
+    "recherches": [
+      {
+        "famille": "identite_AMF",
+        "url": "https://bdif.amf-france.org/back/api/v1/informations?RechercheTexte=MEMSCAP&From=0&Size=50",
+        "http": 200,
+        "sha256_reponse": "6fbf59bbfd5fe677946809eedf0e57b2aef02f35de7e8c2d95db829c93ab3b91",
+        "total": 93
+      },
+      {
+        "famille": "declarations_2026",
+        "url": "https://bdif.amf-france.org/back/api/v1/informations?Jetons=RS00003548&TypesInformation=DD&DateDebut=2026-01-01T00%3A00%3A00.000Z&DateFin=2026-11-05T23%3A59%3A59.000Z&From=0&Size=100",
+        "http": 200,
+        "sha256_reponse": "6d412c54e7b2df9f62d2f3a8d58de8e56a6af4baccb909992a5a629887cf9131",
+        "total": 0,
+        "from_index": 0
+      }
+    ],
+    "declarations": [],
+    "erreurs": [],
+    "totaux": {
+      "90": {
+        "debut": "2026-08-07",
+        "fin": "2026-11-05",
+        "valeur": 0,
+        "unite": "EUR",
+        "nombre_transactions": 0,
+        "statut": "DEPOTS_AMF_FENETRE_CONTROLEE",
+        "limite": "Achats moins ventes d’actions au comptant déclarés et publiés à la date de collecte; exercices/attributions/dons distingués. Cessions liées à des programmes signalées. Hors frais, produits des prix/volumes déclarés. Pas preuve d’absence de transactions non publiées."
+      },
+      "180": {
+        "debut": "2026-05-09",
+        "fin": "2026-11-05",
+        "valeur": 0,
+        "unite": "EUR",
+        "nombre_transactions": 0,
+        "statut": "DEPOTS_AMF_FENETRE_CONTROLEE",
+        "limite": "Achats moins ventes d’actions au comptant déclarés et publiés à la date de collecte; exercices/attributions/dons distingués. Cessions liées à des programmes signalées. Hors frais, produits des prix/volumes déclarés. Pas preuve d’absence de transactions non publiées."
+      }
+    },
+    "jeton": "RS00003548",
+    "nom_AMF": "MEMSCAP",
+    "nombre_declarations_2026": 0,
+    "pagination_complete": true,
+    "statut": "RECHERCHE_REGISTRE_PRIMAIRE_EFFECTUEE"
+  },
+  {
+    "ticker": "ALICA.PA",
+    "societe": "ICAPE Holding",
+    "isin": "FR001400A3Q3",
+    "date_collecte": "2026-11-05",
+    "recherches": [
+      {
+        "famille": "identite_AMF",
+        "url": "https://bdif.amf-france.org/back/api/v1/informations?RechercheTexte=ICAPE+HOLDING&From=0&Size=50",
+        "http": 200,
+        "sha256_reponse": "38e7453adc90efd54f5beaeae579d475fa22d11f10dbda804a0a98579dcdbf5d",
+        "total": 41
+      },
+      {
+        "famille": "declarations_2026",
+        "url": "https://bdif.amf-france.org/back/api/v1/informations?Jetons=RS00007629&TypesInformation=DD&DateDebut=2026-01-01T00%3A00%3A00.000Z&DateFin=2026-11-05T23%3A59%3A59.000Z&From=0&Size=100",
+        "http": 200,
+        "sha256_reponse": "a95d122ba2db25c2db8937eb2d3a5a3914878a4d2eee8be332de36d8ceb79b36",
+        "total": 7,
+        "from_index": 0
+      }
+    ],
+    "declarations": [
+      {
+        "numero": "2026DD1144856",
+        "date_publication": "2026-10-19T18:12:10.0601299+02:00",
+        "url": "https://bdif.amf-france.org/back/api/v1/documents/2026/2026DD1144856/42302F5DF01AA19EBE9F4783C16DE3169C4817036015EEF85AB5B22CB7379B35.pdf",
+        "http": 200,
+        "sha256_pdf": "38703fcef246206d1613058530b247c2eed5020a39bbdb7b9fec4b54d90adc13",
+        "archive_pdf": "AUDITS/POURSUITE_FICHES_40_20261105/AMF/2026DD1144856.pdf",
+        "lei": "969500SMJNIR6M3A8D61",
+        "transactions": [
+          {
+            "index_operation": 1,
+            "modification": false,
+            "date_transaction": "2026-10-15",
+            "nature": "Cession",
+            "instrument": "Action",
+            "liee_options_attributions": "NON",
+            "prix": 9.9,
+            "devise": "EUR",
+            "volume": 20000.0,
+            "operations_elementaires": [
+              {
+                "prix": 9.9,
+                "volume": 20000.0
+              }
+            ],
+            "valeur_nette": -198000.0,
+            "statut": "OPERATION_DECLAREE_PARSEE"
+          }
+        ],
+        "statut": "DECLARATION_PARSEE"
+      },
+      {
+        "numero": "2026DD1144138",
+        "date_publication": "2026-10-14T18:12:09.6089099+02:00",
+        "url": "https://bdif.amf-france.org/back/api/v1/documents/2026/2026DD1144138/CE2ADF1D656978B2F671DA87831598D9C24FF4AB64C13E77DB1572E047DB41E1.pdf",
+        "http": 200,
+        "sha256_pdf": "838d8432c3a2883303ffe2b2388d9df3e6b2caa916ed693fc2aea6e02a5e4508",
+        "archive_pdf": "AUDITS/POURSUITE_FICHES_40_20261105/AMF/2026DD1144138.pdf",
+        "lei": "969500SMJNIR6M3A8D61",
+        "transactions": [
+          {
+            "index_operation": 1,
+            "modification": false,
+            "date_transaction": "2026-10-12",
+            "nature": "Cession",
+            "instrument": "Action",
+            "liee_options_attributions": "NON",
+            "prix": 9.82,
+            "devise": "EUR",
+            "volume": 57433.0,
+            "operations_elementaires": [
+              {
+                "prix": 9.82,
+                "volume": 57433.0
+              }
+            ],
+            "valeur_nette": -563992.06,
+            "statut": "OPERATION_DECLAREE_PARSEE"
+          }
+        ],
+        "statut": "DECLARATION_PARSEE"
+      },
+      {
+        "numero": "2026DD1119881",
+        "date_publication": "2026-06-10T18:10:08.4259768+02:00",
+        "url": "https://bdif.amf-france.org/back/api/v1/documents/2026/2026DD1119881/CBCFD18725C456D8CB8996E9014DD121E33E3DD8176AEC20C91845B8CE6A5680.pdf",
+        "http": 200,
+        "sha256_pdf": "94cfa2c26102681aacebb143f678d7561ed9f0af1ebf629ac7f3f8e4449ff537",
+        "archive_pdf": "AUDITS/POURSUITE_FICHES_40_20261105/AMF/2026DD1119881.pdf",
+        "lei": "969500SMJNIR6M3A8D61",
+        "transactions": [
+          {
+            "index_operation": 1,
+            "modification": false,
+            "date_transaction": "2026-06-05",
+            "nature": "Cession",
+            "instrument": "Action",
+            "liee_options_attributions": "NON",
+            "prix": 6.8,
+            "devise": "EUR",
+            "volume": 150000.0,
+            "operations_elementaires": [
+              {
+                "prix": 6.8,
+                "volume": 150000.0
+              }
+            ],
+            "valeur_nette": -1020000.0,
+            "statut": "OPERATION_DECLAREE_PARSEE"
+          }
+        ],
+        "statut": "DECLARATION_PARSEE"
+      },
+      {
+        "numero": "2026DD1095191",
+        "date_publication": "2026-02-17T18:04:14.2885019+01:00",
+        "url": "https://bdif.amf-france.org/back/api/v1/documents/2026/2026DD1095191/A7B77C5A30E9C4B4B6FCACAACF164C3A9F8CAD7FB7BF039E6ED14ED574BE879F.pdf",
+        "http": 200,
+        "sha256_pdf": "7b162187ae346caaf53298882930f65129692e6dece9274a936335d3ff44ea86",
+        "archive_pdf": "AUDITS/POURSUITE_FICHES_40_20261105/AMF/2026DD1095191.pdf",
+        "lei": "969500SMJNIR6M3A8D61",
+        "transactions": [
+          {
+            "index_operation": 1,
+            "modification": false,
+            "date_transaction": "2026-02-12",
+            "nature": "Cession",
+            "instrument": "Action",
+            "liee_options_attributions": "NON",
+            "prix": 5.9844,
+            "devise": "EUR",
+            "volume": 2279.0,
+            "operations_elementaires": [
+              {
+                "prix": 5.9844,
+                "volume": 2279.0
+              }
+            ],
+            "valeur_nette": -13638.4476,
+            "statut": "OPERATION_DECLAREE_PARSEE"
+          }
+        ],
+        "statut": "DECLARATION_PARSEE"
+      },
+      {
+        "numero": "2026DD1091899",
+        "date_publication": "2026-01-30T19:18:13.7461458+01:00",
+        "url": "https://bdif.amf-france.org/back/api/v1/documents/2026/2026DD1091899/0B299F6E470FFE745BB25DADD22D6E0A3CFACC42C0D66DDF41C08531B4B8932C.pdf",
+        "http": 200,
+        "sha256_pdf": "b4c0c9044e16f13e4c435ef5bd702da1fe42ba1b003ae9a0ff417f4e1f2c0ac3",
+        "archive_pdf": "AUDITS/POURSUITE_FICHES_40_20261105/AMF/2026DD1091899.pdf",
+        "lei": "969500SMJNIR6M3A8D61",
+        "transactions": [
+          {
+            "index_operation": 1,
+            "modification": false,
+            "date_transaction": "2026-01-27",
+            "nature": "Cession",
+            "instrument": "Action",
+            "liee_options_attributions": "NON",
+            "prix": 5.98,
+            "devise": "EUR",
+            "volume": 726.0,
+            "operations_elementaires": [
+              {
+                "prix": 5.98,
+                "volume": 726.0
+              }
+            ],
+            "valeur_nette": -4341.48,
+            "statut": "OPERATION_DECLAREE_PARSEE"
+          }
+        ],
+        "statut": "DECLARATION_PARSEE"
+      },
+      {
+        "numero": "2026DD1090937",
+        "date_publication": "2026-01-26T18:06:06.155505+01:00",
+        "url": "https://bdif.amf-france.org/back/api/v1/documents/2026/2026DD1090937/3CA001A3518370DCF9FF2C5C22BA231AF0FA70574CD9F1ACB2DB624E87152BD8.pdf",
+        "http": 200,
+        "sha256_pdf": "fcc55733449c94a524fbcf2e4a7448bc6c83931d2962b9a0be434b550579736f",
+        "archive_pdf": "AUDITS/POURSUITE_FICHES_40_20261105/AMF/2026DD1090937.pdf",
+        "lei": "969500SMJNIR6M3A8D61",
+        "transactions": [
+          {
+            "index_operation": 1,
+            "modification": false,
+            "date_transaction": "2026-01-23",
+            "nature": "Cession",
+            "instrument": "Action",
+            "liee_options_attributions": "NON",
+            "prix": 5.98,
+            "devise": "EUR",
+            "volume": 2092.0,
+            "operations_elementaires": [
+              {
+                "prix": 5.98,
+                "volume": 2092.0
+              }
+            ],
+            "valeur_nette": -12510.16,
+            "statut": "OPERATION_DECLAREE_PARSEE"
+          }
+        ],
+        "statut": "DECLARATION_PARSEE"
+      },
+      {
+        "numero": "2026DD1090688",
+        "date_publication": "2026-01-23T18:10:15.6710366+01:00",
+        "url": "https://bdif.amf-france.org/back/api/v1/documents/2026/2026DD1090688/CE1E166B283941DEEE1A89B1DEEF711A1C36ED8766F07266663881DA5760DA58.pdf",
+        "http": 200,
+        "sha256_pdf": "df7f829dd66453ec8c3361e5e49a8e8757fb0cfd7b813a28914b8fa66433f64a",
+        "archive_pdf": "AUDITS/POURSUITE_FICHES_40_20261105/AMF/2026DD1090688.pdf",
+        "lei": "969500SMJNIR6M3A8D61",
+        "transactions": [
+          {
+            "index_operation": 1,
+            "modification": false,
+            "date_transaction": "2026-01-22",
+            "nature": "Cession",
+            "instrument": "Action",
+            "liee_options_attributions": "NON",
+            "prix": 6.0654,
+            "devise": "EUR",
+            "volume": 4615.0,
+            "operations_elementaires": [
+              {
+                "prix": 6.0654,
+                "volume": 4615.0
+              }
+            ],
+            "valeur_nette": -27991.821,
+            "statut": "OPERATION_DECLAREE_PARSEE"
+          }
+        ],
+        "statut": "DECLARATION_PARSEE"
+      }
+    ],
+    "erreurs": [],
+    "totaux": {
+      "90": {
+        "debut": "2026-08-07",
+        "fin": "2026-11-05",
+        "valeur": -761992.06,
+        "unite": "EUR",
+        "nombre_transactions": 2,
+        "statut": "DEPOTS_AMF_FENETRE_CONTROLEE",
+        "limite": "Achats moins ventes d’actions au comptant déclarés et publiés à la date de collecte; exercices/attributions/dons distingués. Cessions liées à des programmes signalées. Hors frais, produits des prix/volumes déclarés. Pas preuve d’absence de transactions non publiées."
+      },
+      "180": {
+        "debut": "2026-05-09",
+        "fin": "2026-11-05",
+        "valeur": -1781992.06,
+        "unite": "EUR",
+        "nombre_transactions": 3,
+        "statut": "DEPOTS_AMF_FENETRE_CONTROLEE",
+        "limite": "Achats moins ventes d’actions au comptant déclarés et publiés à la date de collecte; exercices/attributions/dons distingués. Cessions liées à des programmes signalées. Hors frais, produits des prix/volumes déclarés. Pas preuve d’absence de transactions non publiées."
+      }
+    },
+    "jeton": "RS00007629",
+    "nom_AMF": "ICAPE HOLDING",
+    "nombre_declarations_2026": 7,
+    "pagination_complete": true,
+    "statut": "RECHERCHE_REGISTRE_PRIMAIRE_EFFECTUEE"
+  },
+  {
+    "ticker": "ALBFR.PA",
+    "societe": "Sidetrade",
+    "isin": "FR0010202606",
+    "date_collecte": "2026-11-05",
+    "recherches": [
+      {
+        "famille": "identite_AMF",
+        "url": "https://bdif.amf-france.org/back/api/v1/informations?RechercheTexte=SIDETRADE&From=0&Size=50",
+        "http": 200,
+        "sha256_reponse": "aae3306284c9dcfc190a0ddf00f0241d1a7c401fa370342490fd9ffe7838c274",
+        "total": 373
+      },
+      {
+        "famille": "declarations_2026",
+        "url": "https://bdif.amf-france.org/back/api/v1/informations?Jetons=RS00004219&TypesInformation=DD&DateDebut=2026-01-01T00%3A00%3A00.000Z&DateFin=2026-11-05T23%3A59%3A59.000Z&From=0&Size=100",
+        "http": 200,
+        "sha256_reponse": "1eaed3483195edf1922685fca9090d2f55d3fba3fd9ea19cc3cbd9437782fc32",
+        "total": 22,
+        "from_index": 0
+      }
+    ],
+    "declarations": [
+      {
+        "numero": "2026DD1147909",
+        "date_publication": "2026-11-02T18:12:11.5270143+01:00",
+        "url": "https://bdif.amf-france.org/back/api/v1/documents/2026/2026DD1147909/8F8BABC1B074301D0A352E33C8659BA9DF5086A72ED415C4DBD7605A281D2B63.pdf",
+        "http": null,
+        "archive_pdf": "AUDITS/POURSUITE_FICHES_40_20261105/AMF/2026DD1147909.pdf",
+        "sha256_pdf": "9c1b8790f59100cba142f78007a5fb8ac8acf5ecde6cafb5ded7203d8486112d",
+        "lei": "969500C43H7W90FX6G79",
+        "transactions": [
+          {
+            "index_operation": 1,
+            "modification": false,
+            "date_transaction": "2026-10-28",
+            "nature": "Cession",
+            "instrument": "Action",
+            "liee_options_attributions": "NON",
+            "prix": 208.0,
+            "devise": "EUR",
+            "volume": 50.0,
+            "operations_elementaires": [
+              {
+                "prix": 208.0,
+                "volume": 50.0
+              }
+            ],
+            "valeur_nette": -10400.0,
+            "statut": "OPERATION_DECLAREE_PARSEE"
+          },
+          {
+            "index_operation": 2,
+            "modification": false,
+            "date_transaction": "2026-10-29",
+            "nature": "Cession",
+            "instrument": "Action",
+            "liee_options_attributions": "NON",
+            "prix": 209.0,
+            "devise": "EUR",
+            "volume": 50.0,
+            "operations_elementaires": [
+              {
+                "prix": 209.0,
+                "volume": 50.0
+              }
+            ],
+            "valeur_nette": -10450.0,
+            "statut": "OPERATION_DECLAREE_PARSEE"
+          },
+          {
+            "index_operation": 3,
+            "modification": false,
+            "date_transaction": "2026-10-30",
+            "nature": "Cession",
+            "instrument": "Action",
+            "liee_options_attributions": "NON",
+            "prix": 209.5,
+            "devise": "EUR",
+            "volume": 40.0,
+            "operations_elementaires": [
+              {
+                "prix": 209.5,
+                "volume": 40.0
+              }
+            ],
+            "valeur_nette": -8380.0,
+            "statut": "OPERATION_DECLAREE_PARSEE"
+          }
+        ],
+        "statut": "DECLARATION_PARSEE"
+      },
+      {
+        "numero": "2026DD1134462",
+        "date_publication": "2026-08-24T18:06:08.6233195+02:00",
+        "url": "https://bdif.amf-france.org/back/api/v1/documents/2026/2026DD1134462/858555B89023209E33E6189144336586BCAB0E1875B73A19E0B4B33E546AAA14.pdf",
+        "http": 200,
+        "sha256_pdf": "5ba78ffe53701369a2a6df7f016e3b811dd27c44cad0524f9f92312348617078",
+        "archive_pdf": "AUDITS/POURSUITE_FICHES_40_20261105/AMF/2026DD1134462.pdf",
+        "transactions": [
+          {
+            "index_operation": 1,
+            "modification": false,
+            "date_transaction": "2026-08-21",
+            "nature": "Acquisition",
+            "instrument": "Action",
+            "liee_options_attributions": "NON",
+            "prix": 197.1868,
+            "devise": "EUR",
+            "volume": 121.0,
+            "operations_elementaires": [
+              {
+                "prix": 195.4,
+                "volume": 20.0
+              },
+              {
+                "prix": 197.4,
+                "volume": 28.0
+              },
+              {
+                "prix": 198.0,
+                "volume": 36.0
+              },
+              {
+                "prix": 197.2,
+                "volume": 20.0
+              },
+              {
+                "prix": 197.2,
+                "volume": 5.0
+              },
+              {
+                "prix": 197.2,
+                "volume": 12.0
+              }
+            ],
+            "valeur_nette": 23859.6,
+            "statut": "OPERATION_DECLAREE_PARSEE"
+          }
+        ],
+        "statut": "DECLARATION_PARSEE"
+      },
+      {
+        "numero": "2026DD1122446",
+        "date_publication": "2026-06-23T18:12:08.2971557+02:00",
+        "url": "https://bdif.amf-france.org/back/api/v1/documents/2026/2026DD1122446/C2FFC55407DEB03ED5F5EB3BD9A3D8417CBF33E22893D7B6809F1AB2B3C13CA0.pdf",
+        "http": 200,
+        "sha256_pdf": "f47f0a63fa34032fbccfc0bc54c85604cda179f10b7775fd71eea00d13173a8c",
+        "archive_pdf": "AUDITS/POURSUITE_FICHES_40_20261105/AMF/2026DD1122446.pdf",
+        "transactions": [
+          {
+            "index_operation": 1,
+            "modification": false,
+            "date_transaction": "2026-06-19",
+            "nature": "Cession",
+            "instrument": "Action",
+            "liee_options_attributions": "NON",
+            "prix": 156.444,
+            "devise": "EUR",
+            "volume": 100.0,
+            "operations_elementaires": [
+              {
+                "prix": 156.444,
+                "volume": 100.0
+              }
+            ],
+            "valeur_nette": -15644.4,
+            "statut": "OPERATION_DECLAREE_PARSEE"
+          }
+        ],
+        "statut": "DECLARATION_PARSEE"
+      },
+      {
+        "numero": "2026DD1120489",
+        "date_publication": "2026-06-12T18:10:08.3123431+02:00",
+        "url": "https://bdif.amf-france.org/back/api/v1/documents/2026/2026DD1120489/AC07254C9C740B4B7DD6D4ED1430389151C6E7A3D97DE7F8EE4DDB6D5B429B12.pdf",
+        "http": 200,
+        "sha256_pdf": "0a68e1cbb7eeb33c1c8a3782ddeca1c411fec725cc0f95d09a2f31808b132b97",
+        "archive_pdf": "AUDITS/POURSUITE_FICHES_40_20261105/AMF/2026DD1120489.pdf",
+        "lei": "969500C43H7W90FX6G79",
+        "transactions": [
+          {
+            "index_operation": 1,
+            "modification": false,
+            "date_transaction": "2026-06-12",
+            "nature": "Cession",
+            "instrument": "Action",
+            "liee_options_attributions": "NON",
+            "prix": 172.0,
+            "devise": "EUR",
+            "volume": 262.0,
+            "operations_elementaires": [
+              {
+                "prix": 172.0,
+                "volume": 262.0
+              }
+            ],
+            "valeur_nette": -45064.0,
+            "statut": "OPERATION_DECLAREE_PARSEE"
+          }
+        ],
+        "statut": "DECLARATION_PARSEE"
+      },
+      {
+        "numero": "2026DD1120155",
+        "date_publication": "2026-06-11T18:08:08.3652646+02:00",
+        "url": "https://bdif.amf-france.org/back/api/v1/documents/2026/2026DD1120155/B7851C83C021DE6766D728870376A1C09B68885CE2033CF9DA18E0123A5BC802.pdf",
+        "http": 200,
+        "sha256_pdf": "cb9d5ac8cbe6d54c2ad3f637255096e4f9de0bff7811e5ac61b7b47126d43bf8",
+        "archive_pdf": "AUDITS/POURSUITE_FICHES_40_20261105/AMF/2026DD1120155.pdf",
+        "transactions": [
+          {
+            "index_operation": 1,
+            "modification": false,
+            "date_transaction": "2026-06-10",
+            "nature": "Acquisition",
+            "instrument": "Action",
+            "liee_options_attributions": "NON",
+            "prix": 165.2,
+            "devise": "EUR",
+            "volume": 200.0,
+            "operations_elementaires": [
+              {
+                "prix": 165.2,
+                "volume": 200.0
+              }
+            ],
+            "valeur_nette": 33040.0,
+            "statut": "OPERATION_DECLAREE_PARSEE"
+          }
+        ],
+        "statut": "DECLARATION_PARSEE"
+      },
+      {
+        "numero": "2026DD1115108",
+        "date_publication": "2026-05-18T18:08:07.4729096+02:00",
+        "url": "https://bdif.amf-france.org/back/api/v1/documents/2026/2026DD1115108/12A2F8A1A074F95B18B3C9AF44D89B2030482A254F9941CE62A08A84CEF06360.pdf",
+        "http": 200,
+        "sha256_pdf": "beeebb797c7f7fa8f5b0213d3707bb91ad8bba67a2a45da3b588e9ed2eac4bf2",
+        "archive_pdf": "AUDITS/POURSUITE_FICHES_40_20261105/AMF/2026DD1115108.pdf",
+        "transactions": [
+          {
+            "index_operation": 1,
+            "modification": false,
+            "date_transaction": "2026-05-18",
+            "nature": "Acquisition",
+            "instrument": "Action",
+            "liee_options_attributions": "NON",
+            "prix": 159.0,
+            "devise": "EUR",
+            "volume": 62.0,
+            "operations_elementaires": [
+              {
+                "prix": 159.0,
+                "volume": 62.0
+              }
+            ],
+            "valeur_nette": 9858.0,
+            "statut": "OPERATION_DECLAREE_PARSEE"
+          }
+        ],
+        "statut": "DECLARATION_PARSEE"
+      },
+      {
+        "numero": "2026DD1106117",
+        "date_publication": "2026-04-07T18:06:04.6603454+02:00",
+        "url": "https://bdif.amf-france.org/back/api/v1/documents/2026/2026DD1106117/16944CF857DA6700F423701E6ED6C5EC2AE6FB69D7A5309BCE68DE544F15F1CE.pdf",
+        "http": null,
+        "archive_pdf": "AUDITS/POURSUITE_FICHES_40_20261105/AMF/2026DD1106117.pdf",
+        "sha256_pdf": "5e92c651869566ea6ad9dd19011e72ce226e17044554857e915932b263d2a891",
+        "transactions": [
+          {
+            "index_operation": 1,
+            "modification": false,
+            "date_transaction": "2031-12-25",
+            "nature": "Cession",
+            "instrument": "Action",
+            "liee_options_attributions": "NON",
+            "prix": 237.0108,
+            "devise": "EUR",
+            "volume": 463.0,
+            "operations_elementaires": [
+              {
+                "prix": 242.0,
+                "volume": 78.0
+              },
+              {
+                "prix": 236.0,
+                "volume": 385.0
+              }
+            ],
+            "valeur_nette": -109736.0,
+            "statut": "OPERATION_DECLAREE_PARSEE"
+          }
+        ],
+        "statut": "DECLARATION_PARSEE"
+      },
+      {
+        "numero": "2026DD1095330",
+        "date_publication": "2026-02-17T18:08:08.6908001+01:00",
+        "url": "https://bdif.amf-france.org/back/api/v1/documents/2026/2026DD1095330/7038712C9C2FD44DFD122418E87C4573825282803087A0A9C083459904AEFBAA.pdf",
+        "http": 200,
+        "sha256_pdf": "b714af3824c06cf4fb3bb1c3d3f851a73fcb7a8162b9047e56722ae00d14b4bd",
+        "archive_pdf": "AUDITS/POURSUITE_FICHES_40_20261105/AMF/2026DD1095330.pdf",
+        "lei": "969500C43H7W90FX6G79",
+        "transactions": [
+          {
+            "index_operation": 1,
+            "modification": false,
+            "date_transaction": "2026-02-17",
+            "nature": "Acquisition",
+            "instrument": "Action",
+            "liee_options_attributions": "NON",
+            "prix": 120.5,
+            "devise": "EUR",
+            "volume": 247.0,
+            "operations_elementaires": [
+              {
+                "prix": 120.5,
+                "volume": 247.0
+              }
+            ],
+            "valeur_nette": 29763.5,
+            "statut": "OPERATION_DECLAREE_PARSEE"
+          }
+        ],
+        "statut": "DECLARATION_PARSEE"
+      },
+      {
+        "numero": "2026DD1095326",
+        "date_publication": "2026-02-17T18:08:11.0834511+01:00",
+        "url": "https://bdif.amf-france.org/back/api/v1/documents/2026/2026DD1095326/4881F256259E23FB74A35A9981C1961A22D1E64D511CEB6E880F47F24F56079D.pdf",
+        "http": 200,
+        "sha256_pdf": "ee357eb8a7f0089dd68f52842be9e8190ec2ee806963b0e91afdcc804a0d7172",
+        "archive_pdf": "AUDITS/POURSUITE_FICHES_40_20261105/AMF/2026DD1095326.pdf",
+        "transactions": [
+          {
+            "index_operation": 1,
+            "modification": false,
+            "date_transaction": "2026-02-16",
+            "nature": "Acquisition",
+            "instrument": "Action",
+            "liee_options_attributions": "NON",
+            "prix": 127.5333,
+            "devise": "EUR",
+            "volume": 60.0,
+            "operations_elementaires": [
+              {
+                "prix": 127.5333,
+                "volume": 60.0
+              }
+            ],
+            "valeur_nette": 7651.998,
+            "statut": "OPERATION_DECLAREE_PARSEE"
+          }
+        ],
+        "statut": "DECLARATION_PARSEE"
+      },
+      {
+        "numero": "2026DD1095325",
+        "date_publication": "2026-02-17T18:08:13.4580045+01:00",
+        "url": "https://bdif.amf-france.org/back/api/v1/documents/2026/2026DD1095325/81572F4F86973C12DAC3C2FA2FCF22C7697EEE52E529EB1579187794EB193F6E.pdf",
+        "http": 200,
+        "sha256_pdf": "5dbed029f2a272d2d839d79c463ad127c823e1e87c515cc64ba00cb02b6754ae",
+        "archive_pdf": "AUDITS/POURSUITE_FICHES_40_20261105/AMF/2026DD1095325.pdf",
+        "transactions": [
+          {
+            "index_operation": 1,
+            "modification": false,
+            "date_transaction": "2026-02-13",
+            "nature": "Acquisition",
+            "instrument": "Action",
+            "liee_options_attributions": "NON",
+            "prix": 125.0217,
+            "devise": "EUR",
+            "volume": 23.0,
+            "operations_elementaires": [
+              {
+                "prix": 125.0217,
+                "volume": 23.0
+              }
+            ],
+            "valeur_nette": 2875.4991,
+            "statut": "OPERATION_DECLAREE_PARSEE"
+          }
+        ],
+        "statut": "DECLARATION_PARSEE"
+      },
+      {
+        "numero": "2026DD1094702",
+        "date_publication": "2026-02-13T18:04:15.9883903+01:00",
+        "url": "https://bdif.amf-france.org/back/api/v1/documents/2026/2026DD1094702/0E6313748EE9EA384ADD8D541838D8DD4F91E98573C4BD4CF51DDD79DC1D7738.pdf",
+        "http": 200,
+        "sha256_pdf": "0123923a9143173fb4f98f245d591c35198387812540c5c2a703add0dea7ed74",
+        "archive_pdf": "AUDITS/POURSUITE_FICHES_40_20261105/AMF/2026DD1094702.pdf",
+        "transactions": [
+          {
+            "index_operation": 1,
+            "modification": false,
+            "date_transaction": "2026-02-11",
+            "nature": "Acquisition",
+            "instrument": "Action",
+            "liee_options_attributions": "NON",
+            "prix": 120.0,
+            "devise": "EUR",
+            "volume": 400.0,
+            "operations_elementaires": [
+              {
+                "prix": 120.0,
+                "volume": 400.0
+              }
+            ],
+            "valeur_nette": 48000.0,
+            "statut": "OPERATION_DECLAREE_PARSEE"
+          }
+        ],
+        "statut": "DECLARATION_PARSEE"
+      },
+      {
+        "numero": "2026DD1094641",
+        "date_publication": "2026-02-13T18:02:11.4936491+01:00",
+        "url": "https://bdif.amf-france.org/back/api/v1/documents/2026/2026DD1094641/54923E3F57FFF5779F76C83EACD2B0D786E5B1C100F4B4C0D6D068DBFDFF3B29.pdf",
+        "http": 200,
+        "sha256_pdf": "b5fcac0036d24c387fb28546d4ce27b7620125189451b132ce6cf4b2e2d5a8e6",
+        "archive_pdf": "AUDITS/POURSUITE_FICHES_40_20261105/AMF/2026DD1094641.pdf",
+        "lei": "969500C43H7W90FX6G79",
+        "transactions": [
+          {
+            "index_operation": 1,
+            "modification": false,
+            "date_transaction": "2026-02-12",
+            "nature": "Acquisition",
+            "instrument": "Action",
+            "liee_options_attributions": "NON",
+            "prix": 117.0,
+            "devise": "EUR",
+            "volume": 170.0,
+            "operations_elementaires": [
+              {
+                "prix": 117.0,
+                "volume": 170.0
+              }
+            ],
+            "valeur_nette": 19890.0,
+            "statut": "OPERATION_DECLAREE_PARSEE"
+          }
+        ],
+        "statut": "DECLARATION_PARSEE"
+      },
+      {
+        "numero": "2026DD1093653",
+        "date_publication": "2026-02-09T18:06:13.322692+01:00",
+        "url": "https://bdif.amf-france.org/back/api/v1/documents/2026/2026DD1093653/493734490B130B85E52D9152D56A8EF5C72691929A8837DDE8F53912EDBA28E9.pdf",
+        "http": 200,
+        "sha256_pdf": "a0f56392832390073663f0aab3b45cc74282621c28b4bcb419ee6d1275fa2760",
+        "archive_pdf": "AUDITS/POURSUITE_FICHES_40_20261105/AMF/2026DD1093653.pdf",
+        "transactions": [
+          {
+            "index_operation": 1,
+            "modification": false,
+            "date_transaction": "2026-02-06",
+            "nature": "Acquisition",
+            "instrument": "Action",
+            "liee_options_attributions": "NON",
+            "prix": 143.0,
+            "devise": "EUR",
+            "volume": 2.0,
+            "operations_elementaires": [
+              {
+                "prix": 143.0,
+                "volume": 2.0
+              }
+            ],
+            "valeur_nette": 286.0,
+            "statut": "OPERATION_DECLAREE_PARSEE"
+          }
+        ],
+        "statut": "DECLARATION_PARSEE"
+      },
+      {
+        "numero": "2026DD1093640",
+        "date_publication": "2026-02-09T18:04:11.9158259+01:00",
+        "url": "https://bdif.amf-france.org/back/api/v1/documents/2026/2026DD1093640/6B762B5080342A96FBA11CACD1BA3436A6E16DEC6096E7FDEBF79DC6DC75DEA3.pdf",
+        "http": 200,
+        "sha256_pdf": "49aa6bde1c2b02f78b6b23de750177997372538590ab7485da2851834012a9a7",
+        "archive_pdf": "AUDITS/POURSUITE_FICHES_40_20261105/AMF/2026DD1093640.pdf",
+        "lei": "969500C43H7W90FX6G79",
+        "transactions": [
+          {
+            "index_operation": 1,
+            "modification": false,
+            "date_transaction": "2026-02-05",
+            "nature": "Acquisition",
+            "instrument": "Action",
+            "liee_options_attributions": "NON",
+            "prix": 141.5,
+            "devise": "EUR",
+            "volume": 25.0,
+            "operations_elementaires": [
+              {
+                "prix": 141.5,
+                "volume": 25.0
+              }
+            ],
+            "valeur_nette": 3537.5,
+            "statut": "OPERATION_DECLAREE_PARSEE"
+          }
+        ],
+        "statut": "DECLARATION_PARSEE"
+      },
+      {
+        "numero": "2026DD1093342",
+        "date_publication": "2026-02-06T18:04:13.0395226+01:00",
+        "url": "https://bdif.amf-france.org/back/api/v1/documents/2026/2026DD1093342/CCDB49E50A9178F56F9F9FD90A49BF224A518C2BC5741AA9530D9B6852AD7711.pdf",
+        "http": 200,
+        "sha256_pdf": "c44bfa65ae06f629de319ad7ffa4ad4b5ef20a99912bb29dbbee7006d2620d47",
+        "archive_pdf": "AUDITS/POURSUITE_FICHES_40_20261105/AMF/2026DD1093342.pdf",
+        "transactions": [
+          {
+            "index_operation": 1,
+            "modification": false,
+            "date_transaction": "2026-02-05",
+            "nature": "Acquisition",
+            "instrument": "Action",
+            "liee_options_attributions": "NON",
+            "prix": 142.3508,
+            "devise": "EUR",
+            "volume": 1300.0,
+            "operations_elementaires": [
+              {
+                "prix": 143.7825,
+                "volume": 400.0
+              },
+              {
+                "prix": 142.0,
+                "volume": 500.0
+              },
+              {
+                "prix": 141.3575,
+                "volume": 400.0
+              }
+            ],
+            "valeur_nette": 185056.0,
+            "statut": "OPERATION_DECLAREE_PARSEE"
+          }
+        ],
+        "statut": "DECLARATION_PARSEE"
+      },
+      {
+        "numero": "2026DD1093317",
+        "date_publication": "2026-02-06T18:04:17.695139+01:00",
+        "url": "https://bdif.amf-france.org/back/api/v1/documents/2026/2026DD1093317/2131195069123E11ED557639E9C6ED859EB06E082CDF49A1388B116501BBC123.pdf",
+        "http": null,
+        "archive_pdf": "AUDITS/POURSUITE_FICHES_40_20261105/AMF/2026DD1093317.pdf",
+        "sha256_pdf": "c660aa84bc83d162fd73bb4bf0cb1a9ea10353a01d886ec8ecf626ff8945659f",
+        "lei": "969500C43H7W90FX6G79",
+        "transactions": [
+          {
+            "index_operation": 1,
+            "modification": false,
+            "date_transaction": "2026-01-27",
+            "nature": "Acquisition",
+            "instrument": "Action",
+            "liee_options_attributions": "NON",
+            "prix": 174.0,
+            "devise": "EUR",
+            "volume": 50.0,
+            "operations_elementaires": [
+              {
+                "prix": 174.0,
+                "volume": 50.0
+              }
+            ],
+            "valeur_nette": 8700.0,
+            "statut": "OPERATION_DECLAREE_PARSEE"
+          },
+          {
+            "index_operation": 2,
+            "modification": false,
+            "date_transaction": "2026-01-29",
+            "nature": "Acquisition",
+            "instrument": "Action",
+            "liee_options_attributions": "NON",
+            "prix": 160.0,
+            "devise": "EUR",
+            "volume": 60.0,
+            "operations_elementaires": [
+              {
+                "prix": 160.0,
+                "volume": 60.0
+              }
+            ],
+            "valeur_nette": 9600.0,
+            "statut": "OPERATION_DECLAREE_PARSEE"
+          },
+          {
+            "index_operation": 3,
+            "modification": false,
+            "date_transaction": "2026-01-27",
+            "nature": "Cession",
+            "instrument": "Action",
+            "liee_options_attributions": "NON",
+            "prix": 173.34,
+            "devise": "EUR",
+            "volume": 100.0,
+            "operations_elementaires": [
+              {
+                "prix": 173.34,
+                "volume": 100.0
+              }
+            ],
+            "valeur_nette": -17334.0,
+            "statut": "OPERATION_DECLAREE_PARSEE"
+          }
+        ],
+        "statut": "DECLARATION_PARSEE"
+      },
+      {
+        "numero": "2026DD1093114",
+        "date_publication": "2026-02-05T18:42:06.9694588+01:00",
+        "url": "https://bdif.amf-france.org/back/api/v1/documents/2026/2026DD1093114/BC907FCF90BE0F7C2803E8D829C13E11DEB7098A074D2A344DA77DCEC5AAF18F.pdf",
+        "http": 200,
+        "sha256_pdf": "77dc32a5fe59861cbb37c27ebc0cf1e95094bd43542e7c809397ccffa781d1b7",
+        "archive_pdf": "AUDITS/POURSUITE_FICHES_40_20261105/AMF/2026DD1093114.pdf",
+        "transactions": [
+          {
+            "index_operation": 1,
+            "modification": false,
+            "date_transaction": "2026-02-05",
+            "nature": "Acquisition",
+            "instrument": "Action",
+            "liee_options_attributions": "NON",
+            "prix": 141.5,
+            "devise": "EUR",
+            "volume": 141.0,
+            "operations_elementaires": [
+              {
+                "prix": 141.5,
+                "volume": 141.0
+              }
+            ],
+            "valeur_nette": 19951.5,
+            "statut": "OPERATION_DECLAREE_PARSEE"
+          }
+        ],
+        "statut": "DECLARATION_PARSEE"
+      },
+      {
+        "numero": "2026DD1092321",
+        "date_publication": "2026-02-03T18:02:10.3851415+01:00",
+        "url": "https://bdif.amf-france.org/back/api/v1/documents/2026/2026DD1092321/16075630E02CD3EDA608E2FAAD81A7D2DE91D23FB064719CADFD9E7B97259EF5.pdf",
+        "http": 200,
+        "sha256_pdf": "c6111569bb403454da96434a53ba876a69e792197a58730c93e1f3b59502623c",
+        "archive_pdf": "AUDITS/POURSUITE_FICHES_40_20261105/AMF/2026DD1092321.pdf",
+        "lei": "969500C43H7W90FX6G79",
+        "transactions": [
+          {
+            "index_operation": 1,
+            "modification": false,
+            "date_transaction": "2026-02-02",
+            "nature": "Acquisition",
+            "instrument": "Action",
+            "liee_options_attributions": "NON",
+            "prix": 149.5,
+            "devise": "EUR",
+            "volume": 149.0,
+            "operations_elementaires": [
+              {
+                "prix": 149.5,
+                "volume": 149.0
+              }
+            ],
+            "valeur_nette": 22275.5,
+            "statut": "OPERATION_DECLAREE_PARSEE"
+          }
+        ],
+        "statut": "DECLARATION_PARSEE"
+      },
+      {
+        "numero": "2026DD1092144",
+        "date_publication": "2026-02-06T18:12:06.1684937+01:00",
+        "url": "https://bdif.amf-france.org/back/api/v1/documents/2026/2026DD1092144/D25E743E7F8591B78E017AB7D71E46C2777571796A8F6DB8AB8B243DBFED356A.pdf",
+        "http": null,
+        "archive_pdf": "AUDITS/POURSUITE_FICHES_40_20261105/AMF/2026DD1092144.pdf",
+        "sha256_pdf": "debcbb222cae3caa49b7c560a7eda4b820548d4d009197c6873496ee1dc13819",
+        "lei": "969500C43H7W90FX6G79",
+        "transactions": [
+          {
+            "index_operation": 1,
+            "modification": false,
+            "date_transaction": "2026-01-27",
+            "nature": "Acquisition",
+            "instrument": "Action",
+            "liee_options_attributions": "NON",
+            "prix": 174.0,
+            "devise": "EUR",
+            "volume": 50.0,
+            "operations_elementaires": [
+              {
+                "prix": 174.0,
+                "volume": 50.0
+              }
+            ],
+            "valeur_nette": 8700.0,
+            "statut": "OPERATION_DECLAREE_PARSEE"
+          },
+          {
+            "index_operation": 2,
+            "modification": false,
+            "date_transaction": "2026-01-29",
+            "nature": "Acquisition",
+            "instrument": "Action",
+            "liee_options_attributions": "NON",
+            "prix": 160.0,
+            "devise": "EUR",
+            "volume": 60.0,
+            "operations_elementaires": [
+              {
+                "prix": 160.0,
+                "volume": 60.0
+              }
+            ],
+            "valeur_nette": 9600.0,
+            "statut": "OPERATION_DECLAREE_PARSEE"
+          },
+          {
+            "index_operation": 3,
+            "modification": false,
+            "date_transaction": "2026-01-27",
+            "nature": "Vente à découvert",
+            "instrument": "Action",
+            "liee_options_attributions": "NON",
+            "statut": "EXCLUE_NON_ACHAT_VENTE_COMPTANT"
+          }
+        ],
+        "statut": "DECLARATION_PARSEE"
+      },
+      {
+        "numero": "2026DD1091763",
+        "date_publication": "2026-01-30T19:14:04.6277+01:00",
+        "url": "https://bdif.amf-france.org/back/api/v1/documents/2026/2026DD1091763/A5633BEB2E2484FCC1E6816F9448641177C8B0B5DDF5CF1A109AFAC3F40612F9.pdf",
+        "http": 200,
+        "sha256_pdf": "cffc0f4d85d45833315f919f05d1dcefb094668b8e3dee5e1c69ff1f5f1aa15d",
+        "archive_pdf": "AUDITS/POURSUITE_FICHES_40_20261105/AMF/2026DD1091763.pdf",
+        "transactions": [
+          {
+            "index_operation": 1,
+            "modification": false,
+            "date_transaction": "2026-01-27",
+            "nature": "Acquisition",
+            "instrument": "Action",
+            "liee_options_attributions": "NON",
+            "prix": 175.1692,
+            "devise": "EUR",
+            "volume": 65.0,
+            "operations_elementaires": [
+              {
+                "prix": 175.0139,
+                "volume": 36.0
+              },
+              {
+                "prix": 176.0,
+                "volume": 1.0
+              },
+              {
+                "prix": 176.0,
+                "volume": 1.0
+              },
+              {
+                "prix": 175.5,
+                "volume": 21.0
+              },
+              {
+                "prix": 175.0,
+                "volume": 1.0
+              },
+              {
+                "prix": 175.0,
+                "volume": 1.0
+              },
+              {
+                "prix": 174.5,
+                "volume": 4.0
+              }
+            ],
+            "valeur_nette": 11386.0004,
+            "statut": "OPERATION_DECLAREE_PARSEE"
+          }
+        ],
+        "statut": "DECLARATION_PARSEE"
+      },
+      {
+        "numero": "2026DD1091220",
+        "date_publication": "2026-01-27T18:08:11.4290795+01:00",
+        "url": "https://bdif.amf-france.org/back/api/v1/documents/2026/2026DD1091220/346A61FBDF533BFE4527BE1AE483EEEF4F7CBF38FD5216ACDB2C3A144027CE2D.pdf",
+        "http": 200,
+        "sha256_pdf": "e200728a76356d6be3fa6d579447c596cea05f0a545f3776c23c35cb72e63155",
+        "archive_pdf": "AUDITS/POURSUITE_FICHES_40_20261105/AMF/2026DD1091220.pdf",
+        "transactions": [
+          {
+            "index_operation": 1,
+            "modification": false,
+            "date_transaction": "2026-01-26",
+            "nature": "Acquisition",
+            "instrument": "Action",
+            "liee_options_attributions": "NON",
+            "prix": 180.3585,
+            "devise": "EUR",
+            "volume": 53.0,
+            "operations_elementaires": [
+              {
+                "prix": 185.5,
+                "volume": 2.0
+              },
+              {
+                "prix": 186.0,
+                "volume": 1.0
+              },
+              {
+                "prix": 182.5,
+                "volume": 1.0
+              },
+              {
+                "prix": 180.0,
+                "volume": 1.0
+              },
+              {
+                "prix": 180.5,
+                "volume": 1.0
+              },
+              {
+                "prix": 180.5,
+                "volume": 20.0
+              },
+              {
+                "prix": 181.0,
+                "volume": 1.0
+              },
+              {
+                "prix": 179.5,
+                "volume": 25.0
+              },
+              {
+                "prix": 180.5,
+                "volume": 1.0
+              }
+            ],
+            "valeur_nette": 9559.0,
+            "statut": "OPERATION_DECLAREE_PARSEE"
+          }
+        ],
+        "statut": "DECLARATION_PARSEE"
+      },
+      {
+        "numero": "2026DD1090392",
+        "date_publication": "2026-01-22T18:04:12.1893176+01:00",
+        "url": "https://bdif.amf-france.org/back/api/v1/documents/2026/2026DD1090392/02E45625AD448B1C861E95E886899CCEF3BD4B98CF7BAC403E119532EF3E981E.pdf",
+        "http": 200,
+        "sha256_pdf": "240649a43338ee6ad92e4b1e92c4ba3249cf09d87483f22055062f9685179868",
+        "archive_pdf": "AUDITS/POURSUITE_FICHES_40_20261105/AMF/2026DD1090392.pdf",
+        "transactions": [
+          {
+            "index_operation": 1,
+            "modification": false,
+            "date_transaction": "2026-01-21",
+            "nature": "Acquisition",
+            "instrument": "Action",
+            "liee_options_attributions": "NON",
+            "prix": 207.0095,
+            "devise": "EUR",
+            "volume": 210.0,
+            "operations_elementaires": [
+              {
+                "prix": 208.87,
+                "volume": 100.0
+              },
+              {
+                "prix": 205.34,
+                "volume": 100.0
+              },
+              {
+                "prix": 205.1,
+                "volume": 10.0
+              }
+            ],
+            "valeur_nette": 43472.0,
+            "statut": "OPERATION_DECLAREE_PARSEE"
+          }
+        ],
+        "statut": "DECLARATION_PARSEE"
+      }
+    ],
+    "erreurs": [],
+    "totaux": {
+      "90": {
+        "debut": "2026-08-07",
+        "fin": "2026-11-05",
+        "valeur": -5370.4,
+        "unite": "EUR",
+        "nombre_transactions": 4,
+        "statut": "DEPOTS_AMF_FENETRE_CONTROLEE",
+        "limite": "Achats moins ventes d’actions au comptant déclarés et publiés à la date de collecte; exercices/attributions/dons distingués. Cessions liées à des programmes signalées. Hors frais, produits des prix/volumes déclarés. Pas preuve d’absence de transactions non publiées."
+      },
+      "180": {
+        "debut": "2026-05-09",
+        "fin": "2026-11-05",
+        "valeur": -23180.8,
+        "unite": "EUR",
+        "nombre_transactions": 8,
+        "statut": "DEPOTS_AMF_FENETRE_CONTROLEE",
+        "limite": "Achats moins ventes d’actions au comptant déclarés et publiés à la date de collecte; exercices/attributions/dons distingués. Cessions liées à des programmes signalées. Hors frais, produits des prix/volumes déclarés. Pas preuve d’absence de transactions non publiées."
+      }
+    },
+    "jeton": "RS00004219",
+    "nom_AMF": "SIDETRADE",
+    "nombre_declarations_2026": 22,
+    "pagination_complete": true,
+    "statut": "RECHERCHE_REGISTRE_PRIMAIRE_EFFECTUEE"
+  },
+  {
+    "ticker": "ALBPK.PA",
+    "societe": "Broadpeak",
+    "isin": "FR001400AJZ7",
+    "date_collecte": "2026-11-05",
+    "recherches": [
+      {
+        "famille": "identite_AMF",
+        "url": "https://bdif.amf-france.org/back/api/v1/informations?RechercheTexte=BROADPEAK&From=0&Size=50",
+        "http": 200,
+        "sha256_reponse": "837c78ff5542766f7126807f88f9580845f633922e9f12bbe5edb4a1a3f5fa3c",
+        "total": 4
+      },
+      {
+        "famille": "declarations_2026",
+        "url": "https://bdif.amf-france.org/back/api/v1/informations?Jetons=RS00007639&TypesInformation=DD&DateDebut=2026-01-01T00%3A00%3A00.000Z&DateFin=2026-11-05T23%3A59%3A59.000Z&From=0&Size=100",
+        "http": 200,
+        "sha256_reponse": "6d412c54e7b2df9f62d2f3a8d58de8e56a6af4baccb909992a5a629887cf9131",
+        "total": 0,
+        "from_index": 0
+      }
+    ],
+    "declarations": [],
+    "erreurs": [],
+    "totaux": {
+      "90": {
+        "debut": "2026-08-07",
+        "fin": "2026-11-05",
+        "valeur": 0,
+        "unite": "EUR",
+        "nombre_transactions": 0,
+        "statut": "DEPOTS_AMF_FENETRE_CONTROLEE",
+        "limite": "Achats moins ventes d’actions au comptant déclarés et publiés à la date de collecte; exercices/attributions/dons distingués. Cessions liées à des programmes signalées. Hors frais, produits des prix/volumes déclarés. Pas preuve d’absence de transactions non publiées."
+      },
+      "180": {
+        "debut": "2026-05-09",
+        "fin": "2026-11-05",
+        "valeur": 0,
+        "unite": "EUR",
+        "nombre_transactions": 0,
+        "statut": "DEPOTS_AMF_FENETRE_CONTROLEE",
+        "limite": "Achats moins ventes d’actions au comptant déclarés et publiés à la date de collecte; exercices/attributions/dons distingués. Cessions liées à des programmes signalées. Hors frais, produits des prix/volumes déclarés. Pas preuve d’absence de transactions non publiées."
+      }
+    },
+    "jeton": "RS00007639",
+    "nom_AMF": "BROADPEAK",
+    "nombre_declarations_2026": 0,
+    "pagination_complete": true,
+    "statut": "RECHERCHE_REGISTRE_PRIMAIRE_EFFECTUEE"
+  },
+  {
+    "ticker": "ALESE.PA",
+    "societe": "Entech",
+    "isin": "FR0014004362",
+    "date_collecte": "2026-11-05",
+    "recherches": [
+      {
+        "famille": "identite_AMF",
+        "url": "https://bdif.amf-france.org/back/api/v1/informations?RechercheTexte=ENTECH&From=0&Size=50",
+        "http": 200,
+        "sha256_reponse": "c87d0304a84c56a5954be9dbf98d8f1d02a868c086e1cbcf63afedb89cf4187d",
+        "total": 49
+      },
+      {
+        "famille": "declarations_2026",
+        "url": "https://bdif.amf-france.org/back/api/v1/informations?Jetons=RS00007357&TypesInformation=DD&DateDebut=2026-01-01T00%3A00%3A00.000Z&DateFin=2026-11-05T23%3A59%3A59.000Z&From=0&Size=100",
+        "http": 200,
+        "sha256_reponse": "dbfc6f8c459d979e885dbd97db2371d9328d5470d5783b5d071d064c5f4d9c39",
+        "total": 1,
+        "from_index": 0
+      }
+    ],
+    "declarations": [
+      {
+        "numero": "2026DD1089952",
+        "date_publication": "2026-01-20T18:06:05.7293283+01:00",
+        "url": "https://bdif.amf-france.org/back/api/v1/documents/2026/2026DD1089952/CC292FFA7D665358034537141AEE8644957B4458B0CAF4D079FFCCD6D55475A8.pdf",
+        "http": 200,
+        "sha256_pdf": "29a6f827e5a3eea97d5242612d9b14f2697d70ff2af4ed1d5c86bf11f5205d61",
+        "archive_pdf": "AUDITS/POURSUITE_FICHES_40_20261105/AMF/2026DD1089952.pdf",
+        "lei": "969500A2Z14AVX87BU73",
+        "transactions": [
+          {
+            "index_operation": 1,
+            "modification": false,
+            "date_transaction": "2026-01-19",
+            "nature": "Acquisition",
+            "instrument": "Action",
+            "liee_options_attributions": "OUI",
+            "prix": 0.0,
+            "devise": "EUR",
+            "volume": 530.0,
+            "operations_elementaires": [
+              {
+                "prix": 0.0,
+                "volume": 530.0
+              }
+            ],
+            "valeur_nette": 0.0,
+            "statut": "EXCLUE_NON_ACHAT_VENTE_COMPTANT"
+          }
+        ],
+        "statut": "DECLARATION_PARSEE"
+      }
+    ],
+    "erreurs": [],
+    "totaux": {
+      "90": {
+        "debut": "2026-08-07",
+        "fin": "2026-11-05",
+        "valeur": 0,
+        "unite": "EUR",
+        "nombre_transactions": 0,
+        "statut": "DEPOTS_AMF_FENETRE_CONTROLEE",
+        "limite": "Achats moins ventes d’actions au comptant déclarés et publiés à la date de collecte; exercices/attributions/dons distingués. Cessions liées à des programmes signalées. Hors frais, produits des prix/volumes déclarés. Pas preuve d’absence de transactions non publiées."
+      },
+      "180": {
+        "debut": "2026-05-09",
+        "fin": "2026-11-05",
+        "valeur": 0,
+        "unite": "EUR",
+        "nombre_transactions": 0,
+        "statut": "DEPOTS_AMF_FENETRE_CONTROLEE",
+        "limite": "Achats moins ventes d’actions au comptant déclarés et publiés à la date de collecte; exercices/attributions/dons distingués. Cessions liées à des programmes signalées. Hors frais, produits des prix/volumes déclarés. Pas preuve d’absence de transactions non publiées."
+      }
+    },
+    "jeton": "RS00007357",
+    "nom_AMF": "ENTECH",
+    "nombre_declarations_2026": 1,
+    "pagination_complete": true,
+    "statut": "RECHERCHE_REGISTRE_PRIMAIRE_EFFECTUEE"
+  },
+  {
+    "ticker": "ALDMS.PA",
+    "societe": "Diagnostic Medical Systems",
+    "isin": "FR0012202497",
+    "date_collecte": "2026-11-05",
+    "recherches": [
+      {
+        "famille": "identite_AMF",
+        "url": "https://bdif.amf-france.org/back/api/v1/informations?RechercheTexte=DIAGNOSTIC+MEDICAL+SYSTEMS&From=0&Size=50",
+        "http": 200,
+        "sha256_reponse": "b7e8e2d743de171d4c6759d1ce630dbd1412253eeebbb50a54513f0c30f0cf69",
+        "total": 92
+      },
+      {
+        "famille": "declarations_2026",
+        "url": "https://bdif.amf-france.org/back/api/v1/informations?Jetons=RS00003489&TypesInformation=DD&DateDebut=2026-01-01T00%3A00%3A00.000Z&DateFin=2026-11-05T23%3A59%3A59.000Z&From=0&Size=100",
+        "http": 200,
+        "sha256_reponse": "f00344f72a8e322d13671d14d9c815ec233d5138737adc448805fa152b148061",
+        "total": 2,
+        "from_index": 0
+      }
+    ],
+    "declarations": [
+      {
+        "numero": "2026DD1128701",
+        "date_publication": "2026-07-27T11:32:08.4868768+02:00",
+        "url": "https://bdif.amf-france.org/back/api/v1/documents/2026/2026DD1128701/A414D06BF0EAA568CE35F0D5C24084442FC71ED6C31F591A3584CB0EA217F678.pdf",
+        "http": 200,
+        "sha256_pdf": "11ba7430c7483f31295b6bb60369e4b0d9e190b6adbe2998c273bb9344fe9360",
+        "archive_pdf": "AUDITS/POURSUITE_FICHES_40_20261105/AMF/2026DD1128701.pdf",
+        "transactions": [
+          {
+            "index_operation": 1,
+            "modification": false,
+            "date_transaction": "2026-07-23",
+            "nature": "Acquisition",
+            "instrument": "Action",
+            "liee_options_attributions": "NON",
+            "prix": 1.19,
+            "devise": "EUR",
+            "volume": 1680672.0,
+            "operations_elementaires": [
+              {
+                "prix": 1.19,
+                "volume": 1680672.0
+              }
+            ],
+            "valeur_nette": 1999999.68,
+            "statut": "OPERATION_DECLAREE_PARSEE"
+          }
+        ],
+        "statut": "DECLARATION_PARSEE"
+      },
+      {
+        "numero": "2026DD1128697",
+        "date_publication": "2026-07-27T11:32:08.7587862+02:00",
+        "url": "https://bdif.amf-france.org/back/api/v1/documents/2026/2026DD1128697/C17A45DE170CBFBC7C1FD99CBBD630577080CCC13FFD32A32B3328CCF571E632.pdf",
+        "http": 200,
+        "sha256_pdf": "971f1f7526b557873d441813365cfbd772962a929da0a5e5be2693fae6028e7d",
+        "archive_pdf": "AUDITS/POURSUITE_FICHES_40_20261105/AMF/2026DD1128697.pdf",
+        "transactions": [
+          {
+            "index_operation": 1,
+            "modification": false,
+            "date_transaction": "2026-07-23",
+            "nature": "Cession",
+            "instrument": "Action",
+            "liee_options_attributions": "NON",
+            "prix": 1.19,
+            "devise": "EUR",
+            "volume": 1680672.0,
+            "operations_elementaires": [
+              {
+                "prix": 1.19,
+                "volume": 1680672.0
+              }
+            ],
+            "valeur_nette": -1999999.68,
+            "statut": "OPERATION_DECLAREE_PARSEE"
+          }
+        ],
+        "statut": "DECLARATION_PARSEE"
+      }
+    ],
+    "erreurs": [],
+    "totaux": {
+      "90": {
+        "debut": "2026-08-07",
+        "fin": "2026-11-05",
+        "valeur": 0,
+        "unite": "EUR",
+        "nombre_transactions": 0,
+        "statut": "DEPOTS_AMF_FENETRE_CONTROLEE",
+        "limite": "Achats moins ventes d’actions au comptant déclarés et publiés à la date de collecte; exercices/attributions/dons distingués. Cessions liées à des programmes signalées. Hors frais, produits des prix/volumes déclarés. Pas preuve d’absence de transactions non publiées."
+      },
+      "180": {
+        "debut": "2026-05-09",
+        "fin": "2026-11-05",
+        "valeur": 0.0,
+        "unite": "EUR",
+        "nombre_transactions": 2,
+        "statut": "DEPOTS_AMF_FENETRE_CONTROLEE",
+        "limite": "Achats moins ventes d’actions au comptant déclarés et publiés à la date de collecte; exercices/attributions/dons distingués. Cessions liées à des programmes signalées. Hors frais, produits des prix/volumes déclarés. Pas preuve d’absence de transactions non publiées."
+      }
+    },
+    "jeton": "RS00003489",
+    "nom_AMF": "DIAGNOSTIC MEDICAL SYSTEMS",
+    "nombre_declarations_2026": 2,
+    "pagination_complete": true,
+    "statut": "RECHERCHE_REGISTRE_PRIMAIRE_EFFECTUEE"
+  },
+  {
+    "ticker": "ALSTW.PA",
+    "societe": "StreamWIDE",
+    "isin": "FR0010528059",
+    "date_collecte": "2026-11-05",
+    "recherches": [
+      {
+        "famille": "identite_AMF",
+        "url": "https://bdif.amf-france.org/back/api/v1/informations?RechercheTexte=STREAMWIDE&From=0&Size=50",
+        "http": 200,
+        "sha256_reponse": "e5a7c7c42494c9d93570b05d323178dcb8f31ebdf32592b6065361cfb4f94a2c",
+        "total": 56
+      },
+      {
+        "famille": "declarations_2026",
+        "url": "https://bdif.amf-france.org/back/api/v1/informations?Jetons=RS00004690&TypesInformation=DD&DateDebut=2026-01-01T00%3A00%3A00.000Z&DateFin=2026-11-05T23%3A59%3A59.000Z&From=0&Size=100",
+        "http": 200,
+        "sha256_reponse": "d7d4f06f3ebe43d1d069c3daa5c00575579342d9ebf85161f3a8b3eaa58cc7e9",
+        "total": 6,
+        "from_index": 0
+      }
+    ],
+    "declarations": [
+      {
+        "numero": "2026DD1129178",
+        "date_publication": "2026-07-27T18:06:08.4839671+02:00",
+        "url": "https://bdif.amf-france.org/back/api/v1/documents/2026/2026DD1129178/4ECBBBAC98DD203F3CE9BB0496F74ECB80378DF1AEF5B93CDE0D5926F8D3A719.pdf",
+        "http": 200,
+        "sha256_pdf": "f0621e4e5ed5ddccc501cc5bdf4e425c38e24490deaee0e06a9a477bc187b688",
+        "archive_pdf": "AUDITS/POURSUITE_FICHES_40_20261105/AMF/2026DD1129178.pdf",
+        "lei": "969500DKWUNXWIOSTC75",
+        "transactions": [
+          {
+            "index_operation": 1,
+            "modification": false,
+            "date_transaction": "2026-07-22",
+            "nature": "Cession",
+            "instrument": "Action",
+            "liee_options_attributions": "NON",
+            "prix": 82.0,
+            "devise": "EUR",
+            "volume": 100.0,
+            "operations_elementaires": [
+              {
+                "prix": 82.0,
+                "volume": 100.0
+              }
+            ],
+            "valeur_nette": -8200.0,
+            "statut": "OPERATION_DECLAREE_PARSEE"
+          }
+        ],
+        "statut": "DECLARATION_PARSEE"
+      },
+      {
+        "numero": "2026DD1123317",
+        "date_publication": "2026-06-29T18:04:09.8085972+02:00",
+        "url": "https://bdif.amf-france.org/back/api/v1/documents/2026/2026DD1123317/B01BB550903909B6DC82319F7A38E38B8505BBC278E87BB7B7B3B782A3E6546B.pdf",
+        "http": 200,
+        "sha256_pdf": "4e1c4e0e307f31068dd55599ac71e3d66f163b4ca3222bf230f5834203229504",
+        "archive_pdf": "AUDITS/POURSUITE_FICHES_40_20261105/AMF/2026DD1123317.pdf",
+        "lei": "969500DKWUNXWIOSTC75",
+        "transactions": [
+          {
+            "index_operation": 1,
+            "modification": false,
+            "date_transaction": "2026-06-25",
+            "nature": "Cession",
+            "instrument": "Action",
+            "liee_options_attributions": "NON",
+            "prix": 81.0,
+            "devise": "EUR",
+            "volume": 100.0,
+            "operations_elementaires": [
+              {
+                "prix": 81.0,
+                "volume": 100.0
+              }
+            ],
+            "valeur_nette": -8100.0,
+            "statut": "OPERATION_DECLAREE_PARSEE"
+          }
+        ],
+        "statut": "DECLARATION_PARSEE"
+      },
+      {
+        "numero": "2026DD1119245",
+        "date_publication": "2026-06-08T18:06:06.2233841+02:00",
+        "url": "https://bdif.amf-france.org/back/api/v1/documents/2026/2026DD1119245/683B80ABBA2B399742BB85FFF69000EEF0333ED73FE0260C1B0542FD0E8F7E4B.pdf",
+        "http": 200,
+        "sha256_pdf": "7d4c54f96eaf67eceaf7d8876cf8f2373eb6ac765d75667a0f9619bf9f2afec6",
+        "archive_pdf": "AUDITS/POURSUITE_FICHES_40_20261105/AMF/2026DD1119245.pdf",
+        "lei": "969500DKWUNXWIOSTC75",
+        "transactions": [
+          {
+            "index_operation": 1,
+            "modification": false,
+            "date_transaction": "2026-06-03",
+            "nature": "Cession",
+            "instrument": "Action",
+            "liee_options_attributions": "NON",
+            "prix": 81.6,
+            "devise": "EUR",
+            "volume": 100.0,
+            "operations_elementaires": [
+              {
+                "prix": 81.6,
+                "volume": 100.0
+              }
+            ],
+            "valeur_nette": -8160.0,
+            "statut": "OPERATION_DECLAREE_PARSEE"
+          }
+        ],
+        "statut": "DECLARATION_PARSEE"
+      },
+      {
+        "numero": "2026DD1115858",
+        "date_publication": "2026-05-21T18:04:07.7625215+02:00",
+        "url": "https://bdif.amf-france.org/back/api/v1/documents/2026/2026DD1115858/EA7325225B36040AE5A80F7EAC9DF06C92AAF411F16BF7446960C10911F0F3D0.pdf",
+        "http": null,
+        "archive_pdf": "AUDITS/POURSUITE_FICHES_40_20261105/AMF/2026DD1115858.pdf",
+        "sha256_pdf": "39278f781469cbeed2fa83112b1e43f7ef31ad2c5b94005d4c3d25a5ce39da2e",
+        "lei": "969500DKWUNXWIOSTC75",
+        "transactions": [
+          {
+            "index_operation": 1,
+            "modification": false,
+            "date_transaction": "2026-05-19",
+            "nature": "Cession",
+            "instrument": "Action",
+            "liee_options_attributions": "NON",
+            "prix": 82.0,
+            "devise": "EUR",
+            "volume": 191.0,
+            "operations_elementaires": [
+              {
+                "prix": 82.0,
+                "volume": 191.0
+              }
+            ],
+            "valeur_nette": -15662.0,
+            "statut": "OPERATION_DECLAREE_PARSEE"
+          },
+          {
+            "index_operation": 2,
+            "modification": false,
+            "date_transaction": "2026-05-20",
+            "nature": "Cession",
+            "instrument": "Action",
+            "liee_options_attributions": "NON",
+            "prix": 82.0,
+            "devise": "EUR",
+            "volume": 9.0,
+            "operations_elementaires": [
+              {
+                "prix": 82.0,
+                "volume": 9.0
+              }
+            ],
+            "valeur_nette": -738.0,
+            "statut": "OPERATION_DECLAREE_PARSEE"
+          }
+        ],
+        "statut": "DECLARATION_PARSEE"
+      },
+      {
+        "numero": "2026DD1114268",
+        "date_publication": "2026-05-13T18:06:07.9177166+02:00",
+        "url": "https://bdif.amf-france.org/back/api/v1/documents/2026/2026DD1114268/391FF943B254B03D087E0DE09DCB8D9FB0EB8B17E60EA068D9F39E6EC1379806.pdf",
+        "http": 200,
+        "sha256_pdf": "99726c7ffc1cfdc0116f3dc1b553614123c421767e0fc45b974c3d984ca51606",
+        "archive_pdf": "AUDITS/POURSUITE_FICHES_40_20261105/AMF/2026DD1114268.pdf",
+        "lei": "969500DKWUNXWIOSTC75",
+        "transactions": [
+          {
+            "index_operation": 1,
+            "modification": false,
+            "date_transaction": "2026-05-11",
+            "nature": "Cession",
+            "instrument": "Action",
+            "liee_options_attributions": "NON",
+            "prix": 81.0,
+            "devise": "EUR",
+            "volume": 150.0,
+            "operations_elementaires": [
+              {
+                "prix": 81.0,
+                "volume": 150.0
+              }
+            ],
+            "valeur_nette": -12150.0,
+            "statut": "OPERATION_DECLAREE_PARSEE"
+          }
+        ],
+        "statut": "DECLARATION_PARSEE"
+      },
+      {
+        "numero": "2026DD1109558",
+        "date_publication": "2026-04-22T18:08:04.6325525+02:00",
+        "url": "https://bdif.amf-france.org/back/api/v1/documents/2026/2026DD1109558/651BCE6B2CE06ADEBC84CE917A75B9761230E58C0D97BCFF3B878777D9DF38B4.pdf",
+        "http": 200,
+        "sha256_pdf": "6e3332a4285780cc64b8b01f3674f8ac3eb889b0e2d4d55ab71369b10657d9f5",
+        "archive_pdf": "AUDITS/POURSUITE_FICHES_40_20261105/AMF/2026DD1109558.pdf",
+        "lei": "969500DKWUNXWIOSTC75",
+        "transactions": [
+          {
+            "index_operation": 1,
+            "modification": false,
+            "date_transaction": "2026-04-20",
+            "nature": "Cession",
+            "instrument": "Action",
+            "liee_options_attributions": "NON",
+            "prix": 80.0,
+            "devise": "EUR",
+            "volume": 150.0,
+            "operations_elementaires": [
+              {
+                "prix": 80.0,
+                "volume": 150.0
+              }
+            ],
+            "valeur_nette": -12000.0,
+            "statut": "OPERATION_DECLAREE_PARSEE"
+          }
+        ],
+        "statut": "DECLARATION_PARSEE"
+      }
+    ],
+    "erreurs": [],
+    "totaux": {
+      "90": {
+        "debut": "2026-08-07",
+        "fin": "2026-11-05",
+        "valeur": 0,
+        "unite": "EUR",
+        "nombre_transactions": 0,
+        "statut": "DEPOTS_AMF_FENETRE_CONTROLEE",
+        "limite": "Achats moins ventes d’actions au comptant déclarés et publiés à la date de collecte; exercices/attributions/dons distingués. Cessions liées à des programmes signalées. Hors frais, produits des prix/volumes déclarés. Pas preuve d’absence de transactions non publiées."
+      },
+      "180": {
+        "debut": "2026-05-09",
+        "fin": "2026-11-05",
+        "valeur": -53010.0,
+        "unite": "EUR",
+        "nombre_transactions": 6,
+        "statut": "DEPOTS_AMF_FENETRE_CONTROLEE",
+        "limite": "Achats moins ventes d’actions au comptant déclarés et publiés à la date de collecte; exercices/attributions/dons distingués. Cessions liées à des programmes signalées. Hors frais, produits des prix/volumes déclarés. Pas preuve d’absence de transactions non publiées."
+      }
+    },
+    "jeton": "RS00004690",
+    "nom_AMF": "STREAMWIDE",
+    "nombre_declarations_2026": 6,
+    "pagination_complete": true,
+    "statut": "RECHERCHE_REGISTRE_PRIMAIRE_EFFECTUEE"
+  },
+  {
+    "ticker": "ALSOG.PA",
+    "societe": "Sogeclair",
+    "isin": "FR0000065864",
+    "date_collecte": "2026-11-05",
+    "recherches": [
+      {
+        "famille": "identite_AMF",
+        "url": "https://bdif.amf-france.org/back/api/v1/informations?RechercheTexte=SOGECLAIR&From=0&Size=50",
+        "http": 200,
+        "sha256_reponse": "9acd2d27c5dbd3b39a8520e878611e6262ca58ced070a3e7c8bae72e41a460e6",
+        "total": 50
+      },
+      {
+        "famille": "declarations_2026",
+        "url": "https://bdif.amf-france.org/back/api/v1/informations?Jetons=RS00003419&TypesInformation=DD&DateDebut=2026-01-01T00%3A00%3A00.000Z&DateFin=2026-11-05T23%3A59%3A59.000Z&From=0&Size=100",
+        "http": 200,
+        "sha256_reponse": "6d412c54e7b2df9f62d2f3a8d58de8e56a6af4baccb909992a5a629887cf9131",
+        "total": 0,
+        "from_index": 0
+      }
+    ],
+    "declarations": [],
+    "erreurs": [],
+    "totaux": {
+      "90": {
+        "debut": "2026-08-07",
+        "fin": "2026-11-05",
+        "valeur": 0,
+        "unite": "EUR",
+        "nombre_transactions": 0,
+        "statut": "DEPOTS_AMF_FENETRE_CONTROLEE",
+        "limite": "Achats moins ventes d’actions au comptant déclarés et publiés à la date de collecte; exercices/attributions/dons distingués. Cessions liées à des programmes signalées. Hors frais, produits des prix/volumes déclarés. Pas preuve d’absence de transactions non publiées."
+      },
+      "180": {
+        "debut": "2026-05-09",
+        "fin": "2026-11-05",
+        "valeur": 0,
+        "unite": "EUR",
+        "nombre_transactions": 0,
+        "statut": "DEPOTS_AMF_FENETRE_CONTROLEE",
+        "limite": "Achats moins ventes d’actions au comptant déclarés et publiés à la date de collecte; exercices/attributions/dons distingués. Cessions liées à des programmes signalées. Hors frais, produits des prix/volumes déclarés. Pas preuve d’absence de transactions non publiées."
+      }
+    },
+    "jeton": "RS00003419",
+    "nom_AMF": "SOGECLAIR",
+    "nombre_declarations_2026": 0,
+    "pagination_complete": true,
+    "statut": "RECHERCHE_REGISTRE_PRIMAIRE_EFFECTUEE"
+  },
+  {
+    "ticker": "ALMCE.PA",
+    "societe": "Mon Courtier Énergie Groupe",
+    "isin": "FR001400H3A0",
+    "date_collecte": "2026-11-05",
+    "recherches": [
+      {
+        "famille": "identite_AMF",
+        "url": "https://bdif.amf-france.org/back/api/v1/informations?RechercheTexte=MON+COURTIER+ENERGIE+GROUPE&From=0&Size=50",
+        "http": 200,
+        "sha256_reponse": "4d08b80abf0587699924c84294942c347be9dc1ff728745b649d4c01c915a809",
+        "total": 37
+      },
+      {
+        "famille": "declarations_2026",
+        "url": "https://bdif.amf-france.org/back/api/v1/informations?Jetons=RS00007856&TypesInformation=DD&DateDebut=2026-01-01T00%3A00%3A00.000Z&DateFin=2026-11-05T23%3A59%3A59.000Z&From=0&Size=100",
+        "http": 200,
+        "sha256_reponse": "ff9614fe1c2632b0ab239e3b3631b8d33bc83bfa05a81a0b508b900220f31bd4",
+        "total": 30,
+        "from_index": 0
+      }
+    ],
+    "declarations": [
+      {
+        "numero": "2026DD1147733",
+        "date_publication": "2026-11-02T18:12:13.2432632+01:00",
+        "url": "https://bdif.amf-france.org/back/api/v1/documents/2026/2026DD1147733/32A1FE386687B9897C1E6ACF12F30912306C7D41F62037F629336A921D7935A8.pdf",
+        "http": 200,
+        "sha256_pdf": "576df0e6e440d9d33c324a7420e4c9e2b93cb15c33660efdb2fe0bb64233c774",
+        "archive_pdf": "AUDITS/POURSUITE_FICHES_40_20261105/AMF/2026DD1147733.pdf",
+        "transactions": [
+          {
+            "index_operation": 1,
+            "modification": false,
+            "date_transaction": "2026-10-27",
+            "nature": "Cession",
+            "instrument": "Action",
+            "liee_options_attributions": "NON",
+            "prix": 5.3108,
+            "devise": "EUR",
+            "volume": 3029.0,
+            "operations_elementaires": [
+              {
+                "prix": 5.3108,
+                "volume": 3029.0
+              }
+            ],
+            "valeur_nette": -16086.4132,
+            "statut": "OPERATION_DECLAREE_PARSEE"
+          },
+          {
+            "index_operation": 2,
+            "modification": false,
+            "date_transaction": "2026-10-28",
+            "nature": "Cession",
+            "instrument": "Action",
+            "liee_options_attributions": "NON",
+            "prix": 5.4279,
+            "devise": "EUR",
+            "volume": 156.0,
+            "operations_elementaires": [
+              {
+                "prix": 5.4279,
+                "volume": 156.0
+              }
+            ],
+            "valeur_nette": -846.7524,
+            "statut": "OPERATION_DECLAREE_PARSEE"
+          },
+          {
+            "index_operation": 3,
+            "modification": false,
+            "date_transaction": "2026-10-29",
+            "nature": "Cession",
+            "instrument": "Action",
+            "liee_options_attributions": "NON",
+            "prix": 5.5689,
+            "devise": "EUR",
+            "volume": 1042.0,
+            "operations_elementaires": [
+              {
+                "prix": 5.5689,
+                "volume": 1042.0
+              }
+            ],
+            "valeur_nette": -5802.7938,
+            "statut": "OPERATION_DECLAREE_PARSEE"
+          }
+        ],
+        "statut": "DECLARATION_PARSEE"
+      },
+      {
+        "numero": "2026DD1146478",
+        "date_publication": "2026-10-27T18:14:09.4508156+01:00",
+        "url": "https://bdif.amf-france.org/back/api/v1/documents/2026/2026DD1146478/F163CB2D2581247FEE1239DC33375F692D4C209E42616B18DE0AB5E138C1ABCD.pdf",
+        "http": 200,
+        "sha256_pdf": "6e0b2d70fad7ded259c8cde311192d86d395e15fc23f34b77c59800b60774006",
+        "archive_pdf": "AUDITS/POURSUITE_FICHES_40_20261105/AMF/2026DD1146478.pdf",
+        "transactions": [
+          {
+            "index_operation": 1,
+            "modification": false,
+            "date_transaction": "2026-10-21",
+            "nature": "Cession",
+            "instrument": "Action",
+            "liee_options_attributions": "NON",
+            "prix": 5.4465,
+            "devise": "EUR",
+            "volume": 303.0,
+            "operations_elementaires": [
+              {
+                "prix": 5.4465,
+                "volume": 303.0
+              }
+            ],
+            "valeur_nette": -1650.2895,
+            "statut": "OPERATION_DECLAREE_PARSEE"
+          }
+        ],
+        "statut": "DECLARATION_PARSEE"
+      },
+      {
+        "numero": "2026DD1145376",
+        "date_publication": "2026-10-21T18:08:08.0679234+02:00",
+        "url": "https://bdif.amf-france.org/back/api/v1/documents/2026/2026DD1145376/E28ABBF5DD253FAB845D6E06D07FD319E2693E9B4DDFEBB27EE8E0E3040598B7.pdf",
+        "http": 200,
+        "sha256_pdf": "a2d4c92f23f0cb7b84ab6514dba562fbaa8bd9abee5b1692e13a662df8585464",
+        "archive_pdf": "AUDITS/POURSUITE_FICHES_40_20261105/AMF/2026DD1145376.pdf",
+        "transactions": [
+          {
+            "index_operation": 1,
+            "modification": false,
+            "date_transaction": "2026-10-19",
+            "nature": "Cession",
+            "instrument": "Action",
+            "liee_options_attributions": "NON",
+            "prix": 5.5394,
+            "devise": "EUR",
+            "volume": 1626.0,
+            "operations_elementaires": [
+              {
+                "prix": 5.5394,
+                "volume": 1626.0
+              }
+            ],
+            "valeur_nette": -9007.0644,
+            "statut": "OPERATION_DECLAREE_PARSEE"
+          },
+          {
+            "index_operation": 2,
+            "modification": false,
+            "date_transaction": "2026-10-20",
+            "nature": "Cession",
+            "instrument": "Action",
+            "liee_options_attributions": "NON",
+            "prix": 5.4905,
+            "devise": "EUR",
+            "volume": 423.0,
+            "operations_elementaires": [
+              {
+                "prix": 5.4905,
+                "volume": 423.0
+              }
+            ],
+            "valeur_nette": -2322.4815,
+            "statut": "OPERATION_DECLAREE_PARSEE"
+          }
+        ],
+        "statut": "DECLARATION_PARSEE"
+      },
+      {
+        "numero": "2026DD1139078",
+        "date_publication": "2026-09-21T18:12:10.0905129+02:00",
+        "url": "https://bdif.amf-france.org/back/api/v1/documents/2026/2026DD1139078/7EDEA2AD05FBAD7EB4335702CD02A9BF16ECE0E148019E410FA238AED4A33ABE.pdf",
+        "http": 200,
+        "sha256_pdf": "2c7b81b97940c9b7a7a62128f4f60d68684a97a85f6ff11c801d2abf2769514f",
+        "archive_pdf": "AUDITS/POURSUITE_FICHES_40_20261105/AMF/2026DD1139078.pdf",
+        "transactions": [
+          {
+            "index_operation": 1,
+            "modification": false,
+            "date_transaction": "2026-09-16",
+            "nature": "Cession",
+            "instrument": "Action",
+            "liee_options_attributions": "NON",
+            "prix": 5.6,
+            "devise": "EUR",
+            "volume": 712.0,
+            "operations_elementaires": [
+              {
+                "prix": 5.6,
+                "volume": 712.0
+              }
+            ],
+            "valeur_nette": -3987.2,
+            "statut": "OPERATION_DECLAREE_PARSEE"
+          },
+          {
+            "index_operation": 2,
+            "modification": false,
+            "date_transaction": "2026-09-17",
+            "nature": "Cession",
+            "instrument": "Action",
+            "liee_options_attributions": "NON",
+            "prix": 5.7,
+            "devise": "EUR",
+            "volume": 1627.0,
+            "operations_elementaires": [
+              {
+                "prix": 5.7,
+                "volume": 1627.0
+              }
+            ],
+            "valeur_nette": -9273.9,
+            "statut": "OPERATION_DECLAREE_PARSEE"
+          },
+          {
+            "index_operation": 3,
+            "modification": false,
+            "date_transaction": "2026-09-18",
+            "nature": "Cession",
+            "instrument": "Action",
+            "liee_options_attributions": "NON",
+            "prix": 5.6093,
+            "devise": "EUR",
+            "volume": 3089.0,
+            "operations_elementaires": [
+              {
+                "prix": 5.6093,
+                "volume": 3089.0
+              }
+            ],
+            "valeur_nette": -17327.1277,
+            "statut": "OPERATION_DECLAREE_PARSEE"
+          }
+        ],
+        "statut": "DECLARATION_PARSEE"
+      },
+      {
+        "numero": "2026DD1138376",
+        "date_publication": "2026-09-16T18:08:08.138052+02:00",
+        "url": "https://bdif.amf-france.org/back/api/v1/documents/2026/2026DD1138376/D67B5B5C85BC3D718AC82E86E64D0F3D2D97D9761CD58D6F4E054695F3D0820F.pdf",
+        "http": 200,
+        "sha256_pdf": "ff1b99f64847b5b6b8a2318886baaa10d7d63452918f336a398dfd11ebd5f1c9",
+        "archive_pdf": "AUDITS/POURSUITE_FICHES_40_20261105/AMF/2026DD1138376.pdf",
+        "transactions": [
+          {
+            "index_operation": 1,
+            "modification": false,
+            "date_transaction": "2026-09-10",
+            "nature": "Cession",
+            "instrument": "Action",
+            "liee_options_attributions": "NON",
+            "prix": 5.7,
+            "devise": "EUR",
+            "volume": 12.0,
+            "operations_elementaires": [
+              {
+                "prix": 5.7,
+                "volume": 12.0
+              }
+            ],
+            "valeur_nette": -68.4,
+            "statut": "OPERATION_DECLAREE_PARSEE"
+          },
+          {
+            "index_operation": 2,
+            "modification": false,
+            "date_transaction": "2026-09-11",
+            "nature": "Cession",
+            "instrument": "Action",
+            "liee_options_attributions": "NON",
+            "prix": 5.6,
+            "devise": "EUR",
+            "volume": 242.0,
+            "operations_elementaires": [
+              {
+                "prix": 5.6,
+                "volume": 242.0
+              }
+            ],
+            "valeur_nette": -1355.2,
+            "statut": "OPERATION_DECLAREE_PARSEE"
+          },
+          {
+            "index_operation": 3,
+            "modification": false,
+            "date_transaction": "2026-09-14",
+            "nature": "Cession",
+            "instrument": "Action",
+            "liee_options_attributions": "NON",
+            "prix": 5.5,
+            "devise": "EUR",
+            "volume": 7.0,
+            "operations_elementaires": [
+              {
+                "prix": 5.5,
+                "volume": 7.0
+              }
+            ],
+            "valeur_nette": -38.5,
+            "statut": "OPERATION_DECLAREE_PARSEE"
+          },
+          {
+            "index_operation": 4,
+            "modification": false,
+            "date_transaction": "2026-09-15",
+            "nature": "Cession",
+            "instrument": "Action",
+            "liee_options_attributions": "NON",
+            "prix": 5.6808,
+            "devise": "EUR",
+            "volume": 1374.0,
+            "operations_elementaires": [
+              {
+                "prix": 5.6808,
+                "volume": 1374.0
+              }
+            ],
+            "valeur_nette": -7805.4192,
+            "statut": "OPERATION_DECLAREE_PARSEE"
+          }
+        ],
+        "statut": "DECLARATION_PARSEE"
+      },
+      {
+        "numero": "2026DD1137435",
+        "date_publication": "2026-09-10T18:12:08.1183639+02:00",
+        "url": "https://bdif.amf-france.org/back/api/v1/documents/2026/2026DD1137435/7B8820D43BFC8C8FB7D10C18DCBA97A1EAB669646BB402625A8C3372BA7FA867.pdf",
+        "http": 200,
+        "sha256_pdf": "bfed4675df6f73e9e148d2ffe8ed26b7075c9f9950e5999b198a3387a3dfd56d",
+        "archive_pdf": "AUDITS/POURSUITE_FICHES_40_20261105/AMF/2026DD1137435.pdf",
+        "transactions": [
+          {
+            "index_operation": 1,
+            "modification": false,
+            "date_transaction": "2026-09-03",
+            "nature": "Cession",
+            "instrument": "Action",
+            "liee_options_attributions": "NON",
+            "prix": 5.7,
+            "devise": "EUR",
+            "volume": 3.0,
+            "operations_elementaires": [
+              {
+                "prix": 5.7,
+                "volume": 3.0
+              }
+            ],
+            "valeur_nette": -17.1,
+            "statut": "OPERATION_DECLAREE_PARSEE"
+          },
+          {
+            "index_operation": 2,
+            "modification": false,
+            "date_transaction": "2026-09-07",
+            "nature": "Cession",
+            "instrument": "Action",
+            "liee_options_attributions": "NON",
+            "prix": 5.5,
+            "devise": "EUR",
+            "volume": 280.0,
+            "operations_elementaires": [
+              {
+                "prix": 5.5,
+                "volume": 280.0
+              }
+            ],
+            "valeur_nette": -1540.0,
+            "statut": "OPERATION_DECLAREE_PARSEE"
+          },
+          {
+            "index_operation": 3,
+            "modification": false,
+            "date_transaction": "2026-09-09",
+            "nature": "Cession",
+            "instrument": "Action",
+            "liee_options_attributions": "NON",
+            "prix": 5.7243,
+            "devise": "EUR",
+            "volume": 101.0,
+            "operations_elementaires": [
+              {
+                "prix": 5.7243,
+                "volume": 101.0
+              }
+            ],
+            "valeur_nette": -578.1543,
+            "statut": "OPERATION_DECLAREE_PARSEE"
+          }
+        ],
+        "statut": "DECLARATION_PARSEE"
+      },
+      {
+        "numero": "2026DD1136110",
+        "date_publication": "2026-09-03T18:08:08.0665776+02:00",
+        "url": "https://bdif.amf-france.org/back/api/v1/documents/2026/2026DD1136110/79E2B2098DF0F88C328DA457A21001FE75FD75483E73190C6D1D0EC1ECE75282.pdf",
+        "http": 200,
+        "sha256_pdf": "8d0bcabb8075fd258ab767ea64294fcfb1651d690ae71ac6a0c7e0d19e7b78ab",
+        "archive_pdf": "AUDITS/POURSUITE_FICHES_40_20261105/AMF/2026DD1136110.pdf",
+        "transactions": [
+          {
+            "index_operation": 1,
+            "modification": false,
+            "date_transaction": "2026-08-27",
+            "nature": "Cession",
+            "instrument": "Action",
+            "liee_options_attributions": "NON",
+            "prix": 5.504,
+            "devise": "EUR",
+            "volume": 339.0,
+            "operations_elementaires": [
+              {
+                "prix": 5.504,
+                "volume": 339.0
+              }
+            ],
+            "valeur_nette": -1865.856,
+            "statut": "OPERATION_DECLAREE_PARSEE"
+          },
+          {
+            "index_operation": 2,
+            "modification": false,
+            "date_transaction": "2026-09-02",
+            "nature": "Cession",
+            "instrument": "Action",
+            "liee_options_attributions": "NON",
+            "prix": 5.6,
+            "devise": "EUR",
+            "volume": 280.0,
+            "operations_elementaires": [
+              {
+                "prix": 5.6,
+                "volume": 280.0
+              }
+            ],
+            "valeur_nette": -1568.0,
+            "statut": "OPERATION_DECLAREE_PARSEE"
+          }
+        ],
+        "statut": "DECLARATION_PARSEE"
+      },
+      {
+        "numero": "2026DD1133867",
+        "date_publication": "2026-08-18T18:04:06.7488203+02:00",
+        "url": "https://bdif.amf-france.org/back/api/v1/documents/2026/2026DD1133867/C07E212937A3914DD18BC46ED9E50BC1205148CE3BF955204775D0B6F59C2941.pdf",
+        "http": 200,
+        "sha256_pdf": "5c9413c679b7f5b3a79b7daf9a9104fe8dd14b4106c72371ebbc8de7f7238108",
+        "archive_pdf": "AUDITS/POURSUITE_FICHES_40_20261105/AMF/2026DD1133867.pdf",
+        "transactions": [
+          {
+            "index_operation": 1,
+            "modification": false,
+            "date_transaction": "2026-08-13",
+            "nature": "Cession",
+            "instrument": "Action",
+            "liee_options_attributions": "NON",
+            "prix": 5.6,
+            "devise": "EUR",
+            "volume": 2.0,
+            "operations_elementaires": [
+              {
+                "prix": 5.6,
+                "volume": 2.0
+              }
+            ],
+            "valeur_nette": -11.2,
+            "statut": "OPERATION_DECLAREE_PARSEE"
+          },
+          {
+            "index_operation": 2,
+            "modification": false,
+            "date_transaction": "2026-08-14",
+            "nature": "Cession",
+            "instrument": "Action",
+            "liee_options_attributions": "NON",
+            "prix": 5.5,
+            "devise": "EUR",
+            "volume": 60.0,
+            "operations_elementaires": [
+              {
+                "prix": 5.5,
+                "volume": 60.0
+              }
+            ],
+            "valeur_nette": -330.0,
+            "statut": "OPERATION_DECLAREE_PARSEE"
+          }
+        ],
+        "statut": "DECLARATION_PARSEE"
+      },
+      {
+        "numero": "2026DD1133406",
+        "date_publication": "2026-08-13T18:06:07.3976027+02:00",
+        "url": "https://bdif.amf-france.org/back/api/v1/documents/2026/2026DD1133406/44649EF9DB80ABE6109D5B2AE08413F7BADF27A7FBB641EB1388A60030DA6CC7.pdf",
+        "http": 200,
+        "sha256_pdf": "7d948722cdf4d2ea903dcd2f18c023d2d38fe557e6cd8ac6ce29a102e1007001",
+        "archive_pdf": "AUDITS/POURSUITE_FICHES_40_20261105/AMF/2026DD1133406.pdf",
+        "transactions": [
+          {
+            "index_operation": 1,
+            "modification": false,
+            "date_transaction": "2026-08-07",
+            "nature": "Cession",
+            "instrument": "Action",
+            "liee_options_attributions": "NON",
+            "prix": 5.5012,
+            "devise": "EUR",
+            "volume": 212.0,
+            "operations_elementaires": [
+              {
+                "prix": 5.5012,
+                "volume": 212.0
+              }
+            ],
+            "valeur_nette": -1166.2544,
+            "statut": "OPERATION_DECLAREE_PARSEE"
+          },
+          {
+            "index_operation": 2,
+            "modification": false,
+            "date_transaction": "2026-08-10",
+            "nature": "Cession",
+            "instrument": "Action",
+            "liee_options_attributions": "NON",
+            "prix": 5.5671,
+            "devise": "EUR",
+            "volume": 1957.0,
+            "operations_elementaires": [
+              {
+                "prix": 5.5671,
+                "volume": 1957.0
+              }
+            ],
+            "valeur_nette": -10894.8147,
+            "statut": "OPERATION_DECLAREE_PARSEE"
+          },
+          {
+            "index_operation": 3,
+            "modification": false,
+            "date_transaction": "2026-08-11",
+            "nature": "Cession",
+            "instrument": "Action",
+            "liee_options_attributions": "NON",
+            "prix": 5.5893,
+            "devise": "EUR",
+            "volume": 730.0,
+            "operations_elementaires": [
+              {
+                "prix": 5.5893,
+                "volume": 730.0
+              }
+            ],
+            "valeur_nette": -4080.189,
+            "statut": "OPERATION_DECLAREE_PARSEE"
+          },
+          {
+            "index_operation": 4,
+            "modification": false,
+            "date_transaction": "2026-08-12",
+            "nature": "Cession",
+            "instrument": "Action",
+            "liee_options_attributions": "NON",
+            "prix": 5.5059,
+            "devise": "EUR",
+            "volume": 237.0,
+            "operations_elementaires": [
+              {
+                "prix": 5.5059,
+                "volume": 237.0
+              }
+            ],
+            "valeur_nette": -1304.8983,
+            "statut": "OPERATION_DECLAREE_PARSEE"
+          }
+        ],
+        "statut": "DECLARATION_PARSEE"
+      },
+      {
+        "numero": "2026DD1132560",
+        "date_publication": "2026-08-07T18:06:08.9729637+02:00",
+        "url": "https://bdif.amf-france.org/back/api/v1/documents/2026/2026DD1132560/FB95EB6060118AB598A6B2D3BB33B00F9BC02B653A194ABCFDCE9B6866C5928B.pdf",
+        "http": 200,
+        "sha256_pdf": "e0976987ba740266020aafa167b97e52ab782dc2489bbeaf6feabf813331e70b",
+        "archive_pdf": "AUDITS/POURSUITE_FICHES_40_20261105/AMF/2026DD1132560.pdf",
+        "transactions": [
+          {
+            "index_operation": 1,
+            "modification": false,
+            "date_transaction": "2026-08-03",
+            "nature": "Cession",
+            "instrument": "Action",
+            "liee_options_attributions": "NON",
+            "prix": 5.55,
+            "devise": "EUR",
+            "volume": 86.0,
+            "operations_elementaires": [
+              {
+                "prix": 5.55,
+                "volume": 86.0
+              }
+            ],
+            "valeur_nette": -477.3,
+            "statut": "OPERATION_DECLAREE_PARSEE"
+          },
+          {
+            "index_operation": 2,
+            "modification": false,
+            "date_transaction": "2026-08-04",
+            "nature": "Cession",
+            "instrument": "Action",
+            "liee_options_attributions": "NON",
+            "prix": 5.5425,
+            "devise": "EUR",
+            "volume": 577.0,
+            "operations_elementaires": [
+              {
+                "prix": 5.5425,
+                "volume": 577.0
+              }
+            ],
+            "valeur_nette": -3198.0225,
+            "statut": "OPERATION_DECLAREE_PARSEE"
+          },
+          {
+            "index_operation": 3,
+            "modification": false,
+            "date_transaction": "2026-08-05",
+            "nature": "Cession",
+            "instrument": "Action",
+            "liee_options_attributions": "NON",
+            "prix": 5.5009,
+            "devise": "EUR",
+            "volume": 915.0,
+            "operations_elementaires": [
+              {
+                "prix": 5.5009,
+                "volume": 915.0
+              }
+            ],
+            "valeur_nette": -5033.3235,
+            "statut": "OPERATION_DECLAREE_PARSEE"
+          },
+          {
+            "index_operation": 4,
+            "modification": false,
+            "date_transaction": "2026-08-06",
+            "nature": "Cession",
+            "instrument": "Action",
+            "liee_options_attributions": "NON",
+            "prix": 5.5397,
+            "devise": "EUR",
+            "volume": 390.0,
+            "operations_elementaires": [
+              {
+                "prix": 5.5397,
+                "volume": 390.0
+              }
+            ],
+            "valeur_nette": -2160.483,
+            "statut": "OPERATION_DECLAREE_PARSEE"
+          }
+        ],
+        "statut": "DECLARATION_PARSEE"
+      },
+      {
+        "numero": "2026DD1130835",
+        "date_publication": "2026-07-31T18:06:08.2440549+02:00",
+        "url": "https://bdif.amf-france.org/back/api/v1/documents/2026/2026DD1130835/7D30D616E81186C09D25B656F622B6261662F903CC4BBCDED1E1D9CB18CE3E3C.pdf",
+        "http": 200,
+        "sha256_pdf": "44350dd4d271c4a1ffd08232eeb72e33d86a3b56dfda570b8570f6487b32b63d",
+        "archive_pdf": "AUDITS/POURSUITE_FICHES_40_20261105/AMF/2026DD1130835.pdf",
+        "transactions": [
+          {
+            "index_operation": 1,
+            "modification": false,
+            "date_transaction": "2026-07-27",
+            "nature": "Cession",
+            "instrument": "Action",
+            "liee_options_attributions": "NON",
+            "prix": 5.5,
+            "devise": "EUR",
+            "volume": 771.0,
+            "operations_elementaires": [
+              {
+                "prix": 5.5,
+                "volume": 771.0
+              }
+            ],
+            "valeur_nette": -4240.5,
+            "statut": "OPERATION_DECLAREE_PARSEE"
+          },
+          {
+            "index_operation": 2,
+            "modification": false,
+            "date_transaction": "2026-07-28",
+            "nature": "Cession",
+            "instrument": "Action",
+            "liee_options_attributions": "NON",
+            "prix": 5.5,
+            "devise": "EUR",
+            "volume": 316.0,
+            "operations_elementaires": [
+              {
+                "prix": 5.5,
+                "volume": 316.0
+              }
+            ],
+            "valeur_nette": -1738.0,
+            "statut": "OPERATION_DECLAREE_PARSEE"
+          },
+          {
+            "index_operation": 3,
+            "modification": false,
+            "date_transaction": "2026-07-29",
+            "nature": "Cession",
+            "instrument": "Action",
+            "liee_options_attributions": "NON",
+            "prix": 5.5,
+            "devise": "EUR",
+            "volume": 1456.0,
+            "operations_elementaires": [
+              {
+                "prix": 5.5,
+                "volume": 1456.0
+              }
+            ],
+            "valeur_nette": -8008.0,
+            "statut": "OPERATION_DECLAREE_PARSEE"
+          },
+          {
+            "index_operation": 4,
+            "modification": false,
+            "date_transaction": "2026-07-30",
+            "nature": "Cession",
+            "instrument": "Action",
+            "liee_options_attributions": "NON",
+            "prix": 5.5,
+            "devise": "EUR",
+            "volume": 270.0,
+            "operations_elementaires": [
+              {
+                "prix": 5.5,
+                "volume": 270.0
+              }
+            ],
+            "valeur_nette": -1485.0,
+            "statut": "OPERATION_DECLAREE_PARSEE"
+          }
+        ],
+        "statut": "DECLARATION_PARSEE"
+      },
+      {
+        "numero": "2026DD1129223",
+        "date_publication": "2026-07-27T18:08:08.7514219+02:00",
+        "url": "https://bdif.amf-france.org/back/api/v1/documents/2026/2026DD1129223/DF59B24ABE03D0EA314F78B8D441C2E7A07EDE1BE8084B25BEC8AA0E163679F9.pdf",
+        "http": 200,
+        "sha256_pdf": "a8c20cdae865c72b6d6250ecd1fef86578372b8c3773cc6a9ce137a661311282",
+        "archive_pdf": "AUDITS/POURSUITE_FICHES_40_20261105/AMF/2026DD1129223.pdf",
+        "transactions": [
+          {
+            "index_operation": 1,
+            "modification": false,
+            "date_transaction": "2026-07-20",
+            "nature": "Cession",
+            "instrument": "Action",
+            "liee_options_attributions": "NON",
+            "prix": 5.8,
+            "devise": "EUR",
+            "volume": 393.0,
+            "operations_elementaires": [
+              {
+                "prix": 5.8,
+                "volume": 393.0
+              }
+            ],
+            "valeur_nette": -2279.4,
+            "statut": "OPERATION_DECLAREE_PARSEE"
+          },
+          {
+            "index_operation": 2,
+            "modification": false,
+            "date_transaction": "2026-07-21",
+            "nature": "Cession",
+            "instrument": "Action",
+            "liee_options_attributions": "NON",
+            "prix": 5.825,
+            "devise": "EUR",
+            "volume": 4.0,
+            "operations_elementaires": [
+              {
+                "prix": 5.825,
+                "volume": 4.0
+              }
+            ],
+            "valeur_nette": -23.3,
+            "statut": "OPERATION_DECLAREE_PARSEE"
+          },
+          {
+            "index_operation": 3,
+            "modification": false,
+            "date_transaction": "2026-07-22",
+            "nature": "Cession",
+            "instrument": "Action",
+            "liee_options_attributions": "NON",
+            "prix": 5.7212,
+            "devise": "EUR",
+            "volume": 1862.0,
+            "operations_elementaires": [
+              {
+                "prix": 5.7212,
+                "volume": 1862.0
+              }
+            ],
+            "valeur_nette": -10652.8744,
+            "statut": "OPERATION_DECLAREE_PARSEE"
+          },
+          {
+            "index_operation": 4,
+            "modification": false,
+            "date_transaction": "2026-07-23",
+            "nature": "Cession",
+            "instrument": "Action",
+            "liee_options_attributions": "NON",
+            "prix": 5.6447,
+            "devise": "EUR",
+            "volume": 5286.0,
+            "operations_elementaires": [
+              {
+                "prix": 5.6447,
+                "volume": 5286.0
+              }
+            ],
+            "valeur_nette": -29837.8842,
+            "statut": "OPERATION_DECLAREE_PARSEE"
+          }
+        ],
+        "statut": "DECLARATION_PARSEE"
+      },
+      {
+        "numero": "2026DD1129221",
+        "date_publication": "2026-07-27T18:08:09.0419027+02:00",
+        "url": "https://bdif.amf-france.org/back/api/v1/documents/2026/2026DD1129221/712C4DFFFCBE2D0ECD6FD6CBC4D6965E4A6A174FAB0BC0C542AEA0754DDAA36F.pdf",
+        "http": 200,
+        "sha256_pdf": "49c3212980fa8df2978d933880800c5f218331c00911e332e505977ecef43b07",
+        "archive_pdf": "AUDITS/POURSUITE_FICHES_40_20261105/AMF/2026DD1129221.pdf",
+        "transactions": [
+          {
+            "index_operation": 1,
+            "modification": false,
+            "date_transaction": "2026-07-24",
+            "nature": "Cession",
+            "instrument": "Action",
+            "liee_options_attributions": "NON",
+            "prix": 5.5,
+            "devise": "EUR",
+            "volume": 340.0,
+            "operations_elementaires": [
+              {
+                "prix": 5.5,
+                "volume": 340.0
+              }
+            ],
+            "valeur_nette": -1870.0,
+            "statut": "OPERATION_DECLAREE_PARSEE"
+          }
+        ],
+        "statut": "DECLARATION_PARSEE"
+      },
+      {
+        "numero": "2026DD1124998",
+        "date_publication": "2026-07-06T18:06:09.4956909+02:00",
+        "url": "https://bdif.amf-france.org/back/api/v1/documents/2026/2026DD1124998/2CAB6C94E62D04DF1EE88888222C4DAF277126ED253C5B61D235D1263727BAB8.pdf",
+        "http": 200,
+        "sha256_pdf": "574c123eebca7a6908c3d0e6fc5c02ca7c3fc33dd3eeefee45f85e66b3edd2a7",
+        "archive_pdf": "AUDITS/POURSUITE_FICHES_40_20261105/AMF/2026DD1124998.pdf",
+        "transactions": [
+          {
+            "index_operation": 1,
+            "modification": false,
+            "date_transaction": "2026-07-03",
+            "nature": "Cession",
+            "instrument": "Action",
+            "liee_options_attributions": "NON",
+            "prix": 6.0,
+            "devise": "EUR",
+            "volume": 17.0,
+            "operations_elementaires": [
+              {
+                "prix": 6.0,
+                "volume": 17.0
+              }
+            ],
+            "valeur_nette": -102.0,
+            "statut": "OPERATION_DECLAREE_PARSEE"
+          }
+        ],
+        "statut": "DECLARATION_PARSEE"
+      },
+      {
+        "numero": "2026DD1124570",
+        "date_publication": "2026-07-03T18:08:08.476474+02:00",
+        "url": "https://bdif.amf-france.org/back/api/v1/documents/2026/2026DD1124570/EA48607E9FA12D68124723FE737E63C6012FBC29DC6B4A4CCEAA08D83E28458D.pdf",
+        "http": 200,
+        "sha256_pdf": "e12e939761f5d9004a4066f920d1fc2d79b1180551696515fa56045f59ae4fec",
+        "archive_pdf": "AUDITS/POURSUITE_FICHES_40_20261105/AMF/2026DD1124570.pdf",
+        "transactions": [
+          {
+            "index_operation": 1,
+            "modification": false,
+            "date_transaction": "2026-06-29",
+            "nature": "Cession",
+            "instrument": "Action",
+            "liee_options_attributions": "NON",
+            "prix": 6.0318,
+            "devise": "EUR",
+            "volume": 4065.0,
+            "operations_elementaires": [
+              {
+                "prix": 6.0318,
+                "volume": 4065.0
+              }
+            ],
+            "valeur_nette": -24519.267,
+            "statut": "OPERATION_DECLAREE_PARSEE"
+          },
+          {
+            "index_operation": 2,
+            "modification": false,
+            "date_transaction": "2026-06-30",
+            "nature": "Cession",
+            "instrument": "Action",
+            "liee_options_attributions": "NON",
+            "prix": 5.8091,
+            "devise": "EUR",
+            "volume": 438.0,
+            "operations_elementaires": [
+              {
+                "prix": 5.8091,
+                "volume": 438.0
+              }
+            ],
+            "valeur_nette": -2544.3858,
+            "statut": "OPERATION_DECLAREE_PARSEE"
+          },
+          {
+            "index_operation": 3,
+            "modification": false,
+            "date_transaction": "2026-07-01",
+            "nature": "Cession",
+            "instrument": "Action",
+            "liee_options_attributions": "NON",
+            "prix": 5.95,
+            "devise": "EUR",
+            "volume": 1183.0,
+            "operations_elementaires": [
+              {
+                "prix": 5.95,
+                "volume": 1183.0
+              }
+            ],
+            "valeur_nette": -7038.85,
+            "statut": "OPERATION_DECLAREE_PARSEE"
+          },
+          {
+            "index_operation": 4,
+            "modification": false,
+            "date_transaction": "2026-07-02",
+            "nature": "Cession",
+            "instrument": "Action",
+            "liee_options_attributions": "NON",
+            "prix": 5.884,
+            "devise": "EUR",
+            "volume": 2698.0,
+            "operations_elementaires": [
+              {
+                "prix": 5.884,
+                "volume": 2698.0
+              }
+            ],
+            "valeur_nette": -15875.032,
+            "statut": "OPERATION_DECLAREE_PARSEE"
+          }
+        ],
+        "statut": "DECLARATION_PARSEE"
+      },
+      {
+        "numero": "2026DD1123328",
+        "date_publication": "2026-06-29T18:04:08.3404317+02:00",
+        "url": "https://bdif.amf-france.org/back/api/v1/documents/2026/2026DD1123328/BFD691A52B20C9A97D7D6C21E5ECC57C15171E2C8483182CDF7DD0381D2E61AA.pdf",
+        "http": 200,
+        "sha256_pdf": "0d4dd3a883efe9c61051aa41a8f01075210478a63cad9507024475e9c730787b",
+        "archive_pdf": "AUDITS/POURSUITE_FICHES_40_20261105/AMF/2026DD1123328.pdf",
+        "transactions": [
+          {
+            "index_operation": 1,
+            "modification": false,
+            "date_transaction": "2026-06-24",
+            "nature": "Cession",
+            "instrument": "Action",
+            "liee_options_attributions": "NON",
+            "prix": 5.9193,
+            "devise": "EUR",
+            "volume": 1340.0,
+            "operations_elementaires": [
+              {
+                "prix": 5.9193,
+                "volume": 1340.0
+              }
+            ],
+            "valeur_nette": -7931.862,
+            "statut": "OPERATION_DECLAREE_PARSEE"
+          },
+          {
+            "index_operation": 2,
+            "modification": false,
+            "date_transaction": "2026-06-25",
+            "nature": "Cession",
+            "instrument": "Action",
+            "liee_options_attributions": "NON",
+            "prix": 5.9999,
+            "devise": "EUR",
+            "volume": 1489.0,
+            "operations_elementaires": [
+              {
+                "prix": 5.9999,
+                "volume": 1489.0
+              }
+            ],
+            "valeur_nette": -8933.8511,
+            "statut": "OPERATION_DECLAREE_PARSEE"
+          },
+          {
+            "index_operation": 3,
+            "modification": false,
+            "date_transaction": "2026-06-26",
+            "nature": "Cession",
+            "instrument": "Action",
+            "liee_options_attributions": "NON",
+            "prix": 6.1046,
+            "devise": "EUR",
+            "volume": 3813.0,
+            "operations_elementaires": [
+              {
+                "prix": 6.1046,
+                "volume": 3813.0
+              }
+            ],
+            "valeur_nette": -23276.8398,
+            "statut": "OPERATION_DECLAREE_PARSEE"
+          }
+        ],
+        "statut": "DECLARATION_PARSEE"
+      },
+      {
+        "numero": "2026DD1122580",
+        "date_publication": "2026-06-24T18:08:10.9567779+02:00",
+        "url": "https://bdif.amf-france.org/back/api/v1/documents/2026/2026DD1122580/41F2A1FFDC77CC10D899ED7915046409C965F33CBD3D524E09993A7569357495.pdf",
+        "http": 200,
+        "sha256_pdf": "7c0f29b35be1fbf73cd82654e98e9ac1958ef119e4c74bc58f36de975e31f9b6",
+        "archive_pdf": "AUDITS/POURSUITE_FICHES_40_20261105/AMF/2026DD1122580.pdf",
+        "transactions": [
+          {
+            "index_operation": 1,
+            "modification": false,
+            "date_transaction": "2026-06-19",
+            "nature": "Cession",
+            "instrument": "Action",
+            "liee_options_attributions": "NON",
+            "prix": 6.0479,
+            "devise": "EUR",
+            "volume": 812.0,
+            "operations_elementaires": [
+              {
+                "prix": 6.0479,
+                "volume": 812.0
+              }
+            ],
+            "valeur_nette": -4910.8948,
+            "statut": "OPERATION_DECLAREE_PARSEE"
+          }
+        ],
+        "statut": "DECLARATION_PARSEE"
+      },
+      {
+        "numero": "2026DD1121735",
+        "date_publication": "2026-06-19T18:04:09.8304913+02:00",
+        "url": "https://bdif.amf-france.org/back/api/v1/documents/2026/2026DD1121735/CA6D9986753715D0EC73B39D29EA56B094F2E8C9178113330EB4063C53ED99A9.pdf",
+        "http": 200,
+        "sha256_pdf": "9fed7f662b61a1e20dca3336989a706daa622ccf3bd7f0b32aff62590736430e",
+        "archive_pdf": "AUDITS/POURSUITE_FICHES_40_20261105/AMF/2026DD1121735.pdf",
+        "transactions": [
+          {
+            "index_operation": 1,
+            "modification": false,
+            "date_transaction": "2026-06-15",
+            "nature": "Cession",
+            "instrument": "Action",
+            "liee_options_attributions": "NON",
+            "prix": 6.0212,
+            "devise": "EUR",
+            "volume": 981.0,
+            "operations_elementaires": [
+              {
+                "prix": 6.0212,
+                "volume": 981.0
+              }
+            ],
+            "valeur_nette": -5906.7972,
+            "statut": "OPERATION_DECLAREE_PARSEE"
+          },
+          {
+            "index_operation": 2,
+            "modification": false,
+            "date_transaction": "2026-06-16",
+            "nature": "Cession",
+            "instrument": "Action",
+            "liee_options_attributions": "NON",
+            "prix": 6.0051,
+            "devise": "EUR",
+            "volume": 2054.0,
+            "operations_elementaires": [
+              {
+                "prix": 6.0051,
+                "volume": 2054.0
+              }
+            ],
+            "valeur_nette": -12334.4754,
+            "statut": "OPERATION_DECLAREE_PARSEE"
+          },
+          {
+            "index_operation": 3,
+            "modification": false,
+            "date_transaction": "2026-06-17",
+            "nature": "Cession",
+            "instrument": "Action",
+            "liee_options_attributions": "NON",
+            "prix": 6.0459,
+            "devise": "EUR",
+            "volume": 2201.0,
+            "operations_elementaires": [
+              {
+                "prix": 6.0459,
+                "volume": 2201.0
+              }
+            ],
+            "valeur_nette": -13307.0259,
+            "statut": "OPERATION_DECLAREE_PARSEE"
+          },
+          {
+            "index_operation": 4,
+            "modification": false,
+            "date_transaction": "2026-06-18",
+            "nature": "Cession",
+            "instrument": "Action",
+            "liee_options_attributions": "NON",
+            "prix": 6.05,
+            "devise": "EUR",
+            "volume": 287.0,
+            "operations_elementaires": [
+              {
+                "prix": 6.05,
+                "volume": 287.0
+              }
+            ],
+            "valeur_nette": -1736.35,
+            "statut": "OPERATION_DECLAREE_PARSEE"
+          }
+        ],
+        "statut": "DECLARATION_PARSEE"
+      },
+      {
+        "numero": "2026DD1120677",
+        "date_publication": "2026-06-15T18:06:07.2060066+02:00",
+        "url": "https://bdif.amf-france.org/back/api/v1/documents/2026/2026DD1120677/EA48D70288282C225A6DE25FA651E457CF4BEC0B7FB81C9CCE094AD51F73F656.pdf",
+        "http": 200,
+        "sha256_pdf": "fdd258775ade53acf665ae06d91939ace835fcde0271aea8f4e150e62f8fdac1",
+        "archive_pdf": "AUDITS/POURSUITE_FICHES_40_20261105/AMF/2026DD1120677.pdf",
+        "transactions": [
+          {
+            "index_operation": 1,
+            "modification": false,
+            "date_transaction": "2026-06-12",
+            "nature": "Cession",
+            "instrument": "Action",
+            "liee_options_attributions": "NON",
+            "prix": 6.0464,
+            "devise": "EUR",
+            "volume": 1857.0,
+            "operations_elementaires": [
+              {
+                "prix": 6.0464,
+                "volume": 1857.0
+              }
+            ],
+            "valeur_nette": -11228.1648,
+            "statut": "OPERATION_DECLAREE_PARSEE"
+          }
+        ],
+        "statut": "DECLARATION_PARSEE"
+      },
+      {
+        "numero": "2026DD1120467",
+        "date_publication": "2026-06-12T18:10:09.0322339+02:00",
+        "url": "https://bdif.amf-france.org/back/api/v1/documents/2026/2026DD1120467/D0642A8F6EA220AC097C2E7CC01331543F9408330C4B7D40119317B3BF06ABE6.pdf",
+        "http": 200,
+        "sha256_pdf": "d001d32dc45b4eb9c0ba00a34d4493eb8458d0aa8b26c92586394da5cd97fe3c",
+        "archive_pdf": "AUDITS/POURSUITE_FICHES_40_20261105/AMF/2026DD1120467.pdf",
+        "transactions": [
+          {
+            "index_operation": 1,
+            "modification": false,
+            "date_transaction": "2026-06-11",
+            "nature": "Cession",
+            "instrument": "Action",
+            "liee_options_attributions": "NON",
+            "prix": 6.0,
+            "devise": "EUR",
+            "volume": 2145.0,
+            "operations_elementaires": [
+              {
+                "prix": 6.0,
+                "volume": 2145.0
+              }
+            ],
+            "valeur_nette": -12870.0,
+            "statut": "OPERATION_DECLAREE_PARSEE"
+          }
+        ],
+        "statut": "DECLARATION_PARSEE"
+      },
+      {
+        "numero": "2026DD1120219",
+        "date_publication": "2026-06-11T18:08:07.6418686+02:00",
+        "url": "https://bdif.amf-france.org/back/api/v1/documents/2026/2026DD1120219/42339C89443767A33D727B703E2AB957B45D5C318F9C186457E47EC506B40102.pdf",
+        "http": 200,
+        "sha256_pdf": "e442d97c90537435db4d90ce90812e4d3561de85427784dea51004116b792f19",
+        "archive_pdf": "AUDITS/POURSUITE_FICHES_40_20261105/AMF/2026DD1120219.pdf",
+        "transactions": [
+          {
+            "index_operation": 1,
+            "modification": false,
+            "date_transaction": "2026-06-09",
+            "nature": "Cession",
+            "instrument": "Action",
+            "liee_options_attributions": "NON",
+            "prix": 6.2,
+            "devise": "EUR",
+            "volume": 119.0,
+            "operations_elementaires": [
+              {
+                "prix": 6.2,
+                "volume": 119.0
+              }
+            ],
+            "valeur_nette": -737.8,
+            "statut": "OPERATION_DECLAREE_PARSEE"
+          },
+          {
+            "index_operation": 2,
+            "modification": false,
+            "date_transaction": "2026-06-10",
+            "nature": "Cession",
+            "instrument": "Action",
+            "liee_options_attributions": "NON",
+            "prix": 6.1,
+            "devise": "EUR",
+            "volume": 533.0,
+            "operations_elementaires": [
+              {
+                "prix": 6.1,
+                "volume": 533.0
+              }
+            ],
+            "valeur_nette": -3251.3,
+            "statut": "OPERATION_DECLAREE_PARSEE"
+          }
+        ],
+        "statut": "DECLARATION_PARSEE"
+      },
+      {
+        "numero": "2026DD1119593",
+        "date_publication": "2026-06-09T18:04:08.1129282+02:00",
+        "url": "https://bdif.amf-france.org/back/api/v1/documents/2026/2026DD1119593/523509E98D63D46F388A32D9EB29B65F3B5F3E48934AE16C461D7232AB3C239E.pdf",
+        "http": 200,
+        "sha256_pdf": "b3c2d3fc94f85f53da8b2623d5aa9bcdff1c3fabf14ea385d6db847d9f93bd0d",
+        "archive_pdf": "AUDITS/POURSUITE_FICHES_40_20261105/AMF/2026DD1119593.pdf",
+        "transactions": [
+          {
+            "index_operation": 1,
+            "modification": false,
+            "date_transaction": "2026-06-08",
+            "nature": "Cession",
+            "instrument": "Action",
+            "liee_options_attributions": "NON",
+            "prix": 6.1917,
+            "devise": "EUR",
+            "volume": 7885.0,
+            "operations_elementaires": [
+              {
+                "prix": 6.1917,
+                "volume": 7885.0
+              }
+            ],
+            "valeur_nette": -48821.5545,
+            "statut": "OPERATION_DECLAREE_PARSEE"
+          }
+        ],
+        "statut": "DECLARATION_PARSEE"
+      },
+      {
+        "numero": "2026DD1119302",
+        "date_publication": "2026-06-08T18:10:09.192195+02:00",
+        "url": "https://bdif.amf-france.org/back/api/v1/documents/2026/2026DD1119302/17AD56065B08D227E393E7444D277C3F64D14D59D41461A7107D357D2A67319B.pdf",
+        "http": 200,
+        "sha256_pdf": "b56b3b851185875c8ace10888f0e4d1e31ce391f1cab02a8c6905ac489a588f3",
+        "archive_pdf": "AUDITS/POURSUITE_FICHES_40_20261105/AMF/2026DD1119302.pdf",
+        "lei": "96950004ATVK481LKN90",
+        "transactions": [
+          {
+            "index_operation": 1,
+            "modification": false,
+            "date_transaction": "2026-06-04",
+            "nature": "Cession",
+            "instrument": "Action",
+            "liee_options_attributions": "NON",
+            "prix": 6.0204,
+            "devise": "EUR",
+            "volume": 2118.0,
+            "operations_elementaires": [
+              {
+                "prix": 6.0204,
+                "volume": 2118.0
+              }
+            ],
+            "valeur_nette": -12751.2072,
+            "statut": "OPERATION_DECLAREE_PARSEE"
+          },
+          {
+            "index_operation": 2,
+            "modification": false,
+            "date_transaction": "2026-06-05",
+            "nature": "Cession",
+            "instrument": "Action",
+            "liee_options_attributions": "NON",
+            "prix": 6.0633,
+            "devise": "EUR",
+            "volume": 165.0,
+            "operations_elementaires": [
+              {
+                "prix": 6.0633,
+                "volume": 165.0
+              }
+            ],
+            "valeur_nette": -1000.4445,
+            "statut": "OPERATION_DECLAREE_PARSEE"
+          }
+        ],
+        "statut": "DECLARATION_PARSEE"
+      },
+      {
+        "numero": "2026DD1118731",
+        "date_publication": "2026-06-04T18:36:07.6597841+02:00",
+        "url": "https://bdif.amf-france.org/back/api/v1/documents/2026/2026DD1118731/87E56FF52E260EBE9D0F466FC27CDFF31C653383E15EF72C16F8D3F3FED2F39C.pdf",
+        "http": 200,
+        "sha256_pdf": "3504b8176969da2cb7876914ef3632e4463fb6a0c33f37e0ee21eddeaadca31d",
+        "archive_pdf": "AUDITS/POURSUITE_FICHES_40_20261105/AMF/2026DD1118731.pdf",
+        "lei": "96950004ATVK481LKN90",
+        "transactions": [
+          {
+            "index_operation": 1,
+            "modification": false,
+            "date_transaction": "2026-06-02",
+            "nature": "Cession",
+            "instrument": "Action",
+            "liee_options_attributions": "NON",
+            "prix": 6.277,
+            "devise": "EUR",
+            "volume": 875.0,
+            "operations_elementaires": [
+              {
+                "prix": 6.277,
+                "volume": 875.0
+              }
+            ],
+            "valeur_nette": -5492.375,
+            "statut": "OPERATION_DECLAREE_PARSEE"
+          },
+          {
+            "index_operation": 2,
+            "modification": false,
+            "date_transaction": "2026-06-03",
+            "nature": "Cession",
+            "instrument": "Action",
+            "liee_options_attributions": "NON",
+            "prix": 6.1285,
+            "devise": "EUR",
+            "volume": 1206.0,
+            "operations_elementaires": [
+              {
+                "prix": 6.1285,
+                "volume": 1206.0
+              }
+            ],
+            "valeur_nette": -7390.971,
+            "statut": "OPERATION_DECLAREE_PARSEE"
+          }
+        ],
+        "statut": "DECLARATION_PARSEE"
+      },
+      {
+        "numero": "2026DD1117677",
+        "date_publication": "2026-06-03T10:56:08.3139885+02:00",
+        "url": "https://bdif.amf-france.org/back/api/v1/documents/2026/2026DD1117677/3FC89DD3D81977253E8813F0DD8D791D60AF3E3C14D380F6595A79071C32BD70.pdf",
+        "http": 200,
+        "sha256_pdf": "cc090c0a6e7c120a01438cb419293bbe3db1a54de348df3dfdcc54ee0605c21d",
+        "archive_pdf": "AUDITS/POURSUITE_FICHES_40_20261105/AMF/2026DD1117677.pdf",
+        "lei": "96950004ATVK481LKN90",
+        "transactions": [
+          {
+            "index_operation": 1,
+            "modification": false,
+            "date_transaction": "2026-05-29",
+            "nature": "Cession",
+            "instrument": "Action",
+            "liee_options_attributions": "NON",
+            "prix": 6.4586,
+            "devise": "EUR",
+            "volume": 105.0,
+            "operations_elementaires": [
+              {
+                "prix": 6.4586,
+                "volume": 105.0
+              }
+            ],
+            "valeur_nette": -678.153,
+            "statut": "OPERATION_DECLAREE_PARSEE"
+          }
+        ],
+        "statut": "DECLARATION_PARSEE"
+      },
+      {
+        "numero": "2026DD1117618",
+        "date_publication": "2026-06-03T10:50:06.4648765+02:00",
+        "url": "https://bdif.amf-france.org/back/api/v1/documents/2026/2026DD1117618/BE6FA1EAEA5E815AD8260A5AB0089E2FCBEEA42B68301A24915A4D383DA1E7A0.pdf",
+        "http": 200,
+        "sha256_pdf": "8cf81e96096ffee4492618f7910a4fb6e025b6f9098544e22d44fdd0133a475e",
+        "archive_pdf": "AUDITS/POURSUITE_FICHES_40_20261105/AMF/2026DD1117618.pdf",
+        "lei": "96950004ATVK481LKN90",
+        "transactions": [
+          {
+            "index_operation": 1,
+            "modification": false,
+            "date_transaction": "2026-05-26",
+            "nature": "Cession",
+            "instrument": "Action",
+            "liee_options_attributions": "NON",
+            "prix": 6.5036,
+            "devise": "EUR",
+            "volume": 1543.0,
+            "operations_elementaires": [
+              {
+                "prix": 6.5036,
+                "volume": 1543.0
+              }
+            ],
+            "valeur_nette": -10035.0548,
+            "statut": "OPERATION_DECLAREE_PARSEE"
+          },
+          {
+            "index_operation": 2,
+            "modification": false,
+            "date_transaction": "2026-05-27",
+            "nature": "Cession",
+            "instrument": "Action",
+            "liee_options_attributions": "NON",
+            "prix": 6.3806,
+            "devise": "EUR",
+            "volume": 256.0,
+            "operations_elementaires": [
+              {
+                "prix": 6.3806,
+                "volume": 256.0
+              }
+            ],
+            "valeur_nette": -1633.4336,
+            "statut": "OPERATION_DECLAREE_PARSEE"
+          }
+        ],
+        "statut": "DECLARATION_PARSEE"
+      },
+      {
+        "numero": "2026DD1116782",
+        "date_publication": "2026-05-28T11:50:09.5619983+02:00",
+        "url": "https://bdif.amf-france.org/back/api/v1/documents/2026/2026DD1116782/636D5A5EB79BA4D10B110CC8CA54DC5AB84AE0925C205FE64A1D0B18981FEF90.pdf",
+        "http": 200,
+        "sha256_pdf": "770252dbbde994ffdc14c595740631db566d407e7a7bcfee24f256906612e0e4",
+        "archive_pdf": "AUDITS/POURSUITE_FICHES_40_20261105/AMF/2026DD1116782.pdf",
+        "lei": "96950004ATVK481LKN90",
+        "transactions": [
+          {
+            "index_operation": 1,
+            "modification": false,
+            "date_transaction": "2026-05-22",
+            "nature": "Cession",
+            "instrument": "Action",
+            "liee_options_attributions": "NON",
+            "prix": 6.6,
+            "devise": "EUR",
+            "volume": 1500.0,
+            "operations_elementaires": [
+              {
+                "prix": 6.6,
+                "volume": 1500.0
+              }
+            ],
+            "valeur_nette": -9900.0,
+            "statut": "OPERATION_DECLAREE_PARSEE"
+          }
+        ],
+        "statut": "DECLARATION_PARSEE"
+      },
+      {
+        "numero": "2026DD1116780",
+        "date_publication": "2026-05-28T11:48:07.5123872+02:00",
+        "url": "https://bdif.amf-france.org/back/api/v1/documents/2026/2026DD1116780/95D8DA293F903A3B8AC85E5699C7E7E59E142F8F1F46A5946C10780081EAC468.pdf",
+        "http": 200,
+        "sha256_pdf": "e5b70aef2ca5479c552e365b21a2248afaa6169fd01602dd1a0f9f2a74d7eb35",
+        "archive_pdf": "AUDITS/POURSUITE_FICHES_40_20261105/AMF/2026DD1116780.pdf",
+        "lei": "96950004ATVK481LKN90",
+        "transactions": [
+          {
+            "index_operation": 1,
+            "modification": false,
+            "date_transaction": "2026-05-18",
+            "nature": "Cession",
+            "instrument": "Action",
+            "liee_options_attributions": "NON",
+            "prix": 7.5,
+            "devise": "EUR",
+            "volume": 1146.0,
+            "operations_elementaires": [
+              {
+                "prix": 7.5,
+                "volume": 1146.0
+              }
+            ],
+            "valeur_nette": -8595.0,
+            "statut": "OPERATION_DECLAREE_PARSEE"
+          },
+          {
+            "index_operation": 2,
+            "modification": false,
+            "date_transaction": "2026-05-22",
+            "nature": "Cession",
+            "instrument": "Action",
+            "liee_options_attributions": "NON",
+            "prix": 6.63,
+            "devise": "EUR",
+            "volume": 354.0,
+            "operations_elementaires": [
+              {
+                "prix": 6.63,
+                "volume": 354.0
+              }
+            ],
+            "valeur_nette": -2347.02,
+            "statut": "OPERATION_DECLAREE_PARSEE"
+          }
+        ],
+        "statut": "DECLARATION_PARSEE"
+      },
+      {
+        "numero": "2026DD1116770",
+        "date_publication": "2026-05-28T11:48:07.8278534+02:00",
+        "url": "https://bdif.amf-france.org/back/api/v1/documents/2026/2026DD1116770/53FE9C2421B0C71B14063EC389EB818FFDDA1647BBBCB7014CFA03A9011DB5C8.pdf",
+        "http": 200,
+        "sha256_pdf": "f012cae61530716d8e6078e4df20b7278876d62e5f035737bb3e97666e5d0143",
+        "archive_pdf": "AUDITS/POURSUITE_FICHES_40_20261105/AMF/2026DD1116770.pdf",
+        "lei": "96950004ATVK481LKN90",
+        "transactions": [
+          {
+            "index_operation": 1,
+            "modification": false,
+            "date_transaction": "2026-05-27",
+            "nature": "Cession",
+            "instrument": "Action",
+            "liee_options_attributions": "NON",
+            "prix": 6.5036,
+            "devise": "EUR",
+            "volume": 1543.0,
+            "operations_elementaires": [
+              {
+                "prix": 6.5036,
+                "volume": 1543.0
+              }
+            ],
+            "valeur_nette": -10035.0548,
+            "statut": "OPERATION_DECLAREE_PARSEE"
+          }
+        ],
+        "statut": "DECLARATION_PARSEE"
+      },
+      {
+        "numero": "2026DD1111905",
+        "date_publication": "2026-05-01T18:12:08.8256157+02:00",
+        "url": "https://bdif.amf-france.org/back/api/v1/documents/2026/2026DD1111905/6F909A9DE687A65A8E41A75B1BC08BB1B66849A2D3ACCF3A76FE7EF8AD15A9F1.pdf",
+        "http": 200,
+        "sha256_pdf": "a4f5c4d6d0ae7f58325a25c022ae6c1d964e9481cb02f9f3f59f3b1403c636b6",
+        "archive_pdf": "AUDITS/POURSUITE_FICHES_40_20261105/AMF/2026DD1111905.pdf",
+        "lei": "96950004ATVK481LKN90",
+        "transactions": [
+          {
+            "index_operation": 1,
+            "modification": false,
+            "date_transaction": "2026-04-30",
+            "nature": "Cession",
+            "instrument": "Action",
+            "liee_options_attributions": "NON",
+            "prix": 5.6,
+            "devise": "EUR",
+            "volume": 5000.0,
+            "operations_elementaires": [
+              {
+                "prix": 5.6,
+                "volume": 5000.0
+              }
+            ],
+            "valeur_nette": -28000.0,
+            "statut": "OPERATION_DECLAREE_PARSEE"
+          }
+        ],
+        "statut": "DECLARATION_PARSEE"
+      }
+    ],
+    "erreurs": [],
+    "totaux": {
+      "90": {
+        "debut": "2026-08-07",
+        "fin": "2026-11-05",
+        "valeur": -98928.0084,
+        "unite": "EUR",
+        "nombre_transactions": 24,
+        "statut": "DEPOTS_AMF_FENETRE_CONTROLEE",
+        "limite": "Achats moins ventes d’actions au comptant déclarés et publiés à la date de collecte; exercices/attributions/dons distingués. Cessions liées à des programmes signalées. Hors frais, produits des prix/volumes déclarés. Pas preuve d’absence de transactions non publiées."
+      },
+      "180": {
+        "debut": "2026-05-09",
+        "fin": "2026-11-05",
+        "valeur": -445117.2602,
+        "unite": "EUR",
+        "nombre_transactions": 66,
+        "statut": "DEPOTS_AMF_FENETRE_CONTROLEE",
+        "limite": "Achats moins ventes d’actions au comptant déclarés et publiés à la date de collecte; exercices/attributions/dons distingués. Cessions liées à des programmes signalées. Hors frais, produits des prix/volumes déclarés. Pas preuve d’absence de transactions non publiées."
+      }
+    },
+    "jeton": "RS00007856",
+    "nom_AMF": "MON COURTIER ENERGIE GROUPE",
+    "nombre_declarations_2026": 30,
+    "pagination_complete": true,
+    "statut": "RECHERCHE_REGISTRE_PRIMAIRE_EFFECTUEE"
+  },
+  {
+    "ticker": "AL2SI.PA",
+    "societe": "2CRSi",
+    "isin": "FR0013341781",
+    "date_collecte": "2026-11-05",
+    "recherches": [
+      {
+        "famille": "identite_AMF",
+        "url": "https://bdif.amf-france.org/back/api/v1/informations?RechercheTexte=2CRSI&From=0&Size=50",
+        "http": 200,
+        "sha256_reponse": "cb1b04f9283f419182240ff8edd62976e37019a8cb5593e8ea4cf542b32c32f3",
+        "total": 48
+      },
+      {
+        "famille": "declarations_2026",
+        "url": "https://bdif.amf-france.org/back/api/v1/informations?Jetons=RS00006601&TypesInformation=DD&DateDebut=2026-01-01T00%3A00%3A00.000Z&DateFin=2026-11-05T23%3A59%3A59.000Z&From=0&Size=100",
+        "http": 200,
+        "sha256_reponse": "a5db5f9cce42b0ad464c307a351e3b56e153656b8a66183b134b641d34b7c577",
+        "total": 13,
+        "from_index": 0
+      }
+    ],
+    "declarations": [
+      {
+        "numero": "2026DD1122600",
+        "date_publication": "2026-06-24T18:08:09.967823+02:00",
+        "url": "https://bdif.amf-france.org/back/api/v1/documents/2026/2026DD1122600/3BF5C0BBE8E8F297031E87744C6C987B80D1C2C41B5E90245003467AA65B14C5.pdf",
+        "http": 200,
+        "sha256_pdf": "a84f75a1f847ce7997fb4d60aab182ea9363ec4326e0dc2f7357379060d3c2d5",
+        "archive_pdf": "AUDITS/POURSUITE_FICHES_40_20261105/AMF/2026DD1122600.pdf",
+        "lei": "969500PMJR23G2GLP639",
+        "transactions": [
+          {
+            "index_operation": 1,
+            "modification": false,
+            "date_transaction": "2026-06-23",
+            "nature": "Acquisition",
+            "instrument": "Action",
+            "liee_options_attributions": "NON",
+            "prix": 26.2,
+            "devise": "EUR",
+            "volume": 1000.0,
+            "operations_elementaires": [
+              {
+                "prix": 26.2,
+                "volume": 1000.0
+              }
+            ],
+            "valeur_nette": 26200.0,
+            "statut": "OPERATION_DECLAREE_PARSEE"
+          }
+        ],
+        "statut": "DECLARATION_PARSEE"
+      },
+      {
+        "numero": "2026DD1122369",
+        "date_publication": "2026-06-23T18:10:08.5349568+02:00",
+        "url": "https://bdif.amf-france.org/back/api/v1/documents/2026/2026DD1122369/E5527E8AF1741DB1CF0261B17E170EE5D79955009F882164E31C21B27ACFFF0D.pdf",
+        "http": 200,
+        "sha256_pdf": "bc7f31952b759e093d7c93c6e80b2281970285511dcc23f89c504e6d6f7e749d",
+        "archive_pdf": "AUDITS/POURSUITE_FICHES_40_20261105/AMF/2026DD1122369.pdf",
+        "lei": "969500PMJR23G2GLP639",
+        "transactions": [
+          {
+            "index_operation": 1,
+            "modification": false,
+            "date_transaction": "2026-06-22",
+            "nature": "Acquisition",
+            "instrument": "Action",
+            "liee_options_attributions": "NON",
+            "prix": 24.0,
+            "devise": "EUR",
+            "volume": 1500.0,
+            "operations_elementaires": [
+              {
+                "prix": 24.0,
+                "volume": 1500.0
+              }
+            ],
+            "valeur_nette": 36000.0,
+            "statut": "OPERATION_DECLAREE_PARSEE"
+          }
+        ],
+        "statut": "DECLARATION_PARSEE"
+      },
+      {
+        "numero": "2026DD1122196",
+        "date_publication": "2026-06-22T18:14:09.576514+02:00",
+        "url": "https://bdif.amf-france.org/back/api/v1/documents/2026/2026DD1122196/5C0C37B1EFA6D47A7BE05F99054584376D8F3B38A3B8AD83B194EBD41DB3CA99.pdf",
+        "http": 200,
+        "sha256_pdf": "75aad41cd706bcf8d8d601a586d397958ea4f7f29655b6f733d0e5db9d9d55ad",
+        "archive_pdf": "AUDITS/POURSUITE_FICHES_40_20261105/AMF/2026DD1122196.pdf",
+        "lei": "969500PMJR23G2GLP639",
+        "transactions": [
+          {
+            "index_operation": 1,
+            "modification": false,
+            "date_transaction": "2026-06-22",
+            "nature": "Acquisition",
+            "instrument": "Action",
+            "liee_options_attributions": "NON",
+            "prix": 18.5,
+            "devise": "EUR",
+            "volume": 1950.0,
+            "operations_elementaires": [
+              {
+                "prix": 18.5,
+                "volume": 1950.0
+              }
+            ],
+            "valeur_nette": 36075.0,
+            "statut": "OPERATION_DECLAREE_PARSEE"
+          }
+        ],
+        "statut": "DECLARATION_PARSEE"
+      },
+      {
+        "numero": "2026DD1110345",
+        "date_publication": "2026-04-27T18:10:08.8678632+02:00",
+        "url": "https://bdif.amf-france.org/back/api/v1/documents/2026/2026DD1110345/EE9F2130EE04ACAED09ED7DD4B93C79CD8EE8E3E317B28EAA483DDF8492EF93E.pdf",
+        "http": 200,
+        "sha256_pdf": "1052a942d2f8e481459ad7ecc1c8be7c325c1cf5022532e12dbb643ec26ae08e",
+        "archive_pdf": "AUDITS/POURSUITE_FICHES_40_20261105/AMF/2026DD1110345.pdf",
+        "lei": "969500PMJR23G2GLP639",
+        "transactions": [
+          {
+            "index_operation": 1,
+            "modification": false,
+            "date_transaction": "2026-04-23",
+            "nature": "Acquisition",
+            "instrument": "Action",
+            "liee_options_attributions": "NON",
+            "prix": 42.4,
+            "devise": "EUR",
+            "volume": 44.0,
+            "operations_elementaires": [
+              {
+                "prix": 42.4,
+                "volume": 44.0
+              }
+            ],
+            "valeur_nette": 1865.6,
+            "statut": "OPERATION_DECLAREE_PARSEE"
+          }
+        ],
+        "statut": "DECLARATION_PARSEE"
+      },
+      {
+        "numero": "2026DD1110344",
+        "date_publication": "2026-04-27T18:10:09.1609577+02:00",
+        "url": "https://bdif.amf-france.org/back/api/v1/documents/2026/2026DD1110344/BF8B2EF080FA2CD5851851CA75C4C45F09C53A9F589E22AD4EB7087C5128E9DD.pdf",
+        "http": 200,
+        "sha256_pdf": "e4801dcbd300fa65ed4a083a0c59a6e86baf9a42923254ee2db2aa3314a15431",
+        "archive_pdf": "AUDITS/POURSUITE_FICHES_40_20261105/AMF/2026DD1110344.pdf",
+        "lei": "969500PMJR23G2GLP639",
+        "transactions": [
+          {
+            "index_operation": 1,
+            "modification": false,
+            "date_transaction": "2026-04-22",
+            "nature": "Cession",
+            "instrument": "Action",
+            "liee_options_attributions": "NON",
+            "prix": 43.2,
+            "devise": "EUR",
+            "volume": 44.0,
+            "operations_elementaires": [
+              {
+                "prix": 43.2,
+                "volume": 44.0
+              }
+            ],
+            "valeur_nette": -1900.8,
+            "statut": "OPERATION_DECLAREE_PARSEE"
+          }
+        ],
+        "statut": "DECLARATION_PARSEE"
+      },
+      {
+        "numero": "2026DD1097852",
+        "date_publication": "2026-03-02T18:06:07.7399062+01:00",
+        "url": "https://bdif.amf-france.org/back/api/v1/documents/2026/2026DD1097852/26C14F9AFB9B41593BD6D1311A5C1A88FE9851F58CF26A602AB9C7A2B21D15D0.pdf",
+        "http": null,
+        "archive_pdf": "AUDITS/POURSUITE_FICHES_40_20261105/AMF/2026DD1097852.pdf",
+        "sha256_pdf": "9cc27f049683ab64a09ef5e740d467fac29300dd29500e5a39f6511c60f06863",
+        "lei": "969500PMJR23G2GLP639",
+        "transactions": [
+          {
+            "index_operation": 1,
+            "modification": false,
+            "date_transaction": "2026-02-24",
+            "nature": "Cession",
+            "instrument": "Action",
+            "liee_options_attributions": "NON",
+            "prix": 25.45,
+            "devise": "EUR",
+            "volume": 500.0,
+            "operations_elementaires": [
+              {
+                "prix": 25.45,
+                "volume": 500.0
+              }
+            ],
+            "valeur_nette": -12725.0,
+            "statut": "OPERATION_DECLAREE_PARSEE"
+          },
+          {
+            "index_operation": 2,
+            "modification": false,
+            "date_transaction": "2026-02-25",
+            "nature": "Cession",
+            "instrument": "Action",
+            "liee_options_attributions": "NON",
+            "prix": 30.1,
+            "devise": "EUR",
+            "volume": 10000.0,
+            "operations_elementaires": [
+              {
+                "prix": 30.0,
+                "volume": 5000.0
+              },
+              {
+                "prix": 30.2,
+                "volume": 5000.0
+              }
+            ],
+            "valeur_nette": -301000.0,
+            "statut": "OPERATION_DECLAREE_PARSEE"
+          },
+          {
+            "index_operation": 3,
+            "modification": false,
+            "date_transaction": "2026-02-25",
+            "nature": "Acquisition",
+            "instrument": "Action",
+            "liee_options_attributions": "NON",
+            "prix": 29.9,
+            "devise": "EUR",
+            "volume": 10000.0,
+            "operations_elementaires": [
+              {
+                "prix": 29.9,
+                "volume": 10000.0
+              }
+            ],
+            "valeur_nette": 299000.0,
+            "statut": "OPERATION_DECLAREE_PARSEE"
+          }
+        ],
+        "statut": "DECLARATION_PARSEE"
+      },
+      {
+        "numero": "2026DD1096700",
+        "date_publication": "2026-02-24T18:12:09.5724301+01:00",
+        "url": "https://bdif.amf-france.org/back/api/v1/documents/2026/2026DD1096700/DDCEF5B31C30B19EA8441011C5AB765B86F47DFC2A4325FDC037322EFB088BCD.pdf",
+        "http": 200,
+        "sha256_pdf": "50a73c004f72c64fea968f0523dfef0322ab935daa8503bb6b3924ee9f4d2a4a",
+        "archive_pdf": "AUDITS/POURSUITE_FICHES_40_20261105/AMF/2026DD1096700.pdf",
+        "lei": "969500PMJR23G2GLP639",
+        "transactions": [
+          {
+            "index_operation": 1,
+            "modification": false,
+            "date_transaction": "2025-04-07",
+            "nature": "Acquisition",
+            "instrument": "Action",
+            "liee_options_attributions": "NON",
+            "prix": 3.155,
+            "devise": "EUR",
+            "volume": 6000.0,
+            "operations_elementaires": [
+              {
+                "prix": 3.155,
+                "volume": 6000.0
+              }
+            ],
+            "valeur_nette": 18930.0,
+            "statut": "OPERATION_DECLAREE_PARSEE"
+          }
+        ],
+        "statut": "DECLARATION_PARSEE"
+      },
+      {
+        "numero": "2026DD1096676",
+        "date_publication": "2026-02-24T18:10:08.0345599+01:00",
+        "url": "https://bdif.amf-france.org/back/api/v1/documents/2026/2026DD1096676/ADE097206EF1E89D9C798082B794B0AE62F0FBCA768CB1EC4DE4DCD3465702F5.pdf",
+        "http": 200,
+        "sha256_pdf": "1b2f8480d81ef47a13ba25568764df9967ea39ed0e4cfc0f241f39123da62f6c",
+        "archive_pdf": "AUDITS/POURSUITE_FICHES_40_20261105/AMF/2026DD1096676.pdf",
+        "lei": "969500PMJR23G2GLP639",
+        "transactions": [
+          {
+            "index_operation": 1,
+            "modification": false,
+            "date_transaction": "2025-10-31",
+            "nature": "Acquisition",
+            "instrument": "Action",
+            "liee_options_attributions": "NON",
+            "prix": 10.0,
+            "devise": "EUR",
+            "volume": 10000.0,
+            "operations_elementaires": [
+              {
+                "prix": 10.0,
+                "volume": 10000.0
+              }
+            ],
+            "valeur_nette": 100000.0,
+            "statut": "OPERATION_DECLAREE_PARSEE"
+          }
+        ],
+        "statut": "DECLARATION_PARSEE"
+      },
+      {
+        "numero": "2026DD1096674",
+        "date_publication": "2026-02-24T18:10:10.3334055+01:00",
+        "url": "https://bdif.amf-france.org/back/api/v1/documents/2026/2026DD1096674/90F17A9CA7C33C0DF9C8713D860445ED7BC59CA58BC47233BEEAB1769CF002E7.pdf",
+        "http": null,
+        "archive_pdf": "AUDITS/POURSUITE_FICHES_40_20261105/AMF/2026DD1096674.pdf",
+        "sha256_pdf": "cfcdd7539627eb4d31bc6298e09c66f8f6f26ba487c8e18c2f4a9d6ccbaaad31",
+        "lei": "969500PMJR23G2GLP639",
+        "transactions": [
+          {
+            "index_operation": 1,
+            "modification": false,
+            "date_transaction": "2025-10-02",
+            "nature": "Acquisition",
+            "instrument": "Action",
+            "liee_options_attributions": "NON",
+            "prix": 13.0184,
+            "devise": "EUR",
+            "volume": 22238.0,
+            "operations_elementaires": [
+              {
+                "prix": 13.0,
+                "volume": 9817.0
+              },
+              {
+                "prix": 12.94,
+                "volume": 700.0
+              },
+              {
+                "prix": 12.96,
+                "volume": 2521.0
+              },
+              {
+                "prix": 13.06,
+                "volume": 9200.0
+              }
+            ],
+            "valeur_nette": 289503.16,
+            "statut": "OPERATION_DECLAREE_PARSEE"
+          }
+        ],
+        "statut": "DECLARATION_PARSEE"
+      },
+      {
+        "numero": "2026DD1096671",
+        "date_publication": "2026-02-24T18:10:12.8647186+01:00",
+        "url": "https://bdif.amf-france.org/back/api/v1/documents/2026/2026DD1096671/C39447031BCFF7785BB2E25B8F13BE62BE0EFA6B39D71D99CE8DE3629E8018FF.pdf",
+        "http": null,
+        "archive_pdf": "AUDITS/POURSUITE_FICHES_40_20261105/AMF/2026DD1096671.pdf",
+        "sha256_pdf": "10d110302b5e14e796dc6019fec521b91c7190ebd70ce7395eaafdb3300acd40",
+        "lei": "969500PMJR23G2GLP639",
+        "transactions": [
+          {
+            "index_operation": 1,
+            "modification": false,
+            "date_transaction": "2025-10-02",
+            "nature": "Cession",
+            "instrument": "Action",
+            "liee_options_attributions": "NON",
+            "prix": 13.0418,
+            "devise": "EUR",
+            "volume": 38238.0,
+            "operations_elementaires": [
+              {
+                "prix": 13.1,
+                "volume": 10000.0
+              },
+              {
+                "prix": 13.06,
+                "volume": 10000.0
+              },
+              {
+                "prix": 13.0,
+                "volume": 18238.0
+              }
+            ],
+            "valeur_nette": -498694.0,
+            "statut": "OPERATION_DECLAREE_PARSEE"
+          }
+        ],
+        "statut": "DECLARATION_PARSEE"
+      },
+      {
+        "numero": "2026DD1089447",
+        "date_publication": "2026-01-16T18:06:07.2166341+01:00",
+        "url": "https://bdif.amf-france.org/back/api/v1/documents/2026/2026DD1089447/27772E91A036AEE2217CD3E2BEF3ED41E59836EA02663CBD95FC7B35CBA7D14A.pdf",
+        "http": 200,
+        "sha256_pdf": "d0dcbb6adf0cb60c3ef99b8bd070271d900ebb1f72a0a8a3d2b4fe64c087973d",
+        "archive_pdf": "AUDITS/POURSUITE_FICHES_40_20261105/AMF/2026DD1089447.pdf",
+        "lei": "969500PMJR23G2GLP639",
+        "transactions": [
+          {
+            "index_operation": 1,
+            "modification": false,
+            "date_transaction": "2026-01-16",
+            "nature": "Exercice",
+            "instrument": "Action",
+            "liee_options_attributions": "NON",
+            "statut": "EXCLUE_NON_ACHAT_VENTE_COMPTANT"
+          }
+        ],
+        "statut": "DECLARATION_PARSEE"
+      },
+      {
+        "numero": "2026DD1089433",
+        "date_publication": "2026-01-16T18:06:09.538879+01:00",
+        "url": "https://bdif.amf-france.org/back/api/v1/documents/2026/2026DD1089433/3CA09F07EB0D8D5A2458BCC46F9DF942244FA926E0DE14ED5214F02359967897.pdf",
+        "http": 200,
+        "sha256_pdf": "9b682b2c076c176e0a4f26a82f64c877ad40f82049f2750df01998846258c12e",
+        "archive_pdf": "AUDITS/POURSUITE_FICHES_40_20261105/AMF/2026DD1089433.pdf",
+        "lei": "969500PMJR23G2GLP639",
+        "transactions": [
+          {
+            "index_operation": 1,
+            "modification": false,
+            "date_transaction": "2025-01-16",
+            "nature": "Exercice",
+            "instrument": "Action",
+            "liee_options_attributions": "OUI",
+            "statut": "EXCLUE_NON_ACHAT_VENTE_COMPTANT"
+          }
+        ],
+        "statut": "DECLARATION_PARSEE"
+      },
+      {
+        "numero": "2026DD1089430",
+        "date_publication": "2026-01-16T18:06:11.8480362+01:00",
+        "url": "https://bdif.amf-france.org/back/api/v1/documents/2026/2026DD1089430/4EA1B6B0C690A5FB08D84B2781C5648C313B83366391B41CCFF0F3E0FEAD0ABE.pdf",
+        "http": 200,
+        "sha256_pdf": "7d59b6e05681956a9342adab0bc7d9823a4187fc0f4ae01d0dd403139010cec7",
+        "archive_pdf": "AUDITS/POURSUITE_FICHES_40_20261105/AMF/2026DD1089430.pdf",
+        "lei": "969500PMJR23G2GLP639",
+        "transactions": [
+          {
+            "index_operation": 1,
+            "modification": false,
+            "date_transaction": "2026-01-16",
+            "nature": "Exercice",
+            "instrument": "Action",
+            "liee_options_attributions": "NON",
+            "statut": "EXCLUE_NON_ACHAT_VENTE_COMPTANT"
+          }
+        ],
+        "statut": "DECLARATION_PARSEE"
+      }
+    ],
+    "erreurs": [],
+    "totaux": {
+      "90": {
+        "debut": "2026-08-07",
+        "fin": "2026-11-05",
+        "valeur": 0,
+        "unite": "EUR",
+        "nombre_transactions": 0,
+        "statut": "DEPOTS_AMF_FENETRE_CONTROLEE",
+        "limite": "Achats moins ventes d’actions au comptant déclarés et publiés à la date de collecte; exercices/attributions/dons distingués. Cessions liées à des programmes signalées. Hors frais, produits des prix/volumes déclarés. Pas preuve d’absence de transactions non publiées."
+      },
+      "180": {
+        "debut": "2026-05-09",
+        "fin": "2026-11-05",
+        "valeur": 98275.0,
+        "unite": "EUR",
+        "nombre_transactions": 3,
+        "statut": "DEPOTS_AMF_FENETRE_CONTROLEE",
+        "limite": "Achats moins ventes d’actions au comptant déclarés et publiés à la date de collecte; exercices/attributions/dons distingués. Cessions liées à des programmes signalées. Hors frais, produits des prix/volumes déclarés. Pas preuve d’absence de transactions non publiées."
+      }
+    },
+    "jeton": "RS00006601",
+    "nom_AMF": "2CRSI",
+    "nombre_declarations_2026": 13,
+    "pagination_complete": true,
+    "statut": "RECHERCHE_REGISTRE_PRIMAIRE_EFFECTUEE"
+  },
+  {
+    "ticker": "ALLIX.PA",
+    "societe": "WALLIX",
+    "isin": "FR0010131409",
+    "date_collecte": "2026-11-05",
+    "recherches": [
+      {
+        "famille": "identite_AMF",
+        "url": "https://bdif.amf-france.org/back/api/v1/informations?RechercheTexte=WALLIX+GROUP&From=0&Size=50",
+        "http": 200,
+        "sha256_reponse": "7f77694450fc301b68c4bbcf57bb0a11c72dba92b71cd147add8f5efbd620cae",
+        "total": 21
+      },
+      {
+        "famille": "declarations_2026",
+        "url": "https://bdif.amf-france.org/back/api/v1/informations?Jetons=RS00006015&TypesInformation=DD&DateDebut=2026-01-01T00%3A00%3A00.000Z&DateFin=2026-11-05T23%3A59%3A59.000Z&From=0&Size=100",
+        "http": 200,
+        "sha256_reponse": "5af51b022af915c402068e52b543382ca45d743937d3d18e2cdff1e5bc079d9b",
+        "total": 2,
+        "from_index": 0
+      }
+    ],
+    "declarations": [
+      {
+        "numero": "2026DD1145141",
+        "date_publication": "2026-10-20T18:08:08.7901929+02:00",
+        "url": "https://bdif.amf-france.org/back/api/v1/documents/2026/2026DD1145141/42B14EE7D87307F54214087C80F581172ED4105E14BD062EF87C8BBBDD7F8AF8.pdf",
+        "http": 200,
+        "sha256_pdf": "89b0fc88d7251c4d3b46c25df00ce140778dc902554c9d289f1d3f42faaebf8a",
+        "archive_pdf": "AUDITS/POURSUITE_FICHES_40_20261105/AMF/2026DD1145141.pdf",
+        "transactions": [
+          {
+            "index_operation": 1,
+            "modification": false,
+            "date_transaction": "2026-10-15",
+            "nature": "Cession",
+            "instrument": "Action",
+            "liee_options_attributions": "NON",
+            "prix": 25.0,
+            "devise": "EUR",
+            "volume": 3783.0,
+            "operations_elementaires": [
+              {
+                "prix": 25.0,
+                "volume": 3783.0
+              }
+            ],
+            "valeur_nette": -94575.0,
+            "statut": "OPERATION_DECLAREE_PARSEE"
+          }
+        ],
+        "statut": "DECLARATION_PARSEE"
+      },
+      {
+        "numero": "2026DD1117678",
+        "date_publication": "2026-06-03T10:56:08.0898037+02:00",
+        "url": "https://bdif.amf-france.org/back/api/v1/documents/2026/2026DD1117678/58CAC8ECE2A175E2FF20F27AC2DE892D6DD8C4B6C4DB50FD90005AD8809FEBE7.pdf",
+        "http": 200,
+        "sha256_pdf": "578d4d2d5d79cef1bd03163072b888143e69c713fe3f24a10ee31c7b170d1f83",
+        "archive_pdf": "AUDITS/POURSUITE_FICHES_40_20261105/AMF/2026DD1117678.pdf",
+        "lei": "969500Y014KR9K8QM551",
+        "transactions": [
+          {
+            "index_operation": 1,
+            "modification": false,
+            "date_transaction": "2026-05-21",
+            "nature": "Cession",
+            "instrument": "Action",
+            "liee_options_attributions": "NON",
+            "prix": 24.105,
+            "devise": "EUR",
+            "volume": 20000.0,
+            "operations_elementaires": [
+              {
+                "prix": 24.0,
+                "volume": 8000.0
+              },
+              {
+                "prix": 24.175,
+                "volume": 12000.0
+              }
+            ],
+            "valeur_nette": -482100.0,
+            "statut": "OPERATION_DECLAREE_PARSEE"
+          }
+        ],
+        "statut": "DECLARATION_PARSEE"
+      }
+    ],
+    "erreurs": [],
+    "totaux": {
+      "90": {
+        "debut": "2026-08-07",
+        "fin": "2026-11-05",
+        "valeur": -94575.0,
+        "unite": "EUR",
+        "nombre_transactions": 1,
+        "statut": "DEPOTS_AMF_FENETRE_CONTROLEE",
+        "limite": "Achats moins ventes d’actions au comptant déclarés et publiés à la date de collecte; exercices/attributions/dons distingués. Cessions liées à des programmes signalées. Hors frais, produits des prix/volumes déclarés. Pas preuve d’absence de transactions non publiées."
+      },
+      "180": {
+        "debut": "2026-05-09",
+        "fin": "2026-11-05",
+        "valeur": -576675.0,
+        "unite": "EUR",
+        "nombre_transactions": 2,
+        "statut": "DEPOTS_AMF_FENETRE_CONTROLEE",
+        "limite": "Achats moins ventes d’actions au comptant déclarés et publiés à la date de collecte; exercices/attributions/dons distingués. Cessions liées à des programmes signalées. Hors frais, produits des prix/volumes déclarés. Pas preuve d’absence de transactions non publiées."
+      }
+    },
+    "jeton": "RS00006015",
+    "nom_AMF": "WALLIX GROUP",
+    "nombre_declarations_2026": 2,
+    "pagination_complete": true,
+    "statut": "RECHERCHE_REGISTRE_PRIMAIRE_EFFECTUEE"
+  },
+  {
+    "ticker": "ALCUR.PA",
+    "societe": "Arcure",
+    "isin": "FR0013398997",
+    "date_collecte": "2026-11-05",
+    "recherches": [
+      {
+        "famille": "identite_AMF",
+        "url": "https://bdif.amf-france.org/back/api/v1/informations?RechercheTexte=ARCURE&From=0&Size=50",
+        "http": 200,
+        "sha256_reponse": "62f63b5501fa605baf4d0c76eeadb115bb75dd7e465860fcd06d51f5cebdef17",
+        "total": 23
+      },
+      {
+        "famille": "declarations_2026",
+        "url": "https://bdif.amf-france.org/back/api/v1/informations?Jetons=RS00006711&TypesInformation=DD&DateDebut=2026-01-01T00%3A00%3A00.000Z&DateFin=2026-11-05T23%3A59%3A59.000Z&From=0&Size=100",
+        "http": 200,
+        "sha256_reponse": "6d412c54e7b2df9f62d2f3a8d58de8e56a6af4baccb909992a5a629887cf9131",
+        "total": 0,
+        "from_index": 0
+      }
+    ],
+    "declarations": [],
+    "erreurs": [],
+    "totaux": {
+      "90": {
+        "debut": "2026-08-07",
+        "fin": "2026-11-05",
+        "valeur": 0,
+        "unite": "EUR",
+        "nombre_transactions": 0,
+        "statut": "DEPOTS_AMF_FENETRE_CONTROLEE",
+        "limite": "Achats moins ventes d’actions au comptant déclarés et publiés à la date de collecte; exercices/attributions/dons distingués. Cessions liées à des programmes signalées. Hors frais, produits des prix/volumes déclarés. Pas preuve d’absence de transactions non publiées."
+      },
+      "180": {
+        "debut": "2026-05-09",
+        "fin": "2026-11-05",
+        "valeur": 0,
+        "unite": "EUR",
+        "nombre_transactions": 0,
+        "statut": "DEPOTS_AMF_FENETRE_CONTROLEE",
+        "limite": "Achats moins ventes d’actions au comptant déclarés et publiés à la date de collecte; exercices/attributions/dons distingués. Cessions liées à des programmes signalées. Hors frais, produits des prix/volumes déclarés. Pas preuve d’absence de transactions non publiées."
+      }
+    },
+    "jeton": "RS00006711",
+    "nom_AMF": "ARCURE",
+    "nombre_declarations_2026": 0,
+    "pagination_complete": true,
+    "statut": "RECHERCHE_REGISTRE_PRIMAIRE_EFFECTUEE"
+  },
+  {
+    "ticker": "ALIEV.PA",
+    "societe": "IEVA",
+    "isin": "FR0014015ND9",
+    "date_collecte": "2026-11-05",
+    "recherches": [
+      {
+        "famille": "identite_AMF",
+        "url": "https://bdif.amf-france.org/back/api/v1/informations?RechercheTexte=IEVA+GROUP&From=0&Size=50",
+        "http": 200,
+        "sha256_reponse": "a50645d779fbb29ff43047d0a110f8f88a31795e0410d0691d5bfea7393b4069",
+        "total": 11
+      },
+      {
+        "famille": "declarations_2026",
+        "url": "https://bdif.amf-france.org/back/api/v1/informations?Jetons=RS00008533&TypesInformation=DD&DateDebut=2026-01-01T00%3A00%3A00.000Z&DateFin=2026-11-05T23%3A59%3A59.000Z&From=0&Size=100",
+        "http": 200,
+        "sha256_reponse": "a50645d779fbb29ff43047d0a110f8f88a31795e0410d0691d5bfea7393b4069",
+        "total": 11,
+        "from_index": 0
+      }
+    ],
+    "declarations": [
+      {
+        "numero": "2026DD1146703",
+        "date_publication": "2026-10-28T18:06:06.5496045+01:00",
+        "url": "https://bdif.amf-france.org/back/api/v1/documents/2026/2026DD1146703/3F403FECA6F08CC762F382BDB8415306687AD54E43A688D67C2A8859E509026F.pdf",
+        "http": 200,
+        "sha256_pdf": "cb0d2916717d87bffe695b04ef04960ccd1b1453293ba32b6d5b085e67c4be8d",
+        "archive_pdf": "AUDITS/POURSUITE_FICHES_40_20261105/AMF/2026DD1146703.pdf",
+        "transactions": [
+          {
+            "index_operation": 1,
+            "modification": false,
+            "date_transaction": "2026-10-22",
+            "nature": "Acquisition",
+            "instrument": "Action",
+            "liee_options_attributions": "NON",
+            "prix": 8.5,
+            "devise": "EUR",
+            "volume": 36600.0,
+            "operations_elementaires": [
+              {
+                "prix": 8.5,
+                "volume": 36600.0
+              }
+            ],
+            "valeur_nette": 311100.0,
+            "statut": "OPERATION_DECLAREE_PARSEE"
+          }
+        ],
+        "statut": "DECLARATION_PARSEE"
+      },
+      {
+        "numero": "2026DD1125677",
+        "date_publication": "2026-07-08T18:06:10.6136302+02:00",
+        "url": "https://bdif.amf-france.org/back/api/v1/documents/2026/2026DD1125677/3D9415EB51F159EBC87AEA0F58C1D7AFB1D9C1463712F16CF012E1F9D7515128.pdf",
+        "http": 200,
+        "sha256_pdf": "a6cafb9e33ab5c1af9be8e367bc7e1415921a22a8f42623fbaea744e68554b8e",
+        "archive_pdf": "AUDITS/POURSUITE_FICHES_40_20261105/AMF/2026DD1125677.pdf",
+        "transactions": [
+          {
+            "index_operation": 1,
+            "modification": false,
+            "date_transaction": "2026-07-06",
+            "nature": "Acquisition",
+            "instrument": "Action",
+            "liee_options_attributions": "NON",
+            "prix": 9.38,
+            "devise": "EUR",
+            "volume": 165.0,
+            "operations_elementaires": [
+              {
+                "prix": 9.38,
+                "volume": 165.0
+              }
+            ],
+            "valeur_nette": 1547.7,
+            "statut": "OPERATION_DECLAREE_PARSEE"
+          }
+        ],
+        "statut": "DECLARATION_PARSEE"
+      },
+      {
+        "numero": "2026DD1125153",
+        "date_publication": "2026-07-06T18:16:09.064926+02:00",
+        "url": "https://bdif.amf-france.org/back/api/v1/documents/2026/2026DD1125153/AE03F67F9128C6DCC8DCCC8EAC1231ACBBA1B425DCE8EE69814CBC06A8DB7B95.pdf",
+        "http": 200,
+        "sha256_pdf": "117e561eb9206a95be99a206fadd878ea2ce4d3f33f8d058ea320e94bd6c14bf",
+        "archive_pdf": "AUDITS/POURSUITE_FICHES_40_20261105/AMF/2026DD1125153.pdf",
+        "transactions": [
+          {
+            "index_operation": 1,
+            "modification": false,
+            "date_transaction": "2026-07-03",
+            "nature": "Acquisition",
+            "instrument": "Action",
+            "liee_options_attributions": "NON",
+            "prix": 8.1933,
+            "devise": "EUR",
+            "volume": 75.0,
+            "operations_elementaires": [
+              {
+                "prix": 8.1933,
+                "volume": 75.0
+              }
+            ],
+            "valeur_nette": 614.4975,
+            "statut": "OPERATION_DECLAREE_PARSEE"
+          }
+        ],
+        "statut": "DECLARATION_PARSEE"
+      },
+      {
+        "numero": "2026DD1125148",
+        "date_publication": "2026-07-06T18:16:10.146299+02:00",
+        "url": "https://bdif.amf-france.org/back/api/v1/documents/2026/2026DD1125148/AAFC2F13D4E3EF787FF0E6F5028A248282F828F415934EE8E9ED6C2AEF0DEE0F.pdf",
+        "http": 200,
+        "sha256_pdf": "6bd81bb72748704262722ab998e285c1d6fb8e70374d6bfcee64a84dc430f3aa",
+        "archive_pdf": "AUDITS/POURSUITE_FICHES_40_20261105/AMF/2026DD1125148.pdf",
+        "transactions": [
+          {
+            "index_operation": 1,
+            "modification": false,
+            "date_transaction": "2026-07-02",
+            "nature": "Acquisition",
+            "instrument": "Action",
+            "liee_options_attributions": "NON",
+            "prix": 8.04,
+            "devise": "EUR",
+            "volume": 8849.0,
+            "operations_elementaires": [
+              {
+                "prix": 8.04,
+                "volume": 8849.0
+              }
+            ],
+            "valeur_nette": 71145.96,
+            "statut": "OPERATION_DECLAREE_PARSEE"
+          }
+        ],
+        "statut": "DECLARATION_PARSEE"
+      },
+      {
+        "numero": "2026DD1116192",
+        "date_publication": "2026-05-22T18:08:07.6987704+02:00",
+        "url": "https://bdif.amf-france.org/back/api/v1/documents/2026/2026DD1116192/F798D322654BDA92E1BC995F93D67F568D6C3503EFD7FB1C2E679221EB60F7C5.pdf",
+        "http": 200,
+        "sha256_pdf": "bd45bd8b0a43b46003e4ce082e2ff535778ddf20b5a2891212460aef5aad70c8",
+        "archive_pdf": "AUDITS/POURSUITE_FICHES_40_20261105/AMF/2026DD1116192.pdf",
+        "lei": "9695008NTA6DK2RSN932",
+        "transactions": [
+          {
+            "index_operation": 1,
+            "modification": false,
+            "date_transaction": "2026-05-21",
+            "nature": "Acquisition",
+            "instrument": "Action",
+            "liee_options_attributions": "NON",
+            "prix": 7.9836,
+            "devise": "EUR",
+            "volume": 612.0,
+            "operations_elementaires": [
+              {
+                "prix": 7.9836,
+                "volume": 612.0
+              }
+            ],
+            "valeur_nette": 4885.9632,
+            "statut": "OPERATION_DECLAREE_PARSEE"
+          }
+        ],
+        "statut": "DECLARATION_PARSEE"
+      },
+      {
+        "numero": "2026DD1115315",
+        "date_publication": "2026-05-19T18:08:08.0693845+02:00",
+        "url": "https://bdif.amf-france.org/back/api/v1/documents/2026/2026DD1115315/E34CDCAC0A91023F0815D16BB99C72A23396D8975C949DB11288B781954D7DEF.pdf",
+        "http": 200,
+        "sha256_pdf": "8be055021c397f39d267b96f96c78c9415a5a2f21e7f6a3975cba3bc477d0e2c",
+        "archive_pdf": "AUDITS/POURSUITE_FICHES_40_20261105/AMF/2026DD1115315.pdf",
+        "lei": "9695008NTA6DK2RSN932",
+        "transactions": [
+          {
+            "index_operation": 1,
+            "modification": false,
+            "date_transaction": "2026-05-18",
+            "nature": "Acquisition",
+            "instrument": "Action",
+            "liee_options_attributions": "NON",
+            "prix": 8.0838,
+            "devise": "EUR",
+            "volume": 210.0,
+            "operations_elementaires": [
+              {
+                "prix": 8.0838,
+                "volume": 210.0
+              }
+            ],
+            "valeur_nette": 1697.598,
+            "statut": "OPERATION_DECLAREE_PARSEE"
+          }
+        ],
+        "statut": "DECLARATION_PARSEE"
+      },
+      {
+        "numero": "2026DD1114998",
+        "date_publication": "2026-05-18T18:06:07.2421242+02:00",
+        "url": "https://bdif.amf-france.org/back/api/v1/documents/2026/2026DD1114998/BCE90ACFF9FD6169D83BE038693245F10ECC936EAD06F73541683FED24BC9261.pdf",
+        "http": 200,
+        "sha256_pdf": "6fce5cc3e7314b4c7b212a2f3a8fffd72419dfd7a967101768e0092dc052cbaa",
+        "archive_pdf": "AUDITS/POURSUITE_FICHES_40_20261105/AMF/2026DD1114998.pdf",
+        "lei": "9695008NTA6DK2RSN932",
+        "transactions": [
+          {
+            "index_operation": 1,
+            "modification": false,
+            "date_transaction": "2026-05-15",
+            "nature": "Acquisition",
+            "instrument": "Action",
+            "liee_options_attributions": "NON",
+            "prix": 7.7757,
+            "devise": "EUR",
+            "volume": 391.0,
+            "operations_elementaires": [
+              {
+                "prix": 7.7757,
+                "volume": 391.0
+              }
+            ],
+            "valeur_nette": 3040.2987,
+            "statut": "OPERATION_DECLAREE_PARSEE"
+          }
+        ],
+        "statut": "DECLARATION_PARSEE"
+      },
+      {
+        "numero": "2026DD1114759",
+        "date_publication": "2026-05-15T18:06:08.0821798+02:00",
+        "url": "https://bdif.amf-france.org/back/api/v1/documents/2026/2026DD1114759/E9FAE14D07C7A4DFB83FCC1EAB28BF08822619732FF1A82184656C11C868A8AB.pdf",
+        "http": 200,
+        "sha256_pdf": "2201ae5007e9e3973d17d034821adbb409e2b2b605a64634a771695da90480e4",
+        "archive_pdf": "AUDITS/POURSUITE_FICHES_40_20261105/AMF/2026DD1114759.pdf",
+        "lei": "9695008NTA6DK2RSN932",
+        "transactions": [
+          {
+            "index_operation": 1,
+            "modification": false,
+            "date_transaction": "2026-05-14",
+            "nature": "Acquisition",
+            "instrument": "Action",
+            "liee_options_attributions": "NON",
+            "prix": 8.0593,
+            "devise": "EUR",
+            "volume": 787.0,
+            "operations_elementaires": [
+              {
+                "prix": 8.0593,
+                "volume": 787.0
+              }
+            ],
+            "valeur_nette": 6342.6691,
+            "statut": "OPERATION_DECLAREE_PARSEE"
+          }
+        ],
+        "statut": "DECLARATION_PARSEE"
+      },
+      {
+        "numero": "2026DD1109205",
+        "date_publication": "2026-04-21T18:08:06.4471978+02:00",
+        "url": "https://bdif.amf-france.org/back/api/v1/documents/2026/2026DD1109205/5FF68FE6DD5572E37CF0B6E6878EBCAC768A8C65CBF38170673E394568667837.pdf",
+        "http": 200,
+        "sha256_pdf": "8a2cf0a6aef3463b85a01f256641e5f3166e45f34257da95e8efd522641e8744",
+        "archive_pdf": "AUDITS/POURSUITE_FICHES_40_20261105/AMF/2026DD1109205.pdf",
+        "lei": "9695008NTA6DK2RSN932",
+        "transactions": [
+          {
+            "index_operation": 1,
+            "modification": false,
+            "date_transaction": "2026-04-20",
+            "nature": "Acquisition",
+            "instrument": "Action",
+            "liee_options_attributions": "NON",
+            "prix": 10.0625,
+            "devise": "EUR",
+            "volume": 1120.0,
+            "operations_elementaires": [
+              {
+                "prix": 10.0625,
+                "volume": 1120.0
+              }
+            ],
+            "valeur_nette": 11270.0,
+            "statut": "OPERATION_DECLAREE_PARSEE"
+          }
+        ],
+        "statut": "DECLARATION_PARSEE"
+      },
+      {
+        "numero": "2026DD1108927",
+        "date_publication": "2026-04-20T18:18:07.9500216+02:00",
+        "url": "https://bdif.amf-france.org/back/api/v1/documents/2026/2026DD1108927/58B5A1E7F125E10CBFEC54815E0234F7D6B39AAF8E7C610351F7C0AA408E4385.pdf",
+        "http": 200,
+        "sha256_pdf": "95a75016cde2eaccf7f1241d81a45bd14deb51090db360880fb7342d39e71ac4",
+        "archive_pdf": "AUDITS/POURSUITE_FICHES_40_20261105/AMF/2026DD1108927.pdf",
+        "lei": "9695008NTA6DK2RSN932",
+        "transactions": [
+          {
+            "index_operation": 1,
+            "modification": false,
+            "date_transaction": "2026-04-17",
+            "nature": "Acquisition",
+            "instrument": "Action",
+            "liee_options_attributions": "NON",
+            "prix": 10.765,
+            "devise": "EUR",
+            "volume": 527.0,
+            "operations_elementaires": [
+              {
+                "prix": 10.765,
+                "volume": 527.0
+              }
+            ],
+            "valeur_nette": 5673.155,
+            "statut": "OPERATION_DECLAREE_PARSEE"
+          }
+        ],
+        "statut": "DECLARATION_PARSEE"
+      },
+      {
+        "numero": "2026DD1108666",
+        "date_publication": "2026-04-20T18:06:06.5193903+02:00",
+        "url": "https://bdif.amf-france.org/back/api/v1/documents/2026/2026DD1108666/F03303E2E708E5F2446D6305D07E60922E81C6936F00952CF341E3E07C139A1F.pdf",
+        "http": null,
+        "archive_pdf": "AUDITS/POURSUITE_FICHES_40_20261105/AMF/2026DD1108666.pdf",
+        "sha256_pdf": "9a8d9fdf74cdc07fc3d5d66579a378bfc6774978660bb976b3fd25454d0dccbe",
+        "lei": "9695008NTA6DK2RSN932",
+        "transactions": [
+          {
+            "index_operation": 1,
+            "modification": false,
+            "date_transaction": "2026-04-14",
+            "nature": "Acquisition",
+            "instrument": "Action",
+            "liee_options_attributions": "NON",
+            "prix": 11.7503,
+            "devise": "EUR",
+            "volume": 2019.0,
+            "operations_elementaires": [
+              {
+                "prix": 11.7503,
+                "volume": 2019.0
+              }
+            ],
+            "valeur_nette": 23723.8557,
+            "statut": "OPERATION_DECLAREE_PARSEE"
+          },
+          {
+            "index_operation": 2,
+            "modification": false,
+            "date_transaction": "2026-04-16",
+            "nature": "Acquisition",
+            "instrument": "Action",
+            "liee_options_attributions": "NON",
+            "prix": 11.4394,
+            "devise": "EUR",
+            "volume": 334.0,
+            "operations_elementaires": [
+              {
+                "prix": 11.4394,
+                "volume": 334.0
+              }
+            ],
+            "valeur_nette": 3820.7596,
+            "statut": "OPERATION_DECLAREE_PARSEE"
+          }
+        ],
+        "statut": "DECLARATION_PARSEE"
+      }
+    ],
+    "erreurs": [],
+    "totaux": {
+      "90": {
+        "debut": "2026-08-07",
+        "fin": "2026-11-05",
+        "valeur": 311100.0,
+        "unite": "EUR",
+        "nombre_transactions": 1,
+        "statut": "DEPOTS_AMF_FENETRE_CONTROLEE",
+        "limite": "Achats moins ventes d’actions au comptant déclarés et publiés à la date de collecte; exercices/attributions/dons distingués. Cessions liées à des programmes signalées. Hors frais, produits des prix/volumes déclarés. Pas preuve d’absence de transactions non publiées."
+      },
+      "180": {
+        "debut": "2026-05-09",
+        "fin": "2026-11-05",
+        "valeur": 400374.6865,
+        "unite": "EUR",
+        "nombre_transactions": 8,
+        "statut": "DEPOTS_AMF_FENETRE_CONTROLEE",
+        "limite": "Achats moins ventes d’actions au comptant déclarés et publiés à la date de collecte; exercices/attributions/dons distingués. Cessions liées à des programmes signalées. Hors frais, produits des prix/volumes déclarés. Pas preuve d’absence de transactions non publiées."
+      }
+    },
+    "jeton": "RS00008533",
+    "nom_AMF": "IEVA GROUP",
+    "nombre_declarations_2026": 11,
+    "pagination_complete": true,
+    "statut": "RECHERCHE_REGISTRE_PRIMAIRE_EFFECTUEE"
+  }
+]

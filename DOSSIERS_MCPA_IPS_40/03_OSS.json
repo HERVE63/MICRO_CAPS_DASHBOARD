@@ -264,19 +264,14 @@
         "date_collecte": "2026-11-04"
       },
       "qualite_management": {
-        "valeur": null,
-        "unite": null,
-        "periode": null,
-        "date_source": null,
-        "source_url": null,
-        "statut": "A_COLLECTER",
-        "commentaire": null,
-        "recherche": {
-          "date": "2026-11-04",
-          "statut": "MANQUANT_RECHERCHE_NON_CLOSE",
-          "motif": "Analyse MCPA/IPS argumentée encore nécessaire; ce champ ne doit pas être rempli par une statistique de fournisseur.",
-          "journal": "journal_recherches"
-        }
+        "valeur": "CEO Mike Knowles en fonction depuis 2023, avec expérience aéronautique/défense. Quatre administrateurs indépendants et six réunions du comité audit/risques en 2025, selon le proxy.",
+        "unite": "texte",
+        "periode": "position au 20/03/2026; proxy 2026",
+        "date_source": "2026-04-15",
+        "source_url": "https://www.sec.gov/Archives/edgar/data/1394056/000119312526156058/oss-20260414.htm",
+        "statut": "ANALYSE_DOCUMENTAIRE_SOURCE_PRIMAIRE",
+        "commentaire": "Appréciation documentaire, pas note de gouvernance ni certification indépendante.",
+        "date_collecte": "2026-11-04"
       }
     },
     "valorisation": {
@@ -1750,6 +1745,292 @@
       "statut": "SOURCE_SECONDAIRE_CONSENSUS_DATE",
       "commentaire": "BPA généralement ajusté; identité demandée par ticker dans URL API, pas validation primaire.",
       "date_collecte": "2026-11-05"
+    },
+    {
+      "bloc": "qualite",
+      "champ": "dirigeants_et_detentions_documentes",
+      "valeur": {
+        "dirigeants_declares_fournisseur": [
+          {
+            "name": "Mr. Michael  Knowles",
+            "title": "President, CEO & Director",
+            "yearBorn": 1968,
+            "fiscalYear": 2025,
+            "totalPay": {
+              "raw": 513931,
+              "fmt": "513.93k",
+              "longFmt": "513,931"
+            },
+            "exercisedValue": {
+              "raw": 0,
+              "fmt": null,
+              "longFmt": "0"
+            },
+            "unexercisedValue": {
+              "raw": 1057500,
+              "fmt": "1.06M",
+              "longFmt": "1,057,500"
+            }
+          },
+          {
+            "name": "Mr. Daniel  Gabel",
+            "title": "CFO, Treasurer & Secretary",
+            "yearBorn": 1988,
+            "fiscalYear": 2025,
+            "totalPay": {
+              "raw": 342142,
+              "fmt": "342.14k",
+              "longFmt": "342,142"
+            },
+            "exercisedValue": {
+              "raw": 0,
+              "fmt": null,
+              "longFmt": "0"
+            },
+            "unexercisedValue": {
+              "raw": 0,
+              "fmt": null,
+              "longFmt": "0"
+            }
+          },
+          {
+            "name": "Mr. Jim  Ison",
+            "title": "Chief Product Officer",
+            "yearBorn": 1970,
+            "fiscalYear": 2025,
+            "totalPay": {
+              "raw": 349775,
+              "fmt": "349.77k",
+              "longFmt": "349,775"
+            },
+            "exercisedValue": {
+              "raw": 0,
+              "fmt": null,
+              "longFmt": "0"
+            },
+            "unexercisedValue": {
+              "raw": 206891,
+              "fmt": "206.89k",
+              "longFmt": "206,891"
+            }
+          },
+          {
+            "name": "Mr. Fabrizio  Sardo",
+            "title": "Vice President of Operations",
+            "fiscalYear": 2025,
+            "exercisedValue": {
+              "raw": 0,
+              "fmt": null,
+              "longFmt": "0"
+            },
+            "unexercisedValue": {
+              "raw": 0,
+              "fmt": null,
+              "longFmt": "0"
+            }
+          },
+          {
+            "name": "Mr. Jim  Reardon",
+            "title": "Vice President of Technology",
+            "fiscalYear": 2025,
+            "exercisedValue": {
+              "raw": 0,
+              "fmt": null,
+              "longFmt": "0"
+            },
+            "unexercisedValue": {
+              "raw": 0,
+              "fmt": null,
+              "longFmt": "0"
+            }
+          },
+          {
+            "name": "Mr. Robert  Kalebaugh",
+            "title": "Consultant",
+            "fiscalYear": 2025,
+            "exercisedValue": {
+              "raw": 0,
+              "fmt": null,
+              "longFmt": "0"
+            },
+            "unexercisedValue": {
+              "raw": 0,
+              "fmt": null,
+              "longFmt": "0"
+            }
+          }
+        ],
+        "detentions_initiees": [
+          {
+            "maxAge": 1,
+            "name": "BASSETT DAVID GEORGE",
+            "relation": "Director",
+            "url": "",
+            "transactionDescription": "Sale",
+            "latestTransDate": {
+              "raw": 1779753600,
+              "fmt": "2026-05-26"
+            },
+            "positionDirect": {
+              "raw": 24984,
+              "fmt": "24.98k",
+              "longFmt": "24,984"
+            },
+            "positionDirectDate": {
+              "raw": 1779753600,
+              "fmt": "2026-05-26"
+            }
+          },
+          {
+            "maxAge": 1,
+            "name": "DUMONT MICHAEL J",
+            "relation": "Director",
+            "url": "",
+            "transactionDescription": "Stock Award(Grant)",
+            "latestTransDate": {
+              "raw": 1779235200,
+              "fmt": "2026-05-20"
+            },
+            "positionDirect": {
+              "raw": 119833,
+              "fmt": "119.83k",
+              "longFmt": "119,833"
+            },
+            "positionDirectDate": {
+              "raw": 1779235200,
+              "fmt": "2026-05-20"
+            }
+          },
+          {
+            "maxAge": 1,
+            "name": "GABEL DANIEL G.",
+            "relation": "Chief Financial Officer",
+            "url": "",
+            "transactionDescription": "Stock Award(Grant)",
+            "latestTransDate": {
+              "raw": 1770336000,
+              "fmt": "2026-02-06"
+            },
+            "positionDirect": {
+              "raw": 163308,
+              "fmt": "163.31k",
+              "longFmt": "163,308"
+            },
+            "positionDirectDate": {
+              "raw": 1770336000,
+              "fmt": "2026-02-06"
+            }
+          },
+          {
+            "maxAge": 1,
+            "name": "HERBETS MITCHELL H",
+            "relation": "Director",
+            "url": "",
+            "transactionDescription": "Sale",
+            "latestTransDate": {
+              "raw": 1779753600,
+              "fmt": "2026-05-26"
+            },
+            "positionDirect": {
+              "raw": 48984,
+              "fmt": "48.98k",
+              "longFmt": "48,984"
+            },
+            "positionDirectDate": {
+              "raw": 1779753600,
+              "fmt": "2026-05-26"
+            }
+          },
+          {
+            "maxAge": 1,
+            "name": "ISON JAMES J JR.",
+            "relation": "Officer",
+            "url": "",
+            "transactionDescription": "Stock Gift",
+            "latestTransDate": {
+              "raw": 1770940800,
+              "fmt": "2026-02-13"
+            },
+            "positionDirect": {
+              "raw": 373055,
+              "fmt": "373.06k",
+              "longFmt": "373,055"
+            },
+            "positionDirectDate": {
+              "raw": 1770940800,
+              "fmt": "2026-02-13"
+            }
+          },
+          {
+            "maxAge": 1,
+            "name": "KNOWLES MICHAEL",
+            "relation": "Chief Executive Officer",
+            "url": "",
+            "transactionDescription": "Stock Award(Grant)",
+            "latestTransDate": {
+              "raw": 1770336000,
+              "fmt": "2026-02-06"
+            },
+            "positionDirect": {
+              "raw": 668006,
+              "fmt": "668.01k",
+              "longFmt": "668,006"
+            },
+            "positionDirectDate": {
+              "raw": 1770336000,
+              "fmt": "2026-02-06"
+            }
+          },
+          {
+            "maxAge": 1,
+            "name": "MATZ GREGORY W",
+            "relation": "Director",
+            "url": "",
+            "transactionDescription": "Sale",
+            "latestTransDate": {
+              "raw": 1779753600,
+              "fmt": "2026-05-26"
+            },
+            "positionDirect": {
+              "raw": 78914,
+              "fmt": "78.91k",
+              "longFmt": "78,914"
+            },
+            "positionDirectDate": {
+              "raw": 1779753600,
+              "fmt": "2026-05-26"
+            }
+          }
+        ],
+        "fichier_transactions_secondaires": "DONNEES/GOUVERNANCE_PUBLIQUE_40_20261105.json"
+      },
+      "unite": "detentions et profils professionnels",
+      "periode": "dates individuelles du fournisseur; collecte 2026-11-05",
+      "date_source": "2026-11-05",
+      "date_collecte": "2026-11-05",
+      "source_url": "https://query1.finance.yahoo.com/v10/finance/quoteSummary/OSS?modules=assetProfile,majorHoldersBreakdown,insiderHolders,insiderTransactions",
+      "statut": "SOURCE_SECONDAIRE_GOUVERNANCE_A_RAPPROCHER",
+      "commentaire": "Titres détenus séparés des options/attributions. Dates/fonctions de chaque ligne à contrôler : les anciens dirigeants peuvent subsister. Ne pas additionner les détentions directes et indirectes sans éliminer les doubles comptes. Pas de certification de couverture des transactions, ni note SSI déduite."
+    },
+    {
+      "bloc": null,
+      "champ": "actionnariat_physique_hors_droits_a_60j",
+      "valeur": {
+        "actions_emises_groupe": 675394,
+        "options_a_60j": 286769,
+        "rsu_a_60j": 12667,
+        "actions_en_circulation": 24769017,
+        "part_groupe_hors_droits_pct": 2.726769495939221,
+        "actions_CEO_emises": 243747,
+        "limite": "Le fondateur historique Steve Cooper, détenteur via trust, est séparé du groupe de dirigeants/administrateurs actuels."
+      },
+      "unite": "titres et pct",
+      "periode": "position au 20/03/2026; proxy 2026",
+      "date_source": "2026-04-15",
+      "source_url": "https://www.sec.gov/Archives/edgar/data/1394056/000119312526156058/oss-20260414.htm",
+      "statut": "SOURCE_PRIMAIRE",
+      "commentaire": "Lecture du proxy primaire : distinguer titres déjà émis, options et droits non encore émis. Données datées, pas état courant certifié.",
+      "date_collecte": "2026-11-04"
     }
   ],
   "journal_recherches": [
@@ -2107,20 +2388,27 @@
       "http": 200,
       "statut": "SOURCE_SECONDAIRE_CONSENSUS_DATE",
       "limite": "Échec ou champ absent ne prouve pas une indisponibilité définitive."
+    },
+    {
+      "famille": "gouvernance_et_detentions_Yahoo",
+      "date": "2026-11-05",
+      "url": "https://query1.finance.yahoo.com/v10/finance/quoteSummary/OSS?modules=assetProfile,majorHoldersBreakdown,insiderHolders,insiderTransactions",
+      "http": 200,
+      "statut": "SOURCE_SECONDAIRE_GOUVERNANCE_NON_RAPPROCHEE",
+      "limite": "Initiés fournisseur ≠ dirigeants stricts; transactions potentiellement partielles, jamais total net exhaustif par défaut. Options et attributions distinctes des achats au comptant."
     }
   ],
   "audit_couverture": {
     "date": "2026-11-05",
     "champs_total": 108,
-    "champs_renseignes": 63,
-    "couverture_pct": 58.33,
+    "champs_renseignes": 64,
+    "couverture_pct": 59.26,
     "champs_secondaires_non_rapproches": 28,
     "champs_manquants": [
       "identite.lei",
       "identite.marche",
       "qualite.revenus_recurrents_pct",
       "qualite.concentration_clients_pct",
-      "qualite.qualite_management",
       "valorisation.ev_ebitda",
       "valorisation.ev_ebit",
       "valorisation.p_fcf",
@@ -2169,19 +2457,18 @@
   "audit_poursuite": {
     "date": "2026-11-05",
     "comptage": {
-      "RENSEIGNE": 63,
+      "RENSEIGNE": 64,
       "NON_APPLICABLE": 6,
       "INDISPONIBLE_A_DATE": 0,
-      "RECHERCHE_A_POURSUIVRE": 39
+      "RECHERCHE_A_POURSUIVRE": 38
     },
-    "couverture_valeurs_pct": 58.33,
-    "couverture_applicable_pct": 61.76,
+    "couverture_valeurs_pct": 59.26,
+    "couverture_applicable_pct": 62.75,
     "recherches_non_closes": [
       "identite.lei",
       "identite.marche",
       "qualite.revenus_recurrents_pct",
       "qualite.concentration_clients_pct",
-      "qualite.qualite_management",
       "valorisation.comparables_sectoriels",
       "valorisation.marge_securite_pct",
       "croissance.carnet_commandes",

@@ -1770,6 +1770,327 @@
       "statut": "SOURCE_SECONDAIRE_CONSENSUS_DATE",
       "commentaire": "BPA généralement ajusté; identité demandée par ticker dans URL API, pas validation primaire.",
       "date_collecte": "2026-11-05"
+    },
+    {
+      "bloc": "qualite",
+      "champ": "dirigeants_et_detentions_documentes",
+      "valeur": {
+        "dirigeants_declares_fournisseur": [
+          {
+            "name": "Mr. Simon Angus Hicks",
+            "title": "CEO & Executive Director",
+            "yearBorn": 1968,
+            "fiscalYear": 2026,
+            "totalPay": {
+              "raw": 477000,
+              "fmt": "477k",
+              "longFmt": "477,000"
+            },
+            "exercisedValue": {
+              "raw": 0,
+              "fmt": null,
+              "longFmt": "0"
+            },
+            "unexercisedValue": {
+              "raw": 0,
+              "fmt": null,
+              "longFmt": "0"
+            }
+          },
+          {
+            "name": "Mr. Stephen Joseph Craigen",
+            "title": "CFO, Group Financial Controller & Director",
+            "yearBorn": 1983,
+            "fiscalYear": 2026,
+            "totalPay": {
+              "raw": 461000,
+              "fmt": "461k",
+              "longFmt": "461,000"
+            },
+            "exercisedValue": {
+              "raw": 0,
+              "fmt": null,
+              "longFmt": "0"
+            },
+            "unexercisedValue": {
+              "raw": 0,
+              "fmt": null,
+              "longFmt": "0"
+            }
+          },
+          {
+            "name": "Mr. David Mark Hankin",
+            "title": "General Counsel & Company Secretary",
+            "yearBorn": 1982,
+            "fiscalYear": 2026,
+            "exercisedValue": {
+              "raw": 0,
+              "fmt": null,
+              "longFmt": "0"
+            },
+            "unexercisedValue": {
+              "raw": 0,
+              "fmt": null,
+              "longFmt": "0"
+            }
+          },
+          {
+            "name": "Ms. Rachel  Ovington",
+            "title": "Chief People Officer",
+            "fiscalYear": 2026,
+            "exercisedValue": {
+              "raw": 0,
+              "fmt": null,
+              "longFmt": "0"
+            },
+            "unexercisedValue": {
+              "raw": 0,
+              "fmt": null,
+              "longFmt": "0"
+            }
+          },
+          {
+            "name": "Sean  Hager",
+            "title": "UK Managing Director",
+            "fiscalYear": 2026,
+            "exercisedValue": {
+              "raw": 0,
+              "fmt": null,
+              "longFmt": "0"
+            },
+            "unexercisedValue": {
+              "raw": 0,
+              "fmt": null,
+              "longFmt": "0"
+            }
+          },
+          {
+            "name": "Ms. Rebecca  Minchella",
+            "title": "Chief of Staff",
+            "fiscalYear": 2026,
+            "exercisedValue": {
+              "raw": 0,
+              "fmt": null,
+              "longFmt": "0"
+            },
+            "unexercisedValue": {
+              "raw": 0,
+              "fmt": null,
+              "longFmt": "0"
+            }
+          }
+        ],
+        "detentions_initiees": [
+          {
+            "maxAge": 1,
+            "name": "Anderson (David Robert)",
+            "relation": "",
+            "url": "",
+            "transactionDescription": "Annual Return",
+            "latestTransDate": {
+              "raw": 1753401600,
+              "fmt": "2025-07-25"
+            },
+            "positionDirect": {
+              "raw": 113653,
+              "fmt": "113.65k",
+              "longFmt": "113,653"
+            },
+            "positionDirectDate": {
+              "raw": 1753401600,
+              "fmt": "2025-07-25"
+            }
+          },
+          {
+            "maxAge": 1,
+            "name": "Banham (Gordon Frank Colenso)",
+            "relation": "",
+            "url": "",
+            "transactionDescription": "Bought",
+            "latestTransDate": {
+              "raw": 1786665600,
+              "fmt": "2026-08-14"
+            },
+            "positionDirect": {
+              "raw": 3090761,
+              "fmt": "3.09M",
+              "longFmt": "3,090,761"
+            },
+            "positionDirectDate": {
+              "raw": 1786665600,
+              "fmt": "2026-08-14"
+            }
+          },
+          {
+            "maxAge": 1,
+            "name": "Craigen (Stephen)",
+            "relation": "",
+            "url": "",
+            "transactionDescription": "Annual Return",
+            "latestTransDate": {
+              "raw": 1785196800,
+              "fmt": "2026-07-28"
+            },
+            "positionDirect": {
+              "raw": 22343,
+              "fmt": "22.34k",
+              "longFmt": "22,343"
+            },
+            "positionDirectDate": {
+              "raw": 1785196800,
+              "fmt": "2026-07-28"
+            }
+          },
+          {
+            "maxAge": 1,
+            "name": "Downing LLP",
+            "relation": "",
+            "url": "",
+            "transactionDescription": "Annual Return",
+            "latestTransDate": {
+              "raw": 1784851200,
+              "fmt": "2026-07-24"
+            },
+            "positionDirect": {
+              "raw": 1318095,
+              "fmt": "1.32M",
+              "longFmt": "1,318,095"
+            },
+            "positionDirectDate": {
+              "raw": 1784851200,
+              "fmt": "2026-07-24"
+            }
+          },
+          {
+            "maxAge": 1,
+            "name": "Hager (Sean)",
+            "relation": "",
+            "url": "",
+            "transactionDescription": "Exercise of Option",
+            "latestTransDate": {
+              "raw": 1756252800,
+              "fmt": "2025-08-27"
+            },
+            "positionDirect": {
+              "raw": 12262,
+              "fmt": "12.26k",
+              "longFmt": "12,262"
+            },
+            "positionDirectDate": {
+              "raw": 1756252800,
+              "fmt": "2025-08-27"
+            }
+          },
+          {
+            "maxAge": 1,
+            "name": "Hargreave Hale Ltd",
+            "relation": "",
+            "url": "",
+            "transactionDescription": "Annual Return",
+            "latestTransDate": {
+              "raw": 1784851200,
+              "fmt": "2026-07-24"
+            },
+            "positionDirect": {
+              "raw": 1521227,
+              "fmt": "1.52M",
+              "longFmt": "1,521,227"
+            },
+            "positionDirectDate": {
+              "raw": 1784851200,
+              "fmt": "2026-07-24"
+            }
+          },
+          {
+            "maxAge": 1,
+            "name": "Hargreaves Services Plc",
+            "relation": "",
+            "url": "",
+            "transactionDescription": "Annual Return",
+            "latestTransDate": {
+              "raw": 1780185600,
+              "fmt": "2026-05-31"
+            },
+            "positionDirect": {
+              "raw": 831304,
+              "fmt": "831.3k",
+              "longFmt": "831,304"
+            },
+            "positionDirectDate": {
+              "raw": 1780185600,
+              "fmt": "2026-05-31"
+            }
+          },
+          {
+            "maxAge": 1,
+            "name": "Harwood Capital LLP",
+            "relation": "",
+            "url": "",
+            "transactionDescription": "Sold",
+            "latestTransDate": {
+              "raw": 1787011200,
+              "fmt": "2026-08-18"
+            },
+            "positionDirect": {
+              "raw": 7850000,
+              "fmt": "7.85M",
+              "longFmt": "7,850,000"
+            },
+            "positionDirectDate": {
+              "raw": 1787011200,
+              "fmt": "2026-08-18"
+            }
+          },
+          {
+            "maxAge": 1,
+            "name": "Jones (Chris)",
+            "relation": "",
+            "url": "",
+            "transactionDescription": "Annual Return",
+            "latestTransDate": {
+              "raw": 1785196800,
+              "fmt": "2026-07-28"
+            },
+            "positionDirect": {
+              "raw": 79369,
+              "fmt": "79.37k",
+              "longFmt": "79,369"
+            },
+            "positionDirectDate": {
+              "raw": 1785196800,
+              "fmt": "2026-07-28"
+            }
+          },
+          {
+            "maxAge": 1,
+            "name": "Mc-Dowell (Roger Steven)",
+            "relation": "",
+            "url": "",
+            "transactionDescription": "Annual Return",
+            "latestTransDate": {
+              "raw": 1785196800,
+              "fmt": "2026-07-28"
+            },
+            "positionDirect": {
+              "raw": 411057,
+              "fmt": "411.06k",
+              "longFmt": "411,057"
+            },
+            "positionDirectDate": {
+              "raw": 1785196800,
+              "fmt": "2026-07-28"
+            }
+          }
+        ],
+        "fichier_transactions_secondaires": "DONNEES/GOUVERNANCE_PUBLIQUE_40_20261105.json"
+      },
+      "unite": "detentions et profils professionnels",
+      "periode": "dates individuelles du fournisseur; collecte 2026-11-05",
+      "date_source": "2026-11-05",
+      "date_collecte": "2026-11-05",
+      "source_url": "https://query1.finance.yahoo.com/v10/finance/quoteSummary/HSP.L?modules=assetProfile,majorHoldersBreakdown,insiderHolders,insiderTransactions",
+      "statut": "SOURCE_SECONDAIRE_GOUVERNANCE_A_RAPPROCHER",
+      "commentaire": "Titres détenus séparés des options/attributions. Dates/fonctions de chaque ligne à contrôler : les anciens dirigeants peuvent subsister. Ne pas additionner les détentions directes et indirectes sans éliminer les doubles comptes. Pas de certification de couverture des transactions, ni note SSI déduite."
     }
   ],
   "journal_recherches": [
@@ -1963,6 +2284,14 @@
       "http": 200,
       "statut": "SOURCE_SECONDAIRE_CONSENSUS_DATE",
       "limite": "Échec ou champ absent ne prouve pas une indisponibilité définitive."
+    },
+    {
+      "famille": "gouvernance_et_detentions_Yahoo",
+      "date": "2026-11-05",
+      "url": "https://query1.finance.yahoo.com/v10/finance/quoteSummary/HSP.L?modules=assetProfile,majorHoldersBreakdown,insiderHolders,insiderTransactions",
+      "http": 200,
+      "statut": "SOURCE_SECONDAIRE_GOUVERNANCE_NON_RAPPROCHEE",
+      "limite": "Initiés fournisseur ≠ dirigeants stricts; transactions potentiellement partielles, jamais total net exhaustif par défaut. Options et attributions distinctes des achats au comptant."
     }
   ],
   "audit_couverture": {

@@ -592,19 +592,14 @@
         "date_collecte": "2026-11-04"
       },
       "catalyseurs_dates": {
-        "valeur": null,
-        "unite": null,
-        "periode": null,
-        "date_source": null,
-        "source_url": null,
-        "statut": "A_COLLECTER",
-        "commentaire": null,
-        "recherche": {
-          "date": "2026-11-04",
-          "statut": "MANQUANT_RECHERCHE_NON_CLOSE",
-          "motif": "Aucune valeur vérifiée importée à cette étape; les recherches tracées ne démontrent pas une indisponibilité définitive.",
-          "journal": "journal_recherches"
-        }
+        "valeur": "Assemblée du 02/12/2026 : vote sur modification du plan d’incitation 2021 et désignation de l’auditeur. Résultat du vote non présumé.",
+        "unite": "texte",
+        "periode": "position au 06/10/2026; proxy 2026",
+        "date_source": "2026-10-19",
+        "source_url": "https://www.sec.gov/Archives/edgar/data/1075736/000165495426009040/cxdo_def14a.htm",
+        "statut": "ANALYSE_DOCUMENTAIRE_SOURCE_PRIMAIRE",
+        "commentaire": "Appréciation documentaire, pas note de gouvernance ni certification indépendante.",
+        "date_collecte": "2026-11-04"
       },
       "taille_marche_adressable": {
         "valeur": null,
@@ -750,19 +745,14 @@
         "date_collecte": "2026-11-04"
       },
       "risque_gouvernance": {
-        "valeur": null,
-        "unite": null,
-        "periode": null,
-        "date_source": null,
-        "source_url": null,
-        "statut": "A_COLLECTER",
-        "commentaire": null,
-        "recherche": {
-          "date": "2026-11-04",
-          "statut": "MANQUANT_RECHERCHE_NON_CLOSE",
-          "motif": "Aucune valeur vérifiée importée à cette étape; les recherches tracées ne démontrent pas une indisponibilité définitive.",
-          "journal": "journal_recherches"
-        }
+        "valeur": "Le proxy recense plusieurs dépôts Section 16 tardifs en 2025, certains régularisés en 2026; un dépôt relatif à une attribution à L. Jasmine Kim était encore absent à cette date.",
+        "unite": "texte",
+        "periode": "position au 06/10/2026; proxy 2026",
+        "date_source": "2026-10-19",
+        "source_url": "https://www.sec.gov/Archives/edgar/data/1075736/000165495426009040/cxdo_def14a.htm",
+        "statut": "ANALYSE_DOCUMENTAIRE_SOURCE_PRIMAIRE",
+        "commentaire": "Appréciation documentaire, pas note de gouvernance ni certification indépendante.",
+        "date_collecte": "2026-11-04"
       },
       "risque_reglementaire": {
         "valeur": null,
@@ -1867,6 +1857,423 @@
       "statut": "SOURCE_SECONDAIRE_CONSENSUS_DATE",
       "commentaire": "BPA généralement ajusté; identité demandée par ticker dans URL API, pas validation primaire.",
       "date_collecte": "2026-11-05"
+    },
+    {
+      "bloc": "qualite",
+      "champ": "dirigeants_et_detentions_documentes",
+      "valeur": {
+        "dirigeants_declares_fournisseur": [
+          {
+            "name": "Mr. Jeffrey G. Korn",
+            "title": "CEO & Executive Chairman",
+            "yearBorn": 1958,
+            "fiscalYear": 2025,
+            "totalPay": {
+              "raw": 539000,
+              "fmt": "539k",
+              "longFmt": "539,000"
+            },
+            "exercisedValue": {
+              "raw": 0,
+              "fmt": null,
+              "longFmt": "0"
+            },
+            "unexercisedValue": {
+              "raw": 137100,
+              "fmt": "137.1k",
+              "longFmt": "137,100"
+            }
+          },
+          {
+            "name": "Mr. Douglas Walter Gaylor",
+            "title": "COO & President",
+            "yearBorn": 1965,
+            "fiscalYear": 2025,
+            "totalPay": {
+              "raw": 494000,
+              "fmt": "494k",
+              "longFmt": "494,000"
+            },
+            "exercisedValue": {
+              "raw": 155000,
+              "fmt": "155k",
+              "longFmt": "155,000"
+            },
+            "unexercisedValue": {
+              "raw": 187740,
+              "fmt": "187.74k",
+              "longFmt": "187,740"
+            }
+          },
+          {
+            "name": "Mr. Ronald  Vincent",
+            "title": "Chief Financial Officer",
+            "yearBorn": 1976,
+            "fiscalYear": 2025,
+            "totalPay": {
+              "raw": 494000,
+              "fmt": "494k",
+              "longFmt": "494,000"
+            },
+            "exercisedValue": {
+              "raw": 211000,
+              "fmt": "211k",
+              "longFmt": "211,000"
+            },
+            "unexercisedValue": {
+              "raw": 51188,
+              "fmt": "51.19k",
+              "longFmt": "51,188"
+            }
+          },
+          {
+            "name": "Mr. Jon D. Brinton",
+            "title": "Chief Revenue Officer",
+            "yearBorn": 1965,
+            "fiscalYear": 2025,
+            "totalPay": {
+              "raw": 412000,
+              "fmt": "412k",
+              "longFmt": "412,000"
+            },
+            "exercisedValue": {
+              "raw": 0,
+              "fmt": null,
+              "longFmt": "0"
+            },
+            "unexercisedValue": {
+              "raw": 129450,
+              "fmt": "129.45k",
+              "longFmt": "129,450"
+            }
+          },
+          {
+            "name": "Mr. David  Wang",
+            "title": "Senior Vice President",
+            "yearBorn": 1960,
+            "fiscalYear": 2025,
+            "totalPay": {
+              "raw": 379000,
+              "fmt": "379k",
+              "longFmt": "379,000"
+            },
+            "exercisedValue": {
+              "raw": 2620000,
+              "fmt": "2.62M",
+              "longFmt": "2,620,000"
+            },
+            "unexercisedValue": {
+              "raw": 93750,
+              "fmt": "93.75k",
+              "longFmt": "93,750"
+            }
+          },
+          {
+            "name": "Mr. Chris  Aaker",
+            "title": "Chief Technology Officer",
+            "yearBorn": 1979,
+            "fiscalYear": 2025,
+            "exercisedValue": {
+              "raw": 0,
+              "fmt": null,
+              "longFmt": "0"
+            },
+            "unexercisedValue": {
+              "raw": 0,
+              "fmt": null,
+              "longFmt": "0"
+            }
+          },
+          {
+            "name": "Mr. Jason  Byrne",
+            "title": "Senior Vice President of Marketing",
+            "fiscalYear": 2025,
+            "exercisedValue": {
+              "raw": 0,
+              "fmt": null,
+              "longFmt": "0"
+            },
+            "unexercisedValue": {
+              "raw": 0,
+              "fmt": null,
+              "longFmt": "0"
+            }
+          },
+          {
+            "name": "Mr. Michael  Czernaeda",
+            "title": "Director of Sales",
+            "fiscalYear": 2025,
+            "exercisedValue": {
+              "raw": 0,
+              "fmt": null,
+              "longFmt": "0"
+            },
+            "unexercisedValue": {
+              "raw": 0,
+              "fmt": null,
+              "longFmt": "0"
+            }
+          },
+          {
+            "name": "Mr. Tim  Wilbourn",
+            "title": "Senior Vice President of Support & Customer Success",
+            "fiscalYear": 2025,
+            "exercisedValue": {
+              "raw": 0,
+              "fmt": null,
+              "longFmt": "0"
+            },
+            "unexercisedValue": {
+              "raw": 0,
+              "fmt": null,
+              "longFmt": "0"
+            }
+          },
+          {
+            "name": "Mr. Santosh  Panattu",
+            "title": "Senior Vice President of Infrastructure & Global Cloud OPS",
+            "fiscalYear": 2025,
+            "exercisedValue": {
+              "raw": 0,
+              "fmt": null,
+              "longFmt": "0"
+            },
+            "unexercisedValue": {
+              "raw": 0,
+              "fmt": null,
+              "longFmt": "0"
+            }
+          }
+        ],
+        "detentions_initiees": [
+          {
+            "maxAge": 1,
+            "name": "BASH JEFFREY PARR",
+            "relation": "Director",
+            "url": "",
+            "transactionDescription": "Conversion of Exercise of derivative security",
+            "latestTransDate": {
+              "raw": 1741305600,
+              "fmt": "2025-03-07"
+            },
+            "positionDirect": {
+              "raw": 248963,
+              "fmt": "248.96k",
+              "longFmt": "248,963"
+            },
+            "positionDirectDate": {
+              "raw": 1741305600,
+              "fmt": "2025-03-07"
+            }
+          },
+          {
+            "maxAge": 1,
+            "name": "BRINTON JON",
+            "relation": "Officer",
+            "url": "",
+            "transactionDescription": "Conversion of Exercise of derivative security",
+            "latestTransDate": {
+              "raw": 1788480000,
+              "fmt": "2026-09-04"
+            },
+            "positionDirect": {
+              "raw": 83296,
+              "fmt": "83.3k",
+              "longFmt": "83,296"
+            },
+            "positionDirectDate": {
+              "raw": 1788480000,
+              "fmt": "2026-09-04"
+            }
+          },
+          {
+            "maxAge": 1,
+            "name": "BUCH ANAND",
+            "relation": "Officer",
+            "url": "",
+            "transactionDescription": "Sale",
+            "latestTransDate": {
+              "raw": 1773360000,
+              "fmt": "2026-03-13"
+            },
+            "positionDirect": {
+              "raw": 447498,
+              "fmt": "447.5k",
+              "longFmt": "447,498"
+            },
+            "positionDirectDate": {
+              "raw": 1773360000,
+              "fmt": "2026-03-13"
+            }
+          },
+          {
+            "maxAge": 1,
+            "name": "GAYLOR DOUGLAS WALTER",
+            "relation": "Chief Operating Officer",
+            "url": "",
+            "transactionDescription": "Conversion of Exercise of derivative security",
+            "latestTransDate": {
+              "raw": 1793059200,
+              "fmt": "2026-10-27"
+            },
+            "positionDirect": {
+              "raw": 251663,
+              "fmt": "251.66k",
+              "longFmt": "251,663"
+            },
+            "positionDirectDate": {
+              "raw": 1793059200,
+              "fmt": "2026-10-27"
+            }
+          },
+          {
+            "maxAge": 1,
+            "name": "GOERGEN TODD ANDREW",
+            "relation": "Director",
+            "url": "",
+            "transactionDescription": "Conversion of Exercise of derivative security",
+            "latestTransDate": {
+              "raw": 1757635200,
+              "fmt": "2025-09-12"
+            },
+            "positionDirect": {
+              "raw": 235352,
+              "fmt": "235.35k",
+              "longFmt": "235,352"
+            },
+            "positionDirectDate": {
+              "raw": 1757635200,
+              "fmt": "2025-09-12"
+            }
+          },
+          {
+            "maxAge": 1,
+            "name": "KORN JEFFREY G",
+            "relation": "Chief Executive Officer",
+            "url": "",
+            "transactionDescription": "Conversion of Exercise of derivative security",
+            "latestTransDate": {
+              "raw": 1793059200,
+              "fmt": "2026-10-27"
+            },
+            "positionDirect": {
+              "raw": 240325,
+              "fmt": "240.32k",
+              "longFmt": "240,325"
+            },
+            "positionDirectDate": {
+              "raw": 1793059200,
+              "fmt": "2026-10-27"
+            }
+          },
+          {
+            "maxAge": 1,
+            "name": "MIHAYLO STEVEN G",
+            "relation": "Director and Beneficial Owner of more than 10% of a Class of Security",
+            "url": "",
+            "transactionDescription": "Sale",
+            "latestTransDate": {
+              "raw": 1780358400,
+              "fmt": "2026-06-02"
+            },
+            "positionDirect": {
+              "raw": 9543390,
+              "fmt": "9.54M",
+              "longFmt": "9,543,390"
+            },
+            "positionDirectDate": {
+              "raw": 1780358400,
+              "fmt": "2026-06-02"
+            }
+          },
+          {
+            "maxAge": 1,
+            "name": "PURI ANIL K",
+            "relation": "Director",
+            "url": "",
+            "transactionDescription": "Sale",
+            "latestTransDate": {
+              "raw": 1779062400,
+              "fmt": "2026-05-18"
+            },
+            "positionDirect": {
+              "raw": 53114,
+              "fmt": "53.11k",
+              "longFmt": "53,114"
+            },
+            "positionDirectDate": {
+              "raw": 1779062400,
+              "fmt": "2026-05-18"
+            }
+          },
+          {
+            "maxAge": 1,
+            "name": "VINCENT RON",
+            "relation": "Chief Financial Officer",
+            "url": "",
+            "transactionDescription": "Conversion of Exercise of derivative security",
+            "latestTransDate": {
+              "raw": 1793059200,
+              "fmt": "2026-10-27"
+            },
+            "positionDirect": {
+              "raw": 142670,
+              "fmt": "142.67k",
+              "longFmt": "142,670"
+            },
+            "positionDirectDate": {
+              "raw": 1793059200,
+              "fmt": "2026-10-27"
+            }
+          },
+          {
+            "maxAge": 1,
+            "name": "WANG DAVID TZAT-KIN",
+            "relation": "Chief Technology Officer",
+            "url": "",
+            "transactionDescription": "Sale",
+            "latestTransDate": {
+              "raw": 1787788800,
+              "fmt": "2026-08-27"
+            },
+            "positionDirect": {
+              "raw": 534747,
+              "fmt": "534.75k",
+              "longFmt": "534,747"
+            },
+            "positionDirectDate": {
+              "raw": 1787788800,
+              "fmt": "2026-08-27"
+            }
+          }
+        ],
+        "fichier_transactions_secondaires": "DONNEES/GOUVERNANCE_PUBLIQUE_40_20261105.json"
+      },
+      "unite": "detentions et profils professionnels",
+      "periode": "dates individuelles du fournisseur; collecte 2026-11-05",
+      "date_source": "2026-11-05",
+      "date_collecte": "2026-11-05",
+      "source_url": "https://query1.finance.yahoo.com/v10/finance/quoteSummary/CXDO?modules=assetProfile,majorHoldersBreakdown,insiderHolders,insiderTransactions",
+      "statut": "SOURCE_SECONDAIRE_GOUVERNANCE_A_RAPPROCHER",
+      "commentaire": "Titres détenus séparés des options/attributions. Dates/fonctions de chaque ligne à contrôler : les anciens dirigeants peuvent subsister. Ne pas additionner les détentions directes et indirectes sans éliminer les doubles comptes. Pas de certification de couverture des transactions, ni note SSI déduite."
+    },
+    {
+      "bloc": null,
+      "champ": "actionnariat_physique_hors_droits_a_60j",
+      "valeur": {
+        "actions_emises_groupe": 10600077,
+        "options_et_rsu_a_60j": 1116179,
+        "actions_en_circulation": 33369158,
+        "part_groupe_hors_droits_pct": 31.766090711668543,
+        "limite": "Inclut participations contrôlées via trusts/fondation : ne représente pas uniquement patrimoine personnel directement exposé."
+      },
+      "unite": "titres et pct",
+      "periode": "position au 06/10/2026; proxy 2026",
+      "date_source": "2026-10-19",
+      "source_url": "https://www.sec.gov/Archives/edgar/data/1075736/000165495426009040/cxdo_def14a.htm",
+      "statut": "SOURCE_PRIMAIRE",
+      "commentaire": "Lecture du proxy primaire : distinguer titres déjà émis, options et droits non encore émis. Données datées, pas état courant certifié.",
+      "date_collecte": "2026-11-04"
     }
   ],
   "journal_recherches": [
@@ -2052,13 +2459,21 @@
       "http": 200,
       "statut": "SOURCE_SECONDAIRE_CONSENSUS_DATE",
       "limite": "Échec ou champ absent ne prouve pas une indisponibilité définitive."
+    },
+    {
+      "famille": "gouvernance_et_detentions_Yahoo",
+      "date": "2026-11-05",
+      "url": "https://query1.finance.yahoo.com/v10/finance/quoteSummary/CXDO?modules=assetProfile,majorHoldersBreakdown,insiderHolders,insiderTransactions",
+      "http": 200,
+      "statut": "SOURCE_SECONDAIRE_GOUVERNANCE_NON_RAPPROCHEE",
+      "limite": "Initiés fournisseur ≠ dirigeants stricts; transactions potentiellement partielles, jamais total net exhaustif par défaut. Options et attributions distinctes des achats au comptant."
     }
   ],
   "audit_couverture": {
     "date": "2026-11-05",
     "champs_total": 108,
-    "champs_renseignes": 64,
-    "couverture_pct": 59.26,
+    "champs_renseignes": 66,
+    "couverture_pct": 61.11,
     "champs_secondaires_non_rapproches": 34,
     "champs_manquants": [
       "identite.lei",
@@ -2071,12 +2486,10 @@
       "valorisation.marge_securite_pct",
       "croissance.carnet_commandes",
       "croissance.book_to_bill",
-      "croissance.catalyseurs_dates",
       "croissance.taille_marche_adressable",
       "risque.cash_runway_mois",
       "risque.risque_refinancement",
       "risque.risque_pays",
-      "risque.risque_gouvernance",
       "risque.risque_reglementaire",
       "risque.risque_concentration",
       "risque.transactions_initiees_net_180j",
@@ -2113,13 +2526,13 @@
   "audit_poursuite": {
     "date": "2026-11-05",
     "comptage": {
-      "RENSEIGNE": 64,
+      "RENSEIGNE": 66,
       "NON_APPLICABLE": 1,
       "INDISPONIBLE_A_DATE": 0,
-      "RECHERCHE_A_POURSUIVRE": 43
+      "RECHERCHE_A_POURSUIVRE": 41
     },
-    "couverture_valeurs_pct": 59.26,
-    "couverture_applicable_pct": 59.81,
+    "couverture_valeurs_pct": 61.11,
+    "couverture_applicable_pct": 61.68,
     "recherches_non_closes": [
       "identite.lei",
       "identite.marche",
@@ -2131,11 +2544,9 @@
       "valorisation.marge_securite_pct",
       "croissance.carnet_commandes",
       "croissance.book_to_bill",
-      "croissance.catalyseurs_dates",
       "croissance.taille_marche_adressable",
       "risque.risque_refinancement",
       "risque.risque_pays",
-      "risque.risque_gouvernance",
       "risque.risque_reglementaire",
       "risque.risque_concentration",
       "risque.transactions_initiees_net_180j",

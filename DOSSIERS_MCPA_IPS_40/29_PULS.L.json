@@ -1746,6 +1746,342 @@
       "statut": "SOURCE_SECONDAIRE_CONSENSUS_DATE",
       "commentaire": "BPA généralement ajusté; identité demandée par ticker dans URL API, pas validation primaire.",
       "date_collecte": "2026-11-05"
+    },
+    {
+      "bloc": "qualite",
+      "champ": "dirigeants_et_detentions_documentes",
+      "valeur": {
+        "dirigeants_declares_fournisseur": [
+          {
+            "name": "Ms. Marguarite Joanna Arnold",
+            "title": "CEO & Executive Director",
+            "yearBorn": 1980,
+            "fiscalYear": 2025,
+            "totalPay": {
+              "raw": 400000,
+              "fmt": "400k",
+              "longFmt": "400,000"
+            },
+            "exercisedValue": {
+              "raw": 0,
+              "fmt": null,
+              "longFmt": "0"
+            },
+            "unexercisedValue": {
+              "raw": 0,
+              "fmt": null,
+              "longFmt": "0"
+            }
+          },
+          {
+            "name": "Mr. Mark Stephen Fautley",
+            "title": "CFO & Executive Director",
+            "yearBorn": 1981,
+            "fiscalYear": 2025,
+            "totalPay": {
+              "raw": 250000,
+              "fmt": "250k",
+              "longFmt": "250,000"
+            },
+            "exercisedValue": {
+              "raw": 0,
+              "fmt": null,
+              "longFmt": "0"
+            },
+            "unexercisedValue": {
+              "raw": 0,
+              "fmt": null,
+              "longFmt": "0"
+            }
+          },
+          {
+            "name": "Mr. Tom  Golding",
+            "title": "COO and President of PR & Comms - EMEA & NA",
+            "fiscalYear": 2025,
+            "exercisedValue": {
+              "raw": 0,
+              "fmt": null,
+              "longFmt": "0"
+            },
+            "unexercisedValue": {
+              "raw": 0,
+              "fmt": null,
+              "longFmt": "0"
+            }
+          },
+          {
+            "name": "Paul  Gaskell",
+            "title": "Chief Technology Officer",
+            "fiscalYear": 2025,
+            "exercisedValue": {
+              "raw": 0,
+              "fmt": null,
+              "longFmt": "0"
+            },
+            "unexercisedValue": {
+              "raw": 0,
+              "fmt": null,
+              "longFmt": "0"
+            }
+          },
+          {
+            "name": "Mr. Jake  Steadman",
+            "title": "Chief Marketing & Insight Officer",
+            "fiscalYear": 2025,
+            "exercisedValue": {
+              "raw": 0,
+              "fmt": null,
+              "longFmt": "0"
+            },
+            "unexercisedValue": {
+              "raw": 0,
+              "fmt": null,
+              "longFmt": "0"
+            }
+          },
+          {
+            "name": "Mr. Francesco  D'Orazio",
+            "title": "Chief Product Officer and President of Marketing - EMEA & North America",
+            "fiscalYear": 2025,
+            "exercisedValue": {
+              "raw": 0,
+              "fmt": null,
+              "longFmt": "0"
+            },
+            "unexercisedValue": {
+              "raw": 0,
+              "fmt": null,
+              "longFmt": "0"
+            }
+          },
+          {
+            "name": "Mr. Chris  Neilson",
+            "title": "Group Financial Controller",
+            "yearBorn": 1954,
+            "fiscalYear": 2025,
+            "exercisedValue": {
+              "raw": 0,
+              "fmt": null,
+              "longFmt": "0"
+            },
+            "unexercisedValue": {
+              "raw": 0,
+              "fmt": null,
+              "longFmt": "0"
+            }
+          }
+        ],
+        "detentions_initiees": [
+          {
+            "maxAge": 1,
+            "name": "Chelverton Asset Management Ltd",
+            "relation": "",
+            "url": "",
+            "transactionDescription": "Annual Return",
+            "latestTransDate": {
+              "raw": 1773792000,
+              "fmt": "2026-03-18"
+            },
+            "positionDirect": {
+              "raw": 6779017,
+              "fmt": "6.78M",
+              "longFmt": "6,779,017"
+            },
+            "positionDirectDate": {
+              "raw": 1773792000,
+              "fmt": "2026-03-18"
+            }
+          },
+          {
+            "maxAge": 1,
+            "name": "Elderstreet Vct Plc",
+            "relation": "",
+            "url": "",
+            "transactionDescription": "Annual Return",
+            "latestTransDate": {
+              "raw": 1773792000,
+              "fmt": "2026-03-18"
+            },
+            "positionDirect": {
+              "raw": 7124999,
+              "fmt": "7.12M",
+              "longFmt": "7,124,999"
+            },
+            "positionDirectDate": {
+              "raw": 1773792000,
+              "fmt": "2026-03-18"
+            }
+          },
+          {
+            "maxAge": 1,
+            "name": "Gresham House Asset Management Limited",
+            "relation": "",
+            "url": "",
+            "transactionDescription": "Annual Return",
+            "latestTransDate": {
+              "raw": 1773792000,
+              "fmt": "2026-03-18"
+            },
+            "positionDirect": {
+              "raw": 9612799,
+              "fmt": "9.61M",
+              "longFmt": "9,612,799"
+            },
+            "positionDirectDate": {
+              "raw": 1773792000,
+              "fmt": "2026-03-18"
+            }
+          },
+          {
+            "maxAge": 1,
+            "name": "Griffiths (Richard Ian)",
+            "relation": "",
+            "url": "",
+            "transactionDescription": "Annual Return",
+            "latestTransDate": {
+              "raw": 1773792000,
+              "fmt": "2026-03-18"
+            },
+            "positionDirect": {
+              "raw": 9466621,
+              "fmt": "9.47M",
+              "longFmt": "9,466,621"
+            },
+            "positionDirectDate": {
+              "raw": 1773792000,
+              "fmt": "2026-03-18"
+            }
+          },
+          {
+            "maxAge": 1,
+            "name": "Hargreave Hale Ltd",
+            "relation": "",
+            "url": "",
+            "transactionDescription": "Annual Return",
+            "latestTransDate": {
+              "raw": 1773792000,
+              "fmt": "2026-03-18"
+            },
+            "positionDirect": {
+              "raw": 11550000,
+              "fmt": "11.55M",
+              "longFmt": "11,550,000"
+            },
+            "positionDirectDate": {
+              "raw": 1773792000,
+              "fmt": "2026-03-18"
+            }
+          },
+          {
+            "maxAge": 1,
+            "name": "Herald Investment Management Ltd",
+            "relation": "",
+            "url": "",
+            "transactionDescription": "Decrease",
+            "latestTransDate": {
+              "raw": 1783555200,
+              "fmt": "2026-07-09"
+            },
+            "positionDirect": {
+              "raw": 6463531,
+              "fmt": "6.46M",
+              "longFmt": "6,463,531"
+            },
+            "positionDirectDate": {
+              "raw": 1783555200,
+              "fmt": "2026-07-09"
+            }
+          },
+          {
+            "maxAge": 1,
+            "name": "J O Hambro Capital Management, Ltd.",
+            "relation": "",
+            "url": "",
+            "transactionDescription": "Annual Return",
+            "latestTransDate": {
+              "raw": 1773792000,
+              "fmt": "2026-03-18"
+            },
+            "positionDirect": {
+              "raw": 5350000,
+              "fmt": "5.35M",
+              "longFmt": "5,350,000"
+            },
+            "positionDirectDate": {
+              "raw": 1773792000,
+              "fmt": "2026-03-18"
+            }
+          },
+          {
+            "maxAge": 1,
+            "name": "Kestrel Partners, L.L.P.",
+            "relation": "",
+            "url": "",
+            "transactionDescription": "Holding",
+            "latestTransDate": {
+              "raw": 1775520000,
+              "fmt": "2026-04-07"
+            },
+            "positionDirect": {
+              "raw": 38677242,
+              "fmt": "38.68M",
+              "longFmt": "38,677,242"
+            },
+            "positionDirectDate": {
+              "raw": 1775520000,
+              "fmt": "2026-04-07"
+            }
+          },
+          {
+            "maxAge": 1,
+            "name": "Lombard Odier Asset Management (Europe) Ltd",
+            "relation": "",
+            "url": "",
+            "transactionDescription": "Annual Return",
+            "latestTransDate": {
+              "raw": 1773792000,
+              "fmt": "2026-03-18"
+            },
+            "positionDirect": {
+              "raw": 6959863,
+              "fmt": "6.96M",
+              "longFmt": "6,959,863"
+            },
+            "positionDirectDate": {
+              "raw": 1773792000,
+              "fmt": "2026-03-18"
+            }
+          },
+          {
+            "maxAge": 1,
+            "name": "Unicorn Asset Management Ltd",
+            "relation": "",
+            "url": "",
+            "transactionDescription": "Annual Return",
+            "latestTransDate": {
+              "raw": 1773792000,
+              "fmt": "2026-03-18"
+            },
+            "positionDirect": {
+              "raw": 6521405,
+              "fmt": "6.52M",
+              "longFmt": "6,521,405"
+            },
+            "positionDirectDate": {
+              "raw": 1773792000,
+              "fmt": "2026-03-18"
+            }
+          }
+        ],
+        "fichier_transactions_secondaires": "DONNEES/GOUVERNANCE_PUBLIQUE_40_20261105.json"
+      },
+      "unite": "detentions et profils professionnels",
+      "periode": "dates individuelles du fournisseur; collecte 2026-11-05",
+      "date_source": "2026-11-05",
+      "date_collecte": "2026-11-05",
+      "source_url": "https://query1.finance.yahoo.com/v10/finance/quoteSummary/PULS.L?modules=assetProfile,majorHoldersBreakdown,insiderHolders,insiderTransactions",
+      "statut": "SOURCE_SECONDAIRE_GOUVERNANCE_A_RAPPROCHER",
+      "commentaire": "Titres détenus séparés des options/attributions. Dates/fonctions de chaque ligne à contrôler : les anciens dirigeants peuvent subsister. Ne pas additionner les détentions directes et indirectes sans éliminer les doubles comptes. Pas de certification de couverture des transactions, ni note SSI déduite."
     }
   ],
   "journal_recherches": [
@@ -1911,6 +2247,14 @@
       "http": 200,
       "statut": "SOURCE_SECONDAIRE_CONSENSUS_DATE",
       "limite": "Échec ou champ absent ne prouve pas une indisponibilité définitive."
+    },
+    {
+      "famille": "gouvernance_et_detentions_Yahoo",
+      "date": "2026-11-05",
+      "url": "https://query1.finance.yahoo.com/v10/finance/quoteSummary/PULS.L?modules=assetProfile,majorHoldersBreakdown,insiderHolders,insiderTransactions",
+      "http": 200,
+      "statut": "SOURCE_SECONDAIRE_GOUVERNANCE_NON_RAPPROCHEE",
+      "limite": "Initiés fournisseur ≠ dirigeants stricts; transactions potentiellement partielles, jamais total net exhaustif par défaut. Options et attributions distinctes des achats au comptant."
     }
   ],
   "audit_couverture": {

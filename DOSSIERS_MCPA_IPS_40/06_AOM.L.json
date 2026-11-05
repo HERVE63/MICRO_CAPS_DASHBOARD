@@ -1793,6 +1793,386 @@
       "statut": "SOURCE_SECONDAIRE_CONSENSUS_DATE",
       "commentaire": "BPA généralement ajusté; identité demandée par ticker dans URL API, pas validation primaire.",
       "date_collecte": "2026-11-05"
+    },
+    {
+      "bloc": "qualite",
+      "champ": "dirigeants_et_detentions_documentes",
+      "valeur": {
+        "dirigeants_declares_fournisseur": [
+          {
+            "name": "Mr. Richard John Jeffery",
+            "title": "Executive Chairman",
+            "yearBorn": 1964,
+            "fiscalYear": 2026,
+            "totalPay": {
+              "raw": 317241,
+              "fmt": "317.24k",
+              "longFmt": "317,241"
+            },
+            "exercisedValue": {
+              "raw": 0,
+              "fmt": null,
+              "longFmt": "0"
+            },
+            "unexercisedValue": {
+              "raw": 0,
+              "fmt": null,
+              "longFmt": "0"
+            }
+          },
+          {
+            "name": "Ms. Emma May Salthouse",
+            "title": "Group CFO & Director",
+            "yearBorn": 1991,
+            "fiscalYear": 2026,
+            "totalPay": {
+              "raw": 248965,
+              "fmt": "248.97k",
+              "longFmt": "248,965"
+            },
+            "exercisedValue": {
+              "raw": 0,
+              "fmt": null,
+              "longFmt": "0"
+            },
+            "unexercisedValue": {
+              "raw": 0,
+              "fmt": null,
+              "longFmt": "0"
+            }
+          },
+          {
+            "name": "Ms. Rebecca Sophie Hughes",
+            "title": "General Counsel & Company Secretary",
+            "fiscalYear": 2026,
+            "exercisedValue": {
+              "raw": 0,
+              "fmt": null,
+              "longFmt": "0"
+            },
+            "unexercisedValue": {
+              "raw": 0,
+              "fmt": null,
+              "longFmt": "0"
+            }
+          },
+          {
+            "name": "Mr. Alex  Ginger",
+            "title": "Head of Strategy & Corporate Development",
+            "fiscalYear": 2026,
+            "exercisedValue": {
+              "raw": 0,
+              "fmt": null,
+              "longFmt": "0"
+            },
+            "unexercisedValue": {
+              "raw": 0,
+              "fmt": null,
+              "longFmt": "0"
+            }
+          },
+          {
+            "name": "Mr. Bhavesh  Vaghela",
+            "title": "Chief Marketing Officer",
+            "fiscalYear": 2026,
+            "exercisedValue": {
+              "raw": 0,
+              "fmt": null,
+              "longFmt": "0"
+            },
+            "unexercisedValue": {
+              "raw": 0,
+              "fmt": null,
+              "longFmt": "0"
+            }
+          },
+          {
+            "name": "Mr. Kuljit  Bawa",
+            "title": "Managing Director of Europe, Middle East, Africa & India (EMEIA)",
+            "fiscalYear": 2026,
+            "exercisedValue": {
+              "raw": 0,
+              "fmt": null,
+              "longFmt": "0"
+            },
+            "unexercisedValue": {
+              "raw": 0,
+              "fmt": null,
+              "longFmt": "0"
+            }
+          },
+          {
+            "name": "Mr. Spencer  O'Leary",
+            "title": "Chief Executive Officer of North America",
+            "fiscalYear": 2026,
+            "exercisedValue": {
+              "raw": 0,
+              "fmt": null,
+              "longFmt": "0"
+            },
+            "unexercisedValue": {
+              "raw": 0,
+              "fmt": null,
+              "longFmt": "0"
+            }
+          },
+          {
+            "name": "Mr. Joy Vijay Santosh",
+            "title": "Executive VP & Head of Operations of North America",
+            "fiscalYear": 2026,
+            "exercisedValue": {
+              "raw": 0,
+              "fmt": null,
+              "longFmt": "0"
+            },
+            "unexercisedValue": {
+              "raw": 0,
+              "fmt": null,
+              "longFmt": "0"
+            }
+          },
+          {
+            "name": "Mr. Stuart  Pugh",
+            "title": "Chief Product Officer",
+            "fiscalYear": 2026,
+            "exercisedValue": {
+              "raw": 0,
+              "fmt": null,
+              "longFmt": "0"
+            },
+            "unexercisedValue": {
+              "raw": 0,
+              "fmt": null,
+              "longFmt": "0"
+            }
+          },
+          {
+            "name": "Ms. Paula  Brown",
+            "title": "Head of Operations EMEIA & Group Operations Risk",
+            "fiscalYear": 2026,
+            "exercisedValue": {
+              "raw": 0,
+              "fmt": null,
+              "longFmt": "0"
+            },
+            "unexercisedValue": {
+              "raw": 0,
+              "fmt": null,
+              "longFmt": "0"
+            }
+          }
+        ],
+        "detentions_initiees": [
+          {
+            "maxAge": 1,
+            "name": "ActiveOps plc Employee Benefit Trust",
+            "relation": "",
+            "url": "",
+            "transactionDescription": "Annual Return",
+            "latestTransDate": {
+              "raw": 1784160000,
+              "fmt": "2026-07-16"
+            },
+            "positionDirect": {
+              "raw": 3259539,
+              "fmt": "3.26M",
+              "longFmt": "3,259,539"
+            },
+            "positionDirectDate": {
+              "raw": 1784160000,
+              "fmt": "2026-07-16"
+            }
+          },
+          {
+            "maxAge": 1,
+            "name": "BGF Investment Management, Ltd.",
+            "relation": "",
+            "url": "",
+            "transactionDescription": "Annual Return",
+            "latestTransDate": {
+              "raw": 1784160000,
+              "fmt": "2026-07-16"
+            },
+            "positionDirect": {
+              "raw": 4232422,
+              "fmt": "4.23M",
+              "longFmt": "4,232,422"
+            },
+            "positionDirectDate": {
+              "raw": 1784160000,
+              "fmt": "2026-07-16"
+            }
+          },
+          {
+            "maxAge": 1,
+            "name": "Bentley (Neil)",
+            "relation": "",
+            "url": "",
+            "transactionDescription": "Annual Return",
+            "latestTransDate": {
+              "raw": 1784160000,
+              "fmt": "2026-07-16"
+            },
+            "positionDirect": {
+              "raw": 3515400,
+              "fmt": "3.52M",
+              "longFmt": "3,515,400"
+            },
+            "positionDirectDate": {
+              "raw": 1784160000,
+              "fmt": "2026-07-16"
+            }
+          },
+          {
+            "maxAge": 1,
+            "name": "Canaccord Genuity Group Inc.",
+            "relation": "",
+            "url": "",
+            "transactionDescription": "Annual Return",
+            "latestTransDate": {
+              "raw": 1784160000,
+              "fmt": "2026-07-16"
+            },
+            "positionDirect": {
+              "raw": 10489711,
+              "fmt": "10.49M",
+              "longFmt": "10,489,711"
+            },
+            "positionDirectDate": {
+              "raw": 1784160000,
+              "fmt": "2026-07-16"
+            }
+          },
+          {
+            "maxAge": 1,
+            "name": "Gresham House Plc",
+            "relation": "",
+            "url": "",
+            "transactionDescription": "Annual Return",
+            "latestTransDate": {
+              "raw": 1784160000,
+              "fmt": "2026-07-16"
+            },
+            "positionDirect": {
+              "raw": 6715000,
+              "fmt": "6.71M",
+              "longFmt": "6,715,000"
+            },
+            "positionDirectDate": {
+              "raw": 1784160000,
+              "fmt": "2026-07-16"
+            }
+          },
+          {
+            "maxAge": 1,
+            "name": "Jeffery (Richard John)",
+            "relation": "",
+            "url": "",
+            "transactionDescription": "Bought",
+            "latestTransDate": {
+              "raw": 1792108800,
+              "fmt": "2026-10-16"
+            },
+            "positionDirect": {
+              "raw": 8908142,
+              "fmt": "8.91M",
+              "longFmt": "8,908,142"
+            },
+            "positionDirectDate": {
+              "raw": 1792108800,
+              "fmt": "2026-10-16"
+            }
+          },
+          {
+            "maxAge": 1,
+            "name": "Octopus Investments Nominees Ltd",
+            "relation": "",
+            "url": "",
+            "transactionDescription": "Increase",
+            "latestTransDate": {
+              "raw": 1792108800,
+              "fmt": "2026-10-16"
+            },
+            "positionDirect": {
+              "raw": 11527317,
+              "fmt": "11.53M",
+              "longFmt": "11,527,317"
+            },
+            "positionDirectDate": {
+              "raw": 1792108800,
+              "fmt": "2026-10-16"
+            }
+          },
+          {
+            "maxAge": 1,
+            "name": "Rathbone Investment Management Ltd",
+            "relation": "",
+            "url": "",
+            "transactionDescription": "Increase",
+            "latestTransDate": {
+              "raw": 1786665600,
+              "fmt": "2026-08-14"
+            },
+            "positionDirect": {
+              "raw": 3721818,
+              "fmt": "3.72M",
+              "longFmt": "3,721,818"
+            },
+            "positionDirectDate": {
+              "raw": 1786665600,
+              "fmt": "2026-08-14"
+            }
+          },
+          {
+            "maxAge": 1,
+            "name": "River and Mercantile Asset Management LLP",
+            "relation": "",
+            "url": "",
+            "transactionDescription": "Increase",
+            "latestTransDate": {
+              "raw": 1789344000,
+              "fmt": "2026-09-14"
+            },
+            "positionDirect": {
+              "raw": 4076705,
+              "fmt": "4.08M",
+              "longFmt": "4,076,705"
+            },
+            "positionDirectDate": {
+              "raw": 1789344000,
+              "fmt": "2026-09-14"
+            }
+          },
+          {
+            "maxAge": 1,
+            "name": "Schroders Plc",
+            "relation": "",
+            "url": "",
+            "transactionDescription": "Annual Return",
+            "latestTransDate": {
+              "raw": 1784160000,
+              "fmt": "2026-07-16"
+            },
+            "positionDirect": {
+              "raw": 4808878,
+              "fmt": "4.81M",
+              "longFmt": "4,808,878"
+            },
+            "positionDirectDate": {
+              "raw": 1784160000,
+              "fmt": "2026-07-16"
+            }
+          }
+        ],
+        "fichier_transactions_secondaires": "DONNEES/GOUVERNANCE_PUBLIQUE_40_20261105.json"
+      },
+      "unite": "detentions et profils professionnels",
+      "periode": "dates individuelles du fournisseur; collecte 2026-11-05",
+      "date_source": "2026-11-05",
+      "date_collecte": "2026-11-05",
+      "source_url": "https://query1.finance.yahoo.com/v10/finance/quoteSummary/AOM.L?modules=assetProfile,majorHoldersBreakdown,insiderHolders,insiderTransactions",
+      "statut": "SOURCE_SECONDAIRE_GOUVERNANCE_A_RAPPROCHER",
+      "commentaire": "Titres détenus séparés des options/attributions. Dates/fonctions de chaque ligne à contrôler : les anciens dirigeants peuvent subsister. Ne pas additionner les détentions directes et indirectes sans éliminer les doubles comptes. Pas de certification de couverture des transactions, ni note SSI déduite."
     }
   ],
   "journal_recherches": [
@@ -1962,6 +2342,14 @@
       "http": 200,
       "statut": "SOURCE_SECONDAIRE_CONSENSUS_DATE",
       "limite": "Échec ou champ absent ne prouve pas une indisponibilité définitive."
+    },
+    {
+      "famille": "gouvernance_et_detentions_Yahoo",
+      "date": "2026-11-05",
+      "url": "https://query1.finance.yahoo.com/v10/finance/quoteSummary/AOM.L?modules=assetProfile,majorHoldersBreakdown,insiderHolders,insiderTransactions",
+      "http": 200,
+      "statut": "SOURCE_SECONDAIRE_GOUVERNANCE_NON_RAPPROCHEE",
+      "limite": "Initiés fournisseur ≠ dirigeants stricts; transactions potentiellement partielles, jamais total net exhaustif par défaut. Options et attributions distinctes des achats au comptant."
     }
   ],
   "audit_couverture": {

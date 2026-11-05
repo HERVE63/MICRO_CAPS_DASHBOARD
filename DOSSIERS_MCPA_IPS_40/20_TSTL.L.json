@@ -1825,6 +1825,296 @@
       "statut": "SOURCE_SECONDAIRE_CONSENSUS_DATE",
       "commentaire": "BPA généralement ajusté; identité demandée par ticker dans URL API, pas validation primaire.",
       "date_collecte": "2026-11-05"
+    },
+    {
+      "bloc": "qualite",
+      "champ": "dirigeants_et_detentions_documentes",
+      "valeur": {
+        "dirigeants_declares_fournisseur": [
+          {
+            "name": "Mr. Christopher Paul Lee",
+            "title": "CEO & Director",
+            "yearBorn": 1962,
+            "exercisedValue": {
+              "raw": 0,
+              "fmt": null,
+              "longFmt": "0"
+            },
+            "unexercisedValue": {
+              "raw": 0,
+              "fmt": null,
+              "longFmt": "0"
+            }
+          },
+          {
+            "name": "Ms. Anna Katarzyna Wasyl",
+            "title": "CFO & Director",
+            "yearBorn": 1980,
+            "exercisedValue": {
+              "raw": 0,
+              "fmt": null,
+              "longFmt": "0"
+            },
+            "unexercisedValue": {
+              "raw": 0,
+              "fmt": null,
+              "longFmt": "0"
+            }
+          },
+          {
+            "name": "Emily  Davey",
+            "title": "Global Marketing Director",
+            "exercisedValue": {
+              "raw": 0,
+              "fmt": null,
+              "longFmt": "0"
+            },
+            "unexercisedValue": {
+              "raw": 0,
+              "fmt": null,
+              "longFmt": "0"
+            }
+          },
+          {
+            "name": "Aimee  Scarbrow",
+            "title": "Human Resources Director",
+            "exercisedValue": {
+              "raw": 0,
+              "fmt": null,
+              "longFmt": "0"
+            },
+            "unexercisedValue": {
+              "raw": 0,
+              "fmt": null,
+              "longFmt": "0"
+            }
+          },
+          {
+            "name": "Julija  Shabanova",
+            "title": "Executive Director",
+            "exercisedValue": {
+              "raw": 0,
+              "fmt": null,
+              "longFmt": "0"
+            },
+            "unexercisedValue": {
+              "raw": 0,
+              "fmt": null,
+              "longFmt": "0"
+            }
+          }
+        ],
+        "detentions_initiees": [
+          {
+            "maxAge": 1,
+            "name": "Artemis Investment Management Ltd",
+            "relation": "",
+            "url": "",
+            "transactionDescription": "Increase",
+            "latestTransDate": {
+              "raw": 1792627200,
+              "fmt": "2026-10-22"
+            },
+            "positionDirect": {
+              "raw": 2422671,
+              "fmt": "2.42M",
+              "longFmt": "2,422,671"
+            },
+            "positionDirectDate": {
+              "raw": 1792627200,
+              "fmt": "2026-10-22"
+            }
+          },
+          {
+            "maxAge": 1,
+            "name": "BGF Investment Management, Ltd.",
+            "relation": "",
+            "url": "",
+            "transactionDescription": "Annual Return",
+            "latestTransDate": {
+              "raw": 1761868800,
+              "fmt": "2025-10-31"
+            },
+            "positionDirect": {
+              "raw": 2195271,
+              "fmt": "2.2M",
+              "longFmt": "2,195,271"
+            },
+            "positionDirectDate": {
+              "raw": 1761868800,
+              "fmt": "2025-10-31"
+            }
+          },
+          {
+            "maxAge": 1,
+            "name": "Canaccord Genuity Wealth Management",
+            "relation": "",
+            "url": "",
+            "transactionDescription": "Holding",
+            "latestTransDate": {
+              "raw": 1781222400,
+              "fmt": "2026-06-12"
+            },
+            "positionDirect": {
+              "raw": 2487560,
+              "fmt": "2.49M",
+              "longFmt": "2,487,560"
+            },
+            "positionDirectDate": {
+              "raw": 1781222400,
+              "fmt": "2026-06-12"
+            }
+          },
+          {
+            "maxAge": 1,
+            "name": "Danske Bank AS",
+            "relation": "",
+            "url": "",
+            "transactionDescription": "Decrease",
+            "latestTransDate": {
+              "raw": 1748390400,
+              "fmt": "2025-05-28"
+            },
+            "positionDirect": {
+              "raw": 1422807,
+              "fmt": "1.42M",
+              "longFmt": "1,422,807"
+            },
+            "positionDirectDate": {
+              "raw": 1748390400,
+              "fmt": "2025-05-28"
+            }
+          },
+          {
+            "maxAge": 1,
+            "name": "Dixon (Elizabeth A)",
+            "relation": "",
+            "url": "",
+            "transactionDescription": "Annual Return",
+            "latestTransDate": {
+              "raw": 1751241600,
+              "fmt": "2025-06-30"
+            },
+            "positionDirect": {
+              "raw": 155000,
+              "fmt": "155k",
+              "longFmt": "155,000"
+            },
+            "positionDirectDate": {
+              "raw": 1751241600,
+              "fmt": "2025-06-30"
+            }
+          },
+          {
+            "maxAge": 1,
+            "name": "Jenkins (Tom)",
+            "relation": "",
+            "url": "",
+            "transactionDescription": "Annual Return",
+            "latestTransDate": {
+              "raw": 1765497600,
+              "fmt": "2025-12-12"
+            },
+            "positionDirect": {
+              "raw": 13400,
+              "fmt": "13.4k",
+              "longFmt": "13,400"
+            },
+            "positionDirectDate": {
+              "raw": 1765497600,
+              "fmt": "2025-12-12"
+            }
+          },
+          {
+            "maxAge": 1,
+            "name": "Liontrust Asset Management Plc",
+            "relation": "",
+            "url": "",
+            "transactionDescription": "Decrease",
+            "latestTransDate": {
+              "raw": 1773360000,
+              "fmt": "2026-03-13"
+            },
+            "positionDirect": {
+              "raw": 2345082,
+              "fmt": "2.35M",
+              "longFmt": "2,345,082"
+            },
+            "positionDirectDate": {
+              "raw": 1773360000,
+              "fmt": "2026-03-13"
+            }
+          },
+          {
+            "maxAge": 1,
+            "name": "Montanaro & Company Ltd",
+            "relation": "",
+            "url": "",
+            "transactionDescription": "Decrease",
+            "latestTransDate": {
+              "raw": 1776297600,
+              "fmt": "2026-04-16"
+            },
+            "positionDirect": {
+              "raw": 1428111,
+              "fmt": "1.43M",
+              "longFmt": "1,428,111"
+            },
+            "positionDirectDate": {
+              "raw": 1776297600,
+              "fmt": "2026-04-16"
+            }
+          },
+          {
+            "maxAge": 1,
+            "name": "Rathbone Investment Management (CI) Limited",
+            "relation": "",
+            "url": "",
+            "transactionDescription": "Annual Return",
+            "latestTransDate": {
+              "raw": 1761868800,
+              "fmt": "2025-10-31"
+            },
+            "positionDirect": {
+              "raw": 3976499,
+              "fmt": "3.98M",
+              "longFmt": "3,976,499"
+            },
+            "positionDirectDate": {
+              "raw": 1761868800,
+              "fmt": "2025-10-31"
+            }
+          },
+          {
+            "maxAge": 1,
+            "name": "Unicorn Asset Management Ltd",
+            "relation": "",
+            "url": "",
+            "transactionDescription": "Increase",
+            "latestTransDate": {
+              "raw": 1761868800,
+              "fmt": "2025-10-31"
+            },
+            "positionDirect": {
+              "raw": 2505377,
+              "fmt": "2.51M",
+              "longFmt": "2,505,377"
+            },
+            "positionDirectDate": {
+              "raw": 1761868800,
+              "fmt": "2025-10-31"
+            }
+          }
+        ],
+        "fichier_transactions_secondaires": "DONNEES/GOUVERNANCE_PUBLIQUE_40_20261105.json"
+      },
+      "unite": "detentions et profils professionnels",
+      "periode": "dates individuelles du fournisseur; collecte 2026-11-05",
+      "date_source": "2026-11-05",
+      "date_collecte": "2026-11-05",
+      "source_url": "https://query1.finance.yahoo.com/v10/finance/quoteSummary/TSTL.L?modules=assetProfile,majorHoldersBreakdown,insiderHolders,insiderTransactions",
+      "statut": "SOURCE_SECONDAIRE_GOUVERNANCE_A_RAPPROCHER",
+      "commentaire": "Titres détenus séparés des options/attributions. Dates/fonctions de chaque ligne à contrôler : les anciens dirigeants peuvent subsister. Ne pas additionner les détentions directes et indirectes sans éliminer les doubles comptes. Pas de certification de couverture des transactions, ni note SSI déduite."
     }
   ],
   "journal_recherches": [
@@ -2030,6 +2320,14 @@
       "http": 200,
       "statut": "SOURCE_SECONDAIRE_CONSENSUS_DATE",
       "limite": "Échec ou champ absent ne prouve pas une indisponibilité définitive."
+    },
+    {
+      "famille": "gouvernance_et_detentions_Yahoo",
+      "date": "2026-11-05",
+      "url": "https://query1.finance.yahoo.com/v10/finance/quoteSummary/TSTL.L?modules=assetProfile,majorHoldersBreakdown,insiderHolders,insiderTransactions",
+      "http": 200,
+      "statut": "SOURCE_SECONDAIRE_GOUVERNANCE_NON_RAPPROCHEE",
+      "limite": "Initiés fournisseur ≠ dirigeants stricts; transactions potentiellement partielles, jamais total net exhaustif par défaut. Options et attributions distinctes des achats au comptant."
     }
   ],
   "audit_couverture": {

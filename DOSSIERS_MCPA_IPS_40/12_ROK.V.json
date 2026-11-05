@@ -1686,6 +1686,143 @@
       "statut": "SOURCE_SECONDAIRE_CONSENSUS_DATE",
       "commentaire": "BPA généralement ajusté; identité demandée par ticker dans URL API, pas validation primaire.",
       "date_collecte": "2026-11-05"
+    },
+    {
+      "bloc": "qualite",
+      "champ": "dirigeants_et_detentions_documentes",
+      "valeur": {
+        "dirigeants_declares_fournisseur": [],
+        "detentions_initiees": [
+          {
+            "maxAge": 1,
+            "name": "Lukomski (Jared)",
+            "relation": "10% Security Holder of Issuer",
+            "url": "",
+            "transactionDescription": "Acquisition or disposition in the public market",
+            "latestTransDate": {
+              "raw": 1789430400,
+              "fmt": "2026-09-15"
+            },
+            "positionDirect": {
+              "raw": 3051840,
+              "fmt": "3.05M",
+              "longFmt": "3,051,840"
+            },
+            "positionDirectDate": {
+              "raw": 1789430400,
+              "fmt": "2026-09-15"
+            }
+          },
+          {
+            "maxAge": 1,
+            "name": "Macinnes (Kevin V.R.)",
+            "relation": "Senior Officer of Issuer",
+            "url": "",
+            "transactionDescription": "Exercise of options",
+            "latestTransDate": {
+              "raw": 1777939200,
+              "fmt": "2026-05-05"
+            },
+            "positionDirect": {
+              "raw": 483333,
+              "fmt": "483.33k",
+              "longFmt": "483,333"
+            },
+            "positionDirectDate": {
+              "raw": 1777939200,
+              "fmt": "2026-05-05"
+            }
+          },
+          {
+            "maxAge": 1,
+            "name": "Renaud (Carson)",
+            "relation": "Senior Officer of Issuer",
+            "url": "",
+            "transactionDescription": "Acquisition or disposition in the public market",
+            "latestTransDate": {
+              "raw": 1787875200,
+              "fmt": "2026-08-28"
+            },
+            "positionDirect": {
+              "raw": 0,
+              "fmt": null,
+              "longFmt": "0"
+            },
+            "positionDirectDate": {
+              "raw": 1787875200,
+              "fmt": "2026-08-28"
+            }
+          },
+          {
+            "maxAge": 1,
+            "name": "Taylor (Cameron Wesley)",
+            "relation": "10% Security Holder of Issuer",
+            "url": "",
+            "transactionDescription": "Acquisition or disposition in the public market",
+            "latestTransDate": {
+              "raw": 1792627200,
+              "fmt": "2026-10-22"
+            },
+            "positionDirect": {
+              "raw": 6626910,
+              "fmt": "6.63M",
+              "longFmt": "6,626,910"
+            },
+            "positionDirectDate": {
+              "raw": 1792627200,
+              "fmt": "2026-10-22"
+            }
+          },
+          {
+            "maxAge": 1,
+            "name": "Taylor (Kyle)",
+            "relation": "Senior Officer of Issuer",
+            "url": "",
+            "transactionDescription": "Exercise of options",
+            "latestTransDate": {
+              "raw": 1777939200,
+              "fmt": "2026-05-05"
+            },
+            "positionDirect": {
+              "raw": 315000,
+              "fmt": "315k",
+              "longFmt": "315,000"
+            },
+            "positionDirectDate": {
+              "raw": 1777939200,
+              "fmt": "2026-05-05"
+            }
+          },
+          {
+            "maxAge": 1,
+            "name": "Wright (Bryden)",
+            "relation": "Senior Officer of Issuer",
+            "url": "",
+            "transactionDescription": "Acquisition or disposition in the public market",
+            "latestTransDate": {
+              "raw": 1789430400,
+              "fmt": "2026-09-15"
+            },
+            "positionDirect": {
+              "raw": 2551340,
+              "fmt": "2.55M",
+              "longFmt": "2,551,340"
+            },
+            "positionDirectDate": {
+              "raw": 1789430400,
+              "fmt": "2026-09-15"
+            }
+          }
+        ],
+        "fichier_transactions_secondaires": "DONNEES/GOUVERNANCE_PUBLIQUE_40_20261105.json"
+      },
+      "unite": "detentions et profils professionnels",
+      "periode": "dates individuelles du fournisseur; collecte 2026-11-05",
+      "date_source": "2026-11-05",
+      "date_collecte": "2026-11-05",
+      "source_url": "https://query1.finance.yahoo.com/v10/finance/quoteSummary/ROK.V?modules=assetProfile,majorHoldersBreakdown,insiderHolders,insiderTransactions",
+      "statut": "SOURCE_SECONDAIRE_GOUVERNANCE_A_RAPPROCHER",
+      "commentaire": "Titres détenus séparés des options/attributions. Dates/fonctions de chaque ligne à contrôler : les anciens dirigeants peuvent subsister. Ne pas additionner les détentions directes et indirectes sans éliminer les doubles comptes. Pas de certification de couverture des transactions, ni note SSI déduite."
     }
   ],
   "journal_recherches": [
@@ -1879,6 +2016,14 @@
       "http": 200,
       "statut": "SOURCE_SECONDAIRE_CONSENSUS_DATE",
       "limite": "Échec ou champ absent ne prouve pas une indisponibilité définitive."
+    },
+    {
+      "famille": "gouvernance_et_detentions_Yahoo",
+      "date": "2026-11-05",
+      "url": "https://query1.finance.yahoo.com/v10/finance/quoteSummary/ROK.V?modules=assetProfile,majorHoldersBreakdown,insiderHolders,insiderTransactions",
+      "http": 200,
+      "statut": "SOURCE_SECONDAIRE_GOUVERNANCE_NON_RAPPROCHEE",
+      "limite": "Initiés fournisseur ≠ dirigeants stricts; transactions potentiellement partielles, jamais total net exhaustif par défaut. Options et attributions distinctes des achats au comptant."
     }
   ],
   "audit_couverture": {

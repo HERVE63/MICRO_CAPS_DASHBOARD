@@ -1860,6 +1860,306 @@
       "statut": "SOURCE_SECONDAIRE_CONSENSUS_DATE",
       "commentaire": "BPA généralement ajusté; identité demandée par ticker dans URL API, pas validation primaire.",
       "date_collecte": "2026-11-05"
+    },
+    {
+      "bloc": "qualite",
+      "champ": "dirigeants_et_detentions_documentes",
+      "valeur": {
+        "dirigeants_declares_fournisseur": [
+          {
+            "name": "Mr. Louis Tancred Hall",
+            "title": "Founder, CEO & Executive Director",
+            "yearBorn": 1964,
+            "fiscalYear": 2025,
+            "totalPay": {
+              "raw": 762000,
+              "fmt": "762k",
+              "longFmt": "762,000"
+            },
+            "exercisedValue": {
+              "raw": 0,
+              "fmt": null,
+              "longFmt": "0"
+            },
+            "unexercisedValue": {
+              "raw": 0,
+              "fmt": null,
+              "longFmt": "0"
+            }
+          },
+          {
+            "name": "Mr. Gregory Laurence Price",
+            "title": "CFO & Director",
+            "yearBorn": 1976,
+            "fiscalYear": 2025,
+            "exercisedValue": {
+              "raw": 0,
+              "fmt": null,
+              "longFmt": "0"
+            },
+            "unexercisedValue": {
+              "raw": 0,
+              "fmt": null,
+              "longFmt": "0"
+            }
+          },
+          {
+            "name": "Mr. Dominic  Smith",
+            "title": "Marketing Director",
+            "fiscalYear": 2025,
+            "exercisedValue": {
+              "raw": 0,
+              "fmt": null,
+              "longFmt": "0"
+            },
+            "unexercisedValue": {
+              "raw": 0,
+              "fmt": null,
+              "longFmt": "0"
+            }
+          },
+          {
+            "name": "Mr. Alistair  Carwardine",
+            "title": "Senior Vice President of Asia Pacific",
+            "fiscalYear": 2025,
+            "exercisedValue": {
+              "raw": 0,
+              "fmt": null,
+              "longFmt": "0"
+            },
+            "unexercisedValue": {
+              "raw": 0,
+              "fmt": null,
+              "longFmt": "0"
+            }
+          },
+          {
+            "name": "Jordan  Crabb",
+            "title": "Group Financial Controller",
+            "fiscalYear": 2025,
+            "exercisedValue": {
+              "raw": 0,
+              "fmt": null,
+              "longFmt": "0"
+            },
+            "unexercisedValue": {
+              "raw": 0,
+              "fmt": null,
+              "longFmt": "0"
+            }
+          }
+        ],
+        "detentions_initiees": [
+          {
+            "maxAge": 1,
+            "name": "Artisan Partners",
+            "relation": "",
+            "url": "",
+            "transactionDescription": "Annual Return",
+            "latestTransDate": {
+              "raw": 1762387200,
+              "fmt": "2025-11-06"
+            },
+            "positionDirect": {
+              "raw": 604770,
+              "fmt": "604.77k",
+              "longFmt": "604,770"
+            },
+            "positionDirectDate": {
+              "raw": 1762387200,
+              "fmt": "2025-11-06"
+            }
+          },
+          {
+            "maxAge": 1,
+            "name": "Charles Stanley Group PLC",
+            "relation": "",
+            "url": "",
+            "transactionDescription": "Annual Return",
+            "latestTransDate": {
+              "raw": 1762387200,
+              "fmt": "2025-11-06"
+            },
+            "positionDirect": {
+              "raw": 746375,
+              "fmt": "746.38k",
+              "longFmt": "746,375"
+            },
+            "positionDirectDate": {
+              "raw": 1762387200,
+              "fmt": "2025-11-06"
+            }
+          },
+          {
+            "maxAge": 1,
+            "name": "Gresham House Asset Management Limited",
+            "relation": "",
+            "url": "",
+            "transactionDescription": "Increase",
+            "latestTransDate": {
+              "raw": 1788912000,
+              "fmt": "2026-09-09"
+            },
+            "positionDirect": {
+              "raw": 3339974,
+              "fmt": "3.34M",
+              "longFmt": "3,339,974"
+            },
+            "positionDirectDate": {
+              "raw": 1788912000,
+              "fmt": "2026-09-09"
+            }
+          },
+          {
+            "maxAge": 1,
+            "name": "Hall (Louis Tancred)",
+            "relation": "",
+            "url": "",
+            "transactionDescription": "Annual Return",
+            "latestTransDate": {
+              "raw": 1762387200,
+              "fmt": "2025-11-06"
+            },
+            "positionDirect": {
+              "raw": 5935596,
+              "fmt": "5.94M",
+              "longFmt": "5,935,596"
+            },
+            "positionDirectDate": {
+              "raw": 1762387200,
+              "fmt": "2025-11-06"
+            }
+          },
+          {
+            "maxAge": 1,
+            "name": "Hargreave Hale Ltd",
+            "relation": "",
+            "url": "",
+            "transactionDescription": "Decrease",
+            "latestTransDate": {
+              "raw": 1788739200,
+              "fmt": "2026-09-07"
+            },
+            "positionDirect": {
+              "raw": 1456299,
+              "fmt": "1.46M",
+              "longFmt": "1,456,299"
+            },
+            "positionDirectDate": {
+              "raw": 1788739200,
+              "fmt": "2026-09-07"
+            }
+          },
+          {
+            "maxAge": 1,
+            "name": "JPMorgan Asset Management Holdings, Inc.",
+            "relation": "",
+            "url": "",
+            "transactionDescription": "Decrease",
+            "latestTransDate": {
+              "raw": 1791504000,
+              "fmt": "2026-10-09"
+            },
+            "positionDirect": {
+              "raw": 1566473,
+              "fmt": "1.57M",
+              "longFmt": "1,566,473"
+            },
+            "positionDirectDate": {
+              "raw": 1791504000,
+              "fmt": "2026-10-09"
+            }
+          },
+          {
+            "maxAge": 1,
+            "name": "Octopus Investments Ltd",
+            "relation": "",
+            "url": "",
+            "transactionDescription": "Increase",
+            "latestTransDate": {
+              "raw": 1789344000,
+              "fmt": "2026-09-14"
+            },
+            "positionDirect": {
+              "raw": 2081856,
+              "fmt": "2.08M",
+              "longFmt": "2,081,856"
+            },
+            "positionDirectDate": {
+              "raw": 1789344000,
+              "fmt": "2026-09-14"
+            }
+          },
+          {
+            "maxAge": 1,
+            "name": "PrimeStone Capital L.L.P.",
+            "relation": "",
+            "url": "",
+            "transactionDescription": "Annual Return",
+            "latestTransDate": {
+              "raw": 1762387200,
+              "fmt": "2025-11-06"
+            },
+            "positionDirect": {
+              "raw": 651972,
+              "fmt": "651.97k",
+              "longFmt": "651,972"
+            },
+            "positionDirectDate": {
+              "raw": 1762387200,
+              "fmt": "2025-11-06"
+            }
+          },
+          {
+            "maxAge": 1,
+            "name": "Rathbone Investment Management Ltd",
+            "relation": "",
+            "url": "",
+            "transactionDescription": "Annual Return",
+            "latestTransDate": {
+              "raw": 1762387200,
+              "fmt": "2025-11-06"
+            },
+            "positionDirect": {
+              "raw": 2436780,
+              "fmt": "2.44M",
+              "longFmt": "2,436,780"
+            },
+            "positionDirectDate": {
+              "raw": 1762387200,
+              "fmt": "2025-11-06"
+            }
+          },
+          {
+            "maxAge": 1,
+            "name": "Schroder Investment Management, Ltd.",
+            "relation": "",
+            "url": "",
+            "transactionDescription": "Annual Return",
+            "latestTransDate": {
+              "raw": 1762387200,
+              "fmt": "2025-11-06"
+            },
+            "positionDirect": {
+              "raw": 917480,
+              "fmt": "917.48k",
+              "longFmt": "917,480"
+            },
+            "positionDirectDate": {
+              "raw": 1762387200,
+              "fmt": "2025-11-06"
+            }
+          }
+        ],
+        "fichier_transactions_secondaires": "DONNEES/GOUVERNANCE_PUBLIQUE_40_20261105.json"
+      },
+      "unite": "detentions et profils professionnels",
+      "periode": "dates individuelles du fournisseur; collecte 2026-11-05",
+      "date_source": "2026-11-05",
+      "date_collecte": "2026-11-05",
+      "source_url": "https://query1.finance.yahoo.com/v10/finance/quoteSummary/CER.L?modules=assetProfile,majorHoldersBreakdown,insiderHolders,insiderTransactions",
+      "statut": "SOURCE_SECONDAIRE_GOUVERNANCE_A_RAPPROCHER",
+      "commentaire": "Titres détenus séparés des options/attributions. Dates/fonctions de chaque ligne à contrôler : les anciens dirigeants peuvent subsister. Ne pas additionner les détentions directes et indirectes sans éliminer les doubles comptes. Pas de certification de couverture des transactions, ni note SSI déduite."
     }
   ],
   "journal_recherches": [
@@ -2081,6 +2381,14 @@
       "http": 200,
       "statut": "SOURCE_SECONDAIRE_CONSENSUS_DATE",
       "limite": "Échec ou champ absent ne prouve pas une indisponibilité définitive."
+    },
+    {
+      "famille": "gouvernance_et_detentions_Yahoo",
+      "date": "2026-11-05",
+      "url": "https://query1.finance.yahoo.com/v10/finance/quoteSummary/CER.L?modules=assetProfile,majorHoldersBreakdown,insiderHolders,insiderTransactions",
+      "http": 200,
+      "statut": "SOURCE_SECONDAIRE_GOUVERNANCE_NON_RAPPROCHEE",
+      "limite": "Initiés fournisseur ≠ dirigeants stricts; transactions potentiellement partielles, jamais total net exhaustif par défaut. Options et attributions distinctes des achats au comptant."
     }
   ],
   "audit_couverture": {

@@ -263,19 +263,14 @@
         }
       },
       "qualite_management": {
-        "valeur": null,
-        "unite": null,
-        "periode": null,
-        "date_source": null,
-        "source_url": null,
-        "statut": "A_COLLECTER",
-        "commentaire": null,
-        "recherche": {
-          "date": "2026-11-04",
-          "statut": "MANQUANT_RECHERCHE_NON_CLOSE",
-          "motif": "Analyse MCPA/IPS argumentée encore nécessaire; ce champ ne doit pas être rempli par une statistique de fournisseur.",
-          "journal": "journal_recherches"
-        }
+        "valeur": "Comité d’audit indépendant avec expert financier identifié. Incitations 2025 centrées sur le chiffre d’affaires : exécution sur marges et trésorerie à suivre.",
+        "unite": "texte",
+        "periode": "position au 23/03/2026; proxy 2026",
+        "date_source": "2026-04-01",
+        "source_url": "https://www.sec.gov/Archives/edgar/data/1040896/000104089626000012/idn-20260401.htm",
+        "statut": "ANALYSE_DOCUMENTAIRE_SOURCE_PRIMAIRE",
+        "commentaire": "Appréciation documentaire, pas note de gouvernance ni certification indépendante.",
+        "date_collecte": "2026-11-04"
       }
     },
     "valorisation": {
@@ -1804,6 +1799,287 @@
       "statut": "SOURCE_SECONDAIRE_CONSENSUS_DATE",
       "commentaire": "BPA généralement ajusté; identité demandée par ticker dans URL API, pas validation primaire.",
       "date_collecte": "2026-11-05"
+    },
+    {
+      "bloc": "qualite",
+      "champ": "dirigeants_et_detentions_documentes",
+      "valeur": {
+        "dirigeants_declares_fournisseur": [
+          {
+            "name": "Mr. Bryan  Lewis",
+            "title": "President, CEO & Director",
+            "yearBorn": 1962,
+            "fiscalYear": 2025,
+            "totalPay": {
+              "raw": 514566,
+              "fmt": "514.57k",
+              "longFmt": "514,566"
+            },
+            "exercisedValue": {
+              "raw": 0,
+              "fmt": null,
+              "longFmt": "0"
+            },
+            "unexercisedValue": {
+              "raw": 1176965,
+              "fmt": "1.18M",
+              "longFmt": "1,176,965"
+            }
+          },
+          {
+            "name": "Mr. Adam  Sragovicz",
+            "title": "Chief Financial Officer",
+            "yearBorn": 1971,
+            "fiscalYear": 2025,
+            "totalPay": {
+              "raw": 426029,
+              "fmt": "426.03k",
+              "longFmt": "426,029"
+            },
+            "exercisedValue": {
+              "raw": 0,
+              "fmt": null,
+              "longFmt": "0"
+            },
+            "unexercisedValue": {
+              "raw": 161964,
+              "fmt": "161.96k",
+              "longFmt": "161,964"
+            }
+          },
+          {
+            "name": "Keaton  Olsen",
+            "title": "Executive Officer of Investor Relations:",
+            "fiscalYear": 2025,
+            "exercisedValue": {
+              "raw": 0,
+              "fmt": null,
+              "longFmt": "0"
+            },
+            "unexercisedValue": {
+              "raw": 0,
+              "fmt": null,
+              "longFmt": "0"
+            }
+          },
+          {
+            "name": "Mr. Tim  Poulin",
+            "title": "Senior Vice President of Sales",
+            "fiscalYear": 2025,
+            "exercisedValue": {
+              "raw": 0,
+              "fmt": null,
+              "longFmt": "0"
+            },
+            "unexercisedValue": {
+              "raw": 0,
+              "fmt": null,
+              "longFmt": "0"
+            }
+          }
+        ],
+        "detentions_initiees": [
+          {
+            "maxAge": 1,
+            "name": "BLACK DONDI",
+            "relation": "Director",
+            "url": "",
+            "transactionDescription": "Stock Award(Grant)",
+            "latestTransDate": {
+              "raw": 1791417600,
+              "fmt": "2026-10-08"
+            },
+            "positionDirect": {
+              "raw": 26918,
+              "fmt": "26.92k",
+              "longFmt": "26,918"
+            },
+            "positionDirectDate": {
+              "raw": 1791417600,
+              "fmt": "2026-10-08"
+            }
+          },
+          {
+            "maxAge": 1,
+            "name": "BRACA GREGORY B",
+            "relation": "Director",
+            "url": "",
+            "transactionDescription": "Stock Award(Grant)",
+            "latestTransDate": {
+              "raw": 1774915200,
+              "fmt": "2026-03-31"
+            },
+            "positionDirect": {
+              "raw": 8325,
+              "fmt": "8.32k",
+              "longFmt": "8,325"
+            },
+            "positionDirectDate": {
+              "raw": 1774915200,
+              "fmt": "2026-03-31"
+            }
+          },
+          {
+            "maxAge": 1,
+            "name": "GLENN DYLAN",
+            "relation": "Director",
+            "url": "",
+            "transactionDescription": "Stock Award(Grant)",
+            "latestTransDate": {
+              "raw": 1791417600,
+              "fmt": "2026-10-08"
+            },
+            "positionDirect": {
+              "raw": 97372,
+              "fmt": "97.37k",
+              "longFmt": "97,372"
+            },
+            "positionDirectDate": {
+              "raw": 1791417600,
+              "fmt": "2026-10-08"
+            }
+          },
+          {
+            "maxAge": 1,
+            "name": "LEWIS BRYAN",
+            "relation": "Chief Executive Officer",
+            "url": "",
+            "transactionDescription": "Stock Gift",
+            "latestTransDate": {
+              "raw": 1777593600,
+              "fmt": "2026-05-01"
+            },
+            "positionIndirect": {
+              "raw": 33730,
+              "fmt": "33.73k",
+              "longFmt": "33,730"
+            },
+            "positionIndirectDate": {
+              "raw": 1777593600,
+              "fmt": "2026-05-01"
+            }
+          },
+          {
+            "maxAge": 1,
+            "name": "ROBINS JONATHAN",
+            "relation": "Chief Technology Officer",
+            "url": "",
+            "transactionDescription": "Sale",
+            "latestTransDate": {
+              "raw": 1781481600,
+              "fmt": "2026-06-15"
+            },
+            "positionDirect": {
+              "raw": 0,
+              "fmt": null,
+              "longFmt": "0"
+            },
+            "positionDirectDate": {
+              "raw": 1781481600,
+              "fmt": "2026-06-15"
+            }
+          },
+          {
+            "maxAge": 1,
+            "name": "SMITH GUY L",
+            "relation": "Director",
+            "url": "",
+            "transactionDescription": "Stock Award(Grant)",
+            "latestTransDate": {
+              "raw": 1791417600,
+              "fmt": "2026-10-08"
+            },
+            "positionDirect": {
+              "raw": 444259,
+              "fmt": "444.26k",
+              "longFmt": "444,259"
+            },
+            "positionDirectDate": {
+              "raw": 1791417600,
+              "fmt": "2026-10-08"
+            }
+          },
+          {
+            "maxAge": 1,
+            "name": "SRAGOVICZ ADAM",
+            "relation": "Chief Financial Officer",
+            "url": "",
+            "transactionDescription": "Conversion of Exercise of derivative security",
+            "latestTransDate": {
+              "raw": 1757462400,
+              "fmt": "2025-09-10"
+            },
+            "positionDirect": {
+              "raw": 36801,
+              "fmt": "36.8k",
+              "longFmt": "36,801"
+            },
+            "positionDirectDate": {
+              "raw": 1757462400,
+              "fmt": "2025-09-10"
+            }
+          },
+          {
+            "maxAge": 1,
+            "name": "ULLMAN DAVID E",
+            "relation": "Director",
+            "url": "",
+            "transactionDescription": "Stock Award(Grant)",
+            "latestTransDate": {
+              "raw": 1791417600,
+              "fmt": "2026-10-08"
+            },
+            "positionDirect": {
+              "raw": 62556,
+              "fmt": "62.56k",
+              "longFmt": "62,556"
+            },
+            "positionDirectDate": {
+              "raw": 1791417600,
+              "fmt": "2026-10-08"
+            }
+          }
+        ],
+        "fichier_transactions_secondaires": "DONNEES/GOUVERNANCE_PUBLIQUE_40_20261105.json"
+      },
+      "unite": "detentions et profils professionnels",
+      "periode": "dates individuelles du fournisseur; collecte 2026-11-05",
+      "date_source": "2026-11-05",
+      "date_collecte": "2026-11-05",
+      "source_url": "https://query1.finance.yahoo.com/v10/finance/quoteSummary/IDN?modules=assetProfile,majorHoldersBreakdown,insiderHolders,insiderTransactions",
+      "statut": "SOURCE_SECONDAIRE_GOUVERNANCE_A_RAPPROCHER",
+      "commentaire": "Titres détenus séparés des options/attributions. Dates/fonctions de chaque ligne à contrôler : les anciens dirigeants peuvent subsister. Ne pas additionner les détentions directes et indirectes sans éliminer les doubles comptes. Pas de certification de couverture des transactions, ni note SSI déduite."
+    },
+    {
+      "bloc": null,
+      "champ": "actionnariat_physique_hors_droits_a_60j",
+      "valeur": {
+        "actions_beneficiaires_groupe": 1570179,
+        "options_a_60j": 535098,
+        "actions_emises_hors_options": 1035081,
+        "actions_en_circulation": 20239060,
+        "part_groupe_hors_options_pct": 5.11427408189906,
+        "limite": "Inclut 13 882 titres du conjoint du CEO dont il décline la propriété; exposition économique personnelle non assimilée au total."
+      },
+      "unite": "titres et pct",
+      "periode": "position au 23/03/2026; proxy 2026",
+      "date_source": "2026-04-01",
+      "source_url": "https://www.sec.gov/Archives/edgar/data/1040896/000104089626000012/idn-20260401.htm",
+      "statut": "SOURCE_PRIMAIRE",
+      "commentaire": "Lecture du proxy primaire : distinguer titres déjà émis, options et droits non encore émis. Données datées, pas état courant certifié.",
+      "date_collecte": "2026-11-04"
+    },
+    {
+      "bloc": "risque",
+      "champ": "risque_gouvernance",
+      "valeur": "Bonus 2025 fondés sur le CA, avec accélérateurs non plafonnés; options exclues du calcul des titres déjà émis. Contrôle d’audit indépendant décrit au proxy.",
+      "unite": "texte",
+      "periode": "position au 23/03/2026; proxy 2026",
+      "date_source": "2026-04-01",
+      "source_url": "https://www.sec.gov/Archives/edgar/data/1040896/000104089626000012/idn-20260401.htm",
+      "statut": "ANALYSE_DOCUMENTAIRE_SOURCE_PRIMAIRE",
+      "commentaire": "Appréciation documentaire, pas note de gouvernance ni certification indépendante.",
+      "date_collecte": "2026-11-04"
     }
   ],
   "journal_recherches": [
@@ -2005,20 +2281,27 @@
       "http": 200,
       "statut": "SOURCE_SECONDAIRE_CONSENSUS_DATE",
       "limite": "Échec ou champ absent ne prouve pas une indisponibilité définitive."
+    },
+    {
+      "famille": "gouvernance_et_detentions_Yahoo",
+      "date": "2026-11-05",
+      "url": "https://query1.finance.yahoo.com/v10/finance/quoteSummary/IDN?modules=assetProfile,majorHoldersBreakdown,insiderHolders,insiderTransactions",
+      "http": 200,
+      "statut": "SOURCE_SECONDAIRE_GOUVERNANCE_NON_RAPPROCHEE",
+      "limite": "Initiés fournisseur ≠ dirigeants stricts; transactions potentiellement partielles, jamais total net exhaustif par défaut. Options et attributions distinctes des achats au comptant."
     }
   ],
   "audit_couverture": {
     "date": "2026-11-05",
     "champs_total": 108,
-    "champs_renseignes": 62,
-    "couverture_pct": 57.41,
+    "champs_renseignes": 63,
+    "couverture_pct": 58.33,
     "champs_secondaires_non_rapproches": 25,
     "champs_manquants": [
       "identite.lei",
       "identite.marche",
       "qualite.revenus_recurrents_pct",
       "qualite.avantage_concurrentiel",
-      "qualite.qualite_management",
       "valorisation.comparables_sectoriels",
       "valorisation.marge_securite_pct",
       "croissance.croissance_ebitda_pct",
@@ -2068,19 +2351,18 @@
   "audit_poursuite": {
     "date": "2026-11-05",
     "comptage": {
-      "RENSEIGNE": 62,
+      "RENSEIGNE": 63,
       "NON_APPLICABLE": 4,
       "INDISPONIBLE_A_DATE": 0,
-      "RECHERCHE_A_POURSUIVRE": 42
+      "RECHERCHE_A_POURSUIVRE": 41
     },
-    "couverture_valeurs_pct": 57.41,
-    "couverture_applicable_pct": 59.62,
+    "couverture_valeurs_pct": 58.33,
+    "couverture_applicable_pct": 60.58,
     "recherches_non_closes": [
       "identite.lei",
       "identite.marche",
       "qualite.revenus_recurrents_pct",
       "qualite.avantage_concurrentiel",
-      "qualite.qualite_management",
       "valorisation.comparables_sectoriels",
       "valorisation.marge_securite_pct",
       "croissance.carnet_commandes",

@@ -1768,5 +1768,174 @@
         "commentaire": null
       }
     ]
+  },
+  {
+    "ticker": "IDN",
+    "url": "https://www.sec.gov/Archives/edgar/data/1040896/000104089626000012/idn-20260401.htm",
+    "date_source": "2026-04-01",
+    "periode": "position au 23/03/2026; proxy 2026",
+    "champs": [
+      {
+        "bloc": null,
+        "champ": "actionnariat_physique_hors_droits_a_60j",
+        "valeur": {
+          "actions_beneficiaires_groupe": 1570179,
+          "options_a_60j": 535098,
+          "actions_emises_hors_options": 1035081,
+          "actions_en_circulation": 20239060,
+          "part_groupe_hors_options_pct": 5.11427408189906,
+          "limite": "Inclut 13 882 titres du conjoint du CEO dont il décline la propriété; exposition économique personnelle non assimilée au total."
+        },
+        "unite": "titres et pct",
+        "commentaire": "Lecture du proxy primaire : distinguer titres déjà émis, options et droits non encore émis. Données datées, pas état courant certifié."
+      },
+      {
+        "bloc": "qualite",
+        "champ": "qualite_management",
+        "valeur": "Comité d’audit indépendant avec expert financier identifié. Incitations 2025 centrées sur le chiffre d’affaires : exécution sur marges et trésorerie à suivre.",
+        "unite": "texte",
+        "statut": "ANALYSE_DOCUMENTAIRE_SOURCE_PRIMAIRE",
+        "commentaire": "Appréciation documentaire, pas note de gouvernance ni certification indépendante."
+      },
+      {
+        "bloc": "risque",
+        "champ": "risque_gouvernance",
+        "valeur": "Bonus 2025 fondés sur le CA, avec accélérateurs non plafonnés; options exclues du calcul des titres déjà émis. Contrôle d’audit indépendant décrit au proxy.",
+        "unite": "texte",
+        "statut": "ANALYSE_DOCUMENTAIRE_SOURCE_PRIMAIRE",
+        "commentaire": "Appréciation documentaire, pas note de gouvernance ni certification indépendante."
+      }
+    ]
+  },
+  {
+    "ticker": "INFU",
+    "url": "https://www.sec.gov/Archives/edgar/data/1337013/000162828026024635/infu-20260410.htm",
+    "date_source": "2026-04-10",
+    "periode": "position au 20/03/2026; proxy 2026",
+    "champs": [
+      {
+        "bloc": null,
+        "champ": "actionnariat_physique_hors_droits_a_60j",
+        "valeur": {
+          "actions_directes_groupe": 570877,
+          "actions_indirectes_groupe": 298383,
+          "options_a_60j": 1347998,
+          "rsu_a_60j": 127418,
+          "actions_emises_hors_droits": 869260,
+          "actions_en_circulation": 20193998,
+          "part_groupe_hors_droits_pct": 4.304546331043511,
+          "actions_CEO_directes": 233533,
+          "limite": "Droits potentiels et parts indirectes non confondus avec détention directe personnelle du CEO."
+        },
+        "unite": "titres et pct",
+        "commentaire": "Lecture du proxy primaire : distinguer titres déjà émis, options et droits non encore émis. Données datées, pas état courant certifié."
+      },
+      {
+        "bloc": "qualite",
+        "champ": "qualite_management",
+        "valeur": "Carrie Lachance est CEO dans le proxy 2026; ses titres émis sont séparés des options et RSU. Politique de revue préalable des opérations avec parties liées décrite au proxy.",
+        "unite": "texte",
+        "statut": "ANALYSE_DOCUMENTAIRE_SOURCE_PRIMAIRE",
+        "commentaire": "Appréciation documentaire, pas note de gouvernance ni certification indépendante."
+      }
+    ]
+  },
+  {
+    "ticker": "OSS",
+    "url": "https://www.sec.gov/Archives/edgar/data/1394056/000119312526156058/oss-20260414.htm",
+    "date_source": "2026-04-15",
+    "periode": "position au 20/03/2026; proxy 2026",
+    "champs": [
+      {
+        "bloc": null,
+        "champ": "actionnariat_physique_hors_droits_a_60j",
+        "valeur": {
+          "actions_emises_groupe": 675394,
+          "options_a_60j": 286769,
+          "rsu_a_60j": 12667,
+          "actions_en_circulation": 24769017,
+          "part_groupe_hors_droits_pct": 2.726769495939221,
+          "actions_CEO_emises": 243747,
+          "limite": "Le fondateur historique Steve Cooper, détenteur via trust, est séparé du groupe de dirigeants/administrateurs actuels."
+        },
+        "unite": "titres et pct",
+        "commentaire": "Lecture du proxy primaire : distinguer titres déjà émis, options et droits non encore émis. Données datées, pas état courant certifié."
+      },
+      {
+        "bloc": "qualite",
+        "champ": "qualite_management",
+        "valeur": "CEO Mike Knowles en fonction depuis 2023, avec expérience aéronautique/défense. Quatre administrateurs indépendants et six réunions du comité audit/risques en 2025, selon le proxy.",
+        "unite": "texte",
+        "statut": "ANALYSE_DOCUMENTAIRE_SOURCE_PRIMAIRE",
+        "commentaire": "Appréciation documentaire, pas note de gouvernance ni certification indépendante."
+      }
+    ]
+  },
+  {
+    "ticker": "CXDO",
+    "url": "https://www.sec.gov/Archives/edgar/data/1075736/000165495426009040/cxdo_def14a.htm",
+    "date_source": "2026-10-19",
+    "periode": "position au 06/10/2026; proxy 2026",
+    "champs": [
+      {
+        "bloc": null,
+        "champ": "actionnariat_physique_hors_droits_a_60j",
+        "valeur": {
+          "actions_emises_groupe": 10600077,
+          "options_et_rsu_a_60j": 1116179,
+          "actions_en_circulation": 33369158,
+          "part_groupe_hors_droits_pct": 31.766090711668543,
+          "limite": "Inclut participations contrôlées via trusts/fondation : ne représente pas uniquement patrimoine personnel directement exposé."
+        },
+        "unite": "titres et pct",
+        "commentaire": "Lecture du proxy primaire : distinguer titres déjà émis, options et droits non encore émis. Données datées, pas état courant certifié."
+      },
+      {
+        "bloc": "risque",
+        "champ": "risque_gouvernance",
+        "valeur": "Le proxy recense plusieurs dépôts Section 16 tardifs en 2025, certains régularisés en 2026; un dépôt relatif à une attribution à L. Jasmine Kim était encore absent à cette date.",
+        "unite": "texte",
+        "statut": "ANALYSE_DOCUMENTAIRE_SOURCE_PRIMAIRE",
+        "commentaire": "Appréciation documentaire, pas note de gouvernance ni certification indépendante."
+      },
+      {
+        "bloc": "croissance",
+        "champ": "catalyseurs_dates",
+        "valeur": "Assemblée du 02/12/2026 : vote sur modification du plan d’incitation 2021 et désignation de l’auditeur. Résultat du vote non présumé.",
+        "unite": "texte",
+        "statut": "ANALYSE_DOCUMENTAIRE_SOURCE_PRIMAIRE",
+        "commentaire": "Appréciation documentaire, pas note de gouvernance ni certification indépendante."
+      }
+    ]
+  },
+  {
+    "ticker": "LWAY",
+    "url": "https://www.sec.gov/Archives/edgar/data/814586/000168316826003375/lifeway_idef14a.htm",
+    "date_source": "2026-04-30",
+    "periode": "position au 20/04/2026; proxy 2026",
+    "champs": [
+      {
+        "bloc": null,
+        "champ": "actionnariat_physique_hors_droits_a_60j",
+        "valeur": {
+          "actions_beneficiaires_groupe": 2859305,
+          "droits_non_emis_et_phantom": 223186,
+          "actions_emises_hors_droits": 2636119,
+          "actions_en_circulation": 15281888,
+          "part_groupe_hors_droits_pct": 17.24995628812356,
+          "limite": "Comprend des participations familiales à propriété partagée; titres physiquement émis ne signifient pas propriété économique personnelle à 100 %."
+        },
+        "unite": "titres et pct",
+        "commentaire": "Lecture du proxy primaire : distinguer titres déjà émis, options et droits non encore émis. Données datées, pas état courant certifié."
+      },
+      {
+        "bloc": "risque",
+        "champ": "risque_gouvernance",
+        "valeur": "Actionnariat concentré entre plusieurs parties, sans présumer un concert. Accord Danone limitant certaines rémunérations en titres du CEO/de sa famille; plusieurs dépôts Section 16 tardifs signalés pour 2025.",
+        "unite": "texte",
+        "statut": "ANALYSE_DOCUMENTAIRE_SOURCE_PRIMAIRE",
+        "commentaire": "Appréciation documentaire, pas note de gouvernance ni certification indépendante."
+      }
+    ]
   }
 ]

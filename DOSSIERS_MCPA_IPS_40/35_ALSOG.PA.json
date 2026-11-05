@@ -818,34 +818,24 @@
         "date_collecte": "2026-11-04"
       },
       "transactions_initiees_net_90j": {
-        "valeur": null,
-        "unite": null,
-        "periode": null,
-        "date_source": null,
-        "source_url": null,
-        "statut": "A_COLLECTER",
-        "commentaire": null,
-        "recherche": {
-          "date": "2026-11-04",
-          "statut": "MANQUANT_RECHERCHE_NON_CLOSE",
-          "motif": "Registre complet des transactions, codes et prix non validé sur toute la fenêtre; transaction isolée ≠ net exhaustif.",
-          "journal": "journal_recherches"
-        }
+        "valeur": 0,
+        "unite": "EUR",
+        "periode": "2026-08-07 / 2026-11-05; 90 jours calendaires",
+        "date_source": "2026-11-05",
+        "date_collecte": "2026-11-05",
+        "source_url": "https://bdif.amf-france.org/back/api/v1/informations?Jetons=RS00003419&TypesInformation=DD&DateDebut=2026-01-01T00%3A00%3A00.000Z&DateFin=2026-11-05T23%3A59%3A59.000Z&From=0&Size=100",
+        "statut": "CALCULE_DEPOTS_PRIMAIRES_AMF",
+        "commentaire": "Achats moins ventes d’actions au comptant déclarés et publiés à la date de collecte; exercices/attributions/dons distingués. Cessions liées à des programmes signalées. Hors frais, produits des prix/volumes déclarés. Pas preuve d’absence de transactions non publiées. Source détaillée et PDF archivés : DONNEES/DECLARATIONS_AMF_14_20261105.json. Un zéro décrit le net des déclarations couvertes; il ne certifie pas une absence de transactions réelles."
       },
       "transactions_initiees_net_180j": {
-        "valeur": null,
-        "unite": null,
-        "periode": null,
-        "date_source": null,
-        "source_url": null,
-        "statut": "A_COLLECTER",
-        "commentaire": null,
-        "recherche": {
-          "date": "2026-11-04",
-          "statut": "MANQUANT_RECHERCHE_NON_CLOSE",
-          "motif": "Registre complet des transactions, codes et prix non validé sur toute la fenêtre; transaction isolée ≠ net exhaustif.",
-          "journal": "journal_recherches"
-        }
+        "valeur": 0,
+        "unite": "EUR",
+        "periode": "2026-05-09 / 2026-11-05; 180 jours calendaires",
+        "date_source": "2026-11-05",
+        "date_collecte": "2026-11-05",
+        "source_url": "https://bdif.amf-france.org/back/api/v1/informations?Jetons=RS00003419&TypesInformation=DD&DateDebut=2026-01-01T00%3A00%3A00.000Z&DateFin=2026-11-05T23%3A59%3A59.000Z&From=0&Size=100",
+        "statut": "CALCULE_DEPOTS_PRIMAIRES_AMF",
+        "commentaire": "Achats moins ventes d’actions au comptant déclarés et publiés à la date de collecte; exercices/attributions/dons distingués. Cessions liées à des programmes signalées. Hors frais, produits des prix/volumes déclarés. Pas preuve d’absence de transactions non publiées. Source détaillée et PDF archivés : DONNEES/DECLARATIONS_AMF_14_20261105.json. Un zéro décrit le net des déclarations couvertes; il ne certifie pas une absence de transactions réelles."
       }
     },
     "momentum": {
@@ -1837,6 +1827,190 @@
       "statut": "SOURCE_SECONDAIRE_CONSENSUS_DATE",
       "commentaire": "BPA généralement ajusté; identité demandée par ticker dans URL API, pas validation primaire.",
       "date_collecte": "2026-11-05"
+    },
+    {
+      "bloc": "qualite",
+      "champ": "dirigeants_et_detentions_documentes",
+      "valeur": {
+        "dirigeants_declares_fournisseur": [
+          {
+            "name": "Mr. Philippe  Brel",
+            "title": "CEO & Head Of BU Solutions",
+            "fiscalYear": 2025,
+            "totalPay": {
+              "raw": 289870,
+              "fmt": "289.87k",
+              "longFmt": "289,870"
+            },
+            "exercisedValue": {
+              "raw": 0,
+              "fmt": null,
+              "longFmt": "0"
+            },
+            "unexercisedValue": {
+              "raw": 0,
+              "fmt": null,
+              "longFmt": "0"
+            }
+          },
+          {
+            "name": "Mr. Philippe  Robardey",
+            "title": "Vice-Chairman, President of Investor Relations & President",
+            "yearBorn": 1959,
+            "fiscalYear": 2025,
+            "totalPay": {
+              "raw": 15000,
+              "fmt": "15k",
+              "longFmt": "15,000"
+            },
+            "exercisedValue": {
+              "raw": 0,
+              "fmt": null,
+              "longFmt": "0"
+            },
+            "unexercisedValue": {
+              "raw": 0,
+              "fmt": null,
+              "longFmt": "0"
+            }
+          },
+          {
+            "name": "Madam Elise  Legendre",
+            "title": "CFO, Administrative and Financial Director & Director",
+            "fiscalYear": 2025,
+            "totalPay": {
+              "raw": 15000,
+              "fmt": "15k",
+              "longFmt": "15,000"
+            },
+            "exercisedValue": {
+              "raw": 0,
+              "fmt": null,
+              "longFmt": "0"
+            },
+            "unexercisedValue": {
+              "raw": 0,
+              "fmt": null,
+              "longFmt": "0"
+            }
+          },
+          {
+            "name": "Mr. Olivier  Pedron",
+            "title": "MD & Acting Head of BU Council",
+            "yearBorn": 1977,
+            "fiscalYear": 2025,
+            "exercisedValue": {
+              "raw": 0,
+              "fmt": null,
+              "longFmt": "0"
+            },
+            "unexercisedValue": {
+              "raw": 0,
+              "fmt": null,
+              "longFmt": "0"
+            }
+          },
+          {
+            "name": "Mr. Didier  Langlois",
+            "title": "Chief Technical Officer & Technical Director",
+            "fiscalYear": 2025,
+            "exercisedValue": {
+              "raw": 0,
+              "fmt": null,
+              "longFmt": "0"
+            },
+            "unexercisedValue": {
+              "raw": 0,
+              "fmt": null,
+              "longFmt": "0"
+            }
+          },
+          {
+            "name": "Jacques  Dejean",
+            "title": "Chief Information Officer",
+            "fiscalYear": 2025,
+            "exercisedValue": {
+              "raw": 0,
+              "fmt": null,
+              "longFmt": "0"
+            },
+            "unexercisedValue": {
+              "raw": 0,
+              "fmt": null,
+              "longFmt": "0"
+            }
+          },
+          {
+            "name": "Louise-Marie  Thabard",
+            "title": "Head of Communications",
+            "fiscalYear": 2025,
+            "exercisedValue": {
+              "raw": 0,
+              "fmt": null,
+              "longFmt": "0"
+            },
+            "unexercisedValue": {
+              "raw": 0,
+              "fmt": null,
+              "longFmt": "0"
+            }
+          },
+          {
+            "name": "Ms. Stephanie  Martel",
+            "title": "Head of Human Resources",
+            "fiscalYear": 2025,
+            "exercisedValue": {
+              "raw": 0,
+              "fmt": null,
+              "longFmt": "0"
+            },
+            "unexercisedValue": {
+              "raw": 0,
+              "fmt": null,
+              "longFmt": "0"
+            }
+          },
+          {
+            "name": "Nicolas  Couzinet",
+            "title": "Head of BU Engineering",
+            "fiscalYear": 2025,
+            "exercisedValue": {
+              "raw": 0,
+              "fmt": null,
+              "longFmt": "0"
+            },
+            "unexercisedValue": {
+              "raw": 0,
+              "fmt": null,
+              "longFmt": "0"
+            }
+          },
+          {
+            "name": "Mr. William  Le Ferrand",
+            "title": "Chief Transformation Officer",
+            "fiscalYear": 2025,
+            "exercisedValue": {
+              "raw": 0,
+              "fmt": null,
+              "longFmt": "0"
+            },
+            "unexercisedValue": {
+              "raw": 0,
+              "fmt": null,
+              "longFmt": "0"
+            }
+          }
+        ],
+        "detentions_initiees": [],
+        "fichier_transactions_secondaires": "DONNEES/GOUVERNANCE_PUBLIQUE_40_20261105.json"
+      },
+      "unite": "detentions et profils professionnels",
+      "periode": "dates individuelles du fournisseur; collecte 2026-11-05",
+      "date_source": "2026-11-05",
+      "date_collecte": "2026-11-05",
+      "source_url": "https://query1.finance.yahoo.com/v10/finance/quoteSummary/ALSOG.PA?modules=assetProfile,majorHoldersBreakdown,insiderHolders,insiderTransactions",
+      "statut": "SOURCE_SECONDAIRE_GOUVERNANCE_A_RAPPROCHER",
+      "commentaire": "Titres détenus séparés des options/attributions. Dates/fonctions de chaque ligne à contrôler : les anciens dirigeants peuvent subsister. Ne pas additionner les détentions directes et indirectes sans éliminer les doubles comptes. Pas de certification de couverture des transactions, ni note SSI déduite."
     }
   ],
   "journal_recherches": [
@@ -2062,13 +2236,42 @@
       "http": 200,
       "statut": "SOURCE_SECONDAIRE_CONSENSUS_DATE",
       "limite": "Échec ou champ absent ne prouve pas une indisponibilité définitive."
+    },
+    {
+      "famille": "gouvernance_et_detentions_Yahoo",
+      "date": "2026-11-05",
+      "url": "https://query1.finance.yahoo.com/v10/finance/quoteSummary/ALSOG.PA?modules=assetProfile,majorHoldersBreakdown,insiderHolders,insiderTransactions",
+      "http": 200,
+      "statut": "SOURCE_SECONDAIRE_GOUVERNANCE_NON_RAPPROCHEE",
+      "limite": "Initiés fournisseur ≠ dirigeants stricts; transactions potentiellement partielles, jamais total net exhaustif par défaut. Options et attributions distinctes des achats au comptant."
+    },
+    {
+      "famille": "registre_AMF_identite_AMF",
+      "date": "2026-11-05",
+      "url": "https://bdif.amf-france.org/back/api/v1/informations?RechercheTexte=SOGECLAIR&From=0&Size=50",
+      "http": 200,
+      "sha256_reponse": "9acd2d27c5dbd3b39a8520e878611e6262ca58ced070a3e7c8bae72e41a460e6",
+      "total": 50,
+      "jeton": "RS00003419",
+      "limite": "Déclarations publiées par l’AMF, établies sous responsabilité du déclarant; ne prouve pas absence de transactions non publiées."
+    },
+    {
+      "famille": "registre_AMF_declarations_2026",
+      "date": "2026-11-05",
+      "url": "https://bdif.amf-france.org/back/api/v1/informations?Jetons=RS00003419&TypesInformation=DD&DateDebut=2026-01-01T00%3A00%3A00.000Z&DateFin=2026-11-05T23%3A59%3A59.000Z&From=0&Size=100",
+      "http": 200,
+      "sha256_reponse": "6d412c54e7b2df9f62d2f3a8d58de8e56a6af4baccb909992a5a629887cf9131",
+      "total": 0,
+      "from_index": 0,
+      "jeton": "RS00003419",
+      "limite": "Déclarations publiées par l’AMF, établies sous responsabilité du déclarant; ne prouve pas absence de transactions non publiées."
     }
   ],
   "audit_couverture": {
     "date": "2026-11-05",
     "champs_total": 108,
-    "champs_renseignes": 62,
-    "couverture_pct": 57.41,
+    "champs_renseignes": 64,
+    "couverture_pct": 59.26,
     "champs_secondaires_non_rapproches": 39,
     "champs_manquants": [
       "identite.lei",
@@ -2091,8 +2294,6 @@
       "risque.risque_change",
       "risque.risque_gouvernance",
       "risque.risque_reglementaire",
-      "risque.transactions_initiees_net_90j",
-      "risque.transactions_initiees_net_180j",
       "diversification.interet_strategique",
       "diversification.complementarite_portefeuille",
       "complements.ssi",
@@ -2125,13 +2326,13 @@
   "audit_poursuite": {
     "date": "2026-11-05",
     "comptage": {
-      "RENSEIGNE": 62,
+      "RENSEIGNE": 64,
       "NON_APPLICABLE": 1,
       "INDISPONIBLE_A_DATE": 0,
-      "RECHERCHE_A_POURSUIVRE": 45
+      "RECHERCHE_A_POURSUIVRE": 43
     },
-    "couverture_valeurs_pct": 57.41,
-    "couverture_applicable_pct": 57.94,
+    "couverture_valeurs_pct": 59.26,
+    "couverture_applicable_pct": 59.81,
     "recherches_non_closes": [
       "identite.lei",
       "identite.marche",
@@ -2152,8 +2353,6 @@
       "risque.risque_change",
       "risque.risque_gouvernance",
       "risque.risque_reglementaire",
-      "risque.transactions_initiees_net_90j",
-      "risque.transactions_initiees_net_180j",
       "diversification.interet_strategique",
       "diversification.complementarite_portefeuille",
       "complements.ssi",

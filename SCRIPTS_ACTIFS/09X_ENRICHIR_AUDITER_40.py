@@ -284,4 +284,6 @@ def main():
   subprocess.check_call([__import__('sys').executable,str(BASE/'SCRIPTS_ACTIFS/10K_FORCE_RELATIVE_MSCI_WORLD_40.py')],cwd=BASE)
  if list(D.glob('COMPLEMENTS_PUBLICS_40_*.json')):
   subprocess.check_call([__import__('sys').executable,str(BASE/'SCRIPTS_ACTIFS/10H_IMPORTER_COMPLEMENTS_PUBLICS_40.py')],cwd=BASE)
+ if (D/'GOUVERNANCE_PUBLIQUE_40_20261105.json').exists() or (D/'DECLARATIONS_AMF_14_20261105.json').exists():
+  subprocess.check_call([__import__('sys').executable,str(BASE/'SCRIPTS_ACTIFS/10M_IMPORTER_GOUVERNANCE_ET_AMF_40.py')],cwd=BASE)
 if __name__=='__main__':main()

@@ -1821,6 +1821,297 @@
       "statut": "SOURCE_SECONDAIRE_CONSENSUS_DATE",
       "commentaire": "BPA généralement ajusté; identité demandée par ticker dans URL API, pas validation primaire.",
       "date_collecte": "2026-11-05"
+    },
+    {
+      "bloc": "qualite",
+      "champ": "dirigeants_et_detentions_documentes",
+      "valeur": {
+        "dirigeants_declares_fournisseur": [
+          {
+            "name": "Ms. Julie  Smolyansky",
+            "title": "Chairperson of the Board, CEO, President & Secretary",
+            "yearBorn": 1975,
+            "fiscalYear": 2025,
+            "totalPay": {
+              "raw": 2639132,
+              "fmt": "2.64M",
+              "longFmt": "2,639,132"
+            },
+            "exercisedValue": {
+              "raw": 0,
+              "fmt": null,
+              "longFmt": "0"
+            },
+            "unexercisedValue": {
+              "raw": 0,
+              "fmt": null,
+              "longFmt": "0"
+            }
+          },
+          {
+            "name": "Mr. Eric A. Hanson",
+            "title": "CFO, Chief Accounting Officer & Treasurer",
+            "yearBorn": 1975,
+            "fiscalYear": 2025,
+            "totalPay": {
+              "raw": 784462,
+              "fmt": "784.46k",
+              "longFmt": "784,462"
+            },
+            "exercisedValue": {
+              "raw": 0,
+              "fmt": null,
+              "longFmt": "0"
+            },
+            "unexercisedValue": {
+              "raw": 0,
+              "fmt": null,
+              "longFmt": "0"
+            }
+          }
+        ],
+        "detentions_initiees": [
+          {
+            "maxAge": 1,
+            "name": "DIVISADERO STREET CAPITAL MANAGEMENT, LP",
+            "relation": "Beneficial Owner of more than 10% of a Class of Security",
+            "url": "",
+            "transactionDescription": "Purchase",
+            "latestTransDate": {
+              "raw": 1791244800,
+              "fmt": "2026-10-06"
+            },
+            "positionIndirect": {
+              "raw": 2451790,
+              "fmt": "2.45M",
+              "longFmt": "2,451,790"
+            },
+            "positionIndirectDate": {
+              "raw": 1791244800,
+              "fmt": "2026-10-06"
+            }
+          },
+          {
+            "maxAge": 1,
+            "name": "FELDMAN AMY M",
+            "relation": "Officer",
+            "url": "",
+            "transactionDescription": "Conversion of Exercise of derivative security",
+            "latestTransDate": {
+              "raw": 1736467200,
+              "fmt": "2025-01-10"
+            },
+            "positionDirect": {
+              "raw": 19913,
+              "fmt": "19.91k",
+              "longFmt": "19,913"
+            },
+            "positionDirectDate": {
+              "raw": 1736467200,
+              "fmt": "2025-01-10"
+            }
+          },
+          {
+            "maxAge": 1,
+            "name": "HANSON ERIC A",
+            "relation": "Chief Financial Officer",
+            "url": "",
+            "transactionDescription": "Stock Award(Grant)",
+            "latestTransDate": {
+              "raw": 1781568000,
+              "fmt": "2026-06-16"
+            },
+            "positionDirect": {
+              "raw": 58890,
+              "fmt": "58.89k",
+              "longFmt": "58,890"
+            },
+            "positionDirectDate": {
+              "raw": 1781568000,
+              "fmt": "2026-06-16"
+            }
+          },
+          {
+            "maxAge": 1,
+            "name": "LEVY JODY",
+            "relation": "Director",
+            "url": "",
+            "transactionDescription": "Conversion of Exercise of derivative security",
+            "latestTransDate": {
+              "raw": 1751328000,
+              "fmt": "2025-07-01"
+            },
+            "positionDirect": {
+              "raw": 26847,
+              "fmt": "26.85k",
+              "longFmt": "26,847"
+            },
+            "positionDirectDate": {
+              "raw": 1751328000,
+              "fmt": "2025-07-01"
+            }
+          },
+          {
+            "maxAge": 1,
+            "name": "MCWHORTER DORRI",
+            "relation": "Director",
+            "url": "",
+            "transactionDescription": "Conversion of Exercise of derivative security",
+            "latestTransDate": {
+              "raw": 1788134400,
+              "fmt": "2026-08-31"
+            },
+            "positionDirect": {
+              "raw": 28842,
+              "fmt": "28.84k",
+              "longFmt": "28,842"
+            },
+            "positionDirectDate": {
+              "raw": 1788134400,
+              "fmt": "2026-08-31"
+            }
+          },
+          {
+            "maxAge": 1,
+            "name": "SIKAR POL",
+            "relation": "Director",
+            "url": "",
+            "transactionDescription": "Conversion of Exercise of derivative security",
+            "latestTransDate": {
+              "raw": 1751328000,
+              "fmt": "2025-07-01"
+            },
+            "positionDirect": {
+              "raw": 22214,
+              "fmt": "22.21k",
+              "longFmt": "22,214"
+            },
+            "positionDirectDate": {
+              "raw": 1751328000,
+              "fmt": "2025-07-01"
+            }
+          },
+          {
+            "maxAge": 1,
+            "name": "SMOLYANSKY EDWARD",
+            "relation": "Beneficial Owner of more than 10% of a Class of Security",
+            "url": "",
+            "transactionDescription": "Sale",
+            "latestTransDate": {
+              "raw": 1791849600,
+              "fmt": "2026-10-13"
+            },
+            "positionIndirect": {
+              "raw": 2367440,
+              "fmt": "2.37M",
+              "longFmt": "2,367,440"
+            },
+            "positionIndirectDate": {
+              "raw": 1791849600,
+              "fmt": "2026-10-13"
+            }
+          },
+          {
+            "maxAge": 1,
+            "name": "SMOLYANSKY JULIE",
+            "relation": "Chief Executive Officer",
+            "url": "",
+            "transactionDescription": "Purchase",
+            "latestTransDate": {
+              "raw": 1787097600,
+              "fmt": "2026-08-19"
+            },
+            "positionDirect": {
+              "raw": 2742020,
+              "fmt": "2.74M",
+              "longFmt": "2,742,020"
+            },
+            "positionDirectDate": {
+              "raw": 1787097600,
+              "fmt": "2026-08-19"
+            }
+          },
+          {
+            "maxAge": 1,
+            "name": "SMOLYANSKY LUDMILA",
+            "relation": "Beneficial Owner of more than 10% of a Class of Security",
+            "url": "",
+            "transactionDescription": "Sale",
+            "latestTransDate": {
+              "raw": 1784678400,
+              "fmt": "2026-07-22"
+            },
+            "positionIndirect": {
+              "raw": 507207,
+              "fmt": "507.21k",
+              "longFmt": "507,207"
+            },
+            "positionIndirectDate": {
+              "raw": 1784678400,
+              "fmt": "2026-07-22"
+            }
+          },
+          {
+            "maxAge": 1,
+            "name": "ZOLEZZI WILLIAM",
+            "relation": "Beneficial Owner of more than 10% of a Class of Security",
+            "url": "",
+            "transactionDescription": "Purchase",
+            "latestTransDate": {
+              "raw": 1778803200,
+              "fmt": "2026-05-15"
+            },
+            "positionIndirect": {
+              "raw": 2101540,
+              "fmt": "2.1M",
+              "longFmt": "2,101,540"
+            },
+            "positionIndirectDate": {
+              "raw": 1778803200,
+              "fmt": "2026-05-15"
+            }
+          }
+        ],
+        "fichier_transactions_secondaires": "DONNEES/GOUVERNANCE_PUBLIQUE_40_20261105.json"
+      },
+      "unite": "detentions et profils professionnels",
+      "periode": "dates individuelles du fournisseur; collecte 2026-11-05",
+      "date_source": "2026-11-05",
+      "date_collecte": "2026-11-05",
+      "source_url": "https://query1.finance.yahoo.com/v10/finance/quoteSummary/LWAY?modules=assetProfile,majorHoldersBreakdown,insiderHolders,insiderTransactions",
+      "statut": "SOURCE_SECONDAIRE_GOUVERNANCE_A_RAPPROCHER",
+      "commentaire": "Titres détenus séparés des options/attributions. Dates/fonctions de chaque ligne à contrôler : les anciens dirigeants peuvent subsister. Ne pas additionner les détentions directes et indirectes sans éliminer les doubles comptes. Pas de certification de couverture des transactions, ni note SSI déduite."
+    },
+    {
+      "bloc": null,
+      "champ": "actionnariat_physique_hors_droits_a_60j",
+      "valeur": {
+        "actions_beneficiaires_groupe": 2859305,
+        "droits_non_emis_et_phantom": 223186,
+        "actions_emises_hors_droits": 2636119,
+        "actions_en_circulation": 15281888,
+        "part_groupe_hors_droits_pct": 17.24995628812356,
+        "limite": "Comprend des participations familiales à propriété partagée; titres physiquement émis ne signifient pas propriété économique personnelle à 100 %."
+      },
+      "unite": "titres et pct",
+      "periode": "position au 20/04/2026; proxy 2026",
+      "date_source": "2026-04-30",
+      "source_url": "https://www.sec.gov/Archives/edgar/data/814586/000168316826003375/lifeway_idef14a.htm",
+      "statut": "SOURCE_PRIMAIRE",
+      "commentaire": "Lecture du proxy primaire : distinguer titres déjà émis, options et droits non encore émis. Données datées, pas état courant certifié.",
+      "date_collecte": "2026-11-04"
+    },
+    {
+      "bloc": "risque",
+      "champ": "risque_gouvernance",
+      "valeur": "Actionnariat concentré entre plusieurs parties, sans présumer un concert. Accord Danone limitant certaines rémunérations en titres du CEO/de sa famille; plusieurs dépôts Section 16 tardifs signalés pour 2025.",
+      "unite": "texte",
+      "periode": "position au 20/04/2026; proxy 2026",
+      "date_source": "2026-04-30",
+      "source_url": "https://www.sec.gov/Archives/edgar/data/814586/000168316826003375/lifeway_idef14a.htm",
+      "statut": "ANALYSE_DOCUMENTAIRE_SOURCE_PRIMAIRE",
+      "commentaire": "Appréciation documentaire, pas note de gouvernance ni certification indépendante.",
+      "date_collecte": "2026-11-04"
     }
   ],
   "journal_recherches": [
@@ -2034,6 +2325,14 @@
       "http": 200,
       "statut": "SOURCE_SECONDAIRE_CONSENSUS_DATE",
       "limite": "Échec ou champ absent ne prouve pas une indisponibilité définitive."
+    },
+    {
+      "famille": "gouvernance_et_detentions_Yahoo",
+      "date": "2026-11-05",
+      "url": "https://query1.finance.yahoo.com/v10/finance/quoteSummary/LWAY?modules=assetProfile,majorHoldersBreakdown,insiderHolders,insiderTransactions",
+      "http": 200,
+      "statut": "SOURCE_SECONDAIRE_GOUVERNANCE_NON_RAPPROCHEE",
+      "limite": "Initiés fournisseur ≠ dirigeants stricts; transactions potentiellement partielles, jamais total net exhaustif par défaut. Options et attributions distinctes des achats au comptant."
     }
   ],
   "audit_couverture": {

@@ -22,29 +22,54 @@ def date_fr(s):
  raise ValueError('Date transaction non decodee')
 def parse(text,isin):
  if isin not in text:raise ValueError('ISIN absent ou divergent')
- flat=' '.join(text.split());x={}
- m=re.search(r'LEI\s*:\s*([A-Za-z0-9]{20})',flat)
+ flat=' '.join(text.split());result={};m=re.search(r'LEI\s*:\s*([A-Za-z0-9]{20})',flat)
  if m:
   lei=m[1].upper();expanded=''.join(str(ord(c)-55) if c.isalpha() else c for c in lei)
-  if int(expanded)%97==1:x['lei']=lei
- m=re.search(r'DATE DE LA TRANSACTION\s*:\s*(.*?)\s+LIEU DE LA TRANSACTION',flat)
- if not m:raise ValueError('Date transaction absente')
- x['date_transaction']=date_fr(m[1]);x['modification']=bool(re.search(r'NOTIFICATION INITIALE / MODIFICATION\s*:\s*Modification',flat,re.I))
- m=re.search(r'NATURE DE LA TRANSACTION\s*:\s*(.*?)\s+DESCRIPTION DE L.INSTRUMENT FINANCIER',flat)
- if not m:raise ValueError('Nature transaction absente')
- x['nature']=m[1].strip();m=re.search(r'DESCRIPTION DE L.INSTRUMENT FINANCIER\s*:\s*(.*?)\s+CODE D.IDENTIFICATION',flat)
- x['instrument']=m[1].strip() if m else None
- option=re.search(r"TRANSACTION LIEE A L.EXERCICE.*?PERFORMANCES\s*:\s*(OUI|NON)",flat,re.I);x['liee_options_attributions']=option[1].upper() if option else None
- if norm(x['nature']) not in ('acquisition','cession') or norm(x.get('instrument')) not in ('action','actions') or x['liee_options_attributions']=='OUI':x['statut']='EXCLUE_NON_ACHAT_VENTE_COMPTANT';return x
- if x['modification']:x['statut']='AMENDEMENT_A_RAPPROCHER';return x
- m=re.search(r'INFORMATIONS AGREGEES\s+PRIX\s*:\s*([0-9\s.,]+)\s+(Euro|EUR|USD|GBP|SEK|CAD)\s+VOLUME\s*:\s*([0-9\s.,]+)',flat,re.I)
- if not m:
-  m=re.search(r'PRIX UNITAIRE\s*:\s*([0-9\s.,]+)\s+(Euro|EUR|USD|GBP|SEK|CAD)\s+VOLUME\s*:\s*([0-9\s.,]+)',flat,re.I)
- if not m:raise ValueError('Prix/volume/devise non decodes')
- if len(re.findall(r'PRIX UNITAIRE\s*:',flat))>1:raise ValueError('Operations multiples a rapprocher manuellement')
- x.update(prix=money(m[1]),devise='EUR' if m[2].lower() in ('euro','eur') else m[2].upper(),volume=money(m[3]));x['valeur_nette']=x['prix']*x['volume']*(1 if norm(x['nature'])=='acquisition' else -1);x['statut']='OPERATION_DECLAREE_PARSEE'
- if x['liee_options_attributions'] is None:x['statut']='QUALIFICATION_COMPTANT_A_VERIFIER'
- return x
+  if int(expanded)%97==1:result['lei']=lei
+ modification=bool(re.search(r'NOTIFICATION INITIALE / MODIFICATION\s*:\s*Modification',flat,re.I))
+ parts=re.split(r'DETAIL DE LA TRANSACTION(?:\s+\d+)?',flat)[1:]
+ if not parts:raise ValueError('Detail de transaction absent')
+ trades=[]
+ for index,part in enumerate(parts):
+  x={'index_operation':index+1,'modification':modification}
+  m=re.search(r'DATE DE LA TRANSACTION\s*:\s*(.*?)\s+LIEU DE LA TRANSACTION',part)
+  if not m:raise ValueError('Date transaction absente')
+  x['date_transaction']=date_fr(m[1])
+  m=re.search(r'NATURE DE LA TRANSACTION\s*:\s*(.*?)\s+DESCRIPTION DE L.INSTRUMENT FINANCIER',part)
+  if not m:raise ValueError('Nature transaction absente')
+  x['nature']=m[1].strip();m=re.search(r'DESCRIPTION DE L.INSTRUMENT FINANCIER\s*:\s*(.*?)\s+(?:CODE D.IDENTIFICATION|INFORMATION DETAILLEE)',part)
+  if not m:raise ValueError('Instrument non decode; pas une exclusion')
+  x['instrument']=m[1].strip();option=re.search(r"TRANSACTION LIEE A L.EXERCICE.*?PERFORMANCES\s*:\s*(OUI|NON)",part,re.I);x['liee_options_attributions']=option[1].upper() if option else None
+  if norm(x['nature']) not in ('acquisition','cession') or not norm(x['instrument']).startswith('action'):
+   x['statut']='EXCLUE_NON_ACHAT_VENTE_COMPTANT';trades.append(x);continue
+  if modification:x['statut']='AMENDEMENT_A_RAPPROCHER';trades.append(x);continue
+  m=re.search(r'INFORMATIONS AGREGEES\s+PRIX\s*:\s*([0-9\s.,]+)\s+(Euro|EUR|USD|GBP|SEK|CAD)\s+VOLUME\s*:\s*([0-9\s.,]+)',part,re.I)
+  if not m:m=re.search(r'PRIX UNITAIRE\s*:\s*([0-9\s.,]+)\s+(Euro|EUR|USD|GBP|SEK|CAD)\s+VOLUME\s*:\s*([0-9\s.,]+)',part,re.I)
+  if not m:raise ValueError('Prix/volume/devise non decodes')
+  pairs=re.findall(r'PRIX UNITAIRE\s*:\s*([0-9\s.,]+)\s+(Euro|EUR|USD|GBP|SEK|CAD)\s+VOLUME\s*:\s*([0-9\s.,]+)',part,re.I)
+  if len(pairs)!=len(re.findall(r'PRIX UNITAIRE\s*:',part)):raise ValueError('Prix/volume elementaire manquant')
+  currencies={'EUR' if z[1].lower() in ('euro','eur') else z[1].upper() for z in pairs}
+  if len(currencies)!=1:raise ValueError('Devises multiples a rapprocher')
+  volumes=[money(z[2]) for z in pairs];amount=sum(money(z[0])*money(z[2]) for z in pairs);volume=sum(volumes)
+  if abs(volume-money(m[3]))>0.0001:raise ValueError('Volume agrege incoherent')
+  x.update(prix=money(m[1]),devise=next(iter(currencies)),volume=volume,operations_elementaires=[{'prix':money(z[0]),'volume':money(z[2])} for z in pairs])
+  x['valeur_nette']=round(amount*(1 if norm(x['nature'])=='acquisition' else -1),8);x['statut']='OPERATION_DECLAREE_PARSEE'
+  if x['prix']==0:x['statut']='EXCLUE_NON_ACHAT_VENTE_COMPTANT'
+  elif x['liee_options_attributions'] is None or (x['liee_options_attributions']=='OUI' and norm(x['nature'])=='acquisition'):x['statut']='QUALIFICATION_COMPTANT_A_VERIFIER'
+  trades.append(x)
+ result['transactions']=trades;result['statut']='DECLARATION_PARSEE' if all(x['statut'] in ('OPERATION_DECLAREE_PARSEE','EXCLUE_NON_ACHAT_VENTE_COMPTANT') for x in trades) else 'DECLARATION_PARTIELLE'
+ return result
+
+def aggregate(r):
+ if r.get('pagination_complete') is not True:raise ValueError('Couverture de registre non prouvee')
+ transactions=[dict(x,numero=rec['numero']) for rec in r['declarations'] for x in rec.get('transactions',[])]
+ for days in (90,180):
+  start=(dt.date.fromisoformat(DATE)-dt.timedelta(days=days)).isoformat();covered=[x for x in transactions if start<=x.get('date_transaction','')<=DATE]
+  unresolved=[rec for rec in r['declarations'] if rec.get('statut') not in ('DECLARATION_PARSEE','DECLARATION_PARTIELLE')]
+  errors=r['erreurs'] or unresolved or [x for x in covered if x['statut'] not in ('OPERATION_DECLAREE_PARSEE','EXCLUE_NON_ACHAT_VENTE_COMPTANT') or x.get('devise','EUR')!='EUR'];trades=[x for x in covered if x['statut']=='OPERATION_DECLAREE_PARSEE']
+  r['totaux'][str(days)]={'debut':start,'fin':DATE,'valeur':None if errors else round(sum(x['valeur_nette'] for x in trades),8),'unite':'EUR','nombre_transactions':len(trades),'statut':'INCOMPLET' if errors else 'DEPOTS_AMF_FENETRE_CONTROLEE','limite':'Achats moins ventes d’actions au comptant déclarés et publiés à la date de collecte; exercices/attributions/dons distingués. Cessions liées à des programmes signalées. Hors frais, produits des prix/volumes déclarés. Pas preuve d’absence de transactions non publiées.'}
+ return r
+
 def collect(d):
  t=d['ticker']
  if t in CACHE:return CACHE[t]
@@ -75,12 +100,34 @@ def collect(d):
     pdf=ARCH/(info['numero']+'.pdf');txt=pdf.with_suffix('.txt');pdf.write_bytes(raw);subprocess.run(['pdftotext','-layout',str(pdf),str(txt)],check=True,capture_output=True);text=txt.read_text();rec.update(http=http,sha256_pdf=hashlib.sha256(raw).hexdigest(),archive_pdf=str(pdf.relative_to(B)),**parse(text,r['isin']))
    except Exception as e:rec.update(statut='NON_PARSEE',erreur=type(e).__name__,http=getattr(e,'code',rec.get('http')));r['erreurs'].append(dict(numero=info['numero'],motif=type(e).__name__))
    r['declarations'].append(rec)
-  for days in (90,180):
-   start=(dt.date.fromisoformat(DATE)-dt.timedelta(days=days)).isoformat();covered=[x for x in r['declarations'] if start<=x.get('date_transaction','')<=DATE];errors=r['erreurs'] or [x for x in covered if x['statut'] not in ('OPERATION_DECLAREE_PARSEE','EXCLUE_NON_ACHAT_VENTE_COMPTANT') or x.get('devise','EUR')!='EUR'];trades=[x for x in covered if x['statut']=='OPERATION_DECLAREE_PARSEE'];r['totaux'][str(days)]={'debut':start,'fin':DATE,'valeur':None if errors else sum(x['valeur_nette'] for x in trades),'unite':'EUR','nombre_transactions':len(trades),'statut':'INCOMPLET' if errors else 'DEPOTS_AMF_FENETRE_CONTROLEE','limite':'Somme des achats moins ventes au comptant déclarés et publiés par l’AMF à la date de collecte, hors options/attributions/dons. Pas preuve de l’absence de transactions non publiées; prix agrégés déclarés, hors frais.'}
+  aggregate(r)
   r['statut']='RECHERCHE_REGISTRE_PRIMAIRE_EFFECTUEE'
  except Exception as e:r.update(statut='BLOQUE_ACCES_IDENTITE_OU_STRUCTURE',erreur=type(e).__name__,http=getattr(e,'code',None))
  return r
+def reaggregate():
+ rows=json.loads(OUT.read_text())
+ for r in rows:
+  if not r.get('pagination_complete'):continue
+  for rec in r['declarations']:
+   pdf=ARCH/(rec['numero']+'.pdf')
+   if pdf.exists() and pdf.read_bytes().startswith(b'%PDF'):
+    rec['archive_pdf']=str(pdf.relative_to(B));rec['sha256_pdf']=hashlib.sha256(pdf.read_bytes()).hexdigest()
+  errors=[x for x in r['erreurs'] if not any(z['numero']==x.get('numero') and z.get('archive_pdf') for z in r['declarations'])]
+  for i,rec in enumerate(r['declarations']):
+   if not rec.get('archive_pdf'):continue
+   base={k:v for k,v in rec.items() if k in ('numero','date_publication','url','http','sha256_pdf','archive_pdf')}
+   try:
+    pdf=B/rec['archive_pdf'];textpath=pdf.with_suffix('.txt')
+    if not textpath.exists():subprocess.run(['pdftotext','-layout',str(pdf),str(textpath)],check=True,capture_output=True)
+    base.update(parse(textpath.read_text(),r['isin']))
+   except Exception as e:base.update(statut='NON_PARSEE',erreur=type(e).__name__);errors.append(dict(numero=rec['numero'],motif=str(e)))
+   r['declarations'][i]=base
+  r['erreurs']=errors;aggregate(r)
+ OUT.write_text(json.dumps(rows,ensure_ascii=False,indent=2)+'\n');return rows
+
 if __name__=='__main__':
+ if '--reaggregate' in __import__('sys').argv:
+  rows=reaggregate();print(json.dumps([{'ticker':r['ticker'],'erreurs':len(r['erreurs']),'nets':{k:v['valeur'] for k,v in r['totaux'].items()}} for r in rows]));raise SystemExit(0)
  docs=sorted([json.loads(p.read_text()) for p in (B/'DOSSIERS_MCPA_IPS_40').glob('*.json') if json.loads(p.read_text())['ticker'].endswith('.PA')],key=lambda d:d['id_position']);assert len(docs)==14
  rows=[]
  with concurrent.futures.ThreadPoolExecutor(max_workers=3) as ex:

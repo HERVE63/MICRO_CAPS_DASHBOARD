@@ -1785,6 +1785,220 @@
       "statut": "SOURCE_SECONDAIRE_CONSENSUS_DATE",
       "commentaire": "BPA généralement ajusté; identité demandée par ticker dans URL API, pas validation primaire.",
       "date_collecte": "2026-11-05"
+    },
+    {
+      "bloc": "qualite",
+      "champ": "dirigeants_et_detentions_documentes",
+      "valeur": {
+        "dirigeants_declares_fournisseur": [
+          {
+            "name": "Mr. Amit  Bohensky",
+            "title": "Co-Founder, President & Chairman of the Board",
+            "yearBorn": 1973,
+            "fiscalYear": 2025,
+            "totalPay": {
+              "raw": 506665,
+              "fmt": "506.67k",
+              "longFmt": "506,665"
+            },
+            "exercisedValue": {
+              "raw": 0,
+              "fmt": null,
+              "longFmt": "0"
+            },
+            "unexercisedValue": {
+              "raw": 0,
+              "fmt": null,
+              "longFmt": "0"
+            }
+          },
+          {
+            "name": "Mr. Ido  Almany",
+            "title": "Chief Executive Officer",
+            "yearBorn": 1980,
+            "fiscalYear": 2025,
+            "totalPay": {
+              "raw": 878519,
+              "fmt": "878.52k",
+              "longFmt": "878,519"
+            },
+            "exercisedValue": {
+              "raw": 0,
+              "fmt": null,
+              "longFmt": "0"
+            },
+            "unexercisedValue": {
+              "raw": 0,
+              "fmt": null,
+              "longFmt": "0"
+            }
+          },
+          {
+            "name": "Mr. Tsvika  Adler",
+            "title": "Chief Financial Officer",
+            "yearBorn": 1980,
+            "fiscalYear": 2025,
+            "totalPay": {
+              "raw": 480988,
+              "fmt": "480.99k",
+              "longFmt": "480,988"
+            },
+            "exercisedValue": {
+              "raw": 0,
+              "fmt": null,
+              "longFmt": "0"
+            },
+            "unexercisedValue": {
+              "raw": 0,
+              "fmt": null,
+              "longFmt": "0"
+            }
+          },
+          {
+            "name": "Mr. Yair  Yaskerovitch",
+            "title": "Chief Operating Officer",
+            "yearBorn": 1977,
+            "fiscalYear": 2025,
+            "totalPay": {
+              "raw": 712017,
+              "fmt": "712.02k",
+              "longFmt": "712,017"
+            },
+            "exercisedValue": {
+              "raw": 0,
+              "fmt": null,
+              "longFmt": "0"
+            },
+            "unexercisedValue": {
+              "raw": 0,
+              "fmt": null,
+              "longFmt": "0"
+            }
+          },
+          {
+            "name": "Mr. Omri  Argaman",
+            "title": "Co-Founder, CMO & CGO",
+            "yearBorn": 1979,
+            "fiscalYear": 2025,
+            "totalPay": {
+              "raw": 453375,
+              "fmt": "453.38k",
+              "longFmt": "453,375"
+            },
+            "exercisedValue": {
+              "raw": 0,
+              "fmt": null,
+              "longFmt": "0"
+            },
+            "unexercisedValue": {
+              "raw": 0,
+              "fmt": null,
+              "longFmt": "0"
+            }
+          },
+          {
+            "name": "Mr. Niv  Sharoni",
+            "title": "Co-Founder & CTO",
+            "yearBorn": 1972,
+            "fiscalYear": 2025,
+            "totalPay": {
+              "raw": 613695,
+              "fmt": "613.7k",
+              "longFmt": "613,695"
+            },
+            "exercisedValue": {
+              "raw": 0,
+              "fmt": null,
+              "longFmt": "0"
+            },
+            "unexercisedValue": {
+              "raw": 0,
+              "fmt": null,
+              "longFmt": "0"
+            }
+          },
+          {
+            "name": "Mr. Sagi  Weinberg",
+            "title": "Sales Director",
+            "fiscalYear": 2025,
+            "exercisedValue": {
+              "raw": 0,
+              "fmt": null,
+              "longFmt": "0"
+            },
+            "unexercisedValue": {
+              "raw": 0,
+              "fmt": null,
+              "longFmt": "0"
+            }
+          },
+          {
+            "name": "Ms. Keren  Shlush",
+            "title": "Head of Marketing",
+            "fiscalYear": 2025,
+            "exercisedValue": {
+              "raw": 0,
+              "fmt": null,
+              "longFmt": "0"
+            },
+            "unexercisedValue": {
+              "raw": 0,
+              "fmt": null,
+              "longFmt": "0"
+            }
+          }
+        ],
+        "detentions_initiees": [
+          {
+            "maxAge": 1,
+            "name": "Cardey (Darryl)",
+            "relation": "10% Security Holder of Issuer",
+            "url": "",
+            "transactionDescription": "Redemption, retraction, cancelation, repurchase",
+            "latestTransDate": {
+              "raw": 1762473600,
+              "fmt": "2025-11-07"
+            },
+            "positionIndirect": {
+              "raw": 70000,
+              "fmt": "70k",
+              "longFmt": "70,000"
+            },
+            "positionIndirectDate": {
+              "raw": 1762473600,
+              "fmt": "2025-11-07"
+            }
+          },
+          {
+            "maxAge": 1,
+            "name": "Zoomd Technologies Ltd.",
+            "relation": "Issuer",
+            "url": "",
+            "transactionDescription": "Redemption, retraction, cancelation, repurchase",
+            "latestTransDate": {
+              "raw": 1788134400,
+              "fmt": "2026-08-31"
+            },
+            "positionDirect": {
+              "raw": 127000,
+              "fmt": "127k",
+              "longFmt": "127,000"
+            },
+            "positionDirectDate": {
+              "raw": 1788134400,
+              "fmt": "2026-08-31"
+            }
+          }
+        ],
+        "fichier_transactions_secondaires": "DONNEES/GOUVERNANCE_PUBLIQUE_40_20261105.json"
+      },
+      "unite": "detentions et profils professionnels",
+      "periode": "dates individuelles du fournisseur; collecte 2026-11-05",
+      "date_source": "2026-11-05",
+      "date_collecte": "2026-11-05",
+      "source_url": "https://query1.finance.yahoo.com/v10/finance/quoteSummary/ZOMD.V?modules=assetProfile,majorHoldersBreakdown,insiderHolders,insiderTransactions",
+      "statut": "SOURCE_SECONDAIRE_GOUVERNANCE_A_RAPPROCHER",
+      "commentaire": "Titres détenus séparés des options/attributions. Dates/fonctions de chaque ligne à contrôler : les anciens dirigeants peuvent subsister. Ne pas additionner les détentions directes et indirectes sans éliminer les doubles comptes. Pas de certification de couverture des transactions, ni note SSI déduite."
     }
   ],
   "journal_recherches": [
@@ -1970,6 +2184,14 @@
       "http": 200,
       "statut": "SOURCE_SECONDAIRE_CONSENSUS_DATE",
       "limite": "Échec ou champ absent ne prouve pas une indisponibilité définitive."
+    },
+    {
+      "famille": "gouvernance_et_detentions_Yahoo",
+      "date": "2026-11-05",
+      "url": "https://query1.finance.yahoo.com/v10/finance/quoteSummary/ZOMD.V?modules=assetProfile,majorHoldersBreakdown,insiderHolders,insiderTransactions",
+      "http": 200,
+      "statut": "SOURCE_SECONDAIRE_GOUVERNANCE_NON_RAPPROCHEE",
+      "limite": "Initiés fournisseur ≠ dirigeants stricts; transactions potentiellement partielles, jamais total net exhaustif par défaut. Options et attributions distinctes des achats au comptant."
     }
   ],
   "audit_couverture": {

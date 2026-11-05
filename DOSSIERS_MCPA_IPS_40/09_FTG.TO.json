@@ -1806,6 +1806,365 @@
       "statut": "SOURCE_SECONDAIRE_CONSENSUS_DATE",
       "commentaire": "BPA généralement ajusté; identité demandée par ticker dans URL API, pas validation primaire.",
       "date_collecte": "2026-11-05"
+    },
+    {
+      "bloc": "qualite",
+      "champ": "dirigeants_et_detentions_documentes",
+      "valeur": {
+        "dirigeants_declares_fournisseur": [
+          {
+            "name": "Mr. Bradley C. Bourne",
+            "title": "President, CEO & Director",
+            "yearBorn": 1959,
+            "fiscalYear": 2025,
+            "totalPay": {
+              "raw": 577039,
+              "fmt": "577.04k",
+              "longFmt": "577,039"
+            },
+            "exercisedValue": {
+              "raw": 0,
+              "fmt": null,
+              "longFmt": "0"
+            },
+            "unexercisedValue": {
+              "raw": 0,
+              "fmt": null,
+              "longFmt": "0"
+            }
+          },
+          {
+            "name": "Mr. R. Drew Knight CA, CPA",
+            "title": "CFO, Executive VP & Secretary",
+            "fiscalYear": 2025,
+            "totalPay": {
+              "raw": 49983,
+              "fmt": "49.98k",
+              "longFmt": "49,983"
+            },
+            "exercisedValue": {
+              "raw": 0,
+              "fmt": null,
+              "longFmt": "0"
+            },
+            "unexercisedValue": {
+              "raw": 0,
+              "fmt": null,
+              "longFmt": "0"
+            }
+          },
+          {
+            "name": "Mr. Bill  Sezate",
+            "title": "Executive Vice President of FTG Circuits",
+            "fiscalYear": 2025,
+            "totalPay": {
+              "raw": 342396,
+              "fmt": "342.4k",
+              "longFmt": "342,396"
+            },
+            "exercisedValue": {
+              "raw": 0,
+              "fmt": null,
+              "longFmt": "0"
+            },
+            "unexercisedValue": {
+              "raw": 0,
+              "fmt": null,
+              "longFmt": "0"
+            }
+          },
+          {
+            "name": "Mr. Marko  Viinikka",
+            "title": "Executive Vice President of FTG Aerospace",
+            "fiscalYear": 2025,
+            "totalPay": {
+              "raw": 196538,
+              "fmt": "196.54k",
+              "longFmt": "196,538"
+            },
+            "exercisedValue": {
+              "raw": 0,
+              "fmt": null,
+              "longFmt": "0"
+            },
+            "unexercisedValue": {
+              "raw": 0,
+              "fmt": null,
+              "longFmt": "0"
+            }
+          },
+          {
+            "name": "Mr. Hardeep S. Heer",
+            "title": "VP of Engineering & CTO",
+            "fiscalYear": 2025,
+            "totalPay": {
+              "raw": 270430,
+              "fmt": "270.43k",
+              "longFmt": "270,430"
+            },
+            "exercisedValue": {
+              "raw": 0,
+              "fmt": null,
+              "longFmt": "0"
+            },
+            "unexercisedValue": {
+              "raw": 0,
+              "fmt": null,
+              "longFmt": "0"
+            }
+          },
+          {
+            "name": "Mr. Andre  Khachatourians",
+            "title": "VP and GM of FTG Circuits & Aerospace - Chatsworth",
+            "fiscalYear": 2025,
+            "totalPay": {
+              "raw": 247194,
+              "fmt": "247.19k",
+              "longFmt": "247,194"
+            },
+            "exercisedValue": {
+              "raw": 0,
+              "fmt": null,
+              "longFmt": "0"
+            },
+            "unexercisedValue": {
+              "raw": 0,
+              "fmt": null,
+              "longFmt": "0"
+            }
+          },
+          {
+            "name": "Mr. Shawn  Thompson",
+            "title": "Vice President and General Manager of FTG Circuits & FTG Aerospace, Chatsworth",
+            "fiscalYear": 2025,
+            "totalPay": {
+              "raw": 419423,
+              "fmt": "419.42k",
+              "longFmt": "419,423"
+            },
+            "exercisedValue": {
+              "raw": 0,
+              "fmt": null,
+              "longFmt": "0"
+            },
+            "unexercisedValue": {
+              "raw": 0,
+              "fmt": null,
+              "longFmt": "0"
+            }
+          }
+        ],
+        "detentions_initiees": [
+          {
+            "maxAge": 1,
+            "name": "Andrade (Mike)",
+            "relation": "Director of Issuer",
+            "url": "",
+            "transactionDescription": "Acquisition or disposition in the public market",
+            "latestTransDate": {
+              "raw": 1793145600,
+              "fmt": "2026-10-28"
+            },
+            "positionDirect": {
+              "raw": 123000,
+              "fmt": "123k",
+              "longFmt": "123,000"
+            },
+            "positionDirectDate": {
+              "raw": 1793145600,
+              "fmt": "2026-10-28"
+            }
+          },
+          {
+            "maxAge": 1,
+            "name": "Bourne (Bradley Collier)",
+            "relation": "10% Security Holder of Issuer",
+            "url": "",
+            "transactionDescription": "Exercise of rights",
+            "latestTransDate": {
+              "raw": 1772150400,
+              "fmt": "2026-02-27"
+            },
+            "positionDirect": {
+              "raw": 2769266,
+              "fmt": "2.77M",
+              "longFmt": "2,769,266"
+            },
+            "positionDirectDate": {
+              "raw": 1772150400,
+              "fmt": "2026-02-27"
+            }
+          },
+          {
+            "maxAge": 1,
+            "name": "David (Russell)",
+            "relation": "Director of Issuer",
+            "url": "",
+            "transactionDescription": "Acquisition or disposition in the public market",
+            "latestTransDate": {
+              "raw": 1787875200,
+              "fmt": "2026-08-28"
+            },
+            "positionDirect": {
+              "raw": 6550,
+              "fmt": "6.55k",
+              "longFmt": "6,550"
+            },
+            "positionDirectDate": {
+              "raw": 1787875200,
+              "fmt": "2026-08-28"
+            }
+          },
+          {
+            "maxAge": 1,
+            "name": "Dimopoulos (Peter)",
+            "relation": "Senior Officer of Issuer",
+            "url": "",
+            "transactionDescription": "Acquisition or disposition in the public market",
+            "latestTransDate": {
+              "raw": 1772150400,
+              "fmt": "2026-02-27"
+            },
+            "positionDirect": {
+              "raw": 106448,
+              "fmt": "106.45k",
+              "longFmt": "106,448"
+            },
+            "positionDirectDate": {
+              "raw": 1772150400,
+              "fmt": "2026-02-27"
+            }
+          },
+          {
+            "maxAge": 1,
+            "name": "Heer (Hardeep Singh)",
+            "relation": "Senior Officer of Issuer",
+            "url": "",
+            "transactionDescription": "Acquisition or disposition in the public market",
+            "latestTransDate": {
+              "raw": 1792022400,
+              "fmt": "2026-10-15"
+            },
+            "positionDirect": {
+              "raw": 75000,
+              "fmt": "75k",
+              "longFmt": "75,000"
+            },
+            "positionDirectDate": {
+              "raw": 1792022400,
+              "fmt": "2026-10-15"
+            }
+          },
+          {
+            "maxAge": 1,
+            "name": "Knight (Raymond Drew)",
+            "relation": "Senior Officer of Issuer",
+            "url": "",
+            "transactionDescription": "Acquisition or disposition in the public market",
+            "latestTransDate": {
+              "raw": 1787529600,
+              "fmt": "2026-08-24"
+            },
+            "positionDirect": {
+              "raw": 7000,
+              "fmt": "7k",
+              "longFmt": "7,000"
+            },
+            "positionDirectDate": {
+              "raw": 1787529600,
+              "fmt": "2026-08-24"
+            }
+          },
+          {
+            "maxAge": 1,
+            "name": "Kuecker (Brandon)",
+            "relation": "Director or Senior Officer of Insider or Subsidiary of Issuer (other than in 4,5,6)",
+            "url": "",
+            "transactionDescription": "Acquisition or disposition in the public market",
+            "latestTransDate": {
+              "raw": 1792108800,
+              "fmt": "2026-10-16"
+            },
+            "positionDirect": {
+              "raw": 10986,
+              "fmt": "10.99k",
+              "longFmt": "10,986"
+            },
+            "positionDirectDate": {
+              "raw": 1792108800,
+              "fmt": "2026-10-16"
+            }
+          },
+          {
+            "maxAge": 1,
+            "name": "Sezate (Bill)",
+            "relation": "Senior Officer of Issuer",
+            "url": "",
+            "transactionDescription": "Acquisition or disposition in the public market",
+            "latestTransDate": {
+              "raw": 1775779200,
+              "fmt": "2026-04-10"
+            },
+            "positionDirect": {
+              "raw": 1925,
+              "fmt": "1.93k",
+              "longFmt": "1,925"
+            },
+            "positionDirectDate": {
+              "raw": 1775779200,
+              "fmt": "2026-04-10"
+            }
+          },
+          {
+            "maxAge": 1,
+            "name": "Talati (Hiteshkumar)",
+            "relation": "Senior Officer of Issuer",
+            "url": "",
+            "transactionDescription": "Exercise of rights",
+            "latestTransDate": {
+              "raw": 1772150400,
+              "fmt": "2026-02-27"
+            },
+            "positionDirect": {
+              "raw": 33458,
+              "fmt": "33.46k",
+              "longFmt": "33,458"
+            },
+            "positionDirectDate": {
+              "raw": 1772150400,
+              "fmt": "2026-02-27"
+            }
+          },
+          {
+            "maxAge": 1,
+            "name": "Wang (Zhouruiqi Ricky)",
+            "relation": "Senior Officer of Issuer",
+            "url": "",
+            "transactionDescription": "Exercise of rights",
+            "latestTransDate": {
+              "raw": 1772150400,
+              "fmt": "2026-02-27"
+            },
+            "positionDirect": {
+              "raw": 3630,
+              "fmt": "3.63k",
+              "longFmt": "3,630"
+            },
+            "positionDirectDate": {
+              "raw": 1772150400,
+              "fmt": "2026-02-27"
+            }
+          }
+        ],
+        "fichier_transactions_secondaires": "DONNEES/GOUVERNANCE_PUBLIQUE_40_20261105.json"
+      },
+      "unite": "detentions et profils professionnels",
+      "periode": "dates individuelles du fournisseur; collecte 2026-11-05",
+      "date_source": "2026-11-05",
+      "date_collecte": "2026-11-05",
+      "source_url": "https://query1.finance.yahoo.com/v10/finance/quoteSummary/FTG.TO?modules=assetProfile,majorHoldersBreakdown,insiderHolders,insiderTransactions",
+      "statut": "SOURCE_SECONDAIRE_GOUVERNANCE_A_RAPPROCHER",
+      "commentaire": "Titres détenus séparés des options/attributions. Dates/fonctions de chaque ligne à contrôler : les anciens dirigeants peuvent subsister. Ne pas additionner les détentions directes et indirectes sans éliminer les doubles comptes. Pas de certification de couverture des transactions, ni note SSI déduite."
     }
   ],
   "journal_recherches": [
@@ -2027,6 +2386,14 @@
       "http": 200,
       "statut": "SOURCE_SECONDAIRE_CONSENSUS_DATE",
       "limite": "Échec ou champ absent ne prouve pas une indisponibilité définitive."
+    },
+    {
+      "famille": "gouvernance_et_detentions_Yahoo",
+      "date": "2026-11-05",
+      "url": "https://query1.finance.yahoo.com/v10/finance/quoteSummary/FTG.TO?modules=assetProfile,majorHoldersBreakdown,insiderHolders,insiderTransactions",
+      "http": 200,
+      "statut": "SOURCE_SECONDAIRE_GOUVERNANCE_NON_RAPPROCHEE",
+      "limite": "Initiés fournisseur ≠ dirigeants stricts; transactions potentiellement partielles, jamais total net exhaustif par défaut. Options et attributions distinctes des achats au comptant."
     }
   ],
   "audit_couverture": {

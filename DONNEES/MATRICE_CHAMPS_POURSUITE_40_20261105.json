@@ -187,9 +187,9 @@
     "ticker": "IDN",
     "bloc": "qualite",
     "champ": "qualite_management",
-    "statut": "RECHERCHE_A_POURSUIVRE",
-    "motif": "Analyse MCPA/IPS argumentée encore nécessaire; ce champ ne doit pas être rempli par une statistique de fournisseur.",
-    "source": null
+    "statut": "RENSEIGNE",
+    "motif": "Appréciation documentaire, pas note de gouvernance ni certification indépendante.",
+    "source": "https://www.sec.gov/Archives/edgar/data/1040896/000104089626000012/idn-20260401.htm"
   },
   {
     "ticker": "IDN",
@@ -1051,9 +1051,9 @@
     "ticker": "INFU",
     "bloc": "qualite",
     "champ": "qualite_management",
-    "statut": "RECHERCHE_A_POURSUIVRE",
-    "motif": "Analyse MCPA/IPS argumentée encore nécessaire; ce champ ne doit pas être rempli par une statistique de fournisseur.",
-    "source": null
+    "statut": "RENSEIGNE",
+    "motif": "Appréciation documentaire, pas note de gouvernance ni certification indépendante.",
+    "source": "https://www.sec.gov/Archives/edgar/data/1337013/000162828026024635/infu-20260410.htm"
   },
   {
     "ticker": "INFU",
@@ -1915,9 +1915,9 @@
     "ticker": "OSS",
     "bloc": "qualite",
     "champ": "qualite_management",
-    "statut": "RECHERCHE_A_POURSUIVRE",
-    "motif": "Analyse MCPA/IPS argumentée encore nécessaire; ce champ ne doit pas être rempli par une statistique de fournisseur.",
-    "source": null
+    "statut": "RENSEIGNE",
+    "motif": "Appréciation documentaire, pas note de gouvernance ni certification indépendante.",
+    "source": "https://www.sec.gov/Archives/edgar/data/1394056/000119312526156058/oss-20260414.htm"
   },
   {
     "ticker": "OSS",
@@ -2995,9 +2995,9 @@
     "ticker": "CXDO",
     "bloc": "croissance",
     "champ": "catalyseurs_dates",
-    "statut": "RECHERCHE_A_POURSUIVRE",
-    "motif": "Aucune valeur vérifiée importée à cette étape; les recherches tracées ne démontrent pas une indisponibilité définitive.",
-    "source": null
+    "statut": "RENSEIGNE",
+    "motif": "Appréciation documentaire, pas note de gouvernance ni certification indépendante.",
+    "source": "https://www.sec.gov/Archives/edgar/data/1075736/000165495426009040/cxdo_def14a.htm"
   },
   {
     "ticker": "CXDO",
@@ -3099,9 +3099,9 @@
     "ticker": "CXDO",
     "bloc": "risque",
     "champ": "risque_gouvernance",
-    "statut": "RECHERCHE_A_POURSUIVRE",
-    "motif": "Aucune valeur vérifiée importée à cette étape; les recherches tracées ne démontrent pas une indisponibilité définitive.",
-    "source": null
+    "statut": "RENSEIGNE",
+    "motif": "Appréciation documentaire, pas note de gouvernance ni certification indépendante.",
+    "source": "https://www.sec.gov/Archives/edgar/data/1075736/000165495426009040/cxdo_def14a.htm"
   },
   {
     "ticker": "CXDO",
@@ -5195,9 +5195,9 @@
     "ticker": "ALSTI.PA",
     "bloc": "identite",
     "champ": "lei",
-    "statut": "RECHERCHE_A_POURSUIVRE",
-    "motif": "Aucune valeur vérifiée importée à cette étape; les recherches tracées ne démontrent pas une indisponibilité définitive.",
-    "source": null
+    "statut": "RENSEIGNE",
+    "motif": "Identifiant déclaré, ISIN contrôlé dans le même document et checksum LEI mod-97 valide; statut courant du registre GLEIF non vérifié.",
+    "source": "https://bdif.amf-france.org/back/api/v1/documents/2026/2026DD1123581/5A873E245DC57FEB722039274D4108DD1F447A08883DCACFAFF9FF9D36DD832C.pdf"
   },
   {
     "ticker": "ALSTI.PA",
@@ -5715,17 +5715,17 @@
     "ticker": "ALSTI.PA",
     "bloc": "risque",
     "champ": "transactions_initiees_net_90j",
-    "statut": "RECHERCHE_A_POURSUIVRE",
-    "motif": "Registre complet des transactions, codes et prix non validé sur toute la fenêtre; transaction isolée ≠ net exhaustif.",
-    "source": null
+    "statut": "RENSEIGNE",
+    "motif": "Achats moins ventes d’actions au comptant déclarés et publiés à la date de collecte; exercices/attributions/dons distingués. Cessions liées à des programmes signalées. Hors frais, produits des prix/volumes déclarés. Pas preuve d’absence de transactions non publiées. Source détaillée et PDF archivés : DONNEES/DECLARATIONS_AMF_14_20261105.json. Un zéro décrit le net des déclarations couvertes; il ne certifie pas une absence de transactions réelles.",
+    "source": "https://bdif.amf-france.org/back/api/v1/informations?Jetons=RS00007968&TypesInformation=DD&DateDebut=2026-01-01T00%3A00%3A00.000Z&DateFin=2026-11-05T23%3A59%3A59.000Z&From=0&Size=100"
   },
   {
     "ticker": "ALSTI.PA",
     "bloc": "risque",
     "champ": "transactions_initiees_net_180j",
-    "statut": "RECHERCHE_A_POURSUIVRE",
-    "motif": "Registre complet des transactions, codes et prix non validé sur toute la fenêtre; transaction isolée ≠ net exhaustif.",
-    "source": null
+    "statut": "RENSEIGNE",
+    "motif": "Achats moins ventes d’actions au comptant déclarés et publiés à la date de collecte; exercices/attributions/dons distingués. Cessions liées à des programmes signalées. Hors frais, produits des prix/volumes déclarés. Pas preuve d’absence de transactions non publiées. Source détaillée et PDF archivés : DONNEES/DECLARATIONS_AMF_14_20261105.json. Un zéro décrit le net des déclarations couvertes; il ne certifie pas une absence de transactions réelles.",
+    "source": "https://bdif.amf-france.org/back/api/v1/informations?Jetons=RS00007968&TypesInformation=DD&DateDebut=2026-01-01T00%3A00%3A00.000Z&DateFin=2026-11-05T23%3A59%3A59.000Z&From=0&Size=100"
   },
   {
     "ticker": "ALSTI.PA",
@@ -6579,17 +6579,17 @@
     "ticker": "MEMS.PA",
     "bloc": "risque",
     "champ": "transactions_initiees_net_90j",
-    "statut": "RECHERCHE_A_POURSUIVRE",
-    "motif": "Registre complet des transactions, codes et prix non validé sur toute la fenêtre; transaction isolée ≠ net exhaustif.",
-    "source": null
+    "statut": "RENSEIGNE",
+    "motif": "Achats moins ventes d’actions au comptant déclarés et publiés à la date de collecte; exercices/attributions/dons distingués. Cessions liées à des programmes signalées. Hors frais, produits des prix/volumes déclarés. Pas preuve d’absence de transactions non publiées. Source détaillée et PDF archivés : DONNEES/DECLARATIONS_AMF_14_20261105.json. Un zéro décrit le net des déclarations couvertes; il ne certifie pas une absence de transactions réelles.",
+    "source": "https://bdif.amf-france.org/back/api/v1/informations?Jetons=RS00003548&TypesInformation=DD&DateDebut=2026-01-01T00%3A00%3A00.000Z&DateFin=2026-11-05T23%3A59%3A59.000Z&From=0&Size=100"
   },
   {
     "ticker": "MEMS.PA",
     "bloc": "risque",
     "champ": "transactions_initiees_net_180j",
-    "statut": "RECHERCHE_A_POURSUIVRE",
-    "motif": "Registre complet des transactions, codes et prix non validé sur toute la fenêtre; transaction isolée ≠ net exhaustif.",
-    "source": null
+    "statut": "RENSEIGNE",
+    "motif": "Achats moins ventes d’actions au comptant déclarés et publiés à la date de collecte; exercices/attributions/dons distingués. Cessions liées à des programmes signalées. Hors frais, produits des prix/volumes déclarés. Pas preuve d’absence de transactions non publiées. Source détaillée et PDF archivés : DONNEES/DECLARATIONS_AMF_14_20261105.json. Un zéro décrit le net des déclarations couvertes; il ne certifie pas une absence de transactions réelles.",
+    "source": "https://bdif.amf-france.org/back/api/v1/informations?Jetons=RS00003548&TypesInformation=DD&DateDebut=2026-01-01T00%3A00%3A00.000Z&DateFin=2026-11-05T23%3A59%3A59.000Z&From=0&Size=100"
   },
   {
     "ticker": "MEMS.PA",
@@ -13835,9 +13835,9 @@
     "ticker": "ALICA.PA",
     "bloc": "identite",
     "champ": "lei",
-    "statut": "RECHERCHE_A_POURSUIVRE",
-    "motif": "Aucune valeur vérifiée importée à cette étape; les recherches tracées ne démontrent pas une indisponibilité définitive.",
-    "source": null
+    "statut": "RENSEIGNE",
+    "motif": "Identifiant déclaré, ISIN contrôlé dans le même document et checksum LEI mod-97 valide; statut courant du registre GLEIF non vérifié.",
+    "source": "https://bdif.amf-france.org/back/api/v1/documents/2026/2026DD1144856/42302F5DF01AA19EBE9F4783C16DE3169C4817036015EEF85AB5B22CB7379B35.pdf"
   },
   {
     "ticker": "ALICA.PA",
@@ -14355,17 +14355,17 @@
     "ticker": "ALICA.PA",
     "bloc": "risque",
     "champ": "transactions_initiees_net_90j",
-    "statut": "RECHERCHE_A_POURSUIVRE",
-    "motif": "Registre complet des transactions, codes et prix non validé sur toute la fenêtre; transaction isolée ≠ net exhaustif.",
-    "source": null
+    "statut": "RENSEIGNE",
+    "motif": "Achats moins ventes d’actions au comptant déclarés et publiés à la date de collecte; exercices/attributions/dons distingués. Cessions liées à des programmes signalées. Hors frais, produits des prix/volumes déclarés. Pas preuve d’absence de transactions non publiées. Source détaillée et PDF archivés : DONNEES/DECLARATIONS_AMF_14_20261105.json. Un zéro décrit le net des déclarations couvertes; il ne certifie pas une absence de transactions réelles.",
+    "source": "https://bdif.amf-france.org/back/api/v1/informations?Jetons=RS00007629&TypesInformation=DD&DateDebut=2026-01-01T00%3A00%3A00.000Z&DateFin=2026-11-05T23%3A59%3A59.000Z&From=0&Size=100"
   },
   {
     "ticker": "ALICA.PA",
     "bloc": "risque",
     "champ": "transactions_initiees_net_180j",
-    "statut": "RECHERCHE_A_POURSUIVRE",
-    "motif": "Registre complet des transactions, codes et prix non validé sur toute la fenêtre; transaction isolée ≠ net exhaustif.",
-    "source": null
+    "statut": "RENSEIGNE",
+    "motif": "Achats moins ventes d’actions au comptant déclarés et publiés à la date de collecte; exercices/attributions/dons distingués. Cessions liées à des programmes signalées. Hors frais, produits des prix/volumes déclarés. Pas preuve d’absence de transactions non publiées. Source détaillée et PDF archivés : DONNEES/DECLARATIONS_AMF_14_20261105.json. Un zéro décrit le net des déclarations couvertes; il ne certifie pas une absence de transactions réelles.",
+    "source": "https://bdif.amf-france.org/back/api/v1/informations?Jetons=RS00007629&TypesInformation=DD&DateDebut=2026-01-01T00%3A00%3A00.000Z&DateFin=2026-11-05T23%3A59%3A59.000Z&From=0&Size=100"
   },
   {
     "ticker": "ALICA.PA",
@@ -21611,9 +21611,9 @@
     "ticker": "ALBFR.PA",
     "bloc": "identite",
     "champ": "lei",
-    "statut": "RECHERCHE_A_POURSUIVRE",
-    "motif": "Aucune valeur vérifiée importée à cette étape; les recherches tracées ne démontrent pas une indisponibilité définitive.",
-    "source": null
+    "statut": "RENSEIGNE",
+    "motif": "Identifiant déclaré, ISIN contrôlé dans le même document et checksum LEI mod-97 valide; statut courant du registre GLEIF non vérifié.",
+    "source": "https://bdif.amf-france.org/back/api/v1/documents/2026/2026DD1147909/8F8BABC1B074301D0A352E33C8659BA9DF5086A72ED415C4DBD7605A281D2B63.pdf"
   },
   {
     "ticker": "ALBFR.PA",
@@ -22131,17 +22131,17 @@
     "ticker": "ALBFR.PA",
     "bloc": "risque",
     "champ": "transactions_initiees_net_90j",
-    "statut": "RECHERCHE_A_POURSUIVRE",
-    "motif": "Registre complet des transactions, codes et prix non validé sur toute la fenêtre; transaction isolée ≠ net exhaustif.",
-    "source": null
+    "statut": "RENSEIGNE",
+    "motif": "Achats moins ventes d’actions au comptant déclarés et publiés à la date de collecte; exercices/attributions/dons distingués. Cessions liées à des programmes signalées. Hors frais, produits des prix/volumes déclarés. Pas preuve d’absence de transactions non publiées. Source détaillée et PDF archivés : DONNEES/DECLARATIONS_AMF_14_20261105.json. Un zéro décrit le net des déclarations couvertes; il ne certifie pas une absence de transactions réelles.",
+    "source": "https://bdif.amf-france.org/back/api/v1/informations?Jetons=RS00004219&TypesInformation=DD&DateDebut=2026-01-01T00%3A00%3A00.000Z&DateFin=2026-11-05T23%3A59%3A59.000Z&From=0&Size=100"
   },
   {
     "ticker": "ALBFR.PA",
     "bloc": "risque",
     "champ": "transactions_initiees_net_180j",
-    "statut": "RECHERCHE_A_POURSUIVRE",
-    "motif": "Registre complet des transactions, codes et prix non validé sur toute la fenêtre; transaction isolée ≠ net exhaustif.",
-    "source": null
+    "statut": "RENSEIGNE",
+    "motif": "Achats moins ventes d’actions au comptant déclarés et publiés à la date de collecte; exercices/attributions/dons distingués. Cessions liées à des programmes signalées. Hors frais, produits des prix/volumes déclarés. Pas preuve d’absence de transactions non publiées. Source détaillée et PDF archivés : DONNEES/DECLARATIONS_AMF_14_20261105.json. Un zéro décrit le net des déclarations couvertes; il ne certifie pas une absence de transactions réelles.",
+    "source": "https://bdif.amf-france.org/back/api/v1/informations?Jetons=RS00004219&TypesInformation=DD&DateDebut=2026-01-01T00%3A00%3A00.000Z&DateFin=2026-11-05T23%3A59%3A59.000Z&From=0&Size=100"
   },
   {
     "ticker": "ALBFR.PA",
@@ -26451,17 +26451,17 @@
     "ticker": "ALBPK.PA",
     "bloc": "risque",
     "champ": "transactions_initiees_net_90j",
-    "statut": "RECHERCHE_A_POURSUIVRE",
-    "motif": "Registre complet des transactions, codes et prix non validé sur toute la fenêtre; transaction isolée ≠ net exhaustif.",
-    "source": null
+    "statut": "RENSEIGNE",
+    "motif": "Achats moins ventes d’actions au comptant déclarés et publiés à la date de collecte; exercices/attributions/dons distingués. Cessions liées à des programmes signalées. Hors frais, produits des prix/volumes déclarés. Pas preuve d’absence de transactions non publiées. Source détaillée et PDF archivés : DONNEES/DECLARATIONS_AMF_14_20261105.json. Un zéro décrit le net des déclarations couvertes; il ne certifie pas une absence de transactions réelles.",
+    "source": "https://bdif.amf-france.org/back/api/v1/informations?Jetons=RS00007639&TypesInformation=DD&DateDebut=2026-01-01T00%3A00%3A00.000Z&DateFin=2026-11-05T23%3A59%3A59.000Z&From=0&Size=100"
   },
   {
     "ticker": "ALBPK.PA",
     "bloc": "risque",
     "champ": "transactions_initiees_net_180j",
-    "statut": "RECHERCHE_A_POURSUIVRE",
-    "motif": "Registre complet des transactions, codes et prix non validé sur toute la fenêtre; transaction isolée ≠ net exhaustif.",
-    "source": null
+    "statut": "RENSEIGNE",
+    "motif": "Achats moins ventes d’actions au comptant déclarés et publiés à la date de collecte; exercices/attributions/dons distingués. Cessions liées à des programmes signalées. Hors frais, produits des prix/volumes déclarés. Pas preuve d’absence de transactions non publiées. Source détaillée et PDF archivés : DONNEES/DECLARATIONS_AMF_14_20261105.json. Un zéro décrit le net des déclarations couvertes; il ne certifie pas une absence de transactions réelles.",
+    "source": "https://bdif.amf-france.org/back/api/v1/informations?Jetons=RS00007639&TypesInformation=DD&DateDebut=2026-01-01T00%3A00%3A00.000Z&DateFin=2026-11-05T23%3A59%3A59.000Z&From=0&Size=100"
   },
   {
     "ticker": "ALBPK.PA",
@@ -26795,9 +26795,9 @@
     "ticker": "ALESE.PA",
     "bloc": "identite",
     "champ": "lei",
-    "statut": "RECHERCHE_A_POURSUIVRE",
-    "motif": "Aucune valeur vérifiée importée à cette étape; les recherches tracées ne démontrent pas une indisponibilité définitive.",
-    "source": null
+    "statut": "RENSEIGNE",
+    "motif": "Identifiant déclaré, ISIN contrôlé dans le même document et checksum LEI mod-97 valide; statut courant du registre GLEIF non vérifié.",
+    "source": "https://bdif.amf-france.org/back/api/v1/documents/2026/2026DD1089952/CC292FFA7D665358034537141AEE8644957B4458B0CAF4D079FFCCD6D55475A8.pdf"
   },
   {
     "ticker": "ALESE.PA",
@@ -27315,17 +27315,17 @@
     "ticker": "ALESE.PA",
     "bloc": "risque",
     "champ": "transactions_initiees_net_90j",
-    "statut": "RECHERCHE_A_POURSUIVRE",
-    "motif": "Registre complet des transactions, codes et prix non validé sur toute la fenêtre; transaction isolée ≠ net exhaustif.",
-    "source": null
+    "statut": "RENSEIGNE",
+    "motif": "Achats moins ventes d’actions au comptant déclarés et publiés à la date de collecte; exercices/attributions/dons distingués. Cessions liées à des programmes signalées. Hors frais, produits des prix/volumes déclarés. Pas preuve d’absence de transactions non publiées. Source détaillée et PDF archivés : DONNEES/DECLARATIONS_AMF_14_20261105.json. Un zéro décrit le net des déclarations couvertes; il ne certifie pas une absence de transactions réelles.",
+    "source": "https://bdif.amf-france.org/back/api/v1/informations?Jetons=RS00007357&TypesInformation=DD&DateDebut=2026-01-01T00%3A00%3A00.000Z&DateFin=2026-11-05T23%3A59%3A59.000Z&From=0&Size=100"
   },
   {
     "ticker": "ALESE.PA",
     "bloc": "risque",
     "champ": "transactions_initiees_net_180j",
-    "statut": "RECHERCHE_A_POURSUIVRE",
-    "motif": "Registre complet des transactions, codes et prix non validé sur toute la fenêtre; transaction isolée ≠ net exhaustif.",
-    "source": null
+    "statut": "RENSEIGNE",
+    "motif": "Achats moins ventes d’actions au comptant déclarés et publiés à la date de collecte; exercices/attributions/dons distingués. Cessions liées à des programmes signalées. Hors frais, produits des prix/volumes déclarés. Pas preuve d’absence de transactions non publiées. Source détaillée et PDF archivés : DONNEES/DECLARATIONS_AMF_14_20261105.json. Un zéro décrit le net des déclarations couvertes; il ne certifie pas une absence de transactions réelles.",
+    "source": "https://bdif.amf-france.org/back/api/v1/informations?Jetons=RS00007357&TypesInformation=DD&DateDebut=2026-01-01T00%3A00%3A00.000Z&DateFin=2026-11-05T23%3A59%3A59.000Z&From=0&Size=100"
   },
   {
     "ticker": "ALESE.PA",
@@ -28179,17 +28179,17 @@
     "ticker": "ALDMS.PA",
     "bloc": "risque",
     "champ": "transactions_initiees_net_90j",
-    "statut": "RECHERCHE_A_POURSUIVRE",
-    "motif": "Registre complet des transactions, codes et prix non validé sur toute la fenêtre; transaction isolée ≠ net exhaustif.",
-    "source": null
+    "statut": "RENSEIGNE",
+    "motif": "Achats moins ventes d’actions au comptant déclarés et publiés à la date de collecte; exercices/attributions/dons distingués. Cessions liées à des programmes signalées. Hors frais, produits des prix/volumes déclarés. Pas preuve d’absence de transactions non publiées. Source détaillée et PDF archivés : DONNEES/DECLARATIONS_AMF_14_20261105.json. Un zéro décrit le net des déclarations couvertes; il ne certifie pas une absence de transactions réelles.",
+    "source": "https://bdif.amf-france.org/back/api/v1/informations?Jetons=RS00003489&TypesInformation=DD&DateDebut=2026-01-01T00%3A00%3A00.000Z&DateFin=2026-11-05T23%3A59%3A59.000Z&From=0&Size=100"
   },
   {
     "ticker": "ALDMS.PA",
     "bloc": "risque",
     "champ": "transactions_initiees_net_180j",
-    "statut": "RECHERCHE_A_POURSUIVRE",
-    "motif": "Registre complet des transactions, codes et prix non validé sur toute la fenêtre; transaction isolée ≠ net exhaustif.",
-    "source": null
+    "statut": "RENSEIGNE",
+    "motif": "Achats moins ventes d’actions au comptant déclarés et publiés à la date de collecte; exercices/attributions/dons distingués. Cessions liées à des programmes signalées. Hors frais, produits des prix/volumes déclarés. Pas preuve d’absence de transactions non publiées. Source détaillée et PDF archivés : DONNEES/DECLARATIONS_AMF_14_20261105.json. Un zéro décrit le net des déclarations couvertes; il ne certifie pas une absence de transactions réelles.",
+    "source": "https://bdif.amf-france.org/back/api/v1/informations?Jetons=RS00003489&TypesInformation=DD&DateDebut=2026-01-01T00%3A00%3A00.000Z&DateFin=2026-11-05T23%3A59%3A59.000Z&From=0&Size=100"
   },
   {
     "ticker": "ALDMS.PA",
@@ -28523,9 +28523,9 @@
     "ticker": "ALSTW.PA",
     "bloc": "identite",
     "champ": "lei",
-    "statut": "RECHERCHE_A_POURSUIVRE",
-    "motif": "Aucune valeur vérifiée importée à cette étape; les recherches tracées ne démontrent pas une indisponibilité définitive.",
-    "source": null
+    "statut": "RENSEIGNE",
+    "motif": "Identifiant déclaré, ISIN contrôlé dans le même document et checksum LEI mod-97 valide; statut courant du registre GLEIF non vérifié.",
+    "source": "https://bdif.amf-france.org/back/api/v1/documents/2026/2026DD1129178/4ECBBBAC98DD203F3CE9BB0496F74ECB80378DF1AEF5B93CDE0D5926F8D3A719.pdf"
   },
   {
     "ticker": "ALSTW.PA",
@@ -29043,17 +29043,17 @@
     "ticker": "ALSTW.PA",
     "bloc": "risque",
     "champ": "transactions_initiees_net_90j",
-    "statut": "RECHERCHE_A_POURSUIVRE",
-    "motif": "Registre complet des transactions, codes et prix non validé sur toute la fenêtre; transaction isolée ≠ net exhaustif.",
-    "source": null
+    "statut": "RENSEIGNE",
+    "motif": "Achats moins ventes d’actions au comptant déclarés et publiés à la date de collecte; exercices/attributions/dons distingués. Cessions liées à des programmes signalées. Hors frais, produits des prix/volumes déclarés. Pas preuve d’absence de transactions non publiées. Source détaillée et PDF archivés : DONNEES/DECLARATIONS_AMF_14_20261105.json. Un zéro décrit le net des déclarations couvertes; il ne certifie pas une absence de transactions réelles.",
+    "source": "https://bdif.amf-france.org/back/api/v1/informations?Jetons=RS00004690&TypesInformation=DD&DateDebut=2026-01-01T00%3A00%3A00.000Z&DateFin=2026-11-05T23%3A59%3A59.000Z&From=0&Size=100"
   },
   {
     "ticker": "ALSTW.PA",
     "bloc": "risque",
     "champ": "transactions_initiees_net_180j",
-    "statut": "RECHERCHE_A_POURSUIVRE",
-    "motif": "Registre complet des transactions, codes et prix non validé sur toute la fenêtre; transaction isolée ≠ net exhaustif.",
-    "source": null
+    "statut": "RENSEIGNE",
+    "motif": "Achats moins ventes d’actions au comptant déclarés et publiés à la date de collecte; exercices/attributions/dons distingués. Cessions liées à des programmes signalées. Hors frais, produits des prix/volumes déclarés. Pas preuve d’absence de transactions non publiées. Source détaillée et PDF archivés : DONNEES/DECLARATIONS_AMF_14_20261105.json. Un zéro décrit le net des déclarations couvertes; il ne certifie pas une absence de transactions réelles.",
+    "source": "https://bdif.amf-france.org/back/api/v1/informations?Jetons=RS00004690&TypesInformation=DD&DateDebut=2026-01-01T00%3A00%3A00.000Z&DateFin=2026-11-05T23%3A59%3A59.000Z&From=0&Size=100"
   },
   {
     "ticker": "ALSTW.PA",
@@ -29907,17 +29907,17 @@
     "ticker": "ALSOG.PA",
     "bloc": "risque",
     "champ": "transactions_initiees_net_90j",
-    "statut": "RECHERCHE_A_POURSUIVRE",
-    "motif": "Registre complet des transactions, codes et prix non validé sur toute la fenêtre; transaction isolée ≠ net exhaustif.",
-    "source": null
+    "statut": "RENSEIGNE",
+    "motif": "Achats moins ventes d’actions au comptant déclarés et publiés à la date de collecte; exercices/attributions/dons distingués. Cessions liées à des programmes signalées. Hors frais, produits des prix/volumes déclarés. Pas preuve d’absence de transactions non publiées. Source détaillée et PDF archivés : DONNEES/DECLARATIONS_AMF_14_20261105.json. Un zéro décrit le net des déclarations couvertes; il ne certifie pas une absence de transactions réelles.",
+    "source": "https://bdif.amf-france.org/back/api/v1/informations?Jetons=RS00003419&TypesInformation=DD&DateDebut=2026-01-01T00%3A00%3A00.000Z&DateFin=2026-11-05T23%3A59%3A59.000Z&From=0&Size=100"
   },
   {
     "ticker": "ALSOG.PA",
     "bloc": "risque",
     "champ": "transactions_initiees_net_180j",
-    "statut": "RECHERCHE_A_POURSUIVRE",
-    "motif": "Registre complet des transactions, codes et prix non validé sur toute la fenêtre; transaction isolée ≠ net exhaustif.",
-    "source": null
+    "statut": "RENSEIGNE",
+    "motif": "Achats moins ventes d’actions au comptant déclarés et publiés à la date de collecte; exercices/attributions/dons distingués. Cessions liées à des programmes signalées. Hors frais, produits des prix/volumes déclarés. Pas preuve d’absence de transactions non publiées. Source détaillée et PDF archivés : DONNEES/DECLARATIONS_AMF_14_20261105.json. Un zéro décrit le net des déclarations couvertes; il ne certifie pas une absence de transactions réelles.",
+    "source": "https://bdif.amf-france.org/back/api/v1/informations?Jetons=RS00003419&TypesInformation=DD&DateDebut=2026-01-01T00%3A00%3A00.000Z&DateFin=2026-11-05T23%3A59%3A59.000Z&From=0&Size=100"
   },
   {
     "ticker": "ALSOG.PA",
@@ -30251,9 +30251,9 @@
     "ticker": "ALMCE.PA",
     "bloc": "identite",
     "champ": "lei",
-    "statut": "RECHERCHE_A_POURSUIVRE",
-    "motif": "Aucune valeur vérifiée importée à cette étape; les recherches tracées ne démontrent pas une indisponibilité définitive.",
-    "source": null
+    "statut": "RENSEIGNE",
+    "motif": "Identifiant déclaré, ISIN contrôlé dans le même document et checksum LEI mod-97 valide; statut courant du registre GLEIF non vérifié.",
+    "source": "https://bdif.amf-france.org/back/api/v1/documents/2026/2026DD1119302/17AD56065B08D227E393E7444D277C3F64D14D59D41461A7107D357D2A67319B.pdf"
   },
   {
     "ticker": "ALMCE.PA",
@@ -30771,17 +30771,17 @@
     "ticker": "ALMCE.PA",
     "bloc": "risque",
     "champ": "transactions_initiees_net_90j",
-    "statut": "RECHERCHE_A_POURSUIVRE",
-    "motif": "Registre complet des transactions, codes et prix non validé sur toute la fenêtre; transaction isolée ≠ net exhaustif.",
-    "source": null
+    "statut": "RENSEIGNE",
+    "motif": "Achats moins ventes d’actions au comptant déclarés et publiés à la date de collecte; exercices/attributions/dons distingués. Cessions liées à des programmes signalées. Hors frais, produits des prix/volumes déclarés. Pas preuve d’absence de transactions non publiées. Source détaillée et PDF archivés : DONNEES/DECLARATIONS_AMF_14_20261105.json. Un zéro décrit le net des déclarations couvertes; il ne certifie pas une absence de transactions réelles.",
+    "source": "https://bdif.amf-france.org/back/api/v1/informations?Jetons=RS00007856&TypesInformation=DD&DateDebut=2026-01-01T00%3A00%3A00.000Z&DateFin=2026-11-05T23%3A59%3A59.000Z&From=0&Size=100"
   },
   {
     "ticker": "ALMCE.PA",
     "bloc": "risque",
     "champ": "transactions_initiees_net_180j",
-    "statut": "RECHERCHE_A_POURSUIVRE",
-    "motif": "Registre complet des transactions, codes et prix non validé sur toute la fenêtre; transaction isolée ≠ net exhaustif.",
-    "source": null
+    "statut": "RENSEIGNE",
+    "motif": "Achats moins ventes d’actions au comptant déclarés et publiés à la date de collecte; exercices/attributions/dons distingués. Cessions liées à des programmes signalées. Hors frais, produits des prix/volumes déclarés. Pas preuve d’absence de transactions non publiées. Source détaillée et PDF archivés : DONNEES/DECLARATIONS_AMF_14_20261105.json. Un zéro décrit le net des déclarations couvertes; il ne certifie pas une absence de transactions réelles.",
+    "source": "https://bdif.amf-france.org/back/api/v1/informations?Jetons=RS00007856&TypesInformation=DD&DateDebut=2026-01-01T00%3A00%3A00.000Z&DateFin=2026-11-05T23%3A59%3A59.000Z&From=0&Size=100"
   },
   {
     "ticker": "ALMCE.PA",
@@ -31115,9 +31115,9 @@
     "ticker": "AL2SI.PA",
     "bloc": "identite",
     "champ": "lei",
-    "statut": "RECHERCHE_A_POURSUIVRE",
-    "motif": "Aucune valeur vérifiée importée à cette étape; les recherches tracées ne démontrent pas une indisponibilité définitive.",
-    "source": null
+    "statut": "RENSEIGNE",
+    "motif": "Identifiant déclaré, ISIN contrôlé dans le même document et checksum LEI mod-97 valide; statut courant du registre GLEIF non vérifié.",
+    "source": "https://bdif.amf-france.org/back/api/v1/documents/2026/2026DD1122600/3BF5C0BBE8E8F297031E87744C6C987B80D1C2C41B5E90245003467AA65B14C5.pdf"
   },
   {
     "ticker": "AL2SI.PA",
@@ -31635,17 +31635,17 @@
     "ticker": "AL2SI.PA",
     "bloc": "risque",
     "champ": "transactions_initiees_net_90j",
-    "statut": "RECHERCHE_A_POURSUIVRE",
-    "motif": "Registre complet des transactions, codes et prix non validé sur toute la fenêtre; transaction isolée ≠ net exhaustif.",
-    "source": null
+    "statut": "RENSEIGNE",
+    "motif": "Achats moins ventes d’actions au comptant déclarés et publiés à la date de collecte; exercices/attributions/dons distingués. Cessions liées à des programmes signalées. Hors frais, produits des prix/volumes déclarés. Pas preuve d’absence de transactions non publiées. Source détaillée et PDF archivés : DONNEES/DECLARATIONS_AMF_14_20261105.json. Un zéro décrit le net des déclarations couvertes; il ne certifie pas une absence de transactions réelles.",
+    "source": "https://bdif.amf-france.org/back/api/v1/informations?Jetons=RS00006601&TypesInformation=DD&DateDebut=2026-01-01T00%3A00%3A00.000Z&DateFin=2026-11-05T23%3A59%3A59.000Z&From=0&Size=100"
   },
   {
     "ticker": "AL2SI.PA",
     "bloc": "risque",
     "champ": "transactions_initiees_net_180j",
-    "statut": "RECHERCHE_A_POURSUIVRE",
-    "motif": "Registre complet des transactions, codes et prix non validé sur toute la fenêtre; transaction isolée ≠ net exhaustif.",
-    "source": null
+    "statut": "RENSEIGNE",
+    "motif": "Achats moins ventes d’actions au comptant déclarés et publiés à la date de collecte; exercices/attributions/dons distingués. Cessions liées à des programmes signalées. Hors frais, produits des prix/volumes déclarés. Pas preuve d’absence de transactions non publiées. Source détaillée et PDF archivés : DONNEES/DECLARATIONS_AMF_14_20261105.json. Un zéro décrit le net des déclarations couvertes; il ne certifie pas une absence de transactions réelles.",
+    "source": "https://bdif.amf-france.org/back/api/v1/informations?Jetons=RS00006601&TypesInformation=DD&DateDebut=2026-01-01T00%3A00%3A00.000Z&DateFin=2026-11-05T23%3A59%3A59.000Z&From=0&Size=100"
   },
   {
     "ticker": "AL2SI.PA",
@@ -31979,9 +31979,9 @@
     "ticker": "ALLIX.PA",
     "bloc": "identite",
     "champ": "lei",
-    "statut": "RECHERCHE_A_POURSUIVRE",
-    "motif": "Aucune valeur vérifiée importée à cette étape; les recherches tracées ne démontrent pas une indisponibilité définitive.",
-    "source": null
+    "statut": "RENSEIGNE",
+    "motif": "Identifiant déclaré, ISIN contrôlé dans le même document et checksum LEI mod-97 valide; statut courant du registre GLEIF non vérifié.",
+    "source": "https://bdif.amf-france.org/back/api/v1/documents/2026/2026DD1117678/58CAC8ECE2A175E2FF20F27AC2DE892D6DD8C4B6C4DB50FD90005AD8809FEBE7.pdf"
   },
   {
     "ticker": "ALLIX.PA",
@@ -32499,17 +32499,17 @@
     "ticker": "ALLIX.PA",
     "bloc": "risque",
     "champ": "transactions_initiees_net_90j",
-    "statut": "RECHERCHE_A_POURSUIVRE",
-    "motif": "Registre complet des transactions, codes et prix non validé sur toute la fenêtre; transaction isolée ≠ net exhaustif.",
-    "source": null
+    "statut": "RENSEIGNE",
+    "motif": "Achats moins ventes d’actions au comptant déclarés et publiés à la date de collecte; exercices/attributions/dons distingués. Cessions liées à des programmes signalées. Hors frais, produits des prix/volumes déclarés. Pas preuve d’absence de transactions non publiées. Source détaillée et PDF archivés : DONNEES/DECLARATIONS_AMF_14_20261105.json. Un zéro décrit le net des déclarations couvertes; il ne certifie pas une absence de transactions réelles.",
+    "source": "https://bdif.amf-france.org/back/api/v1/informations?Jetons=RS00006015&TypesInformation=DD&DateDebut=2026-01-01T00%3A00%3A00.000Z&DateFin=2026-11-05T23%3A59%3A59.000Z&From=0&Size=100"
   },
   {
     "ticker": "ALLIX.PA",
     "bloc": "risque",
     "champ": "transactions_initiees_net_180j",
-    "statut": "RECHERCHE_A_POURSUIVRE",
-    "motif": "Registre complet des transactions, codes et prix non validé sur toute la fenêtre; transaction isolée ≠ net exhaustif.",
-    "source": null
+    "statut": "RENSEIGNE",
+    "motif": "Achats moins ventes d’actions au comptant déclarés et publiés à la date de collecte; exercices/attributions/dons distingués. Cessions liées à des programmes signalées. Hors frais, produits des prix/volumes déclarés. Pas preuve d’absence de transactions non publiées. Source détaillée et PDF archivés : DONNEES/DECLARATIONS_AMF_14_20261105.json. Un zéro décrit le net des déclarations couvertes; il ne certifie pas une absence de transactions réelles.",
+    "source": "https://bdif.amf-france.org/back/api/v1/informations?Jetons=RS00006015&TypesInformation=DD&DateDebut=2026-01-01T00%3A00%3A00.000Z&DateFin=2026-11-05T23%3A59%3A59.000Z&From=0&Size=100"
   },
   {
     "ticker": "ALLIX.PA",
@@ -33363,17 +33363,17 @@
     "ticker": "ALCUR.PA",
     "bloc": "risque",
     "champ": "transactions_initiees_net_90j",
-    "statut": "RECHERCHE_A_POURSUIVRE",
-    "motif": "Registre complet des transactions, codes et prix non validé sur toute la fenêtre; transaction isolée ≠ net exhaustif.",
-    "source": null
+    "statut": "RENSEIGNE",
+    "motif": "Achats moins ventes d’actions au comptant déclarés et publiés à la date de collecte; exercices/attributions/dons distingués. Cessions liées à des programmes signalées. Hors frais, produits des prix/volumes déclarés. Pas preuve d’absence de transactions non publiées. Source détaillée et PDF archivés : DONNEES/DECLARATIONS_AMF_14_20261105.json. Un zéro décrit le net des déclarations couvertes; il ne certifie pas une absence de transactions réelles.",
+    "source": "https://bdif.amf-france.org/back/api/v1/informations?Jetons=RS00006711&TypesInformation=DD&DateDebut=2026-01-01T00%3A00%3A00.000Z&DateFin=2026-11-05T23%3A59%3A59.000Z&From=0&Size=100"
   },
   {
     "ticker": "ALCUR.PA",
     "bloc": "risque",
     "champ": "transactions_initiees_net_180j",
-    "statut": "RECHERCHE_A_POURSUIVRE",
-    "motif": "Registre complet des transactions, codes et prix non validé sur toute la fenêtre; transaction isolée ≠ net exhaustif.",
-    "source": null
+    "statut": "RENSEIGNE",
+    "motif": "Achats moins ventes d’actions au comptant déclarés et publiés à la date de collecte; exercices/attributions/dons distingués. Cessions liées à des programmes signalées. Hors frais, produits des prix/volumes déclarés. Pas preuve d’absence de transactions non publiées. Source détaillée et PDF archivés : DONNEES/DECLARATIONS_AMF_14_20261105.json. Un zéro décrit le net des déclarations couvertes; il ne certifie pas une absence de transactions réelles.",
+    "source": "https://bdif.amf-france.org/back/api/v1/informations?Jetons=RS00006711&TypesInformation=DD&DateDebut=2026-01-01T00%3A00%3A00.000Z&DateFin=2026-11-05T23%3A59%3A59.000Z&From=0&Size=100"
   },
   {
     "ticker": "ALCUR.PA",
@@ -33707,9 +33707,9 @@
     "ticker": "ALIEV.PA",
     "bloc": "identite",
     "champ": "lei",
-    "statut": "RECHERCHE_A_POURSUIVRE",
-    "motif": "Aucune valeur vérifiée importée à cette étape; les recherches tracées ne démontrent pas une indisponibilité définitive.",
-    "source": null
+    "statut": "RENSEIGNE",
+    "motif": "Identifiant déclaré, ISIN contrôlé dans le même document et checksum LEI mod-97 valide; statut courant du registre GLEIF non vérifié.",
+    "source": "https://bdif.amf-france.org/back/api/v1/documents/2026/2026DD1116192/F798D322654BDA92E1BC995F93D67F568D6C3503EFD7FB1C2E679221EB60F7C5.pdf"
   },
   {
     "ticker": "ALIEV.PA",
@@ -34227,17 +34227,17 @@
     "ticker": "ALIEV.PA",
     "bloc": "risque",
     "champ": "transactions_initiees_net_90j",
-    "statut": "RECHERCHE_A_POURSUIVRE",
-    "motif": "Registre complet des transactions, codes et prix non validé sur toute la fenêtre; transaction isolée ≠ net exhaustif.",
-    "source": null
+    "statut": "RENSEIGNE",
+    "motif": "Achats moins ventes d’actions au comptant déclarés et publiés à la date de collecte; exercices/attributions/dons distingués. Cessions liées à des programmes signalées. Hors frais, produits des prix/volumes déclarés. Pas preuve d’absence de transactions non publiées. Source détaillée et PDF archivés : DONNEES/DECLARATIONS_AMF_14_20261105.json. Un zéro décrit le net des déclarations couvertes; il ne certifie pas une absence de transactions réelles.",
+    "source": "https://bdif.amf-france.org/back/api/v1/informations?Jetons=RS00008533&TypesInformation=DD&DateDebut=2026-01-01T00%3A00%3A00.000Z&DateFin=2026-11-05T23%3A59%3A59.000Z&From=0&Size=100"
   },
   {
     "ticker": "ALIEV.PA",
     "bloc": "risque",
     "champ": "transactions_initiees_net_180j",
-    "statut": "RECHERCHE_A_POURSUIVRE",
-    "motif": "Registre complet des transactions, codes et prix non validé sur toute la fenêtre; transaction isolée ≠ net exhaustif.",
-    "source": null
+    "statut": "RENSEIGNE",
+    "motif": "Achats moins ventes d’actions au comptant déclarés et publiés à la date de collecte; exercices/attributions/dons distingués. Cessions liées à des programmes signalées. Hors frais, produits des prix/volumes déclarés. Pas preuve d’absence de transactions non publiées. Source détaillée et PDF archivés : DONNEES/DECLARATIONS_AMF_14_20261105.json. Un zéro décrit le net des déclarations couvertes; il ne certifie pas une absence de transactions réelles.",
+    "source": "https://bdif.amf-france.org/back/api/v1/informations?Jetons=RS00008533&TypesInformation=DD&DateDebut=2026-01-01T00%3A00%3A00.000Z&DateFin=2026-11-05T23%3A59%3A59.000Z&From=0&Size=100"
   },
   {
     "ticker": "ALIEV.PA",
