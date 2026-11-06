@@ -24,7 +24,13 @@ def raw(url,session=False):
 
 def collect(d,crumb):
  t=d['ticker'];r={'ticker':t,'date_collecte':DATE}
- if t in CACHE:return CACHE[t]
+ # Reutiliser uniquement les observations abouties; retenter les erreurs du jour.
+ # Une réponse 403/429 ou une session Yahoo absente ne doit pas figer les 40 fiches.
+ if t in CACHE:
+  previous=CACHE[t]
+  requested=[v for k,v in previous.items() if k in ('series_annuelles','valorisation_historique','revisions')]
+  if requested and all(str(v.get('statut','')).startswith('SOURCE_SECONDAIRE') for v in requested):
+   return previous
  targets=[tag for k,tag in [('croissance_ebitda_pct','annualEBITDA'),('croissance_bpa_pct','annualDilutedEPS'),('croissance_fcf_pct','annualFreeCashFlow')] if d['blocs']['croissance'][k]['valeur'] is None and d['blocs']['croissance'][k]['statut']!='NON_APPLICABLE']
  if targets:
   url='https://query1.finance.yahoo.com/ws/fundamentals-timeseries/v1/finance/timeseries/'+urllib.parse.quote(t)+'?'+urllib.parse.urlencode({'type':','.join(targets),'period1':1640995200,'period2':int(dt.datetime.now(dt.timezone.utc).timestamp())})
