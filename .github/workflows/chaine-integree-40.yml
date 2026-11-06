@@ -52,13 +52,15 @@ jobs:
         run: python -B SCRIPTS_ACTIFS/10G_COLLECTE_COMPLEMENTS_PUBLICS_40.py
       - name: Enrichir les fiches avec les preuves de marche et publications
         run: python -B SCRIPTS_ACTIFS/09T_ENRICHIR_FICHES_MCPA_40.py
+      - name: Importer les complements publics dates dans les champs vides
+        run: python -B SCRIPTS_ACTIFS/10H_IMPORTER_COMPLEMENTS_PUBLICS_40.py
       - name: Valider les 40 fiches et preparer la revue MCPA IPS
         run: python -B SCRIPTS_ACTIFS/09S_ADAPTATEUR_FICHES_MCPA_40.py
       - name: Sauvegarder les 40 fiches enrichies dans la branche de travail
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add DOSSIERS_MCPA_IPS_40/ DONNEES/AUDIT_ENRICHISSEMENT_40.csv DONNEES/AUDIT_DOSSIERS_MCPA_IPS_40.csv DONNEES/FICHES_MCPA_IPS_ELIGIBLES_40.csv DONNEES/COMPLEMENTS_PUBLICS_40_*.json
+          git add DOSSIERS_MCPA_IPS_40/ DONNEES/AUDIT_ENRICHISSEMENT_40.csv DONNEES/AUDIT_DOSSIERS_MCPA_IPS_40.csv DONNEES/FICHES_MCPA_IPS_ELIGIBLES_40.csv DONNEES/COMPLEMENTS_PUBLICS_40_*.json DONNEES/COUVERTURE_POURSUITE_40_20261105.csv DONNEES/MATRICE_CHAMPS_POURSUITE_40_20261105.json
           if ! git diff --cached --quiet; then
             git commit -m "data: persist 40 MCPA dossier evidence [skip ci]"
             git push origin HEAD:repair/microcaps-chain-20261030
@@ -91,6 +93,8 @@ jobs:
             DONNEES/FICHES_MCPA_IPS_ELIGIBLES_40.csv
             DONNEES/AUDIT_ENRICHISSEMENT_40.csv
             DONNEES/COMPLEMENTS_PUBLICS_40_*.json
+            DONNEES/COUVERTURE_POURSUITE_40_20261105.csv
+            DONNEES/MATRICE_CHAMPS_POURSUITE_40_20261105.json
             DOSSIERS_MCPA_IPS_40/*.json
             DONNEES/CONTROLE_REVUE_HEBDOMADAIRE_MCPA_IPS.csv
             DONNEES/DUELS_PROCHAIN_EURO.csv
