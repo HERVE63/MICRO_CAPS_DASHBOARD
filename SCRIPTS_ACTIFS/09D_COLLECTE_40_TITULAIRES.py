@@ -121,7 +121,7 @@ def collecter():
                 cours_response = requests.get(
                     "https://eodhd.com/api/eod/" + ticker_eodhd,
                     params={"api_token": api, "fmt": "json",
-                            "from": (datetime.now(timezone.utc) - timedelta(days=21)).date().isoformat()},
+                            "from": (datetime.now(timezone.utc) - timedelta(days=420)).date().isoformat()},
                     timeout=25,
                 )
                 row["HTTP_cours"] = cours_response.status_code
