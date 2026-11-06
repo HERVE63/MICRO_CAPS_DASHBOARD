@@ -621,13 +621,13 @@
         "valeur": null,
         "unite": "sans objet",
         "periode": "consensus annuel clos au 2026-12-31",
-        "date_source": "2026-11-05",
+        "date_source": "2026-11-06",
         "source_url": "https://query1.finance.yahoo.com/v10/finance/quoteSummary/GROW.MI?modules=earningsTrend",
         "statut": "NON_APPLICABLE",
         "commentaire": "Consensus Yahoo pour un même exercice : BPA actuel -0.077, BPA à J-30 -0.08, devise EUR. Variation (actuel/antérieur -1). Pas une révision d’objectif de cours; instantanés de consensus secondaires à rapprocher. Base antérieure non positive : pourcentage non interprétable selon cette convention.",
-        "date_collecte": "2026-11-05",
+        "date_collecte": "2026-11-06",
         "recherche": {
-          "date": "2026-11-05",
+          "date": "2026-11-06",
           "statut": "NON_APPLICABLE",
           "motif": "Consensus Yahoo pour un même exercice : BPA actuel -0.077, BPA à J-30 -0.08, devise EUR. Variation (actuel/antérieur -1). Pas une révision d’objectif de cours; instantanés de consensus secondaires à rapprocher. Base antérieure non positive : pourcentage non interprétable selon cette convention.",
           "journal": "journal_recherches"
@@ -637,13 +637,13 @@
         "valeur": null,
         "unite": "sans objet",
         "periode": "consensus annuel clos au 2026-12-31",
-        "date_source": "2026-11-05",
+        "date_source": "2026-11-06",
         "source_url": "https://query1.finance.yahoo.com/v10/finance/quoteSummary/GROW.MI?modules=earningsTrend",
         "statut": "NON_APPLICABLE",
         "commentaire": "Consensus Yahoo pour un même exercice : BPA actuel -0.077, BPA à J-90 -0.08, devise EUR. Variation (actuel/antérieur -1). Pas une révision d’objectif de cours; instantanés de consensus secondaires à rapprocher. Base antérieure non positive : pourcentage non interprétable selon cette convention.",
-        "date_collecte": "2026-11-05",
+        "date_collecte": "2026-11-06",
         "recherche": {
-          "date": "2026-11-05",
+          "date": "2026-11-06",
           "statut": "NON_APPLICABLE",
           "motif": "Consensus Yahoo pour un même exercice : BPA actuel -0.077, BPA à J-90 -0.08, devise EUR. Variation (actuel/antérieur -1). Pas une révision d’objectif de cours; instantanés de consensus secondaires à rapprocher. Base antérieure non positive : pourcentage non interprétable selon cette convention.",
           "journal": "journal_recherches"
@@ -1996,6 +1996,364 @@
           }
         ]
       }
+    },
+    {
+      "url": "https://query1.finance.yahoo.com/v10/finance/quoteSummary/GROW.MI?modules=earningsTrend",
+      "indicateur": "revisions",
+      "valeur": null,
+      "unite": null,
+      "periode": "2026-11-06",
+      "date_collecte": "2026-11-06",
+      "statut": "A_VERIFIER_AVANT_NOTATION",
+      "sha256_reponse": "3267d7c1c80e76c321670d754624b69e5dd11f11fe14c5ab28594f3012bb558e",
+      "donnees_brutes": {
+        "tendances": [
+          {
+            "maxAge": 1,
+            "period": "0q",
+            "endDate": null,
+            "growth": {},
+            "earningsEstimate": {
+              "avg": {},
+              "low": {},
+              "high": {},
+              "yearAgoEps": {},
+              "numberOfAnalysts": {},
+              "growth": {},
+              "earningsCurrency": null
+            },
+            "revenueEstimate": {
+              "avg": {
+                "raw": 0,
+                "fmt": null,
+                "longFmt": "0"
+              },
+              "low": {
+                "raw": 0,
+                "fmt": null,
+                "longFmt": "0"
+              },
+              "high": {
+                "raw": 0,
+                "fmt": null,
+                "longFmt": "0"
+              },
+              "numberOfAnalysts": {
+                "raw": 0,
+                "fmt": null,
+                "longFmt": "0"
+              },
+              "yearAgoRevenue": {},
+              "growth": {},
+              "revenueCurrency": null
+            },
+            "epsTrend": {
+              "current": {},
+              "7daysAgo": {},
+              "30daysAgo": {},
+              "60daysAgo": {},
+              "90daysAgo": {},
+              "epsTrendCurrency": null
+            },
+            "epsRevisions": {
+              "upLast7days": {},
+              "upLast30days": {},
+              "downLast30days": {},
+              "downLast7Days": {},
+              "downLast90days": {},
+              "epsRevisionsCurrency": null
+            }
+          },
+          {
+            "maxAge": 1,
+            "period": "+1q",
+            "endDate": null,
+            "growth": {},
+            "earningsEstimate": {
+              "avg": {},
+              "low": {},
+              "high": {},
+              "yearAgoEps": {},
+              "numberOfAnalysts": {},
+              "growth": {},
+              "earningsCurrency": null
+            },
+            "revenueEstimate": {
+              "avg": {
+                "raw": 0,
+                "fmt": null,
+                "longFmt": "0"
+              },
+              "low": {
+                "raw": 0,
+                "fmt": null,
+                "longFmt": "0"
+              },
+              "high": {
+                "raw": 0,
+                "fmt": null,
+                "longFmt": "0"
+              },
+              "numberOfAnalysts": {
+                "raw": 0,
+                "fmt": null,
+                "longFmt": "0"
+              },
+              "yearAgoRevenue": {},
+              "growth": {},
+              "revenueCurrency": null
+            },
+            "epsTrend": {
+              "current": {},
+              "7daysAgo": {},
+              "30daysAgo": {},
+              "60daysAgo": {},
+              "90daysAgo": {},
+              "epsTrendCurrency": null
+            },
+            "epsRevisions": {
+              "upLast7days": {},
+              "upLast30days": {},
+              "downLast30days": {},
+              "downLast7Days": {},
+              "downLast90days": {},
+              "epsRevisionsCurrency": null
+            }
+          },
+          {
+            "maxAge": 1,
+            "period": "0y",
+            "endDate": "2026-12-31",
+            "growth": {
+              "raw": 0.4745,
+              "fmt": "47.45%"
+            },
+            "earningsEstimate": {
+              "avg": {
+                "raw": -0.077,
+                "fmt": "-0.08"
+              },
+              "low": {
+                "raw": -0.077,
+                "fmt": "-0.08"
+              },
+              "high": {
+                "raw": -0.077,
+                "fmt": "-0.08"
+              },
+              "yearAgoEps": {
+                "raw": -0.14652,
+                "fmt": "-0.15"
+              },
+              "numberOfAnalysts": {
+                "raw": 1,
+                "fmt": "1",
+                "longFmt": "1"
+              },
+              "growth": {
+                "raw": 0.4745,
+                "fmt": "47.45%"
+              },
+              "earningsCurrency": "EUR"
+            },
+            "revenueEstimate": {
+              "avg": {
+                "raw": 77320000,
+                "fmt": "77.32M",
+                "longFmt": "77,320,000"
+              },
+              "low": {
+                "raw": 77320000,
+                "fmt": "77.32M",
+                "longFmt": "77,320,000"
+              },
+              "high": {
+                "raw": 77320000,
+                "fmt": "77.32M",
+                "longFmt": "77,320,000"
+              },
+              "numberOfAnalysts": {
+                "raw": 1,
+                "fmt": "1",
+                "longFmt": "1"
+              },
+              "yearAgoRevenue": {
+                "raw": 77429040,
+                "fmt": "77.43M",
+                "longFmt": "77,429,040"
+              },
+              "growth": {
+                "raw": -0.0014,
+                "fmt": "-0.14%"
+              },
+              "revenueCurrency": "EUR"
+            },
+            "epsTrend": {
+              "current": {
+                "raw": -0.077,
+                "fmt": "-0.08"
+              },
+              "7daysAgo": {
+                "raw": -0.08,
+                "fmt": "-0.08"
+              },
+              "30daysAgo": {
+                "raw": -0.08,
+                "fmt": "-0.08"
+              },
+              "60daysAgo": {
+                "raw": -0.08,
+                "fmt": "-0.08"
+              },
+              "90daysAgo": {
+                "raw": -0.08,
+                "fmt": "-0.08"
+              },
+              "epsTrendCurrency": "EUR"
+            },
+            "epsRevisions": {
+              "upLast7days": {
+                "raw": 1,
+                "fmt": "1",
+                "longFmt": "1"
+              },
+              "upLast30days": {
+                "raw": 1,
+                "fmt": "1",
+                "longFmt": "1"
+              },
+              "downLast30days": {
+                "raw": 0,
+                "fmt": null,
+                "longFmt": "0"
+              },
+              "downLast7Days": {
+                "raw": 0,
+                "fmt": null,
+                "longFmt": "0"
+              },
+              "downLast90days": {},
+              "epsRevisionsCurrency": "EUR"
+            }
+          },
+          {
+            "maxAge": 1,
+            "period": "+1y",
+            "endDate": "2027-12-31",
+            "growth": {
+              "raw": 0.064899996,
+              "fmt": "6.49%"
+            },
+            "earningsEstimate": {
+              "avg": {
+                "raw": -0.072,
+                "fmt": "-0.07"
+              },
+              "low": {
+                "raw": -0.072,
+                "fmt": "-0.07"
+              },
+              "high": {
+                "raw": -0.072,
+                "fmt": "-0.07"
+              },
+              "yearAgoEps": {
+                "raw": -0.077,
+                "fmt": "-0.08"
+              },
+              "numberOfAnalysts": {
+                "raw": 1,
+                "fmt": "1",
+                "longFmt": "1"
+              },
+              "growth": {
+                "raw": 0.064899996,
+                "fmt": "6.49%"
+              },
+              "earningsCurrency": "EUR"
+            },
+            "revenueEstimate": {
+              "avg": {
+                "raw": 79840000,
+                "fmt": "79.84M",
+                "longFmt": "79,840,000"
+              },
+              "low": {
+                "raw": 79840000,
+                "fmt": "79.84M",
+                "longFmt": "79,840,000"
+              },
+              "high": {
+                "raw": 79840000,
+                "fmt": "79.84M",
+                "longFmt": "79,840,000"
+              },
+              "numberOfAnalysts": {
+                "raw": 1,
+                "fmt": "1",
+                "longFmt": "1"
+              },
+              "yearAgoRevenue": {
+                "raw": 77320000,
+                "fmt": "77.32M",
+                "longFmt": "77,320,000"
+              },
+              "growth": {
+                "raw": 0.0326,
+                "fmt": "3.26%"
+              },
+              "revenueCurrency": "EUR"
+            },
+            "epsTrend": {
+              "current": {
+                "raw": -0.072,
+                "fmt": "-0.07"
+              },
+              "7daysAgo": {
+                "raw": -0.07,
+                "fmt": "-0.07"
+              },
+              "30daysAgo": {
+                "raw": -0.07,
+                "fmt": "-0.07"
+              },
+              "60daysAgo": {
+                "raw": -0.07,
+                "fmt": "-0.07"
+              },
+              "90daysAgo": {
+                "raw": -0.07,
+                "fmt": "-0.07"
+              },
+              "epsTrendCurrency": "EUR"
+            },
+            "epsRevisions": {
+              "upLast7days": {
+                "raw": 1,
+                "fmt": "1",
+                "longFmt": "1"
+              },
+              "upLast30days": {
+                "raw": 1,
+                "fmt": "1",
+                "longFmt": "1"
+              },
+              "downLast30days": {
+                "raw": 0,
+                "fmt": null,
+                "longFmt": "0"
+              },
+              "downLast7Days": {
+                "raw": 0,
+                "fmt": null,
+                "longFmt": "0"
+              },
+              "downLast90days": {},
+              "epsRevisionsCurrency": "EUR"
+            }
+          }
+        ]
+      }
     }
   ],
   "anomalies": [],
@@ -2377,6 +2735,24 @@
       "statut": "SOURCE_PRIMAIRE_PAGE_NON_DATEE",
       "commentaire": "Détentions via sociétés personnelles distinctes des droits futurs. État de page potentiellement ancien; autodétention différente du fournisseur 2026, ne pas remplacer ce dernier sans réconciliation.",
       "date_collecte": "2026-11-05"
+    },
+    {
+      "bloc": "croissance",
+      "champ": "instantanes_consensus_bpa",
+      "valeur": {
+        "exercice": "2026-12-31",
+        "courant": -0.077,
+        "J_30": -0.08,
+        "J_90": -0.08,
+        "nombre_analystes": 1
+      },
+      "unite": "EUR/action",
+      "periode": "consensus annuel clos au 2026-12-31",
+      "date_source": "2026-11-06",
+      "source_url": "https://query1.finance.yahoo.com/v10/finance/quoteSummary/GROW.MI?modules=earningsTrend",
+      "statut": "SOURCE_SECONDAIRE_CONSENSUS_DATE",
+      "commentaire": "BPA généralement ajusté; identité demandée par ticker dans URL API, pas validation primaire.",
+      "date_collecte": "2026-11-06"
     }
   ],
   "journal_recherches": [
@@ -2590,10 +2966,18 @@
       "http": 200,
       "statut": "SOURCE_SECONDAIRE_GOUVERNANCE_NON_RAPPROCHEE",
       "limite": "Initiés fournisseur ≠ dirigeants stricts; transactions potentiellement partielles, jamais total net exhaustif par défaut. Options et attributions distinctes des achats au comptant."
+    },
+    {
+      "famille": "complement_public_revisions",
+      "date": "2026-11-06",
+      "url": "https://query1.finance.yahoo.com/v10/finance/quoteSummary/GROW.MI?modules=earningsTrend",
+      "http": 200,
+      "statut": "SOURCE_SECONDAIRE_CONSENSUS_DATE",
+      "limite": "Échec ou champ absent ne prouve pas une indisponibilité définitive."
     }
   ],
   "audit_couverture": {
-    "date": "2026-11-05",
+    "date": "2026-11-06",
     "champs_total": 108,
     "champs_renseignes": 47,
     "couverture_pct": 43.52,
@@ -2666,7 +3050,7 @@
     "cours_date_limite": "2026-11-03"
   },
   "audit_poursuite": {
-    "date": "2026-11-05",
+    "date": "2026-11-06",
     "comptage": {
       "RENSEIGNE": 47,
       "NON_APPLICABLE": 10,

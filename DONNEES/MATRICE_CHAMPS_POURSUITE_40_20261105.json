@@ -31443,9 +31443,9 @@
     "ticker": "AL2SI.PA",
     "bloc": "croissance",
     "champ": "croissance_fcf_pct",
-    "statut": "RECHERCHE_A_POURSUIVRE",
-    "motif": "Aucune valeur vérifiée importée à cette étape; les recherches tracées ne démontrent pas une indisponibilité définitive.",
-    "source": null
+    "statut": "RENSEIGNE",
+    "motif": "Yahoo annualFreeCashFlow; devise commune EUR. Arrêté aligné sur dernier exercice connu; source secondaire non rapprochée.",
+    "source": "https://query1.finance.yahoo.com/ws/fundamentals-timeseries/v1/finance/timeseries/AL2SI.PA?type=annualEBITDA%2CannualDilutedEPS%2CannualFreeCashFlow&period1=1640995200&period2=1793926071"
   },
   {
     "ticker": "AL2SI.PA",

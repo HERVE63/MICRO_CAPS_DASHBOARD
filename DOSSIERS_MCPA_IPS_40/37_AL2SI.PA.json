@@ -514,19 +514,14 @@
         }
       },
       "croissance_fcf_pct": {
-        "valeur": null,
-        "unite": null,
-        "periode": null,
-        "date_source": null,
-        "source_url": null,
-        "statut": "A_COLLECTER",
-        "commentaire": null,
-        "recherche": {
-          "date": "2026-11-04",
-          "statut": "MANQUANT_RECHERCHE_NON_CLOSE",
-          "motif": "Aucune valeur vérifiée importée à cette étape; les recherches tracées ne démontrent pas une indisponibilité définitive.",
-          "journal": "journal_recherches"
-        }
+        "valeur": 1989.1238670694866,
+        "unite": "pct",
+        "periode": "2025-06-30 / 2026-06-30",
+        "date_source": "2026-11-06",
+        "source_url": "https://query1.finance.yahoo.com/ws/fundamentals-timeseries/v1/finance/timeseries/AL2SI.PA?type=annualEBITDA%2CannualDilutedEPS%2CannualFreeCashFlow&period1=1640995200&period2=1793926071",
+        "statut": "SOURCE_SECONDAIRE_DATEE_A_RAPPROCHER",
+        "commentaire": "Yahoo annualFreeCashFlow; devise commune EUR. Arrêté aligné sur dernier exercice connu; source secondaire non rapprochée.",
+        "date_collecte": "2026-11-06"
       },
       "carnet_commandes": {
         "valeur": null,
@@ -2014,6 +2009,172 @@
           }
         ]
       }
+    },
+    {
+      "url": "https://query1.finance.yahoo.com/ws/fundamentals-timeseries/v1/finance/timeseries/AL2SI.PA?type=annualEBITDA%2CannualDilutedEPS%2CannualFreeCashFlow&period1=1640995200&period2=1793926071",
+      "indicateur": "series_annuelles",
+      "valeur": null,
+      "unite": null,
+      "periode": "2026-11-06",
+      "date_collecte": "2026-11-06",
+      "statut": "A_VERIFIER_AVANT_NOTATION",
+      "sha256_reponse": "88140bc54b4227ae031c209c9384a18c081fefc3e3d0662168394f7cc9db4bc3",
+      "donnees_brutes": {
+        "series": [
+          {
+            "meta": {
+              "symbol": [
+                "AL2SI.PA"
+              ],
+              "type": [
+                "annualDilutedEPS"
+              ]
+            },
+            "timestamp": [
+              1646006400,
+              1677542400,
+              1751241600
+            ],
+            "annualDilutedEPS": [
+              {
+                "dataId": 29009,
+                "asOfDate": "2022-02-28",
+                "periodType": "12M",
+                "currencyCode": "EUR",
+                "reportedValue": {
+                  "raw": -0.07,
+                  "fmt": "-0.07"
+                }
+              },
+              {
+                "dataId": 29009,
+                "asOfDate": "2023-02-28",
+                "periodType": "12M",
+                "currencyCode": "EUR",
+                "reportedValue": {
+                  "raw": -0.87924,
+                  "fmt": "-0.88"
+                }
+              },
+              {
+                "dataId": 29009,
+                "asOfDate": "2025-06-30",
+                "periodType": "12M",
+                "currencyCode": "EUR",
+                "reportedValue": {
+                  "raw": 0.095367,
+                  "fmt": "0.10"
+                }
+              }
+            ]
+          },
+          {
+            "meta": {
+              "symbol": [
+                "AL2SI.PA"
+              ],
+              "type": [
+                "annualEBITDA"
+              ]
+            },
+            "timestamp": [
+              1646006400,
+              1677542400,
+              1782777600
+            ],
+            "annualEBITDA": [
+              {
+                "dataId": 20190,
+                "asOfDate": "2022-02-28",
+                "periodType": "12M",
+                "currencyCode": "EUR",
+                "reportedValue": {
+                  "raw": 8050000.0,
+                  "fmt": "8.05M"
+                }
+              },
+              {
+                "dataId": 20190,
+                "asOfDate": "2023-02-28",
+                "periodType": "12M",
+                "currencyCode": "EUR",
+                "reportedValue": {
+                  "raw": -3717000.0,
+                  "fmt": "-3.72M"
+                }
+              },
+              {
+                "dataId": 20190,
+                "asOfDate": "2026-06-30",
+                "periodType": "12M",
+                "currencyCode": "EUR",
+                "reportedValue": {
+                  "raw": 24183000.0,
+                  "fmt": "24.18M"
+                }
+              }
+            ]
+          },
+          {
+            "meta": {
+              "symbol": [
+                "AL2SI.PA"
+              ],
+              "type": [
+                "annualFreeCashFlow"
+              ]
+            },
+            "timestamp": [
+              1646006400,
+              1677542400,
+              1751241600,
+              1782777600
+            ],
+            "annualFreeCashFlow": [
+              {
+                "dataId": 26185,
+                "asOfDate": "2022-02-28",
+                "periodType": "12M",
+                "currencyCode": "EUR",
+                "reportedValue": {
+                  "raw": 8218000.0,
+                  "fmt": "8.22M"
+                }
+              },
+              {
+                "dataId": 26185,
+                "asOfDate": "2023-02-28",
+                "periodType": "12M",
+                "currencyCode": "EUR",
+                "reportedValue": {
+                  "raw": 3404000.0,
+                  "fmt": "3.40M"
+                }
+              },
+              {
+                "dataId": 26185,
+                "asOfDate": "2025-06-30",
+                "periodType": "12M",
+                "currencyCode": "EUR",
+                "reportedValue": {
+                  "raw": 331000.0,
+                  "fmt": "331.00k"
+                }
+              },
+              {
+                "dataId": 26185,
+                "asOfDate": "2026-06-30",
+                "periodType": "12M",
+                "currencyCode": "EUR",
+                "reportedValue": {
+                  "raw": 6915000.0,
+                  "fmt": "6.92M"
+                }
+              }
+            ]
+          }
+        ]
+      }
     }
   ],
   "anomalies": [],
@@ -2675,13 +2836,21 @@
       "from_index": 0,
       "jeton": "RS00006601",
       "limite": "Déclarations publiées par l’AMF, établies sous responsabilité du déclarant; ne prouve pas absence de transactions non publiées."
+    },
+    {
+      "famille": "complement_public_series_annuelles",
+      "date": "2026-11-06",
+      "url": "https://query1.finance.yahoo.com/ws/fundamentals-timeseries/v1/finance/timeseries/AL2SI.PA?type=annualEBITDA%2CannualDilutedEPS%2CannualFreeCashFlow&period1=1640995200&period2=1793926071",
+      "http": 200,
+      "statut": "SOURCE_SECONDAIRE_SERIES_DATEES",
+      "limite": "Échec ou champ absent ne prouve pas une indisponibilité définitive."
     }
   ],
   "audit_couverture": {
-    "date": "2026-11-05",
+    "date": "2026-11-06",
     "champs_total": 108,
-    "champs_renseignes": 61,
-    "couverture_pct": 56.48,
+    "champs_renseignes": 62,
+    "couverture_pct": 57.41,
     "champs_secondaires_non_rapproches": 30,
     "champs_manquants": [
       "identite.marche",
@@ -2694,7 +2863,6 @@
       "valorisation.marge_securite_pct",
       "croissance.croissance_ebitda_pct",
       "croissance.croissance_bpa_pct",
-      "croissance.croissance_fcf_pct",
       "croissance.carnet_commandes",
       "croissance.book_to_bill",
       "croissance.peg",
@@ -2737,15 +2905,15 @@
     "cours_date_limite": "2026-11-03"
   },
   "audit_poursuite": {
-    "date": "2026-11-05",
+    "date": "2026-11-06",
     "comptage": {
-      "RENSEIGNE": 61,
+      "RENSEIGNE": 62,
       "NON_APPLICABLE": 1,
       "INDISPONIBLE_A_DATE": 0,
-      "RECHERCHE_A_POURSUIVRE": 46
+      "RECHERCHE_A_POURSUIVRE": 45
     },
-    "couverture_valeurs_pct": 56.48,
-    "couverture_applicable_pct": 57.01,
+    "couverture_valeurs_pct": 57.41,
+    "couverture_applicable_pct": 57.94,
     "recherches_non_closes": [
       "identite.marche",
       "qualite.marge_brute_pct",
@@ -2757,7 +2925,6 @@
       "valorisation.marge_securite_pct",
       "croissance.croissance_ebitda_pct",
       "croissance.croissance_bpa_pct",
-      "croissance.croissance_fcf_pct",
       "croissance.carnet_commandes",
       "croissance.book_to_bill",
       "croissance.peg",
