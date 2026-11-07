@@ -2,7 +2,7 @@
 """Collect secondary financial statistics for each exact listing, never n/a=0.
 Only selected facts are retained; no complete copyrighted page is republished.
 """
-import csv,concurrent.futures,hashlib,html,json,re,urllib.request
+import csv,concurrent.futures,datetime as dt,hashlib,html,json,re,urllib.request
 from html.parser import HTMLParser
 from pathlib import Path
 BASE=Path(__file__).resolve().parents[1];OUT=BASE/'DONNEES/STATISTIQUES_SECONDAIRES_40_20261104.json'
@@ -25,7 +25,7 @@ def url_for(t):
  if t=='PLEJD.ST':exchange='xsat' # exact issuer on Spotlight; cohort ticker preserved
  return f'https://stockanalysis.com/quote/{exchange}/{code}/statistics/'
 def collect(row):
- t=row['Ticker'];url=url_for(t);out={'ticker':t,'societe_attendue':row['Societe'],'url':url,'date_collecte':'2026-11-04'}
+ t=row['Ticker'];url=url_for(t);out={'ticker':t,'societe_attendue':row['Societe'],'url':url,'date_collecte':dt.date.today().isoformat()}
  try:
   req=urllib.request.Request(url,headers={'User-Agent':'Mozilla/5.0'})
   with urllib.request.urlopen(req,timeout=25) as r:raw=r.read();out['http']=r.status;out['url_effective']=r.url
@@ -55,7 +55,7 @@ def main():
  if OUT.exists():
   previous={r['ticker']:r for r in json.loads(OUT.read_text())}
  else:previous={}
- pending=[r for r in holdings if previous.get(r['Ticker'],{}).get('statut')!='SOURCE_SECONDAIRE_A_RAPPROCHER']
+ pending=[r for r in holdings if previous.get(r['Ticker'],{}).get('statut')!='SOURCE_SECONDAIRE_A_RAPPROCHER' or (dt.date.today()-dt.date.fromisoformat(previous.get(r['Ticker'],{}).get('date_collecte','2000-01-01'))).days>=7]
  with concurrent.futures.ThreadPoolExecutor(max_workers=6) as ex:new=list(ex.map(collect,pending))
  previous.update({r['ticker']:r for r in new})
  rows=[previous[r['Ticker']] for r in holdings]
