@@ -39,7 +39,14 @@ def main():
    if not raw:continue
    # MM200 is a price level, not a slope; preserve its meaning in comment.
    if source=='MM200':continue
-   changed+=put(x,block,key,float(raw)*mult,unit,'cloture '+i.get('Date_fin',''),i.get('Date_fin'),i.get('Source'),'SOURCE_MARCHE',source)
+   # Isoler les observations Yahoo mal formees et sans provenance.
+   try:
+    value=float(raw)*mult
+    if not __import__('math').isfinite(value):continue
+   except (TypeError,ValueError,OverflowError):
+    continue
+   if not i.get('Date_fin') or not i.get('Source'):continue
+   changed+=put(x,block,key,value,unit,'cloture '+i['Date_fin'],i['Date_fin'],i['Source'],'SOURCE_MARCHE',source)
   evidence=[r for r in public if r.get('Ticker')==t]
   for e in evidence:
    metric=e['Indicateur']
