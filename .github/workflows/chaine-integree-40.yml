@@ -51,6 +51,12 @@ jobs:
           else
             echo 'SEC_USER_AGENT absent : fondamentaux SEC non certifies.'
           fi
+      - name: Recollecter les statistiques, profils et bilans publics des 40 titulaires
+        continue-on-error: true
+        run: |
+          python -B SCRIPTS_ACTIFS/09V_COLLECTE_STATISTIQUES_40.py
+          python -B SCRIPTS_ACTIFS/09Y_COLLECTE_IDENTITE_CROISSANCE_40.py
+          python -B SCRIPTS_ACTIFS/10A_COLLECTE_BILANS_ANNUELS_40.py
       - name: Relier techniques et fondamentaux dans une meme execution
         run: python -B SCRIPTS_ACTIFS/09P_COUVERTURE_PREUVES_40.py
       - name: Preparer les dossiers de preuves des 40 titulaires
@@ -91,6 +97,9 @@ jobs:
           retention-days: 30
           path: |
             DONNEES/COLLECTE_DIRECTE_40_TITULAIRES.csv
+            DONNEES/STATISTIQUES_SECONDAIRES_40_20261104.json
+            DONNEES/IDENTITES_CROISSANCE_40_20261104.json
+            DONNEES/BILANS_ANNUELS_40_20261104.json
             AUDITS/HISTORIQUE_COLLECTES_HEBDOMADAIRES/COLLECTE_40_*/
             DONNEES/COUVERTURE_HISTORIQUES_YAHOO_40.csv
             DONNEES/INDICATEURS_YAHOO_40.csv
