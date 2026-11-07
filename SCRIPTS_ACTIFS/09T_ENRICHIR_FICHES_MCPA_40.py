@@ -73,9 +73,13 @@ def main():
     changed+=1
   existing={(e.get('url'),e.get('indicateur'),e.get('periode')) for e in x['preuves_complementaires']}
   for e in evidence:
+   # Ne jamais promouvoir une observation sans provenance complete en preuve.
+   if not all(e.get(k) for k in ('Source_URL','Indicateur','Periode','Date_collecte','Unite','Valeur')):
+    continue
    marker=(e['Source_URL'],e['Indicateur'],e['Periode'])
    if marker not in existing:
     x['preuves_complementaires'].append({'url':e['Source_URL'],'indicateur':e['Indicateur'],'valeur':e['Valeur'],'unite':e['Unite'],'periode':e['Periode'],'date_collecte':e['Date_collecte'],'statut':'A_VERIFIER_AVANT_NOTATION'})
+    existing.add(marker)
     changed+=1
   if changed:path.write_text(json.dumps(x,ensure_ascii=False,indent=2)+'\n',encoding='utf-8')
   count+=1;updates+=changed;report.append({'Ticker':t,'Champs_ajoutes':changed,'Preuves_publiques':len(evidence),'Statut_MCPA':x['notation']['statut']})
