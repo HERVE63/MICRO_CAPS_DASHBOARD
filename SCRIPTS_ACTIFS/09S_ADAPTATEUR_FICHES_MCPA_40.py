@@ -71,7 +71,7 @@ def main():
   if x['notation']['statut']!='VALIDEE':issues.append('NOTATION_NON_VALIDEE')
   if any(notes.get(block) is None for block in BLOCKS.values()):issues.append('SOUS_NOTES_MANQUANTES')
   if x['notation']['total_mcpa'] is None:issues.append('TOTAL_MCPA_MANQUANT')
-  if x['arbitrage_autorise'] is not True:issues.append('ARBITRAGE_NON_AUTORISE')
+  # La validation documentaire d'un titulaire est distincte de l'autorisation\n  # d'executer un arbitrage. Le controle strict 09 et le moteur 10\n  # restent les verrous des duels et transactions virtuelles.
   audit.append({'ID_position':n,'Ticker':x['ticker'],'Statut':'PRET' if not issues else 'INCOMPLET','Problemes':' | '.join(issues)})
   if not issues:
    c=x['blocs']['complements'];v=lambda k:c[k]['valeur']
