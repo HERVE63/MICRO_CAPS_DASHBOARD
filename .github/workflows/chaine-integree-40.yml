@@ -54,9 +54,18 @@ jobs:
       - name: Recollecter les statistiques, profils et bilans publics des 40 titulaires
         continue-on-error: true
         run: |
+          set +e
           python -B SCRIPTS_ACTIFS/09V_COLLECTE_STATISTIQUES_40.py
+          rc_09v=$?
           python -B SCRIPTS_ACTIFS/09Y_COLLECTE_IDENTITE_CROISSANCE_40.py
+          rc_09y=$?
           python -B SCRIPTS_ACTIFS/10A_COLLECTE_BILANS_ANNUELS_40.py
+          rc_10a=$?
+          echo "COLLECTE_SECONDAIRE_STATUTS 09V=$rc_09v 09Y=$rc_09y 10A=$rc_10a"
+          if [ "$rc_09v" -ne 0 ] || [ "$rc_09y" -ne 0 ] || [ "$rc_10a" -ne 0 ]; then
+            echo "Collecteur(s) en echec : autres sources executees, preuves a qualifier individuellement."
+            exit 1
+          fi
       - name: Relier techniques et fondamentaux dans une meme execution
         run: python -B SCRIPTS_ACTIFS/09P_COUVERTURE_PREUVES_40.py
       - name: Preparer les dossiers de preuves des 40 titulaires
