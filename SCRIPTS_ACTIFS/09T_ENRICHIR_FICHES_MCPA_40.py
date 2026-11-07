@@ -45,7 +45,15 @@ def main():
    metric=e['Indicateur']
    if metric not in mapping:continue
    block,key=mapping[metric]
-   changed+=put(x,block,key,float(e['Valeur']),e['Unite'],e['Periode'],e['Date_collecte'],e['Source_URL'],'SOURCE_PUBLIQUE',metric)
+   # Une observation mal formee ne doit pas interrompre les 39 autres titulaires.
+   try:
+    value=float(e['Valeur'])
+    if not __import__('math').isfinite(value):continue
+   except (TypeError,ValueError):
+    continue
+   if not e.get('Source_URL') or not e.get('Date_collecte') or not e.get('Periode') or not e.get('Unite'):
+    continue
+   changed+=put(x,block,key,value,e['Unite'],e['Periode'],e['Date_collecte'],e['Source_URL'],'SOURCE_PUBLIQUE',metric)
   # 10G supplies secondary-source observations, not automatically validated fundamentals.
   # Preserve provenance and never manufacture a value or an MCPA score.
   observation=complements.get(t,{})
