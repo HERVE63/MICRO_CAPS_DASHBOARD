@@ -335,7 +335,7 @@
         "date_collecte": "2026-11-04"
       },
       "ev_ebit": {
-        "valeur": 11.0,
+        "valeur": 11,
         "unite": "ratio",
         "periode": "TTM fournisseur; arrêté indiqué dans son tableau financier : Jun '26 Jun 30, 2026",
         "date_source": "2026-11-04",
@@ -596,13 +596,13 @@
         }
       },
       "catalyseurs_dates": {
-        "valeur": null,
-        "unite": null,
-        "periode": null,
-        "date_source": null,
-        "source_url": null,
-        "statut": "A_COLLECTER",
-        "commentaire": null,
+        "valeur": "Publication des résultats du troisième trimestre 2026 annoncée pour le 12 novembre 2026; catalyseur événementiel, direction de l'impact inconnue.",
+        "unite": "événement",
+        "periode": "2026-11-12",
+        "date_source": "2026-11-09",
+        "source_url": "https://www.zonebourse.com/cours/action/INTELLICHECK-INC-18044767/agenda/",
+        "statut": "SOURCE_SECONDAIRE_AGENDA_A_CONFIRMER_EMETTEUR",
+        "commentaire": "Agenda Zonebourse consulté le 09/11/2026; événement futur, aucun impact boursier ni probabilité déduit.",
         "recherche": {
           "date": "2026-11-04",
           "statut": "MANQUANT_RECHERCHE_NON_CLOSE",
@@ -1493,7 +1493,7 @@
                 "periodType": "12M",
                 "currencyCode": "USD",
                 "reportedValue": {
-                  "raw": -3745000.0,
+                  "raw": -3745000,
                   "fmt": "-3.75M"
                 }
               },
@@ -1503,7 +1503,7 @@
                 "periodType": "12M",
                 "currencyCode": "USD",
                 "reportedValue": {
-                  "raw": -1994000.0,
+                  "raw": -1994000,
                   "fmt": "-1.99M"
                 }
               },
@@ -1513,7 +1513,7 @@
                 "periodType": "12M",
                 "currencyCode": "USD",
                 "reportedValue": {
-                  "raw": -732000.0,
+                  "raw": -732000,
                   "fmt": "-732.00k"
                 }
               },
@@ -1523,7 +1523,7 @@
                 "periodType": "12M",
                 "currencyCode": "USD",
                 "reportedValue": {
-                  "raw": 1789000.0,
+                  "raw": 1789000,
                   "fmt": "1.79M"
                 }
               }
