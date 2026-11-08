@@ -81,6 +81,29 @@ jobs:
         run: python -B SCRIPTS_ACTIFS/10H_IMPORTER_COMPLEMENTS_PUBLICS_40.py
       - name: Valider les 40 fiches et preparer la revue MCPA IPS
         run: python -B SCRIPTS_ACTIFS/09S_ADAPTATEUR_FICHES_MCPA_40.py
+      - name: Tester la coherence des 40 dossiers et des exports sans notes fictives
+        run: |
+          python - <<'PY'
+          import csv,json
+          from pathlib import Path
+          dossiers=sorted(Path('DOSSIERS_MCPA_IPS_40').glob('*.json'))
+          assert len(dossiers)==40, f'Dossiers: {len(dossiers)} au lieu de 40'
+          ids=set();tickers=set()
+          for p in dossiers:
+            d=json.loads(p.read_text(encoding='utf-8'))
+            assert d['id_position'] not in ids, f'ID duplique: {p}'
+            assert d['ticker'] not in tickers, f'Ticker duplique: {p}'
+            ids.add(d['id_position']);tickers.add(d['ticker'])
+          audit=list(csv.DictReader(open('DONNEES/AUDIT_DOSSIERS_MCPA_IPS_40.csv',encoding='utf-8')))
+          revue=list(csv.DictReader(open('DONNEES/REVUE_HEBDOMADAIRE_MCPA_IPS.csv',encoding='utf-8')))
+          assert len(audit)==40, f'Audit incomplet: {len(audit)}'
+          prets={str(r['ID_position']) for r in audit if r['Statut']=='PRET'}
+          certifies={str(r['ID_position']) for r in revue}
+          assert len(certifies)==len(revue), 'Doublons dans la revue'
+          assert certifies==prets, f'Incoherence revue/audit: {certifies ^ prets}'
+          assert all(r['Statut_analyse']=='VALIDE' for r in revue), 'Ligne non validee exportee'
+          print('TEST_40_DOSSIERS_OK',len(dossiers),'REVUE_CERTIFIEE',len(revue),'MANQUANTS',40-len(revue))
+          PY
       - name: Sauvegarder les 40 fiches enrichies dans la branche de travail
         run: |
           git config user.name "github-actions[bot]"
