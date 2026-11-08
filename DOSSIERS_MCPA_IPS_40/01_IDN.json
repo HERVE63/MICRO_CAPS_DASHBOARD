@@ -598,13 +598,7 @@
         "date_source": "2026-11-09",
         "source_url": "https://www.zonebourse.com/cours/action/INTELLICHECK-INC-18044767/agenda/",
         "statut": "SOURCE_SECONDAIRE_AGENDA_A_CONFIRMER_EMETTEUR",
-        "commentaire": "Agenda Zonebourse consulté le 09/11/2026; événement futur, aucun impact boursier ni probabilité déduit.",
-        "recherche": {
-          "date": "2026-11-04",
-          "statut": "MANQUANT_RECHERCHE_NON_CLOSE",
-          "motif": "Aucune valeur vérifiée importée à cette étape; les recherches tracées ne démontrent pas une indisponibilité définitive.",
-          "journal": "journal_recherches"
-        }
+        "commentaire": "Agenda Zonebourse consulté le 09/11/2026; événement futur, aucun impact boursier ni probabilité déduit."
       },
       "taille_marche_adressable": {
         "valeur": null,
@@ -2877,14 +2871,13 @@
   "audit_couverture": {
     "date": "2026-11-08",
     "champs_total": 108,
-    "champs_renseignes": 64,
-    "couverture_pct": 59.26,
+    "champs_renseignes": 68,
+    "couverture_pct": 62.96,
     "champs_secondaires_non_rapproches": 25,
     "champs_manquants": [
       "identite.lei",
       "identite.marche",
       "qualite.revenus_recurrents_pct",
-      "qualite.avantage_concurrentiel",
       "valorisation.comparables_sectoriels",
       "valorisation.marge_securite_pct",
       "croissance.croissance_ebitda_pct",
@@ -2893,15 +2886,12 @@
       "croissance.carnet_commandes",
       "croissance.book_to_bill",
       "croissance.peg",
-      "croissance.catalyseurs_dates",
       "croissance.taille_marche_adressable",
       "risque.dette_nette_ebitda",
       "risque.couverture_interets",
       "risque.cash_runway_mois",
-      "risque.risque_refinancement",
       "risque.risque_pays",
       "risque.risque_reglementaire",
-      "diversification.zone_geographique",
       "diversification.interet_strategique",
       "diversification.complementarite_portefeuille",
       "complements.ic_sur_5",
@@ -2933,31 +2923,27 @@
   "audit_poursuite": {
     "date": "2026-11-08",
     "comptage": {
-      "RENSEIGNE": 64,
+      "RENSEIGNE": 68,
       "NON_APPLICABLE": 4,
       "INDISPONIBLE_A_DATE": 0,
-      "RECHERCHE_A_POURSUIVRE": 40
+      "RECHERCHE_A_POURSUIVRE": 36
     },
-    "couverture_valeurs_pct": 59.26,
-    "couverture_applicable_pct": 61.54,
+    "couverture_valeurs_pct": 62.96,
+    "couverture_applicable_pct": 65.38,
     "recherches_non_closes": [
       "identite.lei",
       "identite.marche",
       "qualite.revenus_recurrents_pct",
-      "qualite.avantage_concurrentiel",
       "valorisation.comparables_sectoriels",
       "valorisation.marge_securite_pct",
       "croissance.carnet_commandes",
       "croissance.book_to_bill",
       "croissance.peg",
-      "croissance.catalyseurs_dates",
       "croissance.taille_marche_adressable",
       "risque.dette_nette_ebitda",
       "risque.couverture_interets",
-      "risque.risque_refinancement",
       "risque.risque_pays",
       "risque.risque_reglementaire",
-      "diversification.zone_geographique",
       "diversification.interet_strategique",
       "diversification.complementarite_portefeuille",
       "complements.ic_sur_5",

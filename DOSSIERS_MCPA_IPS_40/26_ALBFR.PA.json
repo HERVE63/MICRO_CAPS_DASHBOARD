@@ -2754,8 +2754,8 @@
   "audit_couverture": {
     "date": "2026-11-08",
     "champs_total": 108,
-    "champs_renseignes": 66,
-    "couverture_pct": 61.11,
+    "champs_renseignes": 67,
+    "couverture_pct": 62.04,
     "champs_secondaires_non_rapproches": 38,
     "champs_manquants": [
       "identite.marche",
@@ -2775,7 +2775,6 @@
       "risque.risque_gouvernance",
       "risque.risque_reglementaire",
       "risque.risque_concentration",
-      "diversification.zone_geographique",
       "diversification.interet_strategique",
       "diversification.complementarite_portefeuille",
       "complements.ssi",
@@ -2808,13 +2807,13 @@
   "audit_poursuite": {
     "date": "2026-11-08",
     "comptage": {
-      "RENSEIGNE": 66,
+      "RENSEIGNE": 67,
       "NON_APPLICABLE": 1,
       "INDISPONIBLE_A_DATE": 0,
-      "RECHERCHE_A_POURSUIVRE": 41
+      "RECHERCHE_A_POURSUIVRE": 40
     },
-    "couverture_valeurs_pct": 61.11,
-    "couverture_applicable_pct": 61.68,
+    "couverture_valeurs_pct": 62.04,
+    "couverture_applicable_pct": 62.62,
     "recherches_non_closes": [
       "identite.marche",
       "qualite.concentration_clients_pct",
@@ -2832,7 +2831,6 @@
       "risque.risque_gouvernance",
       "risque.risque_reglementaire",
       "risque.risque_concentration",
-      "diversification.zone_geographique",
       "diversification.interet_strategique",
       "diversification.complementarite_portefeuille",
       "complements.ssi",

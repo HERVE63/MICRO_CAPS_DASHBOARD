@@ -2618,8 +2618,8 @@
   "audit_couverture": {
     "date": "2026-11-08",
     "champs_total": 108,
-    "champs_renseignes": 58,
-    "couverture_pct": 53.7,
+    "champs_renseignes": 60,
+    "couverture_pct": 55.56,
     "champs_secondaires_non_rapproches": 28,
     "champs_manquants": [
       "identite.marche",
@@ -2637,9 +2637,7 @@
       "croissance.croissance_ca_3a_cagr_pct",
       "croissance.croissance_ebitda_pct",
       "croissance.croissance_bpa_pct",
-      "croissance.book_to_bill",
       "croissance.peg",
-      "croissance.catalyseurs_dates",
       "croissance.taille_marche_adressable",
       "risque.dilution_3a_pct",
       "risque.risque_refinancement",
@@ -2680,13 +2678,13 @@
   "audit_poursuite": {
     "date": "2026-11-08",
     "comptage": {
-      "RENSEIGNE": 58,
+      "RENSEIGNE": 60,
       "NON_APPLICABLE": 3,
       "INDISPONIBLE_A_DATE": 0,
-      "RECHERCHE_A_POURSUIVRE": 47
+      "RECHERCHE_A_POURSUIVRE": 45
     },
-    "couverture_valeurs_pct": 53.7,
-    "couverture_applicable_pct": 55.24,
+    "couverture_valeurs_pct": 55.56,
+    "couverture_applicable_pct": 57.14,
     "recherches_non_closes": [
       "identite.marche",
       "identite.flottant_pct",
@@ -2700,9 +2698,7 @@
       "valorisation.comparables_sectoriels",
       "valorisation.marge_securite_pct",
       "croissance.croissance_ca_3a_cagr_pct",
-      "croissance.book_to_bill",
       "croissance.peg",
-      "croissance.catalyseurs_dates",
       "croissance.taille_marche_adressable",
       "risque.dilution_3a_pct",
       "risque.risque_refinancement",

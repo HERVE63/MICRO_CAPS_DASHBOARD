@@ -2955,8 +2955,8 @@
   "audit_couverture": {
     "date": "2026-11-08",
     "champs_total": 108,
-    "champs_renseignes": 62,
-    "couverture_pct": 57.41,
+    "champs_renseignes": 63,
+    "couverture_pct": 58.33,
     "champs_secondaires_non_rapproches": 36,
     "champs_manquants": [
       "identite.lei",
@@ -2975,7 +2975,6 @@
       "croissance.peg",
       "croissance.taille_marche_adressable",
       "risque.cash_runway_mois",
-      "risque.risque_refinancement",
       "risque.risque_pays",
       "risque.risque_gouvernance",
       "risque.risque_reglementaire",
@@ -3013,13 +3012,13 @@
   "audit_poursuite": {
     "date": "2026-11-08",
     "comptage": {
-      "RENSEIGNE": 62,
+      "RENSEIGNE": 63,
       "NON_APPLICABLE": 2,
       "INDISPONIBLE_A_DATE": 0,
-      "RECHERCHE_A_POURSUIVRE": 44
+      "RECHERCHE_A_POURSUIVRE": 43
     },
-    "couverture_valeurs_pct": 57.41,
-    "couverture_applicable_pct": 58.49,
+    "couverture_valeurs_pct": 58.33,
+    "couverture_applicable_pct": 59.43,
     "recherches_non_closes": [
       "identite.lei",
       "identite.marche",
@@ -3035,7 +3034,6 @@
       "croissance.previsions_bpa_1a",
       "croissance.peg",
       "croissance.taille_marche_adressable",
-      "risque.risque_refinancement",
       "risque.risque_pays",
       "risque.risque_gouvernance",
       "risque.risque_reglementaire",

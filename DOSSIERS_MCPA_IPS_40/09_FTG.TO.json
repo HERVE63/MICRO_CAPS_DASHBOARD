@@ -2997,8 +2997,8 @@
   "audit_couverture": {
     "date": "2026-11-08",
     "champs_total": 108,
-    "champs_renseignes": 64,
-    "couverture_pct": 59.26,
+    "champs_renseignes": 66,
+    "couverture_pct": 61.11,
     "champs_secondaires_non_rapproches": 42,
     "champs_manquants": [
       "identite.lei",
@@ -3010,10 +3010,8 @@
       "valorisation.comparables_sectoriels",
       "valorisation.marge_securite_pct",
       "croissance.peg",
-      "croissance.catalyseurs_dates",
       "croissance.taille_marche_adressable",
       "risque.cash_runway_mois",
-      "risque.risque_refinancement",
       "risque.risque_pays",
       "risque.risque_gouvernance",
       "risque.risque_reglementaire",
@@ -3053,13 +3051,13 @@
   "audit_poursuite": {
     "date": "2026-11-08",
     "comptage": {
-      "RENSEIGNE": 64,
+      "RENSEIGNE": 66,
       "NON_APPLICABLE": 1,
       "INDISPONIBLE_A_DATE": 0,
-      "RECHERCHE_A_POURSUIVRE": 43
+      "RECHERCHE_A_POURSUIVRE": 41
     },
-    "couverture_valeurs_pct": 59.26,
-    "couverture_applicable_pct": 59.81,
+    "couverture_valeurs_pct": 61.11,
+    "couverture_applicable_pct": 61.68,
     "recherches_non_closes": [
       "identite.lei",
       "identite.marche",
@@ -3070,9 +3068,7 @@
       "valorisation.comparables_sectoriels",
       "valorisation.marge_securite_pct",
       "croissance.peg",
-      "croissance.catalyseurs_dates",
       "croissance.taille_marche_adressable",
-      "risque.risque_refinancement",
       "risque.risque_pays",
       "risque.risque_gouvernance",
       "risque.risque_reglementaire",

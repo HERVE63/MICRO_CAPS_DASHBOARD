@@ -2919,14 +2919,13 @@
   "audit_couverture": {
     "date": "2026-11-08",
     "champs_total": 108,
-    "champs_renseignes": 62,
-    "couverture_pct": 57.41,
+    "champs_renseignes": 64,
+    "couverture_pct": 59.26,
     "champs_secondaires_non_rapproches": 36,
     "champs_manquants": [
       "identite.lei",
       "identite.marche",
       "qualite.conversion_fcf_pct",
-      "qualite.revenus_recurrents_pct",
       "qualite.concentration_clients_pct",
       "qualite.avantage_concurrentiel",
       "qualite.qualite_management",
@@ -2938,7 +2937,6 @@
       "croissance.peg",
       "croissance.taille_marche_adressable",
       "risque.cash_runway_mois",
-      "risque.risque_refinancement",
       "risque.risque_pays",
       "risque.risque_gouvernance",
       "risque.risque_reglementaire",
@@ -2977,17 +2975,16 @@
   "audit_poursuite": {
     "date": "2026-11-08",
     "comptage": {
-      "RENSEIGNE": 62,
+      "RENSEIGNE": 64,
       "NON_APPLICABLE": 3,
       "INDISPONIBLE_A_DATE": 0,
-      "RECHERCHE_A_POURSUIVRE": 43
+      "RECHERCHE_A_POURSUIVRE": 41
     },
-    "couverture_valeurs_pct": 57.41,
-    "couverture_applicable_pct": 59.05,
+    "couverture_valeurs_pct": 59.26,
+    "couverture_applicable_pct": 60.95,
     "recherches_non_closes": [
       "identite.lei",
       "identite.marche",
-      "qualite.revenus_recurrents_pct",
       "qualite.concentration_clients_pct",
       "qualite.avantage_concurrentiel",
       "qualite.qualite_management",
@@ -2997,7 +2994,6 @@
       "croissance.book_to_bill",
       "croissance.peg",
       "croissance.taille_marche_adressable",
-      "risque.risque_refinancement",
       "risque.risque_pays",
       "risque.risque_gouvernance",
       "risque.risque_reglementaire",
