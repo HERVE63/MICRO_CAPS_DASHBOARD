@@ -138,6 +138,14 @@
     "date_collecte": "2026-11-08",
     "valorisation_historique": {
       "url": "https://stockanalysis.com/quote/epa/ALIEV/financials/ratios/",
+      "echecs_precedents": [
+        {
+          "url": "https://stockanalysis.com/quote/epa/ALIEV/financials/ratios/",
+          "http": 403,
+          "statut": "ECHEC",
+          "erreur": "HTTPError"
+        }
+      ],
       "http": 403,
       "statut": "ECHEC",
       "erreur": "HTTPError"
