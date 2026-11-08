@@ -92,6 +92,23 @@ jobs:
           else
             echo "Aucune nouvelle donnée à sauvegarder."
           fi
+      - name: Diagnostiquer les blocages de notation sans inventer de scores
+        run: |
+          python - <<'PY'
+          import csv,collections
+          from pathlib import Path
+          p=Path('DONNEES/AUDIT_DOSSIERS_MCPA_IPS_40.csv')
+          rows=list(csv.DictReader(p.open(encoding='utf-8')))
+          assert len(rows)==40, f'Attendu 40 dossiers, obtenu {len(rows)}'
+          counts=collections.Counter()
+          for row in rows:
+            for issue in row['Problemes'].split(' | '):
+              if issue.strip():counts[issue.strip()]+=1
+          print('DIAGNOSTIC_40_FICHES',len(rows),'PRETES',sum(r['Statut']=='PRET' for r in rows))
+          for issue,n in counts.most_common(35):print('BLOCAGE',n,issue)
+          print('FICHES_PAR_TICKER')
+          for row in rows:print(row['Ticker'],row['Statut'],row['Problemes'][:220])
+          PY
       - name: Controle de la revue puis duels si dossiers valides
         run: |
           if python -B SCRIPTS_ACTIFS/09_CONTROLE_REVUE_MCPA_IPS.py; then
