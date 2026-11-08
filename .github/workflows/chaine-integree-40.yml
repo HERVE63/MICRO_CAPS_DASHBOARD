@@ -115,6 +115,22 @@ jobs:
           else
             echo "Aucune nouvelle donnée à sauvegarder."
           fi
+      - name: Calculer et tester les 240 scenarios historiques descriptifs
+        run: |
+          python -B SCRIPTS_ACTIFS/10O_SCENARIOS_EMPIRIQUES_40.py
+          python - <<'PY'
+          import csv,collections
+          rows=list(csv.DictReader(open('DONNEES/SCENARIOS_EMPIRIQUES_NON_CERTIFIES_40.csv',encoding='utf-8')))
+          assert len(rows)==240
+          keys=collections.Counter((r['ID_position'],r['Ticker'],r['Horizon']) for r in rows)
+          assert len(keys)==80 and all(n==3 for n in keys.values())
+          for key in keys:
+            group=[r for r in rows if (r['ID_position'],r['Ticker'],r['Horizon'])==key]
+            assert {r['Regime'] for r in group}=={'bear','central','bull'}
+            if all(r['Probabilite_historique_pct'] for r in group):
+              assert abs(sum(float(r['Probabilite_historique_pct']) for r in group)-100)<0.02
+          print('SCENARIOS_DESCRIPTIFS_TEST_OK 40/40 240 lignes; PAS de probabilites prospectives certifiees')
+          PY
       - name: Diagnostiquer les blocages de notation sans inventer de scores
         run: |
           python - <<'PY'
