@@ -134,7 +134,7 @@
     },
     "qualite": {
       "ca_ttm": {
-        "valeur": 50450000.0,
+        "valeur": 50450000,
         "unite": "CAD",
         "periode": "TTM fournisseur; arrêté indiqué dans son tableau financier : Sep '26 Sep 30, 2026",
         "date_source": "2026-11-04",
@@ -204,7 +204,7 @@
         "date_collecte": "2026-11-04"
       },
       "fcf_ttm": {
-        "valeur": 12780000.0,
+        "valeur": 12780000,
         "unite": "CAD",
         "periode": "TTM fournisseur; arrêté indiqué dans son tableau financier : Sep '26 Sep 30, 2026",
         "date_source": "2026-11-04",
@@ -1509,7 +1509,7 @@
                 "periodType": "12M",
                 "currencyCode": "CAD",
                 "reportedValue": {
-                  "raw": -3439000.0,
+                  "raw": -3439000,
                   "fmt": "-3.44M"
                 }
               },
@@ -1519,7 +1519,7 @@
                 "periodType": "12M",
                 "currencyCode": "CAD",
                 "reportedValue": {
-                  "raw": 4436000.0,
+                  "raw": 4436000,
                   "fmt": "4.44M"
                 }
               },
@@ -1529,7 +1529,7 @@
                 "periodType": "12M",
                 "currencyCode": "CAD",
                 "reportedValue": {
-                  "raw": 2502000.0,
+                  "raw": 2502000,
                   "fmt": "2.50M"
                 }
               },
@@ -1539,7 +1539,7 @@
                 "periodType": "12M",
                 "currencyCode": "CAD",
                 "reportedValue": {
-                  "raw": 7546000.0,
+                  "raw": 7546000,
                   "fmt": "7.55M"
                 }
               }
@@ -2006,6 +2006,127 @@
           }
         ]
       }
+    },
+    {
+      "champ": "ca_9m_2026",
+      "valeur": 37.9,
+      "unite": "M CAD",
+      "periode": "9 mois clos au 2026-09-30",
+      "date_source": "2026-10-28",
+      "date_collecte": "2026-11-08",
+      "source_url": "https://www2.newsfilecorp.com/release/321482/CEMATRIX-Announces-2026-Third-Quarter-Financial-Results",
+      "statut": "COMMUNIQUE_PRIMAIRE_EMETTEUR_NON_AUDITE",
+      "commentaire": "Résultats T3 2026 publiés par CEMATRIX; valeurs arrondies par l'émetteur, à rapprocher des états SEDAR+."
+    },
+    {
+      "champ": "ca_9m_2025",
+      "valeur": 32.6,
+      "unite": "M CAD",
+      "periode": "9 mois clos au 2025-09-30",
+      "date_source": "2026-10-28",
+      "date_collecte": "2026-11-08",
+      "source_url": "https://www2.newsfilecorp.com/release/321482/CEMATRIX-Announces-2026-Third-Quarter-Financial-Results",
+      "statut": "COMMUNIQUE_PRIMAIRE_EMETTEUR_NON_AUDITE",
+      "commentaire": "Résultats T3 2026 publiés par CEMATRIX; valeurs arrondies par l'émetteur, à rapprocher des états SEDAR+."
+    },
+    {
+      "champ": "croissance_ca_9m_2026",
+      "valeur": 16,
+      "unite": "pct",
+      "periode": "9 mois 2026 contre 9 mois 2025",
+      "date_source": "2026-10-28",
+      "date_collecte": "2026-11-08",
+      "source_url": "https://www2.newsfilecorp.com/release/321482/CEMATRIX-Announces-2026-Third-Quarter-Financial-Results",
+      "statut": "COMMUNIQUE_PRIMAIRE_EMETTEUR_NON_AUDITE",
+      "commentaire": "Résultats T3 2026 publiés par CEMATRIX; valeurs arrondies par l'émetteur, à rapprocher des états SEDAR+."
+    },
+    {
+      "champ": "ca_q3_2026",
+      "valeur": 11.9,
+      "unite": "M CAD",
+      "periode": "trimestre clos au 2026-09-30",
+      "date_source": "2026-10-28",
+      "date_collecte": "2026-11-08",
+      "source_url": "https://www2.newsfilecorp.com/release/321482/CEMATRIX-Announces-2026-Third-Quarter-Financial-Results",
+      "statut": "COMMUNIQUE_PRIMAIRE_EMETTEUR_NON_AUDITE",
+      "commentaire": "Résultats T3 2026 publiés par CEMATRIX; valeurs arrondies par l'émetteur, à rapprocher des états SEDAR+."
+    },
+    {
+      "champ": "croissance_ca_q3_2026",
+      "valeur": -22,
+      "unite": "pct",
+      "periode": "T3 2026 contre T3 2025",
+      "date_source": "2026-10-28",
+      "date_collecte": "2026-11-08",
+      "source_url": "https://www2.newsfilecorp.com/release/321482/CEMATRIX-Announces-2026-Third-Quarter-Financial-Results",
+      "statut": "COMMUNIQUE_PRIMAIRE_EMETTEUR_NON_AUDITE",
+      "commentaire": "Résultats T3 2026 publiés par CEMATRIX; valeurs arrondies par l'émetteur, à rapprocher des états SEDAR+."
+    },
+    {
+      "champ": "marge_brute_q3_2026",
+      "valeur": 23,
+      "unite": "pct",
+      "periode": "trimestre clos au 2026-09-30",
+      "date_source": "2026-10-28",
+      "date_collecte": "2026-11-08",
+      "source_url": "https://www2.newsfilecorp.com/release/321482/CEMATRIX-Announces-2026-Third-Quarter-Financial-Results",
+      "statut": "COMMUNIQUE_PRIMAIRE_EMETTEUR_NON_AUDITE",
+      "commentaire": "Résultats T3 2026 publiés par CEMATRIX; valeurs arrondies par l'émetteur, à rapprocher des états SEDAR+."
+    },
+    {
+      "champ": "ebitda_ajuste_9m_2026",
+      "valeur": 5.9,
+      "unite": "M CAD",
+      "periode": "9 mois clos au 2026-09-30",
+      "date_source": "2026-10-28",
+      "date_collecte": "2026-11-08",
+      "source_url": "https://www2.newsfilecorp.com/release/321482/CEMATRIX-Announces-2026-Third-Quarter-Financial-Results",
+      "statut": "COMMUNIQUE_PRIMAIRE_EMETTEUR_NON_AUDITE",
+      "commentaire": "Résultats T3 2026 publiés par CEMATRIX; valeurs arrondies par l'émetteur, à rapprocher des états SEDAR+."
+    },
+    {
+      "champ": "cash_2026_09_30",
+      "valeur": 20.5,
+      "unite": "M CAD",
+      "periode": "au 2026-09-30",
+      "date_source": "2026-10-28",
+      "date_collecte": "2026-11-08",
+      "source_url": "https://www2.newsfilecorp.com/release/321482/CEMATRIX-Announces-2026-Third-Quarter-Financial-Results",
+      "statut": "COMMUNIQUE_PRIMAIRE_EMETTEUR_NON_AUDITE",
+      "commentaire": "Résultats T3 2026 publiés par CEMATRIX; valeurs arrondies par l'émetteur, à rapprocher des états SEDAR+."
+    },
+    {
+      "champ": "dette_long_terme_2026_09_30",
+      "valeur": 0,
+      "unite": "CAD",
+      "periode": "au 2026-09-30; déclaration direction",
+      "date_source": "2026-10-28",
+      "date_collecte": "2026-11-08",
+      "source_url": "https://www2.newsfilecorp.com/release/321482/CEMATRIX-Announces-2026-Third-Quarter-Financial-Results",
+      "statut": "COMMUNIQUE_PRIMAIRE_EMETTEUR_NON_AUDITE",
+      "commentaire": "Résultats T3 2026 publiés par CEMATRIX; valeurs arrondies par l'émetteur, à rapprocher des états SEDAR+."
+    },
+    {
+      "champ": "guidance_ca_q4_2026_min",
+      "valeur": 18,
+      "unite": "M CAD",
+      "periode": "prévision T4 2026",
+      "date_source": "2026-10-28",
+      "date_collecte": "2026-11-08",
+      "source_url": "https://www2.newsfilecorp.com/release/321482/CEMATRIX-Announces-2026-Third-Quarter-Financial-Results",
+      "statut": "COMMUNIQUE_PRIMAIRE_EMETTEUR_NON_AUDITE",
+      "commentaire": "Résultats T3 2026 publiés par CEMATRIX; valeurs arrondies par l'émetteur, à rapprocher des états SEDAR+."
+    },
+    {
+      "champ": "guidance_ca_q4_2026_max",
+      "valeur": 22,
+      "unite": "M CAD",
+      "periode": "prévision T4 2026",
+      "date_source": "2026-10-28",
+      "date_collecte": "2026-11-08",
+      "source_url": "https://www2.newsfilecorp.com/release/321482/CEMATRIX-Announces-2026-Third-Quarter-Financial-Results",
+      "statut": "COMMUNIQUE_PRIMAIRE_EMETTEUR_NON_AUDITE",
+      "commentaire": "Résultats T3 2026 publiés par CEMATRIX; valeurs arrondies par l'émetteur, à rapprocher des états SEDAR+."
     }
   ],
   "anomalies": [],
