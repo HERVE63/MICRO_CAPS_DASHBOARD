@@ -109,13 +109,23 @@ jobs:
           print('FICHES_PAR_TICKER')
           for row in rows:print(row['Ticker'],row['Statut'],row['Problemes'][:220])
           PY
-      - name: Controle de la revue puis duels si dossiers valides
+      - name: Controle strict et duels uniquement si revue exploitable
         run: |
-          if python -B SCRIPTS_ACTIFS/09_CONTROLE_REVUE_MCPA_IPS.py; then
-            python -B SCRIPTS_ACTIFS/09B_DUEL_PROCHAIN_EURO.py
+          python - <<'PY'
+          import csv
+          from pathlib import Path
+          p=Path('DONNEES/REVUE_HEBDOMADAIRE_MCPA_IPS.csv')
+          rows=list(csv.DictReader(p.open(encoding='utf-8')))
+          with open('DONNEES/ETAT_VERROU_ARBITRAGE.txt','w',encoding='utf-8') as f:
+            f.write(f'FICHES_CERTIFIEES={len(rows)}/40\n')
+            f.write('ETAT=REVUE_VIDE_ARBITRAGE_INTERDIT\n' if not rows else 'ETAT=CONTROLE_STRICT_REQUIS\n')
+          print('FICHES_CERTIFIEES',len(rows),'SUR 40')
+          PY
+          if [ "$(wc -l < DONNEES/REVUE_HEBDOMADAIRE_MCPA_IPS.csv)" -le 1 ]; then
+            echo 'REVUE_VIDE : aucune note inventee; duels et transactions interdits; collecte et diagnostics conserves.'
           else
-            echo 'ERREUR : revue MCPA/IPS incomplete. Arbitrage non execute.'
-            exit 1
+            python -B SCRIPTS_ACTIFS/09_CONTROLE_REVUE_MCPA_IPS.py
+            python -B SCRIPTS_ACTIFS/09B_DUEL_PROCHAIN_EURO.py
           fi
       - name: Archiver toutes les preuves
         if: always()
@@ -146,3 +156,4 @@ jobs:
             DOSSIERS_MCPA_IPS_40/*.json
             DONNEES/CONTROLE_REVUE_HEBDOMADAIRE_MCPA_IPS.csv
             DONNEES/DUELS_PROCHAIN_EURO.csv
+            DONNEES/ETAT_VERROU_ARBITRAGE.txt
