@@ -72,6 +72,9 @@ jobs:
         run: python -B SCRIPTS_ACTIFS/09R_PREPARER_DOSSIERS_40.py
       - name: Collecter les complements publics manquants des 40 titulaires
         run: python -B SCRIPTS_ACTIFS/10G_COLLECTE_COMPLEMENTS_PUBLICS_40.py
+      - name: Reessayer les valorisations et historiques publics des 40 titulaires
+        continue-on-error: true
+        run: python -B SCRIPTS_ACTIFS/10I_REESSAYER_VALORISATIONS_HISTORIQUES_40.py
       - name: Enrichir les fiches avec les preuves de marche et publications
         run: python -B SCRIPTS_ACTIFS/09T_ENRICHIR_FICHES_MCPA_40.py
       - name: Importer les complements publics dates dans les champs vides
