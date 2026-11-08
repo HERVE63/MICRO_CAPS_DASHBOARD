@@ -67,6 +67,8 @@ def main():
   for section in ('series_annuelles','valorisation_historique','revisions'):
    item=observation.get(section,{})
    if not item or not item.get('statut','').startswith('SOURCE_SECONDAIRE'):continue
+   # Ne pas ajouter de preuve secondaire sans URL et date de collecte.
+   if not item.get('url') or not observation.get('date_collecte'):continue
    marker=(item.get('url'),section,observation.get('date_collecte'))
    if not any((p.get('url'),p.get('indicateur'),p.get('periode'))==marker for p in x['preuves_complementaires']):
     x['preuves_complementaires'].append({'url':item.get('url'),'indicateur':section,'valeur':None,'unite':None,'periode':observation.get('date_collecte'),'date_collecte':observation.get('date_collecte'),'statut':'A_VERIFIER_AVANT_NOTATION','sha256_reponse':item.get('sha256_reponse'),'donnees_brutes':{k:item[k] for k in ('series','lignes','tendances') if k in item}})
