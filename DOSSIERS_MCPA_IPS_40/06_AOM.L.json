@@ -228,19 +228,15 @@
         "date_collecte": "2026-11-04"
       },
       "revenus_recurrents_pct": {
-        "valeur": null,
-        "unite": null,
-        "periode": null,
-        "date_source": null,
-        "source_url": null,
-        "statut": "A_COLLECTER",
-        "commentaire": null,
-        "recherche": {
-          "date": "2026-11-04",
-          "statut": "MANQUANT_RECHERCHE_NON_CLOSE",
-          "motif": "Aucune valeur vérifiée importée à cette étape; les recherches tracées ne démontrent pas une indisponibilité définitive.",
-          "journal": "journal_recherches"
-        }
+        "valeur": 84.44444444444444,
+        "unite": "pct",
+        "periode": "exercice clos 31/03/2026",
+        "date_source": "2026-07-02",
+        "source_url": "https://www.investegate.co.uk/announcement/rns/activeops--aom/results-for-the-year-ended-31-march-2026/9648420",
+        "statut": "CALCULE_SOURCE_PRIMAIRE",
+        "commentaire": "Calcul 38,0 M GBP de logiciels/abonnements / 45,0 M GBP de CA; proxy de récurrence, distinct de ARR/CA.",
+        "date_collecte": "2026-11-09",
+        "preuve_relecture_id": "REL20261109_AOM.L_004"
       },
       "concentration_clients_pct": {
         "valeur": null,
@@ -640,13 +636,15 @@
     },
     "risque": {
       "cash": {
-        "valeur": 23.8,
-        "unite": "millions_GBP",
-        "periode": "31-03-2026",
-        "date_source": "2026-07-02",
-        "source_url": "https://www.investegate.info/announcement/rns/activeops--aom/results-for-the-year-ended-31-march-2026/9648420",
-        "statut": "SOURCE_PUBLIQUE_VERIFIEE",
-        "commentaire": "Donnée publiée; voir période et nature de la mesure"
+        "valeur": 19600000,
+        "unite": "GBP",
+        "periode": "30/09/2026",
+        "date_source": "2026-10-12",
+        "source_url": "https://www.investegate.co.uk/index.php/announcement/rns/activeops--aom/h1-fy27-trading-update-and-notice-of-results/9816803",
+        "statut": "SOURCE_PRIMAIRE_RELECTURE_20261109",
+        "commentaire": "Actualisation du solde au 30/09; ancienne observation 31/03 conservée.",
+        "date_collecte": "2026-11-09",
+        "preuve_relecture_id": "REL20261109_AOM.L_005"
       },
       "dette_brute": {
         "valeur": 0,
@@ -724,19 +722,15 @@
         "date_collecte": "2026-11-04"
       },
       "risque_refinancement": {
-        "valeur": null,
-        "unite": null,
-        "periode": null,
-        "date_source": null,
-        "source_url": null,
-        "statut": "A_COLLECTER",
-        "commentaire": null,
-        "recherche": {
-          "date": "2026-11-04",
-          "statut": "MANQUANT_RECHERCHE_NON_CLOSE",
-          "motif": "Aucune valeur vérifiée importée à cette étape; les recherches tracées ne démontrent pas une indisponibilité définitive.",
-          "journal": "journal_recherches"
-        }
+        "valeur": "Cash de 19,6 M GBP, aucune dette annoncée au 30/09. Perte prévue de 3,8 M GBP d’ARR en mars 2027 : protéger la génération de cash.",
+        "unite": "analyse",
+        "periode": "S1 FY2027 et perspectives FY2028",
+        "date_source": "2026-10-12",
+        "source_url": "https://www.investegate.co.uk/index.php/announcement/rns/activeops--aom/h1-fy27-trading-update-and-notice-of-results/9816803",
+        "statut": "ANALYSE_DOCUMENTAIRE",
+        "commentaire": "La trésorerie courante ne supprime pas le risque opérationnel.",
+        "date_collecte": "2026-11-09",
+        "preuve_relecture_id": "REL20261109_AOM.L_006"
       },
       "risque_pays": {
         "valeur": null,
@@ -3038,5 +3032,64 @@
     "notes_justifiees": false,
     "validation_individuelle": "BLOQUEE_DONNEES_ET_ANALYSES_RESTANTES",
     "aucune_indisponibilite_definitive_presumee": true
-  }
+  },
+  "historique_relectures": [
+    {
+      "preuve_id": "REL20261109_AOM.L_004",
+      "champ": "qualite.revenus_recurrents_pct",
+      "ancienne_cellule": {
+        "valeur": null,
+        "unite": null,
+        "periode": null,
+        "date_source": null,
+        "source_url": null,
+        "statut": "A_COLLECTER",
+        "commentaire": null,
+        "recherche": {
+          "date": "2026-11-04",
+          "statut": "MANQUANT_RECHERCHE_NON_CLOSE",
+          "motif": "Aucune valeur vérifiée importée à cette étape; les recherches tracées ne démontrent pas une indisponibilité définitive.",
+          "journal": "journal_recherches"
+        }
+      },
+      "motif": "Calcul 38,0 M GBP de logiciels/abonnements / 45,0 M GBP de CA; proxy de récurrence, distinct de ARR/CA.",
+      "date_relecture": "2026-11-09"
+    },
+    {
+      "preuve_id": "REL20261109_AOM.L_005",
+      "champ": "risque.cash",
+      "ancienne_cellule": {
+        "valeur": 23.8,
+        "unite": "millions_GBP",
+        "periode": "31-03-2026",
+        "date_source": "2026-07-02",
+        "source_url": "https://www.investegate.info/announcement/rns/activeops--aom/results-for-the-year-ended-31-march-2026/9648420",
+        "statut": "SOURCE_PUBLIQUE_VERIFIEE",
+        "commentaire": "Donnée publiée; voir période et nature de la mesure"
+      },
+      "motif": "Actualisation du solde au 30/09; ancienne observation 31/03 conservée.",
+      "date_relecture": "2026-11-09"
+    },
+    {
+      "preuve_id": "REL20261109_AOM.L_006",
+      "champ": "risque.risque_refinancement",
+      "ancienne_cellule": {
+        "valeur": null,
+        "unite": null,
+        "periode": null,
+        "date_source": null,
+        "source_url": null,
+        "statut": "A_COLLECTER",
+        "commentaire": null,
+        "recherche": {
+          "date": "2026-11-04",
+          "statut": "MANQUANT_RECHERCHE_NON_CLOSE",
+          "motif": "Aucune valeur vérifiée importée à cette étape; les recherches tracées ne démontrent pas une indisponibilité définitive.",
+          "journal": "journal_recherches"
+        }
+      },
+      "motif": "La trésorerie courante ne supprime pas le risque opérationnel.",
+      "date_relecture": "2026-11-09"
+    }
+  ]
 }

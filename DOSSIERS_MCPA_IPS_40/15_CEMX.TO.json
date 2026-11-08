@@ -640,14 +640,15 @@
     },
     "risque": {
       "cash": {
-        "valeur": 20.5,
-        "unite": "millions_CAD",
-        "periode": "T3 2026 et bilan 30/09/2026",
+        "valeur": 20500000,
+        "unite": "CAD",
+        "periode": "30/09/2026",
         "date_source": "2026-10-28",
         "source_url": "https://www.tmxnewsfile.com/release/321482/CEMATRIX-Announces-2026-Third-Quarter-Financial-Results",
-        "statut": "SOURCE_PRIMAIRE",
-        "commentaire": null,
-        "date_collecte": "2026-11-04"
+        "statut": "SOURCE_PRIMAIRE_RELECTURE_20261109",
+        "commentaire": "Solde trimestriel publié; observation précédente conservée.",
+        "date_collecte": "2026-11-09",
+        "preuve_relecture_id": "REL20261109_CEMX.TO_020"
       },
       "dette_brute": {
         "valeur": 3250000,
@@ -726,19 +727,15 @@
         "date_collecte": "2026-11-04"
       },
       "risque_refinancement": {
-        "valeur": null,
-        "unite": null,
-        "periode": null,
-        "date_source": null,
-        "source_url": null,
-        "statut": "A_COLLECTER",
-        "commentaire": null,
-        "recherche": {
-          "date": "2026-11-04",
-          "statut": "MANQUANT_RECHERCHE_NON_CLOSE",
-          "motif": "Aucune valeur vérifiée importée à cette étape; les recherches tracées ne démontrent pas une indisponibilité définitive.",
-          "journal": "journal_recherches"
-        }
+        "valeur": "Pas de dette à long terme annoncée; cash 20,5 M CAD. Le financement du BFR dépend des démarrages et encaissements des chantiers.",
+        "unite": "analyse",
+        "periode": "30/09/2026",
+        "date_source": "2026-10-28",
+        "source_url": "https://www.tmxnewsfile.com/release/321482/CEMATRIX-Announces-2026-Third-Quarter-Financial-Results",
+        "statut": "ANALYSE_DOCUMENTAIRE",
+        "commentaire": "Ne conclut pas à l’absence de passifs courants.",
+        "date_collecte": "2026-11-09",
+        "preuve_relecture_id": "REL20261109_CEMX.TO_021"
       },
       "risque_pays": {
         "valeur": null,
@@ -3072,5 +3069,44 @@
     "notes_justifiees": false,
     "validation_individuelle": "BLOQUEE_DONNEES_ET_ANALYSES_RESTANTES",
     "aucune_indisponibilite_definitive_presumee": true
-  }
+  },
+  "historique_relectures": [
+    {
+      "preuve_id": "REL20261109_CEMX.TO_020",
+      "champ": "risque.cash",
+      "ancienne_cellule": {
+        "valeur": 20.5,
+        "unite": "millions_CAD",
+        "periode": "T3 2026 et bilan 30/09/2026",
+        "date_source": "2026-10-28",
+        "source_url": "https://www.tmxnewsfile.com/release/321482/CEMATRIX-Announces-2026-Third-Quarter-Financial-Results",
+        "statut": "SOURCE_PRIMAIRE",
+        "commentaire": null,
+        "date_collecte": "2026-11-04"
+      },
+      "motif": "Solde trimestriel publié; observation précédente conservée.",
+      "date_relecture": "2026-11-09"
+    },
+    {
+      "preuve_id": "REL20261109_CEMX.TO_021",
+      "champ": "risque.risque_refinancement",
+      "ancienne_cellule": {
+        "valeur": null,
+        "unite": null,
+        "periode": null,
+        "date_source": null,
+        "source_url": null,
+        "statut": "A_COLLECTER",
+        "commentaire": null,
+        "recherche": {
+          "date": "2026-11-04",
+          "statut": "MANQUANT_RECHERCHE_NON_CLOSE",
+          "motif": "Aucune valeur vérifiée importée à cette étape; les recherches tracées ne démontrent pas une indisponibilité définitive.",
+          "journal": "journal_recherches"
+        }
+      },
+      "motif": "Ne conclut pas à l’absence de passifs courants.",
+      "date_relecture": "2026-11-09"
+    }
+  ]
 }

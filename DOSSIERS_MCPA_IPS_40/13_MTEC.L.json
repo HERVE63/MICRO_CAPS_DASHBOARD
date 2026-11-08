@@ -594,19 +594,15 @@
         }
       },
       "catalyseurs_dates": {
-        "valeur": null,
-        "unite": null,
-        "periode": null,
-        "date_source": null,
-        "source_url": null,
-        "statut": "A_COLLECTER",
-        "commentaire": null,
-        "recherche": {
-          "date": "2026-11-04",
-          "statut": "MANQUANT_RECHERCHE_NON_CLOSE",
-          "motif": "Aucune valeur vérifiée importée à cette étape; les recherches tracées ne démontrent pas une indisponibilité définitive.",
-          "journal": "journal_recherches"
-        }
+        "valeur": "Contrat public de 40 M GBP sur quatre ans; objectif FY2027 de CA 63–66 M GBP et EBITDA ajusté 6,3–6,6 M GBP. Conversion progressive, non revenu immédiat intégral.",
+        "unite": "analyse",
+        "periode": "FY2026 clos 31/05 et guidance FY2027",
+        "date_source": "2026-09-29",
+        "source_url": "https://www.investormeetcompany.com/companies/made-tech-group-plc/rns/4896769/view",
+        "statut": "ANALYSE_DOCUMENTAIRE",
+        "commentaire": "Contrat post-clôture et guidance distingués des comptes.",
+        "date_collecte": "2026-11-09",
+        "preuve_relecture_id": "REL20261109_MTEC.L_015"
       },
       "taille_marche_adressable": {
         "valeur": null,
@@ -777,19 +773,15 @@
         }
       },
       "risque_concentration": {
-        "valeur": null,
-        "unite": null,
-        "periode": null,
-        "date_source": null,
-        "source_url": null,
-        "statut": "A_COLLECTER",
-        "commentaire": null,
-        "recherche": {
-          "date": "2026-11-04",
-          "statut": "MANQUANT_RECHERCHE_NON_CLOSE",
-          "motif": "Aucune valeur vérifiée importée à cette étape; les recherches tracées ne démontrent pas une indisponibilité définitive.",
-          "journal": "journal_recherches"
-        }
+        "valeur": "Services numériques au secteur public britannique : dépendance aux budgets, procédures d’attribution et calendrier des grands contrats.",
+        "unite": "analyse",
+        "periode": "FY2026/FY2027",
+        "date_source": "2026-09-29",
+        "source_url": "https://www.investormeetcompany.com/companies/made-tech-group-plc/rns/4896769/view",
+        "statut": "ANALYSE_DOCUMENTAIRE",
+        "commentaire": "Risque analytique; aucune part du premier client non publiée n’est inventée.",
+        "date_collecte": "2026-11-09",
+        "preuve_relecture_id": "REL20261109_MTEC.L_016"
       },
       "transactions_initiees_net_90j": {
         "valeur": null,
@@ -967,19 +959,15 @@
     },
     "diversification": {
       "zone_geographique": {
-        "valeur": null,
-        "unite": null,
-        "periode": null,
-        "date_source": null,
-        "source_url": null,
-        "statut": "A_COLLECTER",
-        "commentaire": null,
-        "recherche": {
-          "date": "2026-11-04",
-          "statut": "MANQUANT_RECHERCHE_NON_CLOSE",
-          "motif": "Aucune valeur vérifiée importée à cette étape; les recherches tracées ne démontrent pas une indisponibilité définitive.",
-          "journal": "journal_recherches"
-        }
+        "valeur": "Royaume-Uni; clientèle du secteur public.",
+        "unite": "texte",
+        "periode": "FY2026",
+        "date_source": "2026-09-29",
+        "source_url": "https://www.investormeetcompany.com/companies/made-tech-group-plc/rns/4896769/view",
+        "statut": "SOURCE_PRIMAIRE_RELECTURE_20261109",
+        "commentaire": "Exposition économique décrite par l’émetteur.",
+        "date_collecte": "2026-11-09",
+        "preuve_relecture_id": "REL20261109_MTEC.L_017"
       },
       "exposition_sectorielle": {
         "valeur": "Technology",
@@ -2720,5 +2708,70 @@
     "notes_justifiees": false,
     "validation_individuelle": "BLOQUEE_DONNEES_ET_ANALYSES_RESTANTES",
     "aucune_indisponibilite_definitive_presumee": true
-  }
+  },
+  "historique_relectures": [
+    {
+      "preuve_id": "REL20261109_MTEC.L_015",
+      "champ": "croissance.catalyseurs_dates",
+      "ancienne_cellule": {
+        "valeur": null,
+        "unite": null,
+        "periode": null,
+        "date_source": null,
+        "source_url": null,
+        "statut": "A_COLLECTER",
+        "commentaire": null,
+        "recherche": {
+          "date": "2026-11-04",
+          "statut": "MANQUANT_RECHERCHE_NON_CLOSE",
+          "motif": "Aucune valeur vérifiée importée à cette étape; les recherches tracées ne démontrent pas une indisponibilité définitive.",
+          "journal": "journal_recherches"
+        }
+      },
+      "motif": "Contrat post-clôture et guidance distingués des comptes.",
+      "date_relecture": "2026-11-09"
+    },
+    {
+      "preuve_id": "REL20261109_MTEC.L_016",
+      "champ": "risque.risque_concentration",
+      "ancienne_cellule": {
+        "valeur": null,
+        "unite": null,
+        "periode": null,
+        "date_source": null,
+        "source_url": null,
+        "statut": "A_COLLECTER",
+        "commentaire": null,
+        "recherche": {
+          "date": "2026-11-04",
+          "statut": "MANQUANT_RECHERCHE_NON_CLOSE",
+          "motif": "Aucune valeur vérifiée importée à cette étape; les recherches tracées ne démontrent pas une indisponibilité définitive.",
+          "journal": "journal_recherches"
+        }
+      },
+      "motif": "Risque analytique; aucune part du premier client non publiée n’est inventée.",
+      "date_relecture": "2026-11-09"
+    },
+    {
+      "preuve_id": "REL20261109_MTEC.L_017",
+      "champ": "diversification.zone_geographique",
+      "ancienne_cellule": {
+        "valeur": null,
+        "unite": null,
+        "periode": null,
+        "date_source": null,
+        "source_url": null,
+        "statut": "A_COLLECTER",
+        "commentaire": null,
+        "recherche": {
+          "date": "2026-11-04",
+          "statut": "MANQUANT_RECHERCHE_NON_CLOSE",
+          "motif": "Aucune valeur vérifiée importée à cette étape; les recherches tracées ne démontrent pas une indisponibilité définitive.",
+          "journal": "journal_recherches"
+        }
+      },
+      "motif": "Exposition économique décrite par l’émetteur.",
+      "date_relecture": "2026-11-09"
+    }
+  ]
 }

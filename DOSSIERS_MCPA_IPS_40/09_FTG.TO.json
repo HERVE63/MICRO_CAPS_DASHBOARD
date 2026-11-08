@@ -601,19 +601,15 @@
         }
       },
       "catalyseurs_dates": {
-        "valeur": null,
-        "unite": null,
-        "periode": null,
-        "date_source": null,
-        "source_url": null,
-        "statut": "A_COLLECTER",
-        "commentaire": null,
-        "recherche": {
-          "date": "2026-11-04",
-          "statut": "MANQUANT_RECHERCHE_NON_CLOSE",
-          "motif": "Aucune valeur vérifiée importée à cette étape; les recherches tracées ne démontrent pas une indisponibilité définitive.",
-          "journal": "journal_recherches"
-        }
+        "valeur": "Transformation du carnet de 220,7 M CAD et commandes trimestrielles de 90,2 M CAD en revenus sur les prochains trimestres; calendrier de livraison détaillé non publié dans ce communiqué.",
+        "unite": "analyse",
+        "periode": "T3 2026; horizon 3–6 mois",
+        "date_source": "2026-10-07",
+        "source_url": "https://www.ftgcorp.com/news/firan-technology-group-corporation-ftg-announces-q3-2026-financial-results/",
+        "statut": "ANALYSE_DOCUMENTAIRE",
+        "commentaire": "Catalyseur opérationnel conditionnel; aucune date de résultats future inventée.",
+        "date_collecte": "2026-11-09",
+        "preuve_relecture_id": "REL20261109_FTG.TO_011"
       },
       "taille_marche_adressable": {
         "valeur": null,
@@ -662,14 +658,15 @@
         "commentaire": "Résultat publié; non annualisé"
       },
       "dette_nette_ebitda": {
-        "valeur": 0.49017038007863695,
-        "unite": "ratio",
-        "periode": "TTM fournisseur; arrêté indiqué dans son tableau financier : Aug '26 Aug 28, 2026",
-        "date_source": "2026-11-04",
-        "source_url": "https://stockanalysis.com/quote/tsx/FTG/statistics/",
-        "statut": "SOURCE_SECONDAIRE_NON_RAPPROCHEE",
-        "commentaire": "(Total Debt - Cash)/EBITDA, tous issus du même fournisseur; dates exactes à rapprocher. Date rapprochée au tableau financier du même fournisseur, sans certification primaire.",
-        "date_collecte": "2026-11-04"
+        "valeur": -0.09558823529411765,
+        "unite": "ratio dette nette / EBITDA ajusté",
+        "periode": "bilan T3 2026 / EBITDA ajusté des 12 mois au T3",
+        "date_source": "2026-10-07",
+        "source_url": "https://www.ftgcorp.com/news/firan-technology-group-corporation-ftg-announces-q3-2026-financial-results/",
+        "statut": "CALCULE_SOURCE_PRIMAIRE",
+        "commentaire": "Calcul -3,9 M CAD / 40,8 M CAD. EBITDA ajusté, non GAAP; remplacement du ratio secondaire périmé.",
+        "date_collecte": "2026-11-09",
+        "preuve_relecture_id": "REL20261109_FTG.TO_009"
       },
       "couverture_interets": {
         "valeur": 12.55,
@@ -718,19 +715,15 @@
         "date_collecte": "2026-11-04"
       },
       "risque_refinancement": {
-        "valeur": null,
-        "unite": null,
-        "periode": null,
-        "date_source": null,
-        "source_url": null,
-        "statut": "A_COLLECTER",
-        "commentaire": null,
-        "recherche": {
-          "date": "2026-11-04",
-          "statut": "MANQUANT_RECHERCHE_NON_CLOSE",
-          "motif": "Aucune valeur vérifiée importée à cette étape; les recherches tracées ne démontrent pas une indisponibilité définitive.",
-          "journal": "journal_recherches"
-        }
+        "valeur": "Tous les prêts commerciaux remboursés au T3. Trésorerie nette de 3,9 M CAD après inclusion de 8,9 M CAD de prêts publics; risque de liquidité à suivre avec le BFR.",
+        "unite": "analyse",
+        "periode": "T3 2026",
+        "date_source": "2026-10-07",
+        "source_url": "https://www.ftgcorp.com/news/firan-technology-group-corporation-ftg-announces-q3-2026-financial-results/",
+        "statut": "ANALYSE_DOCUMENTAIRE",
+        "commentaire": "Ne confond pas remboursement des prêts commerciaux et absence de toute dette.",
+        "date_collecte": "2026-11-09",
+        "preuve_relecture_id": "REL20261109_FTG.TO_010"
       },
       "risque_pays": {
         "valeur": null,
@@ -3115,5 +3108,65 @@
     "notes_justifiees": false,
     "validation_individuelle": "BLOQUEE_DONNEES_ET_ANALYSES_RESTANTES",
     "aucune_indisponibilite_definitive_presumee": true
-  }
+  },
+  "historique_relectures": [
+    {
+      "preuve_id": "REL20261109_FTG.TO_009",
+      "champ": "risque.dette_nette_ebitda",
+      "ancienne_cellule": {
+        "valeur": 0.49017038007863695,
+        "unite": "ratio",
+        "periode": "TTM fournisseur; arrêté indiqué dans son tableau financier : Aug '26 Aug 28, 2026",
+        "date_source": "2026-11-04",
+        "source_url": "https://stockanalysis.com/quote/tsx/FTG/statistics/",
+        "statut": "SOURCE_SECONDAIRE_NON_RAPPROCHEE",
+        "commentaire": "(Total Debt - Cash)/EBITDA, tous issus du même fournisseur; dates exactes à rapprocher. Date rapprochée au tableau financier du même fournisseur, sans certification primaire.",
+        "date_collecte": "2026-11-04"
+      },
+      "motif": "Calcul -3,9 M CAD / 40,8 M CAD. EBITDA ajusté, non GAAP; remplacement du ratio secondaire périmé.",
+      "date_relecture": "2026-11-09"
+    },
+    {
+      "preuve_id": "REL20261109_FTG.TO_010",
+      "champ": "risque.risque_refinancement",
+      "ancienne_cellule": {
+        "valeur": null,
+        "unite": null,
+        "periode": null,
+        "date_source": null,
+        "source_url": null,
+        "statut": "A_COLLECTER",
+        "commentaire": null,
+        "recherche": {
+          "date": "2026-11-04",
+          "statut": "MANQUANT_RECHERCHE_NON_CLOSE",
+          "motif": "Aucune valeur vérifiée importée à cette étape; les recherches tracées ne démontrent pas une indisponibilité définitive.",
+          "journal": "journal_recherches"
+        }
+      },
+      "motif": "Ne confond pas remboursement des prêts commerciaux et absence de toute dette.",
+      "date_relecture": "2026-11-09"
+    },
+    {
+      "preuve_id": "REL20261109_FTG.TO_011",
+      "champ": "croissance.catalyseurs_dates",
+      "ancienne_cellule": {
+        "valeur": null,
+        "unite": null,
+        "periode": null,
+        "date_source": null,
+        "source_url": null,
+        "statut": "A_COLLECTER",
+        "commentaire": null,
+        "recherche": {
+          "date": "2026-11-04",
+          "statut": "MANQUANT_RECHERCHE_NON_CLOSE",
+          "motif": "Aucune valeur vérifiée importée à cette étape; les recherches tracées ne démontrent pas une indisponibilité définitive.",
+          "journal": "journal_recherches"
+        }
+      },
+      "motif": "Catalyseur opérationnel conditionnel; aucune date de résultats future inventée.",
+      "date_relecture": "2026-11-09"
+    }
+  ]
 }

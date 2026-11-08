@@ -533,18 +533,14 @@
       },
       "book_to_bill": {
         "valeur": null,
-        "unite": null,
-        "periode": null,
-        "date_source": null,
-        "source_url": null,
-        "statut": "A_COLLECTER",
-        "commentaire": null,
-        "recherche": {
-          "date": "2026-11-04",
-          "statut": "MANQUANT_RECHERCHE_NON_CLOSE",
-          "motif": "Aucune valeur vérifiée importée à cette étape; les recherches tracées ne démontrent pas une indisponibilité définitive.",
-          "journal": "journal_recherches"
-        }
+        "unite": "non calculable",
+        "periode": "9 mois 2026",
+        "date_source": "2026-11-09",
+        "source_url": "https://www.sidetrade.com/news/third-quarter-revenue-for-2026/",
+        "statut": "INFORMATION_NON_EQUIVALENTE",
+        "commentaire": "TCV de 29,1 M EUR et nouveaux ARR de 7,76 M EUR ne sont ni des commandes reconnues en CA sur la même période ni un backlog; aucun book-to-bill comparable déduit. Date_source = consultation; date de publication non déduite.",
+        "date_collecte": "2026-11-09",
+        "preuve_relecture_id": "REL20261109_ALBFR.PA_025"
       },
       "previsions_ca_1a": {
         "valeur": 71830000,
@@ -969,19 +965,15 @@
     },
     "diversification": {
       "zone_geographique": {
-        "valeur": null,
-        "unite": null,
-        "periode": null,
-        "date_source": null,
-        "source_url": null,
-        "statut": "A_COLLECTER",
-        "commentaire": null,
-        "recherche": {
-          "date": "2026-11-04",
-          "statut": "MANQUANT_RECHERCHE_NON_CLOSE",
-          "motif": "Aucune valeur vérifiée importée à cette étape; les recherches tracées ne démontrent pas une indisponibilité définitive.",
-          "journal": "journal_recherches"
-        }
+        "valeur": "72 % du CA abonnements hors France; Amérique du Nord 26 %, Asie-Pacifique 16 %.",
+        "unite": "texte",
+        "periode": "T3 2026",
+        "date_source": "2026-11-09",
+        "source_url": "https://www.sidetrade.com/news/third-quarter-revenue-for-2026/",
+        "statut": "SOURCE_PRIMAIRE_RELECTURE_20261109",
+        "commentaire": "Dénominateur : abonnements, et non ensemble du CA. Date_source = consultation; date de publication non déduite.",
+        "date_collecte": "2026-11-09",
+        "preuve_relecture_id": "REL20261109_ALBFR.PA_024"
       },
       "exposition_sectorielle": {
         "valeur": "Technology",
@@ -2869,5 +2861,83 @@
     "notes_justifiees": false,
     "validation_individuelle": "BLOQUEE_DONNEES_ET_ANALYSES_RESTANTES",
     "aucune_indisponibilite_definitive_presumee": true
-  }
+  },
+  "historique_relectures": [
+    {
+      "preuve_id": "REL20261109_ALBFR.PA_024",
+      "champ": "diversification.zone_geographique",
+      "ancienne_cellule": {
+        "valeur": null,
+        "unite": null,
+        "periode": null,
+        "date_source": null,
+        "source_url": null,
+        "statut": "A_COLLECTER",
+        "commentaire": null,
+        "recherche": {
+          "date": "2026-11-04",
+          "statut": "MANQUANT_RECHERCHE_NON_CLOSE",
+          "motif": "Aucune valeur vérifiée importée à cette étape; les recherches tracées ne démontrent pas une indisponibilité définitive.",
+          "journal": "journal_recherches"
+        }
+      },
+      "motif": "Dénominateur : abonnements, et non ensemble du CA.",
+      "date_relecture": "2026-11-09"
+    },
+    {
+      "preuve_id": "REL20261109_ALBFR.PA_025",
+      "champ": "croissance.book_to_bill",
+      "ancienne_cellule": {
+        "valeur": null,
+        "unite": null,
+        "periode": null,
+        "date_source": null,
+        "source_url": null,
+        "statut": "A_COLLECTER",
+        "commentaire": null,
+        "recherche": {
+          "date": "2026-11-04",
+          "statut": "MANQUANT_RECHERCHE_NON_CLOSE",
+          "motif": "Aucune valeur vérifiée importée à cette étape; les recherches tracées ne démontrent pas une indisponibilité définitive.",
+          "journal": "journal_recherches"
+        }
+      },
+      "motif": "TCV de 29,1 M EUR et nouveaux ARR de 7,76 M EUR ne sont ni des commandes reconnues en CA sur la même période ni un backlog; aucun book-to-bill comparable déduit.",
+      "date_relecture": "2026-11-09"
+    },
+    {
+      "preuve_id": "REL20261109_ALBFR.PA_024",
+      "champ": "diversification.zone_geographique",
+      "ancienne_cellule": {
+        "valeur": "72 % du CA abonnements hors France; Amérique du Nord 26 %, Asie-Pacifique 16 %.",
+        "unite": "texte",
+        "periode": "T3 2026",
+        "date_source": "2026-10-20",
+        "source_url": "https://www.sidetrade.com/news/third-quarter-revenue-for-2026/",
+        "statut": "SOURCE_PRIMAIRE_RELECTURE_20261109",
+        "commentaire": "Dénominateur : abonnements, et non ensemble du CA.",
+        "date_collecte": "2026-11-09",
+        "preuve_relecture_id": "REL20261109_ALBFR.PA_024"
+      },
+      "motif": "Dénominateur : abonnements, et non ensemble du CA. Date_source = consultation; date de publication non déduite.",
+      "date_relecture": "2026-11-09"
+    },
+    {
+      "preuve_id": "REL20261109_ALBFR.PA_025",
+      "champ": "croissance.book_to_bill",
+      "ancienne_cellule": {
+        "valeur": null,
+        "unite": "non calculable",
+        "periode": "9 mois 2026",
+        "date_source": "2026-10-20",
+        "source_url": "https://www.sidetrade.com/news/third-quarter-revenue-for-2026/",
+        "statut": "INFORMATION_NON_EQUIVALENTE",
+        "commentaire": "TCV de 29,1 M EUR et nouveaux ARR de 7,76 M EUR ne sont ni des commandes reconnues en CA sur la même période ni un backlog; aucun book-to-bill comparable déduit.",
+        "date_collecte": "2026-11-09",
+        "preuve_relecture_id": "REL20261109_ALBFR.PA_025"
+      },
+      "motif": "TCV de 29,1 M EUR et nouveaux ARR de 7,76 M EUR ne sont ni des commandes reconnues en CA sur la même période ni un backlog; aucun book-to-bill comparable déduit. Date_source = consultation; date de publication non déduite.",
+      "date_relecture": "2026-11-09"
+    }
+  ]
 }

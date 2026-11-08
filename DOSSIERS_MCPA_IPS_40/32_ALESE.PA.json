@@ -552,19 +552,15 @@
         "date_collecte": "2026-11-04"
       },
       "book_to_bill": {
-        "valeur": null,
-        "unite": null,
-        "periode": null,
-        "date_source": null,
-        "source_url": null,
-        "statut": "A_COLLECTER",
-        "commentaire": null,
-        "recherche": {
-          "date": "2026-11-04",
-          "statut": "MANQUANT_RECHERCHE_NON_CLOSE",
-          "motif": "Aucune valeur vérifiée importée à cette étape; les recherches tracées ne démontrent pas une indisponibilité définitive.",
-          "journal": "journal_recherches"
-        }
+        "valeur": 0.637883008356546,
+        "unite": "ratio",
+        "periode": "S1 2026",
+        "date_source": "2026-09-23",
+        "source_url": "https://entech-se.com/resultats-semestriels-2026/",
+        "statut": "CALCULE_SOURCE_PRIMAIRE",
+        "commentaire": "Prises de commandes 45,8 M EUR / CA 71,8 M EUR; périmètre consolidé du communiqué.",
+        "date_collecte": "2026-11-09",
+        "preuve_relecture_id": "REL20261109_ALESE.PA_027"
       },
       "previsions_ca_1a": {
         "valeur": 130,
@@ -622,19 +618,15 @@
         }
       },
       "catalyseurs_dates": {
-        "valeur": null,
-        "unite": null,
-        "periode": null,
-        "date_source": null,
-        "source_url": null,
-        "statut": "A_COLLECTER",
-        "commentaire": null,
-        "recherche": {
-          "date": "2026-11-04",
-          "statut": "MANQUANT_RECHERCHE_NON_CLOSE",
-          "motif": "Aucune valeur vérifiée importée à cette étape; les recherches tracées ne démontrent pas une indisponibilité définitive.",
-          "journal": "journal_recherches"
-        }
+        "valeur": "Objectif 2026 maintenu : CA 130 M EUR et marge EBITDA 8–10 %. Priorités S2 : encaissement des chantiers, maîtrise du BFR et conservation des marges.",
+        "unite": "analyse",
+        "periode": "S1 2026 et guidance 2026",
+        "date_source": "2026-09-23",
+        "source_url": "https://entech-se.com/resultats-semestriels-2026/",
+        "statut": "ANALYSE_DOCUMENTAIRE",
+        "commentaire": "Guidance, pas résultat futur certifié.",
+        "date_collecte": "2026-11-09",
+        "preuve_relecture_id": "REL20261109_ALESE.PA_028"
       },
       "taille_marche_adressable": {
         "valeur": null,
@@ -2747,5 +2739,83 @@
     "notes_justifiees": false,
     "validation_individuelle": "BLOQUEE_DONNEES_ET_ANALYSES_RESTANTES",
     "aucune_indisponibilite_definitive_presumee": true
-  }
+  },
+  "historique_relectures": [
+    {
+      "preuve_id": "REL20261109_ALESE.PA_027",
+      "champ": "croissance.book_to_bill",
+      "ancienne_cellule": {
+        "valeur": null,
+        "unite": null,
+        "periode": null,
+        "date_source": null,
+        "source_url": null,
+        "statut": "A_COLLECTER",
+        "commentaire": null,
+        "recherche": {
+          "date": "2026-11-04",
+          "statut": "MANQUANT_RECHERCHE_NON_CLOSE",
+          "motif": "Aucune valeur vérifiée importée à cette étape; les recherches tracées ne démontrent pas une indisponibilité définitive.",
+          "journal": "journal_recherches"
+        }
+      },
+      "motif": "Prises de commandes 45,8 M EUR / CA 71,8 M EUR; périmètre consolidé du communiqué.",
+      "date_relecture": "2026-11-09"
+    },
+    {
+      "preuve_id": "REL20261109_ALESE.PA_028",
+      "champ": "croissance.catalyseurs_dates",
+      "ancienne_cellule": {
+        "valeur": null,
+        "unite": null,
+        "periode": null,
+        "date_source": null,
+        "source_url": null,
+        "statut": "A_COLLECTER",
+        "commentaire": null,
+        "recherche": {
+          "date": "2026-11-04",
+          "statut": "MANQUANT_RECHERCHE_NON_CLOSE",
+          "motif": "Aucune valeur vérifiée importée à cette étape; les recherches tracées ne démontrent pas une indisponibilité définitive.",
+          "journal": "journal_recherches"
+        }
+      },
+      "motif": "Guidance, pas résultat futur certifié.",
+      "date_relecture": "2026-11-09"
+    },
+    {
+      "preuve_id": "REL20261109_ALESE.PA_027",
+      "champ": "croissance.book_to_bill",
+      "ancienne_cellule": {
+        "valeur": 0.637883008356546,
+        "unite": "ratio",
+        "periode": "S1 2026",
+        "date_source": "2026-09-29",
+        "source_url": "https://entech-se.com/resultats-semestriels-2026/",
+        "statut": "CALCULE_SOURCE_PRIMAIRE",
+        "commentaire": "Prises de commandes 45,8 M EUR / CA 71,8 M EUR; périmètre consolidé du communiqué.",
+        "date_collecte": "2026-11-09",
+        "preuve_relecture_id": "REL20261109_ALESE.PA_027"
+      },
+      "motif": "Prises de commandes 45,8 M EUR / CA 71,8 M EUR; périmètre consolidé du communiqué.",
+      "date_relecture": "2026-11-09"
+    },
+    {
+      "preuve_id": "REL20261109_ALESE.PA_028",
+      "champ": "croissance.catalyseurs_dates",
+      "ancienne_cellule": {
+        "valeur": "Objectif 2026 maintenu : CA 130 M EUR et marge EBITDA 8–10 %. Priorités S2 : encaissement des chantiers, maîtrise du BFR et conservation des marges.",
+        "unite": "analyse",
+        "periode": "S1 2026 et guidance 2026",
+        "date_source": "2026-09-29",
+        "source_url": "https://entech-se.com/resultats-semestriels-2026/",
+        "statut": "ANALYSE_DOCUMENTAIRE",
+        "commentaire": "Guidance, pas résultat futur certifié.",
+        "date_collecte": "2026-11-09",
+        "preuve_relecture_id": "REL20261109_ALESE.PA_028"
+      },
+      "motif": "Guidance, pas résultat futur certifié.",
+      "date_relecture": "2026-11-09"
+    }
+  ]
 }

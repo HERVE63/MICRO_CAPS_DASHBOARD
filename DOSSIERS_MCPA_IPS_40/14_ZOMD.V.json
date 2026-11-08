@@ -634,19 +634,15 @@
         }
       },
       "catalyseurs_dates": {
-        "valeur": null,
-        "unite": null,
-        "periode": null,
-        "date_source": null,
-        "source_url": null,
-        "statut": "A_COLLECTER",
-        "commentaire": null,
-        "recherche": {
-          "date": "2026-11-04",
-          "statut": "MANQUANT_RECHERCHE_NON_CLOSE",
-          "motif": "Aucune valeur vérifiée importée à cette étape; les recherches tracées ne démontrent pas une indisponibilité définitive.",
-          "journal": "journal_recherches"
-        }
+        "valeur": "Redressement séquentiel du CA T2 (+11 % sur T1), rachats NCIB engagés et recherche de croissance externe; aucun contrat ni acquisition non annoncé présumé.",
+        "unite": "analyse",
+        "periode": "T2 2026; horizon 3–6 mois",
+        "date_source": "2026-08-31",
+        "source_url": "https://zoomd.com/zoomd-q2-2026-financial-results/",
+        "statut": "ANALYSE_DOCUMENTAIRE",
+        "commentaire": "La baisse annuelle de 61 % reste le risque dominant.",
+        "date_collecte": "2026-11-09",
+        "preuve_relecture_id": "REL20261109_ZOMD.V_018"
       },
       "taille_marche_adressable": {
         "valeur": null,
@@ -752,19 +748,15 @@
         "date_collecte": "2026-11-04"
       },
       "risque_refinancement": {
-        "valeur": null,
-        "unite": null,
-        "periode": null,
-        "date_source": null,
-        "source_url": null,
-        "statut": "A_COLLECTER",
-        "commentaire": null,
-        "recherche": {
-          "date": "2026-11-04",
-          "statut": "MANQUANT_RECHERCHE_NON_CLOSE",
-          "motif": "Aucune valeur vérifiée importée à cette étape; les recherches tracées ne démontrent pas une indisponibilité définitive.",
-          "journal": "journal_recherches"
-        }
+        "valeur": "22,6 M USD de cash sans dette bancaire au 30/06; marge financière mais dépendance à deux clients et à la discipline des acquisitions.",
+        "unite": "analyse",
+        "periode": "30/06/2026",
+        "date_source": "2026-08-31",
+        "source_url": "https://zoomd.com/zoomd-q2-2026-financial-results/",
+        "statut": "ANALYSE_DOCUMENTAIRE",
+        "commentaire": "Cash de juin non présenté comme solde courant.",
+        "date_collecte": "2026-11-09",
+        "preuve_relecture_id": "REL20261109_ZOMD.V_019"
       },
       "risque_pays": {
         "valeur": null,
@@ -4392,5 +4384,49 @@
     "notes_justifiees": false,
     "validation_individuelle": "BLOQUEE_DONNEES_ET_ANALYSES_RESTANTES",
     "aucune_indisponibilite_definitive_presumee": true
-  }
+  },
+  "historique_relectures": [
+    {
+      "preuve_id": "REL20261109_ZOMD.V_018",
+      "champ": "croissance.catalyseurs_dates",
+      "ancienne_cellule": {
+        "valeur": null,
+        "unite": null,
+        "periode": null,
+        "date_source": null,
+        "source_url": null,
+        "statut": "A_COLLECTER",
+        "commentaire": null,
+        "recherche": {
+          "date": "2026-11-04",
+          "statut": "MANQUANT_RECHERCHE_NON_CLOSE",
+          "motif": "Aucune valeur vérifiée importée à cette étape; les recherches tracées ne démontrent pas une indisponibilité définitive.",
+          "journal": "journal_recherches"
+        }
+      },
+      "motif": "La baisse annuelle de 61 % reste le risque dominant.",
+      "date_relecture": "2026-11-09"
+    },
+    {
+      "preuve_id": "REL20261109_ZOMD.V_019",
+      "champ": "risque.risque_refinancement",
+      "ancienne_cellule": {
+        "valeur": null,
+        "unite": null,
+        "periode": null,
+        "date_source": null,
+        "source_url": null,
+        "statut": "A_COLLECTER",
+        "commentaire": null,
+        "recherche": {
+          "date": "2026-11-04",
+          "statut": "MANQUANT_RECHERCHE_NON_CLOSE",
+          "motif": "Aucune valeur vérifiée importée à cette étape; les recherches tracées ne démontrent pas une indisponibilité définitive.",
+          "journal": "journal_recherches"
+        }
+      },
+      "motif": "Cash de juin non présenté comme solde courant.",
+      "date_relecture": "2026-11-09"
+    }
+  ]
 }

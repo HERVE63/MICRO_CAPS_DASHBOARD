@@ -262,19 +262,15 @@
         }
       },
       "qualite_management": {
-        "valeur": null,
-        "unite": null,
-        "periode": null,
-        "date_source": null,
-        "source_url": null,
-        "statut": "A_COLLECTER",
-        "commentaire": null,
-        "recherche": {
-          "date": "2026-11-04",
-          "statut": "MANQUANT_RECHERCHE_NON_CLOSE",
-          "motif": "Analyse MCPA/IPS argumentée encore nécessaire; ce champ ne doit pas être rempli par une statistique de fournisseur.",
-          "journal": "journal_recherches"
-        }
+        "valeur": "Plan d’adaptation des coûts et capacités annoncé après la perte des volumes Tesla USA; exécution et diversification BYD/CATL à vérifier en 2027.",
+        "unite": "analyse",
+        "periode": "S1 2026 et perspectives 2027",
+        "date_source": "2026-10-01",
+        "source_url": "https://www.actusnews.com/fr/stif/cp/2026/10/01/des-resultats-semestriels-2026-en-forte-progression",
+        "statut": "ANALYSE_DOCUMENTAIRE",
+        "commentaire": "Jugement sur les mesures annoncées, pas certification de leur réussite.",
+        "date_collecte": "2026-11-09",
+        "preuve_relecture_id": "REL20261109_ALSTI.PA_007"
       }
     },
     "valorisation": {
@@ -744,19 +740,15 @@
         }
       },
       "risque_gouvernance": {
-        "valeur": null,
-        "unite": null,
-        "periode": null,
-        "date_source": null,
-        "source_url": null,
-        "statut": "A_COLLECTER",
-        "commentaire": null,
-        "recherche": {
-          "date": "2026-11-04",
-          "statut": "MANQUANT_RECHERCHE_NON_CLOSE",
-          "motif": "Aucune valeur vérifiée importée à cette étape; les recherches tracées ne démontrent pas une indisponibilité définitive.",
-          "journal": "journal_recherches"
-        }
+        "valeur": "Comptes semestriels soumis à examen limité annoncé. Le choc Tesla est un risque commercial; aucun manquement de gouvernance ne peut en être déduit.",
+        "unite": "analyse",
+        "periode": "30/06/2026",
+        "date_source": "2026-10-01",
+        "source_url": "https://www.actusnews.com/fr/stif/cp/2026/10/01/des-resultats-semestriels-2026-en-forte-progression",
+        "statut": "ANALYSE_DOCUMENTAIRE",
+        "commentaire": "Détention et transactions dirigeants à contrôler séparément.",
+        "date_collecte": "2026-11-09",
+        "preuve_relecture_id": "REL20261109_ALSTI.PA_008"
       },
       "risque_reglementaire": {
         "valeur": null,
@@ -2897,5 +2889,49 @@
     "notes_justifiees": false,
     "validation_individuelle": "BLOQUEE_DONNEES_ET_ANALYSES_RESTANTES",
     "aucune_indisponibilite_definitive_presumee": true
-  }
+  },
+  "historique_relectures": [
+    {
+      "preuve_id": "REL20261109_ALSTI.PA_007",
+      "champ": "qualite.qualite_management",
+      "ancienne_cellule": {
+        "valeur": null,
+        "unite": null,
+        "periode": null,
+        "date_source": null,
+        "source_url": null,
+        "statut": "A_COLLECTER",
+        "commentaire": null,
+        "recherche": {
+          "date": "2026-11-04",
+          "statut": "MANQUANT_RECHERCHE_NON_CLOSE",
+          "motif": "Analyse MCPA/IPS argumentée encore nécessaire; ce champ ne doit pas être rempli par une statistique de fournisseur.",
+          "journal": "journal_recherches"
+        }
+      },
+      "motif": "Jugement sur les mesures annoncées, pas certification de leur réussite.",
+      "date_relecture": "2026-11-09"
+    },
+    {
+      "preuve_id": "REL20261109_ALSTI.PA_008",
+      "champ": "risque.risque_gouvernance",
+      "ancienne_cellule": {
+        "valeur": null,
+        "unite": null,
+        "periode": null,
+        "date_source": null,
+        "source_url": null,
+        "statut": "A_COLLECTER",
+        "commentaire": null,
+        "recherche": {
+          "date": "2026-11-04",
+          "statut": "MANQUANT_RECHERCHE_NON_CLOSE",
+          "motif": "Aucune valeur vérifiée importée à cette étape; les recherches tracées ne démontrent pas une indisponibilité définitive.",
+          "journal": "journal_recherches"
+        }
+      },
+      "motif": "Détention et transactions dirigeants à contrôler séparément.",
+      "date_relecture": "2026-11-09"
+    }
+  ]
 }
