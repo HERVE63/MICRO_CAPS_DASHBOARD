@@ -577,13 +577,13 @@
         "valeur": null,
         "unite": "sans objet",
         "periode": "consensus annuel clos au 2026-12-31",
-        "date_source": "2026-11-07",
+        "date_source": "2026-11-08",
         "source_url": "https://query1.finance.yahoo.com/v10/finance/quoteSummary/INFU?modules=earningsTrend",
         "statut": "NON_APPLICABLE",
         "commentaire": "Consensus Yahoo pour un même exercice : BPA actuel 0.46, BPA à J-30 0.0, devise USD. Variation (actuel/antérieur -1). Pas une révision d’objectif de cours; instantanés de consensus secondaires à rapprocher. Base antérieure non positive : pourcentage non interprétable selon cette convention.",
-        "date_collecte": "2026-11-07",
+        "date_collecte": "2026-11-08",
         "recherche": {
-          "date": "2026-11-07",
+          "date": "2026-11-08",
           "statut": "NON_APPLICABLE",
           "motif": "Consensus Yahoo pour un même exercice : BPA actuel 0.46, BPA à J-30 0.0, devise USD. Variation (actuel/antérieur -1). Pas une révision d’objectif de cours; instantanés de consensus secondaires à rapprocher. Base antérieure non positive : pourcentage non interprétable selon cette convention.",
           "journal": "journal_recherches"
@@ -593,13 +593,13 @@
         "valeur": null,
         "unite": "sans objet",
         "periode": "consensus annuel clos au 2026-12-31",
-        "date_source": "2026-11-07",
+        "date_source": "2026-11-08",
         "source_url": "https://query1.finance.yahoo.com/v10/finance/quoteSummary/INFU?modules=earningsTrend",
         "statut": "NON_APPLICABLE",
         "commentaire": "Consensus Yahoo pour un même exercice : BPA actuel 0.46, BPA à J-90 0.0, devise USD. Variation (actuel/antérieur -1). Pas une révision d’objectif de cours; instantanés de consensus secondaires à rapprocher. Base antérieure non positive : pourcentage non interprétable selon cette convention.",
-        "date_collecte": "2026-11-07",
+        "date_collecte": "2026-11-08",
         "recherche": {
-          "date": "2026-11-07",
+          "date": "2026-11-08",
           "statut": "NON_APPLICABLE",
           "motif": "Consensus Yahoo pour un même exercice : BPA actuel 0.46, BPA à J-90 0.0, devise USD. Variation (actuel/antérieur -1). Pas une révision d’objectif de cours; instantanés de consensus secondaires à rapprocher. Base antérieure non positive : pourcentage non interprétable selon cette convention.",
           "journal": "journal_recherches"
@@ -2912,6 +2912,457 @@
           }
         ]
       }
+    },
+    {
+      "url": "https://query1.finance.yahoo.com/v10/finance/quoteSummary/INFU?modules=earningsTrend",
+      "indicateur": "revisions",
+      "valeur": null,
+      "unite": null,
+      "periode": "2026-11-08",
+      "date_collecte": "2026-11-08",
+      "statut": "A_VERIFIER_AVANT_NOTATION",
+      "sha256_reponse": "4997ec8a63ff0eddb477c23fa691c0a2f90a4ba6c7dafcdb3f88f094447b57d0",
+      "donnees_brutes": {
+        "tendances": [
+          {
+            "maxAge": 1,
+            "period": "0q",
+            "endDate": "2026-12-31",
+            "growth": {},
+            "earningsEstimate": {
+              "avg": {
+                "raw": 0.14,
+                "fmt": "0.14"
+              },
+              "low": {
+                "raw": 0.14,
+                "fmt": "0.14"
+              },
+              "high": {
+                "raw": 0.14,
+                "fmt": "0.14"
+              },
+              "yearAgoEps": {},
+              "numberOfAnalysts": {
+                "raw": 1,
+                "fmt": "1",
+                "longFmt": "1"
+              },
+              "growth": {},
+              "earningsCurrency": "USD"
+            },
+            "revenueEstimate": {
+              "avg": {
+                "raw": 37271000,
+                "fmt": "37.27M",
+                "longFmt": "37,271,000"
+              },
+              "low": {
+                "raw": 37000000,
+                "fmt": "37M",
+                "longFmt": "37,000,000"
+              },
+              "high": {
+                "raw": 37413000,
+                "fmt": "37.41M",
+                "longFmt": "37,413,000"
+              },
+              "numberOfAnalysts": {
+                "raw": 3,
+                "fmt": "3",
+                "longFmt": "3"
+              },
+              "yearAgoRevenue": {
+                "raw": 36230000,
+                "fmt": "36.23M",
+                "longFmt": "36,230,000"
+              },
+              "growth": {
+                "raw": 0.0287,
+                "fmt": "2.87%"
+              },
+              "revenueCurrency": "USD"
+            },
+            "epsTrend": {
+              "current": {
+                "raw": 0.14,
+                "fmt": "0.14"
+              },
+              "7daysAgo": {
+                "raw": 0.14,
+                "fmt": "0.14"
+              },
+              "30daysAgo": {
+                "raw": 0.0,
+                "fmt": "0"
+              },
+              "60daysAgo": {
+                "raw": 0.0,
+                "fmt": "0"
+              },
+              "90daysAgo": {
+                "raw": 0.0,
+                "fmt": "0"
+              },
+              "epsTrendCurrency": "USD"
+            },
+            "epsRevisions": {
+              "upLast7days": {
+                "raw": 0,
+                "fmt": null,
+                "longFmt": "0"
+              },
+              "upLast30days": {
+                "raw": 0,
+                "fmt": null,
+                "longFmt": "0"
+              },
+              "downLast30days": {
+                "raw": 1,
+                "fmt": "1",
+                "longFmt": "1"
+              },
+              "downLast7Days": {
+                "raw": 1,
+                "fmt": "1",
+                "longFmt": "1"
+              },
+              "downLast90days": {},
+              "epsRevisionsCurrency": "USD"
+            }
+          },
+          {
+            "maxAge": 1,
+            "period": "+1q",
+            "endDate": "2027-03-31",
+            "growth": {},
+            "earningsEstimate": {
+              "avg": {
+                "raw": 0.05,
+                "fmt": "0.05"
+              },
+              "low": {
+                "raw": 0.05,
+                "fmt": "0.05"
+              },
+              "high": {
+                "raw": 0.05,
+                "fmt": "0.05"
+              },
+              "yearAgoEps": {},
+              "numberOfAnalysts": {
+                "raw": 1,
+                "fmt": "1",
+                "longFmt": "1"
+              },
+              "growth": {},
+              "earningsCurrency": "USD"
+            },
+            "revenueEstimate": {
+              "avg": {
+                "raw": 35503000,
+                "fmt": "35.5M",
+                "longFmt": "35,503,000"
+              },
+              "low": {
+                "raw": 34506000,
+                "fmt": "34.51M",
+                "longFmt": "34,506,000"
+              },
+              "high": {
+                "raw": 36500000,
+                "fmt": "36.5M",
+                "longFmt": "36,500,000"
+              },
+              "numberOfAnalysts": {
+                "raw": 2,
+                "fmt": "2",
+                "longFmt": "2"
+              },
+              "yearAgoRevenue": {
+                "raw": 33684000,
+                "fmt": "33.68M",
+                "longFmt": "33,684,000"
+              },
+              "growth": {
+                "raw": 0.054,
+                "fmt": "5.40%"
+              },
+              "revenueCurrency": "USD"
+            },
+            "epsTrend": {
+              "current": {
+                "raw": 0.05,
+                "fmt": "0.05"
+              },
+              "7daysAgo": {
+                "raw": 0.05,
+                "fmt": "0.05"
+              },
+              "30daysAgo": {
+                "raw": 0.0,
+                "fmt": "0"
+              },
+              "60daysAgo": {
+                "raw": 0.0,
+                "fmt": "0"
+              },
+              "90daysAgo": {
+                "raw": 0.0,
+                "fmt": "0"
+              },
+              "epsTrendCurrency": "USD"
+            },
+            "epsRevisions": {
+              "upLast7days": {
+                "raw": 0,
+                "fmt": null,
+                "longFmt": "0"
+              },
+              "upLast30days": {
+                "raw": 0,
+                "fmt": null,
+                "longFmt": "0"
+              },
+              "downLast30days": {
+                "raw": 0,
+                "fmt": null,
+                "longFmt": "0"
+              },
+              "downLast7Days": {
+                "raw": 0,
+                "fmt": null,
+                "longFmt": "0"
+              },
+              "downLast90days": {},
+              "epsRevisionsCurrency": "USD"
+            }
+          },
+          {
+            "maxAge": 1,
+            "period": "0y",
+            "endDate": "2026-12-31",
+            "growth": {},
+            "earningsEstimate": {
+              "avg": {
+                "raw": 0.46,
+                "fmt": "0.46"
+              },
+              "low": {
+                "raw": 0.46,
+                "fmt": "0.46"
+              },
+              "high": {
+                "raw": 0.46,
+                "fmt": "0.46"
+              },
+              "yearAgoEps": {},
+              "numberOfAnalysts": {
+                "raw": 1,
+                "fmt": "1",
+                "longFmt": "1"
+              },
+              "growth": {},
+              "earningsCurrency": "USD"
+            },
+            "revenueEstimate": {
+              "avg": {
+                "raw": 145164330,
+                "fmt": "145.16M",
+                "longFmt": "145,164,330"
+              },
+              "low": {
+                "raw": 144617000,
+                "fmt": "144.62M",
+                "longFmt": "144,617,000"
+              },
+              "high": {
+                "raw": 145576000,
+                "fmt": "145.58M",
+                "longFmt": "145,576,000"
+              },
+              "numberOfAnalysts": {
+                "raw": 3,
+                "fmt": "3",
+                "longFmt": "3"
+              },
+              "yearAgoRevenue": {
+                "raw": 143436000,
+                "fmt": "143.44M",
+                "longFmt": "143,436,000"
+              },
+              "growth": {
+                "raw": 0.012,
+                "fmt": "1.20%"
+              },
+              "revenueCurrency": "USD"
+            },
+            "epsTrend": {
+              "current": {
+                "raw": 0.46,
+                "fmt": "0.46"
+              },
+              "7daysAgo": {
+                "raw": 0.46,
+                "fmt": "0.46"
+              },
+              "30daysAgo": {
+                "raw": 0.0,
+                "fmt": "0"
+              },
+              "60daysAgo": {
+                "raw": 0.0,
+                "fmt": "0"
+              },
+              "90daysAgo": {
+                "raw": 0.0,
+                "fmt": "0"
+              },
+              "epsTrendCurrency": "USD"
+            },
+            "epsRevisions": {
+              "upLast7days": {
+                "raw": 0,
+                "fmt": null,
+                "longFmt": "0"
+              },
+              "upLast30days": {
+                "raw": 0,
+                "fmt": null,
+                "longFmt": "0"
+              },
+              "downLast30days": {
+                "raw": 0,
+                "fmt": null,
+                "longFmt": "0"
+              },
+              "downLast7Days": {
+                "raw": 0,
+                "fmt": null,
+                "longFmt": "0"
+              },
+              "downLast90days": {},
+              "epsRevisionsCurrency": "USD"
+            }
+          },
+          {
+            "maxAge": 1,
+            "period": "+1y",
+            "endDate": "2027-12-31",
+            "growth": {
+              "raw": 0.1304,
+              "fmt": "13.04%"
+            },
+            "earningsEstimate": {
+              "avg": {
+                "raw": 0.52,
+                "fmt": "0.52"
+              },
+              "low": {
+                "raw": 0.52,
+                "fmt": "0.52"
+              },
+              "high": {
+                "raw": 0.52,
+                "fmt": "0.52"
+              },
+              "yearAgoEps": {
+                "raw": 0.46,
+                "fmt": "0.46"
+              },
+              "numberOfAnalysts": {
+                "raw": 1,
+                "fmt": "1",
+                "longFmt": "1"
+              },
+              "growth": {
+                "raw": 0.1304,
+                "fmt": "13.04%"
+              },
+              "earningsCurrency": "USD"
+            },
+            "revenueEstimate": {
+              "avg": {
+                "raw": 154107000,
+                "fmt": "154.11M",
+                "longFmt": "154,107,000"
+              },
+              "low": {
+                "raw": 152600000,
+                "fmt": "152.6M",
+                "longFmt": "152,600,000"
+              },
+              "high": {
+                "raw": 155221000,
+                "fmt": "155.22M",
+                "longFmt": "155,221,000"
+              },
+              "numberOfAnalysts": {
+                "raw": 3,
+                "fmt": "3",
+                "longFmt": "3"
+              },
+              "yearAgoRevenue": {
+                "raw": 145164330,
+                "fmt": "145.16M",
+                "longFmt": "145,164,330"
+              },
+              "growth": {
+                "raw": 0.0616,
+                "fmt": "6.16%"
+              },
+              "revenueCurrency": "USD"
+            },
+            "epsTrend": {
+              "current": {
+                "raw": 0.52,
+                "fmt": "0.52"
+              },
+              "7daysAgo": {
+                "raw": 0.52,
+                "fmt": "0.52"
+              },
+              "30daysAgo": {
+                "raw": 0.0,
+                "fmt": "0"
+              },
+              "60daysAgo": {
+                "raw": 0.0,
+                "fmt": "0"
+              },
+              "90daysAgo": {
+                "raw": 0.0,
+                "fmt": "0"
+              },
+              "epsTrendCurrency": "USD"
+            },
+            "epsRevisions": {
+              "upLast7days": {
+                "raw": 0,
+                "fmt": null,
+                "longFmt": "0"
+              },
+              "upLast30days": {
+                "raw": 0,
+                "fmt": null,
+                "longFmt": "0"
+              },
+              "downLast30days": {
+                "raw": 0,
+                "fmt": null,
+                "longFmt": "0"
+              },
+              "downLast7Days": {
+                "raw": 0,
+                "fmt": null,
+                "longFmt": "0"
+              },
+              "downLast90days": {},
+              "epsRevisionsCurrency": "USD"
+            }
+          }
+        ]
+      }
     }
   ],
   "anomalies": [],
@@ -3621,6 +4072,24 @@
       "statut": "SOURCE_SECONDAIRE_CONSENSUS_DATE",
       "commentaire": "BPA généralement ajusté; identité demandée par ticker dans URL API, pas validation primaire.",
       "date_collecte": "2026-11-07"
+    },
+    {
+      "bloc": "croissance",
+      "champ": "instantanes_consensus_bpa",
+      "valeur": {
+        "exercice": "2026-12-31",
+        "courant": 0.46,
+        "J_30": 0.0,
+        "J_90": 0.0,
+        "nombre_analystes": 1
+      },
+      "unite": "USD/action",
+      "periode": "consensus annuel clos au 2026-12-31",
+      "date_source": "2026-11-08",
+      "source_url": "https://query1.finance.yahoo.com/v10/finance/quoteSummary/INFU?modules=earningsTrend",
+      "statut": "SOURCE_SECONDAIRE_CONSENSUS_DATE",
+      "commentaire": "BPA généralement ajusté; identité demandée par ticker dans URL API, pas validation primaire.",
+      "date_collecte": "2026-11-08"
     }
   ],
   "journal_recherches": [
@@ -3850,10 +4319,18 @@
       "http": 200,
       "statut": "SOURCE_SECONDAIRE_CONSENSUS_DATE",
       "limite": "Échec ou champ absent ne prouve pas une indisponibilité définitive."
+    },
+    {
+      "famille": "complement_public_revisions",
+      "date": "2026-11-08",
+      "url": "https://query1.finance.yahoo.com/v10/finance/quoteSummary/INFU?modules=earningsTrend",
+      "http": 200,
+      "statut": "SOURCE_SECONDAIRE_CONSENSUS_DATE",
+      "limite": "Échec ou champ absent ne prouve pas une indisponibilité définitive."
     }
   ],
   "audit_couverture": {
-    "date": "2026-11-07",
+    "date": "2026-11-08",
     "champs_total": 108,
     "champs_renseignes": 66,
     "couverture_pct": 61.11,
@@ -3907,7 +4384,7 @@
     "cours_date_limite": "2026-11-03"
   },
   "audit_poursuite": {
-    "date": "2026-11-07",
+    "date": "2026-11-08",
     "comptage": {
       "RENSEIGNE": 66,
       "NON_APPLICABLE": 3,

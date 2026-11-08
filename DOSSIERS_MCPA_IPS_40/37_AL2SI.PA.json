@@ -2283,6 +2283,114 @@
           }
         ]
       }
+    },
+    {
+      "url": "https://query1.finance.yahoo.com/ws/fundamentals-timeseries/v1/finance/timeseries/AL2SI.PA?type=annualEBITDA%2CannualDilutedEPS&period1=1640995200&period2=1794096137",
+      "indicateur": "series_annuelles",
+      "valeur": null,
+      "unite": null,
+      "periode": "2026-11-08",
+      "date_collecte": "2026-11-08",
+      "statut": "A_VERIFIER_AVANT_NOTATION",
+      "sha256_reponse": "7d0c3aa4fcd4c0c2ecfc7777650d7c036cd9271bf4f859235bdca7a428f47406",
+      "donnees_brutes": {
+        "series": [
+          {
+            "meta": {
+              "symbol": [
+                "AL2SI.PA"
+              ],
+              "type": [
+                "annualDilutedEPS"
+              ]
+            },
+            "timestamp": [
+              1646006400,
+              1677542400,
+              1751241600
+            ],
+            "annualDilutedEPS": [
+              {
+                "dataId": 29009,
+                "asOfDate": "2022-02-28",
+                "periodType": "12M",
+                "currencyCode": "EUR",
+                "reportedValue": {
+                  "raw": -0.07,
+                  "fmt": "-0.07"
+                }
+              },
+              {
+                "dataId": 29009,
+                "asOfDate": "2023-02-28",
+                "periodType": "12M",
+                "currencyCode": "EUR",
+                "reportedValue": {
+                  "raw": -0.87924,
+                  "fmt": "-0.88"
+                }
+              },
+              {
+                "dataId": 29009,
+                "asOfDate": "2025-06-30",
+                "periodType": "12M",
+                "currencyCode": "EUR",
+                "reportedValue": {
+                  "raw": 0.095367,
+                  "fmt": "0.10"
+                }
+              }
+            ]
+          },
+          {
+            "meta": {
+              "symbol": [
+                "AL2SI.PA"
+              ],
+              "type": [
+                "annualEBITDA"
+              ]
+            },
+            "timestamp": [
+              1646006400,
+              1677542400,
+              1782777600
+            ],
+            "annualEBITDA": [
+              {
+                "dataId": 20190,
+                "asOfDate": "2022-02-28",
+                "periodType": "12M",
+                "currencyCode": "EUR",
+                "reportedValue": {
+                  "raw": 8050000.0,
+                  "fmt": "8.05M"
+                }
+              },
+              {
+                "dataId": 20190,
+                "asOfDate": "2023-02-28",
+                "periodType": "12M",
+                "currencyCode": "EUR",
+                "reportedValue": {
+                  "raw": -3717000.0,
+                  "fmt": "-3.72M"
+                }
+              },
+              {
+                "dataId": 20190,
+                "asOfDate": "2026-06-30",
+                "periodType": "12M",
+                "currencyCode": "EUR",
+                "reportedValue": {
+                  "raw": 24183000.0,
+                  "fmt": "24.18M"
+                }
+              }
+            ]
+          }
+        ]
+      }
     }
   ],
   "anomalies": [],
@@ -2960,10 +3068,18 @@
       "http": 200,
       "statut": "SOURCE_SECONDAIRE_SERIES_DATEES",
       "limite": "Échec ou champ absent ne prouve pas une indisponibilité définitive."
+    },
+    {
+      "famille": "complement_public_series_annuelles",
+      "date": "2026-11-08",
+      "url": "https://query1.finance.yahoo.com/ws/fundamentals-timeseries/v1/finance/timeseries/AL2SI.PA?type=annualEBITDA%2CannualDilutedEPS&period1=1640995200&period2=1794096137",
+      "http": 200,
+      "statut": "SOURCE_SECONDAIRE_SERIES_DATEES",
+      "limite": "Échec ou champ absent ne prouve pas une indisponibilité définitive."
     }
   ],
   "audit_couverture": {
-    "date": "2026-11-07",
+    "date": "2026-11-08",
     "champs_total": 108,
     "champs_renseignes": 62,
     "couverture_pct": 57.41,
@@ -3021,7 +3137,7 @@
     "cours_date_limite": "2026-11-03"
   },
   "audit_poursuite": {
-    "date": "2026-11-07",
+    "date": "2026-11-08",
     "comptage": {
       "RENSEIGNE": 62,
       "NON_APPLICABLE": 1,
