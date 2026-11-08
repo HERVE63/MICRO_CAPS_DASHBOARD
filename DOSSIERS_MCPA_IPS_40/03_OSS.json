@@ -204,7 +204,7 @@
         "date_collecte": "2026-11-04"
       },
       "fcf_ttm": {
-        "valeur": -14170000.0,
+        "valeur": -14170000,
         "unite": "USD",
         "periode": "TTM fournisseur; arrêté indiqué dans son tableau financier : Sep '26 Sep 30, 2026",
         "date_source": "2026-11-04",
@@ -1475,7 +1475,7 @@
                 "periodType": "12M",
                 "currencyCode": "USD",
                 "reportedValue": {
-                  "raw": 3407232.0,
+                  "raw": 3407232,
                   "fmt": "3.41M"
                 }
               },
@@ -1485,7 +1485,7 @@
                 "periodType": "12M",
                 "currencyCode": "USD",
                 "reportedValue": {
-                  "raw": -3352313.0,
+                  "raw": -3352313,
                   "fmt": "-3.35M"
                 }
               },
@@ -1495,7 +1495,7 @@
                 "periodType": "12M",
                 "currencyCode": "USD",
                 "reportedValue": {
-                  "raw": -14004153.0,
+                  "raw": -14004153,
                   "fmt": "-14.00M"
                 }
               },
@@ -1505,7 +1505,7 @@
                 "periodType": "12M",
                 "currencyCode": "USD",
                 "reportedValue": {
-                  "raw": -2091730.0,
+                  "raw": -2091730,
                   "fmt": "-2.09M"
                 }
               }
@@ -1812,7 +1812,7 @@
             "period": "0y",
             "endDate": "2026-12-31",
             "growth": {
-              "raw": 3.0,
+              "raw": 3,
               "fmt": "300.00%"
             },
             "earningsEstimate": {
@@ -1838,7 +1838,7 @@
                 "longFmt": "1"
               },
               "growth": {
-                "raw": 3.0,
+                "raw": 3,
                 "fmt": "300.00%"
               },
               "earningsCurrency": "USD"
@@ -2041,6 +2041,61 @@
           }
         ]
       }
+    },
+    {
+      "champ": "ca_9m_2026",
+      "valeur": 30001679,
+      "unite": "USD",
+      "periode": "9 mois au 2026-09-30",
+      "date_source": "2026-10-28",
+      "date_collecte": "2026-11-08",
+      "source_url": "https://www.sec.gov/Archives/edgar/data/1394056/000119312526435152/oss-20260930.htm",
+      "statut": "SOURCE_PRIMAIRE_SEC",
+      "commentaire": "Rapport SEC 10-Q. Flux d'exploitation arrondi dans le communiqué émetteur."
+    },
+    {
+      "champ": "ca_9m_2025",
+      "valeur": 20230038,
+      "unite": "USD",
+      "periode": "9 mois au 2025-09-30",
+      "date_source": "2026-10-28",
+      "date_collecte": "2026-11-08",
+      "source_url": "https://www.sec.gov/Archives/edgar/data/1394056/000119312526435152/oss-20260930.htm",
+      "statut": "SOURCE_PRIMAIRE_SEC",
+      "commentaire": "Rapport SEC 10-Q. Flux d'exploitation arrondi dans le communiqué émetteur."
+    },
+    {
+      "champ": "marge_brute_9m_2026",
+      "valeur": 43.9,
+      "unite": "pct",
+      "periode": "9 mois au 2026-09-30",
+      "date_source": "2026-10-28",
+      "date_collecte": "2026-11-08",
+      "source_url": "https://www.sec.gov/Archives/edgar/data/1394056/000119312526435152/oss-20260930.htm",
+      "statut": "SOURCE_PRIMAIRE_SEC",
+      "commentaire": "Rapport SEC 10-Q. Flux d'exploitation arrondi dans le communiqué émetteur."
+    },
+    {
+      "champ": "cash_plus_placements_2026_09_30",
+      "valeur": 18884529,
+      "unite": "USD",
+      "periode": "2026-09-30",
+      "date_source": "2026-10-28",
+      "date_collecte": "2026-11-08",
+      "source_url": "https://www.sec.gov/Archives/edgar/data/1394056/000119312526435152/oss-20260930.htm",
+      "statut": "SOURCE_PRIMAIRE_SEC",
+      "commentaire": "Rapport SEC 10-Q. Flux d'exploitation arrondi dans le communiqué émetteur."
+    },
+    {
+      "champ": "flux_exploitation_9m_2026",
+      "valeur": -12400000,
+      "unite": "USD approx",
+      "periode": "9 mois au 2026-09-30",
+      "date_source": "2026-10-28",
+      "date_collecte": "2026-11-08",
+      "source_url": "https://www.sec.gov/Archives/edgar/data/1394056/000119312526435152/oss-20260930.htm",
+      "statut": "SOURCE_PRIMAIRE_SEC",
+      "commentaire": "Rapport SEC 10-Q. Flux d'exploitation arrondi dans le communiqué émetteur."
     }
   ],
   "anomalies": [],
