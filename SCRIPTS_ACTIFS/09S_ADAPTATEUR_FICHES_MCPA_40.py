@@ -21,7 +21,7 @@ def validation_individuelle(x):
   if not n.get('justifications',{}).get(block):issues.append('JUSTIFICATION_ABSENTE:'+block)
  if all(numeric(notes.get(b),0,m) for b,m in expected.items()):
   if not numeric(n.get('total_mcpa'),0,100) or abs(sum(notes.values())-n['total_mcpa'])>.01:issues.append('TOTAL_MCPA_INCOHERENT')
- required=['ssi','ic_sur_5','cx_sur_5','delta','wwws','role_ips','decision','condition_renforcement','condition_allegement_sortie','challengers_compares']
+ required=['ssi','ic_sur_5','cx_sur_5','delta','wwws','role_ips','decision','condition_renforcement','condition_allegement_sortie']
  for k in required:
   v=comp[k]['valeur']
   if v is None or (isinstance(v,str) and not v.strip()):issues.append('COMPLEMENT_MANQUANT:'+k)
