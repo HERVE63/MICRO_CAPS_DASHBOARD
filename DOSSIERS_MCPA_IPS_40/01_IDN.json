@@ -84,12 +84,6 @@
         "source_url": "https://data.sec.gov/submissions/CIK0001040896.json",
         "statut": "DERIVE_PLACE_COTATION_EXISTANTE",
         "commentaire": "Reprise de la place de cotation déjà documentée dans la même fiche; ne prouve pas le segment de marché.",
-        "recherche": {
-          "date": "2026-11-04",
-          "statut": "MANQUANT_RECHERCHE_NON_CLOSE",
-          "motif": "Aucune valeur vérifiée importée à cette étape; les recherches tracées ne démontrent pas une indisponibilité définitive.",
-          "journal": "journal_recherches"
-        },
         "date_collecte": "2026-11-09"
       },
       "capitalisation_eur": {
@@ -2872,12 +2866,11 @@
   "audit_couverture": {
     "date": "2026-11-09",
     "champs_total": 108,
-    "champs_renseignes": 68,
-    "couverture_pct": 62.96,
+    "champs_renseignes": 69,
+    "couverture_pct": 63.89,
     "champs_secondaires_non_rapproches": 25,
     "champs_manquants": [
       "identite.lei",
-      "identite.marche",
       "qualite.revenus_recurrents_pct",
       "valorisation.comparables_sectoriels",
       "valorisation.marge_securite_pct",
@@ -2924,16 +2917,15 @@
   "audit_poursuite": {
     "date": "2026-11-09",
     "comptage": {
-      "RENSEIGNE": 68,
+      "RENSEIGNE": 69,
       "NON_APPLICABLE": 4,
       "INDISPONIBLE_A_DATE": 0,
-      "RECHERCHE_A_POURSUIVRE": 36
+      "RECHERCHE_A_POURSUIVRE": 35
     },
-    "couverture_valeurs_pct": 62.96,
-    "couverture_applicable_pct": 65.38,
+    "couverture_valeurs_pct": 63.89,
+    "couverture_applicable_pct": 66.35,
     "recherches_non_closes": [
       "identite.lei",
-      "identite.marche",
       "qualite.revenus_recurrents_pct",
       "valorisation.comparables_sectoriels",
       "valorisation.marge_securite_pct",
