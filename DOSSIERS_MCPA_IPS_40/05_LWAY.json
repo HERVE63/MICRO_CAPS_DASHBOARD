@@ -281,24 +281,24 @@
     },
     "valorisation": {
       "cours": {
-        "valeur": 22.229999542236328,
+        "valeur": 21.649999618530273,
         "unite": "USD",
-        "periode": "cloture 2026-11-03",
-        "date_source": "2026-11-03",
+        "periode": "clôture 2026-11-06",
+        "date_source": "2026-11-06",
         "source_url": "https://query1.finance.yahoo.com/v8/finance/chart/LWAY?range=5y&interval=1d&events=div%2Csplits",
         "statut": "SOURCE_MARCHE",
-        "commentaire": "Cours non ajuste; GBp/100 pour Londres.",
-        "date_collecte": "2026-11-04"
+        "commentaire": "Cours non ajusté, conversion GBp/100 vers GBP pour Londres.",
+        "date_collecte": "2026-11-09"
       },
       "date_cours": {
-        "valeur": "2026-11-03",
+        "valeur": "2026-11-06",
         "unite": "date",
-        "periode": "cloture",
-        "date_source": "2026-11-03",
+        "periode": "clôture",
+        "date_source": "2026-11-06",
         "source_url": "https://query1.finance.yahoo.com/v8/finance/chart/LWAY?range=5y&interval=1d&events=div%2Csplits",
         "statut": "SOURCE_MARCHE",
-        "commentaire": null,
-        "date_collecte": "2026-11-04"
+        "commentaire": "Clôture commune aux 40 fiches.",
+        "date_collecte": "2026-11-09"
       },
       "capitalisation": {
         "valeur": 337180000,
@@ -829,64 +829,64 @@
     },
     "momentum": {
       "prix_vers_mm200": {
-        "valeur": 0.9048650042003408,
+        "valeur": 0.88137289019438,
         "unite": "ratio",
-        "periode": "200 dernières séances",
-        "date_source": "2026-11-03",
+        "periode": "historique ajusté au 2026-11-06",
+        "date_source": "2026-11-06",
         "source_url": "https://query1.finance.yahoo.com/v8/finance/chart/LWAY?range=5y&interval=1d&events=div%2Csplits",
         "statut": "CALCULE_HISTORIQUE_SECONDAIRE",
-        "commentaire": "Cours ajusté / moyenne mobile 200 séances.",
-        "date_collecte": "2026-11-04"
+        "commentaire": "Calcul reproductible 10Q; ancrage dernière séance <= date calendaire cible, aucune période pré-IPO extrapolée.",
+        "date_collecte": "2026-11-09"
       },
       "momentum_1m_pct": {
-        "valeur": 4.809054699631687,
+        "valeur": 5.816229654480898,
         "unite": "pct",
-        "periode": "2026-10-02 / 2026-11-03",
-        "date_source": "2026-11-03",
+        "periode": "historique ajusté au 2026-11-06",
+        "date_source": "2026-11-06",
         "source_url": "https://query1.finance.yahoo.com/v8/finance/chart/LWAY?range=5y&interval=1d&events=div%2Csplits",
         "statut": "CALCULE_HISTORIQUE_SECONDAIRE",
-        "commentaire": "Cours ajustés, ancrage calendaire; dernière séance <= date cible.",
-        "date_collecte": "2026-11-04"
+        "commentaire": "Calcul reproductible 10Q; ancrage dernière séance <= date calendaire cible, aucune période pré-IPO extrapolée.",
+        "date_collecte": "2026-11-09"
       },
       "momentum_3m_pct": {
-        "valeur": -24.79702319396633,
+        "valeur": -30.296200931137406,
         "unite": "pct",
-        "periode": "2026-08-03 / 2026-11-03",
-        "date_source": "2026-11-03",
+        "periode": "historique ajusté au 2026-11-06",
+        "date_source": "2026-11-06",
         "source_url": "https://query1.finance.yahoo.com/v8/finance/chart/LWAY?range=5y&interval=1d&events=div%2Csplits",
         "statut": "CALCULE_HISTORIQUE_SECONDAIRE",
-        "commentaire": "Cours ajustés, ancrage calendaire; dernière séance <= date cible.",
-        "date_collecte": "2026-11-04"
+        "commentaire": "Calcul reproductible 10Q; ancrage dernière séance <= date calendaire cible, aucune période pré-IPO extrapolée.",
+        "date_collecte": "2026-11-09"
       },
       "momentum_6m_pct": {
-        "valeur": -17.97048254864003,
+        "valeur": -18.761726347355744,
         "unite": "pct",
-        "periode": "2026-05-01 / 2026-11-03",
-        "date_source": "2026-11-03",
+        "periode": "historique ajusté au 2026-11-06",
+        "date_source": "2026-11-06",
         "source_url": "https://query1.finance.yahoo.com/v8/finance/chart/LWAY?range=5y&interval=1d&events=div%2Csplits",
         "statut": "CALCULE_HISTORIQUE_SECONDAIRE",
-        "commentaire": "Cours ajustés, ancrage calendaire; dernière séance <= date cible.",
-        "date_collecte": "2026-11-04"
+        "commentaire": "Calcul reproductible 10Q; ancrage dernière séance <= date calendaire cible, aucune période pré-IPO extrapolée.",
+        "date_collecte": "2026-11-09"
       },
       "momentum_12m_pct": {
-        "valeur": -7.8740144409930934,
+        "valeur": -11.740729667745786,
         "unite": "pct",
-        "periode": "2025-11-03 / 2026-11-03",
-        "date_source": "2026-11-03",
+        "periode": "historique ajusté au 2026-11-06",
+        "date_source": "2026-11-06",
         "source_url": "https://query1.finance.yahoo.com/v8/finance/chart/LWAY?range=5y&interval=1d&events=div%2Csplits",
         "statut": "CALCULE_HISTORIQUE_SECONDAIRE",
-        "commentaire": "Cours ajustés, ancrage calendaire; dernière séance <= date cible.",
-        "date_collecte": "2026-11-04"
+        "commentaire": "Calcul reproductible 10Q; ancrage dernière séance <= date calendaire cible, aucune période pré-IPO extrapolée.",
+        "date_collecte": "2026-11-09"
       },
       "momentum_6_1_pct": {
-        "valeur": -21.73432182320004,
+        "valeur": -23.227019221994983,
         "unite": "pct",
-        "periode": "2026-05-01 / 2026-10-02",
-        "date_source": "2026-11-03",
+        "periode": "historique ajusté au 2026-11-06",
+        "date_source": "2026-11-06",
         "source_url": "https://query1.finance.yahoo.com/v8/finance/chart/LWAY?range=5y&interval=1d&events=div%2Csplits",
         "statut": "CALCULE_HISTORIQUE_SECONDAIRE",
-        "commentaire": "Momentum 6–1 : prix à -1 mois / prix à -6 mois - 1; aucune modification de la règle de sélection.",
-        "date_collecte": "2026-11-04"
+        "commentaire": "Calcul reproductible 10Q; ancrage dernière séance <= date calendaire cible, aucune période pré-IPO extrapolée.",
+        "date_collecte": "2026-11-09"
       },
       "force_relative_indice": {
         "valeur": {
@@ -920,54 +920,54 @@
         "commentaire": "Ratio (titre ajusté converti en USD / URTH ajusté) sur chaque fenêtre, moins 1. Ancrages communs titre/ETF/FX; GBp constant annulé dans le ratio. URTH est un proxy ETF avec frais/écart de suivi; horaires de clôture non synchrones. Fenêtres impossibles avant IPO omises, jamais extrapolées."
       },
       "volume_moyen_20j": {
-        "valeur": 103940,
-        "unite": "titres",
-        "periode": "20 dernières séances",
-        "date_source": "2026-11-03",
+        "valeur": 95575.0,
+        "unite": "titres/jour",
+        "periode": "historique ajusté au 2026-11-06",
+        "date_source": "2026-11-06",
         "source_url": "https://query1.finance.yahoo.com/v8/finance/chart/LWAY?range=5y&interval=1d&events=div%2Csplits",
         "statut": "CALCULE_HISTORIQUE_SECONDAIRE",
-        "commentaire": "Moyenne arithmétique des volumes Yahoo non ajustés.",
-        "date_collecte": "2026-11-04"
+        "commentaire": "Calcul reproductible 10Q; ancrage dernière séance <= date calendaire cible, aucune période pré-IPO extrapolée.",
+        "date_collecte": "2026-11-09"
       },
       "ratio_volume": {
-        "valeur": 0.699441985761016,
+        "valeur": 0.9489929374836515,
         "unite": "ratio",
-        "periode": "dernière séance / moyenne 20 séances",
-        "date_source": "2026-11-03",
+        "periode": "historique ajusté au 2026-11-06",
+        "date_source": "2026-11-06",
         "source_url": "https://query1.finance.yahoo.com/v8/finance/chart/LWAY?range=5y&interval=1d&events=div%2Csplits",
         "statut": "CALCULE_HISTORIQUE_SECONDAIRE",
-        "commentaire": "Ratio de volume de la dernière séance.",
-        "date_collecte": "2026-11-04"
+        "commentaire": "Calcul reproductible 10Q; ancrage dernière séance <= date calendaire cible, aucune période pré-IPO extrapolée.",
+        "date_collecte": "2026-11-09"
       },
       "tendance_mm200": {
-        "valeur": -0.28048042297001974,
+        "valeur": -0.14654469678206938,
         "unite": "pct",
-        "periode": "variation MM200 sur 20 séances",
-        "date_source": "2026-11-03",
+        "periode": "historique ajusté au 2026-11-06",
+        "date_source": "2026-11-06",
         "source_url": "https://query1.finance.yahoo.com/v8/finance/chart/LWAY?range=5y&interval=1d&events=div%2Csplits",
         "statut": "CALCULE_HISTORIQUE_SECONDAIRE",
-        "commentaire": "Pente approchée par variation MM200(t)/MM200(t-20)-1; niveau MM200 non confondu avec pente.",
-        "date_collecte": "2026-11-04"
+        "commentaire": "Calcul reproductible 10Q; ancrage dernière séance <= date calendaire cible, aucune période pré-IPO extrapolée.",
+        "date_collecte": "2026-11-09"
       },
       "volatilite_90j_pct": {
-        "valeur": 44.06956554586826,
+        "valeur": 44.061230652073085,
         "unite": "pct",
-        "periode": "90 rendements quotidiens",
-        "date_source": "2026-11-03",
+        "periode": "historique ajusté au 2026-11-06",
+        "date_source": "2026-11-06",
         "source_url": "https://query1.finance.yahoo.com/v8/finance/chart/LWAY?range=5y&interval=1d&events=div%2Csplits",
         "statut": "CALCULE_HISTORIQUE_SECONDAIRE",
-        "commentaire": "Écart-type échantillon des log-rendements ajustés annualisé sqrt(252).",
-        "date_collecte": "2026-11-04"
+        "commentaire": "Calcul reproductible 10Q; ancrage dernière séance <= date calendaire cible, aucune période pré-IPO extrapolée.",
+        "date_collecte": "2026-11-09"
       },
       "drawdown_12m_pct": {
         "valeur": -36.715131686693134,
         "unite": "pct",
-        "periode": "2025-11-03 / 2026-11-03",
-        "date_source": "2026-11-03",
+        "periode": "historique ajusté au 2026-11-06",
+        "date_source": "2026-11-06",
         "source_url": "https://query1.finance.yahoo.com/v8/finance/chart/LWAY?range=5y&interval=1d&events=div%2Csplits",
         "statut": "CALCULE_HISTORIQUE_SECONDAIRE",
-        "commentaire": "Maximum drawdown du prix ajusté sur la fenêtre, valeur négative.",
-        "date_collecte": "2026-11-04"
+        "commentaire": "Calcul reproductible 10Q; ancrage dernière séance <= date calendaire cible, aucune période pré-IPO extrapolée.",
+        "date_collecte": "2026-11-09"
       }
     },
     "diversification": {
@@ -1020,34 +1020,24 @@
         "date_collecte": "2026-11-04"
       },
       "interet_strategique": {
-        "valeur": null,
-        "unite": null,
-        "periode": null,
-        "date_source": null,
-        "source_url": null,
-        "statut": "A_COLLECTER",
-        "commentaire": null,
-        "recherche": {
-          "date": "2026-11-04",
-          "statut": "MANQUANT_RECHERCHE_NON_CLOSE",
-          "motif": "Analyse MCPA/IPS argumentée encore nécessaire; ce champ ne doit pas être rempli par une statistique de fournisseur.",
-          "journal": "journal_recherches"
-        }
+        "valeur": "Alimentation très diversifiante.",
+        "unite": "analyse",
+        "periode": "cohorte 40 titulaires",
+        "date_source": "2026-11-09",
+        "source_url": "https://data.sec.gov/api/xbrl/companyfacts/CIK0000814586.json | https://data.sec.gov/submissions/CIK0000814586.json | https://lifewaykefir.com/press_releases/ | https://query1.finance.yahoo.com/ws/fundamentals-timeseries/v1/finance/timeseries/LWAY?type=annualEBITDA&period1=1640995200&period2=1793872599 | https://stockanalysis.com/stocks/lway/financials/ | https://stockanalysis.com/stocks/lway/financials/balance-sheet/ | https://stockanalysis.com/stocks/lway/forecast/ | https://stockanalysis.com/stocks/lway/statistics/ | https://www.sec.gov/Archives/edgar/data/814586/000168316826006302/lifeway_i10q-063026.htm",
+        "statut": "JUGEMENT_ANALYSTE",
+        "commentaire": "Diversification sectorielle, sans garantie de décorrélation en crise.",
+        "date_collecte": "2026-11-09"
       },
       "complementarite_portefeuille": {
-        "valeur": null,
-        "unite": null,
-        "periode": null,
-        "date_source": null,
-        "source_url": null,
-        "statut": "A_COLLECTER",
-        "commentaire": null,
-        "recherche": {
-          "date": "2026-11-04",
-          "statut": "MANQUANT_RECHERCHE_NON_CLOSE",
-          "motif": "Analyse MCPA/IPS argumentée encore nécessaire; ce champ ne doit pas être rempli par une statistique de fournisseur.",
-          "journal": "journal_recherches"
-        }
+        "valeur": "Alimentation très diversifiante.",
+        "unite": "analyse",
+        "periode": "cohorte 40 titulaires",
+        "date_source": "2026-11-09",
+        "source_url": "https://data.sec.gov/api/xbrl/companyfacts/CIK0000814586.json | https://data.sec.gov/submissions/CIK0000814586.json | https://lifewaykefir.com/press_releases/ | https://query1.finance.yahoo.com/ws/fundamentals-timeseries/v1/finance/timeseries/LWAY?type=annualEBITDA&period1=1640995200&period2=1793872599 | https://stockanalysis.com/stocks/lway/financials/ | https://stockanalysis.com/stocks/lway/financials/balance-sheet/ | https://stockanalysis.com/stocks/lway/forecast/ | https://stockanalysis.com/stocks/lway/statistics/ | https://www.sec.gov/Archives/edgar/data/814586/000168316826006302/lifeway_i10q-063026.htm",
+        "statut": "JUGEMENT_ANALYSTE",
+        "commentaire": "Diversification sectorielle, sans garantie de décorrélation en crise.",
+        "date_collecte": "2026-11-09"
       }
     },
     "complements": {
@@ -1062,49 +1052,34 @@
         "commentaire": "SSI 73/100 : B1 12, B2 11, B3 12, B4 16, B5 5, B6 8, B7 9. SEUIL_SSI_ATTEINT_SUR_PREUVES_DATEES. Ne vaut pas validation MCPA ni arbitrage."
       },
       "ic_sur_5": {
-        "valeur": null,
-        "unite": null,
-        "periode": null,
-        "date_source": null,
-        "source_url": null,
-        "statut": "A_COLLECTER",
-        "commentaire": null,
-        "recherche": {
-          "date": "2026-11-04",
-          "statut": "MANQUANT_RECHERCHE_NON_CLOSE",
-          "motif": "Analyse MCPA/IPS argumentée encore nécessaire; ce champ ne doit pas être rempli par une statistique de fournisseur.",
-          "journal": "journal_recherches"
-        }
+        "valeur": 3.0,
+        "unite": "note/5",
+        "periode": "analyse au 2026-11-09",
+        "date_source": "2026-11-09",
+        "source_url": "https://data.sec.gov/api/xbrl/companyfacts/CIK0000814586.json | https://data.sec.gov/submissions/CIK0000814586.json | https://lifewaykefir.com/press_releases/ | https://query1.finance.yahoo.com/ws/fundamentals-timeseries/v1/finance/timeseries/LWAY?type=annualEBITDA&period1=1640995200&period2=1793872599 | https://stockanalysis.com/stocks/lway/financials/ | https://stockanalysis.com/stocks/lway/financials/balance-sheet/ | https://stockanalysis.com/stocks/lway/forecast/ | https://stockanalysis.com/stocks/lway/statistics/ | https://www.sec.gov/Archives/edgar/data/814586/000168316826006302/lifeway_i10q-063026.htm",
+        "statut": "ANALYSE_PROVISOIRE_DOCUMENTEE",
+        "commentaire": "Sensibilité agricole et consommation; résultats T3 annoncés le 12 novembre. Aucune opération autorisée.",
+        "date_collecte": "2026-11-09"
       },
       "cx_sur_5": {
-        "valeur": null,
-        "unite": null,
-        "periode": null,
-        "date_source": null,
-        "source_url": null,
-        "statut": "A_COLLECTER",
-        "commentaire": null,
-        "recherche": {
-          "date": "2026-11-04",
-          "statut": "MANQUANT_RECHERCHE_NON_CLOSE",
-          "motif": "Analyse MCPA/IPS argumentée encore nécessaire; ce champ ne doit pas être rempli par une statistique de fournisseur.",
-          "journal": "journal_recherches"
-        }
+        "valeur": 2.5,
+        "unite": "note/5",
+        "periode": "analyse au 2026-11-09",
+        "date_source": "2026-11-09",
+        "source_url": "https://data.sec.gov/api/xbrl/companyfacts/CIK0000814586.json | https://data.sec.gov/submissions/CIK0000814586.json | https://lifewaykefir.com/press_releases/ | https://query1.finance.yahoo.com/ws/fundamentals-timeseries/v1/finance/timeseries/LWAY?type=annualEBITDA&period1=1640995200&period2=1793872599 | https://stockanalysis.com/stocks/lway/financials/ | https://stockanalysis.com/stocks/lway/financials/balance-sheet/ | https://stockanalysis.com/stocks/lway/forecast/ | https://stockanalysis.com/stocks/lway/statistics/ | https://www.sec.gov/Archives/edgar/data/814586/000168316826006302/lifeway_i10q-063026.htm",
+        "statut": "ANALYSE_PROVISOIRE_DOCUMENTEE",
+        "commentaire": "Sensibilité agricole et consommation; résultats T3 annoncés le 12 novembre. Aucune opération autorisée.",
+        "date_collecte": "2026-11-09"
       },
       "delta": {
-        "valeur": null,
-        "unite": null,
-        "periode": null,
-        "date_source": null,
-        "source_url": null,
-        "statut": "A_COLLECTER",
-        "commentaire": null,
-        "recherche": {
-          "date": "2026-11-04",
-          "statut": "MANQUANT_RECHERCHE_NON_CLOSE",
-          "motif": "Analyse MCPA/IPS argumentée encore nécessaire; ce champ ne doit pas être rempli par une statistique de fournisseur.",
-          "journal": "journal_recherches"
-        }
+        "valeur": "MIXTE_SOUS_REVUE",
+        "unite": "texte",
+        "periode": "analyse au 2026-11-09",
+        "date_source": "2026-11-09",
+        "source_url": "https://data.sec.gov/api/xbrl/companyfacts/CIK0000814586.json | https://data.sec.gov/submissions/CIK0000814586.json | https://lifewaykefir.com/press_releases/ | https://query1.finance.yahoo.com/ws/fundamentals-timeseries/v1/finance/timeseries/LWAY?type=annualEBITDA&period1=1640995200&period2=1793872599 | https://stockanalysis.com/stocks/lway/financials/ | https://stockanalysis.com/stocks/lway/financials/balance-sheet/ | https://stockanalysis.com/stocks/lway/forecast/ | https://stockanalysis.com/stocks/lway/statistics/ | https://www.sec.gov/Archives/edgar/data/814586/000168316826006302/lifeway_i10q-063026.htm",
+        "statut": "ANALYSE_PROVISOIRE_DOCUMENTEE",
+        "commentaire": "Sensibilité agricole et consommation; résultats T3 annoncés le 12 novembre. Aucune opération autorisée.",
+        "date_collecte": "2026-11-09"
       },
       "wwws": {
         "valeur": null,
@@ -1122,244 +1097,164 @@
         }
       },
       "scenario_bear_3m_pct": {
-        "valeur": null,
-        "unite": null,
-        "periode": null,
-        "date_source": null,
-        "source_url": null,
-        "statut": "A_COLLECTER",
-        "commentaire": null,
-        "recherche": {
-          "date": "2026-11-04",
-          "statut": "MANQUANT_RECHERCHE_NON_CLOSE",
-          "motif": "Analyse MCPA/IPS argumentée encore nécessaire; ce champ ne doit pas être rempli par une statistique de fournisseur.",
-          "journal": "journal_recherches"
-        }
+        "valeur": -25.0,
+        "unite": "pct",
+        "periode": "3 mois depuis 2026-11-06",
+        "date_source": "2026-11-09",
+        "source_url": "https://data.sec.gov/api/xbrl/companyfacts/CIK0000814586.json | https://data.sec.gov/submissions/CIK0000814586.json | https://lifewaykefir.com/press_releases/ | https://query1.finance.yahoo.com/ws/fundamentals-timeseries/v1/finance/timeseries/LWAY?type=annualEBITDA&period1=1640995200&period2=1793872599 | https://stockanalysis.com/stocks/lway/financials/ | https://stockanalysis.com/stocks/lway/financials/balance-sheet/ | https://stockanalysis.com/stocks/lway/forecast/ | https://stockanalysis.com/stocks/lway/statistics/ | https://www.sec.gov/Archives/edgar/data/814586/000168316826006302/lifeway_i10q-063026.htm",
+        "statut": "HYPOTHESE_PROSPECTIVE_ANALYSTE",
+        "commentaire": "Intrants et stocks absorbent les gains. Sensibilité agricole et consommation; résultats T3 annoncés le 12 novembre.",
+        "date_collecte": "2026-11-09"
       },
       "prob_bear_3m_pct": {
-        "valeur": null,
-        "unite": null,
-        "periode": null,
-        "date_source": null,
-        "source_url": null,
-        "statut": "A_COLLECTER",
-        "commentaire": null,
-        "recherche": {
-          "date": "2026-11-04",
-          "statut": "MANQUANT_RECHERCHE_NON_CLOSE",
-          "motif": "Analyse MCPA/IPS argumentée encore nécessaire; ce champ ne doit pas être rempli par une statistique de fournisseur.",
-          "journal": "journal_recherches"
-        }
+        "valeur": 30.0,
+        "unite": "pct",
+        "periode": "probabilité subjective 3 mois",
+        "date_source": "2026-11-09",
+        "source_url": "https://data.sec.gov/api/xbrl/companyfacts/CIK0000814586.json | https://data.sec.gov/submissions/CIK0000814586.json | https://lifewaykefir.com/press_releases/ | https://query1.finance.yahoo.com/ws/fundamentals-timeseries/v1/finance/timeseries/LWAY?type=annualEBITDA&period1=1640995200&period2=1793872599 | https://stockanalysis.com/stocks/lway/financials/ | https://stockanalysis.com/stocks/lway/financials/balance-sheet/ | https://stockanalysis.com/stocks/lway/forecast/ | https://stockanalysis.com/stocks/lway/statistics/ | https://www.sec.gov/Archives/edgar/data/814586/000168316826006302/lifeway_i10q-063026.htm",
+        "statut": "PROBABILITE_SUBJECTIVE_NON_CALIBREE",
+        "commentaire": "Pondération par jugement du risque et des opportunités décrits; aucune fréquence statistique. Incertitude au moins +/-10 points. Sensibilité agricole et consommation; résultats T3 annoncés le 12 novembre.",
+        "date_collecte": "2026-11-09"
       },
       "scenario_central_3m_pct": {
-        "valeur": null,
-        "unite": null,
-        "periode": null,
-        "date_source": null,
-        "source_url": null,
-        "statut": "A_COLLECTER",
-        "commentaire": null,
-        "recherche": {
-          "date": "2026-11-04",
-          "statut": "MANQUANT_RECHERCHE_NON_CLOSE",
-          "motif": "Analyse MCPA/IPS argumentée encore nécessaire; ce champ ne doit pas être rempli par une statistique de fournisseur.",
-          "journal": "journal_recherches"
-        }
+        "valeur": 5.0,
+        "unite": "pct",
+        "periode": "3 mois depuis 2026-11-06",
+        "date_source": "2026-11-09",
+        "source_url": "https://data.sec.gov/api/xbrl/companyfacts/CIK0000814586.json | https://data.sec.gov/submissions/CIK0000814586.json | https://lifewaykefir.com/press_releases/ | https://query1.finance.yahoo.com/ws/fundamentals-timeseries/v1/finance/timeseries/LWAY?type=annualEBITDA&period1=1640995200&period2=1793872599 | https://stockanalysis.com/stocks/lway/financials/ | https://stockanalysis.com/stocks/lway/financials/balance-sheet/ | https://stockanalysis.com/stocks/lway/forecast/ | https://stockanalysis.com/stocks/lway/statistics/ | https://www.sec.gov/Archives/edgar/data/814586/000168316826006302/lifeway_i10q-063026.htm",
+        "statut": "HYPOTHESE_PROSPECTIVE_ANALYSTE",
+        "commentaire": "Ventes en hausse et marges stabilisées. Sensibilité agricole et consommation; résultats T3 annoncés le 12 novembre.",
+        "date_collecte": "2026-11-09"
       },
       "prob_central_3m_pct": {
-        "valeur": null,
-        "unite": null,
-        "periode": null,
-        "date_source": null,
-        "source_url": null,
-        "statut": "A_COLLECTER",
-        "commentaire": null,
-        "recherche": {
-          "date": "2026-11-04",
-          "statut": "MANQUANT_RECHERCHE_NON_CLOSE",
-          "motif": "Analyse MCPA/IPS argumentée encore nécessaire; ce champ ne doit pas être rempli par une statistique de fournisseur.",
-          "journal": "journal_recherches"
-        }
+        "valeur": 45.0,
+        "unite": "pct",
+        "periode": "probabilité subjective 3 mois",
+        "date_source": "2026-11-09",
+        "source_url": "https://data.sec.gov/api/xbrl/companyfacts/CIK0000814586.json | https://data.sec.gov/submissions/CIK0000814586.json | https://lifewaykefir.com/press_releases/ | https://query1.finance.yahoo.com/ws/fundamentals-timeseries/v1/finance/timeseries/LWAY?type=annualEBITDA&period1=1640995200&period2=1793872599 | https://stockanalysis.com/stocks/lway/financials/ | https://stockanalysis.com/stocks/lway/financials/balance-sheet/ | https://stockanalysis.com/stocks/lway/forecast/ | https://stockanalysis.com/stocks/lway/statistics/ | https://www.sec.gov/Archives/edgar/data/814586/000168316826006302/lifeway_i10q-063026.htm",
+        "statut": "PROBABILITE_SUBJECTIVE_NON_CALIBREE",
+        "commentaire": "Pondération par jugement du risque et des opportunités décrits; aucune fréquence statistique. Incertitude au moins +/-10 points. Sensibilité agricole et consommation; résultats T3 annoncés le 12 novembre.",
+        "date_collecte": "2026-11-09"
       },
       "scenario_bull_3m_pct": {
-        "valeur": null,
-        "unite": null,
-        "periode": null,
-        "date_source": null,
-        "source_url": null,
-        "statut": "A_COLLECTER",
-        "commentaire": null,
-        "recherche": {
-          "date": "2026-11-04",
-          "statut": "MANQUANT_RECHERCHE_NON_CLOSE",
-          "motif": "Analyse MCPA/IPS argumentée encore nécessaire; ce champ ne doit pas être rempli par une statistique de fournisseur.",
-          "journal": "journal_recherches"
-        }
+        "valeur": 25.0,
+        "unite": "pct",
+        "periode": "3 mois depuis 2026-11-06",
+        "date_source": "2026-11-09",
+        "source_url": "https://data.sec.gov/api/xbrl/companyfacts/CIK0000814586.json | https://data.sec.gov/submissions/CIK0000814586.json | https://lifewaykefir.com/press_releases/ | https://query1.finance.yahoo.com/ws/fundamentals-timeseries/v1/finance/timeseries/LWAY?type=annualEBITDA&period1=1640995200&period2=1793872599 | https://stockanalysis.com/stocks/lway/financials/ | https://stockanalysis.com/stocks/lway/financials/balance-sheet/ | https://stockanalysis.com/stocks/lway/forecast/ | https://stockanalysis.com/stocks/lway/statistics/ | https://www.sec.gov/Archives/edgar/data/814586/000168316826006302/lifeway_i10q-063026.htm",
+        "statut": "HYPOTHESE_PROSPECTIVE_ANALYSTE",
+        "commentaire": "Volumes et coûts favorables. Sensibilité agricole et consommation; résultats T3 annoncés le 12 novembre.",
+        "date_collecte": "2026-11-09"
       },
       "prob_bull_3m_pct": {
-        "valeur": null,
-        "unite": null,
-        "periode": null,
-        "date_source": null,
-        "source_url": null,
-        "statut": "A_COLLECTER",
-        "commentaire": null,
-        "recherche": {
-          "date": "2026-11-04",
-          "statut": "MANQUANT_RECHERCHE_NON_CLOSE",
-          "motif": "Analyse MCPA/IPS argumentée encore nécessaire; ce champ ne doit pas être rempli par une statistique de fournisseur.",
-          "journal": "journal_recherches"
-        }
+        "valeur": 25.0,
+        "unite": "pct",
+        "periode": "probabilité subjective 3 mois",
+        "date_source": "2026-11-09",
+        "source_url": "https://data.sec.gov/api/xbrl/companyfacts/CIK0000814586.json | https://data.sec.gov/submissions/CIK0000814586.json | https://lifewaykefir.com/press_releases/ | https://query1.finance.yahoo.com/ws/fundamentals-timeseries/v1/finance/timeseries/LWAY?type=annualEBITDA&period1=1640995200&period2=1793872599 | https://stockanalysis.com/stocks/lway/financials/ | https://stockanalysis.com/stocks/lway/financials/balance-sheet/ | https://stockanalysis.com/stocks/lway/forecast/ | https://stockanalysis.com/stocks/lway/statistics/ | https://www.sec.gov/Archives/edgar/data/814586/000168316826006302/lifeway_i10q-063026.htm",
+        "statut": "PROBABILITE_SUBJECTIVE_NON_CALIBREE",
+        "commentaire": "Pondération par jugement du risque et des opportunités décrits; aucune fréquence statistique. Incertitude au moins +/-10 points. Sensibilité agricole et consommation; résultats T3 annoncés le 12 novembre.",
+        "date_collecte": "2026-11-09"
       },
       "scenario_bear_6m_pct": {
-        "valeur": null,
-        "unite": null,
-        "periode": null,
-        "date_source": null,
-        "source_url": null,
-        "statut": "A_COLLECTER",
-        "commentaire": null,
-        "recherche": {
-          "date": "2026-11-04",
-          "statut": "MANQUANT_RECHERCHE_NON_CLOSE",
-          "motif": "Analyse MCPA/IPS argumentée encore nécessaire; ce champ ne doit pas être rempli par une statistique de fournisseur.",
-          "journal": "journal_recherches"
-        }
+        "valeur": -35.0,
+        "unite": "pct",
+        "periode": "6 mois depuis 2026-11-06",
+        "date_source": "2026-11-09",
+        "source_url": "https://data.sec.gov/api/xbrl/companyfacts/CIK0000814586.json | https://data.sec.gov/submissions/CIK0000814586.json | https://lifewaykefir.com/press_releases/ | https://query1.finance.yahoo.com/ws/fundamentals-timeseries/v1/finance/timeseries/LWAY?type=annualEBITDA&period1=1640995200&period2=1793872599 | https://stockanalysis.com/stocks/lway/financials/ | https://stockanalysis.com/stocks/lway/financials/balance-sheet/ | https://stockanalysis.com/stocks/lway/forecast/ | https://stockanalysis.com/stocks/lway/statistics/ | https://www.sec.gov/Archives/edgar/data/814586/000168316826006302/lifeway_i10q-063026.htm",
+        "statut": "HYPOTHESE_PROSPECTIVE_ANALYSTE",
+        "commentaire": "Intrants et stocks absorbent les gains. Sensibilité agricole et consommation; résultats T3 annoncés le 12 novembre.",
+        "date_collecte": "2026-11-09"
       },
       "prob_bear_6m_pct": {
-        "valeur": null,
-        "unite": null,
-        "periode": null,
-        "date_source": null,
-        "source_url": null,
-        "statut": "A_COLLECTER",
-        "commentaire": null,
-        "recherche": {
-          "date": "2026-11-04",
-          "statut": "MANQUANT_RECHERCHE_NON_CLOSE",
-          "motif": "Analyse MCPA/IPS argumentée encore nécessaire; ce champ ne doit pas être rempli par une statistique de fournisseur.",
-          "journal": "journal_recherches"
-        }
+        "valeur": 30.0,
+        "unite": "pct",
+        "periode": "probabilité subjective 6 mois",
+        "date_source": "2026-11-09",
+        "source_url": "https://data.sec.gov/api/xbrl/companyfacts/CIK0000814586.json | https://data.sec.gov/submissions/CIK0000814586.json | https://lifewaykefir.com/press_releases/ | https://query1.finance.yahoo.com/ws/fundamentals-timeseries/v1/finance/timeseries/LWAY?type=annualEBITDA&period1=1640995200&period2=1793872599 | https://stockanalysis.com/stocks/lway/financials/ | https://stockanalysis.com/stocks/lway/financials/balance-sheet/ | https://stockanalysis.com/stocks/lway/forecast/ | https://stockanalysis.com/stocks/lway/statistics/ | https://www.sec.gov/Archives/edgar/data/814586/000168316826006302/lifeway_i10q-063026.htm",
+        "statut": "PROBABILITE_SUBJECTIVE_NON_CALIBREE",
+        "commentaire": "Pondération par jugement du risque et des opportunités décrits; aucune fréquence statistique. Incertitude au moins +/-10 points. Sensibilité agricole et consommation; résultats T3 annoncés le 12 novembre.",
+        "date_collecte": "2026-11-09"
       },
       "scenario_central_6m_pct": {
-        "valeur": null,
-        "unite": null,
-        "periode": null,
-        "date_source": null,
-        "source_url": null,
-        "statut": "A_COLLECTER",
-        "commentaire": null,
-        "recherche": {
-          "date": "2026-11-04",
-          "statut": "MANQUANT_RECHERCHE_NON_CLOSE",
-          "motif": "Analyse MCPA/IPS argumentée encore nécessaire; ce champ ne doit pas être rempli par une statistique de fournisseur.",
-          "journal": "journal_recherches"
-        }
+        "valeur": 12.0,
+        "unite": "pct",
+        "periode": "6 mois depuis 2026-11-06",
+        "date_source": "2026-11-09",
+        "source_url": "https://data.sec.gov/api/xbrl/companyfacts/CIK0000814586.json | https://data.sec.gov/submissions/CIK0000814586.json | https://lifewaykefir.com/press_releases/ | https://query1.finance.yahoo.com/ws/fundamentals-timeseries/v1/finance/timeseries/LWAY?type=annualEBITDA&period1=1640995200&period2=1793872599 | https://stockanalysis.com/stocks/lway/financials/ | https://stockanalysis.com/stocks/lway/financials/balance-sheet/ | https://stockanalysis.com/stocks/lway/forecast/ | https://stockanalysis.com/stocks/lway/statistics/ | https://www.sec.gov/Archives/edgar/data/814586/000168316826006302/lifeway_i10q-063026.htm",
+        "statut": "HYPOTHESE_PROSPECTIVE_ANALYSTE",
+        "commentaire": "Ventes en hausse et marges stabilisées. Sensibilité agricole et consommation; résultats T3 annoncés le 12 novembre.",
+        "date_collecte": "2026-11-09"
       },
       "prob_central_6m_pct": {
-        "valeur": null,
-        "unite": null,
-        "periode": null,
-        "date_source": null,
-        "source_url": null,
-        "statut": "A_COLLECTER",
-        "commentaire": null,
-        "recherche": {
-          "date": "2026-11-04",
-          "statut": "MANQUANT_RECHERCHE_NON_CLOSE",
-          "motif": "Analyse MCPA/IPS argumentée encore nécessaire; ce champ ne doit pas être rempli par une statistique de fournisseur.",
-          "journal": "journal_recherches"
-        }
+        "valeur": 40.0,
+        "unite": "pct",
+        "periode": "probabilité subjective 6 mois",
+        "date_source": "2026-11-09",
+        "source_url": "https://data.sec.gov/api/xbrl/companyfacts/CIK0000814586.json | https://data.sec.gov/submissions/CIK0000814586.json | https://lifewaykefir.com/press_releases/ | https://query1.finance.yahoo.com/ws/fundamentals-timeseries/v1/finance/timeseries/LWAY?type=annualEBITDA&period1=1640995200&period2=1793872599 | https://stockanalysis.com/stocks/lway/financials/ | https://stockanalysis.com/stocks/lway/financials/balance-sheet/ | https://stockanalysis.com/stocks/lway/forecast/ | https://stockanalysis.com/stocks/lway/statistics/ | https://www.sec.gov/Archives/edgar/data/814586/000168316826006302/lifeway_i10q-063026.htm",
+        "statut": "PROBABILITE_SUBJECTIVE_NON_CALIBREE",
+        "commentaire": "Pondération par jugement du risque et des opportunités décrits; aucune fréquence statistique. Incertitude au moins +/-10 points. Sensibilité agricole et consommation; résultats T3 annoncés le 12 novembre.",
+        "date_collecte": "2026-11-09"
       },
       "scenario_bull_6m_pct": {
-        "valeur": null,
-        "unite": null,
-        "periode": null,
-        "date_source": null,
-        "source_url": null,
-        "statut": "A_COLLECTER",
-        "commentaire": null,
-        "recherche": {
-          "date": "2026-11-04",
-          "statut": "MANQUANT_RECHERCHE_NON_CLOSE",
-          "motif": "Analyse MCPA/IPS argumentée encore nécessaire; ce champ ne doit pas être rempli par une statistique de fournisseur.",
-          "journal": "journal_recherches"
-        }
+        "valeur": 40.0,
+        "unite": "pct",
+        "periode": "6 mois depuis 2026-11-06",
+        "date_source": "2026-11-09",
+        "source_url": "https://data.sec.gov/api/xbrl/companyfacts/CIK0000814586.json | https://data.sec.gov/submissions/CIK0000814586.json | https://lifewaykefir.com/press_releases/ | https://query1.finance.yahoo.com/ws/fundamentals-timeseries/v1/finance/timeseries/LWAY?type=annualEBITDA&period1=1640995200&period2=1793872599 | https://stockanalysis.com/stocks/lway/financials/ | https://stockanalysis.com/stocks/lway/financials/balance-sheet/ | https://stockanalysis.com/stocks/lway/forecast/ | https://stockanalysis.com/stocks/lway/statistics/ | https://www.sec.gov/Archives/edgar/data/814586/000168316826006302/lifeway_i10q-063026.htm",
+        "statut": "HYPOTHESE_PROSPECTIVE_ANALYSTE",
+        "commentaire": "Volumes et coûts favorables. Sensibilité agricole et consommation; résultats T3 annoncés le 12 novembre.",
+        "date_collecte": "2026-11-09"
       },
       "prob_bull_6m_pct": {
-        "valeur": null,
-        "unite": null,
-        "periode": null,
-        "date_source": null,
-        "source_url": null,
-        "statut": "A_COLLECTER",
-        "commentaire": null,
-        "recherche": {
-          "date": "2026-11-04",
-          "statut": "MANQUANT_RECHERCHE_NON_CLOSE",
-          "motif": "Analyse MCPA/IPS argumentée encore nécessaire; ce champ ne doit pas être rempli par une statistique de fournisseur.",
-          "journal": "journal_recherches"
-        }
+        "valeur": 30.0,
+        "unite": "pct",
+        "periode": "probabilité subjective 6 mois",
+        "date_source": "2026-11-09",
+        "source_url": "https://data.sec.gov/api/xbrl/companyfacts/CIK0000814586.json | https://data.sec.gov/submissions/CIK0000814586.json | https://lifewaykefir.com/press_releases/ | https://query1.finance.yahoo.com/ws/fundamentals-timeseries/v1/finance/timeseries/LWAY?type=annualEBITDA&period1=1640995200&period2=1793872599 | https://stockanalysis.com/stocks/lway/financials/ | https://stockanalysis.com/stocks/lway/financials/balance-sheet/ | https://stockanalysis.com/stocks/lway/forecast/ | https://stockanalysis.com/stocks/lway/statistics/ | https://www.sec.gov/Archives/edgar/data/814586/000168316826006302/lifeway_i10q-063026.htm",
+        "statut": "PROBABILITE_SUBJECTIVE_NON_CALIBREE",
+        "commentaire": "Pondération par jugement du risque et des opportunités décrits; aucune fréquence statistique. Incertitude au moins +/-10 points. Sensibilité agricole et consommation; résultats T3 annoncés le 12 novembre.",
+        "date_collecte": "2026-11-09"
       },
       "role_ips": {
-        "valeur": null,
-        "unite": null,
-        "periode": null,
-        "date_source": null,
-        "source_url": null,
-        "statut": "A_COLLECTER",
-        "commentaire": null,
-        "recherche": {
-          "date": "2026-11-04",
-          "statut": "MANQUANT_RECHERCHE_NON_CLOSE",
-          "motif": "Analyse MCPA/IPS argumentée encore nécessaire; ce champ ne doit pas être rempli par une statistique de fournisseur.",
-          "journal": "journal_recherches"
-        }
+        "valeur": "INCUBATION_VIRTUELLE_SOUS_REVUE",
+        "unite": "texte",
+        "periode": "analyse au 2026-11-09",
+        "date_source": "2026-11-09",
+        "source_url": "https://data.sec.gov/api/xbrl/companyfacts/CIK0000814586.json | https://data.sec.gov/submissions/CIK0000814586.json | https://lifewaykefir.com/press_releases/ | https://query1.finance.yahoo.com/ws/fundamentals-timeseries/v1/finance/timeseries/LWAY?type=annualEBITDA&period1=1640995200&period2=1793872599 | https://stockanalysis.com/stocks/lway/financials/ | https://stockanalysis.com/stocks/lway/financials/balance-sheet/ | https://stockanalysis.com/stocks/lway/forecast/ | https://stockanalysis.com/stocks/lway/statistics/ | https://www.sec.gov/Archives/edgar/data/814586/000168316826006302/lifeway_i10q-063026.htm",
+        "statut": "ANALYSE_PROVISOIRE_DOCUMENTEE",
+        "commentaire": "Sensibilité agricole et consommation; résultats T3 annoncés le 12 novembre. Aucune opération autorisée.",
+        "date_collecte": "2026-11-09"
       },
       "decision": {
-        "valeur": null,
-        "unite": null,
-        "periode": null,
-        "date_source": null,
-        "source_url": null,
-        "statut": "A_COLLECTER",
-        "commentaire": null,
-        "recherche": {
-          "date": "2026-11-04",
-          "statut": "MANQUANT_RECHERCHE_NON_CLOSE",
-          "motif": "Analyse MCPA/IPS argumentée encore nécessaire; ce champ ne doit pas être rempli par une statistique de fournisseur.",
-          "journal": "journal_recherches"
-        }
+        "valeur": "ATTENTE",
+        "unite": "texte",
+        "periode": "analyse au 2026-11-09",
+        "date_source": "2026-11-09",
+        "source_url": "https://data.sec.gov/api/xbrl/companyfacts/CIK0000814586.json | https://data.sec.gov/submissions/CIK0000814586.json | https://lifewaykefir.com/press_releases/ | https://query1.finance.yahoo.com/ws/fundamentals-timeseries/v1/finance/timeseries/LWAY?type=annualEBITDA&period1=1640995200&period2=1793872599 | https://stockanalysis.com/stocks/lway/financials/ | https://stockanalysis.com/stocks/lway/financials/balance-sheet/ | https://stockanalysis.com/stocks/lway/forecast/ | https://stockanalysis.com/stocks/lway/statistics/ | https://www.sec.gov/Archives/edgar/data/814586/000168316826006302/lifeway_i10q-063026.htm",
+        "statut": "ANALYSE_PROVISOIRE_DOCUMENTEE",
+        "commentaire": "Sensibilité agricole et consommation; résultats T3 annoncés le 12 novembre. Aucune opération autorisée.",
+        "date_collecte": "2026-11-09"
       },
       "condition_renforcement": {
-        "valeur": null,
-        "unite": null,
-        "periode": null,
-        "date_source": null,
-        "source_url": null,
-        "statut": "A_COLLECTER",
-        "commentaire": null,
-        "recherche": {
-          "date": "2026-11-04",
-          "statut": "MANQUANT_RECHERCHE_NON_CLOSE",
-          "motif": "Analyse MCPA/IPS argumentée encore nécessaire; ce champ ne doit pas être rempli par une statistique de fournisseur.",
-          "journal": "journal_recherches"
-        }
+        "valeur": "SSI documenté >=65, MCPA >=80, IC >=3,5, données rapprochées, revue stricte valide et duel favorable après frais.",
+        "unite": "texte",
+        "periode": "analyse au 2026-11-09",
+        "date_source": "2026-11-09",
+        "source_url": "https://data.sec.gov/api/xbrl/companyfacts/CIK0000814586.json | https://data.sec.gov/submissions/CIK0000814586.json | https://lifewaykefir.com/press_releases/ | https://query1.finance.yahoo.com/ws/fundamentals-timeseries/v1/finance/timeseries/LWAY?type=annualEBITDA&period1=1640995200&period2=1793872599 | https://stockanalysis.com/stocks/lway/financials/ | https://stockanalysis.com/stocks/lway/financials/balance-sheet/ | https://stockanalysis.com/stocks/lway/forecast/ | https://stockanalysis.com/stocks/lway/statistics/ | https://www.sec.gov/Archives/edgar/data/814586/000168316826006302/lifeway_i10q-063026.htm",
+        "statut": "ANALYSE_PROVISOIRE_DOCUMENTEE",
+        "commentaire": "Sensibilité agricole et consommation; résultats T3 annoncés le 12 novembre. Aucune opération autorisée.",
+        "date_collecte": "2026-11-09"
       },
       "condition_allegement_sortie": {
-        "valeur": null,
-        "unite": null,
-        "periode": null,
-        "date_source": null,
-        "source_url": null,
-        "statut": "A_COLLECTER",
-        "commentaire": null,
-        "recherche": {
-          "date": "2026-11-04",
-          "statut": "MANQUANT_RECHERCHE_NON_CLOSE",
-          "motif": "Analyse MCPA/IPS argumentée encore nécessaire; ce champ ne doit pas être rempli par une statistique de fournisseur.",
-          "journal": "journal_recherches"
-        }
+        "valeur": "Intrants et stocks absorbent les gains. Contrôle des coûts et de la liquidité avant décision virtuelle.",
+        "unite": "texte",
+        "periode": "analyse au 2026-11-09",
+        "date_source": "2026-11-09",
+        "source_url": "https://data.sec.gov/api/xbrl/companyfacts/CIK0000814586.json | https://data.sec.gov/submissions/CIK0000814586.json | https://lifewaykefir.com/press_releases/ | https://query1.finance.yahoo.com/ws/fundamentals-timeseries/v1/finance/timeseries/LWAY?type=annualEBITDA&period1=1640995200&period2=1793872599 | https://stockanalysis.com/stocks/lway/financials/ | https://stockanalysis.com/stocks/lway/financials/balance-sheet/ | https://stockanalysis.com/stocks/lway/forecast/ | https://stockanalysis.com/stocks/lway/statistics/ | https://www.sec.gov/Archives/edgar/data/814586/000168316826006302/lifeway_i10q-063026.htm",
+        "statut": "ANALYSE_PROVISOIRE_DOCUMENTEE",
+        "commentaire": "Sensibilité agricole et consommation; résultats T3 annoncés le 12 novembre. Aucune opération autorisée.",
+        "date_collecte": "2026-11-09"
       },
       "challengers_compares": {
         "valeur": null,
@@ -1388,23 +1283,36 @@
       "diversification": 10
     },
     "notes": {
-      "qualite": null,
-      "valorisation": null,
-      "croissance": null,
-      "risque": null,
-      "momentum": null,
-      "diversification": null
+      "qualite": 20.0,
+      "valorisation": 9.0,
+      "croissance": 13.0,
+      "risque": 5.0,
+      "momentum": 1,
+      "diversification": 9.0
     },
-    "total_mcpa": null,
-    "statut": "NON_VALIDEE",
+    "total_mcpa": 57.0,
+    "statut": "DOCUMENTEE_NON_VALIDEE",
     "justifications": {
-      "qualite": null,
-      "valorisation": null,
-      "croissance": null,
-      "risque": null,
-      "momentum": null,
-      "diversification": null
-    }
+      "qualite": "Marque en croissance; coûts et FCF sous pression.",
+      "valorisation": "PE supérieur à 30 sur données secondaires, décote non établie.",
+      "croissance": "Volumes en croissance, marges à confirmer aux résultats.",
+      "risque": "Lait, emballage, transport et contrôle concentré.",
+      "diversification": "Alimentation très diversifiante.",
+      "momentum": "Grille explicite au 2026-11-06: 1/10, 0 points non observables. Absence d'historique distincte d'un signal baissier; score provisoire si incomplet."
+    },
+    "date_analyse": "2026-11-09",
+    "sources": [
+      "https://data.sec.gov/api/xbrl/companyfacts/CIK0000814586.json",
+      "https://data.sec.gov/submissions/CIK0000814586.json",
+      "https://lifewaykefir.com/press_releases/",
+      "https://query1.finance.yahoo.com/ws/fundamentals-timeseries/v1/finance/timeseries/LWAY?type=annualEBITDA&period1=1640995200&period2=1793872599",
+      "https://stockanalysis.com/stocks/lway/financials/",
+      "https://stockanalysis.com/stocks/lway/financials/balance-sheet/",
+      "https://stockanalysis.com/stocks/lway/forecast/",
+      "https://stockanalysis.com/stocks/lway/statistics/",
+      "https://www.sec.gov/Archives/edgar/data/814586/000168316826006302/lifeway_i10q-063026.htm"
+    ],
+    "limite": "Notes discrétionnaires provisoires; multiples secondaires à rapprocher, SSI et revue stricte obligatoires. Grille momentum locale ne modifiant pas le maître."
   },
   "preuves_complementaires": [
     {
@@ -3849,7 +3757,7 @@
     }
   ],
   "anomalies": [],
-  "statut_fiche": "ENRICHIE_NON_VALIDEE",
+  "statut_fiche": "NOTEE_SCENARISEE_NON_VALIDEE",
   "arbitrage_autorise": false,
   "observations_complementaires": [
     {
@@ -4814,9 +4722,9 @@
   "audit_couverture": {
     "date": "2026-11-09",
     "champs_total": 108,
-    "champs_renseignes": 68,
-    "couverture_pct": 62.96,
-    "champs_secondaires_non_rapproches": 31,
+    "champs_renseignes": 89,
+    "couverture_pct": 82.41,
+    "champs_secondaires_non_rapproches": 44,
     "champs_manquants": [
       "identite.lei",
       "identite.marche",
@@ -4835,44 +4743,23 @@
       "risque.risque_pays",
       "risque.risque_concentration",
       "risque.transactions_initiees_net_180j",
-      "diversification.interet_strategique",
-      "diversification.complementarite_portefeuille",
-      "complements.ic_sur_5",
-      "complements.cx_sur_5",
-      "complements.delta",
       "complements.wwws",
-      "complements.scenario_bear_3m_pct",
-      "complements.prob_bear_3m_pct",
-      "complements.scenario_central_3m_pct",
-      "complements.prob_central_3m_pct",
-      "complements.scenario_bull_3m_pct",
-      "complements.prob_bull_3m_pct",
-      "complements.scenario_bear_6m_pct",
-      "complements.prob_bear_6m_pct",
-      "complements.scenario_central_6m_pct",
-      "complements.prob_central_6m_pct",
-      "complements.scenario_bull_6m_pct",
-      "complements.prob_bull_6m_pct",
-      "complements.role_ips",
-      "complements.decision",
-      "complements.condition_renforcement",
-      "complements.condition_allegement_sortie",
       "complements.challengers_compares"
     ],
     "indisponibilite_definitive_demontree": [],
-    "statut": "TRAITE_MAIS_INCOMPLET",
-    "cours_date_limite": "2026-11-03"
+    "statut": "ANALYSE_DOCUMENTEE_NON_CERTIFIEE",
+    "cours_date_limite": "2026-11-06"
   },
   "audit_poursuite": {
     "date": "2026-11-09",
     "comptage": {
-      "RENSEIGNE": 68,
+      "RENSEIGNE": 89,
       "NON_APPLICABLE": 3,
       "INDISPONIBLE_A_DATE": 0,
-      "RECHERCHE_A_POURSUIVRE": 37
+      "RECHERCHE_A_POURSUIVRE": 16
     },
-    "couverture_valeurs_pct": 62.96,
-    "couverture_applicable_pct": 64.76,
+    "couverture_valeurs_pct": 82.41,
+    "couverture_applicable_pct": 84.76,
     "recherches_non_closes": [
       "identite.lei",
       "identite.marche",
@@ -4888,32 +4775,850 @@
       "risque.risque_pays",
       "risque.risque_concentration",
       "risque.transactions_initiees_net_180j",
-      "diversification.interet_strategique",
-      "diversification.complementarite_portefeuille",
-      "complements.ic_sur_5",
-      "complements.cx_sur_5",
-      "complements.delta",
       "complements.wwws",
-      "complements.scenario_bear_3m_pct",
-      "complements.prob_bear_3m_pct",
-      "complements.scenario_central_3m_pct",
-      "complements.prob_central_3m_pct",
-      "complements.scenario_bull_3m_pct",
-      "complements.prob_bull_3m_pct",
-      "complements.scenario_bear_6m_pct",
-      "complements.prob_bear_6m_pct",
-      "complements.scenario_central_6m_pct",
-      "complements.prob_central_6m_pct",
-      "complements.scenario_bull_6m_pct",
-      "complements.prob_bull_6m_pct",
-      "complements.role_ips",
-      "complements.decision",
-      "complements.condition_renforcement",
-      "complements.condition_allegement_sortie",
       "complements.challengers_compares"
     ],
-    "notes_justifiees": false,
-    "validation_individuelle": "BLOQUEE_DONNEES_ET_ANALYSES_RESTANTES",
+    "notes_justifiees": true,
+    "validation_individuelle": "NOTES_SCENARIOS_DOCUMENTES_VALIDATION_REQUISE",
     "aucune_indisponibilite_definitive_presumee": true
-  }
+  },
+  "historique_relectures": [
+    {
+      "preuve_id": "ANALYSE_20261109_momentum_1m_pct",
+      "champ": "momentum.momentum_1m_pct",
+      "ancienne_cellule": {
+        "valeur": 4.809054699631687,
+        "unite": "pct",
+        "periode": "2026-10-02 / 2026-11-03",
+        "date_source": "2026-11-03",
+        "source_url": "https://query1.finance.yahoo.com/v8/finance/chart/LWAY?range=5y&interval=1d&events=div%2Csplits",
+        "statut": "CALCULE_HISTORIQUE_SECONDAIRE",
+        "commentaire": "Cours ajustés, ancrage calendaire; dernière séance <= date cible.",
+        "date_collecte": "2026-11-04"
+      },
+      "motif": "Calcul reproductible 10Q; ancrage dernière séance <= date calendaire cible, aucune période pré-IPO extrapolée.",
+      "date_relecture": "2026-11-09"
+    },
+    {
+      "preuve_id": "ANALYSE_20261109_momentum_3m_pct",
+      "champ": "momentum.momentum_3m_pct",
+      "ancienne_cellule": {
+        "valeur": -24.79702319396633,
+        "unite": "pct",
+        "periode": "2026-08-03 / 2026-11-03",
+        "date_source": "2026-11-03",
+        "source_url": "https://query1.finance.yahoo.com/v8/finance/chart/LWAY?range=5y&interval=1d&events=div%2Csplits",
+        "statut": "CALCULE_HISTORIQUE_SECONDAIRE",
+        "commentaire": "Cours ajustés, ancrage calendaire; dernière séance <= date cible.",
+        "date_collecte": "2026-11-04"
+      },
+      "motif": "Calcul reproductible 10Q; ancrage dernière séance <= date calendaire cible, aucune période pré-IPO extrapolée.",
+      "date_relecture": "2026-11-09"
+    },
+    {
+      "preuve_id": "ANALYSE_20261109_momentum_6m_pct",
+      "champ": "momentum.momentum_6m_pct",
+      "ancienne_cellule": {
+        "valeur": -17.97048254864003,
+        "unite": "pct",
+        "periode": "2026-05-01 / 2026-11-03",
+        "date_source": "2026-11-03",
+        "source_url": "https://query1.finance.yahoo.com/v8/finance/chart/LWAY?range=5y&interval=1d&events=div%2Csplits",
+        "statut": "CALCULE_HISTORIQUE_SECONDAIRE",
+        "commentaire": "Cours ajustés, ancrage calendaire; dernière séance <= date cible.",
+        "date_collecte": "2026-11-04"
+      },
+      "motif": "Calcul reproductible 10Q; ancrage dernière séance <= date calendaire cible, aucune période pré-IPO extrapolée.",
+      "date_relecture": "2026-11-09"
+    },
+    {
+      "preuve_id": "ANALYSE_20261109_momentum_12m_pct",
+      "champ": "momentum.momentum_12m_pct",
+      "ancienne_cellule": {
+        "valeur": -7.8740144409930934,
+        "unite": "pct",
+        "periode": "2025-11-03 / 2026-11-03",
+        "date_source": "2026-11-03",
+        "source_url": "https://query1.finance.yahoo.com/v8/finance/chart/LWAY?range=5y&interval=1d&events=div%2Csplits",
+        "statut": "CALCULE_HISTORIQUE_SECONDAIRE",
+        "commentaire": "Cours ajustés, ancrage calendaire; dernière séance <= date cible.",
+        "date_collecte": "2026-11-04"
+      },
+      "motif": "Calcul reproductible 10Q; ancrage dernière séance <= date calendaire cible, aucune période pré-IPO extrapolée.",
+      "date_relecture": "2026-11-09"
+    },
+    {
+      "preuve_id": "ANALYSE_20261109_prix_vers_mm200",
+      "champ": "momentum.prix_vers_mm200",
+      "ancienne_cellule": {
+        "valeur": 0.9048650042003408,
+        "unite": "ratio",
+        "periode": "200 dernières séances",
+        "date_source": "2026-11-03",
+        "source_url": "https://query1.finance.yahoo.com/v8/finance/chart/LWAY?range=5y&interval=1d&events=div%2Csplits",
+        "statut": "CALCULE_HISTORIQUE_SECONDAIRE",
+        "commentaire": "Cours ajusté / moyenne mobile 200 séances.",
+        "date_collecte": "2026-11-04"
+      },
+      "motif": "Calcul reproductible 10Q; ancrage dernière séance <= date calendaire cible, aucune période pré-IPO extrapolée.",
+      "date_relecture": "2026-11-09"
+    },
+    {
+      "preuve_id": "ANALYSE_20261109_tendance_mm200",
+      "champ": "momentum.tendance_mm200",
+      "ancienne_cellule": {
+        "valeur": -0.28048042297001974,
+        "unite": "pct",
+        "periode": "variation MM200 sur 20 séances",
+        "date_source": "2026-11-03",
+        "source_url": "https://query1.finance.yahoo.com/v8/finance/chart/LWAY?range=5y&interval=1d&events=div%2Csplits",
+        "statut": "CALCULE_HISTORIQUE_SECONDAIRE",
+        "commentaire": "Pente approchée par variation MM200(t)/MM200(t-20)-1; niveau MM200 non confondu avec pente.",
+        "date_collecte": "2026-11-04"
+      },
+      "motif": "Calcul reproductible 10Q; ancrage dernière séance <= date calendaire cible, aucune période pré-IPO extrapolée.",
+      "date_relecture": "2026-11-09"
+    },
+    {
+      "preuve_id": "ANALYSE_20261109_momentum_6_1_pct",
+      "champ": "momentum.momentum_6_1_pct",
+      "ancienne_cellule": {
+        "valeur": -21.73432182320004,
+        "unite": "pct",
+        "periode": "2026-05-01 / 2026-10-02",
+        "date_source": "2026-11-03",
+        "source_url": "https://query1.finance.yahoo.com/v8/finance/chart/LWAY?range=5y&interval=1d&events=div%2Csplits",
+        "statut": "CALCULE_HISTORIQUE_SECONDAIRE",
+        "commentaire": "Momentum 6–1 : prix à -1 mois / prix à -6 mois - 1; aucune modification de la règle de sélection.",
+        "date_collecte": "2026-11-04"
+      },
+      "motif": "Calcul reproductible 10Q; ancrage dernière séance <= date calendaire cible, aucune période pré-IPO extrapolée.",
+      "date_relecture": "2026-11-09"
+    },
+    {
+      "preuve_id": "ANALYSE_20261109_volume_moyen_20j",
+      "champ": "momentum.volume_moyen_20j",
+      "ancienne_cellule": {
+        "valeur": 103940,
+        "unite": "titres",
+        "periode": "20 dernières séances",
+        "date_source": "2026-11-03",
+        "source_url": "https://query1.finance.yahoo.com/v8/finance/chart/LWAY?range=5y&interval=1d&events=div%2Csplits",
+        "statut": "CALCULE_HISTORIQUE_SECONDAIRE",
+        "commentaire": "Moyenne arithmétique des volumes Yahoo non ajustés.",
+        "date_collecte": "2026-11-04"
+      },
+      "motif": "Calcul reproductible 10Q; ancrage dernière séance <= date calendaire cible, aucune période pré-IPO extrapolée.",
+      "date_relecture": "2026-11-09"
+    },
+    {
+      "preuve_id": "ANALYSE_20261109_ratio_volume",
+      "champ": "momentum.ratio_volume",
+      "ancienne_cellule": {
+        "valeur": 0.699441985761016,
+        "unite": "ratio",
+        "periode": "dernière séance / moyenne 20 séances",
+        "date_source": "2026-11-03",
+        "source_url": "https://query1.finance.yahoo.com/v8/finance/chart/LWAY?range=5y&interval=1d&events=div%2Csplits",
+        "statut": "CALCULE_HISTORIQUE_SECONDAIRE",
+        "commentaire": "Ratio de volume de la dernière séance.",
+        "date_collecte": "2026-11-04"
+      },
+      "motif": "Calcul reproductible 10Q; ancrage dernière séance <= date calendaire cible, aucune période pré-IPO extrapolée.",
+      "date_relecture": "2026-11-09"
+    },
+    {
+      "preuve_id": "ANALYSE_20261109_volatilite_90j_pct",
+      "champ": "momentum.volatilite_90j_pct",
+      "ancienne_cellule": {
+        "valeur": 44.06956554586826,
+        "unite": "pct",
+        "periode": "90 rendements quotidiens",
+        "date_source": "2026-11-03",
+        "source_url": "https://query1.finance.yahoo.com/v8/finance/chart/LWAY?range=5y&interval=1d&events=div%2Csplits",
+        "statut": "CALCULE_HISTORIQUE_SECONDAIRE",
+        "commentaire": "Écart-type échantillon des log-rendements ajustés annualisé sqrt(252).",
+        "date_collecte": "2026-11-04"
+      },
+      "motif": "Calcul reproductible 10Q; ancrage dernière séance <= date calendaire cible, aucune période pré-IPO extrapolée.",
+      "date_relecture": "2026-11-09"
+    },
+    {
+      "preuve_id": "ANALYSE_20261109_drawdown_12m_pct",
+      "champ": "momentum.drawdown_12m_pct",
+      "ancienne_cellule": {
+        "valeur": -36.715131686693134,
+        "unite": "pct",
+        "periode": "2025-11-03 / 2026-11-03",
+        "date_source": "2026-11-03",
+        "source_url": "https://query1.finance.yahoo.com/v8/finance/chart/LWAY?range=5y&interval=1d&events=div%2Csplits",
+        "statut": "CALCULE_HISTORIQUE_SECONDAIRE",
+        "commentaire": "Maximum drawdown du prix ajusté sur la fenêtre, valeur négative.",
+        "date_collecte": "2026-11-04"
+      },
+      "motif": "Calcul reproductible 10Q; ancrage dernière séance <= date calendaire cible, aucune période pré-IPO extrapolée.",
+      "date_relecture": "2026-11-09"
+    },
+    {
+      "preuve_id": "ANALYSE_20261109_cours",
+      "champ": "valorisation.cours",
+      "ancienne_cellule": {
+        "valeur": 22.229999542236328,
+        "unite": "USD",
+        "periode": "cloture 2026-11-03",
+        "date_source": "2026-11-03",
+        "source_url": "https://query1.finance.yahoo.com/v8/finance/chart/LWAY?range=5y&interval=1d&events=div%2Csplits",
+        "statut": "SOURCE_MARCHE",
+        "commentaire": "Cours non ajuste; GBp/100 pour Londres.",
+        "date_collecte": "2026-11-04"
+      },
+      "motif": "Cours non ajusté, conversion GBp/100 vers GBP pour Londres.",
+      "date_relecture": "2026-11-09"
+    },
+    {
+      "preuve_id": "ANALYSE_20261109_date_cours",
+      "champ": "valorisation.date_cours",
+      "ancienne_cellule": {
+        "valeur": "2026-11-03",
+        "unite": "date",
+        "periode": "cloture",
+        "date_source": "2026-11-03",
+        "source_url": "https://query1.finance.yahoo.com/v8/finance/chart/LWAY?range=5y&interval=1d&events=div%2Csplits",
+        "statut": "SOURCE_MARCHE",
+        "commentaire": null,
+        "date_collecte": "2026-11-04"
+      },
+      "motif": "Clôture commune aux 40 fiches.",
+      "date_relecture": "2026-11-09"
+    },
+    {
+      "preuve_id": "ANALYSE_20261109_scenario_bear_3m_pct",
+      "champ": "complements.scenario_bear_3m_pct",
+      "ancienne_cellule": {
+        "valeur": null,
+        "unite": null,
+        "periode": null,
+        "date_source": null,
+        "source_url": null,
+        "statut": "A_COLLECTER",
+        "commentaire": null,
+        "recherche": {
+          "date": "2026-11-04",
+          "statut": "MANQUANT_RECHERCHE_NON_CLOSE",
+          "motif": "Analyse MCPA/IPS argumentée encore nécessaire; ce champ ne doit pas être rempli par une statistique de fournisseur.",
+          "journal": "journal_recherches"
+        }
+      },
+      "motif": "Intrants et stocks absorbent les gains. Sensibilité agricole et consommation; résultats T3 annoncés le 12 novembre.",
+      "date_relecture": "2026-11-09"
+    },
+    {
+      "preuve_id": "ANALYSE_20261109_prob_bear_3m_pct",
+      "champ": "complements.prob_bear_3m_pct",
+      "ancienne_cellule": {
+        "valeur": null,
+        "unite": null,
+        "periode": null,
+        "date_source": null,
+        "source_url": null,
+        "statut": "A_COLLECTER",
+        "commentaire": null,
+        "recherche": {
+          "date": "2026-11-04",
+          "statut": "MANQUANT_RECHERCHE_NON_CLOSE",
+          "motif": "Analyse MCPA/IPS argumentée encore nécessaire; ce champ ne doit pas être rempli par une statistique de fournisseur.",
+          "journal": "journal_recherches"
+        }
+      },
+      "motif": "Pondération par jugement du risque et des opportunités décrits; aucune fréquence statistique. Incertitude au moins +/-10 points. Sensibilité agricole et consommation; résultats T3 annoncés le 12 novembre.",
+      "date_relecture": "2026-11-09"
+    },
+    {
+      "preuve_id": "ANALYSE_20261109_scenario_central_3m_pct",
+      "champ": "complements.scenario_central_3m_pct",
+      "ancienne_cellule": {
+        "valeur": null,
+        "unite": null,
+        "periode": null,
+        "date_source": null,
+        "source_url": null,
+        "statut": "A_COLLECTER",
+        "commentaire": null,
+        "recherche": {
+          "date": "2026-11-04",
+          "statut": "MANQUANT_RECHERCHE_NON_CLOSE",
+          "motif": "Analyse MCPA/IPS argumentée encore nécessaire; ce champ ne doit pas être rempli par une statistique de fournisseur.",
+          "journal": "journal_recherches"
+        }
+      },
+      "motif": "Ventes en hausse et marges stabilisées. Sensibilité agricole et consommation; résultats T3 annoncés le 12 novembre.",
+      "date_relecture": "2026-11-09"
+    },
+    {
+      "preuve_id": "ANALYSE_20261109_prob_central_3m_pct",
+      "champ": "complements.prob_central_3m_pct",
+      "ancienne_cellule": {
+        "valeur": null,
+        "unite": null,
+        "periode": null,
+        "date_source": null,
+        "source_url": null,
+        "statut": "A_COLLECTER",
+        "commentaire": null,
+        "recherche": {
+          "date": "2026-11-04",
+          "statut": "MANQUANT_RECHERCHE_NON_CLOSE",
+          "motif": "Analyse MCPA/IPS argumentée encore nécessaire; ce champ ne doit pas être rempli par une statistique de fournisseur.",
+          "journal": "journal_recherches"
+        }
+      },
+      "motif": "Pondération par jugement du risque et des opportunités décrits; aucune fréquence statistique. Incertitude au moins +/-10 points. Sensibilité agricole et consommation; résultats T3 annoncés le 12 novembre.",
+      "date_relecture": "2026-11-09"
+    },
+    {
+      "preuve_id": "ANALYSE_20261109_scenario_bull_3m_pct",
+      "champ": "complements.scenario_bull_3m_pct",
+      "ancienne_cellule": {
+        "valeur": null,
+        "unite": null,
+        "periode": null,
+        "date_source": null,
+        "source_url": null,
+        "statut": "A_COLLECTER",
+        "commentaire": null,
+        "recherche": {
+          "date": "2026-11-04",
+          "statut": "MANQUANT_RECHERCHE_NON_CLOSE",
+          "motif": "Analyse MCPA/IPS argumentée encore nécessaire; ce champ ne doit pas être rempli par une statistique de fournisseur.",
+          "journal": "journal_recherches"
+        }
+      },
+      "motif": "Volumes et coûts favorables. Sensibilité agricole et consommation; résultats T3 annoncés le 12 novembre.",
+      "date_relecture": "2026-11-09"
+    },
+    {
+      "preuve_id": "ANALYSE_20261109_prob_bull_3m_pct",
+      "champ": "complements.prob_bull_3m_pct",
+      "ancienne_cellule": {
+        "valeur": null,
+        "unite": null,
+        "periode": null,
+        "date_source": null,
+        "source_url": null,
+        "statut": "A_COLLECTER",
+        "commentaire": null,
+        "recherche": {
+          "date": "2026-11-04",
+          "statut": "MANQUANT_RECHERCHE_NON_CLOSE",
+          "motif": "Analyse MCPA/IPS argumentée encore nécessaire; ce champ ne doit pas être rempli par une statistique de fournisseur.",
+          "journal": "journal_recherches"
+        }
+      },
+      "motif": "Pondération par jugement du risque et des opportunités décrits; aucune fréquence statistique. Incertitude au moins +/-10 points. Sensibilité agricole et consommation; résultats T3 annoncés le 12 novembre.",
+      "date_relecture": "2026-11-09"
+    },
+    {
+      "preuve_id": "ANALYSE_20261109_scenario_bear_6m_pct",
+      "champ": "complements.scenario_bear_6m_pct",
+      "ancienne_cellule": {
+        "valeur": null,
+        "unite": null,
+        "periode": null,
+        "date_source": null,
+        "source_url": null,
+        "statut": "A_COLLECTER",
+        "commentaire": null,
+        "recherche": {
+          "date": "2026-11-04",
+          "statut": "MANQUANT_RECHERCHE_NON_CLOSE",
+          "motif": "Analyse MCPA/IPS argumentée encore nécessaire; ce champ ne doit pas être rempli par une statistique de fournisseur.",
+          "journal": "journal_recherches"
+        }
+      },
+      "motif": "Intrants et stocks absorbent les gains. Sensibilité agricole et consommation; résultats T3 annoncés le 12 novembre.",
+      "date_relecture": "2026-11-09"
+    },
+    {
+      "preuve_id": "ANALYSE_20261109_prob_bear_6m_pct",
+      "champ": "complements.prob_bear_6m_pct",
+      "ancienne_cellule": {
+        "valeur": null,
+        "unite": null,
+        "periode": null,
+        "date_source": null,
+        "source_url": null,
+        "statut": "A_COLLECTER",
+        "commentaire": null,
+        "recherche": {
+          "date": "2026-11-04",
+          "statut": "MANQUANT_RECHERCHE_NON_CLOSE",
+          "motif": "Analyse MCPA/IPS argumentée encore nécessaire; ce champ ne doit pas être rempli par une statistique de fournisseur.",
+          "journal": "journal_recherches"
+        }
+      },
+      "motif": "Pondération par jugement du risque et des opportunités décrits; aucune fréquence statistique. Incertitude au moins +/-10 points. Sensibilité agricole et consommation; résultats T3 annoncés le 12 novembre.",
+      "date_relecture": "2026-11-09"
+    },
+    {
+      "preuve_id": "ANALYSE_20261109_scenario_central_6m_pct",
+      "champ": "complements.scenario_central_6m_pct",
+      "ancienne_cellule": {
+        "valeur": null,
+        "unite": null,
+        "periode": null,
+        "date_source": null,
+        "source_url": null,
+        "statut": "A_COLLECTER",
+        "commentaire": null,
+        "recherche": {
+          "date": "2026-11-04",
+          "statut": "MANQUANT_RECHERCHE_NON_CLOSE",
+          "motif": "Analyse MCPA/IPS argumentée encore nécessaire; ce champ ne doit pas être rempli par une statistique de fournisseur.",
+          "journal": "journal_recherches"
+        }
+      },
+      "motif": "Ventes en hausse et marges stabilisées. Sensibilité agricole et consommation; résultats T3 annoncés le 12 novembre.",
+      "date_relecture": "2026-11-09"
+    },
+    {
+      "preuve_id": "ANALYSE_20261109_prob_central_6m_pct",
+      "champ": "complements.prob_central_6m_pct",
+      "ancienne_cellule": {
+        "valeur": null,
+        "unite": null,
+        "periode": null,
+        "date_source": null,
+        "source_url": null,
+        "statut": "A_COLLECTER",
+        "commentaire": null,
+        "recherche": {
+          "date": "2026-11-04",
+          "statut": "MANQUANT_RECHERCHE_NON_CLOSE",
+          "motif": "Analyse MCPA/IPS argumentée encore nécessaire; ce champ ne doit pas être rempli par une statistique de fournisseur.",
+          "journal": "journal_recherches"
+        }
+      },
+      "motif": "Pondération par jugement du risque et des opportunités décrits; aucune fréquence statistique. Incertitude au moins +/-10 points. Sensibilité agricole et consommation; résultats T3 annoncés le 12 novembre.",
+      "date_relecture": "2026-11-09"
+    },
+    {
+      "preuve_id": "ANALYSE_20261109_scenario_bull_6m_pct",
+      "champ": "complements.scenario_bull_6m_pct",
+      "ancienne_cellule": {
+        "valeur": null,
+        "unite": null,
+        "periode": null,
+        "date_source": null,
+        "source_url": null,
+        "statut": "A_COLLECTER",
+        "commentaire": null,
+        "recherche": {
+          "date": "2026-11-04",
+          "statut": "MANQUANT_RECHERCHE_NON_CLOSE",
+          "motif": "Analyse MCPA/IPS argumentée encore nécessaire; ce champ ne doit pas être rempli par une statistique de fournisseur.",
+          "journal": "journal_recherches"
+        }
+      },
+      "motif": "Volumes et coûts favorables. Sensibilité agricole et consommation; résultats T3 annoncés le 12 novembre.",
+      "date_relecture": "2026-11-09"
+    },
+    {
+      "preuve_id": "ANALYSE_20261109_prob_bull_6m_pct",
+      "champ": "complements.prob_bull_6m_pct",
+      "ancienne_cellule": {
+        "valeur": null,
+        "unite": null,
+        "periode": null,
+        "date_source": null,
+        "source_url": null,
+        "statut": "A_COLLECTER",
+        "commentaire": null,
+        "recherche": {
+          "date": "2026-11-04",
+          "statut": "MANQUANT_RECHERCHE_NON_CLOSE",
+          "motif": "Analyse MCPA/IPS argumentée encore nécessaire; ce champ ne doit pas être rempli par une statistique de fournisseur.",
+          "journal": "journal_recherches"
+        }
+      },
+      "motif": "Pondération par jugement du risque et des opportunités décrits; aucune fréquence statistique. Incertitude au moins +/-10 points. Sensibilité agricole et consommation; résultats T3 annoncés le 12 novembre.",
+      "date_relecture": "2026-11-09"
+    },
+    {
+      "preuve_id": "ANALYSE_20261109_ic_sur_5",
+      "champ": "complements.ic_sur_5",
+      "ancienne_cellule": {
+        "valeur": null,
+        "unite": null,
+        "periode": null,
+        "date_source": null,
+        "source_url": null,
+        "statut": "A_COLLECTER",
+        "commentaire": null,
+        "recherche": {
+          "date": "2026-11-04",
+          "statut": "MANQUANT_RECHERCHE_NON_CLOSE",
+          "motif": "Analyse MCPA/IPS argumentée encore nécessaire; ce champ ne doit pas être rempli par une statistique de fournisseur.",
+          "journal": "journal_recherches"
+        }
+      },
+      "motif": "Sensibilité agricole et consommation; résultats T3 annoncés le 12 novembre. Aucune opération autorisée.",
+      "date_relecture": "2026-11-09"
+    },
+    {
+      "preuve_id": "ANALYSE_20261109_cx_sur_5",
+      "champ": "complements.cx_sur_5",
+      "ancienne_cellule": {
+        "valeur": null,
+        "unite": null,
+        "periode": null,
+        "date_source": null,
+        "source_url": null,
+        "statut": "A_COLLECTER",
+        "commentaire": null,
+        "recherche": {
+          "date": "2026-11-04",
+          "statut": "MANQUANT_RECHERCHE_NON_CLOSE",
+          "motif": "Analyse MCPA/IPS argumentée encore nécessaire; ce champ ne doit pas être rempli par une statistique de fournisseur.",
+          "journal": "journal_recherches"
+        }
+      },
+      "motif": "Sensibilité agricole et consommation; résultats T3 annoncés le 12 novembre. Aucune opération autorisée.",
+      "date_relecture": "2026-11-09"
+    },
+    {
+      "preuve_id": "ANALYSE_20261109_delta",
+      "champ": "complements.delta",
+      "ancienne_cellule": {
+        "valeur": null,
+        "unite": null,
+        "periode": null,
+        "date_source": null,
+        "source_url": null,
+        "statut": "A_COLLECTER",
+        "commentaire": null,
+        "recherche": {
+          "date": "2026-11-04",
+          "statut": "MANQUANT_RECHERCHE_NON_CLOSE",
+          "motif": "Analyse MCPA/IPS argumentée encore nécessaire; ce champ ne doit pas être rempli par une statistique de fournisseur.",
+          "journal": "journal_recherches"
+        }
+      },
+      "motif": "Sensibilité agricole et consommation; résultats T3 annoncés le 12 novembre. Aucune opération autorisée.",
+      "date_relecture": "2026-11-09"
+    },
+    {
+      "preuve_id": "ANALYSE_20261109_role_ips",
+      "champ": "complements.role_ips",
+      "ancienne_cellule": {
+        "valeur": null,
+        "unite": null,
+        "periode": null,
+        "date_source": null,
+        "source_url": null,
+        "statut": "A_COLLECTER",
+        "commentaire": null,
+        "recherche": {
+          "date": "2026-11-04",
+          "statut": "MANQUANT_RECHERCHE_NON_CLOSE",
+          "motif": "Analyse MCPA/IPS argumentée encore nécessaire; ce champ ne doit pas être rempli par une statistique de fournisseur.",
+          "journal": "journal_recherches"
+        }
+      },
+      "motif": "Sensibilité agricole et consommation; résultats T3 annoncés le 12 novembre. Aucune opération autorisée.",
+      "date_relecture": "2026-11-09"
+    },
+    {
+      "preuve_id": "ANALYSE_20261109_decision",
+      "champ": "complements.decision",
+      "ancienne_cellule": {
+        "valeur": null,
+        "unite": null,
+        "periode": null,
+        "date_source": null,
+        "source_url": null,
+        "statut": "A_COLLECTER",
+        "commentaire": null,
+        "recherche": {
+          "date": "2026-11-04",
+          "statut": "MANQUANT_RECHERCHE_NON_CLOSE",
+          "motif": "Analyse MCPA/IPS argumentée encore nécessaire; ce champ ne doit pas être rempli par une statistique de fournisseur.",
+          "journal": "journal_recherches"
+        }
+      },
+      "motif": "Sensibilité agricole et consommation; résultats T3 annoncés le 12 novembre. Aucune opération autorisée.",
+      "date_relecture": "2026-11-09"
+    },
+    {
+      "preuve_id": "ANALYSE_20261109_condition_renforcement",
+      "champ": "complements.condition_renforcement",
+      "ancienne_cellule": {
+        "valeur": null,
+        "unite": null,
+        "periode": null,
+        "date_source": null,
+        "source_url": null,
+        "statut": "A_COLLECTER",
+        "commentaire": null,
+        "recherche": {
+          "date": "2026-11-04",
+          "statut": "MANQUANT_RECHERCHE_NON_CLOSE",
+          "motif": "Analyse MCPA/IPS argumentée encore nécessaire; ce champ ne doit pas être rempli par une statistique de fournisseur.",
+          "journal": "journal_recherches"
+        }
+      },
+      "motif": "Sensibilité agricole et consommation; résultats T3 annoncés le 12 novembre. Aucune opération autorisée.",
+      "date_relecture": "2026-11-09"
+    },
+    {
+      "preuve_id": "ANALYSE_20261109_condition_allegement_sortie",
+      "champ": "complements.condition_allegement_sortie",
+      "ancienne_cellule": {
+        "valeur": null,
+        "unite": null,
+        "periode": null,
+        "date_source": null,
+        "source_url": null,
+        "statut": "A_COLLECTER",
+        "commentaire": null,
+        "recherche": {
+          "date": "2026-11-04",
+          "statut": "MANQUANT_RECHERCHE_NON_CLOSE",
+          "motif": "Analyse MCPA/IPS argumentée encore nécessaire; ce champ ne doit pas être rempli par une statistique de fournisseur.",
+          "journal": "journal_recherches"
+        }
+      },
+      "motif": "Sensibilité agricole et consommation; résultats T3 annoncés le 12 novembre. Aucune opération autorisée.",
+      "date_relecture": "2026-11-09"
+    },
+    {
+      "preuve_id": "ANALYSE_20261109_interet_strategique",
+      "champ": "diversification.interet_strategique",
+      "ancienne_cellule": {
+        "valeur": null,
+        "unite": null,
+        "periode": null,
+        "date_source": null,
+        "source_url": null,
+        "statut": "A_COLLECTER",
+        "commentaire": null,
+        "recherche": {
+          "date": "2026-11-04",
+          "statut": "MANQUANT_RECHERCHE_NON_CLOSE",
+          "motif": "Analyse MCPA/IPS argumentée encore nécessaire; ce champ ne doit pas être rempli par une statistique de fournisseur.",
+          "journal": "journal_recherches"
+        }
+      },
+      "motif": "Diversification sectorielle, sans garantie de décorrélation en crise.",
+      "date_relecture": "2026-11-09"
+    },
+    {
+      "preuve_id": "ANALYSE_20261109_complementarite_portefeuille",
+      "champ": "diversification.complementarite_portefeuille",
+      "ancienne_cellule": {
+        "valeur": null,
+        "unite": null,
+        "periode": null,
+        "date_source": null,
+        "source_url": null,
+        "statut": "A_COLLECTER",
+        "commentaire": null,
+        "recherche": {
+          "date": "2026-11-04",
+          "statut": "MANQUANT_RECHERCHE_NON_CLOSE",
+          "motif": "Analyse MCPA/IPS argumentée encore nécessaire; ce champ ne doit pas être rempli par une statistique de fournisseur.",
+          "journal": "journal_recherches"
+        }
+      },
+      "motif": "Diversification sectorielle, sans garantie de décorrélation en crise.",
+      "date_relecture": "2026-11-09"
+    }
+  ],
+  "historique_notations": [
+    {
+      "bareme": {
+        "qualite": 30,
+        "valorisation": 20,
+        "croissance": 20,
+        "risque": 10,
+        "momentum": 10,
+        "diversification": 10
+      },
+      "notes": {
+        "qualite": null,
+        "valorisation": null,
+        "croissance": null,
+        "risque": null,
+        "momentum": null,
+        "diversification": null
+      },
+      "total_mcpa": null,
+      "statut": "NON_VALIDEE",
+      "justifications": {
+        "qualite": null,
+        "valorisation": null,
+        "croissance": null,
+        "risque": null,
+        "momentum": null,
+        "diversification": null
+      }
+    }
+  ],
+  "calculs_marche": {
+    "date": "2026-11-06",
+    "cours_non_ajuste": 21.649999618530273,
+    "ancrages": {
+      "1": {
+        "date": "2026-10-06",
+        "cours_ajuste": 20.459999084472656
+      },
+      "3": {
+        "date": "2026-08-06",
+        "cours_ajuste": 31.059999465942383
+      },
+      "6": {
+        "date": "2026-05-06",
+        "cours_ajuste": 26.649999618530273
+      },
+      "12": {
+        "date": "2025-11-06",
+        "cours_ajuste": 24.530000686645508
+      }
+    },
+    "indicateurs": {
+      "momentum_1m_pct": 5.816229654480898,
+      "momentum_3m_pct": -30.296200931137406,
+      "momentum_6m_pct": -18.761726347355744,
+      "momentum_12m_pct": -11.740729667745786,
+      "prix_vers_mm200": 0.88137289019438,
+      "tendance_mm200": -0.14654469678206938,
+      "momentum_6_1_pct": -23.227019221994983,
+      "volume_moyen_20j": 95575.0,
+      "ratio_volume": 0.9489929374836515,
+      "volatilite_90j_pct": 44.061230652073085,
+      "drawdown_12m_pct": -36.715131686693134
+    },
+    "grille": [
+      {
+        "indicateur": "prix_vers_mm200",
+        "seuil_strict": 1,
+        "maximum": 2,
+        "valeur": 0.88137289019438,
+        "points": 0
+      },
+      {
+        "indicateur": "tendance_mm200",
+        "seuil_strict": 0,
+        "maximum": 1,
+        "valeur": -0.14654469678206938,
+        "points": 0
+      },
+      {
+        "indicateur": "momentum_1m_pct",
+        "seuil_strict": 0,
+        "maximum": 1,
+        "valeur": 5.816229654480898,
+        "points": 1
+      },
+      {
+        "indicateur": "momentum_3m_pct",
+        "seuil_strict": 0,
+        "maximum": 2,
+        "valeur": -30.296200931137406,
+        "points": 0
+      },
+      {
+        "indicateur": "momentum_6m_pct",
+        "seuil_strict": 0,
+        "maximum": 2,
+        "valeur": -18.761726347355744,
+        "points": 0
+      },
+      {
+        "indicateur": "momentum_12m_pct",
+        "seuil_strict": 0,
+        "maximum": 1,
+        "valeur": -11.740729667745786,
+        "points": 0
+      },
+      {
+        "indicateur": "momentum_6_1_pct",
+        "seuil_strict": 0,
+        "maximum": 1,
+        "valeur": -23.227019221994983,
+        "points": 0
+      }
+    ],
+    "M": 1,
+    "points_non_observables": 0,
+    "source_url": "https://query1.finance.yahoo.com/v8/finance/chart/LWAY?range=5y&interval=1d&events=div%2Csplits"
+  },
+  "analyse_prospective": {
+    "date_analyse": "2026-11-09",
+    "date_ancrage": "2026-11-06",
+    "cours_ancrage": 21.649999618530273,
+    "devise": "USD",
+    "incertitude": "Sensibilité agricole et consommation; résultats T3 annoncés le 12 novembre.",
+    "nature": "Probabilités subjectives non calibrées, incertitude au moins +/-10 points. Rendements du cours en devise locale, hors change, dividendes et frais.",
+    "horizons": {
+      "3m": {
+        "echeance_calendaire": "2027-02-06",
+        "scenarios": [
+          {
+            "cas": "bear",
+            "rendement_pct": -25.0,
+            "probabilite_pct": 30.0,
+            "cours_conditionnel": 16.237499713897705,
+            "declencheur": "Intrants et stocks absorbent les gains."
+          },
+          {
+            "cas": "central",
+            "rendement_pct": 5.0,
+            "probabilite_pct": 45.0,
+            "cours_conditionnel": 22.732499599456787,
+            "declencheur": "Ventes en hausse et marges stabilisées."
+          },
+          {
+            "cas": "bull",
+            "rendement_pct": 25.0,
+            "probabilite_pct": 25.0,
+            "cours_conditionnel": 27.062499523162842,
+            "declencheur": "Volumes et coûts favorables."
+          }
+        ],
+        "esperance_subjective_brute_pct": 1.0,
+        "esperance_apres_rotation_vente_achat_2_5pct": -3.9268292682926753,
+        "convention_frais": "Friction théorique: vente 2,5 % du brut, achat 2,5 % du nominal acheté. Pas de transaction."
+      },
+      "6m": {
+        "echeance_calendaire": "2027-05-06",
+        "scenarios": [
+          {
+            "cas": "bear",
+            "rendement_pct": -35.0,
+            "probabilite_pct": 30.0,
+            "cours_conditionnel": 14.072499752044678,
+            "declencheur": "Intrants et stocks absorbent les gains."
+          },
+          {
+            "cas": "central",
+            "rendement_pct": 12.0,
+            "probabilite_pct": 40.0,
+            "cours_conditionnel": 24.24799957275391,
+            "declencheur": "Ventes en hausse et marges stabilisées."
+          },
+          {
+            "cas": "bull",
+            "rendement_pct": 40.0,
+            "probabilite_pct": 30.0,
+            "cours_conditionnel": 30.30999946594238,
+            "declencheur": "Volumes et coûts favorables."
+          }
+        ],
+        "esperance_subjective_brute_pct": 6.3,
+        "esperance_apres_rotation_vente_achat_2_5pct": 1.1146341463414755,
+        "convention_frais": "Friction théorique: vente 2,5 % du brut, achat 2,5 % du nominal acheté. Pas de transaction."
+      }
+    }
+  },
+  "date_analyse": "2026-11-09"
 }

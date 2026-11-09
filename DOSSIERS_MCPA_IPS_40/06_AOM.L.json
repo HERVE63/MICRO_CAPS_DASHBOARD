@@ -288,22 +288,22 @@
       "cours": {
         "valeur": 0.89,
         "unite": "GBP",
-        "periode": "cloture 2026-11-03",
-        "date_source": "2026-11-03",
+        "periode": "clôture 2026-11-06",
+        "date_source": "2026-11-06",
         "source_url": "https://query1.finance.yahoo.com/v8/finance/chart/AOM.L?range=5y&interval=1d&events=div%2Csplits",
         "statut": "SOURCE_MARCHE",
-        "commentaire": "Cours non ajuste; GBp/100 pour Londres.",
-        "date_collecte": "2026-11-04"
+        "commentaire": "Cours non ajusté, conversion GBp/100 vers GBP pour Londres.",
+        "date_collecte": "2026-11-09"
       },
       "date_cours": {
-        "valeur": "2026-11-03",
+        "valeur": "2026-11-06",
         "unite": "date",
-        "periode": "cloture",
-        "date_source": "2026-11-03",
+        "periode": "clôture",
+        "date_source": "2026-11-06",
         "source_url": "https://query1.finance.yahoo.com/v8/finance/chart/AOM.L?range=5y&interval=1d&events=div%2Csplits",
         "statut": "SOURCE_MARCHE",
-        "commentaire": null,
-        "date_collecte": "2026-11-04"
+        "commentaire": "Clôture commune aux 40 fiches.",
+        "date_collecte": "2026-11-09"
       },
       "capitalisation": {
         "valeur": 63840000,
@@ -830,64 +830,64 @@
     },
     "momentum": {
       "prix_vers_mm200": {
-        "valeur": 0.42026131755798113,
+        "valeur": 0.42570899682510965,
         "unite": "ratio",
-        "periode": "200 dernières séances",
-        "date_source": "2026-11-03",
+        "periode": "historique ajusté au 2026-11-06",
+        "date_source": "2026-11-06",
         "source_url": "https://query1.finance.yahoo.com/v8/finance/chart/AOM.L?range=5y&interval=1d&events=div%2Csplits",
         "statut": "CALCULE_HISTORIQUE_SECONDAIRE",
-        "commentaire": "Cours ajusté / moyenne mobile 200 séances.",
-        "date_collecte": "2026-11-04"
+        "commentaire": "Calcul reproductible 10Q; ancrage dernière séance <= date calendaire cible, aucune période pré-IPO extrapolée.",
+        "date_collecte": "2026-11-09"
       },
       "momentum_1m_pct": {
         "valeur": -58.6046511627907,
         "unite": "pct",
-        "periode": "2026-10-02 / 2026-11-03",
-        "date_source": "2026-11-03",
+        "periode": "historique ajusté au 2026-11-06",
+        "date_source": "2026-11-06",
         "source_url": "https://query1.finance.yahoo.com/v8/finance/chart/AOM.L?range=5y&interval=1d&events=div%2Csplits",
         "statut": "CALCULE_HISTORIQUE_SECONDAIRE",
-        "commentaire": "Cours ajustés, ancrage calendaire; dernière séance <= date cible.",
-        "date_collecte": "2026-11-04"
+        "commentaire": "Calcul reproductible 10Q; ancrage dernière séance <= date calendaire cible, aucune période pré-IPO extrapolée.",
+        "date_collecte": "2026-11-09"
       },
       "momentum_3m_pct": {
-        "valeur": -56.04938271604938,
+        "valeur": -57.10843373493976,
         "unite": "pct",
-        "periode": "2026-08-03 / 2026-11-03",
-        "date_source": "2026-11-03",
+        "periode": "historique ajusté au 2026-11-06",
+        "date_source": "2026-11-06",
         "source_url": "https://query1.finance.yahoo.com/v8/finance/chart/AOM.L?range=5y&interval=1d&events=div%2Csplits",
         "statut": "CALCULE_HISTORIQUE_SECONDAIRE",
-        "commentaire": "Cours ajustés, ancrage calendaire; dernière séance <= date cible.",
-        "date_collecte": "2026-11-04"
+        "commentaire": "Calcul reproductible 10Q; ancrage dernière séance <= date calendaire cible, aucune période pré-IPO extrapolée.",
+        "date_collecte": "2026-11-09"
       },
       "momentum_6m_pct": {
-        "valeur": -56.15763546798029,
+        "valeur": -58.11764705882353,
         "unite": "pct",
-        "periode": "2026-05-01 / 2026-11-03",
-        "date_source": "2026-11-03",
+        "periode": "historique ajusté au 2026-11-06",
+        "date_source": "2026-11-06",
         "source_url": "https://query1.finance.yahoo.com/v8/finance/chart/AOM.L?range=5y&interval=1d&events=div%2Csplits",
         "statut": "CALCULE_HISTORIQUE_SECONDAIRE",
-        "commentaire": "Cours ajustés, ancrage calendaire; dernière séance <= date cible.",
-        "date_collecte": "2026-11-04"
+        "commentaire": "Calcul reproductible 10Q; ancrage dernière séance <= date calendaire cible, aucune période pré-IPO extrapolée.",
+        "date_collecte": "2026-11-09"
       },
       "momentum_12m_pct": {
-        "valeur": -58.6046511627907,
+        "valeur": -63.52459016393443,
         "unite": "pct",
-        "periode": "2025-11-03 / 2026-11-03",
-        "date_source": "2026-11-03",
+        "periode": "historique ajusté au 2026-11-06",
+        "date_source": "2026-11-06",
         "source_url": "https://query1.finance.yahoo.com/v8/finance/chart/AOM.L?range=5y&interval=1d&events=div%2Csplits",
         "statut": "CALCULE_HISTORIQUE_SECONDAIRE",
-        "commentaire": "Cours ajustés, ancrage calendaire; dernière séance <= date cible.",
-        "date_collecte": "2026-11-04"
+        "commentaire": "Calcul reproductible 10Q; ancrage dernière séance <= date calendaire cible, aucune période pré-IPO extrapolée.",
+        "date_collecte": "2026-11-09"
       },
       "momentum_6_1_pct": {
-        "valeur": 5.9113300492610765,
+        "valeur": 1.17647058823529,
         "unite": "pct",
-        "periode": "2026-05-01 / 2026-10-02",
-        "date_source": "2026-11-03",
+        "periode": "historique ajusté au 2026-11-06",
+        "date_source": "2026-11-06",
         "source_url": "https://query1.finance.yahoo.com/v8/finance/chart/AOM.L?range=5y&interval=1d&events=div%2Csplits",
         "statut": "CALCULE_HISTORIQUE_SECONDAIRE",
-        "commentaire": "Momentum 6–1 : prix à -1 mois / prix à -6 mois - 1; aucune modification de la règle de sélection.",
-        "date_collecte": "2026-11-04"
+        "commentaire": "Calcul reproductible 10Q; ancrage dernière séance <= date calendaire cible, aucune période pré-IPO extrapolée.",
+        "date_collecte": "2026-11-09"
       },
       "force_relative_indice": {
         "valeur": {
@@ -921,54 +921,54 @@
         "commentaire": "Ratio (titre ajusté converti en USD / URTH ajusté) sur chaque fenêtre, moins 1. Ancrages communs titre/ETF/FX; GBp constant annulé dans le ratio. URTH est un proxy ETF avec frais/écart de suivi; horaires de clôture non synchrones. Fenêtres impossibles avant IPO omises, jamais extrapolées."
       },
       "volume_moyen_20j": {
-        "valeur": 461982.65,
-        "unite": "titres",
-        "periode": "20 dernières séances",
-        "date_source": "2026-11-03",
+        "valeur": 450796.75,
+        "unite": "titres/jour",
+        "periode": "historique ajusté au 2026-11-06",
+        "date_source": "2026-11-06",
         "source_url": "https://query1.finance.yahoo.com/v8/finance/chart/AOM.L?range=5y&interval=1d&events=div%2Csplits",
         "statut": "CALCULE_HISTORIQUE_SECONDAIRE",
-        "commentaire": "Moyenne arithmétique des volumes Yahoo non ajustés.",
-        "date_collecte": "2026-11-04"
+        "commentaire": "Calcul reproductible 10Q; ancrage dernière séance <= date calendaire cible, aucune période pré-IPO extrapolée.",
+        "date_collecte": "2026-11-09"
       },
       "ratio_volume": {
-        "valeur": 0.6015139313132214,
+        "valeur": 0.052948474007410214,
         "unite": "ratio",
-        "periode": "dernière séance / moyenne 20 séances",
-        "date_source": "2026-11-03",
+        "periode": "historique ajusté au 2026-11-06",
+        "date_source": "2026-11-06",
         "source_url": "https://query1.finance.yahoo.com/v8/finance/chart/AOM.L?range=5y&interval=1d&events=div%2Csplits",
         "statut": "CALCULE_HISTORIQUE_SECONDAIRE",
-        "commentaire": "Ratio de volume de la dernière séance.",
-        "date_collecte": "2026-11-04"
+        "commentaire": "Calcul reproductible 10Q; ancrage dernière séance <= date calendaire cible, aucune période pré-IPO extrapolée.",
+        "date_collecte": "2026-11-09"
       },
       "tendance_mm200": {
-        "valeur": -5.445818639830957,
+        "valeur": -6.606805824205397,
         "unite": "pct",
-        "periode": "variation MM200 sur 20 séances",
-        "date_source": "2026-11-03",
+        "periode": "historique ajusté au 2026-11-06",
+        "date_source": "2026-11-06",
         "source_url": "https://query1.finance.yahoo.com/v8/finance/chart/AOM.L?range=5y&interval=1d&events=div%2Csplits",
         "statut": "CALCULE_HISTORIQUE_SECONDAIRE",
-        "commentaire": "Pente approchée par variation MM200(t)/MM200(t-20)-1; niveau MM200 non confondu avec pente.",
-        "date_collecte": "2026-11-04"
+        "commentaire": "Calcul reproductible 10Q; ancrage dernière séance <= date calendaire cible, aucune période pré-IPO extrapolée.",
+        "date_collecte": "2026-11-09"
       },
       "volatilite_90j_pct": {
-        "valeur": 122.73968679199199,
+        "valeur": 121.3667825613538,
         "unite": "pct",
-        "periode": "90 rendements quotidiens",
-        "date_source": "2026-11-03",
+        "periode": "historique ajusté au 2026-11-06",
+        "date_source": "2026-11-06",
         "source_url": "https://query1.finance.yahoo.com/v8/finance/chart/AOM.L?range=5y&interval=1d&events=div%2Csplits",
         "statut": "CALCULE_HISTORIQUE_SECONDAIRE",
-        "commentaire": "Écart-type échantillon des log-rendements ajustés annualisé sqrt(252).",
-        "date_collecte": "2026-11-04"
+        "commentaire": "Calcul reproductible 10Q; ancrage dernière séance <= date calendaire cible, aucune période pré-IPO extrapolée.",
+        "date_collecte": "2026-11-09"
       },
       "drawdown_12m_pct": {
         "valeur": -68.88111888111888,
         "unite": "pct",
-        "periode": "2025-11-03 / 2026-11-03",
-        "date_source": "2026-11-03",
+        "periode": "historique ajusté au 2026-11-06",
+        "date_source": "2026-11-06",
         "source_url": "https://query1.finance.yahoo.com/v8/finance/chart/AOM.L?range=5y&interval=1d&events=div%2Csplits",
         "statut": "CALCULE_HISTORIQUE_SECONDAIRE",
-        "commentaire": "Maximum drawdown du prix ajusté sur la fenêtre, valeur négative.",
-        "date_collecte": "2026-11-04"
+        "commentaire": "Calcul reproductible 10Q; ancrage dernière séance <= date calendaire cible, aucune période pré-IPO extrapolée.",
+        "date_collecte": "2026-11-09"
       }
     },
     "diversification": {
@@ -1040,34 +1040,24 @@
         "date_collecte": "2026-11-04"
       },
       "interet_strategique": {
-        "valeur": null,
-        "unite": null,
-        "periode": null,
-        "date_source": null,
-        "source_url": null,
-        "statut": "A_COLLECTER",
-        "commentaire": null,
-        "recherche": {
-          "date": "2026-11-04",
-          "statut": "MANQUANT_RECHERCHE_NON_CLOSE",
-          "motif": "Analyse MCPA/IPS argumentée encore nécessaire; ce champ ne doit pas être rempli par une statistique de fournisseur.",
-          "journal": "journal_recherches"
-        }
+        "valeur": "Logiciels d'opérations, déjà fortement représentés.",
+        "unite": "analyse",
+        "periode": "cohorte 40 titulaires",
+        "date_source": "2026-11-09",
+        "source_url": "https://it.advfn.com/mercati/LSE/AOM/notizie/99472010/activeops-plc-h1-fy27-trading-update-and-notice-of | https://query1.finance.yahoo.com/v10/finance/quoteSummary/AOM.L?modules=earningsTrend | https://query1.finance.yahoo.com/ws/fundamentals-timeseries/v1/finance/timeseries/AOM.L?type=annualEBITDA%2CannualDilutedEPS&period1=1640995200&period2=1793872599 | https://stockanalysis.com/quote/aim/AOM/financials/ | https://stockanalysis.com/quote/aim/AOM/financials/balance-sheet/ | https://stockanalysis.com/quote/aim/AOM/forecast/ | https://stockanalysis.com/quote/aim/AOM/statistics/ | https://www.investegate.co.uk/announcement/rns/activeops--aom/results-for-the-year-ended-31-march-2026/9648420 | https://www.investegate.co.uk/index.php/announcement/rns/activeops--aom/h1-fy27-trading-update-and-notice-of-results/9816803",
+        "statut": "JUGEMENT_ANALYSTE",
+        "commentaire": "Diversification sectorielle, sans garantie de décorrélation en crise.",
+        "date_collecte": "2026-11-09"
       },
       "complementarite_portefeuille": {
-        "valeur": null,
-        "unite": null,
-        "periode": null,
-        "date_source": null,
-        "source_url": null,
-        "statut": "A_COLLECTER",
-        "commentaire": null,
-        "recherche": {
-          "date": "2026-11-04",
-          "statut": "MANQUANT_RECHERCHE_NON_CLOSE",
-          "motif": "Analyse MCPA/IPS argumentée encore nécessaire; ce champ ne doit pas être rempli par une statistique de fournisseur.",
-          "journal": "journal_recherches"
-        }
+        "valeur": "Logiciels d'opérations, déjà fortement représentés.",
+        "unite": "analyse",
+        "periode": "cohorte 40 titulaires",
+        "date_source": "2026-11-09",
+        "source_url": "https://it.advfn.com/mercati/LSE/AOM/notizie/99472010/activeops-plc-h1-fy27-trading-update-and-notice-of | https://query1.finance.yahoo.com/v10/finance/quoteSummary/AOM.L?modules=earningsTrend | https://query1.finance.yahoo.com/ws/fundamentals-timeseries/v1/finance/timeseries/AOM.L?type=annualEBITDA%2CannualDilutedEPS&period1=1640995200&period2=1793872599 | https://stockanalysis.com/quote/aim/AOM/financials/ | https://stockanalysis.com/quote/aim/AOM/financials/balance-sheet/ | https://stockanalysis.com/quote/aim/AOM/forecast/ | https://stockanalysis.com/quote/aim/AOM/statistics/ | https://www.investegate.co.uk/announcement/rns/activeops--aom/results-for-the-year-ended-31-march-2026/9648420 | https://www.investegate.co.uk/index.php/announcement/rns/activeops--aom/h1-fy27-trading-update-and-notice-of-results/9816803",
+        "statut": "JUGEMENT_ANALYSTE",
+        "commentaire": "Diversification sectorielle, sans garantie de décorrélation en crise.",
+        "date_collecte": "2026-11-09"
       }
     },
     "complements": {
@@ -1087,49 +1077,34 @@
         }
       },
       "ic_sur_5": {
-        "valeur": null,
-        "unite": null,
-        "periode": null,
-        "date_source": null,
-        "source_url": null,
-        "statut": "A_COLLECTER",
-        "commentaire": null,
-        "recherche": {
-          "date": "2026-11-04",
-          "statut": "MANQUANT_RECHERCHE_NON_CLOSE",
-          "motif": "Analyse MCPA/IPS argumentée encore nécessaire; ce champ ne doit pas être rempli par une statistique de fournisseur.",
-          "journal": "journal_recherches"
-        }
+        "valeur": 3.0,
+        "unite": "note/5",
+        "periode": "analyse au 2026-11-09",
+        "date_source": "2026-11-09",
+        "source_url": "https://it.advfn.com/mercati/LSE/AOM/notizie/99472010/activeops-plc-h1-fy27-trading-update-and-notice-of | https://query1.finance.yahoo.com/v10/finance/quoteSummary/AOM.L?modules=earningsTrend | https://query1.finance.yahoo.com/ws/fundamentals-timeseries/v1/finance/timeseries/AOM.L?type=annualEBITDA%2CannualDilutedEPS&period1=1640995200&period2=1793872599 | https://stockanalysis.com/quote/aim/AOM/financials/ | https://stockanalysis.com/quote/aim/AOM/financials/balance-sheet/ | https://stockanalysis.com/quote/aim/AOM/forecast/ | https://stockanalysis.com/quote/aim/AOM/statistics/ | https://www.investegate.co.uk/announcement/rns/activeops--aom/results-for-the-year-ended-31-march-2026/9648420 | https://www.investegate.co.uk/index.php/announcement/rns/activeops--aom/h1-fy27-trading-update-and-notice-of-results/9816803",
+        "statut": "ANALYSE_PROVISOIRE_DOCUMENTEE",
+        "commentaire": "Cash semestriel et coût du repositionnement distincts. Aucune opération autorisée.",
+        "date_collecte": "2026-11-09"
       },
       "cx_sur_5": {
-        "valeur": null,
-        "unite": null,
-        "periode": null,
-        "date_source": null,
-        "source_url": null,
-        "statut": "A_COLLECTER",
-        "commentaire": null,
-        "recherche": {
-          "date": "2026-11-04",
-          "statut": "MANQUANT_RECHERCHE_NON_CLOSE",
-          "motif": "Analyse MCPA/IPS argumentée encore nécessaire; ce champ ne doit pas être rempli par une statistique de fournisseur.",
-          "journal": "journal_recherches"
-        }
+        "valeur": 3.0,
+        "unite": "note/5",
+        "periode": "analyse au 2026-11-09",
+        "date_source": "2026-11-09",
+        "source_url": "https://it.advfn.com/mercati/LSE/AOM/notizie/99472010/activeops-plc-h1-fy27-trading-update-and-notice-of | https://query1.finance.yahoo.com/v10/finance/quoteSummary/AOM.L?modules=earningsTrend | https://query1.finance.yahoo.com/ws/fundamentals-timeseries/v1/finance/timeseries/AOM.L?type=annualEBITDA%2CannualDilutedEPS&period1=1640995200&period2=1793872599 | https://stockanalysis.com/quote/aim/AOM/financials/ | https://stockanalysis.com/quote/aim/AOM/financials/balance-sheet/ | https://stockanalysis.com/quote/aim/AOM/forecast/ | https://stockanalysis.com/quote/aim/AOM/statistics/ | https://www.investegate.co.uk/announcement/rns/activeops--aom/results-for-the-year-ended-31-march-2026/9648420 | https://www.investegate.co.uk/index.php/announcement/rns/activeops--aom/h1-fy27-trading-update-and-notice-of-results/9816803",
+        "statut": "ANALYSE_PROVISOIRE_DOCUMENTEE",
+        "commentaire": "Cash semestriel et coût du repositionnement distincts. Aucune opération autorisée.",
+        "date_collecte": "2026-11-09"
       },
       "delta": {
-        "valeur": null,
-        "unite": null,
-        "periode": null,
-        "date_source": null,
-        "source_url": null,
-        "statut": "A_COLLECTER",
-        "commentaire": null,
-        "recherche": {
-          "date": "2026-11-04",
-          "statut": "MANQUANT_RECHERCHE_NON_CLOSE",
-          "motif": "Analyse MCPA/IPS argumentée encore nécessaire; ce champ ne doit pas être rempli par une statistique de fournisseur.",
-          "journal": "journal_recherches"
-        }
+        "valeur": "MIXTE_SOUS_REVUE",
+        "unite": "texte",
+        "periode": "analyse au 2026-11-09",
+        "date_source": "2026-11-09",
+        "source_url": "https://it.advfn.com/mercati/LSE/AOM/notizie/99472010/activeops-plc-h1-fy27-trading-update-and-notice-of | https://query1.finance.yahoo.com/v10/finance/quoteSummary/AOM.L?modules=earningsTrend | https://query1.finance.yahoo.com/ws/fundamentals-timeseries/v1/finance/timeseries/AOM.L?type=annualEBITDA%2CannualDilutedEPS&period1=1640995200&period2=1793872599 | https://stockanalysis.com/quote/aim/AOM/financials/ | https://stockanalysis.com/quote/aim/AOM/financials/balance-sheet/ | https://stockanalysis.com/quote/aim/AOM/forecast/ | https://stockanalysis.com/quote/aim/AOM/statistics/ | https://www.investegate.co.uk/announcement/rns/activeops--aom/results-for-the-year-ended-31-march-2026/9648420 | https://www.investegate.co.uk/index.php/announcement/rns/activeops--aom/h1-fy27-trading-update-and-notice-of-results/9816803",
+        "statut": "ANALYSE_PROVISOIRE_DOCUMENTEE",
+        "commentaire": "Cash semestriel et coût du repositionnement distincts. Aucune opération autorisée.",
+        "date_collecte": "2026-11-09"
       },
       "wwws": {
         "valeur": null,
@@ -1147,244 +1122,164 @@
         }
       },
       "scenario_bear_3m_pct": {
-        "valeur": null,
-        "unite": null,
-        "periode": null,
-        "date_source": null,
-        "source_url": null,
-        "statut": "A_COLLECTER",
-        "commentaire": null,
-        "recherche": {
-          "date": "2026-11-04",
-          "statut": "MANQUANT_RECHERCHE_NON_CLOSE",
-          "motif": "Analyse MCPA/IPS argumentée encore nécessaire; ce champ ne doit pas être rempli par une statistique de fournisseur.",
-          "journal": "journal_recherches"
-        }
+        "valeur": -30.0,
+        "unite": "pct",
+        "periode": "3 mois depuis 2026-11-06",
+        "date_source": "2026-11-09",
+        "source_url": "https://it.advfn.com/mercati/LSE/AOM/notizie/99472010/activeops-plc-h1-fy27-trading-update-and-notice-of | https://query1.finance.yahoo.com/v10/finance/quoteSummary/AOM.L?modules=earningsTrend | https://query1.finance.yahoo.com/ws/fundamentals-timeseries/v1/finance/timeseries/AOM.L?type=annualEBITDA%2CannualDilutedEPS&period1=1640995200&period2=1793872599 | https://stockanalysis.com/quote/aim/AOM/financials/ | https://stockanalysis.com/quote/aim/AOM/financials/balance-sheet/ | https://stockanalysis.com/quote/aim/AOM/forecast/ | https://stockanalysis.com/quote/aim/AOM/statistics/ | https://www.investegate.co.uk/announcement/rns/activeops--aom/results-for-the-year-ended-31-march-2026/9648420 | https://www.investegate.co.uk/index.php/announcement/rns/activeops--aom/h1-fy27-trading-update-and-notice-of-results/9816803",
+        "statut": "HYPOTHESE_PROSPECTIVE_ANALYSTE",
+        "commentaire": "Contrat perdu insuffisamment remplacé. Cash semestriel et coût du repositionnement distincts.",
+        "date_collecte": "2026-11-09"
       },
       "prob_bear_3m_pct": {
-        "valeur": null,
-        "unite": null,
-        "periode": null,
-        "date_source": null,
-        "source_url": null,
-        "statut": "A_COLLECTER",
-        "commentaire": null,
-        "recherche": {
-          "date": "2026-11-04",
-          "statut": "MANQUANT_RECHERCHE_NON_CLOSE",
-          "motif": "Analyse MCPA/IPS argumentée encore nécessaire; ce champ ne doit pas être rempli par une statistique de fournisseur.",
-          "journal": "journal_recherches"
-        }
+        "valeur": 35.0,
+        "unite": "pct",
+        "periode": "probabilité subjective 3 mois",
+        "date_source": "2026-11-09",
+        "source_url": "https://it.advfn.com/mercati/LSE/AOM/notizie/99472010/activeops-plc-h1-fy27-trading-update-and-notice-of | https://query1.finance.yahoo.com/v10/finance/quoteSummary/AOM.L?modules=earningsTrend | https://query1.finance.yahoo.com/ws/fundamentals-timeseries/v1/finance/timeseries/AOM.L?type=annualEBITDA%2CannualDilutedEPS&period1=1640995200&period2=1793872599 | https://stockanalysis.com/quote/aim/AOM/financials/ | https://stockanalysis.com/quote/aim/AOM/financials/balance-sheet/ | https://stockanalysis.com/quote/aim/AOM/forecast/ | https://stockanalysis.com/quote/aim/AOM/statistics/ | https://www.investegate.co.uk/announcement/rns/activeops--aom/results-for-the-year-ended-31-march-2026/9648420 | https://www.investegate.co.uk/index.php/announcement/rns/activeops--aom/h1-fy27-trading-update-and-notice-of-results/9816803",
+        "statut": "PROBABILITE_SUBJECTIVE_NON_CALIBREE",
+        "commentaire": "Pondération par jugement du risque et des opportunités décrits; aucune fréquence statistique. Incertitude au moins +/-10 points. Cash semestriel et coût du repositionnement distincts.",
+        "date_collecte": "2026-11-09"
       },
       "scenario_central_3m_pct": {
-        "valeur": null,
-        "unite": null,
-        "periode": null,
-        "date_source": null,
-        "source_url": null,
-        "statut": "A_COLLECTER",
-        "commentaire": null,
-        "recherche": {
-          "date": "2026-11-04",
-          "statut": "MANQUANT_RECHERCHE_NON_CLOSE",
-          "motif": "Analyse MCPA/IPS argumentée encore nécessaire; ce champ ne doit pas être rempli par une statistique de fournisseur.",
-          "journal": "journal_recherches"
-        }
+        "valeur": 0.0,
+        "unite": "pct",
+        "periode": "3 mois depuis 2026-11-06",
+        "date_source": "2026-11-09",
+        "source_url": "https://it.advfn.com/mercati/LSE/AOM/notizie/99472010/activeops-plc-h1-fy27-trading-update-and-notice-of | https://query1.finance.yahoo.com/v10/finance/quoteSummary/AOM.L?modules=earningsTrend | https://query1.finance.yahoo.com/ws/fundamentals-timeseries/v1/finance/timeseries/AOM.L?type=annualEBITDA%2CannualDilutedEPS&period1=1640995200&period2=1793872599 | https://stockanalysis.com/quote/aim/AOM/financials/ | https://stockanalysis.com/quote/aim/AOM/financials/balance-sheet/ | https://stockanalysis.com/quote/aim/AOM/forecast/ | https://stockanalysis.com/quote/aim/AOM/statistics/ | https://www.investegate.co.uk/announcement/rns/activeops--aom/results-for-the-year-ended-31-march-2026/9648420 | https://www.investegate.co.uk/index.php/announcement/rns/activeops--aom/h1-fy27-trading-update-and-notice-of-results/9816803",
+        "statut": "HYPOTHESE_PROSPECTIVE_ANALYSTE",
+        "commentaire": "Nouveaux clients limitant l'érosion. Cash semestriel et coût du repositionnement distincts.",
+        "date_collecte": "2026-11-09"
       },
       "prob_central_3m_pct": {
-        "valeur": null,
-        "unite": null,
-        "periode": null,
-        "date_source": null,
-        "source_url": null,
-        "statut": "A_COLLECTER",
-        "commentaire": null,
-        "recherche": {
-          "date": "2026-11-04",
-          "statut": "MANQUANT_RECHERCHE_NON_CLOSE",
-          "motif": "Analyse MCPA/IPS argumentée encore nécessaire; ce champ ne doit pas être rempli par une statistique de fournisseur.",
-          "journal": "journal_recherches"
-        }
+        "valeur": 45.0,
+        "unite": "pct",
+        "periode": "probabilité subjective 3 mois",
+        "date_source": "2026-11-09",
+        "source_url": "https://it.advfn.com/mercati/LSE/AOM/notizie/99472010/activeops-plc-h1-fy27-trading-update-and-notice-of | https://query1.finance.yahoo.com/v10/finance/quoteSummary/AOM.L?modules=earningsTrend | https://query1.finance.yahoo.com/ws/fundamentals-timeseries/v1/finance/timeseries/AOM.L?type=annualEBITDA%2CannualDilutedEPS&period1=1640995200&period2=1793872599 | https://stockanalysis.com/quote/aim/AOM/financials/ | https://stockanalysis.com/quote/aim/AOM/financials/balance-sheet/ | https://stockanalysis.com/quote/aim/AOM/forecast/ | https://stockanalysis.com/quote/aim/AOM/statistics/ | https://www.investegate.co.uk/announcement/rns/activeops--aom/results-for-the-year-ended-31-march-2026/9648420 | https://www.investegate.co.uk/index.php/announcement/rns/activeops--aom/h1-fy27-trading-update-and-notice-of-results/9816803",
+        "statut": "PROBABILITE_SUBJECTIVE_NON_CALIBREE",
+        "commentaire": "Pondération par jugement du risque et des opportunités décrits; aucune fréquence statistique. Incertitude au moins +/-10 points. Cash semestriel et coût du repositionnement distincts.",
+        "date_collecte": "2026-11-09"
       },
       "scenario_bull_3m_pct": {
-        "valeur": null,
-        "unite": null,
-        "periode": null,
-        "date_source": null,
-        "source_url": null,
-        "statut": "A_COLLECTER",
-        "commentaire": null,
-        "recherche": {
-          "date": "2026-11-04",
-          "statut": "MANQUANT_RECHERCHE_NON_CLOSE",
-          "motif": "Analyse MCPA/IPS argumentée encore nécessaire; ce champ ne doit pas être rempli par une statistique de fournisseur.",
-          "journal": "journal_recherches"
-        }
+        "valeur": 30.0,
+        "unite": "pct",
+        "periode": "3 mois depuis 2026-11-06",
+        "date_source": "2026-11-09",
+        "source_url": "https://it.advfn.com/mercati/LSE/AOM/notizie/99472010/activeops-plc-h1-fy27-trading-update-and-notice-of | https://query1.finance.yahoo.com/v10/finance/quoteSummary/AOM.L?modules=earningsTrend | https://query1.finance.yahoo.com/ws/fundamentals-timeseries/v1/finance/timeseries/AOM.L?type=annualEBITDA%2CannualDilutedEPS&period1=1640995200&period2=1793872599 | https://stockanalysis.com/quote/aim/AOM/financials/ | https://stockanalysis.com/quote/aim/AOM/financials/balance-sheet/ | https://stockanalysis.com/quote/aim/AOM/forecast/ | https://stockanalysis.com/quote/aim/AOM/statistics/ | https://www.investegate.co.uk/announcement/rns/activeops--aom/results-for-the-year-ended-31-march-2026/9648420 | https://www.investegate.co.uk/index.php/announcement/rns/activeops--aom/h1-fy27-trading-update-and-notice-of-results/9816803",
+        "statut": "HYPOTHESE_PROSPECTIVE_ANALYSTE",
+        "commentaire": "Signatures compensant l'essentiel de la perte. Cash semestriel et coût du repositionnement distincts.",
+        "date_collecte": "2026-11-09"
       },
       "prob_bull_3m_pct": {
-        "valeur": null,
-        "unite": null,
-        "periode": null,
-        "date_source": null,
-        "source_url": null,
-        "statut": "A_COLLECTER",
-        "commentaire": null,
-        "recherche": {
-          "date": "2026-11-04",
-          "statut": "MANQUANT_RECHERCHE_NON_CLOSE",
-          "motif": "Analyse MCPA/IPS argumentée encore nécessaire; ce champ ne doit pas être rempli par une statistique de fournisseur.",
-          "journal": "journal_recherches"
-        }
+        "valeur": 20.0,
+        "unite": "pct",
+        "periode": "probabilité subjective 3 mois",
+        "date_source": "2026-11-09",
+        "source_url": "https://it.advfn.com/mercati/LSE/AOM/notizie/99472010/activeops-plc-h1-fy27-trading-update-and-notice-of | https://query1.finance.yahoo.com/v10/finance/quoteSummary/AOM.L?modules=earningsTrend | https://query1.finance.yahoo.com/ws/fundamentals-timeseries/v1/finance/timeseries/AOM.L?type=annualEBITDA%2CannualDilutedEPS&period1=1640995200&period2=1793872599 | https://stockanalysis.com/quote/aim/AOM/financials/ | https://stockanalysis.com/quote/aim/AOM/financials/balance-sheet/ | https://stockanalysis.com/quote/aim/AOM/forecast/ | https://stockanalysis.com/quote/aim/AOM/statistics/ | https://www.investegate.co.uk/announcement/rns/activeops--aom/results-for-the-year-ended-31-march-2026/9648420 | https://www.investegate.co.uk/index.php/announcement/rns/activeops--aom/h1-fy27-trading-update-and-notice-of-results/9816803",
+        "statut": "PROBABILITE_SUBJECTIVE_NON_CALIBREE",
+        "commentaire": "Pondération par jugement du risque et des opportunités décrits; aucune fréquence statistique. Incertitude au moins +/-10 points. Cash semestriel et coût du repositionnement distincts.",
+        "date_collecte": "2026-11-09"
       },
       "scenario_bear_6m_pct": {
-        "valeur": null,
-        "unite": null,
-        "periode": null,
-        "date_source": null,
-        "source_url": null,
-        "statut": "A_COLLECTER",
-        "commentaire": null,
-        "recherche": {
-          "date": "2026-11-04",
-          "statut": "MANQUANT_RECHERCHE_NON_CLOSE",
-          "motif": "Analyse MCPA/IPS argumentée encore nécessaire; ce champ ne doit pas être rempli par une statistique de fournisseur.",
-          "journal": "journal_recherches"
-        }
+        "valeur": -45.0,
+        "unite": "pct",
+        "periode": "6 mois depuis 2026-11-06",
+        "date_source": "2026-11-09",
+        "source_url": "https://it.advfn.com/mercati/LSE/AOM/notizie/99472010/activeops-plc-h1-fy27-trading-update-and-notice-of | https://query1.finance.yahoo.com/v10/finance/quoteSummary/AOM.L?modules=earningsTrend | https://query1.finance.yahoo.com/ws/fundamentals-timeseries/v1/finance/timeseries/AOM.L?type=annualEBITDA%2CannualDilutedEPS&period1=1640995200&period2=1793872599 | https://stockanalysis.com/quote/aim/AOM/financials/ | https://stockanalysis.com/quote/aim/AOM/financials/balance-sheet/ | https://stockanalysis.com/quote/aim/AOM/forecast/ | https://stockanalysis.com/quote/aim/AOM/statistics/ | https://www.investegate.co.uk/announcement/rns/activeops--aom/results-for-the-year-ended-31-march-2026/9648420 | https://www.investegate.co.uk/index.php/announcement/rns/activeops--aom/h1-fy27-trading-update-and-notice-of-results/9816803",
+        "statut": "HYPOTHESE_PROSPECTIVE_ANALYSTE",
+        "commentaire": "Contrat perdu insuffisamment remplacé. Cash semestriel et coût du repositionnement distincts.",
+        "date_collecte": "2026-11-09"
       },
       "prob_bear_6m_pct": {
-        "valeur": null,
-        "unite": null,
-        "periode": null,
-        "date_source": null,
-        "source_url": null,
-        "statut": "A_COLLECTER",
-        "commentaire": null,
-        "recherche": {
-          "date": "2026-11-04",
-          "statut": "MANQUANT_RECHERCHE_NON_CLOSE",
-          "motif": "Analyse MCPA/IPS argumentée encore nécessaire; ce champ ne doit pas être rempli par une statistique de fournisseur.",
-          "journal": "journal_recherches"
-        }
+        "valeur": 35.0,
+        "unite": "pct",
+        "periode": "probabilité subjective 6 mois",
+        "date_source": "2026-11-09",
+        "source_url": "https://it.advfn.com/mercati/LSE/AOM/notizie/99472010/activeops-plc-h1-fy27-trading-update-and-notice-of | https://query1.finance.yahoo.com/v10/finance/quoteSummary/AOM.L?modules=earningsTrend | https://query1.finance.yahoo.com/ws/fundamentals-timeseries/v1/finance/timeseries/AOM.L?type=annualEBITDA%2CannualDilutedEPS&period1=1640995200&period2=1793872599 | https://stockanalysis.com/quote/aim/AOM/financials/ | https://stockanalysis.com/quote/aim/AOM/financials/balance-sheet/ | https://stockanalysis.com/quote/aim/AOM/forecast/ | https://stockanalysis.com/quote/aim/AOM/statistics/ | https://www.investegate.co.uk/announcement/rns/activeops--aom/results-for-the-year-ended-31-march-2026/9648420 | https://www.investegate.co.uk/index.php/announcement/rns/activeops--aom/h1-fy27-trading-update-and-notice-of-results/9816803",
+        "statut": "PROBABILITE_SUBJECTIVE_NON_CALIBREE",
+        "commentaire": "Pondération par jugement du risque et des opportunités décrits; aucune fréquence statistique. Incertitude au moins +/-10 points. Cash semestriel et coût du repositionnement distincts.",
+        "date_collecte": "2026-11-09"
       },
       "scenario_central_6m_pct": {
-        "valeur": null,
-        "unite": null,
-        "periode": null,
-        "date_source": null,
-        "source_url": null,
-        "statut": "A_COLLECTER",
-        "commentaire": null,
-        "recherche": {
-          "date": "2026-11-04",
-          "statut": "MANQUANT_RECHERCHE_NON_CLOSE",
-          "motif": "Analyse MCPA/IPS argumentée encore nécessaire; ce champ ne doit pas être rempli par une statistique de fournisseur.",
-          "journal": "journal_recherches"
-        }
+        "valeur": 8.0,
+        "unite": "pct",
+        "periode": "6 mois depuis 2026-11-06",
+        "date_source": "2026-11-09",
+        "source_url": "https://it.advfn.com/mercati/LSE/AOM/notizie/99472010/activeops-plc-h1-fy27-trading-update-and-notice-of | https://query1.finance.yahoo.com/v10/finance/quoteSummary/AOM.L?modules=earningsTrend | https://query1.finance.yahoo.com/ws/fundamentals-timeseries/v1/finance/timeseries/AOM.L?type=annualEBITDA%2CannualDilutedEPS&period1=1640995200&period2=1793872599 | https://stockanalysis.com/quote/aim/AOM/financials/ | https://stockanalysis.com/quote/aim/AOM/financials/balance-sheet/ | https://stockanalysis.com/quote/aim/AOM/forecast/ | https://stockanalysis.com/quote/aim/AOM/statistics/ | https://www.investegate.co.uk/announcement/rns/activeops--aom/results-for-the-year-ended-31-march-2026/9648420 | https://www.investegate.co.uk/index.php/announcement/rns/activeops--aom/h1-fy27-trading-update-and-notice-of-results/9816803",
+        "statut": "HYPOTHESE_PROSPECTIVE_ANALYSTE",
+        "commentaire": "Nouveaux clients limitant l'érosion. Cash semestriel et coût du repositionnement distincts.",
+        "date_collecte": "2026-11-09"
       },
       "prob_central_6m_pct": {
-        "valeur": null,
-        "unite": null,
-        "periode": null,
-        "date_source": null,
-        "source_url": null,
-        "statut": "A_COLLECTER",
-        "commentaire": null,
-        "recherche": {
-          "date": "2026-11-04",
-          "statut": "MANQUANT_RECHERCHE_NON_CLOSE",
-          "motif": "Analyse MCPA/IPS argumentée encore nécessaire; ce champ ne doit pas être rempli par une statistique de fournisseur.",
-          "journal": "journal_recherches"
-        }
+        "valeur": 40.0,
+        "unite": "pct",
+        "periode": "probabilité subjective 6 mois",
+        "date_source": "2026-11-09",
+        "source_url": "https://it.advfn.com/mercati/LSE/AOM/notizie/99472010/activeops-plc-h1-fy27-trading-update-and-notice-of | https://query1.finance.yahoo.com/v10/finance/quoteSummary/AOM.L?modules=earningsTrend | https://query1.finance.yahoo.com/ws/fundamentals-timeseries/v1/finance/timeseries/AOM.L?type=annualEBITDA%2CannualDilutedEPS&period1=1640995200&period2=1793872599 | https://stockanalysis.com/quote/aim/AOM/financials/ | https://stockanalysis.com/quote/aim/AOM/financials/balance-sheet/ | https://stockanalysis.com/quote/aim/AOM/forecast/ | https://stockanalysis.com/quote/aim/AOM/statistics/ | https://www.investegate.co.uk/announcement/rns/activeops--aom/results-for-the-year-ended-31-march-2026/9648420 | https://www.investegate.co.uk/index.php/announcement/rns/activeops--aom/h1-fy27-trading-update-and-notice-of-results/9816803",
+        "statut": "PROBABILITE_SUBJECTIVE_NON_CALIBREE",
+        "commentaire": "Pondération par jugement du risque et des opportunités décrits; aucune fréquence statistique. Incertitude au moins +/-10 points. Cash semestriel et coût du repositionnement distincts.",
+        "date_collecte": "2026-11-09"
       },
       "scenario_bull_6m_pct": {
-        "valeur": null,
-        "unite": null,
-        "periode": null,
-        "date_source": null,
-        "source_url": null,
-        "statut": "A_COLLECTER",
-        "commentaire": null,
-        "recherche": {
-          "date": "2026-11-04",
-          "statut": "MANQUANT_RECHERCHE_NON_CLOSE",
-          "motif": "Analyse MCPA/IPS argumentée encore nécessaire; ce champ ne doit pas être rempli par une statistique de fournisseur.",
-          "journal": "journal_recherches"
-        }
+        "valeur": 50.0,
+        "unite": "pct",
+        "periode": "6 mois depuis 2026-11-06",
+        "date_source": "2026-11-09",
+        "source_url": "https://it.advfn.com/mercati/LSE/AOM/notizie/99472010/activeops-plc-h1-fy27-trading-update-and-notice-of | https://query1.finance.yahoo.com/v10/finance/quoteSummary/AOM.L?modules=earningsTrend | https://query1.finance.yahoo.com/ws/fundamentals-timeseries/v1/finance/timeseries/AOM.L?type=annualEBITDA%2CannualDilutedEPS&period1=1640995200&period2=1793872599 | https://stockanalysis.com/quote/aim/AOM/financials/ | https://stockanalysis.com/quote/aim/AOM/financials/balance-sheet/ | https://stockanalysis.com/quote/aim/AOM/forecast/ | https://stockanalysis.com/quote/aim/AOM/statistics/ | https://www.investegate.co.uk/announcement/rns/activeops--aom/results-for-the-year-ended-31-march-2026/9648420 | https://www.investegate.co.uk/index.php/announcement/rns/activeops--aom/h1-fy27-trading-update-and-notice-of-results/9816803",
+        "statut": "HYPOTHESE_PROSPECTIVE_ANALYSTE",
+        "commentaire": "Signatures compensant l'essentiel de la perte. Cash semestriel et coût du repositionnement distincts.",
+        "date_collecte": "2026-11-09"
       },
       "prob_bull_6m_pct": {
-        "valeur": null,
-        "unite": null,
-        "periode": null,
-        "date_source": null,
-        "source_url": null,
-        "statut": "A_COLLECTER",
-        "commentaire": null,
-        "recherche": {
-          "date": "2026-11-04",
-          "statut": "MANQUANT_RECHERCHE_NON_CLOSE",
-          "motif": "Analyse MCPA/IPS argumentée encore nécessaire; ce champ ne doit pas être rempli par une statistique de fournisseur.",
-          "journal": "journal_recherches"
-        }
+        "valeur": 25.0,
+        "unite": "pct",
+        "periode": "probabilité subjective 6 mois",
+        "date_source": "2026-11-09",
+        "source_url": "https://it.advfn.com/mercati/LSE/AOM/notizie/99472010/activeops-plc-h1-fy27-trading-update-and-notice-of | https://query1.finance.yahoo.com/v10/finance/quoteSummary/AOM.L?modules=earningsTrend | https://query1.finance.yahoo.com/ws/fundamentals-timeseries/v1/finance/timeseries/AOM.L?type=annualEBITDA%2CannualDilutedEPS&period1=1640995200&period2=1793872599 | https://stockanalysis.com/quote/aim/AOM/financials/ | https://stockanalysis.com/quote/aim/AOM/financials/balance-sheet/ | https://stockanalysis.com/quote/aim/AOM/forecast/ | https://stockanalysis.com/quote/aim/AOM/statistics/ | https://www.investegate.co.uk/announcement/rns/activeops--aom/results-for-the-year-ended-31-march-2026/9648420 | https://www.investegate.co.uk/index.php/announcement/rns/activeops--aom/h1-fy27-trading-update-and-notice-of-results/9816803",
+        "statut": "PROBABILITE_SUBJECTIVE_NON_CALIBREE",
+        "commentaire": "Pondération par jugement du risque et des opportunités décrits; aucune fréquence statistique. Incertitude au moins +/-10 points. Cash semestriel et coût du repositionnement distincts.",
+        "date_collecte": "2026-11-09"
       },
       "role_ips": {
-        "valeur": null,
-        "unite": null,
-        "periode": null,
-        "date_source": null,
-        "source_url": null,
-        "statut": "A_COLLECTER",
-        "commentaire": null,
-        "recherche": {
-          "date": "2026-11-04",
-          "statut": "MANQUANT_RECHERCHE_NON_CLOSE",
-          "motif": "Analyse MCPA/IPS argumentée encore nécessaire; ce champ ne doit pas être rempli par une statistique de fournisseur.",
-          "journal": "journal_recherches"
-        }
+        "valeur": "INCUBATION_VIRTUELLE_SOUS_REVUE",
+        "unite": "texte",
+        "periode": "analyse au 2026-11-09",
+        "date_source": "2026-11-09",
+        "source_url": "https://it.advfn.com/mercati/LSE/AOM/notizie/99472010/activeops-plc-h1-fy27-trading-update-and-notice-of | https://query1.finance.yahoo.com/v10/finance/quoteSummary/AOM.L?modules=earningsTrend | https://query1.finance.yahoo.com/ws/fundamentals-timeseries/v1/finance/timeseries/AOM.L?type=annualEBITDA%2CannualDilutedEPS&period1=1640995200&period2=1793872599 | https://stockanalysis.com/quote/aim/AOM/financials/ | https://stockanalysis.com/quote/aim/AOM/financials/balance-sheet/ | https://stockanalysis.com/quote/aim/AOM/forecast/ | https://stockanalysis.com/quote/aim/AOM/statistics/ | https://www.investegate.co.uk/announcement/rns/activeops--aom/results-for-the-year-ended-31-march-2026/9648420 | https://www.investegate.co.uk/index.php/announcement/rns/activeops--aom/h1-fy27-trading-update-and-notice-of-results/9816803",
+        "statut": "ANALYSE_PROVISOIRE_DOCUMENTEE",
+        "commentaire": "Cash semestriel et coût du repositionnement distincts. Aucune opération autorisée.",
+        "date_collecte": "2026-11-09"
       },
       "decision": {
-        "valeur": null,
-        "unite": null,
-        "periode": null,
-        "date_source": null,
-        "source_url": null,
-        "statut": "A_COLLECTER",
-        "commentaire": null,
-        "recherche": {
-          "date": "2026-11-04",
-          "statut": "MANQUANT_RECHERCHE_NON_CLOSE",
-          "motif": "Analyse MCPA/IPS argumentée encore nécessaire; ce champ ne doit pas être rempli par une statistique de fournisseur.",
-          "journal": "journal_recherches"
-        }
+        "valeur": "ATTENTE",
+        "unite": "texte",
+        "periode": "analyse au 2026-11-09",
+        "date_source": "2026-11-09",
+        "source_url": "https://it.advfn.com/mercati/LSE/AOM/notizie/99472010/activeops-plc-h1-fy27-trading-update-and-notice-of | https://query1.finance.yahoo.com/v10/finance/quoteSummary/AOM.L?modules=earningsTrend | https://query1.finance.yahoo.com/ws/fundamentals-timeseries/v1/finance/timeseries/AOM.L?type=annualEBITDA%2CannualDilutedEPS&period1=1640995200&period2=1793872599 | https://stockanalysis.com/quote/aim/AOM/financials/ | https://stockanalysis.com/quote/aim/AOM/financials/balance-sheet/ | https://stockanalysis.com/quote/aim/AOM/forecast/ | https://stockanalysis.com/quote/aim/AOM/statistics/ | https://www.investegate.co.uk/announcement/rns/activeops--aom/results-for-the-year-ended-31-march-2026/9648420 | https://www.investegate.co.uk/index.php/announcement/rns/activeops--aom/h1-fy27-trading-update-and-notice-of-results/9816803",
+        "statut": "ANALYSE_PROVISOIRE_DOCUMENTEE",
+        "commentaire": "Cash semestriel et coût du repositionnement distincts. Aucune opération autorisée.",
+        "date_collecte": "2026-11-09"
       },
       "condition_renforcement": {
-        "valeur": null,
-        "unite": null,
-        "periode": null,
-        "date_source": null,
-        "source_url": null,
-        "statut": "A_COLLECTER",
-        "commentaire": null,
-        "recherche": {
-          "date": "2026-11-04",
-          "statut": "MANQUANT_RECHERCHE_NON_CLOSE",
-          "motif": "Analyse MCPA/IPS argumentée encore nécessaire; ce champ ne doit pas être rempli par une statistique de fournisseur.",
-          "journal": "journal_recherches"
-        }
+        "valeur": "SSI documenté >=65, MCPA >=80, IC >=3,5, données rapprochées, revue stricte valide et duel favorable après frais.",
+        "unite": "texte",
+        "periode": "analyse au 2026-11-09",
+        "date_source": "2026-11-09",
+        "source_url": "https://it.advfn.com/mercati/LSE/AOM/notizie/99472010/activeops-plc-h1-fy27-trading-update-and-notice-of | https://query1.finance.yahoo.com/v10/finance/quoteSummary/AOM.L?modules=earningsTrend | https://query1.finance.yahoo.com/ws/fundamentals-timeseries/v1/finance/timeseries/AOM.L?type=annualEBITDA%2CannualDilutedEPS&period1=1640995200&period2=1793872599 | https://stockanalysis.com/quote/aim/AOM/financials/ | https://stockanalysis.com/quote/aim/AOM/financials/balance-sheet/ | https://stockanalysis.com/quote/aim/AOM/forecast/ | https://stockanalysis.com/quote/aim/AOM/statistics/ | https://www.investegate.co.uk/announcement/rns/activeops--aom/results-for-the-year-ended-31-march-2026/9648420 | https://www.investegate.co.uk/index.php/announcement/rns/activeops--aom/h1-fy27-trading-update-and-notice-of-results/9816803",
+        "statut": "ANALYSE_PROVISOIRE_DOCUMENTEE",
+        "commentaire": "Cash semestriel et coût du repositionnement distincts. Aucune opération autorisée.",
+        "date_collecte": "2026-11-09"
       },
       "condition_allegement_sortie": {
-        "valeur": null,
-        "unite": null,
-        "periode": null,
-        "date_source": null,
-        "source_url": null,
-        "statut": "A_COLLECTER",
-        "commentaire": null,
-        "recherche": {
-          "date": "2026-11-04",
-          "statut": "MANQUANT_RECHERCHE_NON_CLOSE",
-          "motif": "Analyse MCPA/IPS argumentée encore nécessaire; ce champ ne doit pas être rempli par une statistique de fournisseur.",
-          "journal": "journal_recherches"
-        }
+        "valeur": "Contrat perdu insuffisamment remplacé. Contrôle des coûts et de la liquidité avant décision virtuelle.",
+        "unite": "texte",
+        "periode": "analyse au 2026-11-09",
+        "date_source": "2026-11-09",
+        "source_url": "https://it.advfn.com/mercati/LSE/AOM/notizie/99472010/activeops-plc-h1-fy27-trading-update-and-notice-of | https://query1.finance.yahoo.com/v10/finance/quoteSummary/AOM.L?modules=earningsTrend | https://query1.finance.yahoo.com/ws/fundamentals-timeseries/v1/finance/timeseries/AOM.L?type=annualEBITDA%2CannualDilutedEPS&period1=1640995200&period2=1793872599 | https://stockanalysis.com/quote/aim/AOM/financials/ | https://stockanalysis.com/quote/aim/AOM/financials/balance-sheet/ | https://stockanalysis.com/quote/aim/AOM/forecast/ | https://stockanalysis.com/quote/aim/AOM/statistics/ | https://www.investegate.co.uk/announcement/rns/activeops--aom/results-for-the-year-ended-31-march-2026/9648420 | https://www.investegate.co.uk/index.php/announcement/rns/activeops--aom/h1-fy27-trading-update-and-notice-of-results/9816803",
+        "statut": "ANALYSE_PROVISOIRE_DOCUMENTEE",
+        "commentaire": "Cash semestriel et coût du repositionnement distincts. Aucune opération autorisée.",
+        "date_collecte": "2026-11-09"
       },
       "challengers_compares": {
         "valeur": null,
@@ -1413,23 +1308,36 @@
       "diversification": 10
     },
     "notes": {
-      "qualite": null,
-      "valorisation": null,
-      "croissance": null,
-      "risque": null,
-      "momentum": null,
-      "diversification": null
+      "qualite": 22.0,
+      "valorisation": 15.0,
+      "croissance": 7.0,
+      "risque": 6.0,
+      "momentum": 1,
+      "diversification": 5.0
     },
-    "total_mcpa": null,
-    "statut": "NON_VALIDEE",
+    "total_mcpa": 56.0,
+    "statut": "DOCUMENTEE_NON_VALIDEE",
     "justifications": {
-      "qualite": null,
-      "valorisation": null,
-      "croissance": null,
-      "risque": null,
-      "momentum": null,
-      "diversification": null
-    }
+      "qualite": "Abonnements dominants et cash; marges sensibles à l'échelle.",
+      "valorisation": "Faible EV/CA reflétant peut-être une perte d'ARR durable.",
+      "croissance": "Non-renouvellement de 3,8 M GBP d'ARR prévu mars 2027.",
+      "risque": "19,6 M GBP de cash sans dette annoncée; concentration client.",
+      "diversification": "Logiciels d'opérations, déjà fortement représentés.",
+      "momentum": "Grille explicite au 2026-11-06: 1/10, 0 points non observables. Absence d'historique distincte d'un signal baissier; score provisoire si incomplet."
+    },
+    "date_analyse": "2026-11-09",
+    "sources": [
+      "https://it.advfn.com/mercati/LSE/AOM/notizie/99472010/activeops-plc-h1-fy27-trading-update-and-notice-of",
+      "https://query1.finance.yahoo.com/v10/finance/quoteSummary/AOM.L?modules=earningsTrend",
+      "https://query1.finance.yahoo.com/ws/fundamentals-timeseries/v1/finance/timeseries/AOM.L?type=annualEBITDA%2CannualDilutedEPS&period1=1640995200&period2=1793872599",
+      "https://stockanalysis.com/quote/aim/AOM/financials/",
+      "https://stockanalysis.com/quote/aim/AOM/financials/balance-sheet/",
+      "https://stockanalysis.com/quote/aim/AOM/forecast/",
+      "https://stockanalysis.com/quote/aim/AOM/statistics/",
+      "https://www.investegate.co.uk/announcement/rns/activeops--aom/results-for-the-year-ended-31-march-2026/9648420",
+      "https://www.investegate.co.uk/index.php/announcement/rns/activeops--aom/h1-fy27-trading-update-and-notice-of-results/9816803"
+    ],
+    "limite": "Notes discrétionnaires provisoires; multiples secondaires à rapprocher, SSI et revue stricte obligatoires. Grille momentum locale ne modifiant pas le maître."
   },
   "preuves_complementaires": [
     {
@@ -2017,7 +1925,7 @@
     }
   ],
   "anomalies": [],
-  "statut_fiche": "ENRICHIE_NON_VALIDEE",
+  "statut_fiche": "NOTEE_SCENARISEE_NON_VALIDEE",
   "arbitrage_autorise": false,
   "observations_complementaires": [
     {
@@ -2919,9 +2827,9 @@
   "audit_couverture": {
     "date": "2026-11-09",
     "champs_total": 108,
-    "champs_renseignes": 64,
-    "couverture_pct": 59.26,
-    "champs_secondaires_non_rapproches": 36,
+    "champs_renseignes": 85,
+    "couverture_pct": 78.7,
+    "champs_secondaires_non_rapproches": 49,
     "champs_manquants": [
       "identite.lei",
       "identite.marche",
@@ -2943,45 +2851,24 @@
       "risque.transactions_initiees_net_90j",
       "risque.transactions_initiees_net_180j",
       "diversification.zone_geographique",
-      "diversification.interet_strategique",
-      "diversification.complementarite_portefeuille",
       "complements.ssi",
-      "complements.ic_sur_5",
-      "complements.cx_sur_5",
-      "complements.delta",
       "complements.wwws",
-      "complements.scenario_bear_3m_pct",
-      "complements.prob_bear_3m_pct",
-      "complements.scenario_central_3m_pct",
-      "complements.prob_central_3m_pct",
-      "complements.scenario_bull_3m_pct",
-      "complements.prob_bull_3m_pct",
-      "complements.scenario_bear_6m_pct",
-      "complements.prob_bear_6m_pct",
-      "complements.scenario_central_6m_pct",
-      "complements.prob_central_6m_pct",
-      "complements.scenario_bull_6m_pct",
-      "complements.prob_bull_6m_pct",
-      "complements.role_ips",
-      "complements.decision",
-      "complements.condition_renforcement",
-      "complements.condition_allegement_sortie",
       "complements.challengers_compares"
     ],
     "indisponibilite_definitive_demontree": [],
-    "statut": "TRAITE_MAIS_INCOMPLET",
-    "cours_date_limite": "2026-11-03"
+    "statut": "ANALYSE_DOCUMENTEE_NON_CERTIFIEE",
+    "cours_date_limite": "2026-11-06"
   },
   "audit_poursuite": {
     "date": "2026-11-09",
     "comptage": {
-      "RENSEIGNE": 64,
+      "RENSEIGNE": 85,
       "NON_APPLICABLE": 3,
       "INDISPONIBLE_A_DATE": 0,
-      "RECHERCHE_A_POURSUIVRE": 41
+      "RECHERCHE_A_POURSUIVRE": 20
     },
-    "couverture_valeurs_pct": 59.26,
-    "couverture_applicable_pct": 60.95,
+    "couverture_valeurs_pct": 78.7,
+    "couverture_applicable_pct": 80.95,
     "recherches_non_closes": [
       "identite.lei",
       "identite.marche",
@@ -3000,33 +2887,12 @@
       "risque.transactions_initiees_net_90j",
       "risque.transactions_initiees_net_180j",
       "diversification.zone_geographique",
-      "diversification.interet_strategique",
-      "diversification.complementarite_portefeuille",
       "complements.ssi",
-      "complements.ic_sur_5",
-      "complements.cx_sur_5",
-      "complements.delta",
       "complements.wwws",
-      "complements.scenario_bear_3m_pct",
-      "complements.prob_bear_3m_pct",
-      "complements.scenario_central_3m_pct",
-      "complements.prob_central_3m_pct",
-      "complements.scenario_bull_3m_pct",
-      "complements.prob_bull_3m_pct",
-      "complements.scenario_bear_6m_pct",
-      "complements.prob_bear_6m_pct",
-      "complements.scenario_central_6m_pct",
-      "complements.prob_central_6m_pct",
-      "complements.scenario_bull_6m_pct",
-      "complements.prob_bull_6m_pct",
-      "complements.role_ips",
-      "complements.decision",
-      "complements.condition_renforcement",
-      "complements.condition_allegement_sortie",
       "complements.challengers_compares"
     ],
-    "notes_justifiees": false,
-    "validation_individuelle": "BLOQUEE_DONNEES_ET_ANALYSES_RESTANTES",
+    "notes_justifiees": true,
+    "validation_individuelle": "NOTES_SCENARIOS_DOCUMENTES_VALIDATION_REQUISE",
     "aucune_indisponibilite_definitive_presumee": true
   },
   "historique_relectures": [
@@ -3086,6 +2952,843 @@
       },
       "motif": "La trésorerie courante ne supprime pas le risque opérationnel.",
       "date_relecture": "2026-11-09"
+    },
+    {
+      "preuve_id": "ANALYSE_20261109_momentum_1m_pct",
+      "champ": "momentum.momentum_1m_pct",
+      "ancienne_cellule": {
+        "valeur": -58.6046511627907,
+        "unite": "pct",
+        "periode": "2026-10-02 / 2026-11-03",
+        "date_source": "2026-11-03",
+        "source_url": "https://query1.finance.yahoo.com/v8/finance/chart/AOM.L?range=5y&interval=1d&events=div%2Csplits",
+        "statut": "CALCULE_HISTORIQUE_SECONDAIRE",
+        "commentaire": "Cours ajustés, ancrage calendaire; dernière séance <= date cible.",
+        "date_collecte": "2026-11-04"
+      },
+      "motif": "Calcul reproductible 10Q; ancrage dernière séance <= date calendaire cible, aucune période pré-IPO extrapolée.",
+      "date_relecture": "2026-11-09"
+    },
+    {
+      "preuve_id": "ANALYSE_20261109_momentum_3m_pct",
+      "champ": "momentum.momentum_3m_pct",
+      "ancienne_cellule": {
+        "valeur": -56.04938271604938,
+        "unite": "pct",
+        "periode": "2026-08-03 / 2026-11-03",
+        "date_source": "2026-11-03",
+        "source_url": "https://query1.finance.yahoo.com/v8/finance/chart/AOM.L?range=5y&interval=1d&events=div%2Csplits",
+        "statut": "CALCULE_HISTORIQUE_SECONDAIRE",
+        "commentaire": "Cours ajustés, ancrage calendaire; dernière séance <= date cible.",
+        "date_collecte": "2026-11-04"
+      },
+      "motif": "Calcul reproductible 10Q; ancrage dernière séance <= date calendaire cible, aucune période pré-IPO extrapolée.",
+      "date_relecture": "2026-11-09"
+    },
+    {
+      "preuve_id": "ANALYSE_20261109_momentum_6m_pct",
+      "champ": "momentum.momentum_6m_pct",
+      "ancienne_cellule": {
+        "valeur": -56.15763546798029,
+        "unite": "pct",
+        "periode": "2026-05-01 / 2026-11-03",
+        "date_source": "2026-11-03",
+        "source_url": "https://query1.finance.yahoo.com/v8/finance/chart/AOM.L?range=5y&interval=1d&events=div%2Csplits",
+        "statut": "CALCULE_HISTORIQUE_SECONDAIRE",
+        "commentaire": "Cours ajustés, ancrage calendaire; dernière séance <= date cible.",
+        "date_collecte": "2026-11-04"
+      },
+      "motif": "Calcul reproductible 10Q; ancrage dernière séance <= date calendaire cible, aucune période pré-IPO extrapolée.",
+      "date_relecture": "2026-11-09"
+    },
+    {
+      "preuve_id": "ANALYSE_20261109_momentum_12m_pct",
+      "champ": "momentum.momentum_12m_pct",
+      "ancienne_cellule": {
+        "valeur": -58.6046511627907,
+        "unite": "pct",
+        "periode": "2025-11-03 / 2026-11-03",
+        "date_source": "2026-11-03",
+        "source_url": "https://query1.finance.yahoo.com/v8/finance/chart/AOM.L?range=5y&interval=1d&events=div%2Csplits",
+        "statut": "CALCULE_HISTORIQUE_SECONDAIRE",
+        "commentaire": "Cours ajustés, ancrage calendaire; dernière séance <= date cible.",
+        "date_collecte": "2026-11-04"
+      },
+      "motif": "Calcul reproductible 10Q; ancrage dernière séance <= date calendaire cible, aucune période pré-IPO extrapolée.",
+      "date_relecture": "2026-11-09"
+    },
+    {
+      "preuve_id": "ANALYSE_20261109_prix_vers_mm200",
+      "champ": "momentum.prix_vers_mm200",
+      "ancienne_cellule": {
+        "valeur": 0.42026131755798113,
+        "unite": "ratio",
+        "periode": "200 dernières séances",
+        "date_source": "2026-11-03",
+        "source_url": "https://query1.finance.yahoo.com/v8/finance/chart/AOM.L?range=5y&interval=1d&events=div%2Csplits",
+        "statut": "CALCULE_HISTORIQUE_SECONDAIRE",
+        "commentaire": "Cours ajusté / moyenne mobile 200 séances.",
+        "date_collecte": "2026-11-04"
+      },
+      "motif": "Calcul reproductible 10Q; ancrage dernière séance <= date calendaire cible, aucune période pré-IPO extrapolée.",
+      "date_relecture": "2026-11-09"
+    },
+    {
+      "preuve_id": "ANALYSE_20261109_tendance_mm200",
+      "champ": "momentum.tendance_mm200",
+      "ancienne_cellule": {
+        "valeur": -5.445818639830957,
+        "unite": "pct",
+        "periode": "variation MM200 sur 20 séances",
+        "date_source": "2026-11-03",
+        "source_url": "https://query1.finance.yahoo.com/v8/finance/chart/AOM.L?range=5y&interval=1d&events=div%2Csplits",
+        "statut": "CALCULE_HISTORIQUE_SECONDAIRE",
+        "commentaire": "Pente approchée par variation MM200(t)/MM200(t-20)-1; niveau MM200 non confondu avec pente.",
+        "date_collecte": "2026-11-04"
+      },
+      "motif": "Calcul reproductible 10Q; ancrage dernière séance <= date calendaire cible, aucune période pré-IPO extrapolée.",
+      "date_relecture": "2026-11-09"
+    },
+    {
+      "preuve_id": "ANALYSE_20261109_momentum_6_1_pct",
+      "champ": "momentum.momentum_6_1_pct",
+      "ancienne_cellule": {
+        "valeur": 5.9113300492610765,
+        "unite": "pct",
+        "periode": "2026-05-01 / 2026-10-02",
+        "date_source": "2026-11-03",
+        "source_url": "https://query1.finance.yahoo.com/v8/finance/chart/AOM.L?range=5y&interval=1d&events=div%2Csplits",
+        "statut": "CALCULE_HISTORIQUE_SECONDAIRE",
+        "commentaire": "Momentum 6–1 : prix à -1 mois / prix à -6 mois - 1; aucune modification de la règle de sélection.",
+        "date_collecte": "2026-11-04"
+      },
+      "motif": "Calcul reproductible 10Q; ancrage dernière séance <= date calendaire cible, aucune période pré-IPO extrapolée.",
+      "date_relecture": "2026-11-09"
+    },
+    {
+      "preuve_id": "ANALYSE_20261109_volume_moyen_20j",
+      "champ": "momentum.volume_moyen_20j",
+      "ancienne_cellule": {
+        "valeur": 461982.65,
+        "unite": "titres",
+        "periode": "20 dernières séances",
+        "date_source": "2026-11-03",
+        "source_url": "https://query1.finance.yahoo.com/v8/finance/chart/AOM.L?range=5y&interval=1d&events=div%2Csplits",
+        "statut": "CALCULE_HISTORIQUE_SECONDAIRE",
+        "commentaire": "Moyenne arithmétique des volumes Yahoo non ajustés.",
+        "date_collecte": "2026-11-04"
+      },
+      "motif": "Calcul reproductible 10Q; ancrage dernière séance <= date calendaire cible, aucune période pré-IPO extrapolée.",
+      "date_relecture": "2026-11-09"
+    },
+    {
+      "preuve_id": "ANALYSE_20261109_ratio_volume",
+      "champ": "momentum.ratio_volume",
+      "ancienne_cellule": {
+        "valeur": 0.6015139313132214,
+        "unite": "ratio",
+        "periode": "dernière séance / moyenne 20 séances",
+        "date_source": "2026-11-03",
+        "source_url": "https://query1.finance.yahoo.com/v8/finance/chart/AOM.L?range=5y&interval=1d&events=div%2Csplits",
+        "statut": "CALCULE_HISTORIQUE_SECONDAIRE",
+        "commentaire": "Ratio de volume de la dernière séance.",
+        "date_collecte": "2026-11-04"
+      },
+      "motif": "Calcul reproductible 10Q; ancrage dernière séance <= date calendaire cible, aucune période pré-IPO extrapolée.",
+      "date_relecture": "2026-11-09"
+    },
+    {
+      "preuve_id": "ANALYSE_20261109_volatilite_90j_pct",
+      "champ": "momentum.volatilite_90j_pct",
+      "ancienne_cellule": {
+        "valeur": 122.73968679199199,
+        "unite": "pct",
+        "periode": "90 rendements quotidiens",
+        "date_source": "2026-11-03",
+        "source_url": "https://query1.finance.yahoo.com/v8/finance/chart/AOM.L?range=5y&interval=1d&events=div%2Csplits",
+        "statut": "CALCULE_HISTORIQUE_SECONDAIRE",
+        "commentaire": "Écart-type échantillon des log-rendements ajustés annualisé sqrt(252).",
+        "date_collecte": "2026-11-04"
+      },
+      "motif": "Calcul reproductible 10Q; ancrage dernière séance <= date calendaire cible, aucune période pré-IPO extrapolée.",
+      "date_relecture": "2026-11-09"
+    },
+    {
+      "preuve_id": "ANALYSE_20261109_drawdown_12m_pct",
+      "champ": "momentum.drawdown_12m_pct",
+      "ancienne_cellule": {
+        "valeur": -68.88111888111888,
+        "unite": "pct",
+        "periode": "2025-11-03 / 2026-11-03",
+        "date_source": "2026-11-03",
+        "source_url": "https://query1.finance.yahoo.com/v8/finance/chart/AOM.L?range=5y&interval=1d&events=div%2Csplits",
+        "statut": "CALCULE_HISTORIQUE_SECONDAIRE",
+        "commentaire": "Maximum drawdown du prix ajusté sur la fenêtre, valeur négative.",
+        "date_collecte": "2026-11-04"
+      },
+      "motif": "Calcul reproductible 10Q; ancrage dernière séance <= date calendaire cible, aucune période pré-IPO extrapolée.",
+      "date_relecture": "2026-11-09"
+    },
+    {
+      "preuve_id": "ANALYSE_20261109_cours",
+      "champ": "valorisation.cours",
+      "ancienne_cellule": {
+        "valeur": 0.89,
+        "unite": "GBP",
+        "periode": "cloture 2026-11-03",
+        "date_source": "2026-11-03",
+        "source_url": "https://query1.finance.yahoo.com/v8/finance/chart/AOM.L?range=5y&interval=1d&events=div%2Csplits",
+        "statut": "SOURCE_MARCHE",
+        "commentaire": "Cours non ajuste; GBp/100 pour Londres.",
+        "date_collecte": "2026-11-04"
+      },
+      "motif": "Cours non ajusté, conversion GBp/100 vers GBP pour Londres.",
+      "date_relecture": "2026-11-09"
+    },
+    {
+      "preuve_id": "ANALYSE_20261109_date_cours",
+      "champ": "valorisation.date_cours",
+      "ancienne_cellule": {
+        "valeur": "2026-11-03",
+        "unite": "date",
+        "periode": "cloture",
+        "date_source": "2026-11-03",
+        "source_url": "https://query1.finance.yahoo.com/v8/finance/chart/AOM.L?range=5y&interval=1d&events=div%2Csplits",
+        "statut": "SOURCE_MARCHE",
+        "commentaire": null,
+        "date_collecte": "2026-11-04"
+      },
+      "motif": "Clôture commune aux 40 fiches.",
+      "date_relecture": "2026-11-09"
+    },
+    {
+      "preuve_id": "ANALYSE_20261109_scenario_bear_3m_pct",
+      "champ": "complements.scenario_bear_3m_pct",
+      "ancienne_cellule": {
+        "valeur": null,
+        "unite": null,
+        "periode": null,
+        "date_source": null,
+        "source_url": null,
+        "statut": "A_COLLECTER",
+        "commentaire": null,
+        "recherche": {
+          "date": "2026-11-04",
+          "statut": "MANQUANT_RECHERCHE_NON_CLOSE",
+          "motif": "Analyse MCPA/IPS argumentée encore nécessaire; ce champ ne doit pas être rempli par une statistique de fournisseur.",
+          "journal": "journal_recherches"
+        }
+      },
+      "motif": "Contrat perdu insuffisamment remplacé. Cash semestriel et coût du repositionnement distincts.",
+      "date_relecture": "2026-11-09"
+    },
+    {
+      "preuve_id": "ANALYSE_20261109_prob_bear_3m_pct",
+      "champ": "complements.prob_bear_3m_pct",
+      "ancienne_cellule": {
+        "valeur": null,
+        "unite": null,
+        "periode": null,
+        "date_source": null,
+        "source_url": null,
+        "statut": "A_COLLECTER",
+        "commentaire": null,
+        "recherche": {
+          "date": "2026-11-04",
+          "statut": "MANQUANT_RECHERCHE_NON_CLOSE",
+          "motif": "Analyse MCPA/IPS argumentée encore nécessaire; ce champ ne doit pas être rempli par une statistique de fournisseur.",
+          "journal": "journal_recherches"
+        }
+      },
+      "motif": "Pondération par jugement du risque et des opportunités décrits; aucune fréquence statistique. Incertitude au moins +/-10 points. Cash semestriel et coût du repositionnement distincts.",
+      "date_relecture": "2026-11-09"
+    },
+    {
+      "preuve_id": "ANALYSE_20261109_scenario_central_3m_pct",
+      "champ": "complements.scenario_central_3m_pct",
+      "ancienne_cellule": {
+        "valeur": null,
+        "unite": null,
+        "periode": null,
+        "date_source": null,
+        "source_url": null,
+        "statut": "A_COLLECTER",
+        "commentaire": null,
+        "recherche": {
+          "date": "2026-11-04",
+          "statut": "MANQUANT_RECHERCHE_NON_CLOSE",
+          "motif": "Analyse MCPA/IPS argumentée encore nécessaire; ce champ ne doit pas être rempli par une statistique de fournisseur.",
+          "journal": "journal_recherches"
+        }
+      },
+      "motif": "Nouveaux clients limitant l'érosion. Cash semestriel et coût du repositionnement distincts.",
+      "date_relecture": "2026-11-09"
+    },
+    {
+      "preuve_id": "ANALYSE_20261109_prob_central_3m_pct",
+      "champ": "complements.prob_central_3m_pct",
+      "ancienne_cellule": {
+        "valeur": null,
+        "unite": null,
+        "periode": null,
+        "date_source": null,
+        "source_url": null,
+        "statut": "A_COLLECTER",
+        "commentaire": null,
+        "recherche": {
+          "date": "2026-11-04",
+          "statut": "MANQUANT_RECHERCHE_NON_CLOSE",
+          "motif": "Analyse MCPA/IPS argumentée encore nécessaire; ce champ ne doit pas être rempli par une statistique de fournisseur.",
+          "journal": "journal_recherches"
+        }
+      },
+      "motif": "Pondération par jugement du risque et des opportunités décrits; aucune fréquence statistique. Incertitude au moins +/-10 points. Cash semestriel et coût du repositionnement distincts.",
+      "date_relecture": "2026-11-09"
+    },
+    {
+      "preuve_id": "ANALYSE_20261109_scenario_bull_3m_pct",
+      "champ": "complements.scenario_bull_3m_pct",
+      "ancienne_cellule": {
+        "valeur": null,
+        "unite": null,
+        "periode": null,
+        "date_source": null,
+        "source_url": null,
+        "statut": "A_COLLECTER",
+        "commentaire": null,
+        "recherche": {
+          "date": "2026-11-04",
+          "statut": "MANQUANT_RECHERCHE_NON_CLOSE",
+          "motif": "Analyse MCPA/IPS argumentée encore nécessaire; ce champ ne doit pas être rempli par une statistique de fournisseur.",
+          "journal": "journal_recherches"
+        }
+      },
+      "motif": "Signatures compensant l'essentiel de la perte. Cash semestriel et coût du repositionnement distincts.",
+      "date_relecture": "2026-11-09"
+    },
+    {
+      "preuve_id": "ANALYSE_20261109_prob_bull_3m_pct",
+      "champ": "complements.prob_bull_3m_pct",
+      "ancienne_cellule": {
+        "valeur": null,
+        "unite": null,
+        "periode": null,
+        "date_source": null,
+        "source_url": null,
+        "statut": "A_COLLECTER",
+        "commentaire": null,
+        "recherche": {
+          "date": "2026-11-04",
+          "statut": "MANQUANT_RECHERCHE_NON_CLOSE",
+          "motif": "Analyse MCPA/IPS argumentée encore nécessaire; ce champ ne doit pas être rempli par une statistique de fournisseur.",
+          "journal": "journal_recherches"
+        }
+      },
+      "motif": "Pondération par jugement du risque et des opportunités décrits; aucune fréquence statistique. Incertitude au moins +/-10 points. Cash semestriel et coût du repositionnement distincts.",
+      "date_relecture": "2026-11-09"
+    },
+    {
+      "preuve_id": "ANALYSE_20261109_scenario_bear_6m_pct",
+      "champ": "complements.scenario_bear_6m_pct",
+      "ancienne_cellule": {
+        "valeur": null,
+        "unite": null,
+        "periode": null,
+        "date_source": null,
+        "source_url": null,
+        "statut": "A_COLLECTER",
+        "commentaire": null,
+        "recherche": {
+          "date": "2026-11-04",
+          "statut": "MANQUANT_RECHERCHE_NON_CLOSE",
+          "motif": "Analyse MCPA/IPS argumentée encore nécessaire; ce champ ne doit pas être rempli par une statistique de fournisseur.",
+          "journal": "journal_recherches"
+        }
+      },
+      "motif": "Contrat perdu insuffisamment remplacé. Cash semestriel et coût du repositionnement distincts.",
+      "date_relecture": "2026-11-09"
+    },
+    {
+      "preuve_id": "ANALYSE_20261109_prob_bear_6m_pct",
+      "champ": "complements.prob_bear_6m_pct",
+      "ancienne_cellule": {
+        "valeur": null,
+        "unite": null,
+        "periode": null,
+        "date_source": null,
+        "source_url": null,
+        "statut": "A_COLLECTER",
+        "commentaire": null,
+        "recherche": {
+          "date": "2026-11-04",
+          "statut": "MANQUANT_RECHERCHE_NON_CLOSE",
+          "motif": "Analyse MCPA/IPS argumentée encore nécessaire; ce champ ne doit pas être rempli par une statistique de fournisseur.",
+          "journal": "journal_recherches"
+        }
+      },
+      "motif": "Pondération par jugement du risque et des opportunités décrits; aucune fréquence statistique. Incertitude au moins +/-10 points. Cash semestriel et coût du repositionnement distincts.",
+      "date_relecture": "2026-11-09"
+    },
+    {
+      "preuve_id": "ANALYSE_20261109_scenario_central_6m_pct",
+      "champ": "complements.scenario_central_6m_pct",
+      "ancienne_cellule": {
+        "valeur": null,
+        "unite": null,
+        "periode": null,
+        "date_source": null,
+        "source_url": null,
+        "statut": "A_COLLECTER",
+        "commentaire": null,
+        "recherche": {
+          "date": "2026-11-04",
+          "statut": "MANQUANT_RECHERCHE_NON_CLOSE",
+          "motif": "Analyse MCPA/IPS argumentée encore nécessaire; ce champ ne doit pas être rempli par une statistique de fournisseur.",
+          "journal": "journal_recherches"
+        }
+      },
+      "motif": "Nouveaux clients limitant l'érosion. Cash semestriel et coût du repositionnement distincts.",
+      "date_relecture": "2026-11-09"
+    },
+    {
+      "preuve_id": "ANALYSE_20261109_prob_central_6m_pct",
+      "champ": "complements.prob_central_6m_pct",
+      "ancienne_cellule": {
+        "valeur": null,
+        "unite": null,
+        "periode": null,
+        "date_source": null,
+        "source_url": null,
+        "statut": "A_COLLECTER",
+        "commentaire": null,
+        "recherche": {
+          "date": "2026-11-04",
+          "statut": "MANQUANT_RECHERCHE_NON_CLOSE",
+          "motif": "Analyse MCPA/IPS argumentée encore nécessaire; ce champ ne doit pas être rempli par une statistique de fournisseur.",
+          "journal": "journal_recherches"
+        }
+      },
+      "motif": "Pondération par jugement du risque et des opportunités décrits; aucune fréquence statistique. Incertitude au moins +/-10 points. Cash semestriel et coût du repositionnement distincts.",
+      "date_relecture": "2026-11-09"
+    },
+    {
+      "preuve_id": "ANALYSE_20261109_scenario_bull_6m_pct",
+      "champ": "complements.scenario_bull_6m_pct",
+      "ancienne_cellule": {
+        "valeur": null,
+        "unite": null,
+        "periode": null,
+        "date_source": null,
+        "source_url": null,
+        "statut": "A_COLLECTER",
+        "commentaire": null,
+        "recherche": {
+          "date": "2026-11-04",
+          "statut": "MANQUANT_RECHERCHE_NON_CLOSE",
+          "motif": "Analyse MCPA/IPS argumentée encore nécessaire; ce champ ne doit pas être rempli par une statistique de fournisseur.",
+          "journal": "journal_recherches"
+        }
+      },
+      "motif": "Signatures compensant l'essentiel de la perte. Cash semestriel et coût du repositionnement distincts.",
+      "date_relecture": "2026-11-09"
+    },
+    {
+      "preuve_id": "ANALYSE_20261109_prob_bull_6m_pct",
+      "champ": "complements.prob_bull_6m_pct",
+      "ancienne_cellule": {
+        "valeur": null,
+        "unite": null,
+        "periode": null,
+        "date_source": null,
+        "source_url": null,
+        "statut": "A_COLLECTER",
+        "commentaire": null,
+        "recherche": {
+          "date": "2026-11-04",
+          "statut": "MANQUANT_RECHERCHE_NON_CLOSE",
+          "motif": "Analyse MCPA/IPS argumentée encore nécessaire; ce champ ne doit pas être rempli par une statistique de fournisseur.",
+          "journal": "journal_recherches"
+        }
+      },
+      "motif": "Pondération par jugement du risque et des opportunités décrits; aucune fréquence statistique. Incertitude au moins +/-10 points. Cash semestriel et coût du repositionnement distincts.",
+      "date_relecture": "2026-11-09"
+    },
+    {
+      "preuve_id": "ANALYSE_20261109_ic_sur_5",
+      "champ": "complements.ic_sur_5",
+      "ancienne_cellule": {
+        "valeur": null,
+        "unite": null,
+        "periode": null,
+        "date_source": null,
+        "source_url": null,
+        "statut": "A_COLLECTER",
+        "commentaire": null,
+        "recherche": {
+          "date": "2026-11-04",
+          "statut": "MANQUANT_RECHERCHE_NON_CLOSE",
+          "motif": "Analyse MCPA/IPS argumentée encore nécessaire; ce champ ne doit pas être rempli par une statistique de fournisseur.",
+          "journal": "journal_recherches"
+        }
+      },
+      "motif": "Cash semestriel et coût du repositionnement distincts. Aucune opération autorisée.",
+      "date_relecture": "2026-11-09"
+    },
+    {
+      "preuve_id": "ANALYSE_20261109_cx_sur_5",
+      "champ": "complements.cx_sur_5",
+      "ancienne_cellule": {
+        "valeur": null,
+        "unite": null,
+        "periode": null,
+        "date_source": null,
+        "source_url": null,
+        "statut": "A_COLLECTER",
+        "commentaire": null,
+        "recherche": {
+          "date": "2026-11-04",
+          "statut": "MANQUANT_RECHERCHE_NON_CLOSE",
+          "motif": "Analyse MCPA/IPS argumentée encore nécessaire; ce champ ne doit pas être rempli par une statistique de fournisseur.",
+          "journal": "journal_recherches"
+        }
+      },
+      "motif": "Cash semestriel et coût du repositionnement distincts. Aucune opération autorisée.",
+      "date_relecture": "2026-11-09"
+    },
+    {
+      "preuve_id": "ANALYSE_20261109_delta",
+      "champ": "complements.delta",
+      "ancienne_cellule": {
+        "valeur": null,
+        "unite": null,
+        "periode": null,
+        "date_source": null,
+        "source_url": null,
+        "statut": "A_COLLECTER",
+        "commentaire": null,
+        "recherche": {
+          "date": "2026-11-04",
+          "statut": "MANQUANT_RECHERCHE_NON_CLOSE",
+          "motif": "Analyse MCPA/IPS argumentée encore nécessaire; ce champ ne doit pas être rempli par une statistique de fournisseur.",
+          "journal": "journal_recherches"
+        }
+      },
+      "motif": "Cash semestriel et coût du repositionnement distincts. Aucune opération autorisée.",
+      "date_relecture": "2026-11-09"
+    },
+    {
+      "preuve_id": "ANALYSE_20261109_role_ips",
+      "champ": "complements.role_ips",
+      "ancienne_cellule": {
+        "valeur": null,
+        "unite": null,
+        "periode": null,
+        "date_source": null,
+        "source_url": null,
+        "statut": "A_COLLECTER",
+        "commentaire": null,
+        "recherche": {
+          "date": "2026-11-04",
+          "statut": "MANQUANT_RECHERCHE_NON_CLOSE",
+          "motif": "Analyse MCPA/IPS argumentée encore nécessaire; ce champ ne doit pas être rempli par une statistique de fournisseur.",
+          "journal": "journal_recherches"
+        }
+      },
+      "motif": "Cash semestriel et coût du repositionnement distincts. Aucune opération autorisée.",
+      "date_relecture": "2026-11-09"
+    },
+    {
+      "preuve_id": "ANALYSE_20261109_decision",
+      "champ": "complements.decision",
+      "ancienne_cellule": {
+        "valeur": null,
+        "unite": null,
+        "periode": null,
+        "date_source": null,
+        "source_url": null,
+        "statut": "A_COLLECTER",
+        "commentaire": null,
+        "recherche": {
+          "date": "2026-11-04",
+          "statut": "MANQUANT_RECHERCHE_NON_CLOSE",
+          "motif": "Analyse MCPA/IPS argumentée encore nécessaire; ce champ ne doit pas être rempli par une statistique de fournisseur.",
+          "journal": "journal_recherches"
+        }
+      },
+      "motif": "Cash semestriel et coût du repositionnement distincts. Aucune opération autorisée.",
+      "date_relecture": "2026-11-09"
+    },
+    {
+      "preuve_id": "ANALYSE_20261109_condition_renforcement",
+      "champ": "complements.condition_renforcement",
+      "ancienne_cellule": {
+        "valeur": null,
+        "unite": null,
+        "periode": null,
+        "date_source": null,
+        "source_url": null,
+        "statut": "A_COLLECTER",
+        "commentaire": null,
+        "recherche": {
+          "date": "2026-11-04",
+          "statut": "MANQUANT_RECHERCHE_NON_CLOSE",
+          "motif": "Analyse MCPA/IPS argumentée encore nécessaire; ce champ ne doit pas être rempli par une statistique de fournisseur.",
+          "journal": "journal_recherches"
+        }
+      },
+      "motif": "Cash semestriel et coût du repositionnement distincts. Aucune opération autorisée.",
+      "date_relecture": "2026-11-09"
+    },
+    {
+      "preuve_id": "ANALYSE_20261109_condition_allegement_sortie",
+      "champ": "complements.condition_allegement_sortie",
+      "ancienne_cellule": {
+        "valeur": null,
+        "unite": null,
+        "periode": null,
+        "date_source": null,
+        "source_url": null,
+        "statut": "A_COLLECTER",
+        "commentaire": null,
+        "recherche": {
+          "date": "2026-11-04",
+          "statut": "MANQUANT_RECHERCHE_NON_CLOSE",
+          "motif": "Analyse MCPA/IPS argumentée encore nécessaire; ce champ ne doit pas être rempli par une statistique de fournisseur.",
+          "journal": "journal_recherches"
+        }
+      },
+      "motif": "Cash semestriel et coût du repositionnement distincts. Aucune opération autorisée.",
+      "date_relecture": "2026-11-09"
+    },
+    {
+      "preuve_id": "ANALYSE_20261109_interet_strategique",
+      "champ": "diversification.interet_strategique",
+      "ancienne_cellule": {
+        "valeur": null,
+        "unite": null,
+        "periode": null,
+        "date_source": null,
+        "source_url": null,
+        "statut": "A_COLLECTER",
+        "commentaire": null,
+        "recherche": {
+          "date": "2026-11-04",
+          "statut": "MANQUANT_RECHERCHE_NON_CLOSE",
+          "motif": "Analyse MCPA/IPS argumentée encore nécessaire; ce champ ne doit pas être rempli par une statistique de fournisseur.",
+          "journal": "journal_recherches"
+        }
+      },
+      "motif": "Diversification sectorielle, sans garantie de décorrélation en crise.",
+      "date_relecture": "2026-11-09"
+    },
+    {
+      "preuve_id": "ANALYSE_20261109_complementarite_portefeuille",
+      "champ": "diversification.complementarite_portefeuille",
+      "ancienne_cellule": {
+        "valeur": null,
+        "unite": null,
+        "periode": null,
+        "date_source": null,
+        "source_url": null,
+        "statut": "A_COLLECTER",
+        "commentaire": null,
+        "recherche": {
+          "date": "2026-11-04",
+          "statut": "MANQUANT_RECHERCHE_NON_CLOSE",
+          "motif": "Analyse MCPA/IPS argumentée encore nécessaire; ce champ ne doit pas être rempli par une statistique de fournisseur.",
+          "journal": "journal_recherches"
+        }
+      },
+      "motif": "Diversification sectorielle, sans garantie de décorrélation en crise.",
+      "date_relecture": "2026-11-09"
     }
-  ]
+  ],
+  "historique_notations": [
+    {
+      "bareme": {
+        "qualite": 30,
+        "valorisation": 20,
+        "croissance": 20,
+        "risque": 10,
+        "momentum": 10,
+        "diversification": 10
+      },
+      "notes": {
+        "qualite": null,
+        "valorisation": null,
+        "croissance": null,
+        "risque": null,
+        "momentum": null,
+        "diversification": null
+      },
+      "total_mcpa": null,
+      "statut": "NON_VALIDEE",
+      "justifications": {
+        "qualite": null,
+        "valorisation": null,
+        "croissance": null,
+        "risque": null,
+        "momentum": null,
+        "diversification": null
+      }
+    }
+  ],
+  "calculs_marche": {
+    "date": "2026-11-06",
+    "cours_non_ajuste": 89.0,
+    "ancrages": {
+      "1": {
+        "date": "2026-10-06",
+        "cours_ajuste": 215.0
+      },
+      "3": {
+        "date": "2026-08-06",
+        "cours_ajuste": 207.5
+      },
+      "6": {
+        "date": "2026-05-06",
+        "cours_ajuste": 212.5
+      },
+      "12": {
+        "date": "2025-11-06",
+        "cours_ajuste": 244.0
+      }
+    },
+    "indicateurs": {
+      "momentum_1m_pct": -58.6046511627907,
+      "momentum_3m_pct": -57.10843373493976,
+      "momentum_6m_pct": -58.11764705882353,
+      "momentum_12m_pct": -63.52459016393443,
+      "prix_vers_mm200": 0.42570899682510965,
+      "tendance_mm200": -6.606805824205397,
+      "momentum_6_1_pct": 1.17647058823529,
+      "volume_moyen_20j": 450796.75,
+      "ratio_volume": 0.052948474007410214,
+      "volatilite_90j_pct": 121.3667825613538,
+      "drawdown_12m_pct": -68.88111888111888
+    },
+    "grille": [
+      {
+        "indicateur": "prix_vers_mm200",
+        "seuil_strict": 1,
+        "maximum": 2,
+        "valeur": 0.42570899682510965,
+        "points": 0
+      },
+      {
+        "indicateur": "tendance_mm200",
+        "seuil_strict": 0,
+        "maximum": 1,
+        "valeur": -6.606805824205397,
+        "points": 0
+      },
+      {
+        "indicateur": "momentum_1m_pct",
+        "seuil_strict": 0,
+        "maximum": 1,
+        "valeur": -58.6046511627907,
+        "points": 0
+      },
+      {
+        "indicateur": "momentum_3m_pct",
+        "seuil_strict": 0,
+        "maximum": 2,
+        "valeur": -57.10843373493976,
+        "points": 0
+      },
+      {
+        "indicateur": "momentum_6m_pct",
+        "seuil_strict": 0,
+        "maximum": 2,
+        "valeur": -58.11764705882353,
+        "points": 0
+      },
+      {
+        "indicateur": "momentum_12m_pct",
+        "seuil_strict": 0,
+        "maximum": 1,
+        "valeur": -63.52459016393443,
+        "points": 0
+      },
+      {
+        "indicateur": "momentum_6_1_pct",
+        "seuil_strict": 0,
+        "maximum": 1,
+        "valeur": 1.17647058823529,
+        "points": 1
+      }
+    ],
+    "M": 1,
+    "points_non_observables": 0,
+    "source_url": "https://query1.finance.yahoo.com/v8/finance/chart/AOM.L?range=5y&interval=1d&events=div%2Csplits"
+  },
+  "analyse_prospective": {
+    "date_analyse": "2026-11-09",
+    "date_ancrage": "2026-11-06",
+    "cours_ancrage": 0.89,
+    "devise": "GBP",
+    "incertitude": "Cash semestriel et coût du repositionnement distincts.",
+    "nature": "Probabilités subjectives non calibrées, incertitude au moins +/-10 points. Rendements du cours en devise locale, hors change, dividendes et frais.",
+    "horizons": {
+      "3m": {
+        "echeance_calendaire": "2027-02-06",
+        "scenarios": [
+          {
+            "cas": "bear",
+            "rendement_pct": -30.0,
+            "probabilite_pct": 35.0,
+            "cours_conditionnel": 0.623,
+            "declencheur": "Contrat perdu insuffisamment remplacé."
+          },
+          {
+            "cas": "central",
+            "rendement_pct": 0.0,
+            "probabilite_pct": 45.0,
+            "cours_conditionnel": 0.89,
+            "declencheur": "Nouveaux clients limitant l'érosion."
+          },
+          {
+            "cas": "bull",
+            "rendement_pct": 30.0,
+            "probabilite_pct": 20.0,
+            "cours_conditionnel": 1.157,
+            "declencheur": "Signatures compensant l'essentiel de la perte."
+          }
+        ],
+        "esperance_subjective_brute_pct": -4.5,
+        "esperance_apres_rotation_vente_achat_2_5pct": -9.158536585365852,
+        "convention_frais": "Friction théorique: vente 2,5 % du brut, achat 2,5 % du nominal acheté. Pas de transaction."
+      },
+      "6m": {
+        "echeance_calendaire": "2027-05-06",
+        "scenarios": [
+          {
+            "cas": "bear",
+            "rendement_pct": -45.0,
+            "probabilite_pct": 35.0,
+            "cours_conditionnel": 0.48950000000000005,
+            "declencheur": "Contrat perdu insuffisamment remplacé."
+          },
+          {
+            "cas": "central",
+            "rendement_pct": 8.0,
+            "probabilite_pct": 40.0,
+            "cours_conditionnel": 0.9612,
+            "declencheur": "Nouveaux clients limitant l'érosion."
+          },
+          {
+            "cas": "bull",
+            "rendement_pct": 50.0,
+            "probabilite_pct": 25.0,
+            "cours_conditionnel": 1.335,
+            "declencheur": "Signatures compensant l'essentiel de la perte."
+          }
+        ],
+        "esperance_subjective_brute_pct": -0.04999999999999982,
+        "esperance_apres_rotation_vente_achat_2_5pct": -4.925609756097549,
+        "convention_frais": "Friction théorique: vente 2,5 % du brut, achat 2,5 % du nominal acheté. Pas de transaction."
+      }
+    }
+  },
+  "date_analyse": "2026-11-09"
 }

@@ -275,24 +275,24 @@
     },
     "valorisation": {
       "cours": {
-        "valeur": 19.670000076293945,
+        "valeur": 19.389999389648438,
         "unite": "EUR",
-        "periode": "cloture 2026-11-03",
-        "date_source": "2026-11-03",
+        "periode": "clôture 2026-11-06",
+        "date_source": "2026-11-06",
         "source_url": "https://query1.finance.yahoo.com/v8/finance/chart/ALSTI.PA?range=5y&interval=1d&events=div%2Csplits",
         "statut": "SOURCE_MARCHE",
-        "commentaire": "Cours non ajuste; GBp/100 pour Londres.",
-        "date_collecte": "2026-11-04"
+        "commentaire": "Cours non ajusté, conversion GBp/100 vers GBP pour Londres.",
+        "date_collecte": "2026-11-09"
       },
       "date_cours": {
-        "valeur": "2026-11-03",
+        "valeur": "2026-11-06",
         "unite": "date",
-        "periode": "cloture",
-        "date_source": "2026-11-03",
+        "periode": "clôture",
+        "date_source": "2026-11-06",
         "source_url": "https://query1.finance.yahoo.com/v8/finance/chart/ALSTI.PA?range=5y&interval=1d&events=div%2Csplits",
         "statut": "SOURCE_MARCHE",
-        "commentaire": null,
-        "date_collecte": "2026-11-04"
+        "commentaire": "Clôture commune aux 40 fiches.",
+        "date_collecte": "2026-11-09"
       },
       "capitalisation": {
         "valeur": 96650000,
@@ -798,64 +798,64 @@
     },
     "momentum": {
       "prix_vers_mm200": {
-        "valeur": 0.4028097490275636,
+        "valeur": 0.4029032500572516,
         "unite": "ratio",
-        "periode": "200 dernières séances",
-        "date_source": "2026-11-03",
+        "periode": "historique ajusté au 2026-11-06",
+        "date_source": "2026-11-06",
         "source_url": "https://query1.finance.yahoo.com/v8/finance/chart/ALSTI.PA?range=5y&interval=1d&events=div%2Csplits",
         "statut": "CALCULE_HISTORIQUE_SECONDAIRE",
-        "commentaire": "Cours ajusté / moyenne mobile 200 séances.",
-        "date_collecte": "2026-11-04"
+        "commentaire": "Calcul reproductible 10Q; ancrage dernière séance <= date calendaire cible, aucune période pré-IPO extrapolée.",
+        "date_collecte": "2026-11-09"
       },
       "momentum_1m_pct": {
-        "valeur": 3.5808336670440255,
+        "valeur": 6.538453718816162,
         "unite": "pct",
-        "periode": "2026-10-02 / 2026-11-03",
-        "date_source": "2026-11-03",
+        "periode": "historique ajusté au 2026-11-06",
+        "date_source": "2026-11-06",
         "source_url": "https://query1.finance.yahoo.com/v8/finance/chart/ALSTI.PA?range=5y&interval=1d&events=div%2Csplits",
         "statut": "CALCULE_HISTORIQUE_SECONDAIRE",
-        "commentaire": "Cours ajustés, ancrage calendaire; dernière séance <= date cible.",
-        "date_collecte": "2026-11-04"
+        "commentaire": "Calcul reproductible 10Q; ancrage dernière séance <= date calendaire cible, aucune période pré-IPO extrapolée.",
+        "date_collecte": "2026-11-09"
       },
       "momentum_3m_pct": {
-        "valeur": -61.805825094574864,
+        "valeur": -62.92543083651061,
         "unite": "pct",
-        "periode": "2026-08-03 / 2026-11-03",
-        "date_source": "2026-11-03",
+        "periode": "historique ajusté au 2026-11-06",
+        "date_source": "2026-11-06",
         "source_url": "https://query1.finance.yahoo.com/v8/finance/chart/ALSTI.PA?range=5y&interval=1d&events=div%2Csplits",
         "statut": "CALCULE_HISTORIQUE_SECONDAIRE",
-        "commentaire": "Cours ajustés, ancrage calendaire; dernière séance <= date cible.",
-        "date_collecte": "2026-11-04"
+        "commentaire": "Calcul reproductible 10Q; ancrage dernière séance <= date calendaire cible, aucune période pré-IPO extrapolée.",
+        "date_collecte": "2026-11-09"
       },
       "momentum_6m_pct": {
-        "valeur": -57.11347191767446,
+        "valeur": -61.9105183749977,
         "unite": "pct",
-        "periode": "2026-04-30 / 2026-11-03",
-        "date_source": "2026-11-03",
+        "periode": "historique ajusté au 2026-11-06",
+        "date_source": "2026-11-06",
         "source_url": "https://query1.finance.yahoo.com/v8/finance/chart/ALSTI.PA?range=5y&interval=1d&events=div%2Csplits",
         "statut": "CALCULE_HISTORIQUE_SECONDAIRE",
-        "commentaire": "Cours ajustés, ancrage calendaire; dernière séance <= date cible.",
-        "date_collecte": "2026-11-04"
+        "commentaire": "Calcul reproductible 10Q; ancrage dernière séance <= date calendaire cible, aucune période pré-IPO extrapolée.",
+        "date_collecte": "2026-11-09"
       },
       "momentum_12m_pct": {
-        "valeur": -69.43264362566681,
+        "valeur": -67.52304164395781,
         "unite": "pct",
-        "periode": "2025-11-03 / 2026-11-03",
-        "date_source": "2026-11-03",
+        "periode": "historique ajusté au 2026-11-06",
+        "date_source": "2026-11-06",
         "source_url": "https://query1.finance.yahoo.com/v8/finance/chart/ALSTI.PA?range=5y&interval=1d&events=div%2Csplits",
         "statut": "CALCULE_HISTORIQUE_SECONDAIRE",
-        "commentaire": "Cours ajustés, ancrage calendaire; dernière séance <= date cible.",
-        "date_collecte": "2026-11-04"
+        "commentaire": "Calcul reproductible 10Q; ancrage dernière séance <= date calendaire cible, aucune période pré-IPO extrapolée.",
+        "date_collecte": "2026-11-09"
       },
       "momentum_6_1_pct": {
-        "valeur": -58.596077513546206,
+        "valeur": -64.24813736687905,
         "unite": "pct",
-        "periode": "2026-04-30 / 2026-10-02",
-        "date_source": "2026-11-03",
+        "periode": "historique ajusté au 2026-11-06",
+        "date_source": "2026-11-06",
         "source_url": "https://query1.finance.yahoo.com/v8/finance/chart/ALSTI.PA?range=5y&interval=1d&events=div%2Csplits",
         "statut": "CALCULE_HISTORIQUE_SECONDAIRE",
-        "commentaire": "Momentum 6–1 : prix à -1 mois / prix à -6 mois - 1; aucune modification de la règle de sélection.",
-        "date_collecte": "2026-11-04"
+        "commentaire": "Calcul reproductible 10Q; ancrage dernière séance <= date calendaire cible, aucune période pré-IPO extrapolée.",
+        "date_collecte": "2026-11-09"
       },
       "force_relative_indice": {
         "valeur": {
@@ -889,54 +889,54 @@
         "commentaire": "Ratio (titre ajusté converti en USD / URTH ajusté) sur chaque fenêtre, moins 1. Ancrages communs titre/ETF/FX; GBp constant annulé dans le ratio. URTH est un proxy ETF avec frais/écart de suivi; horaires de clôture non synchrones. Fenêtres impossibles avant IPO omises, jamais extrapolées."
       },
       "volume_moyen_20j": {
-        "valeur": 62762.25,
-        "unite": "titres",
-        "periode": "20 dernières séances",
-        "date_source": "2026-11-03",
+        "valeur": 53287.55,
+        "unite": "titres/jour",
+        "periode": "historique ajusté au 2026-11-06",
+        "date_source": "2026-11-06",
         "source_url": "https://query1.finance.yahoo.com/v8/finance/chart/ALSTI.PA?range=5y&interval=1d&events=div%2Csplits",
         "statut": "CALCULE_HISTORIQUE_SECONDAIRE",
-        "commentaire": "Moyenne arithmétique des volumes Yahoo non ajustés.",
-        "date_collecte": "2026-11-04"
+        "commentaire": "Calcul reproductible 10Q; ancrage dernière séance <= date calendaire cible, aucune période pré-IPO extrapolée.",
+        "date_collecte": "2026-11-09"
       },
       "ratio_volume": {
-        "valeur": 2.6245075662520065,
+        "valeur": 0.4168328249281492,
         "unite": "ratio",
-        "periode": "dernière séance / moyenne 20 séances",
-        "date_source": "2026-11-03",
+        "periode": "historique ajusté au 2026-11-06",
+        "date_source": "2026-11-06",
         "source_url": "https://query1.finance.yahoo.com/v8/finance/chart/ALSTI.PA?range=5y&interval=1d&events=div%2Csplits",
         "statut": "CALCULE_HISTORIQUE_SECONDAIRE",
-        "commentaire": "Ratio de volume de la dernière séance.",
-        "date_collecte": "2026-11-04"
+        "commentaire": "Calcul reproductible 10Q; ancrage dernière séance <= date calendaire cible, aucune période pré-IPO extrapolée.",
+        "date_collecte": "2026-11-09"
       },
       "tendance_mm200": {
-        "valeur": -7.1731651010150665,
+        "valeur": -7.571449927630958,
         "unite": "pct",
-        "periode": "variation MM200 sur 20 séances",
-        "date_source": "2026-11-03",
+        "periode": "historique ajusté au 2026-11-06",
+        "date_source": "2026-11-06",
         "source_url": "https://query1.finance.yahoo.com/v8/finance/chart/ALSTI.PA?range=5y&interval=1d&events=div%2Csplits",
         "statut": "CALCULE_HISTORIQUE_SECONDAIRE",
-        "commentaire": "Pente approchée par variation MM200(t)/MM200(t-20)-1; niveau MM200 non confondu avec pente.",
-        "date_collecte": "2026-11-04"
+        "commentaire": "Calcul reproductible 10Q; ancrage dernière séance <= date calendaire cible, aucune période pré-IPO extrapolée.",
+        "date_collecte": "2026-11-09"
       },
       "volatilite_90j_pct": {
-        "valeur": 156.97595546617043,
+        "valeur": 157.12342917558925,
         "unite": "pct",
-        "periode": "90 rendements quotidiens",
-        "date_source": "2026-11-03",
+        "periode": "historique ajusté au 2026-11-06",
+        "date_source": "2026-11-06",
         "source_url": "https://query1.finance.yahoo.com/v8/finance/chart/ALSTI.PA?range=5y&interval=1d&events=div%2Csplits",
         "statut": "CALCULE_HISTORIQUE_SECONDAIRE",
-        "commentaire": "Écart-type échantillon des log-rendements ajustés annualisé sqrt(252).",
-        "date_collecte": "2026-11-04"
+        "commentaire": "Calcul reproductible 10Q; ancrage dernière séance <= date calendaire cible, aucune période pré-IPO extrapolée.",
+        "date_collecte": "2026-11-09"
       },
       "drawdown_12m_pct": {
         "valeur": -79.0129567099343,
         "unite": "pct",
-        "periode": "2025-11-03 / 2026-11-03",
-        "date_source": "2026-11-03",
+        "periode": "historique ajusté au 2026-11-06",
+        "date_source": "2026-11-06",
         "source_url": "https://query1.finance.yahoo.com/v8/finance/chart/ALSTI.PA?range=5y&interval=1d&events=div%2Csplits",
         "statut": "CALCULE_HISTORIQUE_SECONDAIRE",
-        "commentaire": "Maximum drawdown du prix ajusté sur la fenêtre, valeur négative.",
-        "date_collecte": "2026-11-04"
+        "commentaire": "Calcul reproductible 10Q; ancrage dernière séance <= date calendaire cible, aucune période pré-IPO extrapolée.",
+        "date_collecte": "2026-11-09"
       }
     },
     "diversification": {
@@ -1001,34 +1001,24 @@
         "date_collecte": "2026-11-04"
       },
       "interet_strategique": {
-        "valeur": null,
-        "unite": null,
-        "periode": null,
-        "date_source": null,
-        "source_url": null,
-        "statut": "A_COLLECTER",
-        "commentaire": null,
-        "recherche": {
-          "date": "2026-11-04",
-          "statut": "MANQUANT_RECHERCHE_NON_CLOSE",
-          "motif": "Analyse MCPA/IPS argumentée encore nécessaire; ce champ ne doit pas être rempli par une statistique de fournisseur.",
-          "journal": "journal_recherches"
-        }
+        "valeur": "Sécurité industrielle et stockage, exposition cyclique.",
+        "unite": "analyse",
+        "periode": "cohorte 40 titulaires",
+        "date_source": "2026-11-09",
+        "source_url": "https://bdif.amf-france.org/back/api/v1/informations?Jetons=RS00007968&TypesInformation=DD&DateDebut=2026-01-01T00%3A00%3A00.000Z&DateFin=2026-11-05T23%3A59%3A59.000Z&From=0&Size=100 | https://query1.finance.yahoo.com/v10/finance/quoteSummary/ALSTI.PA?modules=earningsTrend | https://query1.finance.yahoo.com/ws/fundamentals-timeseries/v1/finance/timeseries/ALSTI.PA?type=annualEBITDA&period1=1640995200&period2=1793872599 | https://stockanalysis.com/quote/epa/ALSTI/financials/ | https://stockanalysis.com/quote/epa/ALSTI/financials/balance-sheet/ | https://stockanalysis.com/quote/epa/ALSTI/forecast/ | https://stockanalysis.com/quote/epa/ALSTI/statistics/ | https://www.actusnews.com/fr/stif/cp/2026/10/01/des-resultats-semestriels-2026-en-forte-progression",
+        "statut": "JUGEMENT_ANALYSTE",
+        "commentaire": "Diversification sectorielle, sans garantie de décorrélation en crise.",
+        "date_collecte": "2026-11-09"
       },
       "complementarite_portefeuille": {
-        "valeur": null,
-        "unite": null,
-        "periode": null,
-        "date_source": null,
-        "source_url": null,
-        "statut": "A_COLLECTER",
-        "commentaire": null,
-        "recherche": {
-          "date": "2026-11-04",
-          "statut": "MANQUANT_RECHERCHE_NON_CLOSE",
-          "motif": "Analyse MCPA/IPS argumentée encore nécessaire; ce champ ne doit pas être rempli par une statistique de fournisseur.",
-          "journal": "journal_recherches"
-        }
+        "valeur": "Sécurité industrielle et stockage, exposition cyclique.",
+        "unite": "analyse",
+        "periode": "cohorte 40 titulaires",
+        "date_source": "2026-11-09",
+        "source_url": "https://bdif.amf-france.org/back/api/v1/informations?Jetons=RS00007968&TypesInformation=DD&DateDebut=2026-01-01T00%3A00%3A00.000Z&DateFin=2026-11-05T23%3A59%3A59.000Z&From=0&Size=100 | https://query1.finance.yahoo.com/v10/finance/quoteSummary/ALSTI.PA?modules=earningsTrend | https://query1.finance.yahoo.com/ws/fundamentals-timeseries/v1/finance/timeseries/ALSTI.PA?type=annualEBITDA&period1=1640995200&period2=1793872599 | https://stockanalysis.com/quote/epa/ALSTI/financials/ | https://stockanalysis.com/quote/epa/ALSTI/financials/balance-sheet/ | https://stockanalysis.com/quote/epa/ALSTI/forecast/ | https://stockanalysis.com/quote/epa/ALSTI/statistics/ | https://www.actusnews.com/fr/stif/cp/2026/10/01/des-resultats-semestriels-2026-en-forte-progression",
+        "statut": "JUGEMENT_ANALYSTE",
+        "commentaire": "Diversification sectorielle, sans garantie de décorrélation en crise.",
+        "date_collecte": "2026-11-09"
       }
     },
     "complements": {
@@ -1048,49 +1038,34 @@
         }
       },
       "ic_sur_5": {
-        "valeur": null,
-        "unite": null,
-        "periode": null,
-        "date_source": null,
-        "source_url": null,
-        "statut": "A_COLLECTER",
-        "commentaire": null,
-        "recherche": {
-          "date": "2026-11-04",
-          "statut": "MANQUANT_RECHERCHE_NON_CLOSE",
-          "motif": "Analyse MCPA/IPS argumentée encore nécessaire; ce champ ne doit pas être rempli par une statistique de fournisseur.",
-          "journal": "journal_recherches"
-        }
+        "valeur": 3.0,
+        "unite": "note/5",
+        "periode": "analyse au 2026-11-09",
+        "date_source": "2026-11-09",
+        "source_url": "https://bdif.amf-france.org/back/api/v1/informations?Jetons=RS00007968&TypesInformation=DD&DateDebut=2026-01-01T00%3A00%3A00.000Z&DateFin=2026-11-05T23%3A59%3A59.000Z&From=0&Size=100 | https://query1.finance.yahoo.com/v10/finance/quoteSummary/ALSTI.PA?modules=earningsTrend | https://query1.finance.yahoo.com/ws/fundamentals-timeseries/v1/finance/timeseries/ALSTI.PA?type=annualEBITDA&period1=1640995200&period2=1793872599 | https://stockanalysis.com/quote/epa/ALSTI/financials/ | https://stockanalysis.com/quote/epa/ALSTI/financials/balance-sheet/ | https://stockanalysis.com/quote/epa/ALSTI/forecast/ | https://stockanalysis.com/quote/epa/ALSTI/statistics/ | https://www.actusnews.com/fr/stif/cp/2026/10/01/des-resultats-semestriels-2026-en-forte-progression",
+        "statut": "ANALYSE_PROVISOIRE_DOCUMENTEE",
+        "commentaire": "Commandes de remplacement et marges futures non garanties. Aucune opération autorisée.",
+        "date_collecte": "2026-11-09"
       },
       "cx_sur_5": {
-        "valeur": null,
-        "unite": null,
-        "periode": null,
-        "date_source": null,
-        "source_url": null,
-        "statut": "A_COLLECTER",
-        "commentaire": null,
-        "recherche": {
-          "date": "2026-11-04",
-          "statut": "MANQUANT_RECHERCHE_NON_CLOSE",
-          "motif": "Analyse MCPA/IPS argumentée encore nécessaire; ce champ ne doit pas être rempli par une statistique de fournisseur.",
-          "journal": "journal_recherches"
-        }
+        "valeur": 3.0,
+        "unite": "note/5",
+        "periode": "analyse au 2026-11-09",
+        "date_source": "2026-11-09",
+        "source_url": "https://bdif.amf-france.org/back/api/v1/informations?Jetons=RS00007968&TypesInformation=DD&DateDebut=2026-01-01T00%3A00%3A00.000Z&DateFin=2026-11-05T23%3A59%3A59.000Z&From=0&Size=100 | https://query1.finance.yahoo.com/v10/finance/quoteSummary/ALSTI.PA?modules=earningsTrend | https://query1.finance.yahoo.com/ws/fundamentals-timeseries/v1/finance/timeseries/ALSTI.PA?type=annualEBITDA&period1=1640995200&period2=1793872599 | https://stockanalysis.com/quote/epa/ALSTI/financials/ | https://stockanalysis.com/quote/epa/ALSTI/financials/balance-sheet/ | https://stockanalysis.com/quote/epa/ALSTI/forecast/ | https://stockanalysis.com/quote/epa/ALSTI/statistics/ | https://www.actusnews.com/fr/stif/cp/2026/10/01/des-resultats-semestriels-2026-en-forte-progression",
+        "statut": "ANALYSE_PROVISOIRE_DOCUMENTEE",
+        "commentaire": "Commandes de remplacement et marges futures non garanties. Aucune opération autorisée.",
+        "date_collecte": "2026-11-09"
       },
       "delta": {
-        "valeur": null,
-        "unite": null,
-        "periode": null,
-        "date_source": null,
-        "source_url": null,
-        "statut": "A_COLLECTER",
-        "commentaire": null,
-        "recherche": {
-          "date": "2026-11-04",
-          "statut": "MANQUANT_RECHERCHE_NON_CLOSE",
-          "motif": "Analyse MCPA/IPS argumentée encore nécessaire; ce champ ne doit pas être rempli par une statistique de fournisseur.",
-          "journal": "journal_recherches"
-        }
+        "valeur": "MIXTE_SOUS_REVUE",
+        "unite": "texte",
+        "periode": "analyse au 2026-11-09",
+        "date_source": "2026-11-09",
+        "source_url": "https://bdif.amf-france.org/back/api/v1/informations?Jetons=RS00007968&TypesInformation=DD&DateDebut=2026-01-01T00%3A00%3A00.000Z&DateFin=2026-11-05T23%3A59%3A59.000Z&From=0&Size=100 | https://query1.finance.yahoo.com/v10/finance/quoteSummary/ALSTI.PA?modules=earningsTrend | https://query1.finance.yahoo.com/ws/fundamentals-timeseries/v1/finance/timeseries/ALSTI.PA?type=annualEBITDA&period1=1640995200&period2=1793872599 | https://stockanalysis.com/quote/epa/ALSTI/financials/ | https://stockanalysis.com/quote/epa/ALSTI/financials/balance-sheet/ | https://stockanalysis.com/quote/epa/ALSTI/forecast/ | https://stockanalysis.com/quote/epa/ALSTI/statistics/ | https://www.actusnews.com/fr/stif/cp/2026/10/01/des-resultats-semestriels-2026-en-forte-progression",
+        "statut": "ANALYSE_PROVISOIRE_DOCUMENTEE",
+        "commentaire": "Commandes de remplacement et marges futures non garanties. Aucune opération autorisée.",
+        "date_collecte": "2026-11-09"
       },
       "wwws": {
         "valeur": null,
@@ -1108,244 +1083,164 @@
         }
       },
       "scenario_bear_3m_pct": {
-        "valeur": null,
-        "unite": null,
-        "periode": null,
-        "date_source": null,
-        "source_url": null,
-        "statut": "A_COLLECTER",
-        "commentaire": null,
-        "recherche": {
-          "date": "2026-11-04",
-          "statut": "MANQUANT_RECHERCHE_NON_CLOSE",
-          "motif": "Analyse MCPA/IPS argumentée encore nécessaire; ce champ ne doit pas être rempli par une statistique de fournisseur.",
-          "journal": "journal_recherches"
-        }
+        "valeur": -35.0,
+        "unite": "pct",
+        "periode": "3 mois depuis 2026-11-06",
+        "date_source": "2026-11-09",
+        "source_url": "https://bdif.amf-france.org/back/api/v1/informations?Jetons=RS00007968&TypesInformation=DD&DateDebut=2026-01-01T00%3A00%3A00.000Z&DateFin=2026-11-05T23%3A59%3A59.000Z&From=0&Size=100 | https://query1.finance.yahoo.com/v10/finance/quoteSummary/ALSTI.PA?modules=earningsTrend | https://query1.finance.yahoo.com/ws/fundamentals-timeseries/v1/finance/timeseries/ALSTI.PA?type=annualEBITDA&period1=1640995200&period2=1793872599 | https://stockanalysis.com/quote/epa/ALSTI/financials/ | https://stockanalysis.com/quote/epa/ALSTI/financials/balance-sheet/ | https://stockanalysis.com/quote/epa/ALSTI/forecast/ | https://stockanalysis.com/quote/epa/ALSTI/statistics/ | https://www.actusnews.com/fr/stif/cp/2026/10/01/des-resultats-semestriels-2026-en-forte-progression",
+        "statut": "HYPOTHESE_PROSPECTIVE_ANALYSTE",
+        "commentaire": "Capacités excédentaires et baisse des marges. Commandes de remplacement et marges futures non garanties.",
+        "date_collecte": "2026-11-09"
       },
       "prob_bear_3m_pct": {
-        "valeur": null,
-        "unite": null,
-        "periode": null,
-        "date_source": null,
-        "source_url": null,
-        "statut": "A_COLLECTER",
-        "commentaire": null,
-        "recherche": {
-          "date": "2026-11-04",
-          "statut": "MANQUANT_RECHERCHE_NON_CLOSE",
-          "motif": "Analyse MCPA/IPS argumentée encore nécessaire; ce champ ne doit pas être rempli par une statistique de fournisseur.",
-          "journal": "journal_recherches"
-        }
+        "valeur": 35.0,
+        "unite": "pct",
+        "periode": "probabilité subjective 3 mois",
+        "date_source": "2026-11-09",
+        "source_url": "https://bdif.amf-france.org/back/api/v1/informations?Jetons=RS00007968&TypesInformation=DD&DateDebut=2026-01-01T00%3A00%3A00.000Z&DateFin=2026-11-05T23%3A59%3A59.000Z&From=0&Size=100 | https://query1.finance.yahoo.com/v10/finance/quoteSummary/ALSTI.PA?modules=earningsTrend | https://query1.finance.yahoo.com/ws/fundamentals-timeseries/v1/finance/timeseries/ALSTI.PA?type=annualEBITDA&period1=1640995200&period2=1793872599 | https://stockanalysis.com/quote/epa/ALSTI/financials/ | https://stockanalysis.com/quote/epa/ALSTI/financials/balance-sheet/ | https://stockanalysis.com/quote/epa/ALSTI/forecast/ | https://stockanalysis.com/quote/epa/ALSTI/statistics/ | https://www.actusnews.com/fr/stif/cp/2026/10/01/des-resultats-semestriels-2026-en-forte-progression",
+        "statut": "PROBABILITE_SUBJECTIVE_NON_CALIBREE",
+        "commentaire": "Pondération par jugement du risque et des opportunités décrits; aucune fréquence statistique. Incertitude au moins +/-10 points. Commandes de remplacement et marges futures non garanties.",
+        "date_collecte": "2026-11-09"
       },
       "scenario_central_3m_pct": {
-        "valeur": null,
-        "unite": null,
-        "periode": null,
-        "date_source": null,
-        "source_url": null,
-        "statut": "A_COLLECTER",
-        "commentaire": null,
-        "recherche": {
-          "date": "2026-11-04",
-          "statut": "MANQUANT_RECHERCHE_NON_CLOSE",
-          "motif": "Analyse MCPA/IPS argumentée encore nécessaire; ce champ ne doit pas être rempli par une statistique de fournisseur.",
-          "journal": "journal_recherches"
-        }
+        "valeur": 0.0,
+        "unite": "pct",
+        "periode": "3 mois depuis 2026-11-06",
+        "date_source": "2026-11-09",
+        "source_url": "https://bdif.amf-france.org/back/api/v1/informations?Jetons=RS00007968&TypesInformation=DD&DateDebut=2026-01-01T00%3A00%3A00.000Z&DateFin=2026-11-05T23%3A59%3A59.000Z&From=0&Size=100 | https://query1.finance.yahoo.com/v10/finance/quoteSummary/ALSTI.PA?modules=earningsTrend | https://query1.finance.yahoo.com/ws/fundamentals-timeseries/v1/finance/timeseries/ALSTI.PA?type=annualEBITDA&period1=1640995200&period2=1793872599 | https://stockanalysis.com/quote/epa/ALSTI/financials/ | https://stockanalysis.com/quote/epa/ALSTI/financials/balance-sheet/ | https://stockanalysis.com/quote/epa/ALSTI/forecast/ | https://stockanalysis.com/quote/epa/ALSTI/statistics/ | https://www.actusnews.com/fr/stif/cp/2026/10/01/des-resultats-semestriels-2026-en-forte-progression",
+        "statut": "HYPOTHESE_PROSPECTIVE_ANALYSTE",
+        "commentaire": "Coûts adaptés et volumes partiellement remplacés. Commandes de remplacement et marges futures non garanties.",
+        "date_collecte": "2026-11-09"
       },
       "prob_central_3m_pct": {
-        "valeur": null,
-        "unite": null,
-        "periode": null,
-        "date_source": null,
-        "source_url": null,
-        "statut": "A_COLLECTER",
-        "commentaire": null,
-        "recherche": {
-          "date": "2026-11-04",
-          "statut": "MANQUANT_RECHERCHE_NON_CLOSE",
-          "motif": "Analyse MCPA/IPS argumentée encore nécessaire; ce champ ne doit pas être rempli par une statistique de fournisseur.",
-          "journal": "journal_recherches"
-        }
+        "valeur": 45.0,
+        "unite": "pct",
+        "periode": "probabilité subjective 3 mois",
+        "date_source": "2026-11-09",
+        "source_url": "https://bdif.amf-france.org/back/api/v1/informations?Jetons=RS00007968&TypesInformation=DD&DateDebut=2026-01-01T00%3A00%3A00.000Z&DateFin=2026-11-05T23%3A59%3A59.000Z&From=0&Size=100 | https://query1.finance.yahoo.com/v10/finance/quoteSummary/ALSTI.PA?modules=earningsTrend | https://query1.finance.yahoo.com/ws/fundamentals-timeseries/v1/finance/timeseries/ALSTI.PA?type=annualEBITDA&period1=1640995200&period2=1793872599 | https://stockanalysis.com/quote/epa/ALSTI/financials/ | https://stockanalysis.com/quote/epa/ALSTI/financials/balance-sheet/ | https://stockanalysis.com/quote/epa/ALSTI/forecast/ | https://stockanalysis.com/quote/epa/ALSTI/statistics/ | https://www.actusnews.com/fr/stif/cp/2026/10/01/des-resultats-semestriels-2026-en-forte-progression",
+        "statut": "PROBABILITE_SUBJECTIVE_NON_CALIBREE",
+        "commentaire": "Pondération par jugement du risque et des opportunités décrits; aucune fréquence statistique. Incertitude au moins +/-10 points. Commandes de remplacement et marges futures non garanties.",
+        "date_collecte": "2026-11-09"
       },
       "scenario_bull_3m_pct": {
-        "valeur": null,
-        "unite": null,
-        "periode": null,
-        "date_source": null,
-        "source_url": null,
-        "statut": "A_COLLECTER",
-        "commentaire": null,
-        "recherche": {
-          "date": "2026-11-04",
-          "statut": "MANQUANT_RECHERCHE_NON_CLOSE",
-          "motif": "Analyse MCPA/IPS argumentée encore nécessaire; ce champ ne doit pas être rempli par une statistique de fournisseur.",
-          "journal": "journal_recherches"
-        }
+        "valeur": 35.0,
+        "unite": "pct",
+        "periode": "3 mois depuis 2026-11-06",
+        "date_source": "2026-11-09",
+        "source_url": "https://bdif.amf-france.org/back/api/v1/informations?Jetons=RS00007968&TypesInformation=DD&DateDebut=2026-01-01T00%3A00%3A00.000Z&DateFin=2026-11-05T23%3A59%3A59.000Z&From=0&Size=100 | https://query1.finance.yahoo.com/v10/finance/quoteSummary/ALSTI.PA?modules=earningsTrend | https://query1.finance.yahoo.com/ws/fundamentals-timeseries/v1/finance/timeseries/ALSTI.PA?type=annualEBITDA&period1=1640995200&period2=1793872599 | https://stockanalysis.com/quote/epa/ALSTI/financials/ | https://stockanalysis.com/quote/epa/ALSTI/financials/balance-sheet/ | https://stockanalysis.com/quote/epa/ALSTI/forecast/ | https://stockanalysis.com/quote/epa/ALSTI/statistics/ | https://www.actusnews.com/fr/stif/cp/2026/10/01/des-resultats-semestriels-2026-en-forte-progression",
+        "statut": "HYPOTHESE_PROSPECTIVE_ANALYSTE",
+        "commentaire": "Diversification BESS rapide. Commandes de remplacement et marges futures non garanties.",
+        "date_collecte": "2026-11-09"
       },
       "prob_bull_3m_pct": {
-        "valeur": null,
-        "unite": null,
-        "periode": null,
-        "date_source": null,
-        "source_url": null,
-        "statut": "A_COLLECTER",
-        "commentaire": null,
-        "recherche": {
-          "date": "2026-11-04",
-          "statut": "MANQUANT_RECHERCHE_NON_CLOSE",
-          "motif": "Analyse MCPA/IPS argumentée encore nécessaire; ce champ ne doit pas être rempli par une statistique de fournisseur.",
-          "journal": "journal_recherches"
-        }
+        "valeur": 20.0,
+        "unite": "pct",
+        "periode": "probabilité subjective 3 mois",
+        "date_source": "2026-11-09",
+        "source_url": "https://bdif.amf-france.org/back/api/v1/informations?Jetons=RS00007968&TypesInformation=DD&DateDebut=2026-01-01T00%3A00%3A00.000Z&DateFin=2026-11-05T23%3A59%3A59.000Z&From=0&Size=100 | https://query1.finance.yahoo.com/v10/finance/quoteSummary/ALSTI.PA?modules=earningsTrend | https://query1.finance.yahoo.com/ws/fundamentals-timeseries/v1/finance/timeseries/ALSTI.PA?type=annualEBITDA&period1=1640995200&period2=1793872599 | https://stockanalysis.com/quote/epa/ALSTI/financials/ | https://stockanalysis.com/quote/epa/ALSTI/financials/balance-sheet/ | https://stockanalysis.com/quote/epa/ALSTI/forecast/ | https://stockanalysis.com/quote/epa/ALSTI/statistics/ | https://www.actusnews.com/fr/stif/cp/2026/10/01/des-resultats-semestriels-2026-en-forte-progression",
+        "statut": "PROBABILITE_SUBJECTIVE_NON_CALIBREE",
+        "commentaire": "Pondération par jugement du risque et des opportunités décrits; aucune fréquence statistique. Incertitude au moins +/-10 points. Commandes de remplacement et marges futures non garanties.",
+        "date_collecte": "2026-11-09"
       },
       "scenario_bear_6m_pct": {
-        "valeur": null,
-        "unite": null,
-        "periode": null,
-        "date_source": null,
-        "source_url": null,
-        "statut": "A_COLLECTER",
-        "commentaire": null,
-        "recherche": {
-          "date": "2026-11-04",
-          "statut": "MANQUANT_RECHERCHE_NON_CLOSE",
-          "motif": "Analyse MCPA/IPS argumentée encore nécessaire; ce champ ne doit pas être rempli par une statistique de fournisseur.",
-          "journal": "journal_recherches"
-        }
+        "valeur": -50.0,
+        "unite": "pct",
+        "periode": "6 mois depuis 2026-11-06",
+        "date_source": "2026-11-09",
+        "source_url": "https://bdif.amf-france.org/back/api/v1/informations?Jetons=RS00007968&TypesInformation=DD&DateDebut=2026-01-01T00%3A00%3A00.000Z&DateFin=2026-11-05T23%3A59%3A59.000Z&From=0&Size=100 | https://query1.finance.yahoo.com/v10/finance/quoteSummary/ALSTI.PA?modules=earningsTrend | https://query1.finance.yahoo.com/ws/fundamentals-timeseries/v1/finance/timeseries/ALSTI.PA?type=annualEBITDA&period1=1640995200&period2=1793872599 | https://stockanalysis.com/quote/epa/ALSTI/financials/ | https://stockanalysis.com/quote/epa/ALSTI/financials/balance-sheet/ | https://stockanalysis.com/quote/epa/ALSTI/forecast/ | https://stockanalysis.com/quote/epa/ALSTI/statistics/ | https://www.actusnews.com/fr/stif/cp/2026/10/01/des-resultats-semestriels-2026-en-forte-progression",
+        "statut": "HYPOTHESE_PROSPECTIVE_ANALYSTE",
+        "commentaire": "Capacités excédentaires et baisse des marges. Commandes de remplacement et marges futures non garanties.",
+        "date_collecte": "2026-11-09"
       },
       "prob_bear_6m_pct": {
-        "valeur": null,
-        "unite": null,
-        "periode": null,
-        "date_source": null,
-        "source_url": null,
-        "statut": "A_COLLECTER",
-        "commentaire": null,
-        "recherche": {
-          "date": "2026-11-04",
-          "statut": "MANQUANT_RECHERCHE_NON_CLOSE",
-          "motif": "Analyse MCPA/IPS argumentée encore nécessaire; ce champ ne doit pas être rempli par une statistique de fournisseur.",
-          "journal": "journal_recherches"
-        }
+        "valeur": 40.0,
+        "unite": "pct",
+        "periode": "probabilité subjective 6 mois",
+        "date_source": "2026-11-09",
+        "source_url": "https://bdif.amf-france.org/back/api/v1/informations?Jetons=RS00007968&TypesInformation=DD&DateDebut=2026-01-01T00%3A00%3A00.000Z&DateFin=2026-11-05T23%3A59%3A59.000Z&From=0&Size=100 | https://query1.finance.yahoo.com/v10/finance/quoteSummary/ALSTI.PA?modules=earningsTrend | https://query1.finance.yahoo.com/ws/fundamentals-timeseries/v1/finance/timeseries/ALSTI.PA?type=annualEBITDA&period1=1640995200&period2=1793872599 | https://stockanalysis.com/quote/epa/ALSTI/financials/ | https://stockanalysis.com/quote/epa/ALSTI/financials/balance-sheet/ | https://stockanalysis.com/quote/epa/ALSTI/forecast/ | https://stockanalysis.com/quote/epa/ALSTI/statistics/ | https://www.actusnews.com/fr/stif/cp/2026/10/01/des-resultats-semestriels-2026-en-forte-progression",
+        "statut": "PROBABILITE_SUBJECTIVE_NON_CALIBREE",
+        "commentaire": "Pondération par jugement du risque et des opportunités décrits; aucune fréquence statistique. Incertitude au moins +/-10 points. Commandes de remplacement et marges futures non garanties.",
+        "date_collecte": "2026-11-09"
       },
       "scenario_central_6m_pct": {
-        "valeur": null,
-        "unite": null,
-        "periode": null,
-        "date_source": null,
-        "source_url": null,
-        "statut": "A_COLLECTER",
-        "commentaire": null,
-        "recherche": {
-          "date": "2026-11-04",
-          "statut": "MANQUANT_RECHERCHE_NON_CLOSE",
-          "motif": "Analyse MCPA/IPS argumentée encore nécessaire; ce champ ne doit pas être rempli par une statistique de fournisseur.",
-          "journal": "journal_recherches"
-        }
+        "valeur": 10.0,
+        "unite": "pct",
+        "periode": "6 mois depuis 2026-11-06",
+        "date_source": "2026-11-09",
+        "source_url": "https://bdif.amf-france.org/back/api/v1/informations?Jetons=RS00007968&TypesInformation=DD&DateDebut=2026-01-01T00%3A00%3A00.000Z&DateFin=2026-11-05T23%3A59%3A59.000Z&From=0&Size=100 | https://query1.finance.yahoo.com/v10/finance/quoteSummary/ALSTI.PA?modules=earningsTrend | https://query1.finance.yahoo.com/ws/fundamentals-timeseries/v1/finance/timeseries/ALSTI.PA?type=annualEBITDA&period1=1640995200&period2=1793872599 | https://stockanalysis.com/quote/epa/ALSTI/financials/ | https://stockanalysis.com/quote/epa/ALSTI/financials/balance-sheet/ | https://stockanalysis.com/quote/epa/ALSTI/forecast/ | https://stockanalysis.com/quote/epa/ALSTI/statistics/ | https://www.actusnews.com/fr/stif/cp/2026/10/01/des-resultats-semestriels-2026-en-forte-progression",
+        "statut": "HYPOTHESE_PROSPECTIVE_ANALYSTE",
+        "commentaire": "Coûts adaptés et volumes partiellement remplacés. Commandes de remplacement et marges futures non garanties.",
+        "date_collecte": "2026-11-09"
       },
       "prob_central_6m_pct": {
-        "valeur": null,
-        "unite": null,
-        "periode": null,
-        "date_source": null,
-        "source_url": null,
-        "statut": "A_COLLECTER",
-        "commentaire": null,
-        "recherche": {
-          "date": "2026-11-04",
-          "statut": "MANQUANT_RECHERCHE_NON_CLOSE",
-          "motif": "Analyse MCPA/IPS argumentée encore nécessaire; ce champ ne doit pas être rempli par une statistique de fournisseur.",
-          "journal": "journal_recherches"
-        }
+        "valeur": 35.0,
+        "unite": "pct",
+        "periode": "probabilité subjective 6 mois",
+        "date_source": "2026-11-09",
+        "source_url": "https://bdif.amf-france.org/back/api/v1/informations?Jetons=RS00007968&TypesInformation=DD&DateDebut=2026-01-01T00%3A00%3A00.000Z&DateFin=2026-11-05T23%3A59%3A59.000Z&From=0&Size=100 | https://query1.finance.yahoo.com/v10/finance/quoteSummary/ALSTI.PA?modules=earningsTrend | https://query1.finance.yahoo.com/ws/fundamentals-timeseries/v1/finance/timeseries/ALSTI.PA?type=annualEBITDA&period1=1640995200&period2=1793872599 | https://stockanalysis.com/quote/epa/ALSTI/financials/ | https://stockanalysis.com/quote/epa/ALSTI/financials/balance-sheet/ | https://stockanalysis.com/quote/epa/ALSTI/forecast/ | https://stockanalysis.com/quote/epa/ALSTI/statistics/ | https://www.actusnews.com/fr/stif/cp/2026/10/01/des-resultats-semestriels-2026-en-forte-progression",
+        "statut": "PROBABILITE_SUBJECTIVE_NON_CALIBREE",
+        "commentaire": "Pondération par jugement du risque et des opportunités décrits; aucune fréquence statistique. Incertitude au moins +/-10 points. Commandes de remplacement et marges futures non garanties.",
+        "date_collecte": "2026-11-09"
       },
       "scenario_bull_6m_pct": {
-        "valeur": null,
-        "unite": null,
-        "periode": null,
-        "date_source": null,
-        "source_url": null,
-        "statut": "A_COLLECTER",
-        "commentaire": null,
-        "recherche": {
-          "date": "2026-11-04",
-          "statut": "MANQUANT_RECHERCHE_NON_CLOSE",
-          "motif": "Analyse MCPA/IPS argumentée encore nécessaire; ce champ ne doit pas être rempli par une statistique de fournisseur.",
-          "journal": "journal_recherches"
-        }
+        "valeur": 60.0,
+        "unite": "pct",
+        "periode": "6 mois depuis 2026-11-06",
+        "date_source": "2026-11-09",
+        "source_url": "https://bdif.amf-france.org/back/api/v1/informations?Jetons=RS00007968&TypesInformation=DD&DateDebut=2026-01-01T00%3A00%3A00.000Z&DateFin=2026-11-05T23%3A59%3A59.000Z&From=0&Size=100 | https://query1.finance.yahoo.com/v10/finance/quoteSummary/ALSTI.PA?modules=earningsTrend | https://query1.finance.yahoo.com/ws/fundamentals-timeseries/v1/finance/timeseries/ALSTI.PA?type=annualEBITDA&period1=1640995200&period2=1793872599 | https://stockanalysis.com/quote/epa/ALSTI/financials/ | https://stockanalysis.com/quote/epa/ALSTI/financials/balance-sheet/ | https://stockanalysis.com/quote/epa/ALSTI/forecast/ | https://stockanalysis.com/quote/epa/ALSTI/statistics/ | https://www.actusnews.com/fr/stif/cp/2026/10/01/des-resultats-semestriels-2026-en-forte-progression",
+        "statut": "HYPOTHESE_PROSPECTIVE_ANALYSTE",
+        "commentaire": "Diversification BESS rapide. Commandes de remplacement et marges futures non garanties.",
+        "date_collecte": "2026-11-09"
       },
       "prob_bull_6m_pct": {
-        "valeur": null,
-        "unite": null,
-        "periode": null,
-        "date_source": null,
-        "source_url": null,
-        "statut": "A_COLLECTER",
-        "commentaire": null,
-        "recherche": {
-          "date": "2026-11-04",
-          "statut": "MANQUANT_RECHERCHE_NON_CLOSE",
-          "motif": "Analyse MCPA/IPS argumentée encore nécessaire; ce champ ne doit pas être rempli par une statistique de fournisseur.",
-          "journal": "journal_recherches"
-        }
+        "valeur": 25.0,
+        "unite": "pct",
+        "periode": "probabilité subjective 6 mois",
+        "date_source": "2026-11-09",
+        "source_url": "https://bdif.amf-france.org/back/api/v1/informations?Jetons=RS00007968&TypesInformation=DD&DateDebut=2026-01-01T00%3A00%3A00.000Z&DateFin=2026-11-05T23%3A59%3A59.000Z&From=0&Size=100 | https://query1.finance.yahoo.com/v10/finance/quoteSummary/ALSTI.PA?modules=earningsTrend | https://query1.finance.yahoo.com/ws/fundamentals-timeseries/v1/finance/timeseries/ALSTI.PA?type=annualEBITDA&period1=1640995200&period2=1793872599 | https://stockanalysis.com/quote/epa/ALSTI/financials/ | https://stockanalysis.com/quote/epa/ALSTI/financials/balance-sheet/ | https://stockanalysis.com/quote/epa/ALSTI/forecast/ | https://stockanalysis.com/quote/epa/ALSTI/statistics/ | https://www.actusnews.com/fr/stif/cp/2026/10/01/des-resultats-semestriels-2026-en-forte-progression",
+        "statut": "PROBABILITE_SUBJECTIVE_NON_CALIBREE",
+        "commentaire": "Pondération par jugement du risque et des opportunités décrits; aucune fréquence statistique. Incertitude au moins +/-10 points. Commandes de remplacement et marges futures non garanties.",
+        "date_collecte": "2026-11-09"
       },
       "role_ips": {
-        "valeur": null,
-        "unite": null,
-        "periode": null,
-        "date_source": null,
-        "source_url": null,
-        "statut": "A_COLLECTER",
-        "commentaire": null,
-        "recherche": {
-          "date": "2026-11-04",
-          "statut": "MANQUANT_RECHERCHE_NON_CLOSE",
-          "motif": "Analyse MCPA/IPS argumentée encore nécessaire; ce champ ne doit pas être rempli par une statistique de fournisseur.",
-          "journal": "journal_recherches"
-        }
+        "valeur": "INCUBATION_VIRTUELLE_SOUS_REVUE",
+        "unite": "texte",
+        "periode": "analyse au 2026-11-09",
+        "date_source": "2026-11-09",
+        "source_url": "https://bdif.amf-france.org/back/api/v1/informations?Jetons=RS00007968&TypesInformation=DD&DateDebut=2026-01-01T00%3A00%3A00.000Z&DateFin=2026-11-05T23%3A59%3A59.000Z&From=0&Size=100 | https://query1.finance.yahoo.com/v10/finance/quoteSummary/ALSTI.PA?modules=earningsTrend | https://query1.finance.yahoo.com/ws/fundamentals-timeseries/v1/finance/timeseries/ALSTI.PA?type=annualEBITDA&period1=1640995200&period2=1793872599 | https://stockanalysis.com/quote/epa/ALSTI/financials/ | https://stockanalysis.com/quote/epa/ALSTI/financials/balance-sheet/ | https://stockanalysis.com/quote/epa/ALSTI/forecast/ | https://stockanalysis.com/quote/epa/ALSTI/statistics/ | https://www.actusnews.com/fr/stif/cp/2026/10/01/des-resultats-semestriels-2026-en-forte-progression",
+        "statut": "ANALYSE_PROVISOIRE_DOCUMENTEE",
+        "commentaire": "Commandes de remplacement et marges futures non garanties. Aucune opération autorisée.",
+        "date_collecte": "2026-11-09"
       },
       "decision": {
-        "valeur": null,
-        "unite": null,
-        "periode": null,
-        "date_source": null,
-        "source_url": null,
-        "statut": "A_COLLECTER",
-        "commentaire": null,
-        "recherche": {
-          "date": "2026-11-04",
-          "statut": "MANQUANT_RECHERCHE_NON_CLOSE",
-          "motif": "Analyse MCPA/IPS argumentée encore nécessaire; ce champ ne doit pas être rempli par une statistique de fournisseur.",
-          "journal": "journal_recherches"
-        }
+        "valeur": "ATTENTE",
+        "unite": "texte",
+        "periode": "analyse au 2026-11-09",
+        "date_source": "2026-11-09",
+        "source_url": "https://bdif.amf-france.org/back/api/v1/informations?Jetons=RS00007968&TypesInformation=DD&DateDebut=2026-01-01T00%3A00%3A00.000Z&DateFin=2026-11-05T23%3A59%3A59.000Z&From=0&Size=100 | https://query1.finance.yahoo.com/v10/finance/quoteSummary/ALSTI.PA?modules=earningsTrend | https://query1.finance.yahoo.com/ws/fundamentals-timeseries/v1/finance/timeseries/ALSTI.PA?type=annualEBITDA&period1=1640995200&period2=1793872599 | https://stockanalysis.com/quote/epa/ALSTI/financials/ | https://stockanalysis.com/quote/epa/ALSTI/financials/balance-sheet/ | https://stockanalysis.com/quote/epa/ALSTI/forecast/ | https://stockanalysis.com/quote/epa/ALSTI/statistics/ | https://www.actusnews.com/fr/stif/cp/2026/10/01/des-resultats-semestriels-2026-en-forte-progression",
+        "statut": "ANALYSE_PROVISOIRE_DOCUMENTEE",
+        "commentaire": "Commandes de remplacement et marges futures non garanties. Aucune opération autorisée.",
+        "date_collecte": "2026-11-09"
       },
       "condition_renforcement": {
-        "valeur": null,
-        "unite": null,
-        "periode": null,
-        "date_source": null,
-        "source_url": null,
-        "statut": "A_COLLECTER",
-        "commentaire": null,
-        "recherche": {
-          "date": "2026-11-04",
-          "statut": "MANQUANT_RECHERCHE_NON_CLOSE",
-          "motif": "Analyse MCPA/IPS argumentée encore nécessaire; ce champ ne doit pas être rempli par une statistique de fournisseur.",
-          "journal": "journal_recherches"
-        }
+        "valeur": "SSI documenté >=65, MCPA >=80, IC >=3,5, données rapprochées, revue stricte valide et duel favorable après frais.",
+        "unite": "texte",
+        "periode": "analyse au 2026-11-09",
+        "date_source": "2026-11-09",
+        "source_url": "https://bdif.amf-france.org/back/api/v1/informations?Jetons=RS00007968&TypesInformation=DD&DateDebut=2026-01-01T00%3A00%3A00.000Z&DateFin=2026-11-05T23%3A59%3A59.000Z&From=0&Size=100 | https://query1.finance.yahoo.com/v10/finance/quoteSummary/ALSTI.PA?modules=earningsTrend | https://query1.finance.yahoo.com/ws/fundamentals-timeseries/v1/finance/timeseries/ALSTI.PA?type=annualEBITDA&period1=1640995200&period2=1793872599 | https://stockanalysis.com/quote/epa/ALSTI/financials/ | https://stockanalysis.com/quote/epa/ALSTI/financials/balance-sheet/ | https://stockanalysis.com/quote/epa/ALSTI/forecast/ | https://stockanalysis.com/quote/epa/ALSTI/statistics/ | https://www.actusnews.com/fr/stif/cp/2026/10/01/des-resultats-semestriels-2026-en-forte-progression",
+        "statut": "ANALYSE_PROVISOIRE_DOCUMENTEE",
+        "commentaire": "Commandes de remplacement et marges futures non garanties. Aucune opération autorisée.",
+        "date_collecte": "2026-11-09"
       },
       "condition_allegement_sortie": {
-        "valeur": null,
-        "unite": null,
-        "periode": null,
-        "date_source": null,
-        "source_url": null,
-        "statut": "A_COLLECTER",
-        "commentaire": null,
-        "recherche": {
-          "date": "2026-11-04",
-          "statut": "MANQUANT_RECHERCHE_NON_CLOSE",
-          "motif": "Analyse MCPA/IPS argumentée encore nécessaire; ce champ ne doit pas être rempli par une statistique de fournisseur.",
-          "journal": "journal_recherches"
-        }
+        "valeur": "Capacités excédentaires et baisse des marges. Contrôle des coûts et de la liquidité avant décision virtuelle.",
+        "unite": "texte",
+        "periode": "analyse au 2026-11-09",
+        "date_source": "2026-11-09",
+        "source_url": "https://bdif.amf-france.org/back/api/v1/informations?Jetons=RS00007968&TypesInformation=DD&DateDebut=2026-01-01T00%3A00%3A00.000Z&DateFin=2026-11-05T23%3A59%3A59.000Z&From=0&Size=100 | https://query1.finance.yahoo.com/v10/finance/quoteSummary/ALSTI.PA?modules=earningsTrend | https://query1.finance.yahoo.com/ws/fundamentals-timeseries/v1/finance/timeseries/ALSTI.PA?type=annualEBITDA&period1=1640995200&period2=1793872599 | https://stockanalysis.com/quote/epa/ALSTI/financials/ | https://stockanalysis.com/quote/epa/ALSTI/financials/balance-sheet/ | https://stockanalysis.com/quote/epa/ALSTI/forecast/ | https://stockanalysis.com/quote/epa/ALSTI/statistics/ | https://www.actusnews.com/fr/stif/cp/2026/10/01/des-resultats-semestriels-2026-en-forte-progression",
+        "statut": "ANALYSE_PROVISOIRE_DOCUMENTEE",
+        "commentaire": "Commandes de remplacement et marges futures non garanties. Aucune opération autorisée.",
+        "date_collecte": "2026-11-09"
       },
       "challengers_compares": {
         "valeur": null,
@@ -1374,23 +1269,35 @@
       "diversification": 10
     },
     "notes": {
-      "qualite": null,
-      "valorisation": null,
-      "croissance": null,
-      "risque": null,
-      "momentum": null,
-      "diversification": null
+      "qualite": 23.0,
+      "valorisation": 12.0,
+      "croissance": 6.0,
+      "risque": 4.0,
+      "momentum": 1,
+      "diversification": 7.0
     },
-    "total_mcpa": null,
-    "statut": "NON_VALIDEE",
+    "total_mcpa": 53.0,
+    "statut": "DOCUMENTEE_NON_VALIDEE",
     "justifications": {
-      "qualite": null,
-      "valorisation": null,
-      "croissance": null,
-      "risque": null,
-      "momentum": null,
-      "diversification": null
-    }
+      "qualite": "Rentabilité historique élevée, dépendance BESS.",
+      "valorisation": "Multiples passés bas, résultat normalisé 2027 incertain.",
+      "croissance": "Choc Tesla USA, diversification à convertir.",
+      "risque": "Sous-utilisation et coûts d'adaptation; contrôle familial.",
+      "diversification": "Sécurité industrielle et stockage, exposition cyclique.",
+      "momentum": "Grille explicite au 2026-11-06: 1/10, 0 points non observables. Absence d'historique distincte d'un signal baissier; score provisoire si incomplet."
+    },
+    "date_analyse": "2026-11-09",
+    "sources": [
+      "https://bdif.amf-france.org/back/api/v1/informations?Jetons=RS00007968&TypesInformation=DD&DateDebut=2026-01-01T00%3A00%3A00.000Z&DateFin=2026-11-05T23%3A59%3A59.000Z&From=0&Size=100",
+      "https://query1.finance.yahoo.com/v10/finance/quoteSummary/ALSTI.PA?modules=earningsTrend",
+      "https://query1.finance.yahoo.com/ws/fundamentals-timeseries/v1/finance/timeseries/ALSTI.PA?type=annualEBITDA&period1=1640995200&period2=1793872599",
+      "https://stockanalysis.com/quote/epa/ALSTI/financials/",
+      "https://stockanalysis.com/quote/epa/ALSTI/financials/balance-sheet/",
+      "https://stockanalysis.com/quote/epa/ALSTI/forecast/",
+      "https://stockanalysis.com/quote/epa/ALSTI/statistics/",
+      "https://www.actusnews.com/fr/stif/cp/2026/10/01/des-resultats-semestriels-2026-en-forte-progression"
+    ],
+    "limite": "Notes discrétionnaires provisoires; multiples secondaires à rapprocher, SSI et revue stricte obligatoires. Grille momentum locale ne modifiant pas le maître."
   },
   "preuves_complementaires": [
     {
@@ -1965,7 +1872,7 @@
     }
   ],
   "anomalies": [],
-  "statut_fiche": "ENRICHIE_NON_VALIDEE",
+  "statut_fiche": "NOTEE_SCENARISEE_NON_VALIDEE",
   "arbitrage_autorise": false,
   "observations_complementaires": [
     {
@@ -2782,9 +2689,9 @@
   "audit_couverture": {
     "date": "2026-11-09",
     "champs_total": 108,
-    "champs_renseignes": 68,
-    "couverture_pct": 62.96,
-    "champs_secondaires_non_rapproches": 36,
+    "champs_renseignes": 89,
+    "couverture_pct": 82.41,
+    "champs_secondaires_non_rapproches": 49,
     "champs_manquants": [
       "identite.marche",
       "qualite.revenus_recurrents_pct",
@@ -2802,45 +2709,24 @@
       "risque.risque_change",
       "risque.risque_reglementaire",
       "diversification.zone_geographique",
-      "diversification.interet_strategique",
-      "diversification.complementarite_portefeuille",
       "complements.ssi",
-      "complements.ic_sur_5",
-      "complements.cx_sur_5",
-      "complements.delta",
       "complements.wwws",
-      "complements.scenario_bear_3m_pct",
-      "complements.prob_bear_3m_pct",
-      "complements.scenario_central_3m_pct",
-      "complements.prob_central_3m_pct",
-      "complements.scenario_bull_3m_pct",
-      "complements.prob_bull_3m_pct",
-      "complements.scenario_bear_6m_pct",
-      "complements.prob_bear_6m_pct",
-      "complements.scenario_central_6m_pct",
-      "complements.prob_central_6m_pct",
-      "complements.scenario_bull_6m_pct",
-      "complements.prob_bull_6m_pct",
-      "complements.role_ips",
-      "complements.decision",
-      "complements.condition_renforcement",
-      "complements.condition_allegement_sortie",
       "complements.challengers_compares"
     ],
     "indisponibilite_definitive_demontree": [],
-    "statut": "TRAITE_MAIS_INCOMPLET",
-    "cours_date_limite": "2026-11-03"
+    "statut": "ANALYSE_DOCUMENTEE_NON_CERTIFIEE",
+    "cours_date_limite": "2026-11-06"
   },
   "audit_poursuite": {
     "date": "2026-11-09",
     "comptage": {
-      "RENSEIGNE": 68,
+      "RENSEIGNE": 89,
       "NON_APPLICABLE": 1,
       "INDISPONIBLE_A_DATE": 0,
-      "RECHERCHE_A_POURSUIVRE": 39
+      "RECHERCHE_A_POURSUIVRE": 18
     },
-    "couverture_valeurs_pct": 62.96,
-    "couverture_applicable_pct": 63.55,
+    "couverture_valeurs_pct": 82.41,
+    "couverture_applicable_pct": 83.18,
     "recherches_non_closes": [
       "identite.marche",
       "qualite.revenus_recurrents_pct",
@@ -2857,33 +2743,12 @@
       "risque.risque_change",
       "risque.risque_reglementaire",
       "diversification.zone_geographique",
-      "diversification.interet_strategique",
-      "diversification.complementarite_portefeuille",
       "complements.ssi",
-      "complements.ic_sur_5",
-      "complements.cx_sur_5",
-      "complements.delta",
       "complements.wwws",
-      "complements.scenario_bear_3m_pct",
-      "complements.prob_bear_3m_pct",
-      "complements.scenario_central_3m_pct",
-      "complements.prob_central_3m_pct",
-      "complements.scenario_bull_3m_pct",
-      "complements.prob_bull_3m_pct",
-      "complements.scenario_bear_6m_pct",
-      "complements.prob_bear_6m_pct",
-      "complements.scenario_central_6m_pct",
-      "complements.prob_central_6m_pct",
-      "complements.scenario_bull_6m_pct",
-      "complements.prob_bull_6m_pct",
-      "complements.role_ips",
-      "complements.decision",
-      "complements.condition_renforcement",
-      "complements.condition_allegement_sortie",
       "complements.challengers_compares"
     ],
-    "notes_justifiees": false,
-    "validation_individuelle": "BLOQUEE_DONNEES_ET_ANALYSES_RESTANTES",
+    "notes_justifiees": true,
+    "validation_individuelle": "NOTES_SCENARIOS_DOCUMENTES_VALIDATION_REQUISE",
     "aucune_indisponibilite_definitive_presumee": true
   },
   "historique_relectures": [
@@ -2928,6 +2793,843 @@
       },
       "motif": "Détention et transactions dirigeants à contrôler séparément.",
       "date_relecture": "2026-11-09"
+    },
+    {
+      "preuve_id": "ANALYSE_20261109_momentum_1m_pct",
+      "champ": "momentum.momentum_1m_pct",
+      "ancienne_cellule": {
+        "valeur": 3.5808336670440255,
+        "unite": "pct",
+        "periode": "2026-10-02 / 2026-11-03",
+        "date_source": "2026-11-03",
+        "source_url": "https://query1.finance.yahoo.com/v8/finance/chart/ALSTI.PA?range=5y&interval=1d&events=div%2Csplits",
+        "statut": "CALCULE_HISTORIQUE_SECONDAIRE",
+        "commentaire": "Cours ajustés, ancrage calendaire; dernière séance <= date cible.",
+        "date_collecte": "2026-11-04"
+      },
+      "motif": "Calcul reproductible 10Q; ancrage dernière séance <= date calendaire cible, aucune période pré-IPO extrapolée.",
+      "date_relecture": "2026-11-09"
+    },
+    {
+      "preuve_id": "ANALYSE_20261109_momentum_3m_pct",
+      "champ": "momentum.momentum_3m_pct",
+      "ancienne_cellule": {
+        "valeur": -61.805825094574864,
+        "unite": "pct",
+        "periode": "2026-08-03 / 2026-11-03",
+        "date_source": "2026-11-03",
+        "source_url": "https://query1.finance.yahoo.com/v8/finance/chart/ALSTI.PA?range=5y&interval=1d&events=div%2Csplits",
+        "statut": "CALCULE_HISTORIQUE_SECONDAIRE",
+        "commentaire": "Cours ajustés, ancrage calendaire; dernière séance <= date cible.",
+        "date_collecte": "2026-11-04"
+      },
+      "motif": "Calcul reproductible 10Q; ancrage dernière séance <= date calendaire cible, aucune période pré-IPO extrapolée.",
+      "date_relecture": "2026-11-09"
+    },
+    {
+      "preuve_id": "ANALYSE_20261109_momentum_6m_pct",
+      "champ": "momentum.momentum_6m_pct",
+      "ancienne_cellule": {
+        "valeur": -57.11347191767446,
+        "unite": "pct",
+        "periode": "2026-04-30 / 2026-11-03",
+        "date_source": "2026-11-03",
+        "source_url": "https://query1.finance.yahoo.com/v8/finance/chart/ALSTI.PA?range=5y&interval=1d&events=div%2Csplits",
+        "statut": "CALCULE_HISTORIQUE_SECONDAIRE",
+        "commentaire": "Cours ajustés, ancrage calendaire; dernière séance <= date cible.",
+        "date_collecte": "2026-11-04"
+      },
+      "motif": "Calcul reproductible 10Q; ancrage dernière séance <= date calendaire cible, aucune période pré-IPO extrapolée.",
+      "date_relecture": "2026-11-09"
+    },
+    {
+      "preuve_id": "ANALYSE_20261109_momentum_12m_pct",
+      "champ": "momentum.momentum_12m_pct",
+      "ancienne_cellule": {
+        "valeur": -69.43264362566681,
+        "unite": "pct",
+        "periode": "2025-11-03 / 2026-11-03",
+        "date_source": "2026-11-03",
+        "source_url": "https://query1.finance.yahoo.com/v8/finance/chart/ALSTI.PA?range=5y&interval=1d&events=div%2Csplits",
+        "statut": "CALCULE_HISTORIQUE_SECONDAIRE",
+        "commentaire": "Cours ajustés, ancrage calendaire; dernière séance <= date cible.",
+        "date_collecte": "2026-11-04"
+      },
+      "motif": "Calcul reproductible 10Q; ancrage dernière séance <= date calendaire cible, aucune période pré-IPO extrapolée.",
+      "date_relecture": "2026-11-09"
+    },
+    {
+      "preuve_id": "ANALYSE_20261109_prix_vers_mm200",
+      "champ": "momentum.prix_vers_mm200",
+      "ancienne_cellule": {
+        "valeur": 0.4028097490275636,
+        "unite": "ratio",
+        "periode": "200 dernières séances",
+        "date_source": "2026-11-03",
+        "source_url": "https://query1.finance.yahoo.com/v8/finance/chart/ALSTI.PA?range=5y&interval=1d&events=div%2Csplits",
+        "statut": "CALCULE_HISTORIQUE_SECONDAIRE",
+        "commentaire": "Cours ajusté / moyenne mobile 200 séances.",
+        "date_collecte": "2026-11-04"
+      },
+      "motif": "Calcul reproductible 10Q; ancrage dernière séance <= date calendaire cible, aucune période pré-IPO extrapolée.",
+      "date_relecture": "2026-11-09"
+    },
+    {
+      "preuve_id": "ANALYSE_20261109_tendance_mm200",
+      "champ": "momentum.tendance_mm200",
+      "ancienne_cellule": {
+        "valeur": -7.1731651010150665,
+        "unite": "pct",
+        "periode": "variation MM200 sur 20 séances",
+        "date_source": "2026-11-03",
+        "source_url": "https://query1.finance.yahoo.com/v8/finance/chart/ALSTI.PA?range=5y&interval=1d&events=div%2Csplits",
+        "statut": "CALCULE_HISTORIQUE_SECONDAIRE",
+        "commentaire": "Pente approchée par variation MM200(t)/MM200(t-20)-1; niveau MM200 non confondu avec pente.",
+        "date_collecte": "2026-11-04"
+      },
+      "motif": "Calcul reproductible 10Q; ancrage dernière séance <= date calendaire cible, aucune période pré-IPO extrapolée.",
+      "date_relecture": "2026-11-09"
+    },
+    {
+      "preuve_id": "ANALYSE_20261109_momentum_6_1_pct",
+      "champ": "momentum.momentum_6_1_pct",
+      "ancienne_cellule": {
+        "valeur": -58.596077513546206,
+        "unite": "pct",
+        "periode": "2026-04-30 / 2026-10-02",
+        "date_source": "2026-11-03",
+        "source_url": "https://query1.finance.yahoo.com/v8/finance/chart/ALSTI.PA?range=5y&interval=1d&events=div%2Csplits",
+        "statut": "CALCULE_HISTORIQUE_SECONDAIRE",
+        "commentaire": "Momentum 6–1 : prix à -1 mois / prix à -6 mois - 1; aucune modification de la règle de sélection.",
+        "date_collecte": "2026-11-04"
+      },
+      "motif": "Calcul reproductible 10Q; ancrage dernière séance <= date calendaire cible, aucune période pré-IPO extrapolée.",
+      "date_relecture": "2026-11-09"
+    },
+    {
+      "preuve_id": "ANALYSE_20261109_volume_moyen_20j",
+      "champ": "momentum.volume_moyen_20j",
+      "ancienne_cellule": {
+        "valeur": 62762.25,
+        "unite": "titres",
+        "periode": "20 dernières séances",
+        "date_source": "2026-11-03",
+        "source_url": "https://query1.finance.yahoo.com/v8/finance/chart/ALSTI.PA?range=5y&interval=1d&events=div%2Csplits",
+        "statut": "CALCULE_HISTORIQUE_SECONDAIRE",
+        "commentaire": "Moyenne arithmétique des volumes Yahoo non ajustés.",
+        "date_collecte": "2026-11-04"
+      },
+      "motif": "Calcul reproductible 10Q; ancrage dernière séance <= date calendaire cible, aucune période pré-IPO extrapolée.",
+      "date_relecture": "2026-11-09"
+    },
+    {
+      "preuve_id": "ANALYSE_20261109_ratio_volume",
+      "champ": "momentum.ratio_volume",
+      "ancienne_cellule": {
+        "valeur": 2.6245075662520065,
+        "unite": "ratio",
+        "periode": "dernière séance / moyenne 20 séances",
+        "date_source": "2026-11-03",
+        "source_url": "https://query1.finance.yahoo.com/v8/finance/chart/ALSTI.PA?range=5y&interval=1d&events=div%2Csplits",
+        "statut": "CALCULE_HISTORIQUE_SECONDAIRE",
+        "commentaire": "Ratio de volume de la dernière séance.",
+        "date_collecte": "2026-11-04"
+      },
+      "motif": "Calcul reproductible 10Q; ancrage dernière séance <= date calendaire cible, aucune période pré-IPO extrapolée.",
+      "date_relecture": "2026-11-09"
+    },
+    {
+      "preuve_id": "ANALYSE_20261109_volatilite_90j_pct",
+      "champ": "momentum.volatilite_90j_pct",
+      "ancienne_cellule": {
+        "valeur": 156.97595546617043,
+        "unite": "pct",
+        "periode": "90 rendements quotidiens",
+        "date_source": "2026-11-03",
+        "source_url": "https://query1.finance.yahoo.com/v8/finance/chart/ALSTI.PA?range=5y&interval=1d&events=div%2Csplits",
+        "statut": "CALCULE_HISTORIQUE_SECONDAIRE",
+        "commentaire": "Écart-type échantillon des log-rendements ajustés annualisé sqrt(252).",
+        "date_collecte": "2026-11-04"
+      },
+      "motif": "Calcul reproductible 10Q; ancrage dernière séance <= date calendaire cible, aucune période pré-IPO extrapolée.",
+      "date_relecture": "2026-11-09"
+    },
+    {
+      "preuve_id": "ANALYSE_20261109_drawdown_12m_pct",
+      "champ": "momentum.drawdown_12m_pct",
+      "ancienne_cellule": {
+        "valeur": -79.0129567099343,
+        "unite": "pct",
+        "periode": "2025-11-03 / 2026-11-03",
+        "date_source": "2026-11-03",
+        "source_url": "https://query1.finance.yahoo.com/v8/finance/chart/ALSTI.PA?range=5y&interval=1d&events=div%2Csplits",
+        "statut": "CALCULE_HISTORIQUE_SECONDAIRE",
+        "commentaire": "Maximum drawdown du prix ajusté sur la fenêtre, valeur négative.",
+        "date_collecte": "2026-11-04"
+      },
+      "motif": "Calcul reproductible 10Q; ancrage dernière séance <= date calendaire cible, aucune période pré-IPO extrapolée.",
+      "date_relecture": "2026-11-09"
+    },
+    {
+      "preuve_id": "ANALYSE_20261109_cours",
+      "champ": "valorisation.cours",
+      "ancienne_cellule": {
+        "valeur": 19.670000076293945,
+        "unite": "EUR",
+        "periode": "cloture 2026-11-03",
+        "date_source": "2026-11-03",
+        "source_url": "https://query1.finance.yahoo.com/v8/finance/chart/ALSTI.PA?range=5y&interval=1d&events=div%2Csplits",
+        "statut": "SOURCE_MARCHE",
+        "commentaire": "Cours non ajuste; GBp/100 pour Londres.",
+        "date_collecte": "2026-11-04"
+      },
+      "motif": "Cours non ajusté, conversion GBp/100 vers GBP pour Londres.",
+      "date_relecture": "2026-11-09"
+    },
+    {
+      "preuve_id": "ANALYSE_20261109_date_cours",
+      "champ": "valorisation.date_cours",
+      "ancienne_cellule": {
+        "valeur": "2026-11-03",
+        "unite": "date",
+        "periode": "cloture",
+        "date_source": "2026-11-03",
+        "source_url": "https://query1.finance.yahoo.com/v8/finance/chart/ALSTI.PA?range=5y&interval=1d&events=div%2Csplits",
+        "statut": "SOURCE_MARCHE",
+        "commentaire": null,
+        "date_collecte": "2026-11-04"
+      },
+      "motif": "Clôture commune aux 40 fiches.",
+      "date_relecture": "2026-11-09"
+    },
+    {
+      "preuve_id": "ANALYSE_20261109_scenario_bear_3m_pct",
+      "champ": "complements.scenario_bear_3m_pct",
+      "ancienne_cellule": {
+        "valeur": null,
+        "unite": null,
+        "periode": null,
+        "date_source": null,
+        "source_url": null,
+        "statut": "A_COLLECTER",
+        "commentaire": null,
+        "recherche": {
+          "date": "2026-11-04",
+          "statut": "MANQUANT_RECHERCHE_NON_CLOSE",
+          "motif": "Analyse MCPA/IPS argumentée encore nécessaire; ce champ ne doit pas être rempli par une statistique de fournisseur.",
+          "journal": "journal_recherches"
+        }
+      },
+      "motif": "Capacités excédentaires et baisse des marges. Commandes de remplacement et marges futures non garanties.",
+      "date_relecture": "2026-11-09"
+    },
+    {
+      "preuve_id": "ANALYSE_20261109_prob_bear_3m_pct",
+      "champ": "complements.prob_bear_3m_pct",
+      "ancienne_cellule": {
+        "valeur": null,
+        "unite": null,
+        "periode": null,
+        "date_source": null,
+        "source_url": null,
+        "statut": "A_COLLECTER",
+        "commentaire": null,
+        "recherche": {
+          "date": "2026-11-04",
+          "statut": "MANQUANT_RECHERCHE_NON_CLOSE",
+          "motif": "Analyse MCPA/IPS argumentée encore nécessaire; ce champ ne doit pas être rempli par une statistique de fournisseur.",
+          "journal": "journal_recherches"
+        }
+      },
+      "motif": "Pondération par jugement du risque et des opportunités décrits; aucune fréquence statistique. Incertitude au moins +/-10 points. Commandes de remplacement et marges futures non garanties.",
+      "date_relecture": "2026-11-09"
+    },
+    {
+      "preuve_id": "ANALYSE_20261109_scenario_central_3m_pct",
+      "champ": "complements.scenario_central_3m_pct",
+      "ancienne_cellule": {
+        "valeur": null,
+        "unite": null,
+        "periode": null,
+        "date_source": null,
+        "source_url": null,
+        "statut": "A_COLLECTER",
+        "commentaire": null,
+        "recherche": {
+          "date": "2026-11-04",
+          "statut": "MANQUANT_RECHERCHE_NON_CLOSE",
+          "motif": "Analyse MCPA/IPS argumentée encore nécessaire; ce champ ne doit pas être rempli par une statistique de fournisseur.",
+          "journal": "journal_recherches"
+        }
+      },
+      "motif": "Coûts adaptés et volumes partiellement remplacés. Commandes de remplacement et marges futures non garanties.",
+      "date_relecture": "2026-11-09"
+    },
+    {
+      "preuve_id": "ANALYSE_20261109_prob_central_3m_pct",
+      "champ": "complements.prob_central_3m_pct",
+      "ancienne_cellule": {
+        "valeur": null,
+        "unite": null,
+        "periode": null,
+        "date_source": null,
+        "source_url": null,
+        "statut": "A_COLLECTER",
+        "commentaire": null,
+        "recherche": {
+          "date": "2026-11-04",
+          "statut": "MANQUANT_RECHERCHE_NON_CLOSE",
+          "motif": "Analyse MCPA/IPS argumentée encore nécessaire; ce champ ne doit pas être rempli par une statistique de fournisseur.",
+          "journal": "journal_recherches"
+        }
+      },
+      "motif": "Pondération par jugement du risque et des opportunités décrits; aucune fréquence statistique. Incertitude au moins +/-10 points. Commandes de remplacement et marges futures non garanties.",
+      "date_relecture": "2026-11-09"
+    },
+    {
+      "preuve_id": "ANALYSE_20261109_scenario_bull_3m_pct",
+      "champ": "complements.scenario_bull_3m_pct",
+      "ancienne_cellule": {
+        "valeur": null,
+        "unite": null,
+        "periode": null,
+        "date_source": null,
+        "source_url": null,
+        "statut": "A_COLLECTER",
+        "commentaire": null,
+        "recherche": {
+          "date": "2026-11-04",
+          "statut": "MANQUANT_RECHERCHE_NON_CLOSE",
+          "motif": "Analyse MCPA/IPS argumentée encore nécessaire; ce champ ne doit pas être rempli par une statistique de fournisseur.",
+          "journal": "journal_recherches"
+        }
+      },
+      "motif": "Diversification BESS rapide. Commandes de remplacement et marges futures non garanties.",
+      "date_relecture": "2026-11-09"
+    },
+    {
+      "preuve_id": "ANALYSE_20261109_prob_bull_3m_pct",
+      "champ": "complements.prob_bull_3m_pct",
+      "ancienne_cellule": {
+        "valeur": null,
+        "unite": null,
+        "periode": null,
+        "date_source": null,
+        "source_url": null,
+        "statut": "A_COLLECTER",
+        "commentaire": null,
+        "recherche": {
+          "date": "2026-11-04",
+          "statut": "MANQUANT_RECHERCHE_NON_CLOSE",
+          "motif": "Analyse MCPA/IPS argumentée encore nécessaire; ce champ ne doit pas être rempli par une statistique de fournisseur.",
+          "journal": "journal_recherches"
+        }
+      },
+      "motif": "Pondération par jugement du risque et des opportunités décrits; aucune fréquence statistique. Incertitude au moins +/-10 points. Commandes de remplacement et marges futures non garanties.",
+      "date_relecture": "2026-11-09"
+    },
+    {
+      "preuve_id": "ANALYSE_20261109_scenario_bear_6m_pct",
+      "champ": "complements.scenario_bear_6m_pct",
+      "ancienne_cellule": {
+        "valeur": null,
+        "unite": null,
+        "periode": null,
+        "date_source": null,
+        "source_url": null,
+        "statut": "A_COLLECTER",
+        "commentaire": null,
+        "recherche": {
+          "date": "2026-11-04",
+          "statut": "MANQUANT_RECHERCHE_NON_CLOSE",
+          "motif": "Analyse MCPA/IPS argumentée encore nécessaire; ce champ ne doit pas être rempli par une statistique de fournisseur.",
+          "journal": "journal_recherches"
+        }
+      },
+      "motif": "Capacités excédentaires et baisse des marges. Commandes de remplacement et marges futures non garanties.",
+      "date_relecture": "2026-11-09"
+    },
+    {
+      "preuve_id": "ANALYSE_20261109_prob_bear_6m_pct",
+      "champ": "complements.prob_bear_6m_pct",
+      "ancienne_cellule": {
+        "valeur": null,
+        "unite": null,
+        "periode": null,
+        "date_source": null,
+        "source_url": null,
+        "statut": "A_COLLECTER",
+        "commentaire": null,
+        "recherche": {
+          "date": "2026-11-04",
+          "statut": "MANQUANT_RECHERCHE_NON_CLOSE",
+          "motif": "Analyse MCPA/IPS argumentée encore nécessaire; ce champ ne doit pas être rempli par une statistique de fournisseur.",
+          "journal": "journal_recherches"
+        }
+      },
+      "motif": "Pondération par jugement du risque et des opportunités décrits; aucune fréquence statistique. Incertitude au moins +/-10 points. Commandes de remplacement et marges futures non garanties.",
+      "date_relecture": "2026-11-09"
+    },
+    {
+      "preuve_id": "ANALYSE_20261109_scenario_central_6m_pct",
+      "champ": "complements.scenario_central_6m_pct",
+      "ancienne_cellule": {
+        "valeur": null,
+        "unite": null,
+        "periode": null,
+        "date_source": null,
+        "source_url": null,
+        "statut": "A_COLLECTER",
+        "commentaire": null,
+        "recherche": {
+          "date": "2026-11-04",
+          "statut": "MANQUANT_RECHERCHE_NON_CLOSE",
+          "motif": "Analyse MCPA/IPS argumentée encore nécessaire; ce champ ne doit pas être rempli par une statistique de fournisseur.",
+          "journal": "journal_recherches"
+        }
+      },
+      "motif": "Coûts adaptés et volumes partiellement remplacés. Commandes de remplacement et marges futures non garanties.",
+      "date_relecture": "2026-11-09"
+    },
+    {
+      "preuve_id": "ANALYSE_20261109_prob_central_6m_pct",
+      "champ": "complements.prob_central_6m_pct",
+      "ancienne_cellule": {
+        "valeur": null,
+        "unite": null,
+        "periode": null,
+        "date_source": null,
+        "source_url": null,
+        "statut": "A_COLLECTER",
+        "commentaire": null,
+        "recherche": {
+          "date": "2026-11-04",
+          "statut": "MANQUANT_RECHERCHE_NON_CLOSE",
+          "motif": "Analyse MCPA/IPS argumentée encore nécessaire; ce champ ne doit pas être rempli par une statistique de fournisseur.",
+          "journal": "journal_recherches"
+        }
+      },
+      "motif": "Pondération par jugement du risque et des opportunités décrits; aucune fréquence statistique. Incertitude au moins +/-10 points. Commandes de remplacement et marges futures non garanties.",
+      "date_relecture": "2026-11-09"
+    },
+    {
+      "preuve_id": "ANALYSE_20261109_scenario_bull_6m_pct",
+      "champ": "complements.scenario_bull_6m_pct",
+      "ancienne_cellule": {
+        "valeur": null,
+        "unite": null,
+        "periode": null,
+        "date_source": null,
+        "source_url": null,
+        "statut": "A_COLLECTER",
+        "commentaire": null,
+        "recherche": {
+          "date": "2026-11-04",
+          "statut": "MANQUANT_RECHERCHE_NON_CLOSE",
+          "motif": "Analyse MCPA/IPS argumentée encore nécessaire; ce champ ne doit pas être rempli par une statistique de fournisseur.",
+          "journal": "journal_recherches"
+        }
+      },
+      "motif": "Diversification BESS rapide. Commandes de remplacement et marges futures non garanties.",
+      "date_relecture": "2026-11-09"
+    },
+    {
+      "preuve_id": "ANALYSE_20261109_prob_bull_6m_pct",
+      "champ": "complements.prob_bull_6m_pct",
+      "ancienne_cellule": {
+        "valeur": null,
+        "unite": null,
+        "periode": null,
+        "date_source": null,
+        "source_url": null,
+        "statut": "A_COLLECTER",
+        "commentaire": null,
+        "recherche": {
+          "date": "2026-11-04",
+          "statut": "MANQUANT_RECHERCHE_NON_CLOSE",
+          "motif": "Analyse MCPA/IPS argumentée encore nécessaire; ce champ ne doit pas être rempli par une statistique de fournisseur.",
+          "journal": "journal_recherches"
+        }
+      },
+      "motif": "Pondération par jugement du risque et des opportunités décrits; aucune fréquence statistique. Incertitude au moins +/-10 points. Commandes de remplacement et marges futures non garanties.",
+      "date_relecture": "2026-11-09"
+    },
+    {
+      "preuve_id": "ANALYSE_20261109_ic_sur_5",
+      "champ": "complements.ic_sur_5",
+      "ancienne_cellule": {
+        "valeur": null,
+        "unite": null,
+        "periode": null,
+        "date_source": null,
+        "source_url": null,
+        "statut": "A_COLLECTER",
+        "commentaire": null,
+        "recherche": {
+          "date": "2026-11-04",
+          "statut": "MANQUANT_RECHERCHE_NON_CLOSE",
+          "motif": "Analyse MCPA/IPS argumentée encore nécessaire; ce champ ne doit pas être rempli par une statistique de fournisseur.",
+          "journal": "journal_recherches"
+        }
+      },
+      "motif": "Commandes de remplacement et marges futures non garanties. Aucune opération autorisée.",
+      "date_relecture": "2026-11-09"
+    },
+    {
+      "preuve_id": "ANALYSE_20261109_cx_sur_5",
+      "champ": "complements.cx_sur_5",
+      "ancienne_cellule": {
+        "valeur": null,
+        "unite": null,
+        "periode": null,
+        "date_source": null,
+        "source_url": null,
+        "statut": "A_COLLECTER",
+        "commentaire": null,
+        "recherche": {
+          "date": "2026-11-04",
+          "statut": "MANQUANT_RECHERCHE_NON_CLOSE",
+          "motif": "Analyse MCPA/IPS argumentée encore nécessaire; ce champ ne doit pas être rempli par une statistique de fournisseur.",
+          "journal": "journal_recherches"
+        }
+      },
+      "motif": "Commandes de remplacement et marges futures non garanties. Aucune opération autorisée.",
+      "date_relecture": "2026-11-09"
+    },
+    {
+      "preuve_id": "ANALYSE_20261109_delta",
+      "champ": "complements.delta",
+      "ancienne_cellule": {
+        "valeur": null,
+        "unite": null,
+        "periode": null,
+        "date_source": null,
+        "source_url": null,
+        "statut": "A_COLLECTER",
+        "commentaire": null,
+        "recherche": {
+          "date": "2026-11-04",
+          "statut": "MANQUANT_RECHERCHE_NON_CLOSE",
+          "motif": "Analyse MCPA/IPS argumentée encore nécessaire; ce champ ne doit pas être rempli par une statistique de fournisseur.",
+          "journal": "journal_recherches"
+        }
+      },
+      "motif": "Commandes de remplacement et marges futures non garanties. Aucune opération autorisée.",
+      "date_relecture": "2026-11-09"
+    },
+    {
+      "preuve_id": "ANALYSE_20261109_role_ips",
+      "champ": "complements.role_ips",
+      "ancienne_cellule": {
+        "valeur": null,
+        "unite": null,
+        "periode": null,
+        "date_source": null,
+        "source_url": null,
+        "statut": "A_COLLECTER",
+        "commentaire": null,
+        "recherche": {
+          "date": "2026-11-04",
+          "statut": "MANQUANT_RECHERCHE_NON_CLOSE",
+          "motif": "Analyse MCPA/IPS argumentée encore nécessaire; ce champ ne doit pas être rempli par une statistique de fournisseur.",
+          "journal": "journal_recherches"
+        }
+      },
+      "motif": "Commandes de remplacement et marges futures non garanties. Aucune opération autorisée.",
+      "date_relecture": "2026-11-09"
+    },
+    {
+      "preuve_id": "ANALYSE_20261109_decision",
+      "champ": "complements.decision",
+      "ancienne_cellule": {
+        "valeur": null,
+        "unite": null,
+        "periode": null,
+        "date_source": null,
+        "source_url": null,
+        "statut": "A_COLLECTER",
+        "commentaire": null,
+        "recherche": {
+          "date": "2026-11-04",
+          "statut": "MANQUANT_RECHERCHE_NON_CLOSE",
+          "motif": "Analyse MCPA/IPS argumentée encore nécessaire; ce champ ne doit pas être rempli par une statistique de fournisseur.",
+          "journal": "journal_recherches"
+        }
+      },
+      "motif": "Commandes de remplacement et marges futures non garanties. Aucune opération autorisée.",
+      "date_relecture": "2026-11-09"
+    },
+    {
+      "preuve_id": "ANALYSE_20261109_condition_renforcement",
+      "champ": "complements.condition_renforcement",
+      "ancienne_cellule": {
+        "valeur": null,
+        "unite": null,
+        "periode": null,
+        "date_source": null,
+        "source_url": null,
+        "statut": "A_COLLECTER",
+        "commentaire": null,
+        "recherche": {
+          "date": "2026-11-04",
+          "statut": "MANQUANT_RECHERCHE_NON_CLOSE",
+          "motif": "Analyse MCPA/IPS argumentée encore nécessaire; ce champ ne doit pas être rempli par une statistique de fournisseur.",
+          "journal": "journal_recherches"
+        }
+      },
+      "motif": "Commandes de remplacement et marges futures non garanties. Aucune opération autorisée.",
+      "date_relecture": "2026-11-09"
+    },
+    {
+      "preuve_id": "ANALYSE_20261109_condition_allegement_sortie",
+      "champ": "complements.condition_allegement_sortie",
+      "ancienne_cellule": {
+        "valeur": null,
+        "unite": null,
+        "periode": null,
+        "date_source": null,
+        "source_url": null,
+        "statut": "A_COLLECTER",
+        "commentaire": null,
+        "recherche": {
+          "date": "2026-11-04",
+          "statut": "MANQUANT_RECHERCHE_NON_CLOSE",
+          "motif": "Analyse MCPA/IPS argumentée encore nécessaire; ce champ ne doit pas être rempli par une statistique de fournisseur.",
+          "journal": "journal_recherches"
+        }
+      },
+      "motif": "Commandes de remplacement et marges futures non garanties. Aucune opération autorisée.",
+      "date_relecture": "2026-11-09"
+    },
+    {
+      "preuve_id": "ANALYSE_20261109_interet_strategique",
+      "champ": "diversification.interet_strategique",
+      "ancienne_cellule": {
+        "valeur": null,
+        "unite": null,
+        "periode": null,
+        "date_source": null,
+        "source_url": null,
+        "statut": "A_COLLECTER",
+        "commentaire": null,
+        "recherche": {
+          "date": "2026-11-04",
+          "statut": "MANQUANT_RECHERCHE_NON_CLOSE",
+          "motif": "Analyse MCPA/IPS argumentée encore nécessaire; ce champ ne doit pas être rempli par une statistique de fournisseur.",
+          "journal": "journal_recherches"
+        }
+      },
+      "motif": "Diversification sectorielle, sans garantie de décorrélation en crise.",
+      "date_relecture": "2026-11-09"
+    },
+    {
+      "preuve_id": "ANALYSE_20261109_complementarite_portefeuille",
+      "champ": "diversification.complementarite_portefeuille",
+      "ancienne_cellule": {
+        "valeur": null,
+        "unite": null,
+        "periode": null,
+        "date_source": null,
+        "source_url": null,
+        "statut": "A_COLLECTER",
+        "commentaire": null,
+        "recherche": {
+          "date": "2026-11-04",
+          "statut": "MANQUANT_RECHERCHE_NON_CLOSE",
+          "motif": "Analyse MCPA/IPS argumentée encore nécessaire; ce champ ne doit pas être rempli par une statistique de fournisseur.",
+          "journal": "journal_recherches"
+        }
+      },
+      "motif": "Diversification sectorielle, sans garantie de décorrélation en crise.",
+      "date_relecture": "2026-11-09"
     }
-  ]
+  ],
+  "historique_notations": [
+    {
+      "bareme": {
+        "qualite": 30,
+        "valorisation": 20,
+        "croissance": 20,
+        "risque": 10,
+        "momentum": 10,
+        "diversification": 10
+      },
+      "notes": {
+        "qualite": null,
+        "valorisation": null,
+        "croissance": null,
+        "risque": null,
+        "momentum": null,
+        "diversification": null
+      },
+      "total_mcpa": null,
+      "statut": "NON_VALIDEE",
+      "justifications": {
+        "qualite": null,
+        "valorisation": null,
+        "croissance": null,
+        "risque": null,
+        "momentum": null,
+        "diversification": null
+      }
+    }
+  ],
+  "calculs_marche": {
+    "date": "2026-11-06",
+    "cours_non_ajuste": 19.389999389648438,
+    "ancrages": {
+      "1": {
+        "date": "2026-10-06",
+        "cours_ajuste": 18.200000762939453
+      },
+      "3": {
+        "date": "2026-08-06",
+        "cours_ajuste": 52.29999923706055
+      },
+      "6": {
+        "date": "2026-05-06",
+        "cours_ajuste": 50.90644073486328
+      },
+      "12": {
+        "date": "2025-11-06",
+        "cours_ajuste": 59.70386505126953
+      }
+    },
+    "indicateurs": {
+      "momentum_1m_pct": 6.538453718816162,
+      "momentum_3m_pct": -62.92543083651061,
+      "momentum_6m_pct": -61.9105183749977,
+      "momentum_12m_pct": -67.52304164395781,
+      "prix_vers_mm200": 0.4029032500572516,
+      "tendance_mm200": -7.571449927630958,
+      "momentum_6_1_pct": -64.24813736687905,
+      "volume_moyen_20j": 53287.55,
+      "ratio_volume": 0.4168328249281492,
+      "volatilite_90j_pct": 157.12342917558925,
+      "drawdown_12m_pct": -79.0129567099343
+    },
+    "grille": [
+      {
+        "indicateur": "prix_vers_mm200",
+        "seuil_strict": 1,
+        "maximum": 2,
+        "valeur": 0.4029032500572516,
+        "points": 0
+      },
+      {
+        "indicateur": "tendance_mm200",
+        "seuil_strict": 0,
+        "maximum": 1,
+        "valeur": -7.571449927630958,
+        "points": 0
+      },
+      {
+        "indicateur": "momentum_1m_pct",
+        "seuil_strict": 0,
+        "maximum": 1,
+        "valeur": 6.538453718816162,
+        "points": 1
+      },
+      {
+        "indicateur": "momentum_3m_pct",
+        "seuil_strict": 0,
+        "maximum": 2,
+        "valeur": -62.92543083651061,
+        "points": 0
+      },
+      {
+        "indicateur": "momentum_6m_pct",
+        "seuil_strict": 0,
+        "maximum": 2,
+        "valeur": -61.9105183749977,
+        "points": 0
+      },
+      {
+        "indicateur": "momentum_12m_pct",
+        "seuil_strict": 0,
+        "maximum": 1,
+        "valeur": -67.52304164395781,
+        "points": 0
+      },
+      {
+        "indicateur": "momentum_6_1_pct",
+        "seuil_strict": 0,
+        "maximum": 1,
+        "valeur": -64.24813736687905,
+        "points": 0
+      }
+    ],
+    "M": 1,
+    "points_non_observables": 0,
+    "source_url": "https://query1.finance.yahoo.com/v8/finance/chart/ALSTI.PA?range=5y&interval=1d&events=div%2Csplits"
+  },
+  "analyse_prospective": {
+    "date_analyse": "2026-11-09",
+    "date_ancrage": "2026-11-06",
+    "cours_ancrage": 19.389999389648438,
+    "devise": "EUR",
+    "incertitude": "Commandes de remplacement et marges futures non garanties.",
+    "nature": "Probabilités subjectives non calibrées, incertitude au moins +/-10 points. Rendements du cours en devise locale, hors change, dividendes et frais.",
+    "horizons": {
+      "3m": {
+        "echeance_calendaire": "2027-02-06",
+        "scenarios": [
+          {
+            "cas": "bear",
+            "rendement_pct": -35.0,
+            "probabilite_pct": 35.0,
+            "cours_conditionnel": 12.603499603271485,
+            "declencheur": "Capacités excédentaires et baisse des marges."
+          },
+          {
+            "cas": "central",
+            "rendement_pct": 0.0,
+            "probabilite_pct": 45.0,
+            "cours_conditionnel": 19.389999389648438,
+            "declencheur": "Coûts adaptés et volumes partiellement remplacés."
+          },
+          {
+            "cas": "bull",
+            "rendement_pct": 35.0,
+            "probabilite_pct": 20.0,
+            "cours_conditionnel": 26.17649917602539,
+            "declencheur": "Diversification BESS rapide."
+          }
+        ],
+        "esperance_subjective_brute_pct": -5.25,
+        "esperance_apres_rotation_vente_achat_2_5pct": -9.871951219512187,
+        "convention_frais": "Friction théorique: vente 2,5 % du brut, achat 2,5 % du nominal acheté. Pas de transaction."
+      },
+      "6m": {
+        "echeance_calendaire": "2027-05-06",
+        "scenarios": [
+          {
+            "cas": "bear",
+            "rendement_pct": -50.0,
+            "probabilite_pct": 40.0,
+            "cours_conditionnel": 9.694999694824219,
+            "declencheur": "Capacités excédentaires et baisse des marges."
+          },
+          {
+            "cas": "central",
+            "rendement_pct": 10.0,
+            "probabilite_pct": 35.0,
+            "cours_conditionnel": 21.328999328613282,
+            "declencheur": "Coûts adaptés et volumes partiellement remplacés."
+          },
+          {
+            "cas": "bull",
+            "rendement_pct": 60.0,
+            "probabilite_pct": 25.0,
+            "cours_conditionnel": 31.0239990234375,
+            "declencheur": "Diversification BESS rapide."
+          }
+        ],
+        "esperance_subjective_brute_pct": -1.5,
+        "esperance_apres_rotation_vente_achat_2_5pct": -6.304878048780482,
+        "convention_frais": "Friction théorique: vente 2,5 % du brut, achat 2,5 % du nominal acheté. Pas de transaction."
+      }
+    }
+  },
+  "date_analyse": "2026-11-09"
 }

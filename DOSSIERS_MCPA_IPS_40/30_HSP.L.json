@@ -286,24 +286,24 @@
     },
     "valorisation": {
       "cours": {
-        "valeur": 8.74,
+        "valeur": 8.8,
         "unite": "GBP",
-        "periode": "cloture 2026-11-03",
-        "date_source": "2026-11-03",
+        "periode": "clôture 2026-11-06",
+        "date_source": "2026-11-06",
         "source_url": "https://query1.finance.yahoo.com/v8/finance/chart/HSP.L?range=5y&interval=1d&events=div%2Csplits",
         "statut": "SOURCE_MARCHE",
-        "commentaire": "Cours non ajuste; GBp/100 pour Londres.",
-        "date_collecte": "2026-11-04"
+        "commentaire": "Cours non ajusté, conversion GBp/100 vers GBP pour Londres.",
+        "date_collecte": "2026-11-09"
       },
       "date_cours": {
-        "valeur": "2026-11-03",
+        "valeur": "2026-11-06",
         "unite": "date",
-        "periode": "cloture",
-        "date_source": "2026-11-03",
+        "periode": "clôture",
+        "date_source": "2026-11-06",
         "source_url": "https://query1.finance.yahoo.com/v8/finance/chart/HSP.L?range=5y&interval=1d&events=div%2Csplits",
         "statut": "SOURCE_MARCHE",
-        "commentaire": null,
-        "date_collecte": "2026-11-04"
+        "commentaire": "Clôture commune aux 40 fiches.",
+        "date_collecte": "2026-11-09"
       },
       "capitalisation": {
         "valeur": 267130000,
@@ -848,64 +848,64 @@
     },
     "momentum": {
       "prix_vers_mm200": {
-        "valeur": 1.0902125146079975,
+        "valeur": 1.0933531155057372,
         "unite": "ratio",
-        "periode": "200 dernières séances",
-        "date_source": "2026-11-03",
+        "periode": "historique ajusté au 2026-11-06",
+        "date_source": "2026-11-06",
         "source_url": "https://query1.finance.yahoo.com/v8/finance/chart/HSP.L?range=5y&interval=1d&events=div%2Csplits",
         "statut": "CALCULE_HISTORIQUE_SECONDAIRE",
-        "commentaire": "Cours ajusté / moyenne mobile 200 séances.",
-        "date_collecte": "2026-11-04"
+        "commentaire": "Calcul reproductible 10Q; ancrage dernière séance <= date calendaire cible, aucune période pré-IPO extrapolée.",
+        "date_collecte": "2026-11-09"
       },
       "momentum_1m_pct": {
-        "valeur": 4.545454545454541,
+        "valeur": 5.515587529976029,
         "unite": "pct",
-        "periode": "2026-10-02 / 2026-11-03",
-        "date_source": "2026-11-03",
+        "periode": "historique ajusté au 2026-11-06",
+        "date_source": "2026-11-06",
         "source_url": "https://query1.finance.yahoo.com/v8/finance/chart/HSP.L?range=5y&interval=1d&events=div%2Csplits",
         "statut": "CALCULE_HISTORIQUE_SECONDAIRE",
-        "commentaire": "Cours ajustés, ancrage calendaire; dernière séance <= date cible.",
-        "date_collecte": "2026-11-04"
+        "commentaire": "Calcul reproductible 10Q; ancrage dernière séance <= date calendaire cible, aucune période pré-IPO extrapolée.",
+        "date_collecte": "2026-11-09"
       },
       "momentum_3m_pct": {
-        "valeur": 8.462522958958175,
+        "valeur": 10.857600323301853,
         "unite": "pct",
-        "periode": "2026-08-03 / 2026-11-03",
-        "date_source": "2026-11-03",
+        "periode": "historique ajusté au 2026-11-06",
+        "date_source": "2026-11-06",
         "source_url": "https://query1.finance.yahoo.com/v8/finance/chart/HSP.L?range=5y&interval=1d&events=div%2Csplits",
         "statut": "CALCULE_HISTORIQUE_SECONDAIRE",
-        "commentaire": "Cours ajustés, ancrage calendaire; dernière séance <= date cible.",
-        "date_collecte": "2026-11-04"
+        "commentaire": "Calcul reproductible 10Q; ancrage dernière séance <= date calendaire cible, aucune période pré-IPO extrapolée.",
+        "date_collecte": "2026-11-09"
       },
       "momentum_6m_pct": {
-        "valeur": 10.379786020888538,
+        "valeur": 7.081428161353842,
         "unite": "pct",
-        "periode": "2026-05-01 / 2026-11-03",
-        "date_source": "2026-11-03",
+        "periode": "historique ajusté au 2026-11-06",
+        "date_source": "2026-11-06",
         "source_url": "https://query1.finance.yahoo.com/v8/finance/chart/HSP.L?range=5y&interval=1d&events=div%2Csplits",
         "statut": "CALCULE_HISTORIQUE_SECONDAIRE",
-        "commentaire": "Cours ajustés, ancrage calendaire; dernière séance <= date cible.",
-        "date_collecte": "2026-11-04"
+        "commentaire": "Calcul reproductible 10Q; ancrage dernière séance <= date calendaire cible, aucune période pré-IPO extrapolée.",
+        "date_collecte": "2026-11-09"
       },
       "momentum_12m_pct": {
-        "valeur": 32.08946977016369,
+        "valeur": 39.75163075975856,
         "unite": "pct",
-        "periode": "2025-11-03 / 2026-11-03",
-        "date_source": "2026-11-03",
+        "periode": "historique ajusté au 2026-11-06",
+        "date_source": "2026-11-06",
         "source_url": "https://query1.finance.yahoo.com/v8/finance/chart/HSP.L?range=5y&interval=1d&events=div%2Csplits",
         "statut": "CALCULE_HISTORIQUE_SECONDAIRE",
-        "commentaire": "Cours ajustés, ancrage calendaire; dernière séance <= date cible.",
-        "date_collecte": "2026-11-04"
+        "commentaire": "Calcul reproductible 10Q; ancrage dernière séance <= date calendaire cible, aucune période pré-IPO extrapolée.",
+        "date_collecte": "2026-11-09"
       },
       "momentum_6_1_pct": {
-        "valeur": 5.580664889545561,
+        "valeur": 1.4839898711012545,
         "unite": "pct",
-        "periode": "2026-05-01 / 2026-10-02",
-        "date_source": "2026-11-03",
+        "periode": "historique ajusté au 2026-11-06",
+        "date_source": "2026-11-06",
         "source_url": "https://query1.finance.yahoo.com/v8/finance/chart/HSP.L?range=5y&interval=1d&events=div%2Csplits",
         "statut": "CALCULE_HISTORIQUE_SECONDAIRE",
-        "commentaire": "Momentum 6–1 : prix à -1 mois / prix à -6 mois - 1; aucune modification de la règle de sélection.",
-        "date_collecte": "2026-11-04"
+        "commentaire": "Calcul reproductible 10Q; ancrage dernière séance <= date calendaire cible, aucune période pré-IPO extrapolée.",
+        "date_collecte": "2026-11-09"
       },
       "force_relative_indice": {
         "valeur": {
@@ -939,54 +939,54 @@
         "commentaire": "Ratio (titre ajusté converti en USD / URTH ajusté) sur chaque fenêtre, moins 1. Ancrages communs titre/ETF/FX; GBp constant annulé dans le ratio. URTH est un proxy ETF avec frais/écart de suivi; horaires de clôture non synchrones. Fenêtres impossibles avant IPO omises, jamais extrapolées."
       },
       "volume_moyen_20j": {
-        "valeur": 94489.05,
-        "unite": "titres",
-        "periode": "20 dernières séances",
-        "date_source": "2026-11-03",
+        "valeur": 117318.05,
+        "unite": "titres/jour",
+        "periode": "historique ajusté au 2026-11-06",
+        "date_source": "2026-11-06",
         "source_url": "https://query1.finance.yahoo.com/v8/finance/chart/HSP.L?range=5y&interval=1d&events=div%2Csplits",
         "statut": "CALCULE_HISTORIQUE_SECONDAIRE",
-        "commentaire": "Moyenne arithmétique des volumes Yahoo non ajustés.",
-        "date_collecte": "2026-11-04"
+        "commentaire": "Calcul reproductible 10Q; ancrage dernière séance <= date calendaire cible, aucune période pré-IPO extrapolée.",
+        "date_collecte": "2026-11-09"
       },
       "ratio_volume": {
-        "valeur": 0.5344322966523634,
+        "valeur": 1.0858175702715822,
         "unite": "ratio",
-        "periode": "dernière séance / moyenne 20 séances",
-        "date_source": "2026-11-03",
+        "periode": "historique ajusté au 2026-11-06",
+        "date_source": "2026-11-06",
         "source_url": "https://query1.finance.yahoo.com/v8/finance/chart/HSP.L?range=5y&interval=1d&events=div%2Csplits",
         "statut": "CALCULE_HISTORIQUE_SECONDAIRE",
-        "commentaire": "Ratio de volume de la dernière séance.",
-        "date_collecte": "2026-11-04"
+        "commentaire": "Calcul reproductible 10Q; ancrage dernière séance <= date calendaire cible, aucune période pré-IPO extrapolée.",
+        "date_collecte": "2026-11-09"
       },
       "tendance_mm200": {
-        "valeur": 2.5169738150846444,
+        "valeur": 2.594305953749809,
         "unite": "pct",
-        "periode": "variation MM200 sur 20 séances",
-        "date_source": "2026-11-03",
+        "periode": "historique ajusté au 2026-11-06",
+        "date_source": "2026-11-06",
         "source_url": "https://query1.finance.yahoo.com/v8/finance/chart/HSP.L?range=5y&interval=1d&events=div%2Csplits",
         "statut": "CALCULE_HISTORIQUE_SECONDAIRE",
-        "commentaire": "Pente approchée par variation MM200(t)/MM200(t-20)-1; niveau MM200 non confondu avec pente.",
-        "date_collecte": "2026-11-04"
+        "commentaire": "Calcul reproductible 10Q; ancrage dernière séance <= date calendaire cible, aucune période pré-IPO extrapolée.",
+        "date_collecte": "2026-11-09"
       },
       "volatilite_90j_pct": {
-        "valeur": 20.807054881275384,
+        "valeur": 20.610786865927082,
         "unite": "pct",
-        "periode": "90 rendements quotidiens",
-        "date_source": "2026-11-03",
+        "periode": "historique ajusté au 2026-11-06",
+        "date_source": "2026-11-06",
         "source_url": "https://query1.finance.yahoo.com/v8/finance/chart/HSP.L?range=5y&interval=1d&events=div%2Csplits",
         "statut": "CALCULE_HISTORIQUE_SECONDAIRE",
-        "commentaire": "Écart-type échantillon des log-rendements ajustés annualisé sqrt(252).",
-        "date_collecte": "2026-11-04"
+        "commentaire": "Calcul reproductible 10Q; ancrage dernière séance <= date calendaire cible, aucune période pré-IPO extrapolée.",
+        "date_collecte": "2026-11-09"
       },
       "drawdown_12m_pct": {
         "valeur": -14.37008555588597,
         "unite": "pct",
-        "periode": "2025-11-03 / 2026-11-03",
-        "date_source": "2026-11-03",
+        "periode": "historique ajusté au 2026-11-06",
+        "date_source": "2026-11-06",
         "source_url": "https://query1.finance.yahoo.com/v8/finance/chart/HSP.L?range=5y&interval=1d&events=div%2Csplits",
         "statut": "CALCULE_HISTORIQUE_SECONDAIRE",
-        "commentaire": "Maximum drawdown du prix ajusté sur la fenêtre, valeur négative.",
-        "date_collecte": "2026-11-04"
+        "commentaire": "Calcul reproductible 10Q; ancrage dernière séance <= date calendaire cible, aucune période pré-IPO extrapolée.",
+        "date_collecte": "2026-11-09"
       }
     },
     "diversification": {
@@ -1051,34 +1051,24 @@
         "date_collecte": "2026-11-04"
       },
       "interet_strategique": {
-        "valeur": null,
-        "unite": null,
-        "periode": null,
-        "date_source": null,
-        "source_url": null,
-        "statut": "A_COLLECTER",
-        "commentaire": null,
-        "recherche": {
-          "date": "2026-11-04",
-          "statut": "MANQUANT_RECHERCHE_NON_CLOSE",
-          "motif": "Analyse MCPA/IPS argumentée encore nécessaire; ce champ ne doit pas être rempli par une statistique de fournisseur.",
-          "journal": "journal_recherches"
-        }
+        "valeur": "Industrie et foncier diversifiants.",
+        "unite": "analyse",
+        "periode": "cohorte 40 titulaires",
+        "date_source": "2026-11-09",
+        "source_url": "https://hsgplc.co.uk/insight/hargreaves-full-financial-results-2026 | https://query1.finance.yahoo.com/v10/finance/quoteSummary/HSP.L?modules=earningsTrend | https://stockanalysis.com/quote/aim/HSP/financials/ | https://stockanalysis.com/quote/aim/HSP/financials/balance-sheet/ | https://stockanalysis.com/quote/aim/HSP/forecast/ | https://stockanalysis.com/quote/aim/HSP/statistics/",
+        "statut": "JUGEMENT_ANALYSTE",
+        "commentaire": "Diversification sectorielle, sans garantie de décorrélation en crise.",
+        "date_collecte": "2026-11-09"
       },
       "complementarite_portefeuille": {
-        "valeur": null,
-        "unite": null,
-        "periode": null,
-        "date_source": null,
-        "source_url": null,
-        "statut": "A_COLLECTER",
-        "commentaire": null,
-        "recherche": {
-          "date": "2026-11-04",
-          "statut": "MANQUANT_RECHERCHE_NON_CLOSE",
-          "motif": "Analyse MCPA/IPS argumentée encore nécessaire; ce champ ne doit pas être rempli par une statistique de fournisseur.",
-          "journal": "journal_recherches"
-        }
+        "valeur": "Industrie et foncier diversifiants.",
+        "unite": "analyse",
+        "periode": "cohorte 40 titulaires",
+        "date_source": "2026-11-09",
+        "source_url": "https://hsgplc.co.uk/insight/hargreaves-full-financial-results-2026 | https://query1.finance.yahoo.com/v10/finance/quoteSummary/HSP.L?modules=earningsTrend | https://stockanalysis.com/quote/aim/HSP/financials/ | https://stockanalysis.com/quote/aim/HSP/financials/balance-sheet/ | https://stockanalysis.com/quote/aim/HSP/forecast/ | https://stockanalysis.com/quote/aim/HSP/statistics/",
+        "statut": "JUGEMENT_ANALYSTE",
+        "commentaire": "Diversification sectorielle, sans garantie de décorrélation en crise.",
+        "date_collecte": "2026-11-09"
       }
     },
     "complements": {
@@ -1098,49 +1088,34 @@
         }
       },
       "ic_sur_5": {
-        "valeur": null,
-        "unite": null,
-        "periode": null,
-        "date_source": null,
-        "source_url": null,
-        "statut": "A_COLLECTER",
-        "commentaire": null,
-        "recherche": {
-          "date": "2026-11-04",
-          "statut": "MANQUANT_RECHERCHE_NON_CLOSE",
-          "motif": "Analyse MCPA/IPS argumentée encore nécessaire; ce champ ne doit pas être rempli par une statistique de fournisseur.",
-          "journal": "journal_recherches"
-        }
+        "valeur": 3.5,
+        "unite": "note/5",
+        "periode": "analyse au 2026-11-09",
+        "date_source": "2026-11-09",
+        "source_url": "https://hsgplc.co.uk/insight/hargreaves-full-financial-results-2026 | https://query1.finance.yahoo.com/v10/finance/quoteSummary/HSP.L?modules=earningsTrend | https://stockanalysis.com/quote/aim/HSP/financials/ | https://stockanalysis.com/quote/aim/HSP/financials/balance-sheet/ | https://stockanalysis.com/quote/aim/HSP/forecast/ | https://stockanalysis.com/quote/aim/HSP/statistics/",
+        "statut": "ANALYSE_PROVISOIRE_DOCUMENTEE",
+        "commentaire": "Cessions d'actifs non récurrentes. Aucune opération autorisée.",
+        "date_collecte": "2026-11-09"
       },
       "cx_sur_5": {
-        "valeur": null,
-        "unite": null,
-        "periode": null,
-        "date_source": null,
-        "source_url": null,
-        "statut": "A_COLLECTER",
-        "commentaire": null,
-        "recherche": {
-          "date": "2026-11-04",
-          "statut": "MANQUANT_RECHERCHE_NON_CLOSE",
-          "motif": "Analyse MCPA/IPS argumentée encore nécessaire; ce champ ne doit pas être rempli par une statistique de fournisseur.",
-          "journal": "journal_recherches"
-        }
+        "valeur": 3.0,
+        "unite": "note/5",
+        "periode": "analyse au 2026-11-09",
+        "date_source": "2026-11-09",
+        "source_url": "https://hsgplc.co.uk/insight/hargreaves-full-financial-results-2026 | https://query1.finance.yahoo.com/v10/finance/quoteSummary/HSP.L?modules=earningsTrend | https://stockanalysis.com/quote/aim/HSP/financials/ | https://stockanalysis.com/quote/aim/HSP/financials/balance-sheet/ | https://stockanalysis.com/quote/aim/HSP/forecast/ | https://stockanalysis.com/quote/aim/HSP/statistics/",
+        "statut": "ANALYSE_PROVISOIRE_DOCUMENTEE",
+        "commentaire": "Cessions d'actifs non récurrentes. Aucune opération autorisée.",
+        "date_collecte": "2026-11-09"
       },
       "delta": {
-        "valeur": null,
-        "unite": null,
-        "periode": null,
-        "date_source": null,
-        "source_url": null,
-        "statut": "A_COLLECTER",
-        "commentaire": null,
-        "recherche": {
-          "date": "2026-11-04",
-          "statut": "MANQUANT_RECHERCHE_NON_CLOSE",
-          "motif": "Analyse MCPA/IPS argumentée encore nécessaire; ce champ ne doit pas être rempli par une statistique de fournisseur.",
-          "journal": "journal_recherches"
-        }
+        "valeur": "MIXTE_SOUS_REVUE",
+        "unite": "texte",
+        "periode": "analyse au 2026-11-09",
+        "date_source": "2026-11-09",
+        "source_url": "https://hsgplc.co.uk/insight/hargreaves-full-financial-results-2026 | https://query1.finance.yahoo.com/v10/finance/quoteSummary/HSP.L?modules=earningsTrend | https://stockanalysis.com/quote/aim/HSP/financials/ | https://stockanalysis.com/quote/aim/HSP/financials/balance-sheet/ | https://stockanalysis.com/quote/aim/HSP/forecast/ | https://stockanalysis.com/quote/aim/HSP/statistics/",
+        "statut": "ANALYSE_PROVISOIRE_DOCUMENTEE",
+        "commentaire": "Cessions d'actifs non récurrentes. Aucune opération autorisée.",
+        "date_collecte": "2026-11-09"
       },
       "wwws": {
         "valeur": null,
@@ -1158,244 +1133,164 @@
         }
       },
       "scenario_bear_3m_pct": {
-        "valeur": null,
-        "unite": null,
-        "periode": null,
-        "date_source": null,
-        "source_url": null,
-        "statut": "A_COLLECTER",
-        "commentaire": null,
-        "recherche": {
-          "date": "2026-11-04",
-          "statut": "MANQUANT_RECHERCHE_NON_CLOSE",
-          "motif": "Analyse MCPA/IPS argumentée encore nécessaire; ce champ ne doit pas être rempli par une statistique de fournisseur.",
-          "journal": "journal_recherches"
-        }
+        "valeur": -18.0,
+        "unite": "pct",
+        "periode": "3 mois depuis 2026-11-06",
+        "date_source": "2026-11-09",
+        "source_url": "https://hsgplc.co.uk/insight/hargreaves-full-financial-results-2026 | https://query1.finance.yahoo.com/v10/finance/quoteSummary/HSP.L?modules=earningsTrend | https://stockanalysis.com/quote/aim/HSP/financials/ | https://stockanalysis.com/quote/aim/HSP/financials/balance-sheet/ | https://stockanalysis.com/quote/aim/HSP/forecast/ | https://stockanalysis.com/quote/aim/HSP/statistics/",
+        "statut": "HYPOTHESE_PROSPECTIVE_ANALYSTE",
+        "commentaire": "Décalages fonciers et industrie faible. Cessions d'actifs non récurrentes.",
+        "date_collecte": "2026-11-09"
       },
       "prob_bear_3m_pct": {
-        "valeur": null,
-        "unite": null,
-        "periode": null,
-        "date_source": null,
-        "source_url": null,
-        "statut": "A_COLLECTER",
-        "commentaire": null,
-        "recherche": {
-          "date": "2026-11-04",
-          "statut": "MANQUANT_RECHERCHE_NON_CLOSE",
-          "motif": "Analyse MCPA/IPS argumentée encore nécessaire; ce champ ne doit pas être rempli par une statistique de fournisseur.",
-          "journal": "journal_recherches"
-        }
+        "valeur": 25.0,
+        "unite": "pct",
+        "periode": "probabilité subjective 3 mois",
+        "date_source": "2026-11-09",
+        "source_url": "https://hsgplc.co.uk/insight/hargreaves-full-financial-results-2026 | https://query1.finance.yahoo.com/v10/finance/quoteSummary/HSP.L?modules=earningsTrend | https://stockanalysis.com/quote/aim/HSP/financials/ | https://stockanalysis.com/quote/aim/HSP/financials/balance-sheet/ | https://stockanalysis.com/quote/aim/HSP/forecast/ | https://stockanalysis.com/quote/aim/HSP/statistics/",
+        "statut": "PROBABILITE_SUBJECTIVE_NON_CALIBREE",
+        "commentaire": "Pondération par jugement du risque et des opportunités décrits; aucune fréquence statistique. Incertitude au moins +/-10 points. Cessions d'actifs non récurrentes.",
+        "date_collecte": "2026-11-09"
       },
       "scenario_central_3m_pct": {
-        "valeur": null,
-        "unite": null,
-        "periode": null,
-        "date_source": null,
-        "source_url": null,
-        "statut": "A_COLLECTER",
-        "commentaire": null,
-        "recherche": {
-          "date": "2026-11-04",
-          "statut": "MANQUANT_RECHERCHE_NON_CLOSE",
-          "motif": "Analyse MCPA/IPS argumentée encore nécessaire; ce champ ne doit pas être rempli par une statistique de fournisseur.",
-          "journal": "journal_recherches"
-        }
+        "valeur": 5.0,
+        "unite": "pct",
+        "periode": "3 mois depuis 2026-11-06",
+        "date_source": "2026-11-09",
+        "source_url": "https://hsgplc.co.uk/insight/hargreaves-full-financial-results-2026 | https://query1.finance.yahoo.com/v10/finance/quoteSummary/HSP.L?modules=earningsTrend | https://stockanalysis.com/quote/aim/HSP/financials/ | https://stockanalysis.com/quote/aim/HSP/financials/balance-sheet/ | https://stockanalysis.com/quote/aim/HSP/forecast/ | https://stockanalysis.com/quote/aim/HSP/statistics/",
+        "statut": "HYPOTHESE_PROSPECTIVE_ANALYSTE",
+        "commentaire": "Cash des contrats existants. Cessions d'actifs non récurrentes.",
+        "date_collecte": "2026-11-09"
       },
       "prob_central_3m_pct": {
-        "valeur": null,
-        "unite": null,
-        "periode": null,
-        "date_source": null,
-        "source_url": null,
-        "statut": "A_COLLECTER",
-        "commentaire": null,
-        "recherche": {
-          "date": "2026-11-04",
-          "statut": "MANQUANT_RECHERCHE_NON_CLOSE",
-          "motif": "Analyse MCPA/IPS argumentée encore nécessaire; ce champ ne doit pas être rempli par une statistique de fournisseur.",
-          "journal": "journal_recherches"
-        }
+        "valeur": 50.0,
+        "unite": "pct",
+        "periode": "probabilité subjective 3 mois",
+        "date_source": "2026-11-09",
+        "source_url": "https://hsgplc.co.uk/insight/hargreaves-full-financial-results-2026 | https://query1.finance.yahoo.com/v10/finance/quoteSummary/HSP.L?modules=earningsTrend | https://stockanalysis.com/quote/aim/HSP/financials/ | https://stockanalysis.com/quote/aim/HSP/financials/balance-sheet/ | https://stockanalysis.com/quote/aim/HSP/forecast/ | https://stockanalysis.com/quote/aim/HSP/statistics/",
+        "statut": "PROBABILITE_SUBJECTIVE_NON_CALIBREE",
+        "commentaire": "Pondération par jugement du risque et des opportunités décrits; aucune fréquence statistique. Incertitude au moins +/-10 points. Cessions d'actifs non récurrentes.",
+        "date_collecte": "2026-11-09"
       },
       "scenario_bull_3m_pct": {
-        "valeur": null,
-        "unite": null,
-        "periode": null,
-        "date_source": null,
-        "source_url": null,
-        "statut": "A_COLLECTER",
-        "commentaire": null,
-        "recherche": {
-          "date": "2026-11-04",
-          "statut": "MANQUANT_RECHERCHE_NON_CLOSE",
-          "motif": "Analyse MCPA/IPS argumentée encore nécessaire; ce champ ne doit pas être rempli par une statistique de fournisseur.",
-          "journal": "journal_recherches"
-        }
+        "valeur": 20.0,
+        "unite": "pct",
+        "periode": "3 mois depuis 2026-11-06",
+        "date_source": "2026-11-09",
+        "source_url": "https://hsgplc.co.uk/insight/hargreaves-full-financial-results-2026 | https://query1.finance.yahoo.com/v10/finance/quoteSummary/HSP.L?modules=earningsTrend | https://stockanalysis.com/quote/aim/HSP/financials/ | https://stockanalysis.com/quote/aim/HSP/financials/balance-sheet/ | https://stockanalysis.com/quote/aim/HSP/forecast/ | https://stockanalysis.com/quote/aim/HSP/statistics/",
+        "statut": "HYPOTHESE_PROSPECTIVE_ANALYSTE",
+        "commentaire": "Rentabilité et réalisation d'actifs. Cessions d'actifs non récurrentes.",
+        "date_collecte": "2026-11-09"
       },
       "prob_bull_3m_pct": {
-        "valeur": null,
-        "unite": null,
-        "periode": null,
-        "date_source": null,
-        "source_url": null,
-        "statut": "A_COLLECTER",
-        "commentaire": null,
-        "recherche": {
-          "date": "2026-11-04",
-          "statut": "MANQUANT_RECHERCHE_NON_CLOSE",
-          "motif": "Analyse MCPA/IPS argumentée encore nécessaire; ce champ ne doit pas être rempli par une statistique de fournisseur.",
-          "journal": "journal_recherches"
-        }
+        "valeur": 25.0,
+        "unite": "pct",
+        "periode": "probabilité subjective 3 mois",
+        "date_source": "2026-11-09",
+        "source_url": "https://hsgplc.co.uk/insight/hargreaves-full-financial-results-2026 | https://query1.finance.yahoo.com/v10/finance/quoteSummary/HSP.L?modules=earningsTrend | https://stockanalysis.com/quote/aim/HSP/financials/ | https://stockanalysis.com/quote/aim/HSP/financials/balance-sheet/ | https://stockanalysis.com/quote/aim/HSP/forecast/ | https://stockanalysis.com/quote/aim/HSP/statistics/",
+        "statut": "PROBABILITE_SUBJECTIVE_NON_CALIBREE",
+        "commentaire": "Pondération par jugement du risque et des opportunités décrits; aucune fréquence statistique. Incertitude au moins +/-10 points. Cessions d'actifs non récurrentes.",
+        "date_collecte": "2026-11-09"
       },
       "scenario_bear_6m_pct": {
-        "valeur": null,
-        "unite": null,
-        "periode": null,
-        "date_source": null,
-        "source_url": null,
-        "statut": "A_COLLECTER",
-        "commentaire": null,
-        "recherche": {
-          "date": "2026-11-04",
-          "statut": "MANQUANT_RECHERCHE_NON_CLOSE",
-          "motif": "Analyse MCPA/IPS argumentée encore nécessaire; ce champ ne doit pas être rempli par une statistique de fournisseur.",
-          "journal": "journal_recherches"
-        }
+        "valeur": -28.0,
+        "unite": "pct",
+        "periode": "6 mois depuis 2026-11-06",
+        "date_source": "2026-11-09",
+        "source_url": "https://hsgplc.co.uk/insight/hargreaves-full-financial-results-2026 | https://query1.finance.yahoo.com/v10/finance/quoteSummary/HSP.L?modules=earningsTrend | https://stockanalysis.com/quote/aim/HSP/financials/ | https://stockanalysis.com/quote/aim/HSP/financials/balance-sheet/ | https://stockanalysis.com/quote/aim/HSP/forecast/ | https://stockanalysis.com/quote/aim/HSP/statistics/",
+        "statut": "HYPOTHESE_PROSPECTIVE_ANALYSTE",
+        "commentaire": "Décalages fonciers et industrie faible. Cessions d'actifs non récurrentes.",
+        "date_collecte": "2026-11-09"
       },
       "prob_bear_6m_pct": {
-        "valeur": null,
-        "unite": null,
-        "periode": null,
-        "date_source": null,
-        "source_url": null,
-        "statut": "A_COLLECTER",
-        "commentaire": null,
-        "recherche": {
-          "date": "2026-11-04",
-          "statut": "MANQUANT_RECHERCHE_NON_CLOSE",
-          "motif": "Analyse MCPA/IPS argumentée encore nécessaire; ce champ ne doit pas être rempli par une statistique de fournisseur.",
-          "journal": "journal_recherches"
-        }
+        "valeur": 25.0,
+        "unite": "pct",
+        "periode": "probabilité subjective 6 mois",
+        "date_source": "2026-11-09",
+        "source_url": "https://hsgplc.co.uk/insight/hargreaves-full-financial-results-2026 | https://query1.finance.yahoo.com/v10/finance/quoteSummary/HSP.L?modules=earningsTrend | https://stockanalysis.com/quote/aim/HSP/financials/ | https://stockanalysis.com/quote/aim/HSP/financials/balance-sheet/ | https://stockanalysis.com/quote/aim/HSP/forecast/ | https://stockanalysis.com/quote/aim/HSP/statistics/",
+        "statut": "PROBABILITE_SUBJECTIVE_NON_CALIBREE",
+        "commentaire": "Pondération par jugement du risque et des opportunités décrits; aucune fréquence statistique. Incertitude au moins +/-10 points. Cessions d'actifs non récurrentes.",
+        "date_collecte": "2026-11-09"
       },
       "scenario_central_6m_pct": {
-        "valeur": null,
-        "unite": null,
-        "periode": null,
-        "date_source": null,
-        "source_url": null,
-        "statut": "A_COLLECTER",
-        "commentaire": null,
-        "recherche": {
-          "date": "2026-11-04",
-          "statut": "MANQUANT_RECHERCHE_NON_CLOSE",
-          "motif": "Analyse MCPA/IPS argumentée encore nécessaire; ce champ ne doit pas être rempli par une statistique de fournisseur.",
-          "journal": "journal_recherches"
-        }
+        "valeur": 12.0,
+        "unite": "pct",
+        "periode": "6 mois depuis 2026-11-06",
+        "date_source": "2026-11-09",
+        "source_url": "https://hsgplc.co.uk/insight/hargreaves-full-financial-results-2026 | https://query1.finance.yahoo.com/v10/finance/quoteSummary/HSP.L?modules=earningsTrend | https://stockanalysis.com/quote/aim/HSP/financials/ | https://stockanalysis.com/quote/aim/HSP/financials/balance-sheet/ | https://stockanalysis.com/quote/aim/HSP/forecast/ | https://stockanalysis.com/quote/aim/HSP/statistics/",
+        "statut": "HYPOTHESE_PROSPECTIVE_ANALYSTE",
+        "commentaire": "Cash des contrats existants. Cessions d'actifs non récurrentes.",
+        "date_collecte": "2026-11-09"
       },
       "prob_central_6m_pct": {
-        "valeur": null,
-        "unite": null,
-        "periode": null,
-        "date_source": null,
-        "source_url": null,
-        "statut": "A_COLLECTER",
-        "commentaire": null,
-        "recherche": {
-          "date": "2026-11-04",
-          "statut": "MANQUANT_RECHERCHE_NON_CLOSE",
-          "motif": "Analyse MCPA/IPS argumentée encore nécessaire; ce champ ne doit pas être rempli par une statistique de fournisseur.",
-          "journal": "journal_recherches"
-        }
+        "valeur": 45.0,
+        "unite": "pct",
+        "periode": "probabilité subjective 6 mois",
+        "date_source": "2026-11-09",
+        "source_url": "https://hsgplc.co.uk/insight/hargreaves-full-financial-results-2026 | https://query1.finance.yahoo.com/v10/finance/quoteSummary/HSP.L?modules=earningsTrend | https://stockanalysis.com/quote/aim/HSP/financials/ | https://stockanalysis.com/quote/aim/HSP/financials/balance-sheet/ | https://stockanalysis.com/quote/aim/HSP/forecast/ | https://stockanalysis.com/quote/aim/HSP/statistics/",
+        "statut": "PROBABILITE_SUBJECTIVE_NON_CALIBREE",
+        "commentaire": "Pondération par jugement du risque et des opportunités décrits; aucune fréquence statistique. Incertitude au moins +/-10 points. Cessions d'actifs non récurrentes.",
+        "date_collecte": "2026-11-09"
       },
       "scenario_bull_6m_pct": {
-        "valeur": null,
-        "unite": null,
-        "periode": null,
-        "date_source": null,
-        "source_url": null,
-        "statut": "A_COLLECTER",
-        "commentaire": null,
-        "recherche": {
-          "date": "2026-11-04",
-          "statut": "MANQUANT_RECHERCHE_NON_CLOSE",
-          "motif": "Analyse MCPA/IPS argumentée encore nécessaire; ce champ ne doit pas être rempli par une statistique de fournisseur.",
-          "journal": "journal_recherches"
-        }
+        "valeur": 35.0,
+        "unite": "pct",
+        "periode": "6 mois depuis 2026-11-06",
+        "date_source": "2026-11-09",
+        "source_url": "https://hsgplc.co.uk/insight/hargreaves-full-financial-results-2026 | https://query1.finance.yahoo.com/v10/finance/quoteSummary/HSP.L?modules=earningsTrend | https://stockanalysis.com/quote/aim/HSP/financials/ | https://stockanalysis.com/quote/aim/HSP/financials/balance-sheet/ | https://stockanalysis.com/quote/aim/HSP/forecast/ | https://stockanalysis.com/quote/aim/HSP/statistics/",
+        "statut": "HYPOTHESE_PROSPECTIVE_ANALYSTE",
+        "commentaire": "Rentabilité et réalisation d'actifs. Cessions d'actifs non récurrentes.",
+        "date_collecte": "2026-11-09"
       },
       "prob_bull_6m_pct": {
-        "valeur": null,
-        "unite": null,
-        "periode": null,
-        "date_source": null,
-        "source_url": null,
-        "statut": "A_COLLECTER",
-        "commentaire": null,
-        "recherche": {
-          "date": "2026-11-04",
-          "statut": "MANQUANT_RECHERCHE_NON_CLOSE",
-          "motif": "Analyse MCPA/IPS argumentée encore nécessaire; ce champ ne doit pas être rempli par une statistique de fournisseur.",
-          "journal": "journal_recherches"
-        }
+        "valeur": 30.0,
+        "unite": "pct",
+        "periode": "probabilité subjective 6 mois",
+        "date_source": "2026-11-09",
+        "source_url": "https://hsgplc.co.uk/insight/hargreaves-full-financial-results-2026 | https://query1.finance.yahoo.com/v10/finance/quoteSummary/HSP.L?modules=earningsTrend | https://stockanalysis.com/quote/aim/HSP/financials/ | https://stockanalysis.com/quote/aim/HSP/financials/balance-sheet/ | https://stockanalysis.com/quote/aim/HSP/forecast/ | https://stockanalysis.com/quote/aim/HSP/statistics/",
+        "statut": "PROBABILITE_SUBJECTIVE_NON_CALIBREE",
+        "commentaire": "Pondération par jugement du risque et des opportunités décrits; aucune fréquence statistique. Incertitude au moins +/-10 points. Cessions d'actifs non récurrentes.",
+        "date_collecte": "2026-11-09"
       },
       "role_ips": {
-        "valeur": null,
-        "unite": null,
-        "periode": null,
-        "date_source": null,
-        "source_url": null,
-        "statut": "A_COLLECTER",
-        "commentaire": null,
-        "recherche": {
-          "date": "2026-11-04",
-          "statut": "MANQUANT_RECHERCHE_NON_CLOSE",
-          "motif": "Analyse MCPA/IPS argumentée encore nécessaire; ce champ ne doit pas être rempli par une statistique de fournisseur.",
-          "journal": "journal_recherches"
-        }
+        "valeur": "INCUBATION_VIRTUELLE_SOUS_REVUE",
+        "unite": "texte",
+        "periode": "analyse au 2026-11-09",
+        "date_source": "2026-11-09",
+        "source_url": "https://hsgplc.co.uk/insight/hargreaves-full-financial-results-2026 | https://query1.finance.yahoo.com/v10/finance/quoteSummary/HSP.L?modules=earningsTrend | https://stockanalysis.com/quote/aim/HSP/financials/ | https://stockanalysis.com/quote/aim/HSP/financials/balance-sheet/ | https://stockanalysis.com/quote/aim/HSP/forecast/ | https://stockanalysis.com/quote/aim/HSP/statistics/",
+        "statut": "ANALYSE_PROVISOIRE_DOCUMENTEE",
+        "commentaire": "Cessions d'actifs non récurrentes. Aucune opération autorisée.",
+        "date_collecte": "2026-11-09"
       },
       "decision": {
-        "valeur": null,
-        "unite": null,
-        "periode": null,
-        "date_source": null,
-        "source_url": null,
-        "statut": "A_COLLECTER",
-        "commentaire": null,
-        "recherche": {
-          "date": "2026-11-04",
-          "statut": "MANQUANT_RECHERCHE_NON_CLOSE",
-          "motif": "Analyse MCPA/IPS argumentée encore nécessaire; ce champ ne doit pas être rempli par une statistique de fournisseur.",
-          "journal": "journal_recherches"
-        }
+        "valeur": "ATTENTE",
+        "unite": "texte",
+        "periode": "analyse au 2026-11-09",
+        "date_source": "2026-11-09",
+        "source_url": "https://hsgplc.co.uk/insight/hargreaves-full-financial-results-2026 | https://query1.finance.yahoo.com/v10/finance/quoteSummary/HSP.L?modules=earningsTrend | https://stockanalysis.com/quote/aim/HSP/financials/ | https://stockanalysis.com/quote/aim/HSP/financials/balance-sheet/ | https://stockanalysis.com/quote/aim/HSP/forecast/ | https://stockanalysis.com/quote/aim/HSP/statistics/",
+        "statut": "ANALYSE_PROVISOIRE_DOCUMENTEE",
+        "commentaire": "Cessions d'actifs non récurrentes. Aucune opération autorisée.",
+        "date_collecte": "2026-11-09"
       },
       "condition_renforcement": {
-        "valeur": null,
-        "unite": null,
-        "periode": null,
-        "date_source": null,
-        "source_url": null,
-        "statut": "A_COLLECTER",
-        "commentaire": null,
-        "recherche": {
-          "date": "2026-11-04",
-          "statut": "MANQUANT_RECHERCHE_NON_CLOSE",
-          "motif": "Analyse MCPA/IPS argumentée encore nécessaire; ce champ ne doit pas être rempli par une statistique de fournisseur.",
-          "journal": "journal_recherches"
-        }
+        "valeur": "SSI documenté >=65, MCPA >=80, IC >=3,5, données rapprochées, revue stricte valide et duel favorable après frais.",
+        "unite": "texte",
+        "periode": "analyse au 2026-11-09",
+        "date_source": "2026-11-09",
+        "source_url": "https://hsgplc.co.uk/insight/hargreaves-full-financial-results-2026 | https://query1.finance.yahoo.com/v10/finance/quoteSummary/HSP.L?modules=earningsTrend | https://stockanalysis.com/quote/aim/HSP/financials/ | https://stockanalysis.com/quote/aim/HSP/financials/balance-sheet/ | https://stockanalysis.com/quote/aim/HSP/forecast/ | https://stockanalysis.com/quote/aim/HSP/statistics/",
+        "statut": "ANALYSE_PROVISOIRE_DOCUMENTEE",
+        "commentaire": "Cessions d'actifs non récurrentes. Aucune opération autorisée.",
+        "date_collecte": "2026-11-09"
       },
       "condition_allegement_sortie": {
-        "valeur": null,
-        "unite": null,
-        "periode": null,
-        "date_source": null,
-        "source_url": null,
-        "statut": "A_COLLECTER",
-        "commentaire": null,
-        "recherche": {
-          "date": "2026-11-04",
-          "statut": "MANQUANT_RECHERCHE_NON_CLOSE",
-          "motif": "Analyse MCPA/IPS argumentée encore nécessaire; ce champ ne doit pas être rempli par une statistique de fournisseur.",
-          "journal": "journal_recherches"
-        }
+        "valeur": "Décalages fonciers et industrie faible. Contrôle des coûts et de la liquidité avant décision virtuelle.",
+        "unite": "texte",
+        "periode": "analyse au 2026-11-09",
+        "date_source": "2026-11-09",
+        "source_url": "https://hsgplc.co.uk/insight/hargreaves-full-financial-results-2026 | https://query1.finance.yahoo.com/v10/finance/quoteSummary/HSP.L?modules=earningsTrend | https://stockanalysis.com/quote/aim/HSP/financials/ | https://stockanalysis.com/quote/aim/HSP/financials/balance-sheet/ | https://stockanalysis.com/quote/aim/HSP/forecast/ | https://stockanalysis.com/quote/aim/HSP/statistics/",
+        "statut": "ANALYSE_PROVISOIRE_DOCUMENTEE",
+        "commentaire": "Cessions d'actifs non récurrentes. Aucune opération autorisée.",
+        "date_collecte": "2026-11-09"
       },
       "challengers_compares": {
         "valeur": null,
@@ -1424,23 +1319,33 @@
       "diversification": 10
     },
     "notes": {
-      "qualite": null,
-      "valorisation": null,
-      "croissance": null,
-      "risque": null,
-      "momentum": null,
-      "diversification": null
+      "qualite": 22.0,
+      "valorisation": 15.0,
+      "croissance": 12.0,
+      "risque": 7.0,
+      "momentum": 10,
+      "diversification": 9.0
     },
-    "total_mcpa": null,
-    "statut": "NON_VALIDEE",
+    "total_mcpa": 75.0,
+    "statut": "DOCUMENTEE_NON_VALIDEE",
     "justifications": {
-      "qualite": null,
-      "valorisation": null,
-      "croissance": null,
-      "risque": null,
-      "momentum": null,
-      "diversification": null
-    }
+      "qualite": "Services, actifs et cash, périmètre complexe.",
+      "valorisation": "Multiples modérés, récurrence du bénéfice à vérifier.",
+      "croissance": "CA FY2026 +32,9 %, visibilité hétérogène.",
+      "risque": "Pas de dette structurée annoncée, leases et engagements subsistent.",
+      "diversification": "Industrie et foncier diversifiants.",
+      "momentum": "Grille explicite au 2026-11-06: 10/10, 0 points non observables. Absence d'historique distincte d'un signal baissier; score provisoire si incomplet."
+    },
+    "date_analyse": "2026-11-09",
+    "sources": [
+      "https://hsgplc.co.uk/insight/hargreaves-full-financial-results-2026",
+      "https://query1.finance.yahoo.com/v10/finance/quoteSummary/HSP.L?modules=earningsTrend",
+      "https://stockanalysis.com/quote/aim/HSP/financials/",
+      "https://stockanalysis.com/quote/aim/HSP/financials/balance-sheet/",
+      "https://stockanalysis.com/quote/aim/HSP/forecast/",
+      "https://stockanalysis.com/quote/aim/HSP/statistics/"
+    ],
+    "limite": "Notes discrétionnaires provisoires; multiples secondaires à rapprocher, SSI et revue stricte obligatoires. Grille momentum locale ne modifiant pas le maître."
   },
   "preuves_complementaires": [
     {
@@ -1853,7 +1758,7 @@
     }
   ],
   "anomalies": [],
-  "statut_fiche": "ENRICHIE_NON_VALIDEE",
+  "statut_fiche": "NOTEE_SCENARISEE_NON_VALIDEE",
   "arbitrage_autorise": false,
   "observations_complementaires": [
     {
@@ -2744,9 +2649,9 @@
   "audit_couverture": {
     "date": "2026-11-09",
     "champs_total": 108,
-    "champs_renseignes": 62,
-    "couverture_pct": 57.41,
-    "champs_secondaires_non_rapproches": 39,
+    "champs_renseignes": 83,
+    "couverture_pct": 76.85,
+    "champs_secondaires_non_rapproches": 52,
     "champs_manquants": [
       "identite.lei",
       "identite.marche",
@@ -2770,45 +2675,24 @@
       "risque.transactions_initiees_net_90j",
       "risque.transactions_initiees_net_180j",
       "diversification.zone_geographique",
-      "diversification.interet_strategique",
-      "diversification.complementarite_portefeuille",
       "complements.ssi",
-      "complements.ic_sur_5",
-      "complements.cx_sur_5",
-      "complements.delta",
       "complements.wwws",
-      "complements.scenario_bear_3m_pct",
-      "complements.prob_bear_3m_pct",
-      "complements.scenario_central_3m_pct",
-      "complements.prob_central_3m_pct",
-      "complements.scenario_bull_3m_pct",
-      "complements.prob_bull_3m_pct",
-      "complements.scenario_bear_6m_pct",
-      "complements.prob_bear_6m_pct",
-      "complements.scenario_central_6m_pct",
-      "complements.prob_central_6m_pct",
-      "complements.scenario_bull_6m_pct",
-      "complements.prob_bull_6m_pct",
-      "complements.role_ips",
-      "complements.decision",
-      "complements.condition_renforcement",
-      "complements.condition_allegement_sortie",
       "complements.challengers_compares"
     ],
     "indisponibilite_definitive_demontree": [],
-    "statut": "TRAITE_MAIS_INCOMPLET",
-    "cours_date_limite": "2026-11-03"
+    "statut": "ANALYSE_DOCUMENTEE_NON_CERTIFIEE",
+    "cours_date_limite": "2026-11-06"
   },
   "audit_poursuite": {
     "date": "2026-11-09",
     "comptage": {
-      "RENSEIGNE": 62,
+      "RENSEIGNE": 83,
       "NON_APPLICABLE": 1,
       "INDISPONIBLE_A_DATE": 0,
-      "RECHERCHE_A_POURSUIVRE": 45
+      "RECHERCHE_A_POURSUIVRE": 24
     },
-    "couverture_valeurs_pct": 57.41,
-    "couverture_applicable_pct": 57.94,
+    "couverture_valeurs_pct": 76.85,
+    "couverture_applicable_pct": 77.57,
     "recherches_non_closes": [
       "identite.lei",
       "identite.marche",
@@ -2831,33 +2715,851 @@
       "risque.transactions_initiees_net_90j",
       "risque.transactions_initiees_net_180j",
       "diversification.zone_geographique",
-      "diversification.interet_strategique",
-      "diversification.complementarite_portefeuille",
       "complements.ssi",
-      "complements.ic_sur_5",
-      "complements.cx_sur_5",
-      "complements.delta",
       "complements.wwws",
-      "complements.scenario_bear_3m_pct",
-      "complements.prob_bear_3m_pct",
-      "complements.scenario_central_3m_pct",
-      "complements.prob_central_3m_pct",
-      "complements.scenario_bull_3m_pct",
-      "complements.prob_bull_3m_pct",
-      "complements.scenario_bear_6m_pct",
-      "complements.prob_bear_6m_pct",
-      "complements.scenario_central_6m_pct",
-      "complements.prob_central_6m_pct",
-      "complements.scenario_bull_6m_pct",
-      "complements.prob_bull_6m_pct",
-      "complements.role_ips",
-      "complements.decision",
-      "complements.condition_renforcement",
-      "complements.condition_allegement_sortie",
       "complements.challengers_compares"
     ],
-    "notes_justifiees": false,
-    "validation_individuelle": "BLOQUEE_DONNEES_ET_ANALYSES_RESTANTES",
+    "notes_justifiees": true,
+    "validation_individuelle": "NOTES_SCENARIOS_DOCUMENTES_VALIDATION_REQUISE",
     "aucune_indisponibilite_definitive_presumee": true
-  }
+  },
+  "historique_relectures": [
+    {
+      "preuve_id": "ANALYSE_20261109_momentum_1m_pct",
+      "champ": "momentum.momentum_1m_pct",
+      "ancienne_cellule": {
+        "valeur": 4.545454545454541,
+        "unite": "pct",
+        "periode": "2026-10-02 / 2026-11-03",
+        "date_source": "2026-11-03",
+        "source_url": "https://query1.finance.yahoo.com/v8/finance/chart/HSP.L?range=5y&interval=1d&events=div%2Csplits",
+        "statut": "CALCULE_HISTORIQUE_SECONDAIRE",
+        "commentaire": "Cours ajustés, ancrage calendaire; dernière séance <= date cible.",
+        "date_collecte": "2026-11-04"
+      },
+      "motif": "Calcul reproductible 10Q; ancrage dernière séance <= date calendaire cible, aucune période pré-IPO extrapolée.",
+      "date_relecture": "2026-11-09"
+    },
+    {
+      "preuve_id": "ANALYSE_20261109_momentum_3m_pct",
+      "champ": "momentum.momentum_3m_pct",
+      "ancienne_cellule": {
+        "valeur": 8.462522958958175,
+        "unite": "pct",
+        "periode": "2026-08-03 / 2026-11-03",
+        "date_source": "2026-11-03",
+        "source_url": "https://query1.finance.yahoo.com/v8/finance/chart/HSP.L?range=5y&interval=1d&events=div%2Csplits",
+        "statut": "CALCULE_HISTORIQUE_SECONDAIRE",
+        "commentaire": "Cours ajustés, ancrage calendaire; dernière séance <= date cible.",
+        "date_collecte": "2026-11-04"
+      },
+      "motif": "Calcul reproductible 10Q; ancrage dernière séance <= date calendaire cible, aucune période pré-IPO extrapolée.",
+      "date_relecture": "2026-11-09"
+    },
+    {
+      "preuve_id": "ANALYSE_20261109_momentum_6m_pct",
+      "champ": "momentum.momentum_6m_pct",
+      "ancienne_cellule": {
+        "valeur": 10.379786020888538,
+        "unite": "pct",
+        "periode": "2026-05-01 / 2026-11-03",
+        "date_source": "2026-11-03",
+        "source_url": "https://query1.finance.yahoo.com/v8/finance/chart/HSP.L?range=5y&interval=1d&events=div%2Csplits",
+        "statut": "CALCULE_HISTORIQUE_SECONDAIRE",
+        "commentaire": "Cours ajustés, ancrage calendaire; dernière séance <= date cible.",
+        "date_collecte": "2026-11-04"
+      },
+      "motif": "Calcul reproductible 10Q; ancrage dernière séance <= date calendaire cible, aucune période pré-IPO extrapolée.",
+      "date_relecture": "2026-11-09"
+    },
+    {
+      "preuve_id": "ANALYSE_20261109_momentum_12m_pct",
+      "champ": "momentum.momentum_12m_pct",
+      "ancienne_cellule": {
+        "valeur": 32.08946977016369,
+        "unite": "pct",
+        "periode": "2025-11-03 / 2026-11-03",
+        "date_source": "2026-11-03",
+        "source_url": "https://query1.finance.yahoo.com/v8/finance/chart/HSP.L?range=5y&interval=1d&events=div%2Csplits",
+        "statut": "CALCULE_HISTORIQUE_SECONDAIRE",
+        "commentaire": "Cours ajustés, ancrage calendaire; dernière séance <= date cible.",
+        "date_collecte": "2026-11-04"
+      },
+      "motif": "Calcul reproductible 10Q; ancrage dernière séance <= date calendaire cible, aucune période pré-IPO extrapolée.",
+      "date_relecture": "2026-11-09"
+    },
+    {
+      "preuve_id": "ANALYSE_20261109_prix_vers_mm200",
+      "champ": "momentum.prix_vers_mm200",
+      "ancienne_cellule": {
+        "valeur": 1.0902125146079975,
+        "unite": "ratio",
+        "periode": "200 dernières séances",
+        "date_source": "2026-11-03",
+        "source_url": "https://query1.finance.yahoo.com/v8/finance/chart/HSP.L?range=5y&interval=1d&events=div%2Csplits",
+        "statut": "CALCULE_HISTORIQUE_SECONDAIRE",
+        "commentaire": "Cours ajusté / moyenne mobile 200 séances.",
+        "date_collecte": "2026-11-04"
+      },
+      "motif": "Calcul reproductible 10Q; ancrage dernière séance <= date calendaire cible, aucune période pré-IPO extrapolée.",
+      "date_relecture": "2026-11-09"
+    },
+    {
+      "preuve_id": "ANALYSE_20261109_tendance_mm200",
+      "champ": "momentum.tendance_mm200",
+      "ancienne_cellule": {
+        "valeur": 2.5169738150846444,
+        "unite": "pct",
+        "periode": "variation MM200 sur 20 séances",
+        "date_source": "2026-11-03",
+        "source_url": "https://query1.finance.yahoo.com/v8/finance/chart/HSP.L?range=5y&interval=1d&events=div%2Csplits",
+        "statut": "CALCULE_HISTORIQUE_SECONDAIRE",
+        "commentaire": "Pente approchée par variation MM200(t)/MM200(t-20)-1; niveau MM200 non confondu avec pente.",
+        "date_collecte": "2026-11-04"
+      },
+      "motif": "Calcul reproductible 10Q; ancrage dernière séance <= date calendaire cible, aucune période pré-IPO extrapolée.",
+      "date_relecture": "2026-11-09"
+    },
+    {
+      "preuve_id": "ANALYSE_20261109_momentum_6_1_pct",
+      "champ": "momentum.momentum_6_1_pct",
+      "ancienne_cellule": {
+        "valeur": 5.580664889545561,
+        "unite": "pct",
+        "periode": "2026-05-01 / 2026-10-02",
+        "date_source": "2026-11-03",
+        "source_url": "https://query1.finance.yahoo.com/v8/finance/chart/HSP.L?range=5y&interval=1d&events=div%2Csplits",
+        "statut": "CALCULE_HISTORIQUE_SECONDAIRE",
+        "commentaire": "Momentum 6–1 : prix à -1 mois / prix à -6 mois - 1; aucune modification de la règle de sélection.",
+        "date_collecte": "2026-11-04"
+      },
+      "motif": "Calcul reproductible 10Q; ancrage dernière séance <= date calendaire cible, aucune période pré-IPO extrapolée.",
+      "date_relecture": "2026-11-09"
+    },
+    {
+      "preuve_id": "ANALYSE_20261109_volume_moyen_20j",
+      "champ": "momentum.volume_moyen_20j",
+      "ancienne_cellule": {
+        "valeur": 94489.05,
+        "unite": "titres",
+        "periode": "20 dernières séances",
+        "date_source": "2026-11-03",
+        "source_url": "https://query1.finance.yahoo.com/v8/finance/chart/HSP.L?range=5y&interval=1d&events=div%2Csplits",
+        "statut": "CALCULE_HISTORIQUE_SECONDAIRE",
+        "commentaire": "Moyenne arithmétique des volumes Yahoo non ajustés.",
+        "date_collecte": "2026-11-04"
+      },
+      "motif": "Calcul reproductible 10Q; ancrage dernière séance <= date calendaire cible, aucune période pré-IPO extrapolée.",
+      "date_relecture": "2026-11-09"
+    },
+    {
+      "preuve_id": "ANALYSE_20261109_ratio_volume",
+      "champ": "momentum.ratio_volume",
+      "ancienne_cellule": {
+        "valeur": 0.5344322966523634,
+        "unite": "ratio",
+        "periode": "dernière séance / moyenne 20 séances",
+        "date_source": "2026-11-03",
+        "source_url": "https://query1.finance.yahoo.com/v8/finance/chart/HSP.L?range=5y&interval=1d&events=div%2Csplits",
+        "statut": "CALCULE_HISTORIQUE_SECONDAIRE",
+        "commentaire": "Ratio de volume de la dernière séance.",
+        "date_collecte": "2026-11-04"
+      },
+      "motif": "Calcul reproductible 10Q; ancrage dernière séance <= date calendaire cible, aucune période pré-IPO extrapolée.",
+      "date_relecture": "2026-11-09"
+    },
+    {
+      "preuve_id": "ANALYSE_20261109_volatilite_90j_pct",
+      "champ": "momentum.volatilite_90j_pct",
+      "ancienne_cellule": {
+        "valeur": 20.807054881275384,
+        "unite": "pct",
+        "periode": "90 rendements quotidiens",
+        "date_source": "2026-11-03",
+        "source_url": "https://query1.finance.yahoo.com/v8/finance/chart/HSP.L?range=5y&interval=1d&events=div%2Csplits",
+        "statut": "CALCULE_HISTORIQUE_SECONDAIRE",
+        "commentaire": "Écart-type échantillon des log-rendements ajustés annualisé sqrt(252).",
+        "date_collecte": "2026-11-04"
+      },
+      "motif": "Calcul reproductible 10Q; ancrage dernière séance <= date calendaire cible, aucune période pré-IPO extrapolée.",
+      "date_relecture": "2026-11-09"
+    },
+    {
+      "preuve_id": "ANALYSE_20261109_drawdown_12m_pct",
+      "champ": "momentum.drawdown_12m_pct",
+      "ancienne_cellule": {
+        "valeur": -14.37008555588597,
+        "unite": "pct",
+        "periode": "2025-11-03 / 2026-11-03",
+        "date_source": "2026-11-03",
+        "source_url": "https://query1.finance.yahoo.com/v8/finance/chart/HSP.L?range=5y&interval=1d&events=div%2Csplits",
+        "statut": "CALCULE_HISTORIQUE_SECONDAIRE",
+        "commentaire": "Maximum drawdown du prix ajusté sur la fenêtre, valeur négative.",
+        "date_collecte": "2026-11-04"
+      },
+      "motif": "Calcul reproductible 10Q; ancrage dernière séance <= date calendaire cible, aucune période pré-IPO extrapolée.",
+      "date_relecture": "2026-11-09"
+    },
+    {
+      "preuve_id": "ANALYSE_20261109_cours",
+      "champ": "valorisation.cours",
+      "ancienne_cellule": {
+        "valeur": 8.74,
+        "unite": "GBP",
+        "periode": "cloture 2026-11-03",
+        "date_source": "2026-11-03",
+        "source_url": "https://query1.finance.yahoo.com/v8/finance/chart/HSP.L?range=5y&interval=1d&events=div%2Csplits",
+        "statut": "SOURCE_MARCHE",
+        "commentaire": "Cours non ajuste; GBp/100 pour Londres.",
+        "date_collecte": "2026-11-04"
+      },
+      "motif": "Cours non ajusté, conversion GBp/100 vers GBP pour Londres.",
+      "date_relecture": "2026-11-09"
+    },
+    {
+      "preuve_id": "ANALYSE_20261109_date_cours",
+      "champ": "valorisation.date_cours",
+      "ancienne_cellule": {
+        "valeur": "2026-11-03",
+        "unite": "date",
+        "periode": "cloture",
+        "date_source": "2026-11-03",
+        "source_url": "https://query1.finance.yahoo.com/v8/finance/chart/HSP.L?range=5y&interval=1d&events=div%2Csplits",
+        "statut": "SOURCE_MARCHE",
+        "commentaire": null,
+        "date_collecte": "2026-11-04"
+      },
+      "motif": "Clôture commune aux 40 fiches.",
+      "date_relecture": "2026-11-09"
+    },
+    {
+      "preuve_id": "ANALYSE_20261109_scenario_bear_3m_pct",
+      "champ": "complements.scenario_bear_3m_pct",
+      "ancienne_cellule": {
+        "valeur": null,
+        "unite": null,
+        "periode": null,
+        "date_source": null,
+        "source_url": null,
+        "statut": "A_COLLECTER",
+        "commentaire": null,
+        "recherche": {
+          "date": "2026-11-04",
+          "statut": "MANQUANT_RECHERCHE_NON_CLOSE",
+          "motif": "Analyse MCPA/IPS argumentée encore nécessaire; ce champ ne doit pas être rempli par une statistique de fournisseur.",
+          "journal": "journal_recherches"
+        }
+      },
+      "motif": "Décalages fonciers et industrie faible. Cessions d'actifs non récurrentes.",
+      "date_relecture": "2026-11-09"
+    },
+    {
+      "preuve_id": "ANALYSE_20261109_prob_bear_3m_pct",
+      "champ": "complements.prob_bear_3m_pct",
+      "ancienne_cellule": {
+        "valeur": null,
+        "unite": null,
+        "periode": null,
+        "date_source": null,
+        "source_url": null,
+        "statut": "A_COLLECTER",
+        "commentaire": null,
+        "recherche": {
+          "date": "2026-11-04",
+          "statut": "MANQUANT_RECHERCHE_NON_CLOSE",
+          "motif": "Analyse MCPA/IPS argumentée encore nécessaire; ce champ ne doit pas être rempli par une statistique de fournisseur.",
+          "journal": "journal_recherches"
+        }
+      },
+      "motif": "Pondération par jugement du risque et des opportunités décrits; aucune fréquence statistique. Incertitude au moins +/-10 points. Cessions d'actifs non récurrentes.",
+      "date_relecture": "2026-11-09"
+    },
+    {
+      "preuve_id": "ANALYSE_20261109_scenario_central_3m_pct",
+      "champ": "complements.scenario_central_3m_pct",
+      "ancienne_cellule": {
+        "valeur": null,
+        "unite": null,
+        "periode": null,
+        "date_source": null,
+        "source_url": null,
+        "statut": "A_COLLECTER",
+        "commentaire": null,
+        "recherche": {
+          "date": "2026-11-04",
+          "statut": "MANQUANT_RECHERCHE_NON_CLOSE",
+          "motif": "Analyse MCPA/IPS argumentée encore nécessaire; ce champ ne doit pas être rempli par une statistique de fournisseur.",
+          "journal": "journal_recherches"
+        }
+      },
+      "motif": "Cash des contrats existants. Cessions d'actifs non récurrentes.",
+      "date_relecture": "2026-11-09"
+    },
+    {
+      "preuve_id": "ANALYSE_20261109_prob_central_3m_pct",
+      "champ": "complements.prob_central_3m_pct",
+      "ancienne_cellule": {
+        "valeur": null,
+        "unite": null,
+        "periode": null,
+        "date_source": null,
+        "source_url": null,
+        "statut": "A_COLLECTER",
+        "commentaire": null,
+        "recherche": {
+          "date": "2026-11-04",
+          "statut": "MANQUANT_RECHERCHE_NON_CLOSE",
+          "motif": "Analyse MCPA/IPS argumentée encore nécessaire; ce champ ne doit pas être rempli par une statistique de fournisseur.",
+          "journal": "journal_recherches"
+        }
+      },
+      "motif": "Pondération par jugement du risque et des opportunités décrits; aucune fréquence statistique. Incertitude au moins +/-10 points. Cessions d'actifs non récurrentes.",
+      "date_relecture": "2026-11-09"
+    },
+    {
+      "preuve_id": "ANALYSE_20261109_scenario_bull_3m_pct",
+      "champ": "complements.scenario_bull_3m_pct",
+      "ancienne_cellule": {
+        "valeur": null,
+        "unite": null,
+        "periode": null,
+        "date_source": null,
+        "source_url": null,
+        "statut": "A_COLLECTER",
+        "commentaire": null,
+        "recherche": {
+          "date": "2026-11-04",
+          "statut": "MANQUANT_RECHERCHE_NON_CLOSE",
+          "motif": "Analyse MCPA/IPS argumentée encore nécessaire; ce champ ne doit pas être rempli par une statistique de fournisseur.",
+          "journal": "journal_recherches"
+        }
+      },
+      "motif": "Rentabilité et réalisation d'actifs. Cessions d'actifs non récurrentes.",
+      "date_relecture": "2026-11-09"
+    },
+    {
+      "preuve_id": "ANALYSE_20261109_prob_bull_3m_pct",
+      "champ": "complements.prob_bull_3m_pct",
+      "ancienne_cellule": {
+        "valeur": null,
+        "unite": null,
+        "periode": null,
+        "date_source": null,
+        "source_url": null,
+        "statut": "A_COLLECTER",
+        "commentaire": null,
+        "recherche": {
+          "date": "2026-11-04",
+          "statut": "MANQUANT_RECHERCHE_NON_CLOSE",
+          "motif": "Analyse MCPA/IPS argumentée encore nécessaire; ce champ ne doit pas être rempli par une statistique de fournisseur.",
+          "journal": "journal_recherches"
+        }
+      },
+      "motif": "Pondération par jugement du risque et des opportunités décrits; aucune fréquence statistique. Incertitude au moins +/-10 points. Cessions d'actifs non récurrentes.",
+      "date_relecture": "2026-11-09"
+    },
+    {
+      "preuve_id": "ANALYSE_20261109_scenario_bear_6m_pct",
+      "champ": "complements.scenario_bear_6m_pct",
+      "ancienne_cellule": {
+        "valeur": null,
+        "unite": null,
+        "periode": null,
+        "date_source": null,
+        "source_url": null,
+        "statut": "A_COLLECTER",
+        "commentaire": null,
+        "recherche": {
+          "date": "2026-11-04",
+          "statut": "MANQUANT_RECHERCHE_NON_CLOSE",
+          "motif": "Analyse MCPA/IPS argumentée encore nécessaire; ce champ ne doit pas être rempli par une statistique de fournisseur.",
+          "journal": "journal_recherches"
+        }
+      },
+      "motif": "Décalages fonciers et industrie faible. Cessions d'actifs non récurrentes.",
+      "date_relecture": "2026-11-09"
+    },
+    {
+      "preuve_id": "ANALYSE_20261109_prob_bear_6m_pct",
+      "champ": "complements.prob_bear_6m_pct",
+      "ancienne_cellule": {
+        "valeur": null,
+        "unite": null,
+        "periode": null,
+        "date_source": null,
+        "source_url": null,
+        "statut": "A_COLLECTER",
+        "commentaire": null,
+        "recherche": {
+          "date": "2026-11-04",
+          "statut": "MANQUANT_RECHERCHE_NON_CLOSE",
+          "motif": "Analyse MCPA/IPS argumentée encore nécessaire; ce champ ne doit pas être rempli par une statistique de fournisseur.",
+          "journal": "journal_recherches"
+        }
+      },
+      "motif": "Pondération par jugement du risque et des opportunités décrits; aucune fréquence statistique. Incertitude au moins +/-10 points. Cessions d'actifs non récurrentes.",
+      "date_relecture": "2026-11-09"
+    },
+    {
+      "preuve_id": "ANALYSE_20261109_scenario_central_6m_pct",
+      "champ": "complements.scenario_central_6m_pct",
+      "ancienne_cellule": {
+        "valeur": null,
+        "unite": null,
+        "periode": null,
+        "date_source": null,
+        "source_url": null,
+        "statut": "A_COLLECTER",
+        "commentaire": null,
+        "recherche": {
+          "date": "2026-11-04",
+          "statut": "MANQUANT_RECHERCHE_NON_CLOSE",
+          "motif": "Analyse MCPA/IPS argumentée encore nécessaire; ce champ ne doit pas être rempli par une statistique de fournisseur.",
+          "journal": "journal_recherches"
+        }
+      },
+      "motif": "Cash des contrats existants. Cessions d'actifs non récurrentes.",
+      "date_relecture": "2026-11-09"
+    },
+    {
+      "preuve_id": "ANALYSE_20261109_prob_central_6m_pct",
+      "champ": "complements.prob_central_6m_pct",
+      "ancienne_cellule": {
+        "valeur": null,
+        "unite": null,
+        "periode": null,
+        "date_source": null,
+        "source_url": null,
+        "statut": "A_COLLECTER",
+        "commentaire": null,
+        "recherche": {
+          "date": "2026-11-04",
+          "statut": "MANQUANT_RECHERCHE_NON_CLOSE",
+          "motif": "Analyse MCPA/IPS argumentée encore nécessaire; ce champ ne doit pas être rempli par une statistique de fournisseur.",
+          "journal": "journal_recherches"
+        }
+      },
+      "motif": "Pondération par jugement du risque et des opportunités décrits; aucune fréquence statistique. Incertitude au moins +/-10 points. Cessions d'actifs non récurrentes.",
+      "date_relecture": "2026-11-09"
+    },
+    {
+      "preuve_id": "ANALYSE_20261109_scenario_bull_6m_pct",
+      "champ": "complements.scenario_bull_6m_pct",
+      "ancienne_cellule": {
+        "valeur": null,
+        "unite": null,
+        "periode": null,
+        "date_source": null,
+        "source_url": null,
+        "statut": "A_COLLECTER",
+        "commentaire": null,
+        "recherche": {
+          "date": "2026-11-04",
+          "statut": "MANQUANT_RECHERCHE_NON_CLOSE",
+          "motif": "Analyse MCPA/IPS argumentée encore nécessaire; ce champ ne doit pas être rempli par une statistique de fournisseur.",
+          "journal": "journal_recherches"
+        }
+      },
+      "motif": "Rentabilité et réalisation d'actifs. Cessions d'actifs non récurrentes.",
+      "date_relecture": "2026-11-09"
+    },
+    {
+      "preuve_id": "ANALYSE_20261109_prob_bull_6m_pct",
+      "champ": "complements.prob_bull_6m_pct",
+      "ancienne_cellule": {
+        "valeur": null,
+        "unite": null,
+        "periode": null,
+        "date_source": null,
+        "source_url": null,
+        "statut": "A_COLLECTER",
+        "commentaire": null,
+        "recherche": {
+          "date": "2026-11-04",
+          "statut": "MANQUANT_RECHERCHE_NON_CLOSE",
+          "motif": "Analyse MCPA/IPS argumentée encore nécessaire; ce champ ne doit pas être rempli par une statistique de fournisseur.",
+          "journal": "journal_recherches"
+        }
+      },
+      "motif": "Pondération par jugement du risque et des opportunités décrits; aucune fréquence statistique. Incertitude au moins +/-10 points. Cessions d'actifs non récurrentes.",
+      "date_relecture": "2026-11-09"
+    },
+    {
+      "preuve_id": "ANALYSE_20261109_ic_sur_5",
+      "champ": "complements.ic_sur_5",
+      "ancienne_cellule": {
+        "valeur": null,
+        "unite": null,
+        "periode": null,
+        "date_source": null,
+        "source_url": null,
+        "statut": "A_COLLECTER",
+        "commentaire": null,
+        "recherche": {
+          "date": "2026-11-04",
+          "statut": "MANQUANT_RECHERCHE_NON_CLOSE",
+          "motif": "Analyse MCPA/IPS argumentée encore nécessaire; ce champ ne doit pas être rempli par une statistique de fournisseur.",
+          "journal": "journal_recherches"
+        }
+      },
+      "motif": "Cessions d'actifs non récurrentes. Aucune opération autorisée.",
+      "date_relecture": "2026-11-09"
+    },
+    {
+      "preuve_id": "ANALYSE_20261109_cx_sur_5",
+      "champ": "complements.cx_sur_5",
+      "ancienne_cellule": {
+        "valeur": null,
+        "unite": null,
+        "periode": null,
+        "date_source": null,
+        "source_url": null,
+        "statut": "A_COLLECTER",
+        "commentaire": null,
+        "recherche": {
+          "date": "2026-11-04",
+          "statut": "MANQUANT_RECHERCHE_NON_CLOSE",
+          "motif": "Analyse MCPA/IPS argumentée encore nécessaire; ce champ ne doit pas être rempli par une statistique de fournisseur.",
+          "journal": "journal_recherches"
+        }
+      },
+      "motif": "Cessions d'actifs non récurrentes. Aucune opération autorisée.",
+      "date_relecture": "2026-11-09"
+    },
+    {
+      "preuve_id": "ANALYSE_20261109_delta",
+      "champ": "complements.delta",
+      "ancienne_cellule": {
+        "valeur": null,
+        "unite": null,
+        "periode": null,
+        "date_source": null,
+        "source_url": null,
+        "statut": "A_COLLECTER",
+        "commentaire": null,
+        "recherche": {
+          "date": "2026-11-04",
+          "statut": "MANQUANT_RECHERCHE_NON_CLOSE",
+          "motif": "Analyse MCPA/IPS argumentée encore nécessaire; ce champ ne doit pas être rempli par une statistique de fournisseur.",
+          "journal": "journal_recherches"
+        }
+      },
+      "motif": "Cessions d'actifs non récurrentes. Aucune opération autorisée.",
+      "date_relecture": "2026-11-09"
+    },
+    {
+      "preuve_id": "ANALYSE_20261109_role_ips",
+      "champ": "complements.role_ips",
+      "ancienne_cellule": {
+        "valeur": null,
+        "unite": null,
+        "periode": null,
+        "date_source": null,
+        "source_url": null,
+        "statut": "A_COLLECTER",
+        "commentaire": null,
+        "recherche": {
+          "date": "2026-11-04",
+          "statut": "MANQUANT_RECHERCHE_NON_CLOSE",
+          "motif": "Analyse MCPA/IPS argumentée encore nécessaire; ce champ ne doit pas être rempli par une statistique de fournisseur.",
+          "journal": "journal_recherches"
+        }
+      },
+      "motif": "Cessions d'actifs non récurrentes. Aucune opération autorisée.",
+      "date_relecture": "2026-11-09"
+    },
+    {
+      "preuve_id": "ANALYSE_20261109_decision",
+      "champ": "complements.decision",
+      "ancienne_cellule": {
+        "valeur": null,
+        "unite": null,
+        "periode": null,
+        "date_source": null,
+        "source_url": null,
+        "statut": "A_COLLECTER",
+        "commentaire": null,
+        "recherche": {
+          "date": "2026-11-04",
+          "statut": "MANQUANT_RECHERCHE_NON_CLOSE",
+          "motif": "Analyse MCPA/IPS argumentée encore nécessaire; ce champ ne doit pas être rempli par une statistique de fournisseur.",
+          "journal": "journal_recherches"
+        }
+      },
+      "motif": "Cessions d'actifs non récurrentes. Aucune opération autorisée.",
+      "date_relecture": "2026-11-09"
+    },
+    {
+      "preuve_id": "ANALYSE_20261109_condition_renforcement",
+      "champ": "complements.condition_renforcement",
+      "ancienne_cellule": {
+        "valeur": null,
+        "unite": null,
+        "periode": null,
+        "date_source": null,
+        "source_url": null,
+        "statut": "A_COLLECTER",
+        "commentaire": null,
+        "recherche": {
+          "date": "2026-11-04",
+          "statut": "MANQUANT_RECHERCHE_NON_CLOSE",
+          "motif": "Analyse MCPA/IPS argumentée encore nécessaire; ce champ ne doit pas être rempli par une statistique de fournisseur.",
+          "journal": "journal_recherches"
+        }
+      },
+      "motif": "Cessions d'actifs non récurrentes. Aucune opération autorisée.",
+      "date_relecture": "2026-11-09"
+    },
+    {
+      "preuve_id": "ANALYSE_20261109_condition_allegement_sortie",
+      "champ": "complements.condition_allegement_sortie",
+      "ancienne_cellule": {
+        "valeur": null,
+        "unite": null,
+        "periode": null,
+        "date_source": null,
+        "source_url": null,
+        "statut": "A_COLLECTER",
+        "commentaire": null,
+        "recherche": {
+          "date": "2026-11-04",
+          "statut": "MANQUANT_RECHERCHE_NON_CLOSE",
+          "motif": "Analyse MCPA/IPS argumentée encore nécessaire; ce champ ne doit pas être rempli par une statistique de fournisseur.",
+          "journal": "journal_recherches"
+        }
+      },
+      "motif": "Cessions d'actifs non récurrentes. Aucune opération autorisée.",
+      "date_relecture": "2026-11-09"
+    },
+    {
+      "preuve_id": "ANALYSE_20261109_interet_strategique",
+      "champ": "diversification.interet_strategique",
+      "ancienne_cellule": {
+        "valeur": null,
+        "unite": null,
+        "periode": null,
+        "date_source": null,
+        "source_url": null,
+        "statut": "A_COLLECTER",
+        "commentaire": null,
+        "recherche": {
+          "date": "2026-11-04",
+          "statut": "MANQUANT_RECHERCHE_NON_CLOSE",
+          "motif": "Analyse MCPA/IPS argumentée encore nécessaire; ce champ ne doit pas être rempli par une statistique de fournisseur.",
+          "journal": "journal_recherches"
+        }
+      },
+      "motif": "Diversification sectorielle, sans garantie de décorrélation en crise.",
+      "date_relecture": "2026-11-09"
+    },
+    {
+      "preuve_id": "ANALYSE_20261109_complementarite_portefeuille",
+      "champ": "diversification.complementarite_portefeuille",
+      "ancienne_cellule": {
+        "valeur": null,
+        "unite": null,
+        "periode": null,
+        "date_source": null,
+        "source_url": null,
+        "statut": "A_COLLECTER",
+        "commentaire": null,
+        "recherche": {
+          "date": "2026-11-04",
+          "statut": "MANQUANT_RECHERCHE_NON_CLOSE",
+          "motif": "Analyse MCPA/IPS argumentée encore nécessaire; ce champ ne doit pas être rempli par une statistique de fournisseur.",
+          "journal": "journal_recherches"
+        }
+      },
+      "motif": "Diversification sectorielle, sans garantie de décorrélation en crise.",
+      "date_relecture": "2026-11-09"
+    }
+  ],
+  "historique_notations": [
+    {
+      "bareme": {
+        "qualite": 30,
+        "valorisation": 20,
+        "croissance": 20,
+        "risque": 10,
+        "momentum": 10,
+        "diversification": 10
+      },
+      "notes": {
+        "qualite": null,
+        "valorisation": null,
+        "croissance": null,
+        "risque": null,
+        "momentum": null,
+        "diversification": null
+      },
+      "total_mcpa": null,
+      "statut": "NON_VALIDEE",
+      "justifications": {
+        "qualite": null,
+        "valorisation": null,
+        "croissance": null,
+        "risque": null,
+        "momentum": null,
+        "diversification": null
+      }
+    }
+  ],
+  "calculs_marche": {
+    "date": "2026-11-06",
+    "cours_non_ajuste": 880.0,
+    "ancrages": {
+      "1": {
+        "date": "2026-10-06",
+        "cours_ajuste": 834.0
+      },
+      "3": {
+        "date": "2026-08-06",
+        "cours_ajuste": 793.8111572265625
+      },
+      "6": {
+        "date": "2026-05-06",
+        "cours_ajuste": 821.8045043945312
+      },
+      "12": {
+        "date": "2025-11-06",
+        "cours_ajuste": 629.6885375976562
+      }
+    },
+    "indicateurs": {
+      "momentum_1m_pct": 5.515587529976029,
+      "momentum_3m_pct": 10.857600323301853,
+      "momentum_6m_pct": 7.081428161353842,
+      "momentum_12m_pct": 39.75163075975856,
+      "prix_vers_mm200": 1.0933531155057372,
+      "tendance_mm200": 2.594305953749809,
+      "momentum_6_1_pct": 1.4839898711012545,
+      "volume_moyen_20j": 117318.05,
+      "ratio_volume": 1.0858175702715822,
+      "volatilite_90j_pct": 20.610786865927082,
+      "drawdown_12m_pct": -14.37008555588597
+    },
+    "grille": [
+      {
+        "indicateur": "prix_vers_mm200",
+        "seuil_strict": 1,
+        "maximum": 2,
+        "valeur": 1.0933531155057372,
+        "points": 2
+      },
+      {
+        "indicateur": "tendance_mm200",
+        "seuil_strict": 0,
+        "maximum": 1,
+        "valeur": 2.594305953749809,
+        "points": 1
+      },
+      {
+        "indicateur": "momentum_1m_pct",
+        "seuil_strict": 0,
+        "maximum": 1,
+        "valeur": 5.515587529976029,
+        "points": 1
+      },
+      {
+        "indicateur": "momentum_3m_pct",
+        "seuil_strict": 0,
+        "maximum": 2,
+        "valeur": 10.857600323301853,
+        "points": 2
+      },
+      {
+        "indicateur": "momentum_6m_pct",
+        "seuil_strict": 0,
+        "maximum": 2,
+        "valeur": 7.081428161353842,
+        "points": 2
+      },
+      {
+        "indicateur": "momentum_12m_pct",
+        "seuil_strict": 0,
+        "maximum": 1,
+        "valeur": 39.75163075975856,
+        "points": 1
+      },
+      {
+        "indicateur": "momentum_6_1_pct",
+        "seuil_strict": 0,
+        "maximum": 1,
+        "valeur": 1.4839898711012545,
+        "points": 1
+      }
+    ],
+    "M": 10,
+    "points_non_observables": 0,
+    "source_url": "https://query1.finance.yahoo.com/v8/finance/chart/HSP.L?range=5y&interval=1d&events=div%2Csplits"
+  },
+  "analyse_prospective": {
+    "date_analyse": "2026-11-09",
+    "date_ancrage": "2026-11-06",
+    "cours_ancrage": 8.8,
+    "devise": "GBP",
+    "incertitude": "Cessions d'actifs non récurrentes.",
+    "nature": "Probabilités subjectives non calibrées, incertitude au moins +/-10 points. Rendements du cours en devise locale, hors change, dividendes et frais.",
+    "horizons": {
+      "3m": {
+        "echeance_calendaire": "2027-02-06",
+        "scenarios": [
+          {
+            "cas": "bear",
+            "rendement_pct": -18.0,
+            "probabilite_pct": 25.0,
+            "cours_conditionnel": 7.216000000000001,
+            "declencheur": "Décalages fonciers et industrie faible."
+          },
+          {
+            "cas": "central",
+            "rendement_pct": 5.0,
+            "probabilite_pct": 50.0,
+            "cours_conditionnel": 9.240000000000002,
+            "declencheur": "Cash des contrats existants."
+          },
+          {
+            "cas": "bull",
+            "rendement_pct": 20.0,
+            "probabilite_pct": 25.0,
+            "cours_conditionnel": 10.56,
+            "declencheur": "Rentabilité et réalisation d'actifs."
+          }
+        ],
+        "esperance_subjective_brute_pct": 3.0,
+        "esperance_apres_rotation_vente_achat_2_5pct": -2.0243902439024186,
+        "convention_frais": "Friction théorique: vente 2,5 % du brut, achat 2,5 % du nominal acheté. Pas de transaction."
+      },
+      "6m": {
+        "echeance_calendaire": "2027-05-06",
+        "scenarios": [
+          {
+            "cas": "bear",
+            "rendement_pct": -28.0,
+            "probabilite_pct": 25.0,
+            "cours_conditionnel": 6.336,
+            "declencheur": "Décalages fonciers et industrie faible."
+          },
+          {
+            "cas": "central",
+            "rendement_pct": 12.0,
+            "probabilite_pct": 45.0,
+            "cours_conditionnel": 9.856000000000002,
+            "declencheur": "Cash des contrats existants."
+          },
+          {
+            "cas": "bull",
+            "rendement_pct": 35.0,
+            "probabilite_pct": 30.0,
+            "cours_conditionnel": 11.880000000000003,
+            "declencheur": "Rentabilité et réalisation d'actifs."
+          }
+        ],
+        "esperance_subjective_brute_pct": 8.9,
+        "esperance_apres_rotation_vente_achat_2_5pct": 3.5878048780487726,
+        "convention_frais": "Friction théorique: vente 2,5 % du brut, achat 2,5 % du nominal acheté. Pas de transaction."
+      }
+    }
+  },
+  "date_analyse": "2026-11-09"
 }

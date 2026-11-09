@@ -281,24 +281,24 @@
     },
     "valorisation": {
       "cours": {
-        "valeur": 144.1999969482422,
+        "valeur": 139.0,
         "unite": "SEK",
-        "periode": "cloture 2026-11-03",
-        "date_source": "2026-11-03",
+        "periode": "clôture 2026-11-06",
+        "date_source": "2026-11-06",
         "source_url": "https://query1.finance.yahoo.com/v8/finance/chart/CTT.ST?range=5y&interval=1d&events=div%2Csplits",
         "statut": "SOURCE_MARCHE",
-        "commentaire": "Cours non ajuste; GBp/100 pour Londres.",
-        "date_collecte": "2026-11-04"
+        "commentaire": "Cours non ajusté, conversion GBp/100 vers GBP pour Londres.",
+        "date_collecte": "2026-11-09"
       },
       "date_cours": {
-        "valeur": "2026-11-03",
+        "valeur": "2026-11-06",
         "unite": "date",
-        "periode": "cloture",
-        "date_source": "2026-11-03",
+        "periode": "clôture",
+        "date_source": "2026-11-06",
         "source_url": "https://query1.finance.yahoo.com/v8/finance/chart/CTT.ST?range=5y&interval=1d&events=div%2Csplits",
         "statut": "SOURCE_MARCHE",
-        "commentaire": null,
-        "date_collecte": "2026-11-04"
+        "commentaire": "Clôture commune aux 40 fiches.",
+        "date_collecte": "2026-11-09"
       },
       "capitalisation": {
         "valeur": 1810000000,
@@ -849,64 +849,64 @@
     },
     "momentum": {
       "prix_vers_mm200": {
-        "valeur": 1.0853305194263125,
+        "valeur": 1.0500709163113666,
         "unite": "ratio",
-        "periode": "200 dernières séances",
-        "date_source": "2026-11-03",
+        "periode": "historique ajusté au 2026-11-06",
+        "date_source": "2026-11-06",
         "source_url": "https://query1.finance.yahoo.com/v8/finance/chart/CTT.ST?range=5y&interval=1d&events=div%2Csplits",
         "statut": "CALCULE_HISTORIQUE_SECONDAIRE",
-        "commentaire": "Cours ajusté / moyenne mobile 200 séances.",
-        "date_collecte": "2026-11-04"
+        "commentaire": "Calcul reproductible 10Q; ancrage dernière séance <= date calendaire cible, aucune période pré-IPO extrapolée.",
+        "date_collecte": "2026-11-09"
       },
       "momentum_1m_pct": {
-        "valeur": 6.029409520766316,
+        "valeur": 4.511278195488733,
         "unite": "pct",
-        "periode": "2026-10-02 / 2026-11-03",
-        "date_source": "2026-11-03",
+        "periode": "historique ajusté au 2026-11-06",
+        "date_source": "2026-11-06",
         "source_url": "https://query1.finance.yahoo.com/v8/finance/chart/CTT.ST?range=5y&interval=1d&events=div%2Csplits",
         "statut": "CALCULE_HISTORIQUE_SECONDAIRE",
-        "commentaire": "Cours ajustés, ancrage calendaire; dernière séance <= date cible.",
-        "date_collecte": "2026-11-04"
+        "commentaire": "Calcul reproductible 10Q; ancrage dernière séance <= date calendaire cible, aucune période pré-IPO extrapolée.",
+        "date_collecte": "2026-11-09"
       },
       "momentum_3m_pct": {
-        "valeur": 14.444442022414439,
+        "valeur": 4.511278195488733,
         "unite": "pct",
-        "periode": "2026-08-03 / 2026-11-03",
-        "date_source": "2026-11-03",
+        "periode": "historique ajusté au 2026-11-06",
+        "date_source": "2026-11-06",
         "source_url": "https://query1.finance.yahoo.com/v8/finance/chart/CTT.ST?range=5y&interval=1d&events=div%2Csplits",
         "statut": "CALCULE_HISTORIQUE_SECONDAIRE",
-        "commentaire": "Cours ajustés, ancrage calendaire; dernière séance <= date cible.",
-        "date_collecte": "2026-11-04"
+        "commentaire": "Calcul reproductible 10Q; ancrage dernière séance <= date calendaire cible, aucune période pré-IPO extrapolée.",
+        "date_collecte": "2026-11-09"
       },
       "momentum_6m_pct": {
-        "valeur": 21.396767464201737,
+        "valeur": 17.796610169491522,
         "unite": "pct",
-        "periode": "2026-04-30 / 2026-11-03",
-        "date_source": "2026-11-03",
+        "periode": "historique ajusté au 2026-11-06",
+        "date_source": "2026-11-06",
         "source_url": "https://query1.finance.yahoo.com/v8/finance/chart/CTT.ST?range=5y&interval=1d&events=div%2Csplits",
         "statut": "CALCULE_HISTORIQUE_SECONDAIRE",
-        "commentaire": "Cours ajustés, ancrage calendaire; dernière séance <= date cible.",
-        "date_collecte": "2026-11-04"
+        "commentaire": "Calcul reproductible 10Q; ancrage dernière séance <= date calendaire cible, aucune période pré-IPO extrapolée.",
+        "date_collecte": "2026-11-09"
       },
       "momentum_12m_pct": {
-        "valeur": -21.737828805902627,
+        "valeur": -25.432637038700847,
         "unite": "pct",
-        "periode": "2025-11-03 / 2026-11-03",
-        "date_source": "2026-11-03",
+        "periode": "historique ajusté au 2026-11-06",
+        "date_source": "2026-11-06",
         "source_url": "https://query1.finance.yahoo.com/v8/finance/chart/CTT.ST?range=5y&interval=1d&events=div%2Csplits",
         "statut": "CALCULE_HISTORIQUE_SECONDAIRE",
-        "commentaire": "Cours ajustés, ancrage calendaire; dernière séance <= date cible.",
-        "date_collecte": "2026-11-04"
+        "commentaire": "Calcul reproductible 10Q; ancrage dernière séance <= date calendaire cible, aucune période pré-IPO extrapolée.",
+        "date_collecte": "2026-11-09"
       },
       "momentum_6_1_pct": {
-        "valeur": 14.493486300539725,
+        "valeur": 12.711864406779672,
         "unite": "pct",
-        "periode": "2026-04-30 / 2026-10-02",
-        "date_source": "2026-11-03",
+        "periode": "historique ajusté au 2026-11-06",
+        "date_source": "2026-11-06",
         "source_url": "https://query1.finance.yahoo.com/v8/finance/chart/CTT.ST?range=5y&interval=1d&events=div%2Csplits",
         "statut": "CALCULE_HISTORIQUE_SECONDAIRE",
-        "commentaire": "Momentum 6–1 : prix à -1 mois / prix à -6 mois - 1; aucune modification de la règle de sélection.",
-        "date_collecte": "2026-11-04"
+        "commentaire": "Calcul reproductible 10Q; ancrage dernière séance <= date calendaire cible, aucune période pré-IPO extrapolée.",
+        "date_collecte": "2026-11-09"
       },
       "force_relative_indice": {
         "valeur": {
@@ -940,54 +940,54 @@
         "commentaire": "Ratio (titre ajusté converti en USD / URTH ajusté) sur chaque fenêtre, moins 1. Ancrages communs titre/ETF/FX; GBp constant annulé dans le ratio. URTH est un proxy ETF avec frais/écart de suivi; horaires de clôture non synchrones. Fenêtres impossibles avant IPO omises, jamais extrapolées."
       },
       "volume_moyen_20j": {
-        "valeur": 19332.55,
-        "unite": "titres",
-        "periode": "20 dernières séances",
-        "date_source": "2026-11-03",
+        "valeur": 19285.5,
+        "unite": "titres/jour",
+        "periode": "historique ajusté au 2026-11-06",
+        "date_source": "2026-11-06",
         "source_url": "https://query1.finance.yahoo.com/v8/finance/chart/CTT.ST?range=5y&interval=1d&events=div%2Csplits",
         "statut": "CALCULE_HISTORIQUE_SECONDAIRE",
-        "commentaire": "Moyenne arithmétique des volumes Yahoo non ajustés.",
-        "date_collecte": "2026-11-04"
+        "commentaire": "Calcul reproductible 10Q; ancrage dernière séance <= date calendaire cible, aucune période pré-IPO extrapolée.",
+        "date_collecte": "2026-11-09"
       },
       "ratio_volume": {
-        "valeur": 10.523133264882285,
+        "valeur": 0.09603069663737004,
         "unite": "ratio",
-        "periode": "dernière séance / moyenne 20 séances",
-        "date_source": "2026-11-03",
+        "periode": "historique ajusté au 2026-11-06",
+        "date_source": "2026-11-06",
         "source_url": "https://query1.finance.yahoo.com/v8/finance/chart/CTT.ST?range=5y&interval=1d&events=div%2Csplits",
         "statut": "CALCULE_HISTORIQUE_SECONDAIRE",
-        "commentaire": "Ratio de volume de la dernière séance.",
-        "date_collecte": "2026-11-04"
+        "commentaire": "Calcul reproductible 10Q; ancrage dernière séance <= date calendaire cible, aucune période pré-IPO extrapolée.",
+        "date_collecte": "2026-11-09"
       },
       "tendance_mm200": {
-        "valeur": -3.84843411456508,
+        "valeur": -3.559838038136187,
         "unite": "pct",
-        "periode": "variation MM200 sur 20 séances",
-        "date_source": "2026-11-03",
+        "periode": "historique ajusté au 2026-11-06",
+        "date_source": "2026-11-06",
         "source_url": "https://query1.finance.yahoo.com/v8/finance/chart/CTT.ST?range=5y&interval=1d&events=div%2Csplits",
         "statut": "CALCULE_HISTORIQUE_SECONDAIRE",
-        "commentaire": "Pente approchée par variation MM200(t)/MM200(t-20)-1; niveau MM200 non confondu avec pente.",
-        "date_collecte": "2026-11-04"
+        "commentaire": "Calcul reproductible 10Q; ancrage dernière séance <= date calendaire cible, aucune période pré-IPO extrapolée.",
+        "date_collecte": "2026-11-09"
       },
       "volatilite_90j_pct": {
-        "valeur": 35.58948397302997,
+        "valeur": 35.90313649936272,
         "unite": "pct",
-        "periode": "90 rendements quotidiens",
-        "date_source": "2026-11-03",
+        "periode": "historique ajusté au 2026-11-06",
+        "date_source": "2026-11-06",
         "source_url": "https://query1.finance.yahoo.com/v8/finance/chart/CTT.ST?range=5y&interval=1d&events=div%2Csplits",
         "statut": "CALCULE_HISTORIQUE_SECONDAIRE",
-        "commentaire": "Écart-type échantillon des log-rendements ajustés annualisé sqrt(252).",
-        "date_collecte": "2026-11-04"
+        "commentaire": "Calcul reproductible 10Q; ancrage dernière séance <= date calendaire cible, aucune période pré-IPO extrapolée.",
+        "date_collecte": "2026-11-09"
       },
       "drawdown_12m_pct": {
         "valeur": -42.84095838564487,
         "unite": "pct",
-        "periode": "2025-11-03 / 2026-11-03",
-        "date_source": "2026-11-03",
+        "periode": "historique ajusté au 2026-11-06",
+        "date_source": "2026-11-06",
         "source_url": "https://query1.finance.yahoo.com/v8/finance/chart/CTT.ST?range=5y&interval=1d&events=div%2Csplits",
         "statut": "CALCULE_HISTORIQUE_SECONDAIRE",
-        "commentaire": "Maximum drawdown du prix ajusté sur la fenêtre, valeur négative.",
-        "date_collecte": "2026-11-04"
+        "commentaire": "Calcul reproductible 10Q; ancrage dernière séance <= date calendaire cible, aucune période pré-IPO extrapolée.",
+        "date_collecte": "2026-11-09"
       }
     },
     "diversification": {
@@ -1052,34 +1052,24 @@
         "date_collecte": "2026-11-04"
       },
       "interet_strategique": {
-        "valeur": null,
-        "unite": null,
-        "periode": null,
-        "date_source": null,
-        "source_url": null,
-        "statut": "A_COLLECTER",
-        "commentaire": null,
-        "recherche": {
-          "date": "2026-11-04",
-          "statut": "MANQUANT_RECHERCHE_NON_CLOSE",
-          "motif": "Analyse MCPA/IPS argumentée encore nécessaire; ce champ ne doit pas être rempli par une statistique de fournisseur.",
-          "journal": "journal_recherches"
-        }
+        "valeur": "Cabines aéronautiques déjà représentées indirectement.",
+        "unite": "analyse",
+        "periode": "cohorte 40 titulaires",
+        "date_source": "2026-11-09",
+        "source_url": "https://query1.finance.yahoo.com/v10/finance/quoteSummary/CTT.ST?modules=earningsTrend | https://query1.finance.yahoo.com/ws/fundamentals-timeseries/v1/finance/timeseries/CTT.ST?type=annualEBITDA&period1=1640995200&period2=1793872599 | https://stockanalysis.com/quote/sto/CTT/financials/ | https://stockanalysis.com/quote/sto/CTT/financials/balance-sheet/ | https://stockanalysis.com/quote/sto/CTT/statistics/ | https://storage.mfn.se/7c2ba79d-136a-418c-b396-ba0b2a484bbe/ctt-systems-ab-interim-report-q3-2026.pdf",
+        "statut": "JUGEMENT_ANALYSTE",
+        "commentaire": "Diversification sectorielle, sans garantie de décorrélation en crise.",
+        "date_collecte": "2026-11-09"
       },
       "complementarite_portefeuille": {
-        "valeur": null,
-        "unite": null,
-        "periode": null,
-        "date_source": null,
-        "source_url": null,
-        "statut": "A_COLLECTER",
-        "commentaire": null,
-        "recherche": {
-          "date": "2026-11-04",
-          "statut": "MANQUANT_RECHERCHE_NON_CLOSE",
-          "motif": "Analyse MCPA/IPS argumentée encore nécessaire; ce champ ne doit pas être rempli par une statistique de fournisseur.",
-          "journal": "journal_recherches"
-        }
+        "valeur": "Cabines aéronautiques déjà représentées indirectement.",
+        "unite": "analyse",
+        "periode": "cohorte 40 titulaires",
+        "date_source": "2026-11-09",
+        "source_url": "https://query1.finance.yahoo.com/v10/finance/quoteSummary/CTT.ST?modules=earningsTrend | https://query1.finance.yahoo.com/ws/fundamentals-timeseries/v1/finance/timeseries/CTT.ST?type=annualEBITDA&period1=1640995200&period2=1793872599 | https://stockanalysis.com/quote/sto/CTT/financials/ | https://stockanalysis.com/quote/sto/CTT/financials/balance-sheet/ | https://stockanalysis.com/quote/sto/CTT/statistics/ | https://storage.mfn.se/7c2ba79d-136a-418c-b396-ba0b2a484bbe/ctt-systems-ab-interim-report-q3-2026.pdf",
+        "statut": "JUGEMENT_ANALYSTE",
+        "commentaire": "Diversification sectorielle, sans garantie de décorrélation en crise.",
+        "date_collecte": "2026-11-09"
       }
     },
     "complements": {
@@ -1099,49 +1089,34 @@
         }
       },
       "ic_sur_5": {
-        "valeur": null,
-        "unite": null,
-        "periode": null,
-        "date_source": null,
-        "source_url": null,
-        "statut": "A_COLLECTER",
-        "commentaire": null,
-        "recherche": {
-          "date": "2026-11-04",
-          "statut": "MANQUANT_RECHERCHE_NON_CLOSE",
-          "motif": "Analyse MCPA/IPS argumentée encore nécessaire; ce champ ne doit pas être rempli par une statistique de fournisseur.",
-          "journal": "journal_recherches"
-        }
+        "valeur": 3.5,
+        "unite": "note/5",
+        "periode": "analyse au 2026-11-09",
+        "date_source": "2026-11-09",
+        "source_url": "https://query1.finance.yahoo.com/v10/finance/quoteSummary/CTT.ST?modules=earningsTrend | https://query1.finance.yahoo.com/ws/fundamentals-timeseries/v1/finance/timeseries/CTT.ST?type=annualEBITDA&period1=1640995200&period2=1793872599 | https://stockanalysis.com/quote/sto/CTT/financials/ | https://stockanalysis.com/quote/sto/CTT/financials/balance-sheet/ | https://stockanalysis.com/quote/sto/CTT/statistics/ | https://storage.mfn.se/7c2ba79d-136a-418c-b396-ba0b2a484bbe/ctt-systems-ab-interim-report-q3-2026.pdf",
+        "statut": "ANALYSE_PROVISOIRE_DOCUMENTEE",
+        "commentaire": "Cadences annoncées distinctes des commandes fermes. Aucune opération autorisée.",
+        "date_collecte": "2026-11-09"
       },
       "cx_sur_5": {
-        "valeur": null,
-        "unite": null,
-        "periode": null,
-        "date_source": null,
-        "source_url": null,
-        "statut": "A_COLLECTER",
-        "commentaire": null,
-        "recherche": {
-          "date": "2026-11-04",
-          "statut": "MANQUANT_RECHERCHE_NON_CLOSE",
-          "motif": "Analyse MCPA/IPS argumentée encore nécessaire; ce champ ne doit pas être rempli par une statistique de fournisseur.",
-          "journal": "journal_recherches"
-        }
+        "valeur": 2.5,
+        "unite": "note/5",
+        "periode": "analyse au 2026-11-09",
+        "date_source": "2026-11-09",
+        "source_url": "https://query1.finance.yahoo.com/v10/finance/quoteSummary/CTT.ST?modules=earningsTrend | https://query1.finance.yahoo.com/ws/fundamentals-timeseries/v1/finance/timeseries/CTT.ST?type=annualEBITDA&period1=1640995200&period2=1793872599 | https://stockanalysis.com/quote/sto/CTT/financials/ | https://stockanalysis.com/quote/sto/CTT/financials/balance-sheet/ | https://stockanalysis.com/quote/sto/CTT/statistics/ | https://storage.mfn.se/7c2ba79d-136a-418c-b396-ba0b2a484bbe/ctt-systems-ab-interim-report-q3-2026.pdf",
+        "statut": "ANALYSE_PROVISOIRE_DOCUMENTEE",
+        "commentaire": "Cadences annoncées distinctes des commandes fermes. Aucune opération autorisée.",
+        "date_collecte": "2026-11-09"
       },
       "delta": {
-        "valeur": null,
-        "unite": null,
-        "periode": null,
-        "date_source": null,
-        "source_url": null,
-        "statut": "A_COLLECTER",
-        "commentaire": null,
-        "recherche": {
-          "date": "2026-11-04",
-          "statut": "MANQUANT_RECHERCHE_NON_CLOSE",
-          "motif": "Analyse MCPA/IPS argumentée encore nécessaire; ce champ ne doit pas être rempli par une statistique de fournisseur.",
-          "journal": "journal_recherches"
-        }
+        "valeur": "MIXTE_SOUS_REVUE",
+        "unite": "texte",
+        "periode": "analyse au 2026-11-09",
+        "date_source": "2026-11-09",
+        "source_url": "https://query1.finance.yahoo.com/v10/finance/quoteSummary/CTT.ST?modules=earningsTrend | https://query1.finance.yahoo.com/ws/fundamentals-timeseries/v1/finance/timeseries/CTT.ST?type=annualEBITDA&period1=1640995200&period2=1793872599 | https://stockanalysis.com/quote/sto/CTT/financials/ | https://stockanalysis.com/quote/sto/CTT/financials/balance-sheet/ | https://stockanalysis.com/quote/sto/CTT/statistics/ | https://storage.mfn.se/7c2ba79d-136a-418c-b396-ba0b2a484bbe/ctt-systems-ab-interim-report-q3-2026.pdf",
+        "statut": "ANALYSE_PROVISOIRE_DOCUMENTEE",
+        "commentaire": "Cadences annoncées distinctes des commandes fermes. Aucune opération autorisée.",
+        "date_collecte": "2026-11-09"
       },
       "wwws": {
         "valeur": null,
@@ -1159,244 +1134,164 @@
         }
       },
       "scenario_bear_3m_pct": {
-        "valeur": null,
-        "unite": null,
-        "periode": null,
-        "date_source": null,
-        "source_url": null,
-        "statut": "A_COLLECTER",
-        "commentaire": null,
-        "recherche": {
-          "date": "2026-11-04",
-          "statut": "MANQUANT_RECHERCHE_NON_CLOSE",
-          "motif": "Analyse MCPA/IPS argumentée encore nécessaire; ce champ ne doit pas être rempli par une statistique de fournisseur.",
-          "journal": "journal_recherches"
-        }
+        "valeur": -20.0,
+        "unite": "pct",
+        "periode": "3 mois depuis 2026-11-06",
+        "date_source": "2026-11-09",
+        "source_url": "https://query1.finance.yahoo.com/v10/finance/quoteSummary/CTT.ST?modules=earningsTrend | https://query1.finance.yahoo.com/ws/fundamentals-timeseries/v1/finance/timeseries/CTT.ST?type=annualEBITDA&period1=1640995200&period2=1793872599 | https://stockanalysis.com/quote/sto/CTT/financials/ | https://stockanalysis.com/quote/sto/CTT/financials/balance-sheet/ | https://stockanalysis.com/quote/sto/CTT/statistics/ | https://storage.mfn.se/7c2ba79d-136a-418c-b396-ba0b2a484bbe/ctt-systems-ab-interim-report-q3-2026.pdf",
+        "statut": "HYPOTHESE_PROSPECTIVE_ANALYSTE",
+        "commentaire": "Cadences retardées et multiple réduit. Cadences annoncées distinctes des commandes fermes.",
+        "date_collecte": "2026-11-09"
       },
       "prob_bear_3m_pct": {
-        "valeur": null,
-        "unite": null,
-        "periode": null,
-        "date_source": null,
-        "source_url": null,
-        "statut": "A_COLLECTER",
-        "commentaire": null,
-        "recherche": {
-          "date": "2026-11-04",
-          "statut": "MANQUANT_RECHERCHE_NON_CLOSE",
-          "motif": "Analyse MCPA/IPS argumentée encore nécessaire; ce champ ne doit pas être rempli par une statistique de fournisseur.",
-          "journal": "journal_recherches"
-        }
+        "valeur": 25.0,
+        "unite": "pct",
+        "periode": "probabilité subjective 3 mois",
+        "date_source": "2026-11-09",
+        "source_url": "https://query1.finance.yahoo.com/v10/finance/quoteSummary/CTT.ST?modules=earningsTrend | https://query1.finance.yahoo.com/ws/fundamentals-timeseries/v1/finance/timeseries/CTT.ST?type=annualEBITDA&period1=1640995200&period2=1793872599 | https://stockanalysis.com/quote/sto/CTT/financials/ | https://stockanalysis.com/quote/sto/CTT/financials/balance-sheet/ | https://stockanalysis.com/quote/sto/CTT/statistics/ | https://storage.mfn.se/7c2ba79d-136a-418c-b396-ba0b2a484bbe/ctt-systems-ab-interim-report-q3-2026.pdf",
+        "statut": "PROBABILITE_SUBJECTIVE_NON_CALIBREE",
+        "commentaire": "Pondération par jugement du risque et des opportunités décrits; aucune fréquence statistique. Incertitude au moins +/-10 points. Cadences annoncées distinctes des commandes fermes.",
+        "date_collecte": "2026-11-09"
       },
       "scenario_central_3m_pct": {
-        "valeur": null,
-        "unite": null,
-        "periode": null,
-        "date_source": null,
-        "source_url": null,
-        "statut": "A_COLLECTER",
-        "commentaire": null,
-        "recherche": {
-          "date": "2026-11-04",
-          "statut": "MANQUANT_RECHERCHE_NON_CLOSE",
-          "motif": "Analyse MCPA/IPS argumentée encore nécessaire; ce champ ne doit pas être rempli par une statistique de fournisseur.",
-          "journal": "journal_recherches"
-        }
+        "valeur": 5.0,
+        "unite": "pct",
+        "periode": "3 mois depuis 2026-11-06",
+        "date_source": "2026-11-09",
+        "source_url": "https://query1.finance.yahoo.com/v10/finance/quoteSummary/CTT.ST?modules=earningsTrend | https://query1.finance.yahoo.com/ws/fundamentals-timeseries/v1/finance/timeseries/CTT.ST?type=annualEBITDA&period1=1640995200&period2=1793872599 | https://stockanalysis.com/quote/sto/CTT/financials/ | https://stockanalysis.com/quote/sto/CTT/financials/balance-sheet/ | https://stockanalysis.com/quote/sto/CTT/statistics/ | https://storage.mfn.se/7c2ba79d-136a-418c-b396-ba0b2a484bbe/ctt-systems-ab-interim-report-q3-2026.pdf",
+        "statut": "HYPOTHESE_PROSPECTIVE_ANALYSTE",
+        "commentaire": "Croissance graduelle et marges stables. Cadences annoncées distinctes des commandes fermes.",
+        "date_collecte": "2026-11-09"
       },
       "prob_central_3m_pct": {
-        "valeur": null,
-        "unite": null,
-        "periode": null,
-        "date_source": null,
-        "source_url": null,
-        "statut": "A_COLLECTER",
-        "commentaire": null,
-        "recherche": {
-          "date": "2026-11-04",
-          "statut": "MANQUANT_RECHERCHE_NON_CLOSE",
-          "motif": "Analyse MCPA/IPS argumentée encore nécessaire; ce champ ne doit pas être rempli par une statistique de fournisseur.",
-          "journal": "journal_recherches"
-        }
+        "valeur": 50.0,
+        "unite": "pct",
+        "periode": "probabilité subjective 3 mois",
+        "date_source": "2026-11-09",
+        "source_url": "https://query1.finance.yahoo.com/v10/finance/quoteSummary/CTT.ST?modules=earningsTrend | https://query1.finance.yahoo.com/ws/fundamentals-timeseries/v1/finance/timeseries/CTT.ST?type=annualEBITDA&period1=1640995200&period2=1793872599 | https://stockanalysis.com/quote/sto/CTT/financials/ | https://stockanalysis.com/quote/sto/CTT/financials/balance-sheet/ | https://stockanalysis.com/quote/sto/CTT/statistics/ | https://storage.mfn.se/7c2ba79d-136a-418c-b396-ba0b2a484bbe/ctt-systems-ab-interim-report-q3-2026.pdf",
+        "statut": "PROBABILITE_SUBJECTIVE_NON_CALIBREE",
+        "commentaire": "Pondération par jugement du risque et des opportunités décrits; aucune fréquence statistique. Incertitude au moins +/-10 points. Cadences annoncées distinctes des commandes fermes.",
+        "date_collecte": "2026-11-09"
       },
       "scenario_bull_3m_pct": {
-        "valeur": null,
-        "unite": null,
-        "periode": null,
-        "date_source": null,
-        "source_url": null,
-        "statut": "A_COLLECTER",
-        "commentaire": null,
-        "recherche": {
-          "date": "2026-11-04",
-          "statut": "MANQUANT_RECHERCHE_NON_CLOSE",
-          "motif": "Analyse MCPA/IPS argumentée encore nécessaire; ce champ ne doit pas être rempli par une statistique de fournisseur.",
-          "journal": "journal_recherches"
-        }
+        "valeur": 20.0,
+        "unite": "pct",
+        "periode": "3 mois depuis 2026-11-06",
+        "date_source": "2026-11-09",
+        "source_url": "https://query1.finance.yahoo.com/v10/finance/quoteSummary/CTT.ST?modules=earningsTrend | https://query1.finance.yahoo.com/ws/fundamentals-timeseries/v1/finance/timeseries/CTT.ST?type=annualEBITDA&period1=1640995200&period2=1793872599 | https://stockanalysis.com/quote/sto/CTT/financials/ | https://stockanalysis.com/quote/sto/CTT/financials/balance-sheet/ | https://stockanalysis.com/quote/sto/CTT/statistics/ | https://storage.mfn.se/7c2ba79d-136a-418c-b396-ba0b2a484bbe/ctt-systems-ab-interim-report-q3-2026.pdf",
+        "statut": "HYPOTHESE_PROSPECTIVE_ANALYSTE",
+        "commentaire": "Reprise livraisons et après-vente. Cadences annoncées distinctes des commandes fermes.",
+        "date_collecte": "2026-11-09"
       },
       "prob_bull_3m_pct": {
-        "valeur": null,
-        "unite": null,
-        "periode": null,
-        "date_source": null,
-        "source_url": null,
-        "statut": "A_COLLECTER",
-        "commentaire": null,
-        "recherche": {
-          "date": "2026-11-04",
-          "statut": "MANQUANT_RECHERCHE_NON_CLOSE",
-          "motif": "Analyse MCPA/IPS argumentée encore nécessaire; ce champ ne doit pas être rempli par une statistique de fournisseur.",
-          "journal": "journal_recherches"
-        }
+        "valeur": 25.0,
+        "unite": "pct",
+        "periode": "probabilité subjective 3 mois",
+        "date_source": "2026-11-09",
+        "source_url": "https://query1.finance.yahoo.com/v10/finance/quoteSummary/CTT.ST?modules=earningsTrend | https://query1.finance.yahoo.com/ws/fundamentals-timeseries/v1/finance/timeseries/CTT.ST?type=annualEBITDA&period1=1640995200&period2=1793872599 | https://stockanalysis.com/quote/sto/CTT/financials/ | https://stockanalysis.com/quote/sto/CTT/financials/balance-sheet/ | https://stockanalysis.com/quote/sto/CTT/statistics/ | https://storage.mfn.se/7c2ba79d-136a-418c-b396-ba0b2a484bbe/ctt-systems-ab-interim-report-q3-2026.pdf",
+        "statut": "PROBABILITE_SUBJECTIVE_NON_CALIBREE",
+        "commentaire": "Pondération par jugement du risque et des opportunités décrits; aucune fréquence statistique. Incertitude au moins +/-10 points. Cadences annoncées distinctes des commandes fermes.",
+        "date_collecte": "2026-11-09"
       },
       "scenario_bear_6m_pct": {
-        "valeur": null,
-        "unite": null,
-        "periode": null,
-        "date_source": null,
-        "source_url": null,
-        "statut": "A_COLLECTER",
-        "commentaire": null,
-        "recherche": {
-          "date": "2026-11-04",
-          "statut": "MANQUANT_RECHERCHE_NON_CLOSE",
-          "motif": "Analyse MCPA/IPS argumentée encore nécessaire; ce champ ne doit pas être rempli par une statistique de fournisseur.",
-          "journal": "journal_recherches"
-        }
+        "valeur": -30.0,
+        "unite": "pct",
+        "periode": "6 mois depuis 2026-11-06",
+        "date_source": "2026-11-09",
+        "source_url": "https://query1.finance.yahoo.com/v10/finance/quoteSummary/CTT.ST?modules=earningsTrend | https://query1.finance.yahoo.com/ws/fundamentals-timeseries/v1/finance/timeseries/CTT.ST?type=annualEBITDA&period1=1640995200&period2=1793872599 | https://stockanalysis.com/quote/sto/CTT/financials/ | https://stockanalysis.com/quote/sto/CTT/financials/balance-sheet/ | https://stockanalysis.com/quote/sto/CTT/statistics/ | https://storage.mfn.se/7c2ba79d-136a-418c-b396-ba0b2a484bbe/ctt-systems-ab-interim-report-q3-2026.pdf",
+        "statut": "HYPOTHESE_PROSPECTIVE_ANALYSTE",
+        "commentaire": "Cadences retardées et multiple réduit. Cadences annoncées distinctes des commandes fermes.",
+        "date_collecte": "2026-11-09"
       },
       "prob_bear_6m_pct": {
-        "valeur": null,
-        "unite": null,
-        "periode": null,
-        "date_source": null,
-        "source_url": null,
-        "statut": "A_COLLECTER",
-        "commentaire": null,
-        "recherche": {
-          "date": "2026-11-04",
-          "statut": "MANQUANT_RECHERCHE_NON_CLOSE",
-          "motif": "Analyse MCPA/IPS argumentée encore nécessaire; ce champ ne doit pas être rempli par une statistique de fournisseur.",
-          "journal": "journal_recherches"
-        }
+        "valeur": 25.0,
+        "unite": "pct",
+        "periode": "probabilité subjective 6 mois",
+        "date_source": "2026-11-09",
+        "source_url": "https://query1.finance.yahoo.com/v10/finance/quoteSummary/CTT.ST?modules=earningsTrend | https://query1.finance.yahoo.com/ws/fundamentals-timeseries/v1/finance/timeseries/CTT.ST?type=annualEBITDA&period1=1640995200&period2=1793872599 | https://stockanalysis.com/quote/sto/CTT/financials/ | https://stockanalysis.com/quote/sto/CTT/financials/balance-sheet/ | https://stockanalysis.com/quote/sto/CTT/statistics/ | https://storage.mfn.se/7c2ba79d-136a-418c-b396-ba0b2a484bbe/ctt-systems-ab-interim-report-q3-2026.pdf",
+        "statut": "PROBABILITE_SUBJECTIVE_NON_CALIBREE",
+        "commentaire": "Pondération par jugement du risque et des opportunités décrits; aucune fréquence statistique. Incertitude au moins +/-10 points. Cadences annoncées distinctes des commandes fermes.",
+        "date_collecte": "2026-11-09"
       },
       "scenario_central_6m_pct": {
-        "valeur": null,
-        "unite": null,
-        "periode": null,
-        "date_source": null,
-        "source_url": null,
-        "statut": "A_COLLECTER",
-        "commentaire": null,
-        "recherche": {
-          "date": "2026-11-04",
-          "statut": "MANQUANT_RECHERCHE_NON_CLOSE",
-          "motif": "Analyse MCPA/IPS argumentée encore nécessaire; ce champ ne doit pas être rempli par une statistique de fournisseur.",
-          "journal": "journal_recherches"
-        }
+        "valeur": 12.0,
+        "unite": "pct",
+        "periode": "6 mois depuis 2026-11-06",
+        "date_source": "2026-11-09",
+        "source_url": "https://query1.finance.yahoo.com/v10/finance/quoteSummary/CTT.ST?modules=earningsTrend | https://query1.finance.yahoo.com/ws/fundamentals-timeseries/v1/finance/timeseries/CTT.ST?type=annualEBITDA&period1=1640995200&period2=1793872599 | https://stockanalysis.com/quote/sto/CTT/financials/ | https://stockanalysis.com/quote/sto/CTT/financials/balance-sheet/ | https://stockanalysis.com/quote/sto/CTT/statistics/ | https://storage.mfn.se/7c2ba79d-136a-418c-b396-ba0b2a484bbe/ctt-systems-ab-interim-report-q3-2026.pdf",
+        "statut": "HYPOTHESE_PROSPECTIVE_ANALYSTE",
+        "commentaire": "Croissance graduelle et marges stables. Cadences annoncées distinctes des commandes fermes.",
+        "date_collecte": "2026-11-09"
       },
       "prob_central_6m_pct": {
-        "valeur": null,
-        "unite": null,
-        "periode": null,
-        "date_source": null,
-        "source_url": null,
-        "statut": "A_COLLECTER",
-        "commentaire": null,
-        "recherche": {
-          "date": "2026-11-04",
-          "statut": "MANQUANT_RECHERCHE_NON_CLOSE",
-          "motif": "Analyse MCPA/IPS argumentée encore nécessaire; ce champ ne doit pas être rempli par une statistique de fournisseur.",
-          "journal": "journal_recherches"
-        }
+        "valeur": 45.0,
+        "unite": "pct",
+        "periode": "probabilité subjective 6 mois",
+        "date_source": "2026-11-09",
+        "source_url": "https://query1.finance.yahoo.com/v10/finance/quoteSummary/CTT.ST?modules=earningsTrend | https://query1.finance.yahoo.com/ws/fundamentals-timeseries/v1/finance/timeseries/CTT.ST?type=annualEBITDA&period1=1640995200&period2=1793872599 | https://stockanalysis.com/quote/sto/CTT/financials/ | https://stockanalysis.com/quote/sto/CTT/financials/balance-sheet/ | https://stockanalysis.com/quote/sto/CTT/statistics/ | https://storage.mfn.se/7c2ba79d-136a-418c-b396-ba0b2a484bbe/ctt-systems-ab-interim-report-q3-2026.pdf",
+        "statut": "PROBABILITE_SUBJECTIVE_NON_CALIBREE",
+        "commentaire": "Pondération par jugement du risque et des opportunités décrits; aucune fréquence statistique. Incertitude au moins +/-10 points. Cadences annoncées distinctes des commandes fermes.",
+        "date_collecte": "2026-11-09"
       },
       "scenario_bull_6m_pct": {
-        "valeur": null,
-        "unite": null,
-        "periode": null,
-        "date_source": null,
-        "source_url": null,
-        "statut": "A_COLLECTER",
-        "commentaire": null,
-        "recherche": {
-          "date": "2026-11-04",
-          "statut": "MANQUANT_RECHERCHE_NON_CLOSE",
-          "motif": "Analyse MCPA/IPS argumentée encore nécessaire; ce champ ne doit pas être rempli par une statistique de fournisseur.",
-          "journal": "journal_recherches"
-        }
+        "valeur": 35.0,
+        "unite": "pct",
+        "periode": "6 mois depuis 2026-11-06",
+        "date_source": "2026-11-09",
+        "source_url": "https://query1.finance.yahoo.com/v10/finance/quoteSummary/CTT.ST?modules=earningsTrend | https://query1.finance.yahoo.com/ws/fundamentals-timeseries/v1/finance/timeseries/CTT.ST?type=annualEBITDA&period1=1640995200&period2=1793872599 | https://stockanalysis.com/quote/sto/CTT/financials/ | https://stockanalysis.com/quote/sto/CTT/financials/balance-sheet/ | https://stockanalysis.com/quote/sto/CTT/statistics/ | https://storage.mfn.se/7c2ba79d-136a-418c-b396-ba0b2a484bbe/ctt-systems-ab-interim-report-q3-2026.pdf",
+        "statut": "HYPOTHESE_PROSPECTIVE_ANALYSTE",
+        "commentaire": "Reprise livraisons et après-vente. Cadences annoncées distinctes des commandes fermes.",
+        "date_collecte": "2026-11-09"
       },
       "prob_bull_6m_pct": {
-        "valeur": null,
-        "unite": null,
-        "periode": null,
-        "date_source": null,
-        "source_url": null,
-        "statut": "A_COLLECTER",
-        "commentaire": null,
-        "recherche": {
-          "date": "2026-11-04",
-          "statut": "MANQUANT_RECHERCHE_NON_CLOSE",
-          "motif": "Analyse MCPA/IPS argumentée encore nécessaire; ce champ ne doit pas être rempli par une statistique de fournisseur.",
-          "journal": "journal_recherches"
-        }
+        "valeur": 30.0,
+        "unite": "pct",
+        "periode": "probabilité subjective 6 mois",
+        "date_source": "2026-11-09",
+        "source_url": "https://query1.finance.yahoo.com/v10/finance/quoteSummary/CTT.ST?modules=earningsTrend | https://query1.finance.yahoo.com/ws/fundamentals-timeseries/v1/finance/timeseries/CTT.ST?type=annualEBITDA&period1=1640995200&period2=1793872599 | https://stockanalysis.com/quote/sto/CTT/financials/ | https://stockanalysis.com/quote/sto/CTT/financials/balance-sheet/ | https://stockanalysis.com/quote/sto/CTT/statistics/ | https://storage.mfn.se/7c2ba79d-136a-418c-b396-ba0b2a484bbe/ctt-systems-ab-interim-report-q3-2026.pdf",
+        "statut": "PROBABILITE_SUBJECTIVE_NON_CALIBREE",
+        "commentaire": "Pondération par jugement du risque et des opportunités décrits; aucune fréquence statistique. Incertitude au moins +/-10 points. Cadences annoncées distinctes des commandes fermes.",
+        "date_collecte": "2026-11-09"
       },
       "role_ips": {
-        "valeur": null,
-        "unite": null,
-        "periode": null,
-        "date_source": null,
-        "source_url": null,
-        "statut": "A_COLLECTER",
-        "commentaire": null,
-        "recherche": {
-          "date": "2026-11-04",
-          "statut": "MANQUANT_RECHERCHE_NON_CLOSE",
-          "motif": "Analyse MCPA/IPS argumentée encore nécessaire; ce champ ne doit pas être rempli par une statistique de fournisseur.",
-          "journal": "journal_recherches"
-        }
+        "valeur": "INCUBATION_VIRTUELLE_SOUS_REVUE",
+        "unite": "texte",
+        "periode": "analyse au 2026-11-09",
+        "date_source": "2026-11-09",
+        "source_url": "https://query1.finance.yahoo.com/v10/finance/quoteSummary/CTT.ST?modules=earningsTrend | https://query1.finance.yahoo.com/ws/fundamentals-timeseries/v1/finance/timeseries/CTT.ST?type=annualEBITDA&period1=1640995200&period2=1793872599 | https://stockanalysis.com/quote/sto/CTT/financials/ | https://stockanalysis.com/quote/sto/CTT/financials/balance-sheet/ | https://stockanalysis.com/quote/sto/CTT/statistics/ | https://storage.mfn.se/7c2ba79d-136a-418c-b396-ba0b2a484bbe/ctt-systems-ab-interim-report-q3-2026.pdf",
+        "statut": "ANALYSE_PROVISOIRE_DOCUMENTEE",
+        "commentaire": "Cadences annoncées distinctes des commandes fermes. Aucune opération autorisée.",
+        "date_collecte": "2026-11-09"
       },
       "decision": {
-        "valeur": null,
-        "unite": null,
-        "periode": null,
-        "date_source": null,
-        "source_url": null,
-        "statut": "A_COLLECTER",
-        "commentaire": null,
-        "recherche": {
-          "date": "2026-11-04",
-          "statut": "MANQUANT_RECHERCHE_NON_CLOSE",
-          "motif": "Analyse MCPA/IPS argumentée encore nécessaire; ce champ ne doit pas être rempli par une statistique de fournisseur.",
-          "journal": "journal_recherches"
-        }
+        "valeur": "ATTENTE",
+        "unite": "texte",
+        "periode": "analyse au 2026-11-09",
+        "date_source": "2026-11-09",
+        "source_url": "https://query1.finance.yahoo.com/v10/finance/quoteSummary/CTT.ST?modules=earningsTrend | https://query1.finance.yahoo.com/ws/fundamentals-timeseries/v1/finance/timeseries/CTT.ST?type=annualEBITDA&period1=1640995200&period2=1793872599 | https://stockanalysis.com/quote/sto/CTT/financials/ | https://stockanalysis.com/quote/sto/CTT/financials/balance-sheet/ | https://stockanalysis.com/quote/sto/CTT/statistics/ | https://storage.mfn.se/7c2ba79d-136a-418c-b396-ba0b2a484bbe/ctt-systems-ab-interim-report-q3-2026.pdf",
+        "statut": "ANALYSE_PROVISOIRE_DOCUMENTEE",
+        "commentaire": "Cadences annoncées distinctes des commandes fermes. Aucune opération autorisée.",
+        "date_collecte": "2026-11-09"
       },
       "condition_renforcement": {
-        "valeur": null,
-        "unite": null,
-        "periode": null,
-        "date_source": null,
-        "source_url": null,
-        "statut": "A_COLLECTER",
-        "commentaire": null,
-        "recherche": {
-          "date": "2026-11-04",
-          "statut": "MANQUANT_RECHERCHE_NON_CLOSE",
-          "motif": "Analyse MCPA/IPS argumentée encore nécessaire; ce champ ne doit pas être rempli par une statistique de fournisseur.",
-          "journal": "journal_recherches"
-        }
+        "valeur": "SSI documenté >=65, MCPA >=80, IC >=3,5, données rapprochées, revue stricte valide et duel favorable après frais.",
+        "unite": "texte",
+        "periode": "analyse au 2026-11-09",
+        "date_source": "2026-11-09",
+        "source_url": "https://query1.finance.yahoo.com/v10/finance/quoteSummary/CTT.ST?modules=earningsTrend | https://query1.finance.yahoo.com/ws/fundamentals-timeseries/v1/finance/timeseries/CTT.ST?type=annualEBITDA&period1=1640995200&period2=1793872599 | https://stockanalysis.com/quote/sto/CTT/financials/ | https://stockanalysis.com/quote/sto/CTT/financials/balance-sheet/ | https://stockanalysis.com/quote/sto/CTT/statistics/ | https://storage.mfn.se/7c2ba79d-136a-418c-b396-ba0b2a484bbe/ctt-systems-ab-interim-report-q3-2026.pdf",
+        "statut": "ANALYSE_PROVISOIRE_DOCUMENTEE",
+        "commentaire": "Cadences annoncées distinctes des commandes fermes. Aucune opération autorisée.",
+        "date_collecte": "2026-11-09"
       },
       "condition_allegement_sortie": {
-        "valeur": null,
-        "unite": null,
-        "periode": null,
-        "date_source": null,
-        "source_url": null,
-        "statut": "A_COLLECTER",
-        "commentaire": null,
-        "recherche": {
-          "date": "2026-11-04",
-          "statut": "MANQUANT_RECHERCHE_NON_CLOSE",
-          "motif": "Analyse MCPA/IPS argumentée encore nécessaire; ce champ ne doit pas être rempli par une statistique de fournisseur.",
-          "journal": "journal_recherches"
-        }
+        "valeur": "Cadences retardées et multiple réduit. Contrôle des coûts et de la liquidité avant décision virtuelle.",
+        "unite": "texte",
+        "periode": "analyse au 2026-11-09",
+        "date_source": "2026-11-09",
+        "source_url": "https://query1.finance.yahoo.com/v10/finance/quoteSummary/CTT.ST?modules=earningsTrend | https://query1.finance.yahoo.com/ws/fundamentals-timeseries/v1/finance/timeseries/CTT.ST?type=annualEBITDA&period1=1640995200&period2=1793872599 | https://stockanalysis.com/quote/sto/CTT/financials/ | https://stockanalysis.com/quote/sto/CTT/financials/balance-sheet/ | https://stockanalysis.com/quote/sto/CTT/statistics/ | https://storage.mfn.se/7c2ba79d-136a-418c-b396-ba0b2a484bbe/ctt-systems-ab-interim-report-q3-2026.pdf",
+        "statut": "ANALYSE_PROVISOIRE_DOCUMENTEE",
+        "commentaire": "Cadences annoncées distinctes des commandes fermes. Aucune opération autorisée.",
+        "date_collecte": "2026-11-09"
       },
       "challengers_compares": {
         "valeur": null,
@@ -1425,23 +1320,33 @@
       "diversification": 10
     },
     "notes": {
-      "qualite": null,
-      "valorisation": null,
-      "croissance": null,
-      "risque": null,
-      "momentum": null,
-      "diversification": null
+      "qualite": 25.0,
+      "valorisation": 8.0,
+      "croissance": 13.0,
+      "risque": 7.0,
+      "momentum": 8,
+      "diversification": 6.0
     },
-    "total_mcpa": null,
-    "statut": "NON_VALIDEE",
+    "total_mcpa": 67.0,
+    "statut": "DOCUMENTEE_NON_VALIDEE",
     "justifications": {
-      "qualite": null,
-      "valorisation": null,
-      "croissance": null,
-      "risque": null,
-      "momentum": null,
-      "diversification": null
-    }
+      "qualite": "Marge EBIT neuf mois proche de 22 %, cash opérationnel positif.",
+      "valorisation": "Multiples élevés exigeant une reprise durable.",
+      "croissance": "Reprise T3, cycles aéronautiques longs.",
+      "risque": "Dépendance aux constructeurs et au change.",
+      "diversification": "Cabines aéronautiques déjà représentées indirectement.",
+      "momentum": "Grille explicite au 2026-11-06: 8/10, 0 points non observables. Absence d'historique distincte d'un signal baissier; score provisoire si incomplet."
+    },
+    "date_analyse": "2026-11-09",
+    "sources": [
+      "https://query1.finance.yahoo.com/v10/finance/quoteSummary/CTT.ST?modules=earningsTrend",
+      "https://query1.finance.yahoo.com/ws/fundamentals-timeseries/v1/finance/timeseries/CTT.ST?type=annualEBITDA&period1=1640995200&period2=1793872599",
+      "https://stockanalysis.com/quote/sto/CTT/financials/",
+      "https://stockanalysis.com/quote/sto/CTT/financials/balance-sheet/",
+      "https://stockanalysis.com/quote/sto/CTT/statistics/",
+      "https://storage.mfn.se/7c2ba79d-136a-418c-b396-ba0b2a484bbe/ctt-systems-ab-interim-report-q3-2026.pdf"
+    ],
+    "limite": "Notes discrétionnaires provisoires; multiples secondaires à rapprocher, SSI et revue stricte obligatoires. Grille momentum locale ne modifiant pas le maître."
   },
   "preuves_complementaires": [
     {
@@ -1933,7 +1838,7 @@
     }
   ],
   "anomalies": [],
-  "statut_fiche": "ENRICHIE_NON_VALIDEE",
+  "statut_fiche": "NOTEE_SCENARISEE_NON_VALIDEE",
   "arbitrage_autorise": false,
   "observations_complementaires": [
     {
@@ -2681,9 +2586,9 @@
   "audit_couverture": {
     "date": "2026-11-09",
     "champs_total": 108,
-    "champs_renseignes": 62,
-    "couverture_pct": 57.41,
-    "champs_secondaires_non_rapproches": 37,
+    "champs_renseignes": 83,
+    "couverture_pct": 76.85,
+    "champs_secondaires_non_rapproches": 50,
     "champs_manquants": [
       "identite.lei",
       "identite.marche",
@@ -2707,45 +2612,24 @@
       "risque.transactions_initiees_net_90j",
       "risque.transactions_initiees_net_180j",
       "diversification.zone_geographique",
-      "diversification.interet_strategique",
-      "diversification.complementarite_portefeuille",
       "complements.ssi",
-      "complements.ic_sur_5",
-      "complements.cx_sur_5",
-      "complements.delta",
       "complements.wwws",
-      "complements.scenario_bear_3m_pct",
-      "complements.prob_bear_3m_pct",
-      "complements.scenario_central_3m_pct",
-      "complements.prob_central_3m_pct",
-      "complements.scenario_bull_3m_pct",
-      "complements.prob_bull_3m_pct",
-      "complements.scenario_bear_6m_pct",
-      "complements.prob_bear_6m_pct",
-      "complements.scenario_central_6m_pct",
-      "complements.prob_central_6m_pct",
-      "complements.scenario_bull_6m_pct",
-      "complements.prob_bull_6m_pct",
-      "complements.role_ips",
-      "complements.decision",
-      "complements.condition_renforcement",
-      "complements.condition_allegement_sortie",
       "complements.challengers_compares"
     ],
     "indisponibilite_definitive_demontree": [],
-    "statut": "TRAITE_MAIS_INCOMPLET",
-    "cours_date_limite": "2026-11-03"
+    "statut": "ANALYSE_DOCUMENTEE_NON_CERTIFIEE",
+    "cours_date_limite": "2026-11-06"
   },
   "audit_poursuite": {
     "date": "2026-11-09",
     "comptage": {
-      "RENSEIGNE": 62,
+      "RENSEIGNE": 83,
       "NON_APPLICABLE": 1,
       "INDISPONIBLE_A_DATE": 0,
-      "RECHERCHE_A_POURSUIVRE": 45
+      "RECHERCHE_A_POURSUIVRE": 24
     },
-    "couverture_valeurs_pct": 57.41,
-    "couverture_applicable_pct": 57.94,
+    "couverture_valeurs_pct": 76.85,
+    "couverture_applicable_pct": 77.57,
     "recherches_non_closes": [
       "identite.lei",
       "identite.marche",
@@ -2768,33 +2652,851 @@
       "risque.transactions_initiees_net_90j",
       "risque.transactions_initiees_net_180j",
       "diversification.zone_geographique",
-      "diversification.interet_strategique",
-      "diversification.complementarite_portefeuille",
       "complements.ssi",
-      "complements.ic_sur_5",
-      "complements.cx_sur_5",
-      "complements.delta",
       "complements.wwws",
-      "complements.scenario_bear_3m_pct",
-      "complements.prob_bear_3m_pct",
-      "complements.scenario_central_3m_pct",
-      "complements.prob_central_3m_pct",
-      "complements.scenario_bull_3m_pct",
-      "complements.prob_bull_3m_pct",
-      "complements.scenario_bear_6m_pct",
-      "complements.prob_bear_6m_pct",
-      "complements.scenario_central_6m_pct",
-      "complements.prob_central_6m_pct",
-      "complements.scenario_bull_6m_pct",
-      "complements.prob_bull_6m_pct",
-      "complements.role_ips",
-      "complements.decision",
-      "complements.condition_renforcement",
-      "complements.condition_allegement_sortie",
       "complements.challengers_compares"
     ],
-    "notes_justifiees": false,
-    "validation_individuelle": "BLOQUEE_DONNEES_ET_ANALYSES_RESTANTES",
+    "notes_justifiees": true,
+    "validation_individuelle": "NOTES_SCENARIOS_DOCUMENTES_VALIDATION_REQUISE",
     "aucune_indisponibilite_definitive_presumee": true
-  }
+  },
+  "historique_relectures": [
+    {
+      "preuve_id": "ANALYSE_20261109_momentum_1m_pct",
+      "champ": "momentum.momentum_1m_pct",
+      "ancienne_cellule": {
+        "valeur": 6.029409520766316,
+        "unite": "pct",
+        "periode": "2026-10-02 / 2026-11-03",
+        "date_source": "2026-11-03",
+        "source_url": "https://query1.finance.yahoo.com/v8/finance/chart/CTT.ST?range=5y&interval=1d&events=div%2Csplits",
+        "statut": "CALCULE_HISTORIQUE_SECONDAIRE",
+        "commentaire": "Cours ajustés, ancrage calendaire; dernière séance <= date cible.",
+        "date_collecte": "2026-11-04"
+      },
+      "motif": "Calcul reproductible 10Q; ancrage dernière séance <= date calendaire cible, aucune période pré-IPO extrapolée.",
+      "date_relecture": "2026-11-09"
+    },
+    {
+      "preuve_id": "ANALYSE_20261109_momentum_3m_pct",
+      "champ": "momentum.momentum_3m_pct",
+      "ancienne_cellule": {
+        "valeur": 14.444442022414439,
+        "unite": "pct",
+        "periode": "2026-08-03 / 2026-11-03",
+        "date_source": "2026-11-03",
+        "source_url": "https://query1.finance.yahoo.com/v8/finance/chart/CTT.ST?range=5y&interval=1d&events=div%2Csplits",
+        "statut": "CALCULE_HISTORIQUE_SECONDAIRE",
+        "commentaire": "Cours ajustés, ancrage calendaire; dernière séance <= date cible.",
+        "date_collecte": "2026-11-04"
+      },
+      "motif": "Calcul reproductible 10Q; ancrage dernière séance <= date calendaire cible, aucune période pré-IPO extrapolée.",
+      "date_relecture": "2026-11-09"
+    },
+    {
+      "preuve_id": "ANALYSE_20261109_momentum_6m_pct",
+      "champ": "momentum.momentum_6m_pct",
+      "ancienne_cellule": {
+        "valeur": 21.396767464201737,
+        "unite": "pct",
+        "periode": "2026-04-30 / 2026-11-03",
+        "date_source": "2026-11-03",
+        "source_url": "https://query1.finance.yahoo.com/v8/finance/chart/CTT.ST?range=5y&interval=1d&events=div%2Csplits",
+        "statut": "CALCULE_HISTORIQUE_SECONDAIRE",
+        "commentaire": "Cours ajustés, ancrage calendaire; dernière séance <= date cible.",
+        "date_collecte": "2026-11-04"
+      },
+      "motif": "Calcul reproductible 10Q; ancrage dernière séance <= date calendaire cible, aucune période pré-IPO extrapolée.",
+      "date_relecture": "2026-11-09"
+    },
+    {
+      "preuve_id": "ANALYSE_20261109_momentum_12m_pct",
+      "champ": "momentum.momentum_12m_pct",
+      "ancienne_cellule": {
+        "valeur": -21.737828805902627,
+        "unite": "pct",
+        "periode": "2025-11-03 / 2026-11-03",
+        "date_source": "2026-11-03",
+        "source_url": "https://query1.finance.yahoo.com/v8/finance/chart/CTT.ST?range=5y&interval=1d&events=div%2Csplits",
+        "statut": "CALCULE_HISTORIQUE_SECONDAIRE",
+        "commentaire": "Cours ajustés, ancrage calendaire; dernière séance <= date cible.",
+        "date_collecte": "2026-11-04"
+      },
+      "motif": "Calcul reproductible 10Q; ancrage dernière séance <= date calendaire cible, aucune période pré-IPO extrapolée.",
+      "date_relecture": "2026-11-09"
+    },
+    {
+      "preuve_id": "ANALYSE_20261109_prix_vers_mm200",
+      "champ": "momentum.prix_vers_mm200",
+      "ancienne_cellule": {
+        "valeur": 1.0853305194263125,
+        "unite": "ratio",
+        "periode": "200 dernières séances",
+        "date_source": "2026-11-03",
+        "source_url": "https://query1.finance.yahoo.com/v8/finance/chart/CTT.ST?range=5y&interval=1d&events=div%2Csplits",
+        "statut": "CALCULE_HISTORIQUE_SECONDAIRE",
+        "commentaire": "Cours ajusté / moyenne mobile 200 séances.",
+        "date_collecte": "2026-11-04"
+      },
+      "motif": "Calcul reproductible 10Q; ancrage dernière séance <= date calendaire cible, aucune période pré-IPO extrapolée.",
+      "date_relecture": "2026-11-09"
+    },
+    {
+      "preuve_id": "ANALYSE_20261109_tendance_mm200",
+      "champ": "momentum.tendance_mm200",
+      "ancienne_cellule": {
+        "valeur": -3.84843411456508,
+        "unite": "pct",
+        "periode": "variation MM200 sur 20 séances",
+        "date_source": "2026-11-03",
+        "source_url": "https://query1.finance.yahoo.com/v8/finance/chart/CTT.ST?range=5y&interval=1d&events=div%2Csplits",
+        "statut": "CALCULE_HISTORIQUE_SECONDAIRE",
+        "commentaire": "Pente approchée par variation MM200(t)/MM200(t-20)-1; niveau MM200 non confondu avec pente.",
+        "date_collecte": "2026-11-04"
+      },
+      "motif": "Calcul reproductible 10Q; ancrage dernière séance <= date calendaire cible, aucune période pré-IPO extrapolée.",
+      "date_relecture": "2026-11-09"
+    },
+    {
+      "preuve_id": "ANALYSE_20261109_momentum_6_1_pct",
+      "champ": "momentum.momentum_6_1_pct",
+      "ancienne_cellule": {
+        "valeur": 14.493486300539725,
+        "unite": "pct",
+        "periode": "2026-04-30 / 2026-10-02",
+        "date_source": "2026-11-03",
+        "source_url": "https://query1.finance.yahoo.com/v8/finance/chart/CTT.ST?range=5y&interval=1d&events=div%2Csplits",
+        "statut": "CALCULE_HISTORIQUE_SECONDAIRE",
+        "commentaire": "Momentum 6–1 : prix à -1 mois / prix à -6 mois - 1; aucune modification de la règle de sélection.",
+        "date_collecte": "2026-11-04"
+      },
+      "motif": "Calcul reproductible 10Q; ancrage dernière séance <= date calendaire cible, aucune période pré-IPO extrapolée.",
+      "date_relecture": "2026-11-09"
+    },
+    {
+      "preuve_id": "ANALYSE_20261109_volume_moyen_20j",
+      "champ": "momentum.volume_moyen_20j",
+      "ancienne_cellule": {
+        "valeur": 19332.55,
+        "unite": "titres",
+        "periode": "20 dernières séances",
+        "date_source": "2026-11-03",
+        "source_url": "https://query1.finance.yahoo.com/v8/finance/chart/CTT.ST?range=5y&interval=1d&events=div%2Csplits",
+        "statut": "CALCULE_HISTORIQUE_SECONDAIRE",
+        "commentaire": "Moyenne arithmétique des volumes Yahoo non ajustés.",
+        "date_collecte": "2026-11-04"
+      },
+      "motif": "Calcul reproductible 10Q; ancrage dernière séance <= date calendaire cible, aucune période pré-IPO extrapolée.",
+      "date_relecture": "2026-11-09"
+    },
+    {
+      "preuve_id": "ANALYSE_20261109_ratio_volume",
+      "champ": "momentum.ratio_volume",
+      "ancienne_cellule": {
+        "valeur": 10.523133264882285,
+        "unite": "ratio",
+        "periode": "dernière séance / moyenne 20 séances",
+        "date_source": "2026-11-03",
+        "source_url": "https://query1.finance.yahoo.com/v8/finance/chart/CTT.ST?range=5y&interval=1d&events=div%2Csplits",
+        "statut": "CALCULE_HISTORIQUE_SECONDAIRE",
+        "commentaire": "Ratio de volume de la dernière séance.",
+        "date_collecte": "2026-11-04"
+      },
+      "motif": "Calcul reproductible 10Q; ancrage dernière séance <= date calendaire cible, aucune période pré-IPO extrapolée.",
+      "date_relecture": "2026-11-09"
+    },
+    {
+      "preuve_id": "ANALYSE_20261109_volatilite_90j_pct",
+      "champ": "momentum.volatilite_90j_pct",
+      "ancienne_cellule": {
+        "valeur": 35.58948397302997,
+        "unite": "pct",
+        "periode": "90 rendements quotidiens",
+        "date_source": "2026-11-03",
+        "source_url": "https://query1.finance.yahoo.com/v8/finance/chart/CTT.ST?range=5y&interval=1d&events=div%2Csplits",
+        "statut": "CALCULE_HISTORIQUE_SECONDAIRE",
+        "commentaire": "Écart-type échantillon des log-rendements ajustés annualisé sqrt(252).",
+        "date_collecte": "2026-11-04"
+      },
+      "motif": "Calcul reproductible 10Q; ancrage dernière séance <= date calendaire cible, aucune période pré-IPO extrapolée.",
+      "date_relecture": "2026-11-09"
+    },
+    {
+      "preuve_id": "ANALYSE_20261109_drawdown_12m_pct",
+      "champ": "momentum.drawdown_12m_pct",
+      "ancienne_cellule": {
+        "valeur": -42.84095838564487,
+        "unite": "pct",
+        "periode": "2025-11-03 / 2026-11-03",
+        "date_source": "2026-11-03",
+        "source_url": "https://query1.finance.yahoo.com/v8/finance/chart/CTT.ST?range=5y&interval=1d&events=div%2Csplits",
+        "statut": "CALCULE_HISTORIQUE_SECONDAIRE",
+        "commentaire": "Maximum drawdown du prix ajusté sur la fenêtre, valeur négative.",
+        "date_collecte": "2026-11-04"
+      },
+      "motif": "Calcul reproductible 10Q; ancrage dernière séance <= date calendaire cible, aucune période pré-IPO extrapolée.",
+      "date_relecture": "2026-11-09"
+    },
+    {
+      "preuve_id": "ANALYSE_20261109_cours",
+      "champ": "valorisation.cours",
+      "ancienne_cellule": {
+        "valeur": 144.1999969482422,
+        "unite": "SEK",
+        "periode": "cloture 2026-11-03",
+        "date_source": "2026-11-03",
+        "source_url": "https://query1.finance.yahoo.com/v8/finance/chart/CTT.ST?range=5y&interval=1d&events=div%2Csplits",
+        "statut": "SOURCE_MARCHE",
+        "commentaire": "Cours non ajuste; GBp/100 pour Londres.",
+        "date_collecte": "2026-11-04"
+      },
+      "motif": "Cours non ajusté, conversion GBp/100 vers GBP pour Londres.",
+      "date_relecture": "2026-11-09"
+    },
+    {
+      "preuve_id": "ANALYSE_20261109_date_cours",
+      "champ": "valorisation.date_cours",
+      "ancienne_cellule": {
+        "valeur": "2026-11-03",
+        "unite": "date",
+        "periode": "cloture",
+        "date_source": "2026-11-03",
+        "source_url": "https://query1.finance.yahoo.com/v8/finance/chart/CTT.ST?range=5y&interval=1d&events=div%2Csplits",
+        "statut": "SOURCE_MARCHE",
+        "commentaire": null,
+        "date_collecte": "2026-11-04"
+      },
+      "motif": "Clôture commune aux 40 fiches.",
+      "date_relecture": "2026-11-09"
+    },
+    {
+      "preuve_id": "ANALYSE_20261109_scenario_bear_3m_pct",
+      "champ": "complements.scenario_bear_3m_pct",
+      "ancienne_cellule": {
+        "valeur": null,
+        "unite": null,
+        "periode": null,
+        "date_source": null,
+        "source_url": null,
+        "statut": "A_COLLECTER",
+        "commentaire": null,
+        "recherche": {
+          "date": "2026-11-04",
+          "statut": "MANQUANT_RECHERCHE_NON_CLOSE",
+          "motif": "Analyse MCPA/IPS argumentée encore nécessaire; ce champ ne doit pas être rempli par une statistique de fournisseur.",
+          "journal": "journal_recherches"
+        }
+      },
+      "motif": "Cadences retardées et multiple réduit. Cadences annoncées distinctes des commandes fermes.",
+      "date_relecture": "2026-11-09"
+    },
+    {
+      "preuve_id": "ANALYSE_20261109_prob_bear_3m_pct",
+      "champ": "complements.prob_bear_3m_pct",
+      "ancienne_cellule": {
+        "valeur": null,
+        "unite": null,
+        "periode": null,
+        "date_source": null,
+        "source_url": null,
+        "statut": "A_COLLECTER",
+        "commentaire": null,
+        "recherche": {
+          "date": "2026-11-04",
+          "statut": "MANQUANT_RECHERCHE_NON_CLOSE",
+          "motif": "Analyse MCPA/IPS argumentée encore nécessaire; ce champ ne doit pas être rempli par une statistique de fournisseur.",
+          "journal": "journal_recherches"
+        }
+      },
+      "motif": "Pondération par jugement du risque et des opportunités décrits; aucune fréquence statistique. Incertitude au moins +/-10 points. Cadences annoncées distinctes des commandes fermes.",
+      "date_relecture": "2026-11-09"
+    },
+    {
+      "preuve_id": "ANALYSE_20261109_scenario_central_3m_pct",
+      "champ": "complements.scenario_central_3m_pct",
+      "ancienne_cellule": {
+        "valeur": null,
+        "unite": null,
+        "periode": null,
+        "date_source": null,
+        "source_url": null,
+        "statut": "A_COLLECTER",
+        "commentaire": null,
+        "recherche": {
+          "date": "2026-11-04",
+          "statut": "MANQUANT_RECHERCHE_NON_CLOSE",
+          "motif": "Analyse MCPA/IPS argumentée encore nécessaire; ce champ ne doit pas être rempli par une statistique de fournisseur.",
+          "journal": "journal_recherches"
+        }
+      },
+      "motif": "Croissance graduelle et marges stables. Cadences annoncées distinctes des commandes fermes.",
+      "date_relecture": "2026-11-09"
+    },
+    {
+      "preuve_id": "ANALYSE_20261109_prob_central_3m_pct",
+      "champ": "complements.prob_central_3m_pct",
+      "ancienne_cellule": {
+        "valeur": null,
+        "unite": null,
+        "periode": null,
+        "date_source": null,
+        "source_url": null,
+        "statut": "A_COLLECTER",
+        "commentaire": null,
+        "recherche": {
+          "date": "2026-11-04",
+          "statut": "MANQUANT_RECHERCHE_NON_CLOSE",
+          "motif": "Analyse MCPA/IPS argumentée encore nécessaire; ce champ ne doit pas être rempli par une statistique de fournisseur.",
+          "journal": "journal_recherches"
+        }
+      },
+      "motif": "Pondération par jugement du risque et des opportunités décrits; aucune fréquence statistique. Incertitude au moins +/-10 points. Cadences annoncées distinctes des commandes fermes.",
+      "date_relecture": "2026-11-09"
+    },
+    {
+      "preuve_id": "ANALYSE_20261109_scenario_bull_3m_pct",
+      "champ": "complements.scenario_bull_3m_pct",
+      "ancienne_cellule": {
+        "valeur": null,
+        "unite": null,
+        "periode": null,
+        "date_source": null,
+        "source_url": null,
+        "statut": "A_COLLECTER",
+        "commentaire": null,
+        "recherche": {
+          "date": "2026-11-04",
+          "statut": "MANQUANT_RECHERCHE_NON_CLOSE",
+          "motif": "Analyse MCPA/IPS argumentée encore nécessaire; ce champ ne doit pas être rempli par une statistique de fournisseur.",
+          "journal": "journal_recherches"
+        }
+      },
+      "motif": "Reprise livraisons et après-vente. Cadences annoncées distinctes des commandes fermes.",
+      "date_relecture": "2026-11-09"
+    },
+    {
+      "preuve_id": "ANALYSE_20261109_prob_bull_3m_pct",
+      "champ": "complements.prob_bull_3m_pct",
+      "ancienne_cellule": {
+        "valeur": null,
+        "unite": null,
+        "periode": null,
+        "date_source": null,
+        "source_url": null,
+        "statut": "A_COLLECTER",
+        "commentaire": null,
+        "recherche": {
+          "date": "2026-11-04",
+          "statut": "MANQUANT_RECHERCHE_NON_CLOSE",
+          "motif": "Analyse MCPA/IPS argumentée encore nécessaire; ce champ ne doit pas être rempli par une statistique de fournisseur.",
+          "journal": "journal_recherches"
+        }
+      },
+      "motif": "Pondération par jugement du risque et des opportunités décrits; aucune fréquence statistique. Incertitude au moins +/-10 points. Cadences annoncées distinctes des commandes fermes.",
+      "date_relecture": "2026-11-09"
+    },
+    {
+      "preuve_id": "ANALYSE_20261109_scenario_bear_6m_pct",
+      "champ": "complements.scenario_bear_6m_pct",
+      "ancienne_cellule": {
+        "valeur": null,
+        "unite": null,
+        "periode": null,
+        "date_source": null,
+        "source_url": null,
+        "statut": "A_COLLECTER",
+        "commentaire": null,
+        "recherche": {
+          "date": "2026-11-04",
+          "statut": "MANQUANT_RECHERCHE_NON_CLOSE",
+          "motif": "Analyse MCPA/IPS argumentée encore nécessaire; ce champ ne doit pas être rempli par une statistique de fournisseur.",
+          "journal": "journal_recherches"
+        }
+      },
+      "motif": "Cadences retardées et multiple réduit. Cadences annoncées distinctes des commandes fermes.",
+      "date_relecture": "2026-11-09"
+    },
+    {
+      "preuve_id": "ANALYSE_20261109_prob_bear_6m_pct",
+      "champ": "complements.prob_bear_6m_pct",
+      "ancienne_cellule": {
+        "valeur": null,
+        "unite": null,
+        "periode": null,
+        "date_source": null,
+        "source_url": null,
+        "statut": "A_COLLECTER",
+        "commentaire": null,
+        "recherche": {
+          "date": "2026-11-04",
+          "statut": "MANQUANT_RECHERCHE_NON_CLOSE",
+          "motif": "Analyse MCPA/IPS argumentée encore nécessaire; ce champ ne doit pas être rempli par une statistique de fournisseur.",
+          "journal": "journal_recherches"
+        }
+      },
+      "motif": "Pondération par jugement du risque et des opportunités décrits; aucune fréquence statistique. Incertitude au moins +/-10 points. Cadences annoncées distinctes des commandes fermes.",
+      "date_relecture": "2026-11-09"
+    },
+    {
+      "preuve_id": "ANALYSE_20261109_scenario_central_6m_pct",
+      "champ": "complements.scenario_central_6m_pct",
+      "ancienne_cellule": {
+        "valeur": null,
+        "unite": null,
+        "periode": null,
+        "date_source": null,
+        "source_url": null,
+        "statut": "A_COLLECTER",
+        "commentaire": null,
+        "recherche": {
+          "date": "2026-11-04",
+          "statut": "MANQUANT_RECHERCHE_NON_CLOSE",
+          "motif": "Analyse MCPA/IPS argumentée encore nécessaire; ce champ ne doit pas être rempli par une statistique de fournisseur.",
+          "journal": "journal_recherches"
+        }
+      },
+      "motif": "Croissance graduelle et marges stables. Cadences annoncées distinctes des commandes fermes.",
+      "date_relecture": "2026-11-09"
+    },
+    {
+      "preuve_id": "ANALYSE_20261109_prob_central_6m_pct",
+      "champ": "complements.prob_central_6m_pct",
+      "ancienne_cellule": {
+        "valeur": null,
+        "unite": null,
+        "periode": null,
+        "date_source": null,
+        "source_url": null,
+        "statut": "A_COLLECTER",
+        "commentaire": null,
+        "recherche": {
+          "date": "2026-11-04",
+          "statut": "MANQUANT_RECHERCHE_NON_CLOSE",
+          "motif": "Analyse MCPA/IPS argumentée encore nécessaire; ce champ ne doit pas être rempli par une statistique de fournisseur.",
+          "journal": "journal_recherches"
+        }
+      },
+      "motif": "Pondération par jugement du risque et des opportunités décrits; aucune fréquence statistique. Incertitude au moins +/-10 points. Cadences annoncées distinctes des commandes fermes.",
+      "date_relecture": "2026-11-09"
+    },
+    {
+      "preuve_id": "ANALYSE_20261109_scenario_bull_6m_pct",
+      "champ": "complements.scenario_bull_6m_pct",
+      "ancienne_cellule": {
+        "valeur": null,
+        "unite": null,
+        "periode": null,
+        "date_source": null,
+        "source_url": null,
+        "statut": "A_COLLECTER",
+        "commentaire": null,
+        "recherche": {
+          "date": "2026-11-04",
+          "statut": "MANQUANT_RECHERCHE_NON_CLOSE",
+          "motif": "Analyse MCPA/IPS argumentée encore nécessaire; ce champ ne doit pas être rempli par une statistique de fournisseur.",
+          "journal": "journal_recherches"
+        }
+      },
+      "motif": "Reprise livraisons et après-vente. Cadences annoncées distinctes des commandes fermes.",
+      "date_relecture": "2026-11-09"
+    },
+    {
+      "preuve_id": "ANALYSE_20261109_prob_bull_6m_pct",
+      "champ": "complements.prob_bull_6m_pct",
+      "ancienne_cellule": {
+        "valeur": null,
+        "unite": null,
+        "periode": null,
+        "date_source": null,
+        "source_url": null,
+        "statut": "A_COLLECTER",
+        "commentaire": null,
+        "recherche": {
+          "date": "2026-11-04",
+          "statut": "MANQUANT_RECHERCHE_NON_CLOSE",
+          "motif": "Analyse MCPA/IPS argumentée encore nécessaire; ce champ ne doit pas être rempli par une statistique de fournisseur.",
+          "journal": "journal_recherches"
+        }
+      },
+      "motif": "Pondération par jugement du risque et des opportunités décrits; aucune fréquence statistique. Incertitude au moins +/-10 points. Cadences annoncées distinctes des commandes fermes.",
+      "date_relecture": "2026-11-09"
+    },
+    {
+      "preuve_id": "ANALYSE_20261109_ic_sur_5",
+      "champ": "complements.ic_sur_5",
+      "ancienne_cellule": {
+        "valeur": null,
+        "unite": null,
+        "periode": null,
+        "date_source": null,
+        "source_url": null,
+        "statut": "A_COLLECTER",
+        "commentaire": null,
+        "recherche": {
+          "date": "2026-11-04",
+          "statut": "MANQUANT_RECHERCHE_NON_CLOSE",
+          "motif": "Analyse MCPA/IPS argumentée encore nécessaire; ce champ ne doit pas être rempli par une statistique de fournisseur.",
+          "journal": "journal_recherches"
+        }
+      },
+      "motif": "Cadences annoncées distinctes des commandes fermes. Aucune opération autorisée.",
+      "date_relecture": "2026-11-09"
+    },
+    {
+      "preuve_id": "ANALYSE_20261109_cx_sur_5",
+      "champ": "complements.cx_sur_5",
+      "ancienne_cellule": {
+        "valeur": null,
+        "unite": null,
+        "periode": null,
+        "date_source": null,
+        "source_url": null,
+        "statut": "A_COLLECTER",
+        "commentaire": null,
+        "recherche": {
+          "date": "2026-11-04",
+          "statut": "MANQUANT_RECHERCHE_NON_CLOSE",
+          "motif": "Analyse MCPA/IPS argumentée encore nécessaire; ce champ ne doit pas être rempli par une statistique de fournisseur.",
+          "journal": "journal_recherches"
+        }
+      },
+      "motif": "Cadences annoncées distinctes des commandes fermes. Aucune opération autorisée.",
+      "date_relecture": "2026-11-09"
+    },
+    {
+      "preuve_id": "ANALYSE_20261109_delta",
+      "champ": "complements.delta",
+      "ancienne_cellule": {
+        "valeur": null,
+        "unite": null,
+        "periode": null,
+        "date_source": null,
+        "source_url": null,
+        "statut": "A_COLLECTER",
+        "commentaire": null,
+        "recherche": {
+          "date": "2026-11-04",
+          "statut": "MANQUANT_RECHERCHE_NON_CLOSE",
+          "motif": "Analyse MCPA/IPS argumentée encore nécessaire; ce champ ne doit pas être rempli par une statistique de fournisseur.",
+          "journal": "journal_recherches"
+        }
+      },
+      "motif": "Cadences annoncées distinctes des commandes fermes. Aucune opération autorisée.",
+      "date_relecture": "2026-11-09"
+    },
+    {
+      "preuve_id": "ANALYSE_20261109_role_ips",
+      "champ": "complements.role_ips",
+      "ancienne_cellule": {
+        "valeur": null,
+        "unite": null,
+        "periode": null,
+        "date_source": null,
+        "source_url": null,
+        "statut": "A_COLLECTER",
+        "commentaire": null,
+        "recherche": {
+          "date": "2026-11-04",
+          "statut": "MANQUANT_RECHERCHE_NON_CLOSE",
+          "motif": "Analyse MCPA/IPS argumentée encore nécessaire; ce champ ne doit pas être rempli par une statistique de fournisseur.",
+          "journal": "journal_recherches"
+        }
+      },
+      "motif": "Cadences annoncées distinctes des commandes fermes. Aucune opération autorisée.",
+      "date_relecture": "2026-11-09"
+    },
+    {
+      "preuve_id": "ANALYSE_20261109_decision",
+      "champ": "complements.decision",
+      "ancienne_cellule": {
+        "valeur": null,
+        "unite": null,
+        "periode": null,
+        "date_source": null,
+        "source_url": null,
+        "statut": "A_COLLECTER",
+        "commentaire": null,
+        "recherche": {
+          "date": "2026-11-04",
+          "statut": "MANQUANT_RECHERCHE_NON_CLOSE",
+          "motif": "Analyse MCPA/IPS argumentée encore nécessaire; ce champ ne doit pas être rempli par une statistique de fournisseur.",
+          "journal": "journal_recherches"
+        }
+      },
+      "motif": "Cadences annoncées distinctes des commandes fermes. Aucune opération autorisée.",
+      "date_relecture": "2026-11-09"
+    },
+    {
+      "preuve_id": "ANALYSE_20261109_condition_renforcement",
+      "champ": "complements.condition_renforcement",
+      "ancienne_cellule": {
+        "valeur": null,
+        "unite": null,
+        "periode": null,
+        "date_source": null,
+        "source_url": null,
+        "statut": "A_COLLECTER",
+        "commentaire": null,
+        "recherche": {
+          "date": "2026-11-04",
+          "statut": "MANQUANT_RECHERCHE_NON_CLOSE",
+          "motif": "Analyse MCPA/IPS argumentée encore nécessaire; ce champ ne doit pas être rempli par une statistique de fournisseur.",
+          "journal": "journal_recherches"
+        }
+      },
+      "motif": "Cadences annoncées distinctes des commandes fermes. Aucune opération autorisée.",
+      "date_relecture": "2026-11-09"
+    },
+    {
+      "preuve_id": "ANALYSE_20261109_condition_allegement_sortie",
+      "champ": "complements.condition_allegement_sortie",
+      "ancienne_cellule": {
+        "valeur": null,
+        "unite": null,
+        "periode": null,
+        "date_source": null,
+        "source_url": null,
+        "statut": "A_COLLECTER",
+        "commentaire": null,
+        "recherche": {
+          "date": "2026-11-04",
+          "statut": "MANQUANT_RECHERCHE_NON_CLOSE",
+          "motif": "Analyse MCPA/IPS argumentée encore nécessaire; ce champ ne doit pas être rempli par une statistique de fournisseur.",
+          "journal": "journal_recherches"
+        }
+      },
+      "motif": "Cadences annoncées distinctes des commandes fermes. Aucune opération autorisée.",
+      "date_relecture": "2026-11-09"
+    },
+    {
+      "preuve_id": "ANALYSE_20261109_interet_strategique",
+      "champ": "diversification.interet_strategique",
+      "ancienne_cellule": {
+        "valeur": null,
+        "unite": null,
+        "periode": null,
+        "date_source": null,
+        "source_url": null,
+        "statut": "A_COLLECTER",
+        "commentaire": null,
+        "recherche": {
+          "date": "2026-11-04",
+          "statut": "MANQUANT_RECHERCHE_NON_CLOSE",
+          "motif": "Analyse MCPA/IPS argumentée encore nécessaire; ce champ ne doit pas être rempli par une statistique de fournisseur.",
+          "journal": "journal_recherches"
+        }
+      },
+      "motif": "Diversification sectorielle, sans garantie de décorrélation en crise.",
+      "date_relecture": "2026-11-09"
+    },
+    {
+      "preuve_id": "ANALYSE_20261109_complementarite_portefeuille",
+      "champ": "diversification.complementarite_portefeuille",
+      "ancienne_cellule": {
+        "valeur": null,
+        "unite": null,
+        "periode": null,
+        "date_source": null,
+        "source_url": null,
+        "statut": "A_COLLECTER",
+        "commentaire": null,
+        "recherche": {
+          "date": "2026-11-04",
+          "statut": "MANQUANT_RECHERCHE_NON_CLOSE",
+          "motif": "Analyse MCPA/IPS argumentée encore nécessaire; ce champ ne doit pas être rempli par une statistique de fournisseur.",
+          "journal": "journal_recherches"
+        }
+      },
+      "motif": "Diversification sectorielle, sans garantie de décorrélation en crise.",
+      "date_relecture": "2026-11-09"
+    }
+  ],
+  "historique_notations": [
+    {
+      "bareme": {
+        "qualite": 30,
+        "valorisation": 20,
+        "croissance": 20,
+        "risque": 10,
+        "momentum": 10,
+        "diversification": 10
+      },
+      "notes": {
+        "qualite": null,
+        "valorisation": null,
+        "croissance": null,
+        "risque": null,
+        "momentum": null,
+        "diversification": null
+      },
+      "total_mcpa": null,
+      "statut": "NON_VALIDEE",
+      "justifications": {
+        "qualite": null,
+        "valorisation": null,
+        "croissance": null,
+        "risque": null,
+        "momentum": null,
+        "diversification": null
+      }
+    }
+  ],
+  "calculs_marche": {
+    "date": "2026-11-06",
+    "cours_non_ajuste": 139.0,
+    "ancrages": {
+      "1": {
+        "date": "2026-10-06",
+        "cours_ajuste": 133.0
+      },
+      "3": {
+        "date": "2026-08-06",
+        "cours_ajuste": 133.0
+      },
+      "6": {
+        "date": "2026-05-06",
+        "cours_ajuste": 118.0
+      },
+      "12": {
+        "date": "2025-11-06",
+        "cours_ajuste": 186.40863037109375
+      }
+    },
+    "indicateurs": {
+      "momentum_1m_pct": 4.511278195488733,
+      "momentum_3m_pct": 4.511278195488733,
+      "momentum_6m_pct": 17.796610169491522,
+      "momentum_12m_pct": -25.432637038700847,
+      "prix_vers_mm200": 1.0500709163113666,
+      "tendance_mm200": -3.559838038136187,
+      "momentum_6_1_pct": 12.711864406779672,
+      "volume_moyen_20j": 19285.5,
+      "ratio_volume": 0.09603069663737004,
+      "volatilite_90j_pct": 35.90313649936272,
+      "drawdown_12m_pct": -42.84095838564487
+    },
+    "grille": [
+      {
+        "indicateur": "prix_vers_mm200",
+        "seuil_strict": 1,
+        "maximum": 2,
+        "valeur": 1.0500709163113666,
+        "points": 2
+      },
+      {
+        "indicateur": "tendance_mm200",
+        "seuil_strict": 0,
+        "maximum": 1,
+        "valeur": -3.559838038136187,
+        "points": 0
+      },
+      {
+        "indicateur": "momentum_1m_pct",
+        "seuil_strict": 0,
+        "maximum": 1,
+        "valeur": 4.511278195488733,
+        "points": 1
+      },
+      {
+        "indicateur": "momentum_3m_pct",
+        "seuil_strict": 0,
+        "maximum": 2,
+        "valeur": 4.511278195488733,
+        "points": 2
+      },
+      {
+        "indicateur": "momentum_6m_pct",
+        "seuil_strict": 0,
+        "maximum": 2,
+        "valeur": 17.796610169491522,
+        "points": 2
+      },
+      {
+        "indicateur": "momentum_12m_pct",
+        "seuil_strict": 0,
+        "maximum": 1,
+        "valeur": -25.432637038700847,
+        "points": 0
+      },
+      {
+        "indicateur": "momentum_6_1_pct",
+        "seuil_strict": 0,
+        "maximum": 1,
+        "valeur": 12.711864406779672,
+        "points": 1
+      }
+    ],
+    "M": 8,
+    "points_non_observables": 0,
+    "source_url": "https://query1.finance.yahoo.com/v8/finance/chart/CTT.ST?range=5y&interval=1d&events=div%2Csplits"
+  },
+  "analyse_prospective": {
+    "date_analyse": "2026-11-09",
+    "date_ancrage": "2026-11-06",
+    "cours_ancrage": 139.0,
+    "devise": "SEK",
+    "incertitude": "Cadences annoncées distinctes des commandes fermes.",
+    "nature": "Probabilités subjectives non calibrées, incertitude au moins +/-10 points. Rendements du cours en devise locale, hors change, dividendes et frais.",
+    "horizons": {
+      "3m": {
+        "echeance_calendaire": "2027-02-06",
+        "scenarios": [
+          {
+            "cas": "bear",
+            "rendement_pct": -20.0,
+            "probabilite_pct": 25.0,
+            "cours_conditionnel": 111.2,
+            "declencheur": "Cadences retardées et multiple réduit."
+          },
+          {
+            "cas": "central",
+            "rendement_pct": 5.0,
+            "probabilite_pct": 50.0,
+            "cours_conditionnel": 145.95000000000002,
+            "declencheur": "Croissance graduelle et marges stables."
+          },
+          {
+            "cas": "bull",
+            "rendement_pct": 20.0,
+            "probabilite_pct": 25.0,
+            "cours_conditionnel": 166.79999999999998,
+            "declencheur": "Reprise livraisons et après-vente."
+          }
+        ],
+        "esperance_subjective_brute_pct": 2.5,
+        "esperance_apres_rotation_vente_achat_2_5pct": -2.500000000000002,
+        "convention_frais": "Friction théorique: vente 2,5 % du brut, achat 2,5 % du nominal acheté. Pas de transaction."
+      },
+      "6m": {
+        "echeance_calendaire": "2027-05-06",
+        "scenarios": [
+          {
+            "cas": "bear",
+            "rendement_pct": -30.0,
+            "probabilite_pct": 25.0,
+            "cours_conditionnel": 97.3,
+            "declencheur": "Cadences retardées et multiple réduit."
+          },
+          {
+            "cas": "central",
+            "rendement_pct": 12.0,
+            "probabilite_pct": 45.0,
+            "cours_conditionnel": 155.68,
+            "declencheur": "Croissance graduelle et marges stables."
+          },
+          {
+            "cas": "bull",
+            "rendement_pct": 35.0,
+            "probabilite_pct": 30.0,
+            "cours_conditionnel": 187.65,
+            "declencheur": "Reprise livraisons et après-vente."
+          }
+        ],
+        "esperance_subjective_brute_pct": 8.4,
+        "esperance_apres_rotation_vente_achat_2_5pct": 3.1121951219512223,
+        "convention_frais": "Friction théorique: vente 2,5 % du brut, achat 2,5 % du nominal acheté. Pas de transaction."
+      }
+    }
+  },
+  "date_analyse": "2026-11-09"
 }

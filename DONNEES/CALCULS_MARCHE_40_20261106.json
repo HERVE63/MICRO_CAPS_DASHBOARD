@@ -1,0 +1,3564 @@
+{
+  "date_analyse": "2026-11-09",
+  "historique": "HISTORIQUES_VERIFIES_40_20261106.csv.gz",
+  "sha256_historique": "d2aec057bf28376fe2910047395a5c949ed63e015cff5aec814a0acc449337c0",
+  "calculs": {
+    "IDN": {
+      "date": "2026-11-06",
+      "cours_non_ajuste": 2.0399999618530273,
+      "ancrages": {
+        "1": {
+          "date": "2026-10-06",
+          "cours_ajuste": 2.309999942779541
+        },
+        "3": {
+          "date": "2026-08-06",
+          "cours_ajuste": 3.7899999618530273
+        },
+        "6": {
+          "date": "2026-05-06",
+          "cours_ajuste": 7.739999771118164
+        },
+        "12": {
+          "date": "2025-11-06",
+          "cours_ajuste": 4.130000114440918
+        }
+      },
+      "indicateurs": {
+        "momentum_1m_pct": -11.688311152148012,
+        "momentum_3m_pct": -46.17414294496142,
+        "momentum_6m_pct": -73.64341056616959,
+        "momentum_12m_pct": -50.60532916887863,
+        "prix_vers_mm200": 0.46135578921763126,
+        "tendance_mm200": -8.504474656566574,
+        "momentum_6_1_pct": -70.15503861641812,
+        "volume_moyen_20j": 249410.0,
+        "ratio_volume": 0.8516097991259373,
+        "volatilite_90j_pct": 62.12761484643201,
+        "drawdown_12m_pct": -77.64182378601711
+      },
+      "grille": [
+        {
+          "indicateur": "prix_vers_mm200",
+          "seuil_strict": 1,
+          "maximum": 2,
+          "valeur": 0.46135578921763126,
+          "points": 0
+        },
+        {
+          "indicateur": "tendance_mm200",
+          "seuil_strict": 0,
+          "maximum": 1,
+          "valeur": -8.504474656566574,
+          "points": 0
+        },
+        {
+          "indicateur": "momentum_1m_pct",
+          "seuil_strict": 0,
+          "maximum": 1,
+          "valeur": -11.688311152148012,
+          "points": 0
+        },
+        {
+          "indicateur": "momentum_3m_pct",
+          "seuil_strict": 0,
+          "maximum": 2,
+          "valeur": -46.17414294496142,
+          "points": 0
+        },
+        {
+          "indicateur": "momentum_6m_pct",
+          "seuil_strict": 0,
+          "maximum": 2,
+          "valeur": -73.64341056616959,
+          "points": 0
+        },
+        {
+          "indicateur": "momentum_12m_pct",
+          "seuil_strict": 0,
+          "maximum": 1,
+          "valeur": -50.60532916887863,
+          "points": 0
+        },
+        {
+          "indicateur": "momentum_6_1_pct",
+          "seuil_strict": 0,
+          "maximum": 1,
+          "valeur": -70.15503861641812,
+          "points": 0
+        }
+      ],
+      "M": 0,
+      "points_non_observables": 0,
+      "source_url": "https://query1.finance.yahoo.com/v8/finance/chart/IDN?range=5y&interval=1d&events=div%2Csplits"
+    },
+    "INFU": {
+      "date": "2026-11-06",
+      "cours_non_ajuste": 13.6899995803833,
+      "ancrages": {
+        "1": {
+          "date": "2026-10-06",
+          "cours_ajuste": 13.270000457763672
+        },
+        "3": {
+          "date": "2026-08-06",
+          "cours_ajuste": 11.869999885559082
+        },
+        "6": {
+          "date": "2026-05-06",
+          "cours_ajuste": 10.140000343322754
+        },
+        "12": {
+          "date": "2025-11-06",
+          "cours_ajuste": 10.289999961853027
+        }
+      },
+      "indicateurs": {
+        "momentum_1m_pct": 3.1650271901377813,
+        "momentum_3m_pct": 15.332769270186851,
+        "momentum_6m_pct": 35.00985322350842,
+        "momentum_12m_pct": 33.041784559132296,
+        "prix_vers_mm200": 1.3102108020014938,
+        "tendance_mm200": 5.048484123786712,
+        "momentum_6_1_pct": 30.8678501820963,
+        "volume_moyen_20j": 141815.0,
+        "ratio_volume": 1.2424637732256814,
+        "volatilite_90j_pct": 59.6728032820564,
+        "drawdown_12m_pct": -28.99521328492988
+      },
+      "grille": [
+        {
+          "indicateur": "prix_vers_mm200",
+          "seuil_strict": 1,
+          "maximum": 2,
+          "valeur": 1.3102108020014938,
+          "points": 2
+        },
+        {
+          "indicateur": "tendance_mm200",
+          "seuil_strict": 0,
+          "maximum": 1,
+          "valeur": 5.048484123786712,
+          "points": 1
+        },
+        {
+          "indicateur": "momentum_1m_pct",
+          "seuil_strict": 0,
+          "maximum": 1,
+          "valeur": 3.1650271901377813,
+          "points": 1
+        },
+        {
+          "indicateur": "momentum_3m_pct",
+          "seuil_strict": 0,
+          "maximum": 2,
+          "valeur": 15.332769270186851,
+          "points": 2
+        },
+        {
+          "indicateur": "momentum_6m_pct",
+          "seuil_strict": 0,
+          "maximum": 2,
+          "valeur": 35.00985322350842,
+          "points": 2
+        },
+        {
+          "indicateur": "momentum_12m_pct",
+          "seuil_strict": 0,
+          "maximum": 1,
+          "valeur": 33.041784559132296,
+          "points": 1
+        },
+        {
+          "indicateur": "momentum_6_1_pct",
+          "seuil_strict": 0,
+          "maximum": 1,
+          "valeur": 30.8678501820963,
+          "points": 1
+        }
+      ],
+      "M": 10,
+      "points_non_observables": 0,
+      "source_url": "https://query1.finance.yahoo.com/v8/finance/chart/INFU?range=5y&interval=1d&events=div%2Csplits"
+    },
+    "OSS": {
+      "date": "2026-11-06",
+      "cours_non_ajuste": 4.309999942779541,
+      "ancrages": {
+        "1": {
+          "date": "2026-10-06",
+          "cours_ajuste": 8.34000015258789
+        },
+        "3": {
+          "date": "2026-08-06",
+          "cours_ajuste": 13.319999694824219
+        },
+        "6": {
+          "date": "2026-05-06",
+          "cours_ajuste": 15.329999923706055
+        },
+        "12": {
+          "date": "2025-11-06",
+          "cours_ajuste": 5.340000152587891
+        }
+      },
+      "indicateurs": {
+        "momentum_1m_pct": -48.32134455726413,
+        "momentum_3m_pct": -67.64264233088319,
+        "momentum_6m_pct": -71.88519266647464,
+        "momentum_12m_pct": -19.288392890947527,
+        "prix_vers_mm200": 0.38840112998818516,
+        "tendance_mm200": -2.6699002399264704,
+        "momentum_6_1_pct": -45.59686761843322,
+        "volume_moyen_20j": 1504245.0,
+        "ratio_volume": 0.8630243078753793,
+        "volatilite_90j_pct": 84.90967316552542,
+        "drawdown_12m_pct": -80.35087756198979
+      },
+      "grille": [
+        {
+          "indicateur": "prix_vers_mm200",
+          "seuil_strict": 1,
+          "maximum": 2,
+          "valeur": 0.38840112998818516,
+          "points": 0
+        },
+        {
+          "indicateur": "tendance_mm200",
+          "seuil_strict": 0,
+          "maximum": 1,
+          "valeur": -2.6699002399264704,
+          "points": 0
+        },
+        {
+          "indicateur": "momentum_1m_pct",
+          "seuil_strict": 0,
+          "maximum": 1,
+          "valeur": -48.32134455726413,
+          "points": 0
+        },
+        {
+          "indicateur": "momentum_3m_pct",
+          "seuil_strict": 0,
+          "maximum": 2,
+          "valeur": -67.64264233088319,
+          "points": 0
+        },
+        {
+          "indicateur": "momentum_6m_pct",
+          "seuil_strict": 0,
+          "maximum": 2,
+          "valeur": -71.88519266647464,
+          "points": 0
+        },
+        {
+          "indicateur": "momentum_12m_pct",
+          "seuil_strict": 0,
+          "maximum": 1,
+          "valeur": -19.288392890947527,
+          "points": 0
+        },
+        {
+          "indicateur": "momentum_6_1_pct",
+          "seuil_strict": 0,
+          "maximum": 1,
+          "valeur": -45.59686761843322,
+          "points": 0
+        }
+      ],
+      "M": 0,
+      "points_non_observables": 0,
+      "source_url": "https://query1.finance.yahoo.com/v8/finance/chart/OSS?range=5y&interval=1d&events=div%2Csplits"
+    },
+    "CXDO": {
+      "date": "2026-11-06",
+      "cours_non_ajuste": 5.070000171661377,
+      "ancrages": {
+        "1": {
+          "date": "2026-10-06",
+          "cours_ajuste": 5.960000038146973
+        },
+        "3": {
+          "date": "2026-08-06",
+          "cours_ajuste": 6.489999771118164
+        },
+        "6": {
+          "date": "2026-05-06",
+          "cours_ajuste": 9.739999771118164
+        },
+        "12": {
+          "date": "2025-11-06",
+          "cours_ajuste": 6.75
+        }
+      },
+      "indicateurs": {
+        "momentum_1m_pct": -14.932883570287792,
+        "momentum_3m_pct": -21.879809700087783,
+        "momentum_6m_pct": -47.94660892400273,
+        "momentum_12m_pct": -24.888886345757378,
+        "prix_vers_mm200": 0.7414665787056527,
+        "tendance_mm200": -1.6395093056781773,
+        "momentum_6_1_pct": -38.809033078008405,
+        "volume_moyen_20j": 249615.0,
+        "ratio_volume": 1.6224986479177934,
+        "volatilite_90j_pct": 50.17982543770897,
+        "drawdown_12m_pct": -52.626552897361776
+      },
+      "grille": [
+        {
+          "indicateur": "prix_vers_mm200",
+          "seuil_strict": 1,
+          "maximum": 2,
+          "valeur": 0.7414665787056527,
+          "points": 0
+        },
+        {
+          "indicateur": "tendance_mm200",
+          "seuil_strict": 0,
+          "maximum": 1,
+          "valeur": -1.6395093056781773,
+          "points": 0
+        },
+        {
+          "indicateur": "momentum_1m_pct",
+          "seuil_strict": 0,
+          "maximum": 1,
+          "valeur": -14.932883570287792,
+          "points": 0
+        },
+        {
+          "indicateur": "momentum_3m_pct",
+          "seuil_strict": 0,
+          "maximum": 2,
+          "valeur": -21.879809700087783,
+          "points": 0
+        },
+        {
+          "indicateur": "momentum_6m_pct",
+          "seuil_strict": 0,
+          "maximum": 2,
+          "valeur": -47.94660892400273,
+          "points": 0
+        },
+        {
+          "indicateur": "momentum_12m_pct",
+          "seuil_strict": 0,
+          "maximum": 1,
+          "valeur": -24.888886345757378,
+          "points": 0
+        },
+        {
+          "indicateur": "momentum_6_1_pct",
+          "seuil_strict": 0,
+          "maximum": 1,
+          "valeur": -38.809033078008405,
+          "points": 0
+        }
+      ],
+      "M": 0,
+      "points_non_observables": 0,
+      "source_url": "https://query1.finance.yahoo.com/v8/finance/chart/CXDO?range=5y&interval=1d&events=div%2Csplits"
+    },
+    "LWAY": {
+      "date": "2026-11-06",
+      "cours_non_ajuste": 21.649999618530273,
+      "ancrages": {
+        "1": {
+          "date": "2026-10-06",
+          "cours_ajuste": 20.459999084472656
+        },
+        "3": {
+          "date": "2026-08-06",
+          "cours_ajuste": 31.059999465942383
+        },
+        "6": {
+          "date": "2026-05-06",
+          "cours_ajuste": 26.649999618530273
+        },
+        "12": {
+          "date": "2025-11-06",
+          "cours_ajuste": 24.530000686645508
+        }
+      },
+      "indicateurs": {
+        "momentum_1m_pct": 5.816229654480898,
+        "momentum_3m_pct": -30.296200931137406,
+        "momentum_6m_pct": -18.761726347355744,
+        "momentum_12m_pct": -11.740729667745786,
+        "prix_vers_mm200": 0.88137289019438,
+        "tendance_mm200": -0.14654469678206938,
+        "momentum_6_1_pct": -23.227019221994983,
+        "volume_moyen_20j": 95575.0,
+        "ratio_volume": 0.9489929374836515,
+        "volatilite_90j_pct": 44.061230652073085,
+        "drawdown_12m_pct": -36.715131686693134
+      },
+      "grille": [
+        {
+          "indicateur": "prix_vers_mm200",
+          "seuil_strict": 1,
+          "maximum": 2,
+          "valeur": 0.88137289019438,
+          "points": 0
+        },
+        {
+          "indicateur": "tendance_mm200",
+          "seuil_strict": 0,
+          "maximum": 1,
+          "valeur": -0.14654469678206938,
+          "points": 0
+        },
+        {
+          "indicateur": "momentum_1m_pct",
+          "seuil_strict": 0,
+          "maximum": 1,
+          "valeur": 5.816229654480898,
+          "points": 1
+        },
+        {
+          "indicateur": "momentum_3m_pct",
+          "seuil_strict": 0,
+          "maximum": 2,
+          "valeur": -30.296200931137406,
+          "points": 0
+        },
+        {
+          "indicateur": "momentum_6m_pct",
+          "seuil_strict": 0,
+          "maximum": 2,
+          "valeur": -18.761726347355744,
+          "points": 0
+        },
+        {
+          "indicateur": "momentum_12m_pct",
+          "seuil_strict": 0,
+          "maximum": 1,
+          "valeur": -11.740729667745786,
+          "points": 0
+        },
+        {
+          "indicateur": "momentum_6_1_pct",
+          "seuil_strict": 0,
+          "maximum": 1,
+          "valeur": -23.227019221994983,
+          "points": 0
+        }
+      ],
+      "M": 1,
+      "points_non_observables": 0,
+      "source_url": "https://query1.finance.yahoo.com/v8/finance/chart/LWAY?range=5y&interval=1d&events=div%2Csplits"
+    },
+    "AOM.L": {
+      "date": "2026-11-06",
+      "cours_non_ajuste": 89.0,
+      "ancrages": {
+        "1": {
+          "date": "2026-10-06",
+          "cours_ajuste": 215.0
+        },
+        "3": {
+          "date": "2026-08-06",
+          "cours_ajuste": 207.5
+        },
+        "6": {
+          "date": "2026-05-06",
+          "cours_ajuste": 212.5
+        },
+        "12": {
+          "date": "2025-11-06",
+          "cours_ajuste": 244.0
+        }
+      },
+      "indicateurs": {
+        "momentum_1m_pct": -58.6046511627907,
+        "momentum_3m_pct": -57.10843373493976,
+        "momentum_6m_pct": -58.11764705882353,
+        "momentum_12m_pct": -63.52459016393443,
+        "prix_vers_mm200": 0.42570899682510965,
+        "tendance_mm200": -6.606805824205397,
+        "momentum_6_1_pct": 1.17647058823529,
+        "volume_moyen_20j": 450796.75,
+        "ratio_volume": 0.052948474007410214,
+        "volatilite_90j_pct": 121.3667825613538,
+        "drawdown_12m_pct": -68.88111888111888
+      },
+      "grille": [
+        {
+          "indicateur": "prix_vers_mm200",
+          "seuil_strict": 1,
+          "maximum": 2,
+          "valeur": 0.42570899682510965,
+          "points": 0
+        },
+        {
+          "indicateur": "tendance_mm200",
+          "seuil_strict": 0,
+          "maximum": 1,
+          "valeur": -6.606805824205397,
+          "points": 0
+        },
+        {
+          "indicateur": "momentum_1m_pct",
+          "seuil_strict": 0,
+          "maximum": 1,
+          "valeur": -58.6046511627907,
+          "points": 0
+        },
+        {
+          "indicateur": "momentum_3m_pct",
+          "seuil_strict": 0,
+          "maximum": 2,
+          "valeur": -57.10843373493976,
+          "points": 0
+        },
+        {
+          "indicateur": "momentum_6m_pct",
+          "seuil_strict": 0,
+          "maximum": 2,
+          "valeur": -58.11764705882353,
+          "points": 0
+        },
+        {
+          "indicateur": "momentum_12m_pct",
+          "seuil_strict": 0,
+          "maximum": 1,
+          "valeur": -63.52459016393443,
+          "points": 0
+        },
+        {
+          "indicateur": "momentum_6_1_pct",
+          "seuil_strict": 0,
+          "maximum": 1,
+          "valeur": 1.17647058823529,
+          "points": 1
+        }
+      ],
+      "M": 1,
+      "points_non_observables": 0,
+      "source_url": "https://query1.finance.yahoo.com/v8/finance/chart/AOM.L?range=5y&interval=1d&events=div%2Csplits"
+    },
+    "ALSTI.PA": {
+      "date": "2026-11-06",
+      "cours_non_ajuste": 19.389999389648438,
+      "ancrages": {
+        "1": {
+          "date": "2026-10-06",
+          "cours_ajuste": 18.200000762939453
+        },
+        "3": {
+          "date": "2026-08-06",
+          "cours_ajuste": 52.29999923706055
+        },
+        "6": {
+          "date": "2026-05-06",
+          "cours_ajuste": 50.90644073486328
+        },
+        "12": {
+          "date": "2025-11-06",
+          "cours_ajuste": 59.70386505126953
+        }
+      },
+      "indicateurs": {
+        "momentum_1m_pct": 6.538453718816162,
+        "momentum_3m_pct": -62.92543083651061,
+        "momentum_6m_pct": -61.9105183749977,
+        "momentum_12m_pct": -67.52304164395781,
+        "prix_vers_mm200": 0.4029032500572516,
+        "tendance_mm200": -7.571449927630958,
+        "momentum_6_1_pct": -64.24813736687905,
+        "volume_moyen_20j": 53287.55,
+        "ratio_volume": 0.4168328249281492,
+        "volatilite_90j_pct": 157.12342917558925,
+        "drawdown_12m_pct": -79.0129567099343
+      },
+      "grille": [
+        {
+          "indicateur": "prix_vers_mm200",
+          "seuil_strict": 1,
+          "maximum": 2,
+          "valeur": 0.4029032500572516,
+          "points": 0
+        },
+        {
+          "indicateur": "tendance_mm200",
+          "seuil_strict": 0,
+          "maximum": 1,
+          "valeur": -7.571449927630958,
+          "points": 0
+        },
+        {
+          "indicateur": "momentum_1m_pct",
+          "seuil_strict": 0,
+          "maximum": 1,
+          "valeur": 6.538453718816162,
+          "points": 1
+        },
+        {
+          "indicateur": "momentum_3m_pct",
+          "seuil_strict": 0,
+          "maximum": 2,
+          "valeur": -62.92543083651061,
+          "points": 0
+        },
+        {
+          "indicateur": "momentum_6m_pct",
+          "seuil_strict": 0,
+          "maximum": 2,
+          "valeur": -61.9105183749977,
+          "points": 0
+        },
+        {
+          "indicateur": "momentum_12m_pct",
+          "seuil_strict": 0,
+          "maximum": 1,
+          "valeur": -67.52304164395781,
+          "points": 0
+        },
+        {
+          "indicateur": "momentum_6_1_pct",
+          "seuil_strict": 0,
+          "maximum": 1,
+          "valeur": -64.24813736687905,
+          "points": 0
+        }
+      ],
+      "M": 1,
+      "points_non_observables": 0,
+      "source_url": "https://query1.finance.yahoo.com/v8/finance/chart/ALSTI.PA?range=5y&interval=1d&events=div%2Csplits"
+    },
+    "MEMS.PA": {
+      "date": "2026-11-06",
+      "cours_non_ajuste": 4.820000171661377,
+      "ancrages": {
+        "1": {
+          "date": "2026-10-06",
+          "cours_ajuste": 4.940000057220459
+        },
+        "3": {
+          "date": "2026-08-06",
+          "cours_ajuste": 5.010000228881836
+        },
+        "6": {
+          "date": "2026-05-06",
+          "cours_ajuste": 5.1210551261901855
+        },
+        "12": {
+          "date": "2025-11-06",
+          "cours_ajuste": 3.8951656818389893
+        }
+      },
+      "indicateurs": {
+        "momentum_1m_pct": -2.4291474528160495,
+        "momentum_3m_pct": -3.7924161385290867,
+        "momentum_6m_pct": -5.878768088028352,
+        "momentum_12m_pct": 23.743136117017592,
+        "prix_vers_mm200": 0.9838717356154589,
+        "tendance_mm200": 1.5471842300826655,
+        "momentum_6_1_pct": -3.5355032216656257,
+        "volume_moyen_20j": 7678.5,
+        "ratio_volume": 1.021423455101908,
+        "volatilite_90j_pct": 37.317383244736526,
+        "drawdown_12m_pct": -28.271830868100533
+      },
+      "grille": [
+        {
+          "indicateur": "prix_vers_mm200",
+          "seuil_strict": 1,
+          "maximum": 2,
+          "valeur": 0.9838717356154589,
+          "points": 0
+        },
+        {
+          "indicateur": "tendance_mm200",
+          "seuil_strict": 0,
+          "maximum": 1,
+          "valeur": 1.5471842300826655,
+          "points": 1
+        },
+        {
+          "indicateur": "momentum_1m_pct",
+          "seuil_strict": 0,
+          "maximum": 1,
+          "valeur": -2.4291474528160495,
+          "points": 0
+        },
+        {
+          "indicateur": "momentum_3m_pct",
+          "seuil_strict": 0,
+          "maximum": 2,
+          "valeur": -3.7924161385290867,
+          "points": 0
+        },
+        {
+          "indicateur": "momentum_6m_pct",
+          "seuil_strict": 0,
+          "maximum": 2,
+          "valeur": -5.878768088028352,
+          "points": 0
+        },
+        {
+          "indicateur": "momentum_12m_pct",
+          "seuil_strict": 0,
+          "maximum": 1,
+          "valeur": 23.743136117017592,
+          "points": 1
+        },
+        {
+          "indicateur": "momentum_6_1_pct",
+          "seuil_strict": 0,
+          "maximum": 1,
+          "valeur": -3.5355032216656257,
+          "points": 0
+        }
+      ],
+      "M": 2,
+      "points_non_observables": 0,
+      "source_url": "https://query1.finance.yahoo.com/v8/finance/chart/MEMS.PA?range=5y&interval=1d&events=div%2Csplits"
+    },
+    "FTG.TO": {
+      "date": "2026-11-06",
+      "cours_non_ajuste": 32.560001373291016,
+      "ancrages": {
+        "1": {
+          "date": "2026-10-06",
+          "cours_ajuste": 26.0
+        },
+        "3": {
+          "date": "2026-08-06",
+          "cours_ajuste": 25.059999465942383
+        },
+        "6": {
+          "date": "2026-05-06",
+          "cours_ajuste": 20.920000076293945
+        },
+        "12": {
+          "date": "2025-11-06",
+          "cours_ajuste": 11.300000190734863
+        }
+      },
+      "indicateurs": {
+        "momentum_1m_pct": 25.23077451265776,
+        "momentum_3m_pct": 29.92818063520495,
+        "momentum_6m_pct": 55.64054136972614,
+        "momentum_12m_pct": 188.14160020977457,
+        "prix_vers_mm200": 1.4593666089212058,
+        "tendance_mm200": 10.325943293895534,
+        "momentum_6_1_pct": 24.28298233833466,
+        "volume_moyen_20j": 159225.0,
+        "ratio_volume": 1.0111477468990422,
+        "volatilite_90j_pct": 74.9157391700428,
+        "drawdown_12m_pct": -28.614917280367692
+      },
+      "grille": [
+        {
+          "indicateur": "prix_vers_mm200",
+          "seuil_strict": 1,
+          "maximum": 2,
+          "valeur": 1.4593666089212058,
+          "points": 2
+        },
+        {
+          "indicateur": "tendance_mm200",
+          "seuil_strict": 0,
+          "maximum": 1,
+          "valeur": 10.325943293895534,
+          "points": 1
+        },
+        {
+          "indicateur": "momentum_1m_pct",
+          "seuil_strict": 0,
+          "maximum": 1,
+          "valeur": 25.23077451265776,
+          "points": 1
+        },
+        {
+          "indicateur": "momentum_3m_pct",
+          "seuil_strict": 0,
+          "maximum": 2,
+          "valeur": 29.92818063520495,
+          "points": 2
+        },
+        {
+          "indicateur": "momentum_6m_pct",
+          "seuil_strict": 0,
+          "maximum": 2,
+          "valeur": 55.64054136972614,
+          "points": 2
+        },
+        {
+          "indicateur": "momentum_12m_pct",
+          "seuil_strict": 0,
+          "maximum": 1,
+          "valeur": 188.14160020977457,
+          "points": 1
+        },
+        {
+          "indicateur": "momentum_6_1_pct",
+          "seuil_strict": 0,
+          "maximum": 1,
+          "valeur": 24.28298233833466,
+          "points": 1
+        }
+      ],
+      "M": 10,
+      "points_non_observables": 0,
+      "source_url": "https://query1.finance.yahoo.com/v8/finance/chart/FTG.TO?range=5y&interval=1d&events=div%2Csplits"
+    },
+    "ELVA.TO": {
+      "date": "2026-11-06",
+      "cours_non_ajuste": 6.920000076293945,
+      "ancrages": {
+        "1": {
+          "date": "2026-10-06",
+          "cours_ajuste": 9.289999961853027
+        },
+        "3": {
+          "date": "2026-08-06",
+          "cours_ajuste": 13.010000228881836
+        },
+        "6": {
+          "date": "2026-05-06",
+          "cours_ajuste": 14.3100004196167
+        },
+        "12": {
+          "date": "2025-11-06",
+          "cours_ajuste": 7.260000228881836
+        }
+      },
+      "indicateurs": {
+        "momentum_1m_pct": -25.51130134866384,
+        "momentum_3m_pct": -46.81014639083757,
+        "momentum_6m_pct": -51.64220913084152,
+        "momentum_12m_pct": -4.683197546403606,
+        "prix_vers_mm200": 0.5985537893854979,
+        "tendance_mm200": -3.853766435136874,
+        "momentum_6_1_pct": -35.08036555248497,
+        "volume_moyen_20j": 194180.0,
+        "ratio_volume": 0.8224327943145535,
+        "volatilite_90j_pct": 111.15985872088507,
+        "drawdown_12m_pct": -61.78194498808354
+      },
+      "grille": [
+        {
+          "indicateur": "prix_vers_mm200",
+          "seuil_strict": 1,
+          "maximum": 2,
+          "valeur": 0.5985537893854979,
+          "points": 0
+        },
+        {
+          "indicateur": "tendance_mm200",
+          "seuil_strict": 0,
+          "maximum": 1,
+          "valeur": -3.853766435136874,
+          "points": 0
+        },
+        {
+          "indicateur": "momentum_1m_pct",
+          "seuil_strict": 0,
+          "maximum": 1,
+          "valeur": -25.51130134866384,
+          "points": 0
+        },
+        {
+          "indicateur": "momentum_3m_pct",
+          "seuil_strict": 0,
+          "maximum": 2,
+          "valeur": -46.81014639083757,
+          "points": 0
+        },
+        {
+          "indicateur": "momentum_6m_pct",
+          "seuil_strict": 0,
+          "maximum": 2,
+          "valeur": -51.64220913084152,
+          "points": 0
+        },
+        {
+          "indicateur": "momentum_12m_pct",
+          "seuil_strict": 0,
+          "maximum": 1,
+          "valeur": -4.683197546403606,
+          "points": 0
+        },
+        {
+          "indicateur": "momentum_6_1_pct",
+          "seuil_strict": 0,
+          "maximum": 1,
+          "valeur": -35.08036555248497,
+          "points": 0
+        }
+      ],
+      "M": 0,
+      "points_non_observables": 0,
+      "source_url": "https://query1.finance.yahoo.com/v8/finance/chart/ELVA.TO?range=5y&interval=1d&events=div%2Csplits"
+    },
+    "COV.V": {
+      "date": "2026-11-06",
+      "cours_non_ajuste": 4.309999942779541,
+      "ancrages": {
+        "1": {
+          "date": "2026-10-06",
+          "cours_ajuste": 4.050000190734863
+        },
+        "3": {
+          "date": "2026-08-06",
+          "cours_ajuste": 2.240000009536743
+        },
+        "6": {
+          "date": "2026-05-06",
+          "cours_ajuste": 1.8600000143051147
+        },
+        "12": {
+          "date": "2025-11-06",
+          "cours_ajuste": 2.049999952316284
+        }
+      },
+      "indicateurs": {
+        "momentum_1m_pct": 6.419746661727976,
+        "momentum_3m_pct": 92.41071091204577,
+        "momentum_6m_pct": 131.72042524901443,
+        "momentum_12m_pct": 110.24390453812912,
+        "prix_vers_mm200": 1.7577487528309057,
+        "tendance_mm200": 11.126217995894816,
+        "momentum_6_1_pct": 117.74194406379723,
+        "volume_moyen_20j": 19535.0,
+        "ratio_volume": 2.3598669055541337,
+        "volatilite_90j_pct": 75.37247115811371,
+        "drawdown_12m_pct": -23.902440045576334
+      },
+      "grille": [
+        {
+          "indicateur": "prix_vers_mm200",
+          "seuil_strict": 1,
+          "maximum": 2,
+          "valeur": 1.7577487528309057,
+          "points": 2
+        },
+        {
+          "indicateur": "tendance_mm200",
+          "seuil_strict": 0,
+          "maximum": 1,
+          "valeur": 11.126217995894816,
+          "points": 1
+        },
+        {
+          "indicateur": "momentum_1m_pct",
+          "seuil_strict": 0,
+          "maximum": 1,
+          "valeur": 6.419746661727976,
+          "points": 1
+        },
+        {
+          "indicateur": "momentum_3m_pct",
+          "seuil_strict": 0,
+          "maximum": 2,
+          "valeur": 92.41071091204577,
+          "points": 2
+        },
+        {
+          "indicateur": "momentum_6m_pct",
+          "seuil_strict": 0,
+          "maximum": 2,
+          "valeur": 131.72042524901443,
+          "points": 2
+        },
+        {
+          "indicateur": "momentum_12m_pct",
+          "seuil_strict": 0,
+          "maximum": 1,
+          "valeur": 110.24390453812912,
+          "points": 1
+        },
+        {
+          "indicateur": "momentum_6_1_pct",
+          "seuil_strict": 0,
+          "maximum": 1,
+          "valeur": 117.74194406379723,
+          "points": 1
+        }
+      ],
+      "M": 10,
+      "points_non_observables": 0,
+      "source_url": "https://query1.finance.yahoo.com/v8/finance/chart/COV.V?range=5y&interval=1d&events=div%2Csplits"
+    },
+    "ROK.V": {
+      "date": "2026-11-06",
+      "cours_non_ajuste": 0.33000001311302185,
+      "ancrages": {
+        "1": {
+          "date": "2026-10-06",
+          "cours_ajuste": 0.3400000035762787
+        },
+        "3": {
+          "date": "2026-08-06",
+          "cours_ajuste": 0.2800000011920929
+        },
+        "6": {
+          "date": "2026-05-06",
+          "cours_ajuste": 0.27000001072883606
+        },
+        "12": {
+          "date": "2025-11-06",
+          "cours_ajuste": 0.23000000417232513
+        }
+      },
+      "indicateurs": {
+        "momentum_1m_pct": -2.9411736347271344,
+        "momentum_3m_pct": 17.857147038591137,
+        "momentum_6m_pct": 22.222222222222232,
+        "momentum_12m_pct": 43.4782639681053,
+        "prix_vers_mm200": 1.1299435443348007,
+        "tendance_mm200": 5.700325640715498,
+        "momentum_6_1_pct": 25.92592224662702,
+        "volume_moyen_20j": 829835.0,
+        "ratio_volume": 0.1771436490386643,
+        "volatilite_90j_pct": 62.80151376806632,
+        "drawdown_12m_pct": -21.95122057593061
+      },
+      "grille": [
+        {
+          "indicateur": "prix_vers_mm200",
+          "seuil_strict": 1,
+          "maximum": 2,
+          "valeur": 1.1299435443348007,
+          "points": 2
+        },
+        {
+          "indicateur": "tendance_mm200",
+          "seuil_strict": 0,
+          "maximum": 1,
+          "valeur": 5.700325640715498,
+          "points": 1
+        },
+        {
+          "indicateur": "momentum_1m_pct",
+          "seuil_strict": 0,
+          "maximum": 1,
+          "valeur": -2.9411736347271344,
+          "points": 0
+        },
+        {
+          "indicateur": "momentum_3m_pct",
+          "seuil_strict": 0,
+          "maximum": 2,
+          "valeur": 17.857147038591137,
+          "points": 2
+        },
+        {
+          "indicateur": "momentum_6m_pct",
+          "seuil_strict": 0,
+          "maximum": 2,
+          "valeur": 22.222222222222232,
+          "points": 2
+        },
+        {
+          "indicateur": "momentum_12m_pct",
+          "seuil_strict": 0,
+          "maximum": 1,
+          "valeur": 43.4782639681053,
+          "points": 1
+        },
+        {
+          "indicateur": "momentum_6_1_pct",
+          "seuil_strict": 0,
+          "maximum": 1,
+          "valeur": 25.92592224662702,
+          "points": 1
+        }
+      ],
+      "M": 9,
+      "points_non_observables": 0,
+      "source_url": "https://query1.finance.yahoo.com/v8/finance/chart/ROK.V?range=5y&interval=1d&events=div%2Csplits"
+    },
+    "MTEC.L": {
+      "date": "2026-11-06",
+      "cours_non_ajuste": 50.5,
+      "ancrages": {
+        "1": {
+          "date": "2026-10-06",
+          "cours_ajuste": 49.5
+        },
+        "3": {
+          "date": "2026-08-06",
+          "cours_ajuste": 35.25
+        },
+        "6": {
+          "date": "2026-05-06",
+          "cours_ajuste": 37.5
+        },
+        "12": {
+          "date": "2025-11-06",
+          "cours_ajuste": 32.25
+        }
+      },
+      "indicateurs": {
+        "momentum_1m_pct": 2.020202020202011,
+        "momentum_3m_pct": 43.26241134751774,
+        "momentum_6m_pct": 34.66666666666667,
+        "momentum_12m_pct": 56.58914728682169,
+        "prix_vers_mm200": 1.2363436055941488,
+        "tendance_mm200": 4.282750917504385,
+        "momentum_6_1_pct": 32.00000000000001,
+        "volume_moyen_20j": 560647.4,
+        "ratio_volume": 1.788835549759082,
+        "volatilite_90j_pct": 37.452617918558154,
+        "drawdown_12m_pct": -21.212121212121215
+      },
+      "grille": [
+        {
+          "indicateur": "prix_vers_mm200",
+          "seuil_strict": 1,
+          "maximum": 2,
+          "valeur": 1.2363436055941488,
+          "points": 2
+        },
+        {
+          "indicateur": "tendance_mm200",
+          "seuil_strict": 0,
+          "maximum": 1,
+          "valeur": 4.282750917504385,
+          "points": 1
+        },
+        {
+          "indicateur": "momentum_1m_pct",
+          "seuil_strict": 0,
+          "maximum": 1,
+          "valeur": 2.020202020202011,
+          "points": 1
+        },
+        {
+          "indicateur": "momentum_3m_pct",
+          "seuil_strict": 0,
+          "maximum": 2,
+          "valeur": 43.26241134751774,
+          "points": 2
+        },
+        {
+          "indicateur": "momentum_6m_pct",
+          "seuil_strict": 0,
+          "maximum": 2,
+          "valeur": 34.66666666666667,
+          "points": 2
+        },
+        {
+          "indicateur": "momentum_12m_pct",
+          "seuil_strict": 0,
+          "maximum": 1,
+          "valeur": 56.58914728682169,
+          "points": 1
+        },
+        {
+          "indicateur": "momentum_6_1_pct",
+          "seuil_strict": 0,
+          "maximum": 1,
+          "valeur": 32.00000000000001,
+          "points": 1
+        }
+      ],
+      "M": 10,
+      "points_non_observables": 0,
+      "source_url": "https://query1.finance.yahoo.com/v8/finance/chart/MTEC.L?range=5y&interval=1d&events=div%2Csplits"
+    },
+    "ZOMD.V": {
+      "date": "2026-11-06",
+      "cours_non_ajuste": 0.375,
+      "ancrages": {
+        "1": {
+          "date": "2026-10-06",
+          "cours_ajuste": 0.3700000047683716
+        },
+        "3": {
+          "date": "2026-08-06",
+          "cours_ajuste": 0.5099999904632568
+        },
+        "6": {
+          "date": "2026-05-06",
+          "cours_ajuste": 0.5600000023841858
+        },
+        "12": {
+          "date": "2025-11-06",
+          "cours_ajuste": 2.2200000286102295
+        }
+      },
+      "indicateurs": {
+        "momentum_1m_pct": 1.351350045186761,
+        "momentum_3m_pct": -26.470586860331125,
+        "momentum_6m_pct": -33.035714570813035,
+        "momentum_12m_pct": -83.10810832580219,
+        "prix_vers_mm200": 0.5913427463608556,
+        "tendance_mm200": -11.745877036290842,
+        "momentum_6_1_pct": -33.92857085837394,
+        "volume_moyen_20j": 74595.0,
+        "ratio_volume": 1.6837589650780884,
+        "volatilite_90j_pct": 44.35256654986187,
+        "drawdown_12m_pct": -84.00900969837365
+      },
+      "grille": [
+        {
+          "indicateur": "prix_vers_mm200",
+          "seuil_strict": 1,
+          "maximum": 2,
+          "valeur": 0.5913427463608556,
+          "points": 0
+        },
+        {
+          "indicateur": "tendance_mm200",
+          "seuil_strict": 0,
+          "maximum": 1,
+          "valeur": -11.745877036290842,
+          "points": 0
+        },
+        {
+          "indicateur": "momentum_1m_pct",
+          "seuil_strict": 0,
+          "maximum": 1,
+          "valeur": 1.351350045186761,
+          "points": 1
+        },
+        {
+          "indicateur": "momentum_3m_pct",
+          "seuil_strict": 0,
+          "maximum": 2,
+          "valeur": -26.470586860331125,
+          "points": 0
+        },
+        {
+          "indicateur": "momentum_6m_pct",
+          "seuil_strict": 0,
+          "maximum": 2,
+          "valeur": -33.035714570813035,
+          "points": 0
+        },
+        {
+          "indicateur": "momentum_12m_pct",
+          "seuil_strict": 0,
+          "maximum": 1,
+          "valeur": -83.10810832580219,
+          "points": 0
+        },
+        {
+          "indicateur": "momentum_6_1_pct",
+          "seuil_strict": 0,
+          "maximum": 1,
+          "valeur": -33.92857085837394,
+          "points": 0
+        }
+      ],
+      "M": 1,
+      "points_non_observables": 0,
+      "source_url": "https://query1.finance.yahoo.com/v8/finance/chart/ZOMD.V?range=5y&interval=1d&events=div%2Csplits"
+    },
+    "CEMX.TO": {
+      "date": "2026-11-06",
+      "cours_non_ajuste": 0.47999998927116394,
+      "ancrages": {
+        "1": {
+          "date": "2026-10-06",
+          "cours_ajuste": 0.49000000953674316
+        },
+        "3": {
+          "date": "2026-08-06",
+          "cours_ajuste": 0.5
+        },
+        "6": {
+          "date": "2026-05-06",
+          "cours_ajuste": 0.5400000214576721
+        },
+        "12": {
+          "date": "2025-11-06",
+          "cours_ajuste": 0.3700000047683716
+        }
+      },
+      "indicateurs": {
+        "momentum_1m_pct": -2.0408204226431526,
+        "momentum_3m_pct": -4.000002145767212,
+        "momentum_6m_pct": -11.111116630059481,
+        "momentum_12m_pct": 29.729725158153663,
+        "prix_vers_mm200": 1.0050251033647626,
+        "tendance_mm200": 2.897769983233567,
+        "momentum_6_1_pct": -9.259261098908711,
+        "volume_moyen_20j": 146125.0,
+        "ratio_volume": 3.886398631308811,
+        "volatilite_90j_pct": 40.56737424011234,
+        "drawdown_12m_pct": -22.03389342507196
+      },
+      "grille": [
+        {
+          "indicateur": "prix_vers_mm200",
+          "seuil_strict": 1,
+          "maximum": 2,
+          "valeur": 1.0050251033647626,
+          "points": 2
+        },
+        {
+          "indicateur": "tendance_mm200",
+          "seuil_strict": 0,
+          "maximum": 1,
+          "valeur": 2.897769983233567,
+          "points": 1
+        },
+        {
+          "indicateur": "momentum_1m_pct",
+          "seuil_strict": 0,
+          "maximum": 1,
+          "valeur": -2.0408204226431526,
+          "points": 0
+        },
+        {
+          "indicateur": "momentum_3m_pct",
+          "seuil_strict": 0,
+          "maximum": 2,
+          "valeur": -4.000002145767212,
+          "points": 0
+        },
+        {
+          "indicateur": "momentum_6m_pct",
+          "seuil_strict": 0,
+          "maximum": 2,
+          "valeur": -11.111116630059481,
+          "points": 0
+        },
+        {
+          "indicateur": "momentum_12m_pct",
+          "seuil_strict": 0,
+          "maximum": 1,
+          "valeur": 29.729725158153663,
+          "points": 1
+        },
+        {
+          "indicateur": "momentum_6_1_pct",
+          "seuil_strict": 0,
+          "maximum": 1,
+          "valeur": -9.259261098908711,
+          "points": 0
+        }
+      ],
+      "M": 4,
+      "points_non_observables": 0,
+      "source_url": "https://query1.finance.yahoo.com/v8/finance/chart/CEMX.TO?range=5y&interval=1d&events=div%2Csplits"
+    },
+    "CTT.ST": {
+      "date": "2026-11-06",
+      "cours_non_ajuste": 139.0,
+      "ancrages": {
+        "1": {
+          "date": "2026-10-06",
+          "cours_ajuste": 133.0
+        },
+        "3": {
+          "date": "2026-08-06",
+          "cours_ajuste": 133.0
+        },
+        "6": {
+          "date": "2026-05-06",
+          "cours_ajuste": 118.0
+        },
+        "12": {
+          "date": "2025-11-06",
+          "cours_ajuste": 186.40863037109375
+        }
+      },
+      "indicateurs": {
+        "momentum_1m_pct": 4.511278195488733,
+        "momentum_3m_pct": 4.511278195488733,
+        "momentum_6m_pct": 17.796610169491522,
+        "momentum_12m_pct": -25.432637038700847,
+        "prix_vers_mm200": 1.0500709163113666,
+        "tendance_mm200": -3.559838038136187,
+        "momentum_6_1_pct": 12.711864406779672,
+        "volume_moyen_20j": 19285.5,
+        "ratio_volume": 0.09603069663737004,
+        "volatilite_90j_pct": 35.90313649936272,
+        "drawdown_12m_pct": -42.84095838564487
+      },
+      "grille": [
+        {
+          "indicateur": "prix_vers_mm200",
+          "seuil_strict": 1,
+          "maximum": 2,
+          "valeur": 1.0500709163113666,
+          "points": 2
+        },
+        {
+          "indicateur": "tendance_mm200",
+          "seuil_strict": 0,
+          "maximum": 1,
+          "valeur": -3.559838038136187,
+          "points": 0
+        },
+        {
+          "indicateur": "momentum_1m_pct",
+          "seuil_strict": 0,
+          "maximum": 1,
+          "valeur": 4.511278195488733,
+          "points": 1
+        },
+        {
+          "indicateur": "momentum_3m_pct",
+          "seuil_strict": 0,
+          "maximum": 2,
+          "valeur": 4.511278195488733,
+          "points": 2
+        },
+        {
+          "indicateur": "momentum_6m_pct",
+          "seuil_strict": 0,
+          "maximum": 2,
+          "valeur": 17.796610169491522,
+          "points": 2
+        },
+        {
+          "indicateur": "momentum_12m_pct",
+          "seuil_strict": 0,
+          "maximum": 1,
+          "valeur": -25.432637038700847,
+          "points": 0
+        },
+        {
+          "indicateur": "momentum_6_1_pct",
+          "seuil_strict": 0,
+          "maximum": 1,
+          "valeur": 12.711864406779672,
+          "points": 1
+        }
+      ],
+      "M": 8,
+      "points_non_observables": 0,
+      "source_url": "https://query1.finance.yahoo.com/v8/finance/chart/CTT.ST?range=5y&interval=1d&events=div%2Csplits"
+    },
+    "ALICA.PA": {
+      "date": "2026-11-06",
+      "cours_non_ajuste": 9.539999961853027,
+      "ancrages": {
+        "1": {
+          "date": "2026-10-06",
+          "cours_ajuste": 9.699999809265137
+        },
+        "3": {
+          "date": "2026-08-06",
+          "cours_ajuste": 8.460000038146973
+        },
+        "6": {
+          "date": "2026-05-06",
+          "cours_ajuste": 5.3087944984436035
+        },
+        "12": {
+          "date": "2025-11-06",
+          "cours_ajuste": 6.354764938354492
+        }
+      },
+      "indicateurs": {
+        "momentum_1m_pct": -1.6494829954458612,
+        "momentum_3m_pct": 12.765956487425868,
+        "momentum_6m_pct": 79.70181299445478,
+        "momentum_12m_pct": 50.12356954816526,
+        "prix_vers_mm200": 1.3619838674046578,
+        "tendance_mm200": 5.484839064283831,
+        "momentum_6_1_pct": 82.71567701686169,
+        "volume_moyen_20j": 6104.6,
+        "ratio_volume": 1.2434885168561411,
+        "volatilite_90j_pct": 28.467209490156296,
+        "drawdown_12m_pct": -48.378381519921476
+      },
+      "grille": [
+        {
+          "indicateur": "prix_vers_mm200",
+          "seuil_strict": 1,
+          "maximum": 2,
+          "valeur": 1.3619838674046578,
+          "points": 2
+        },
+        {
+          "indicateur": "tendance_mm200",
+          "seuil_strict": 0,
+          "maximum": 1,
+          "valeur": 5.484839064283831,
+          "points": 1
+        },
+        {
+          "indicateur": "momentum_1m_pct",
+          "seuil_strict": 0,
+          "maximum": 1,
+          "valeur": -1.6494829954458612,
+          "points": 0
+        },
+        {
+          "indicateur": "momentum_3m_pct",
+          "seuil_strict": 0,
+          "maximum": 2,
+          "valeur": 12.765956487425868,
+          "points": 2
+        },
+        {
+          "indicateur": "momentum_6m_pct",
+          "seuil_strict": 0,
+          "maximum": 2,
+          "valeur": 79.70181299445478,
+          "points": 2
+        },
+        {
+          "indicateur": "momentum_12m_pct",
+          "seuil_strict": 0,
+          "maximum": 1,
+          "valeur": 50.12356954816526,
+          "points": 1
+        },
+        {
+          "indicateur": "momentum_6_1_pct",
+          "seuil_strict": 0,
+          "maximum": 1,
+          "valeur": 82.71567701686169,
+          "points": 1
+        }
+      ],
+      "M": 9,
+      "points_non_observables": 0,
+      "source_url": "https://query1.finance.yahoo.com/v8/finance/chart/ALICA.PA?range=5y&interval=1d&events=div%2Csplits"
+    },
+    "PLEJD.ST": {
+      "date": "2026-11-06",
+      "cours_non_ajuste": 833.0,
+      "ancrages": {
+        "1": {
+          "date": "2026-10-06",
+          "cours_ajuste": 937.0
+        },
+        "3": {
+          "date": "2026-08-06",
+          "cours_ajuste": 850.0
+        },
+        "6": {
+          "date": "2026-05-06",
+          "cours_ajuste": 1046.0
+        },
+        "12": {
+          "date": "2025-11-06",
+          "cours_ajuste": 795.0
+        }
+      },
+      "indicateurs": {
+        "momentum_1m_pct": -11.099252934898619,
+        "momentum_3m_pct": -2.0000000000000018,
+        "momentum_6m_pct": -20.36328871892925,
+        "momentum_12m_pct": 4.779874213836477,
+        "prix_vers_mm200": 0.8928499652988985,
+        "tendance_mm200": 1.276310504662348,
+        "momentum_6_1_pct": -10.42065009560229,
+        "volume_moyen_20j": 50026.05,
+        "ratio_volume": 0.23527742046393826,
+        "volatilite_90j_pct": 40.72777143709001,
+        "drawdown_12m_pct": -28.1140350877193
+      },
+      "grille": [
+        {
+          "indicateur": "prix_vers_mm200",
+          "seuil_strict": 1,
+          "maximum": 2,
+          "valeur": 0.8928499652988985,
+          "points": 0
+        },
+        {
+          "indicateur": "tendance_mm200",
+          "seuil_strict": 0,
+          "maximum": 1,
+          "valeur": 1.276310504662348,
+          "points": 1
+        },
+        {
+          "indicateur": "momentum_1m_pct",
+          "seuil_strict": 0,
+          "maximum": 1,
+          "valeur": -11.099252934898619,
+          "points": 0
+        },
+        {
+          "indicateur": "momentum_3m_pct",
+          "seuil_strict": 0,
+          "maximum": 2,
+          "valeur": -2.0000000000000018,
+          "points": 0
+        },
+        {
+          "indicateur": "momentum_6m_pct",
+          "seuil_strict": 0,
+          "maximum": 2,
+          "valeur": -20.36328871892925,
+          "points": 0
+        },
+        {
+          "indicateur": "momentum_12m_pct",
+          "seuil_strict": 0,
+          "maximum": 1,
+          "valeur": 4.779874213836477,
+          "points": 1
+        },
+        {
+          "indicateur": "momentum_6_1_pct",
+          "seuil_strict": 0,
+          "maximum": 1,
+          "valeur": -10.42065009560229,
+          "points": 0
+        }
+      ],
+      "M": 2,
+      "points_non_observables": 0,
+      "source_url": "https://query1.finance.yahoo.com/v8/finance/chart/PLEJD.ST?range=5y&interval=1d&events=div%2Csplits"
+    },
+    "SFT.L": {
+      "date": "2026-11-06",
+      "cours_non_ajuste": 17.25,
+      "ancrages": {
+        "1": {
+          "date": "2026-10-06",
+          "cours_ajuste": 18.25
+        },
+        "3": {
+          "date": "2026-08-06",
+          "cours_ajuste": 16.899999618530273
+        },
+        "6": {
+          "date": "2026-05-06",
+          "cours_ajuste": 15.649999618530273
+        },
+        "12": {
+          "date": "2025-11-06",
+          "cours_ajuste": 25.5
+        }
+      },
+      "indicateurs": {
+        "momentum_1m_pct": -5.47945205479452,
+        "momentum_3m_pct": 2.0710082211242264,
+        "momentum_6m_pct": 10.223644859232174,
+        "momentum_12m_pct": -32.35294117647059,
+        "prix_vers_mm200": 1.0210121360727151,
+        "tendance_mm200": -3.2692084597920945,
+        "momentum_6_1_pct": 16.613421372810855,
+        "volume_moyen_20j": 152701.3,
+        "ratio_volume": 0.2648896898716645,
+        "volatilite_90j_pct": 32.994494670539,
+        "drawdown_12m_pct": -45.09803921568627
+      },
+      "grille": [
+        {
+          "indicateur": "prix_vers_mm200",
+          "seuil_strict": 1,
+          "maximum": 2,
+          "valeur": 1.0210121360727151,
+          "points": 2
+        },
+        {
+          "indicateur": "tendance_mm200",
+          "seuil_strict": 0,
+          "maximum": 1,
+          "valeur": -3.2692084597920945,
+          "points": 0
+        },
+        {
+          "indicateur": "momentum_1m_pct",
+          "seuil_strict": 0,
+          "maximum": 1,
+          "valeur": -5.47945205479452,
+          "points": 0
+        },
+        {
+          "indicateur": "momentum_3m_pct",
+          "seuil_strict": 0,
+          "maximum": 2,
+          "valeur": 2.0710082211242264,
+          "points": 2
+        },
+        {
+          "indicateur": "momentum_6m_pct",
+          "seuil_strict": 0,
+          "maximum": 2,
+          "valeur": 10.223644859232174,
+          "points": 2
+        },
+        {
+          "indicateur": "momentum_12m_pct",
+          "seuil_strict": 0,
+          "maximum": 1,
+          "valeur": -32.35294117647059,
+          "points": 0
+        },
+        {
+          "indicateur": "momentum_6_1_pct",
+          "seuil_strict": 0,
+          "maximum": 1,
+          "valeur": 16.613421372810855,
+          "points": 1
+        }
+      ],
+      "M": 7,
+      "points_non_observables": 0,
+      "source_url": "https://query1.finance.yahoo.com/v8/finance/chart/SFT.L?range=5y&interval=1d&events=div%2Csplits"
+    },
+    "TSTL.L": {
+      "date": "2026-11-06",
+      "cours_non_ajuste": 387.5,
+      "ancrages": {
+        "1": {
+          "date": "2026-10-06",
+          "cours_ajuste": 425.0
+        },
+        "3": {
+          "date": "2026-08-06",
+          "cours_ajuste": 412.5
+        },
+        "6": {
+          "date": "2026-05-06",
+          "cours_ajuste": 410.0
+        },
+        "12": {
+          "date": "2025-11-06",
+          "cours_ajuste": 369.85821533203125
+        }
+      },
+      "indicateurs": {
+        "momentum_1m_pct": -8.823529411764708,
+        "momentum_3m_pct": -6.060606060606055,
+        "momentum_6m_pct": -5.487804878048785,
+        "momentum_12m_pct": 4.769877736021422,
+        "prix_vers_mm200": 0.9686441960627868,
+        "tendance_mm200": -0.20677214021640467,
+        "momentum_6_1_pct": 3.658536585365857,
+        "volume_moyen_20j": 101189.95,
+        "ratio_volume": 1.1217517154618617,
+        "volatilite_90j_pct": 34.70469116402026,
+        "drawdown_12m_pct": -18.73809076384
+      },
+      "grille": [
+        {
+          "indicateur": "prix_vers_mm200",
+          "seuil_strict": 1,
+          "maximum": 2,
+          "valeur": 0.9686441960627868,
+          "points": 0
+        },
+        {
+          "indicateur": "tendance_mm200",
+          "seuil_strict": 0,
+          "maximum": 1,
+          "valeur": -0.20677214021640467,
+          "points": 0
+        },
+        {
+          "indicateur": "momentum_1m_pct",
+          "seuil_strict": 0,
+          "maximum": 1,
+          "valeur": -8.823529411764708,
+          "points": 0
+        },
+        {
+          "indicateur": "momentum_3m_pct",
+          "seuil_strict": 0,
+          "maximum": 2,
+          "valeur": -6.060606060606055,
+          "points": 0
+        },
+        {
+          "indicateur": "momentum_6m_pct",
+          "seuil_strict": 0,
+          "maximum": 2,
+          "valeur": -5.487804878048785,
+          "points": 0
+        },
+        {
+          "indicateur": "momentum_12m_pct",
+          "seuil_strict": 0,
+          "maximum": 1,
+          "valeur": 4.769877736021422,
+          "points": 1
+        },
+        {
+          "indicateur": "momentum_6_1_pct",
+          "seuil_strict": 0,
+          "maximum": 1,
+          "valeur": 3.658536585365857,
+          "points": 1
+        }
+      ],
+      "M": 2,
+      "points_non_observables": 0,
+      "source_url": "https://query1.finance.yahoo.com/v8/finance/chart/TSTL.L?range=5y&interval=1d&events=div%2Csplits"
+    },
+    "GENI.ST": {
+      "date": "2026-11-06",
+      "cours_non_ajuste": 38.29999923706055,
+      "ancrages": {
+        "1": {
+          "date": "2026-10-06",
+          "cours_ajuste": 39.25
+        },
+        "3": {
+          "date": "2026-08-06",
+          "cours_ajuste": 40.29999923706055
+        },
+        "6": {
+          "date": "2026-05-06",
+          "cours_ajuste": 37.11003875732422
+        },
+        "12": {
+          "date": "2025-11-06",
+          "cours_ajuste": 42.6166877746582
+        }
+      },
+      "indicateurs": {
+        "momentum_1m_pct": -2.4203841093998757,
+        "momentum_3m_pct": -4.962779250280402,
+        "momentum_6m_pct": 3.2065729909847462,
+        "momentum_12m_pct": -10.129103792445726,
+        "prix_vers_mm200": 1.0053466616928743,
+        "tendance_mm200": -2.008657120499857,
+        "momentum_6_1_pct": 5.766529258214348,
+        "volume_moyen_20j": 17541.95,
+        "ratio_volume": 0.3185506742408911,
+        "volatilite_90j_pct": 21.473321700423647,
+        "drawdown_12m_pct": -31.910572544883298
+      },
+      "grille": [
+        {
+          "indicateur": "prix_vers_mm200",
+          "seuil_strict": 1,
+          "maximum": 2,
+          "valeur": 1.0053466616928743,
+          "points": 2
+        },
+        {
+          "indicateur": "tendance_mm200",
+          "seuil_strict": 0,
+          "maximum": 1,
+          "valeur": -2.008657120499857,
+          "points": 0
+        },
+        {
+          "indicateur": "momentum_1m_pct",
+          "seuil_strict": 0,
+          "maximum": 1,
+          "valeur": -2.4203841093998757,
+          "points": 0
+        },
+        {
+          "indicateur": "momentum_3m_pct",
+          "seuil_strict": 0,
+          "maximum": 2,
+          "valeur": -4.962779250280402,
+          "points": 0
+        },
+        {
+          "indicateur": "momentum_6m_pct",
+          "seuil_strict": 0,
+          "maximum": 2,
+          "valeur": 3.2065729909847462,
+          "points": 2
+        },
+        {
+          "indicateur": "momentum_12m_pct",
+          "seuil_strict": 0,
+          "maximum": 1,
+          "valeur": -10.129103792445726,
+          "points": 0
+        },
+        {
+          "indicateur": "momentum_6_1_pct",
+          "seuil_strict": 0,
+          "maximum": 1,
+          "valeur": 5.766529258214348,
+          "points": 1
+        }
+      ],
+      "M": 5,
+      "points_non_observables": 0,
+      "source_url": "https://query1.finance.yahoo.com/v8/finance/chart/GENI.ST?range=5y&interval=1d&events=div%2Csplits"
+    },
+    "LST.L": {
+      "date": "2026-11-06",
+      "cours_non_ajuste": 0.875,
+      "ancrages": {
+        "1": {
+          "date": "2026-10-06",
+          "cours_ajuste": 1.0499999523162842
+        },
+        "3": {
+          "date": "2026-08-06",
+          "cours_ajuste": 1.7000000476837158
+        },
+        "6": {
+          "date": "2026-05-06",
+          "cours_ajuste": 2.0199999809265137
+        },
+        "12": {
+          "date": "2025-11-06",
+          "cours_ajuste": 5.800000190734863
+        }
+      },
+      "indicateurs": {
+        "momentum_1m_pct": -16.66666288224461,
+        "momentum_3m_pct": -48.52941320841696,
+        "momentum_6m_pct": -56.683167907820284,
+        "momentum_12m_pct": -84.91379359956301,
+        "prix_vers_mm200": 0.46252246499508703,
+        "tendance_mm200": -15.767445493755483,
+        "momentum_6_1_pct": -48.01980384996437,
+        "volume_moyen_20j": 4292605.5,
+        "ratio_volume": 0.6159624964371871,
+        "volatilite_90j_pct": 92.32691842248347,
+        "drawdown_12m_pct": -86.63793188496518
+      },
+      "grille": [
+        {
+          "indicateur": "prix_vers_mm200",
+          "seuil_strict": 1,
+          "maximum": 2,
+          "valeur": 0.46252246499508703,
+          "points": 0
+        },
+        {
+          "indicateur": "tendance_mm200",
+          "seuil_strict": 0,
+          "maximum": 1,
+          "valeur": -15.767445493755483,
+          "points": 0
+        },
+        {
+          "indicateur": "momentum_1m_pct",
+          "seuil_strict": 0,
+          "maximum": 1,
+          "valeur": -16.66666288224461,
+          "points": 0
+        },
+        {
+          "indicateur": "momentum_3m_pct",
+          "seuil_strict": 0,
+          "maximum": 2,
+          "valeur": -48.52941320841696,
+          "points": 0
+        },
+        {
+          "indicateur": "momentum_6m_pct",
+          "seuil_strict": 0,
+          "maximum": 2,
+          "valeur": -56.683167907820284,
+          "points": 0
+        },
+        {
+          "indicateur": "momentum_12m_pct",
+          "seuil_strict": 0,
+          "maximum": 1,
+          "valeur": -84.91379359956301,
+          "points": 0
+        },
+        {
+          "indicateur": "momentum_6_1_pct",
+          "seuil_strict": 0,
+          "maximum": 1,
+          "valeur": -48.01980384996437,
+          "points": 0
+        }
+      ],
+      "M": 0,
+      "points_non_observables": 0,
+      "source_url": "https://query1.finance.yahoo.com/v8/finance/chart/LST.L?range=5y&interval=1d&events=div%2Csplits"
+    },
+    "GROW.MI": {
+      "date": "2026-11-06",
+      "cours_non_ajuste": 1.6799999475479126,
+      "ancrages": {
+        "1": {
+          "date": "2026-10-06",
+          "cours_ajuste": 1.725000023841858
+        },
+        "3": {
+          "date": "2026-08-06",
+          "cours_ajuste": 1.850000023841858
+        },
+        "6": {
+          "date": "2026-05-06",
+          "cours_ajuste": 2.1700000762939453
+        },
+        "12": {
+          "date": "2025-11-06",
+          "cours_ajuste": 2.2899999618530273
+        }
+      },
+      "indicateurs": {
+        "momentum_1m_pct": -2.608700038955525,
+        "momentum_3m_pct": -9.189193194760591,
+        "momentum_6m_pct": -22.58065030038543,
+        "momentum_12m_pct": -26.63755565356052,
+        "prix_vers_mm200": 0.8035297631159463,
+        "tendance_mm200": -4.838250628281015,
+        "momentum_6_1_pct": -20.506914138550858,
+        "volume_moyen_20j": 9504.35,
+        "ratio_volume": 1.2231241484162514,
+        "volatilite_90j_pct": 41.4715390682265,
+        "drawdown_12m_pct": -41.8685160357938
+      },
+      "grille": [
+        {
+          "indicateur": "prix_vers_mm200",
+          "seuil_strict": 1,
+          "maximum": 2,
+          "valeur": 0.8035297631159463,
+          "points": 0
+        },
+        {
+          "indicateur": "tendance_mm200",
+          "seuil_strict": 0,
+          "maximum": 1,
+          "valeur": -4.838250628281015,
+          "points": 0
+        },
+        {
+          "indicateur": "momentum_1m_pct",
+          "seuil_strict": 0,
+          "maximum": 1,
+          "valeur": -2.608700038955525,
+          "points": 0
+        },
+        {
+          "indicateur": "momentum_3m_pct",
+          "seuil_strict": 0,
+          "maximum": 2,
+          "valeur": -9.189193194760591,
+          "points": 0
+        },
+        {
+          "indicateur": "momentum_6m_pct",
+          "seuil_strict": 0,
+          "maximum": 2,
+          "valeur": -22.58065030038543,
+          "points": 0
+        },
+        {
+          "indicateur": "momentum_12m_pct",
+          "seuil_strict": 0,
+          "maximum": 1,
+          "valeur": -26.63755565356052,
+          "points": 0
+        },
+        {
+          "indicateur": "momentum_6_1_pct",
+          "seuil_strict": 0,
+          "maximum": 1,
+          "valeur": -20.506914138550858,
+          "points": 0
+        }
+      ],
+      "M": 0,
+      "points_non_observables": 0,
+      "source_url": "https://query1.finance.yahoo.com/v8/finance/chart/GROW.MI?range=5y&interval=1d&events=div%2Csplits"
+    },
+    "HDD.L": {
+      "date": "2026-11-06",
+      "cours_non_ajuste": 124.0,
+      "ancrages": {
+        "1": {
+          "date": "2026-10-06",
+          "cours_ajuste": 99.5
+        },
+        "3": {
+          "date": "2026-08-06",
+          "cours_ajuste": 100.5
+        },
+        "6": {
+          "date": "2026-05-06",
+          "cours_ajuste": 40.0
+        },
+        "12": {
+          "date": "2025-11-06",
+          "cours_ajuste": 6.625
+        }
+      },
+      "indicateurs": {
+        "momentum_1m_pct": 24.623115577889454,
+        "momentum_3m_pct": 23.38308457711442,
+        "momentum_6m_pct": 210.0,
+        "momentum_12m_pct": 1771.698113207547,
+        "prix_vers_mm200": 1.8885597446301046,
+        "tendance_mm200": 17.789468489918114,
+        "momentum_6_1_pct": 148.74999999999997,
+        "volume_moyen_20j": 439259.15,
+        "ratio_volume": 1.3717915722415799,
+        "volatilite_90j_pct": 81.58079253761392,
+        "drawdown_12m_pct": -25.879395564082074
+      },
+      "grille": [
+        {
+          "indicateur": "prix_vers_mm200",
+          "seuil_strict": 1,
+          "maximum": 2,
+          "valeur": 1.8885597446301046,
+          "points": 2
+        },
+        {
+          "indicateur": "tendance_mm200",
+          "seuil_strict": 0,
+          "maximum": 1,
+          "valeur": 17.789468489918114,
+          "points": 1
+        },
+        {
+          "indicateur": "momentum_1m_pct",
+          "seuil_strict": 0,
+          "maximum": 1,
+          "valeur": 24.623115577889454,
+          "points": 1
+        },
+        {
+          "indicateur": "momentum_3m_pct",
+          "seuil_strict": 0,
+          "maximum": 2,
+          "valeur": 23.38308457711442,
+          "points": 2
+        },
+        {
+          "indicateur": "momentum_6m_pct",
+          "seuil_strict": 0,
+          "maximum": 2,
+          "valeur": 210.0,
+          "points": 2
+        },
+        {
+          "indicateur": "momentum_12m_pct",
+          "seuil_strict": 0,
+          "maximum": 1,
+          "valeur": 1771.698113207547,
+          "points": 1
+        },
+        {
+          "indicateur": "momentum_6_1_pct",
+          "seuil_strict": 0,
+          "maximum": 1,
+          "valeur": 148.74999999999997,
+          "points": 1
+        }
+      ],
+      "M": 10,
+      "points_non_observables": 0,
+      "source_url": "https://query1.finance.yahoo.com/v8/finance/chart/HDD.L?range=5y&interval=1d&events=div%2Csplits"
+    },
+    "KLD.V": {
+      "date": "2026-11-06",
+      "cours_non_ajuste": 2.0899999141693115,
+      "ancrages": {
+        "1": {
+          "date": "2026-10-06",
+          "cours_ajuste": 2.4200000762939453
+        },
+        "3": {
+          "date": "2026-08-06",
+          "cours_ajuste": 2.240000009536743
+        },
+        "6": {
+          "date": "2026-05-06",
+          "cours_ajuste": 2.380000114440918
+        },
+        "12": {
+          "date": "2025-11-06",
+          "cours_ajuste": 1.7699999809265137
+        }
+      },
+      "indicateurs": {
+        "momentum_1m_pct": -13.636369905822699,
+        "momentum_3m_pct": -6.696432800393303,
+        "momentum_6m_pct": -12.18488177845025,
+        "momentum_12m_pct": 18.079092468424363,
+        "prix_vers_mm200": 0.8902139973417611,
+        "tendance_mm200": -3.022605039187931,
+        "momentum_6_1_pct": 1.68067058527952,
+        "volume_moyen_20j": 56335.0,
+        "ratio_volume": 0.09585515221443153,
+        "volatilite_90j_pct": 68.06231626441966,
+        "drawdown_12m_pct": -44.63768289209887
+      },
+      "grille": [
+        {
+          "indicateur": "prix_vers_mm200",
+          "seuil_strict": 1,
+          "maximum": 2,
+          "valeur": 0.8902139973417611,
+          "points": 0
+        },
+        {
+          "indicateur": "tendance_mm200",
+          "seuil_strict": 0,
+          "maximum": 1,
+          "valeur": -3.022605039187931,
+          "points": 0
+        },
+        {
+          "indicateur": "momentum_1m_pct",
+          "seuil_strict": 0,
+          "maximum": 1,
+          "valeur": -13.636369905822699,
+          "points": 0
+        },
+        {
+          "indicateur": "momentum_3m_pct",
+          "seuil_strict": 0,
+          "maximum": 2,
+          "valeur": -6.696432800393303,
+          "points": 0
+        },
+        {
+          "indicateur": "momentum_6m_pct",
+          "seuil_strict": 0,
+          "maximum": 2,
+          "valeur": -12.18488177845025,
+          "points": 0
+        },
+        {
+          "indicateur": "momentum_12m_pct",
+          "seuil_strict": 0,
+          "maximum": 1,
+          "valeur": 18.079092468424363,
+          "points": 1
+        },
+        {
+          "indicateur": "momentum_6_1_pct",
+          "seuil_strict": 0,
+          "maximum": 1,
+          "valeur": 1.68067058527952,
+          "points": 1
+        }
+      ],
+      "M": 2,
+      "points_non_observables": 0,
+      "source_url": "https://query1.finance.yahoo.com/v8/finance/chart/KLD.V?range=5y&interval=1d&events=div%2Csplits"
+    },
+    "ALBFR.PA": {
+      "date": "2026-11-06",
+      "cours_non_ajuste": 204.5,
+      "ancrages": {
+        "1": {
+          "date": "2026-10-06",
+          "cours_ajuste": 193.1999969482422
+        },
+        "3": {
+          "date": "2026-08-06",
+          "cours_ajuste": 203.0
+        },
+        "6": {
+          "date": "2026-05-06",
+          "cours_ajuste": 165.0
+        },
+        "12": {
+          "date": "2025-11-06",
+          "cours_ajuste": 224.0
+        }
+      },
+      "indicateurs": {
+        "momentum_1m_pct": 5.848862955616441,
+        "momentum_3m_pct": 0.738916256157629,
+        "momentum_6m_pct": 23.93939393939395,
+        "momentum_12m_pct": -8.705357142857139,
+        "prix_vers_mm200": 1.1993466641835273,
+        "tendance_mm200": -1.17797405869845,
+        "momentum_6_1_pct": 17.09090724135891,
+        "volume_moyen_20j": 1646.2,
+        "ratio_volume": 0.5533956991860041,
+        "volatilite_90j_pct": 40.28763244304038,
+        "drawdown_12m_pct": -57.08812260536398
+      },
+      "grille": [
+        {
+          "indicateur": "prix_vers_mm200",
+          "seuil_strict": 1,
+          "maximum": 2,
+          "valeur": 1.1993466641835273,
+          "points": 2
+        },
+        {
+          "indicateur": "tendance_mm200",
+          "seuil_strict": 0,
+          "maximum": 1,
+          "valeur": -1.17797405869845,
+          "points": 0
+        },
+        {
+          "indicateur": "momentum_1m_pct",
+          "seuil_strict": 0,
+          "maximum": 1,
+          "valeur": 5.848862955616441,
+          "points": 1
+        },
+        {
+          "indicateur": "momentum_3m_pct",
+          "seuil_strict": 0,
+          "maximum": 2,
+          "valeur": 0.738916256157629,
+          "points": 2
+        },
+        {
+          "indicateur": "momentum_6m_pct",
+          "seuil_strict": 0,
+          "maximum": 2,
+          "valeur": 23.93939393939395,
+          "points": 2
+        },
+        {
+          "indicateur": "momentum_12m_pct",
+          "seuil_strict": 0,
+          "maximum": 1,
+          "valeur": -8.705357142857139,
+          "points": 0
+        },
+        {
+          "indicateur": "momentum_6_1_pct",
+          "seuil_strict": 0,
+          "maximum": 1,
+          "valeur": 17.09090724135891,
+          "points": 1
+        }
+      ],
+      "M": 8,
+      "points_non_observables": 0,
+      "source_url": "https://query1.finance.yahoo.com/v8/finance/chart/ALBFR.PA?range=5y&interval=1d&events=div%2Csplits"
+    },
+    "CER.L": {
+      "date": "2026-11-06",
+      "cours_non_ajuste": 790.0,
+      "ancrages": {
+        "1": {
+          "date": "2026-10-06",
+          "cours_ajuste": 680.0
+        },
+        "3": {
+          "date": "2026-08-06",
+          "cours_ajuste": 970.0
+        },
+        "6": {
+          "date": "2026-05-06",
+          "cours_ajuste": 1299.94091796875
+        },
+        "12": {
+          "date": "2025-11-06",
+          "cours_ajuste": 1424.83447265625
+        }
+      },
+      "indicateurs": {
+        "momentum_1m_pct": 16.176470588235304,
+        "momentum_3m_pct": -18.556701030927837,
+        "momentum_6m_pct": -39.228007282482416,
+        "momentum_12m_pct": -44.55496303881241,
+        "prix_vers_mm200": 0.696085655219571,
+        "tendance_mm200": -5.669989973730106,
+        "momentum_6_1_pct": -47.689930319098785,
+        "volume_moyen_20j": 124814.65,
+        "ratio_volume": 0.34797998472134484,
+        "volatilite_90j_pct": 36.28001292589877,
+        "drawdown_12m_pct": -62.283998965354726
+      },
+      "grille": [
+        {
+          "indicateur": "prix_vers_mm200",
+          "seuil_strict": 1,
+          "maximum": 2,
+          "valeur": 0.696085655219571,
+          "points": 0
+        },
+        {
+          "indicateur": "tendance_mm200",
+          "seuil_strict": 0,
+          "maximum": 1,
+          "valeur": -5.669989973730106,
+          "points": 0
+        },
+        {
+          "indicateur": "momentum_1m_pct",
+          "seuil_strict": 0,
+          "maximum": 1,
+          "valeur": 16.176470588235304,
+          "points": 1
+        },
+        {
+          "indicateur": "momentum_3m_pct",
+          "seuil_strict": 0,
+          "maximum": 2,
+          "valeur": -18.556701030927837,
+          "points": 0
+        },
+        {
+          "indicateur": "momentum_6m_pct",
+          "seuil_strict": 0,
+          "maximum": 2,
+          "valeur": -39.228007282482416,
+          "points": 0
+        },
+        {
+          "indicateur": "momentum_12m_pct",
+          "seuil_strict": 0,
+          "maximum": 1,
+          "valeur": -44.55496303881241,
+          "points": 0
+        },
+        {
+          "indicateur": "momentum_6_1_pct",
+          "seuil_strict": 0,
+          "maximum": 1,
+          "valeur": -47.689930319098785,
+          "points": 0
+        }
+      ],
+      "M": 1,
+      "points_non_observables": 0,
+      "source_url": "https://query1.finance.yahoo.com/v8/finance/chart/CER.L?range=5y&interval=1d&events=div%2Csplits"
+    },
+    "TRT.L": {
+      "date": "2026-11-06",
+      "cours_non_ajuste": 40.5,
+      "ancrages": {
+        "1": {
+          "date": "2026-10-06",
+          "cours_ajuste": 46.0
+        },
+        "3": {
+          "date": "2026-08-06",
+          "cours_ajuste": 48.5
+        },
+        "6": {
+          "date": "2026-05-06",
+          "cours_ajuste": 62.0
+        },
+        "12": {
+          "date": "2025-11-06",
+          "cours_ajuste": 112.5
+        }
+      },
+      "indicateurs": {
+        "momentum_1m_pct": -11.956521739130432,
+        "momentum_3m_pct": -16.49484536082474,
+        "momentum_6m_pct": -34.67741935483871,
+        "momentum_12m_pct": -64.0,
+        "prix_vers_mm200": 0.7275601582968577,
+        "tendance_mm200": -13.576978906306003,
+        "momentum_6_1_pct": -25.806451612903224,
+        "volume_moyen_20j": 13429.7,
+        "ratio_volume": 0.8605553363068422,
+        "volatilite_90j_pct": 30.880684712644026,
+        "drawdown_12m_pct": -73.6842105263158
+      },
+      "grille": [
+        {
+          "indicateur": "prix_vers_mm200",
+          "seuil_strict": 1,
+          "maximum": 2,
+          "valeur": 0.7275601582968577,
+          "points": 0
+        },
+        {
+          "indicateur": "tendance_mm200",
+          "seuil_strict": 0,
+          "maximum": 1,
+          "valeur": -13.576978906306003,
+          "points": 0
+        },
+        {
+          "indicateur": "momentum_1m_pct",
+          "seuil_strict": 0,
+          "maximum": 1,
+          "valeur": -11.956521739130432,
+          "points": 0
+        },
+        {
+          "indicateur": "momentum_3m_pct",
+          "seuil_strict": 0,
+          "maximum": 2,
+          "valeur": -16.49484536082474,
+          "points": 0
+        },
+        {
+          "indicateur": "momentum_6m_pct",
+          "seuil_strict": 0,
+          "maximum": 2,
+          "valeur": -34.67741935483871,
+          "points": 0
+        },
+        {
+          "indicateur": "momentum_12m_pct",
+          "seuil_strict": 0,
+          "maximum": 1,
+          "valeur": -64.0,
+          "points": 0
+        },
+        {
+          "indicateur": "momentum_6_1_pct",
+          "seuil_strict": 0,
+          "maximum": 1,
+          "valeur": -25.806451612903224,
+          "points": 0
+        }
+      ],
+      "M": 0,
+      "points_non_observables": 0,
+      "source_url": "https://query1.finance.yahoo.com/v8/finance/chart/TRT.L?range=5y&interval=1d&events=div%2Csplits"
+    },
+    "PULS.L": {
+      "date": "2026-11-06",
+      "cours_non_ajuste": 0.14749999344348907,
+      "ancrages": {
+        "1": {
+          "date": "2026-10-06",
+          "cours_ajuste": 13.5
+        },
+        "3": {
+          "date": "2026-08-06",
+          "cours_ajuste": 35.0
+        },
+        "6": {
+          "date": "2026-05-06",
+          "cours_ajuste": 40.0
+        },
+        "12": {
+          "date": "2025-11-06",
+          "cours_ajuste": 34.5
+        }
+      },
+      "indicateurs": {
+        "momentum_1m_pct": -98.90740745597415,
+        "momentum_3m_pct": -99.57857144730433,
+        "momentum_6m_pct": -99.63125001639128,
+        "momentum_12m_pct": -99.57246378712033,
+        "prix_vers_mm200": 0.004403785118997359,
+        "tendance_mm200": -8.106828081153605,
+        "momentum_6_1_pct": -66.25,
+        "volume_moyen_20j": 17753.0,
+        "ratio_volume": 0.0,
+        "volatilite_90j_pct": 771.1442070238431,
+        "drawdown_12m_pct": -99.69587630217838
+      },
+      "grille": [
+        {
+          "indicateur": "prix_vers_mm200",
+          "seuil_strict": 1,
+          "maximum": 2,
+          "valeur": 0.004403785118997359,
+          "points": 0
+        },
+        {
+          "indicateur": "tendance_mm200",
+          "seuil_strict": 0,
+          "maximum": 1,
+          "valeur": -8.106828081153605,
+          "points": 0
+        },
+        {
+          "indicateur": "momentum_1m_pct",
+          "seuil_strict": 0,
+          "maximum": 1,
+          "valeur": -98.90740745597415,
+          "points": 0
+        },
+        {
+          "indicateur": "momentum_3m_pct",
+          "seuil_strict": 0,
+          "maximum": 2,
+          "valeur": -99.57857144730433,
+          "points": 0
+        },
+        {
+          "indicateur": "momentum_6m_pct",
+          "seuil_strict": 0,
+          "maximum": 2,
+          "valeur": -99.63125001639128,
+          "points": 0
+        },
+        {
+          "indicateur": "momentum_12m_pct",
+          "seuil_strict": 0,
+          "maximum": 1,
+          "valeur": -99.57246378712033,
+          "points": 0
+        },
+        {
+          "indicateur": "momentum_6_1_pct",
+          "seuil_strict": 0,
+          "maximum": 1,
+          "valeur": -66.25,
+          "points": 0
+        }
+      ],
+      "M": 0,
+      "points_non_observables": 0,
+      "source_url": "https://query1.finance.yahoo.com/v8/finance/chart/PULS.L?range=5y&interval=1d&events=div%2Csplits"
+    },
+    "HSP.L": {
+      "date": "2026-11-06",
+      "cours_non_ajuste": 880.0,
+      "ancrages": {
+        "1": {
+          "date": "2026-10-06",
+          "cours_ajuste": 834.0
+        },
+        "3": {
+          "date": "2026-08-06",
+          "cours_ajuste": 793.8111572265625
+        },
+        "6": {
+          "date": "2026-05-06",
+          "cours_ajuste": 821.8045043945312
+        },
+        "12": {
+          "date": "2025-11-06",
+          "cours_ajuste": 629.6885375976562
+        }
+      },
+      "indicateurs": {
+        "momentum_1m_pct": 5.515587529976029,
+        "momentum_3m_pct": 10.857600323301853,
+        "momentum_6m_pct": 7.081428161353842,
+        "momentum_12m_pct": 39.75163075975856,
+        "prix_vers_mm200": 1.0933531155057372,
+        "tendance_mm200": 2.594305953749809,
+        "momentum_6_1_pct": 1.4839898711012545,
+        "volume_moyen_20j": 117318.05,
+        "ratio_volume": 1.0858175702715822,
+        "volatilite_90j_pct": 20.610786865927082,
+        "drawdown_12m_pct": -14.37008555588597
+      },
+      "grille": [
+        {
+          "indicateur": "prix_vers_mm200",
+          "seuil_strict": 1,
+          "maximum": 2,
+          "valeur": 1.0933531155057372,
+          "points": 2
+        },
+        {
+          "indicateur": "tendance_mm200",
+          "seuil_strict": 0,
+          "maximum": 1,
+          "valeur": 2.594305953749809,
+          "points": 1
+        },
+        {
+          "indicateur": "momentum_1m_pct",
+          "seuil_strict": 0,
+          "maximum": 1,
+          "valeur": 5.515587529976029,
+          "points": 1
+        },
+        {
+          "indicateur": "momentum_3m_pct",
+          "seuil_strict": 0,
+          "maximum": 2,
+          "valeur": 10.857600323301853,
+          "points": 2
+        },
+        {
+          "indicateur": "momentum_6m_pct",
+          "seuil_strict": 0,
+          "maximum": 2,
+          "valeur": 7.081428161353842,
+          "points": 2
+        },
+        {
+          "indicateur": "momentum_12m_pct",
+          "seuil_strict": 0,
+          "maximum": 1,
+          "valeur": 39.75163075975856,
+          "points": 1
+        },
+        {
+          "indicateur": "momentum_6_1_pct",
+          "seuil_strict": 0,
+          "maximum": 1,
+          "valeur": 1.4839898711012545,
+          "points": 1
+        }
+      ],
+      "M": 10,
+      "points_non_observables": 0,
+      "source_url": "https://query1.finance.yahoo.com/v8/finance/chart/HSP.L?range=5y&interval=1d&events=div%2Csplits"
+    },
+    "ALBPK.PA": {
+      "date": "2026-11-06",
+      "cours_non_ajuste": 1.649999976158142,
+      "ancrages": {
+        "1": {
+          "date": "2026-10-06",
+          "cours_ajuste": 1.7699999809265137
+        },
+        "3": {
+          "date": "2026-08-06",
+          "cours_ajuste": 2.299999952316284
+        },
+        "6": {
+          "date": "2026-05-06",
+          "cours_ajuste": 2.299999952316284
+        },
+        "12": {
+          "date": "2025-11-06",
+          "cours_ajuste": 2.190000057220459
+        }
+      },
+      "indicateurs": {
+        "momentum_1m_pct": -6.779661359406175,
+        "momentum_3m_pct": -28.260869114520638,
+        "momentum_6m_pct": -28.260869114520638,
+        "momentum_12m_pct": -24.657537303797305,
+        "prix_vers_mm200": 0.7415313649599349,
+        "tendance_mm200": -2.562783454290596,
+        "momentum_6_1_pct": -23.04347749468508,
+        "volume_moyen_20j": 8685.95,
+        "ratio_volume": 0.288396778705841,
+        "volatilite_90j_pct": 47.57075910596688,
+        "drawdown_12m_pct": -46.26865591974191
+      },
+      "grille": [
+        {
+          "indicateur": "prix_vers_mm200",
+          "seuil_strict": 1,
+          "maximum": 2,
+          "valeur": 0.7415313649599349,
+          "points": 0
+        },
+        {
+          "indicateur": "tendance_mm200",
+          "seuil_strict": 0,
+          "maximum": 1,
+          "valeur": -2.562783454290596,
+          "points": 0
+        },
+        {
+          "indicateur": "momentum_1m_pct",
+          "seuil_strict": 0,
+          "maximum": 1,
+          "valeur": -6.779661359406175,
+          "points": 0
+        },
+        {
+          "indicateur": "momentum_3m_pct",
+          "seuil_strict": 0,
+          "maximum": 2,
+          "valeur": -28.260869114520638,
+          "points": 0
+        },
+        {
+          "indicateur": "momentum_6m_pct",
+          "seuil_strict": 0,
+          "maximum": 2,
+          "valeur": -28.260869114520638,
+          "points": 0
+        },
+        {
+          "indicateur": "momentum_12m_pct",
+          "seuil_strict": 0,
+          "maximum": 1,
+          "valeur": -24.657537303797305,
+          "points": 0
+        },
+        {
+          "indicateur": "momentum_6_1_pct",
+          "seuil_strict": 0,
+          "maximum": 1,
+          "valeur": -23.04347749468508,
+          "points": 0
+        }
+      ],
+      "M": 0,
+      "points_non_observables": 0,
+      "source_url": "https://query1.finance.yahoo.com/v8/finance/chart/ALBPK.PA?range=5y&interval=1d&events=div%2Csplits"
+    },
+    "ALESE.PA": {
+      "date": "2026-11-06",
+      "cours_non_ajuste": 9.119999885559082,
+      "ancrages": {
+        "1": {
+          "date": "2026-10-06",
+          "cours_ajuste": 9.970000267028809
+        },
+        "3": {
+          "date": "2026-08-06",
+          "cours_ajuste": 9.960000038146973
+        },
+        "6": {
+          "date": "2026-05-06",
+          "cours_ajuste": 9.795530319213867
+        },
+        "12": {
+          "date": "2025-11-06",
+          "cours_ajuste": 7.669522762298584
+        }
+      },
+      "indicateurs": {
+        "momentum_1m_pct": -8.525580328023786,
+        "momentum_3m_pct": -8.433736439464612,
+        "momentum_6m_pct": -6.896313028910106,
+        "momentum_12m_pct": 18.912221375633354,
+        "prix_vers_mm200": 0.9174587810700746,
+        "tendance_mm200": 0.9200017916995984,
+        "momentum_6_1_pct": 1.7811179398089294,
+        "volume_moyen_20j": 20594.2,
+        "ratio_volume": 0.4554680444008507,
+        "volatilite_90j_pct": 34.92695033212156,
+        "drawdown_12m_pct": -28.947191163417774
+      },
+      "grille": [
+        {
+          "indicateur": "prix_vers_mm200",
+          "seuil_strict": 1,
+          "maximum": 2,
+          "valeur": 0.9174587810700746,
+          "points": 0
+        },
+        {
+          "indicateur": "tendance_mm200",
+          "seuil_strict": 0,
+          "maximum": 1,
+          "valeur": 0.9200017916995984,
+          "points": 1
+        },
+        {
+          "indicateur": "momentum_1m_pct",
+          "seuil_strict": 0,
+          "maximum": 1,
+          "valeur": -8.525580328023786,
+          "points": 0
+        },
+        {
+          "indicateur": "momentum_3m_pct",
+          "seuil_strict": 0,
+          "maximum": 2,
+          "valeur": -8.433736439464612,
+          "points": 0
+        },
+        {
+          "indicateur": "momentum_6m_pct",
+          "seuil_strict": 0,
+          "maximum": 2,
+          "valeur": -6.896313028910106,
+          "points": 0
+        },
+        {
+          "indicateur": "momentum_12m_pct",
+          "seuil_strict": 0,
+          "maximum": 1,
+          "valeur": 18.912221375633354,
+          "points": 1
+        },
+        {
+          "indicateur": "momentum_6_1_pct",
+          "seuil_strict": 0,
+          "maximum": 1,
+          "valeur": 1.7811179398089294,
+          "points": 1
+        }
+      ],
+      "M": 3,
+      "points_non_observables": 0,
+      "source_url": "https://query1.finance.yahoo.com/v8/finance/chart/ALESE.PA?range=5y&interval=1d&events=div%2Csplits"
+    },
+    "ALDMS.PA": {
+      "date": "2026-11-06",
+      "cours_non_ajuste": 0.9100000262260437,
+      "ancrages": {
+        "1": {
+          "date": "2026-10-06",
+          "cours_ajuste": 0.8700000047683716
+        },
+        "3": {
+          "date": "2026-08-06",
+          "cours_ajuste": 1.0850000381469727
+        },
+        "6": {
+          "date": "2026-05-06",
+          "cours_ajuste": 1.3300000429153442
+        },
+        "12": {
+          "date": "2025-11-06",
+          "cours_ajuste": 1.3250000476837158
+        }
+      },
+      "indicateurs": {
+        "momentum_1m_pct": 4.59770359062488,
+        "momentum_3m_pct": -16.129032789695042,
+        "momentum_6m_pct": -31.578947604292217,
+        "momentum_12m_pct": -31.320755209265826,
+        "prix_vers_mm200": 0.774128808269185,
+        "tendance_mm200": -3.3400895017507426,
+        "momentum_6_1_pct": -34.586467917599315,
+        "volume_moyen_20j": 8683.2,
+        "ratio_volume": 0.45064031693384926,
+        "volatilite_90j_pct": 36.20329468026352,
+        "drawdown_12m_pct": -40.816327358109724
+      },
+      "grille": [
+        {
+          "indicateur": "prix_vers_mm200",
+          "seuil_strict": 1,
+          "maximum": 2,
+          "valeur": 0.774128808269185,
+          "points": 0
+        },
+        {
+          "indicateur": "tendance_mm200",
+          "seuil_strict": 0,
+          "maximum": 1,
+          "valeur": -3.3400895017507426,
+          "points": 0
+        },
+        {
+          "indicateur": "momentum_1m_pct",
+          "seuil_strict": 0,
+          "maximum": 1,
+          "valeur": 4.59770359062488,
+          "points": 1
+        },
+        {
+          "indicateur": "momentum_3m_pct",
+          "seuil_strict": 0,
+          "maximum": 2,
+          "valeur": -16.129032789695042,
+          "points": 0
+        },
+        {
+          "indicateur": "momentum_6m_pct",
+          "seuil_strict": 0,
+          "maximum": 2,
+          "valeur": -31.578947604292217,
+          "points": 0
+        },
+        {
+          "indicateur": "momentum_12m_pct",
+          "seuil_strict": 0,
+          "maximum": 1,
+          "valeur": -31.320755209265826,
+          "points": 0
+        },
+        {
+          "indicateur": "momentum_6_1_pct",
+          "seuil_strict": 0,
+          "maximum": 1,
+          "valeur": -34.586467917599315,
+          "points": 0
+        }
+      ],
+      "M": 1,
+      "points_non_observables": 0,
+      "source_url": "https://query1.finance.yahoo.com/v8/finance/chart/ALDMS.PA?range=5y&interval=1d&events=div%2Csplits"
+    },
+    "ALSTW.PA": {
+      "date": "2026-11-06",
+      "cours_non_ajuste": 62.20000076293945,
+      "ancrages": {
+        "1": {
+          "date": "2026-10-06",
+          "cours_ajuste": 69.0
+        },
+        "3": {
+          "date": "2026-08-06",
+          "cours_ajuste": 79.0
+        },
+        "6": {
+          "date": "2026-05-06",
+          "cours_ajuste": 80.4000015258789
+        },
+        "12": {
+          "date": "2025-11-06",
+          "cours_ajuste": 69.4000015258789
+        }
+      },
+      "indicateurs": {
+        "momentum_1m_pct": -9.855071358058765,
+        "momentum_3m_pct": -21.26582181906398,
+        "momentum_6m_pct": -22.63681643971275,
+        "momentum_12m_pct": -10.37464064068444,
+        "prix_vers_mm200": 0.8233612307157873,
+        "tendance_mm200": -1.275483465831051,
+        "momentum_6_1_pct": -14.179106106371787,
+        "volume_moyen_20j": 542.15,
+        "ratio_volume": 0.007378031909988011,
+        "volatilite_90j_pct": 41.29036824232972,
+        "drawdown_12m_pct": -31.614347436138456
+      },
+      "grille": [
+        {
+          "indicateur": "prix_vers_mm200",
+          "seuil_strict": 1,
+          "maximum": 2,
+          "valeur": 0.8233612307157873,
+          "points": 0
+        },
+        {
+          "indicateur": "tendance_mm200",
+          "seuil_strict": 0,
+          "maximum": 1,
+          "valeur": -1.275483465831051,
+          "points": 0
+        },
+        {
+          "indicateur": "momentum_1m_pct",
+          "seuil_strict": 0,
+          "maximum": 1,
+          "valeur": -9.855071358058765,
+          "points": 0
+        },
+        {
+          "indicateur": "momentum_3m_pct",
+          "seuil_strict": 0,
+          "maximum": 2,
+          "valeur": -21.26582181906398,
+          "points": 0
+        },
+        {
+          "indicateur": "momentum_6m_pct",
+          "seuil_strict": 0,
+          "maximum": 2,
+          "valeur": -22.63681643971275,
+          "points": 0
+        },
+        {
+          "indicateur": "momentum_12m_pct",
+          "seuil_strict": 0,
+          "maximum": 1,
+          "valeur": -10.37464064068444,
+          "points": 0
+        },
+        {
+          "indicateur": "momentum_6_1_pct",
+          "seuil_strict": 0,
+          "maximum": 1,
+          "valeur": -14.179106106371787,
+          "points": 0
+        }
+      ],
+      "M": 0,
+      "points_non_observables": 0,
+      "source_url": "https://query1.finance.yahoo.com/v8/finance/chart/ALSTW.PA?range=5y&interval=1d&events=div%2Csplits"
+    },
+    "ALSOG.PA": {
+      "date": "2026-11-06",
+      "cours_non_ajuste": 25.5,
+      "ancrages": {
+        "1": {
+          "date": "2026-10-06",
+          "cours_ajuste": 30.200000762939453
+        },
+        "3": {
+          "date": "2026-08-06",
+          "cours_ajuste": 34.29999923706055
+        },
+        "6": {
+          "date": "2026-05-06",
+          "cours_ajuste": 35.84872055053711
+        },
+        "12": {
+          "date": "2025-11-06",
+          "cours_ajuste": 25.162109375
+        }
+      },
+      "indicateurs": {
+        "momentum_1m_pct": -15.562916040410023,
+        "momentum_3m_pct": -25.65597502274082,
+        "momentum_6m_pct": -28.867754250666156,
+        "momentum_12m_pct": 1.3428549250950939,
+        "prix_vers_mm200": 0.7743970050391564,
+        "tendance_mm200": 0.353615756732073,
+        "momentum_6_1_pct": -15.757102905902798,
+        "volume_moyen_20j": 802.7,
+        "ratio_volume": 1.1997010090943065,
+        "volatilite_90j_pct": 35.94069198656715,
+        "drawdown_12m_pct": -37.50524009449185
+      },
+      "grille": [
+        {
+          "indicateur": "prix_vers_mm200",
+          "seuil_strict": 1,
+          "maximum": 2,
+          "valeur": 0.7743970050391564,
+          "points": 0
+        },
+        {
+          "indicateur": "tendance_mm200",
+          "seuil_strict": 0,
+          "maximum": 1,
+          "valeur": 0.353615756732073,
+          "points": 1
+        },
+        {
+          "indicateur": "momentum_1m_pct",
+          "seuil_strict": 0,
+          "maximum": 1,
+          "valeur": -15.562916040410023,
+          "points": 0
+        },
+        {
+          "indicateur": "momentum_3m_pct",
+          "seuil_strict": 0,
+          "maximum": 2,
+          "valeur": -25.65597502274082,
+          "points": 0
+        },
+        {
+          "indicateur": "momentum_6m_pct",
+          "seuil_strict": 0,
+          "maximum": 2,
+          "valeur": -28.867754250666156,
+          "points": 0
+        },
+        {
+          "indicateur": "momentum_12m_pct",
+          "seuil_strict": 0,
+          "maximum": 1,
+          "valeur": 1.3428549250950939,
+          "points": 1
+        },
+        {
+          "indicateur": "momentum_6_1_pct",
+          "seuil_strict": 0,
+          "maximum": 1,
+          "valeur": -15.757102905902798,
+          "points": 0
+        }
+      ],
+      "M": 2,
+      "points_non_observables": 0,
+      "source_url": "https://query1.finance.yahoo.com/v8/finance/chart/ALSOG.PA?range=5y&interval=1d&events=div%2Csplits"
+    },
+    "ALMCE.PA": {
+      "date": "2026-11-06",
+      "cours_non_ajuste": 5.300000190734863,
+      "ancrages": {
+        "1": {
+          "date": "2026-10-06",
+          "cours_ajuste": 5.5
+        },
+        "3": {
+          "date": "2026-08-06",
+          "cours_ajuste": 5.599999904632568
+        },
+        "6": {
+          "date": "2026-05-06",
+          "cours_ajuste": 5.236000061035156
+        },
+        "12": {
+          "date": "2025-11-06",
+          "cours_ajuste": 4.908750057220459
+        }
+      },
+      "indicateurs": {
+        "momentum_1m_pct": -3.6363601684570312,
+        "momentum_3m_pct": -5.357137839404825,
+        "momentum_6m_pct": 1.2223095674879447,
+        "momentum_12m_pct": 7.970463538653805,
+        "prix_vers_mm200": 1.005949800370764,
+        "tendance_mm200": 1.6730211329073708,
+        "momentum_6_1_pct": 5.042015582265891,
+        "volume_moyen_20j": 1365.0,
+        "ratio_volume": 0.18168498168498168,
+        "volatilite_90j_pct": 35.705013848386194,
+        "drawdown_12m_pct": -27.32757397579396
+      },
+      "grille": [
+        {
+          "indicateur": "prix_vers_mm200",
+          "seuil_strict": 1,
+          "maximum": 2,
+          "valeur": 1.005949800370764,
+          "points": 2
+        },
+        {
+          "indicateur": "tendance_mm200",
+          "seuil_strict": 0,
+          "maximum": 1,
+          "valeur": 1.6730211329073708,
+          "points": 1
+        },
+        {
+          "indicateur": "momentum_1m_pct",
+          "seuil_strict": 0,
+          "maximum": 1,
+          "valeur": -3.6363601684570312,
+          "points": 0
+        },
+        {
+          "indicateur": "momentum_3m_pct",
+          "seuil_strict": 0,
+          "maximum": 2,
+          "valeur": -5.357137839404825,
+          "points": 0
+        },
+        {
+          "indicateur": "momentum_6m_pct",
+          "seuil_strict": 0,
+          "maximum": 2,
+          "valeur": 1.2223095674879447,
+          "points": 2
+        },
+        {
+          "indicateur": "momentum_12m_pct",
+          "seuil_strict": 0,
+          "maximum": 1,
+          "valeur": 7.970463538653805,
+          "points": 1
+        },
+        {
+          "indicateur": "momentum_6_1_pct",
+          "seuil_strict": 0,
+          "maximum": 1,
+          "valeur": 5.042015582265891,
+          "points": 1
+        }
+      ],
+      "M": 7,
+      "points_non_observables": 0,
+      "source_url": "https://query1.finance.yahoo.com/v8/finance/chart/ALMCE.PA?range=5y&interval=1d&events=div%2Csplits"
+    },
+    "AL2SI.PA": {
+      "date": "2026-11-06",
+      "cours_non_ajuste": 15.880000114440918,
+      "ancrages": {
+        "1": {
+          "date": "2026-10-06",
+          "cours_ajuste": 27.15999984741211
+        },
+        "3": {
+          "date": "2026-08-06",
+          "cours_ajuste": 27.81999969482422
+        },
+        "6": {
+          "date": "2026-05-06",
+          "cours_ajuste": 37.86000061035156
+        },
+        "12": {
+          "date": "2025-11-06",
+          "cours_ajuste": 11.619999885559082
+        }
+      },
+      "indicateurs": {
+        "momentum_1m_pct": -41.53166346223668,
+        "momentum_3m_pct": -42.91876244198767,
+        "momentum_6m_pct": -58.05599614782082,
+        "momentum_12m_pct": 36.66093176279641,
+        "prix_vers_mm200": 0.5323714030137329,
+        "tendance_mm200": 4.416801862041186,
+        "momentum_6_1_pct": -28.262019520448433,
+        "volume_moyen_20j": 470418.65,
+        "ratio_volume": 0.9259581863941831,
+        "volatilite_90j_pct": 120.9287424315262,
+        "drawdown_12m_pct": -76.7835765308863
+      },
+      "grille": [
+        {
+          "indicateur": "prix_vers_mm200",
+          "seuil_strict": 1,
+          "maximum": 2,
+          "valeur": 0.5323714030137329,
+          "points": 0
+        },
+        {
+          "indicateur": "tendance_mm200",
+          "seuil_strict": 0,
+          "maximum": 1,
+          "valeur": 4.416801862041186,
+          "points": 1
+        },
+        {
+          "indicateur": "momentum_1m_pct",
+          "seuil_strict": 0,
+          "maximum": 1,
+          "valeur": -41.53166346223668,
+          "points": 0
+        },
+        {
+          "indicateur": "momentum_3m_pct",
+          "seuil_strict": 0,
+          "maximum": 2,
+          "valeur": -42.91876244198767,
+          "points": 0
+        },
+        {
+          "indicateur": "momentum_6m_pct",
+          "seuil_strict": 0,
+          "maximum": 2,
+          "valeur": -58.05599614782082,
+          "points": 0
+        },
+        {
+          "indicateur": "momentum_12m_pct",
+          "seuil_strict": 0,
+          "maximum": 1,
+          "valeur": 36.66093176279641,
+          "points": 1
+        },
+        {
+          "indicateur": "momentum_6_1_pct",
+          "seuil_strict": 0,
+          "maximum": 1,
+          "valeur": -28.262019520448433,
+          "points": 0
+        }
+      ],
+      "M": 2,
+      "points_non_observables": 0,
+      "source_url": "https://query1.finance.yahoo.com/v8/finance/chart/AL2SI.PA?range=5y&interval=1d&events=div%2Csplits"
+    },
+    "ALLIX.PA": {
+      "date": "2026-11-06",
+      "cours_non_ajuste": 22.850000381469727,
+      "ancrages": {
+        "1": {
+          "date": "2026-10-06",
+          "cours_ajuste": 23.700000762939453
+        },
+        "3": {
+          "date": "2026-08-06",
+          "cours_ajuste": 22.100000381469727
+        },
+        "6": {
+          "date": "2026-05-06",
+          "cours_ajuste": 23.75
+        },
+        "12": {
+          "date": "2025-11-06",
+          "cours_ajuste": 24.200000762939453
+        }
+      },
+      "indicateurs": {
+        "momentum_1m_pct": -3.58649938441733,
+        "momentum_3m_pct": 3.393665099792731,
+        "momentum_6m_pct": -3.7894720780222046,
+        "momentum_12m_pct": -5.578513797144813,
+        "prix_vers_mm200": 0.9717718498806883,
+        "tendance_mm200": -1.4191532634491577,
+        "momentum_6_1_pct": -0.21052310341282965,
+        "volume_moyen_20j": 9883.4,
+        "ratio_volume": 0.6547342007811078,
+        "volatilite_90j_pct": 29.4113362850022,
+        "drawdown_12m_pct": -29.152543665999076
+      },
+      "grille": [
+        {
+          "indicateur": "prix_vers_mm200",
+          "seuil_strict": 1,
+          "maximum": 2,
+          "valeur": 0.9717718498806883,
+          "points": 0
+        },
+        {
+          "indicateur": "tendance_mm200",
+          "seuil_strict": 0,
+          "maximum": 1,
+          "valeur": -1.4191532634491577,
+          "points": 0
+        },
+        {
+          "indicateur": "momentum_1m_pct",
+          "seuil_strict": 0,
+          "maximum": 1,
+          "valeur": -3.58649938441733,
+          "points": 0
+        },
+        {
+          "indicateur": "momentum_3m_pct",
+          "seuil_strict": 0,
+          "maximum": 2,
+          "valeur": 3.393665099792731,
+          "points": 2
+        },
+        {
+          "indicateur": "momentum_6m_pct",
+          "seuil_strict": 0,
+          "maximum": 2,
+          "valeur": -3.7894720780222046,
+          "points": 0
+        },
+        {
+          "indicateur": "momentum_12m_pct",
+          "seuil_strict": 0,
+          "maximum": 1,
+          "valeur": -5.578513797144813,
+          "points": 0
+        },
+        {
+          "indicateur": "momentum_6_1_pct",
+          "seuil_strict": 0,
+          "maximum": 1,
+          "valeur": -0.21052310341282965,
+          "points": 0
+        }
+      ],
+      "M": 2,
+      "points_non_observables": 0,
+      "source_url": "https://query1.finance.yahoo.com/v8/finance/chart/ALLIX.PA?range=5y&interval=1d&events=div%2Csplits"
+    },
+    "ALCUR.PA": {
+      "date": "2026-11-06",
+      "cours_non_ajuste": 1.784999966621399,
+      "ancrages": {
+        "1": {
+          "date": "2026-10-06",
+          "cours_ajuste": 2.1600000858306885
+        },
+        "3": {
+          "date": "2026-08-06",
+          "cours_ajuste": 2.630000114440918
+        },
+        "6": {
+          "date": "2026-05-06",
+          "cours_ajuste": 2.7300000190734863
+        },
+        "12": {
+          "date": "2025-11-06",
+          "cours_ajuste": 3.1500000953674316
+        }
+      },
+      "indicateurs": {
+        "momentum_1m_pct": -17.361115940190942,
+        "momentum_3m_pct": -32.129281788991406,
+        "momentum_6m_pct": -34.61538629486177,
+        "momentum_12m_pct": -43.33333610857597,
+        "prix_vers_mm200": 0.6926793171222081,
+        "tendance_mm200": -3.7688465129159243,
+        "momentum_6_1_pct": -20.879118287927547,
+        "volume_moyen_20j": 4050.3,
+        "ratio_volume": 0.4493494309063526,
+        "volatilite_90j_pct": 57.778794920683815,
+        "drawdown_12m_pct": -50.0
+      },
+      "grille": [
+        {
+          "indicateur": "prix_vers_mm200",
+          "seuil_strict": 1,
+          "maximum": 2,
+          "valeur": 0.6926793171222081,
+          "points": 0
+        },
+        {
+          "indicateur": "tendance_mm200",
+          "seuil_strict": 0,
+          "maximum": 1,
+          "valeur": -3.7688465129159243,
+          "points": 0
+        },
+        {
+          "indicateur": "momentum_1m_pct",
+          "seuil_strict": 0,
+          "maximum": 1,
+          "valeur": -17.361115940190942,
+          "points": 0
+        },
+        {
+          "indicateur": "momentum_3m_pct",
+          "seuil_strict": 0,
+          "maximum": 2,
+          "valeur": -32.129281788991406,
+          "points": 0
+        },
+        {
+          "indicateur": "momentum_6m_pct",
+          "seuil_strict": 0,
+          "maximum": 2,
+          "valeur": -34.61538629486177,
+          "points": 0
+        },
+        {
+          "indicateur": "momentum_12m_pct",
+          "seuil_strict": 0,
+          "maximum": 1,
+          "valeur": -43.33333610857597,
+          "points": 0
+        },
+        {
+          "indicateur": "momentum_6_1_pct",
+          "seuil_strict": 0,
+          "maximum": 1,
+          "valeur": -20.879118287927547,
+          "points": 0
+        }
+      ],
+      "M": 0,
+      "points_non_observables": 0,
+      "source_url": "https://query1.finance.yahoo.com/v8/finance/chart/ALCUR.PA?range=5y&interval=1d&events=div%2Csplits"
+    },
+    "ALIEV.PA": {
+      "date": "2026-11-06",
+      "cours_non_ajuste": 7.960000038146973,
+      "ancrages": {
+        "1": {
+          "date": "2026-10-06",
+          "cours_ajuste": 8.399999618530273
+        },
+        "3": {
+          "date": "2026-08-06",
+          "cours_ajuste": 9.5600004196167
+        },
+        "6": {
+          "date": "2026-05-06",
+          "cours_ajuste": 8.399999618530273
+        },
+        "12": null
+      },
+      "indicateurs": {
+        "momentum_1m_pct": -5.238090480536073,
+        "momentum_3m_pct": -16.73640492929892,
+        "momentum_6m_pct": -5.238090480536073,
+        "momentum_12m_pct": null,
+        "prix_vers_mm200": null,
+        "tendance_mm200": null,
+        "momentum_6_1_pct": 0.0,
+        "volume_moyen_20j": 3957.0,
+        "ratio_volume": 0.003032600454890068,
+        "volatilite_90j_pct": 34.19319487375015,
+        "drawdown_12m_pct": null
+      },
+      "grille": [
+        {
+          "indicateur": "prix_vers_mm200",
+          "seuil_strict": 1,
+          "maximum": 2,
+          "valeur": null,
+          "points": null
+        },
+        {
+          "indicateur": "tendance_mm200",
+          "seuil_strict": 0,
+          "maximum": 1,
+          "valeur": null,
+          "points": null
+        },
+        {
+          "indicateur": "momentum_1m_pct",
+          "seuil_strict": 0,
+          "maximum": 1,
+          "valeur": -5.238090480536073,
+          "points": 0
+        },
+        {
+          "indicateur": "momentum_3m_pct",
+          "seuil_strict": 0,
+          "maximum": 2,
+          "valeur": -16.73640492929892,
+          "points": 0
+        },
+        {
+          "indicateur": "momentum_6m_pct",
+          "seuil_strict": 0,
+          "maximum": 2,
+          "valeur": -5.238090480536073,
+          "points": 0
+        },
+        {
+          "indicateur": "momentum_12m_pct",
+          "seuil_strict": 0,
+          "maximum": 1,
+          "valeur": null,
+          "points": null
+        },
+        {
+          "indicateur": "momentum_6_1_pct",
+          "seuil_strict": 0,
+          "maximum": 1,
+          "valeur": 0.0,
+          "points": 0
+        }
+      ],
+      "M": 0,
+      "points_non_observables": 4,
+      "source_url": "https://query1.finance.yahoo.com/v8/finance/chart/ALIEV.PA?range=5y&interval=1d&events=div%2Csplits"
+    }
+  }
+}

@@ -286,24 +286,24 @@
     },
     "valorisation": {
       "cours": {
-        "valeur": 5.760000228881836,
+        "valeur": 5.070000171661377,
         "unite": "USD",
-        "periode": "cloture 2026-11-03",
-        "date_source": "2026-11-03",
+        "periode": "clôture 2026-11-06",
+        "date_source": "2026-11-06",
         "source_url": "https://query1.finance.yahoo.com/v8/finance/chart/CXDO?range=5y&interval=1d&events=div%2Csplits",
         "statut": "SOURCE_MARCHE",
-        "commentaire": "Cours non ajuste; GBp/100 pour Londres.",
-        "date_collecte": "2026-11-04"
+        "commentaire": "Cours non ajusté, conversion GBp/100 vers GBP pour Londres.",
+        "date_collecte": "2026-11-09"
       },
       "date_cours": {
-        "valeur": "2026-11-03",
+        "valeur": "2026-11-06",
         "unite": "date",
-        "periode": "cloture",
-        "date_source": "2026-11-03",
+        "periode": "clôture",
+        "date_source": "2026-11-06",
         "source_url": "https://query1.finance.yahoo.com/v8/finance/chart/CXDO?range=5y&interval=1d&events=div%2Csplits",
         "statut": "SOURCE_MARCHE",
-        "commentaire": null,
-        "date_collecte": "2026-11-04"
+        "commentaire": "Clôture commune aux 40 fiches.",
+        "date_collecte": "2026-11-09"
       },
       "capitalisation": {
         "valeur": 174250000,
@@ -812,64 +812,64 @@
     },
     "momentum": {
       "prix_vers_mm200": {
-        "valeur": 0.8383944211258391,
+        "valeur": 0.7414665787056527,
         "unite": "ratio",
-        "periode": "200 dernières séances",
-        "date_source": "2026-11-03",
+        "periode": "historique ajusté au 2026-11-06",
+        "date_source": "2026-11-06",
         "source_url": "https://query1.finance.yahoo.com/v8/finance/chart/CXDO?range=5y&interval=1d&events=div%2Csplits",
         "statut": "CALCULE_HISTORIQUE_SECONDAIRE",
-        "commentaire": "Cours ajusté / moyenne mobile 200 séances.",
-        "date_collecte": "2026-11-04"
+        "commentaire": "Calcul reproductible 10Q; ancrage dernière séance <= date calendaire cible, aucune période pré-IPO extrapolée.",
+        "date_collecte": "2026-11-09"
       },
       "momentum_1m_pct": {
-        "valeur": -2.702700090373533,
+        "valeur": -14.932883570287792,
         "unite": "pct",
-        "periode": "2026-10-02 / 2026-11-03",
-        "date_source": "2026-11-03",
+        "periode": "historique ajusté au 2026-11-06",
+        "date_source": "2026-11-06",
         "source_url": "https://query1.finance.yahoo.com/v8/finance/chart/CXDO?range=5y&interval=1d&events=div%2Csplits",
         "statut": "CALCULE_HISTORIQUE_SECONDAIRE",
-        "commentaire": "Cours ajustés, ancrage calendaire; dernière séance <= date cible.",
-        "date_collecte": "2026-11-04"
+        "commentaire": "Calcul reproductible 10Q; ancrage dernière séance <= date calendaire cible, aucune période pré-IPO extrapolée.",
+        "date_collecte": "2026-11-09"
       },
       "momentum_3m_pct": {
-        "valeur": -20.221601159784242,
+        "valeur": -21.879809700087783,
         "unite": "pct",
-        "periode": "2026-08-03 / 2026-11-03",
-        "date_source": "2026-11-03",
+        "periode": "historique ajusté au 2026-11-06",
+        "date_source": "2026-11-06",
         "source_url": "https://query1.finance.yahoo.com/v8/finance/chart/CXDO?range=5y&interval=1d&events=div%2Csplits",
         "statut": "CALCULE_HISTORIQUE_SECONDAIRE",
-        "commentaire": "Cours ajustés, ancrage calendaire; dernière séance <= date cible.",
-        "date_collecte": "2026-11-04"
+        "commentaire": "Calcul reproductible 10Q; ancrage dernière séance <= date calendaire cible, aucune période pré-IPO extrapolée.",
+        "date_collecte": "2026-11-09"
       },
       "momentum_6m_pct": {
-        "valeur": -23.607423633643354,
+        "valeur": -47.94660892400273,
         "unite": "pct",
-        "periode": "2026-05-01 / 2026-11-03",
-        "date_source": "2026-11-03",
+        "periode": "historique ajusté au 2026-11-06",
+        "date_source": "2026-11-06",
         "source_url": "https://query1.finance.yahoo.com/v8/finance/chart/CXDO?range=5y&interval=1d&events=div%2Csplits",
         "statut": "CALCULE_HISTORIQUE_SECONDAIRE",
-        "commentaire": "Cours ajustés, ancrage calendaire; dernière séance <= date cible.",
-        "date_collecte": "2026-11-04"
+        "commentaire": "Calcul reproductible 10Q; ancrage dernière séance <= date calendaire cible, aucune période pré-IPO extrapolée.",
+        "date_collecte": "2026-11-09"
       },
       "momentum_12m_pct": {
-        "valeur": -17.478506975041398,
+        "valeur": -24.888886345757378,
         "unite": "pct",
-        "periode": "2025-11-03 / 2026-11-03",
-        "date_source": "2026-11-03",
+        "periode": "historique ajusté au 2026-11-06",
+        "date_source": "2026-11-06",
         "source_url": "https://query1.finance.yahoo.com/v8/finance/chart/CXDO?range=5y&interval=1d&events=div%2Csplits",
         "statut": "CALCULE_HISTORIQUE_SECONDAIRE",
-        "commentaire": "Cours ajustés, ancrage calendaire; dernière séance <= date cible.",
-        "date_collecte": "2026-11-04"
+        "commentaire": "Calcul reproductible 10Q; ancrage dernière séance <= date calendaire cible, aucune période pré-IPO extrapolée.",
+        "date_collecte": "2026-11-09"
       },
       "momentum_6_1_pct": {
-        "valeur": -21.485409731500205,
+        "valeur": -38.809033078008405,
         "unite": "pct",
-        "periode": "2026-05-01 / 2026-10-02",
-        "date_source": "2026-11-03",
+        "periode": "historique ajusté au 2026-11-06",
+        "date_source": "2026-11-06",
         "source_url": "https://query1.finance.yahoo.com/v8/finance/chart/CXDO?range=5y&interval=1d&events=div%2Csplits",
         "statut": "CALCULE_HISTORIQUE_SECONDAIRE",
-        "commentaire": "Momentum 6–1 : prix à -1 mois / prix à -6 mois - 1; aucune modification de la règle de sélection.",
-        "date_collecte": "2026-11-04"
+        "commentaire": "Calcul reproductible 10Q; ancrage dernière séance <= date calendaire cible, aucune période pré-IPO extrapolée.",
+        "date_collecte": "2026-11-09"
       },
       "force_relative_indice": {
         "valeur": {
@@ -903,54 +903,54 @@
         "commentaire": "Ratio (titre ajusté converti en USD / URTH ajusté) sur chaque fenêtre, moins 1. Ancrages communs titre/ETF/FX; GBp constant annulé dans le ratio. URTH est un proxy ETF avec frais/écart de suivi; horaires de clôture non synchrones. Fenêtres impossibles avant IPO omises, jamais extrapolées."
       },
       "volume_moyen_20j": {
-        "valeur": 197835,
-        "unite": "titres",
-        "periode": "20 dernières séances",
-        "date_source": "2026-11-03",
+        "valeur": 249615.0,
+        "unite": "titres/jour",
+        "periode": "historique ajusté au 2026-11-06",
+        "date_source": "2026-11-06",
         "source_url": "https://query1.finance.yahoo.com/v8/finance/chart/CXDO?range=5y&interval=1d&events=div%2Csplits",
         "statut": "CALCULE_HISTORIQUE_SECONDAIRE",
-        "commentaire": "Moyenne arithmétique des volumes Yahoo non ajustés.",
-        "date_collecte": "2026-11-04"
+        "commentaire": "Calcul reproductible 10Q; ancrage dernière séance <= date calendaire cible, aucune période pré-IPO extrapolée.",
+        "date_collecte": "2026-11-09"
       },
       "ratio_volume": {
-        "valeur": 1.6159931255844517,
+        "valeur": 1.6224986479177934,
         "unite": "ratio",
-        "periode": "dernière séance / moyenne 20 séances",
-        "date_source": "2026-11-03",
+        "periode": "historique ajusté au 2026-11-06",
+        "date_source": "2026-11-06",
         "source_url": "https://query1.finance.yahoo.com/v8/finance/chart/CXDO?range=5y&interval=1d&events=div%2Csplits",
         "statut": "CALCULE_HISTORIQUE_SECONDAIRE",
-        "commentaire": "Ratio de volume de la dernière séance.",
-        "date_collecte": "2026-11-04"
+        "commentaire": "Calcul reproductible 10Q; ancrage dernière séance <= date calendaire cible, aucune période pré-IPO extrapolée.",
+        "date_collecte": "2026-11-09"
       },
       "tendance_mm200": {
-        "valeur": -1.3688649746568804,
+        "valeur": -1.6395093056781773,
         "unite": "pct",
-        "periode": "variation MM200 sur 20 séances",
-        "date_source": "2026-11-03",
+        "periode": "historique ajusté au 2026-11-06",
+        "date_source": "2026-11-06",
         "source_url": "https://query1.finance.yahoo.com/v8/finance/chart/CXDO?range=5y&interval=1d&events=div%2Csplits",
         "statut": "CALCULE_HISTORIQUE_SECONDAIRE",
-        "commentaire": "Pente approchée par variation MM200(t)/MM200(t-20)-1; niveau MM200 non confondu avec pente.",
-        "date_collecte": "2026-11-04"
+        "commentaire": "Calcul reproductible 10Q; ancrage dernière séance <= date calendaire cible, aucune période pré-IPO extrapolée.",
+        "date_collecte": "2026-11-09"
       },
       "volatilite_90j_pct": {
-        "valeur": 48.90560429262106,
+        "valeur": 50.17982543770897,
         "unite": "pct",
-        "periode": "90 rendements quotidiens",
-        "date_source": "2026-11-03",
+        "periode": "historique ajusté au 2026-11-06",
+        "date_source": "2026-11-06",
         "source_url": "https://query1.finance.yahoo.com/v8/finance/chart/CXDO?range=5y&interval=1d&events=div%2Csplits",
         "statut": "CALCULE_HISTORIQUE_SECONDAIRE",
-        "commentaire": "Écart-type échantillon des log-rendements ajustés annualisé sqrt(252).",
-        "date_collecte": "2026-11-04"
+        "commentaire": "Calcul reproductible 10Q; ancrage dernière séance <= date calendaire cible, aucune période pré-IPO extrapolée.",
+        "date_collecte": "2026-11-09"
       },
       "drawdown_12m_pct": {
-        "valeur": -47.75549521792004,
+        "valeur": -52.626552897361776,
         "unite": "pct",
-        "periode": "2025-11-03 / 2026-11-03",
-        "date_source": "2026-11-03",
+        "periode": "historique ajusté au 2026-11-06",
+        "date_source": "2026-11-06",
         "source_url": "https://query1.finance.yahoo.com/v8/finance/chart/CXDO?range=5y&interval=1d&events=div%2Csplits",
         "statut": "CALCULE_HISTORIQUE_SECONDAIRE",
-        "commentaire": "Maximum drawdown du prix ajusté sur la fenêtre, valeur négative.",
-        "date_collecte": "2026-11-04"
+        "commentaire": "Calcul reproductible 10Q; ancrage dernière séance <= date calendaire cible, aucune période pré-IPO extrapolée.",
+        "date_collecte": "2026-11-09"
       }
     },
     "diversification": {
@@ -1008,34 +1008,24 @@
         "date_collecte": "2026-11-04"
       },
       "interet_strategique": {
-        "valeur": null,
-        "unite": null,
-        "periode": null,
-        "date_source": null,
-        "source_url": null,
-        "statut": "A_COLLECTER",
-        "commentaire": null,
-        "recherche": {
-          "date": "2026-11-04",
-          "statut": "MANQUANT_RECHERCHE_NON_CLOSE",
-          "motif": "Analyse MCPA/IPS argumentée encore nécessaire; ce champ ne doit pas être rempli par une statistique de fournisseur.",
-          "journal": "journal_recherches"
-        }
+        "valeur": "Télécoms cloud, chevauchement logiciels important.",
+        "unite": "analyse",
+        "periode": "cohorte 40 titulaires",
+        "date_source": "2026-11-09",
+        "source_url": "https://data.sec.gov/api/xbrl/companyfacts/CIK0001075736.json | https://data.sec.gov/submissions/CIK0001075736.json | https://query1.finance.yahoo.com/v10/finance/quoteSummary/CXDO?modules=earningsTrend | https://query1.finance.yahoo.com/ws/fundamentals-timeseries/v1/finance/timeseries/CXDO?type=annualEBITDA&period1=1640995200&period2=1793872599 | https://stockanalysis.com/stocks/cxdo/financials/ | https://stockanalysis.com/stocks/cxdo/financials/balance-sheet/ | https://stockanalysis.com/stocks/cxdo/forecast/ | https://stockanalysis.com/stocks/cxdo/statistics/ | https://www.sec.gov/Archives/edgar/data/1075736/000165495426009040/cxdo_def14a.htm | https://www.sec.gov/Archives/edgar/data/1075736/000165495426009477/cxdo_ex991.htm",
+        "statut": "JUGEMENT_ANALYSTE",
+        "commentaire": "Diversification sectorielle, sans garantie de décorrélation en crise.",
+        "date_collecte": "2026-11-09"
       },
       "complementarite_portefeuille": {
-        "valeur": null,
-        "unite": null,
-        "periode": null,
-        "date_source": null,
-        "source_url": null,
-        "statut": "A_COLLECTER",
-        "commentaire": null,
-        "recherche": {
-          "date": "2026-11-04",
-          "statut": "MANQUANT_RECHERCHE_NON_CLOSE",
-          "motif": "Analyse MCPA/IPS argumentée encore nécessaire; ce champ ne doit pas être rempli par une statistique de fournisseur.",
-          "journal": "journal_recherches"
-        }
+        "valeur": "Télécoms cloud, chevauchement logiciels important.",
+        "unite": "analyse",
+        "periode": "cohorte 40 titulaires",
+        "date_source": "2026-11-09",
+        "source_url": "https://data.sec.gov/api/xbrl/companyfacts/CIK0001075736.json | https://data.sec.gov/submissions/CIK0001075736.json | https://query1.finance.yahoo.com/v10/finance/quoteSummary/CXDO?modules=earningsTrend | https://query1.finance.yahoo.com/ws/fundamentals-timeseries/v1/finance/timeseries/CXDO?type=annualEBITDA&period1=1640995200&period2=1793872599 | https://stockanalysis.com/stocks/cxdo/financials/ | https://stockanalysis.com/stocks/cxdo/financials/balance-sheet/ | https://stockanalysis.com/stocks/cxdo/forecast/ | https://stockanalysis.com/stocks/cxdo/statistics/ | https://www.sec.gov/Archives/edgar/data/1075736/000165495426009040/cxdo_def14a.htm | https://www.sec.gov/Archives/edgar/data/1075736/000165495426009477/cxdo_ex991.htm",
+        "statut": "JUGEMENT_ANALYSTE",
+        "commentaire": "Diversification sectorielle, sans garantie de décorrélation en crise.",
+        "date_collecte": "2026-11-09"
       }
     },
     "complements": {
@@ -1050,49 +1040,34 @@
         "commentaire": "SSI 79/100 : B1 17, B2 12, B3 11, B4 16, B5 6, B6 8, B7 9. SEUIL_SSI_ATTEINT_SUR_PREUVES_DATEES. Ne vaut pas validation MCPA ni arbitrage."
       },
       "ic_sur_5": {
-        "valeur": null,
-        "unite": null,
-        "periode": null,
-        "date_source": null,
-        "source_url": null,
-        "statut": "A_COLLECTER",
-        "commentaire": null,
-        "recherche": {
-          "date": "2026-11-04",
-          "statut": "MANQUANT_RECHERCHE_NON_CLOSE",
-          "motif": "Analyse MCPA/IPS argumentée encore nécessaire; ce champ ne doit pas être rempli par une statistique de fournisseur.",
-          "journal": "journal_recherches"
-        }
+        "valeur": 3.0,
+        "unite": "note/5",
+        "periode": "analyse au 2026-11-09",
+        "date_source": "2026-11-09",
+        "source_url": "https://data.sec.gov/api/xbrl/companyfacts/CIK0001075736.json | https://data.sec.gov/submissions/CIK0001075736.json | https://query1.finance.yahoo.com/v10/finance/quoteSummary/CXDO?modules=earningsTrend | https://query1.finance.yahoo.com/ws/fundamentals-timeseries/v1/finance/timeseries/CXDO?type=annualEBITDA&period1=1640995200&period2=1793872599 | https://stockanalysis.com/stocks/cxdo/financials/ | https://stockanalysis.com/stocks/cxdo/financials/balance-sheet/ | https://stockanalysis.com/stocks/cxdo/forecast/ | https://stockanalysis.com/stocks/cxdo/statistics/ | https://www.sec.gov/Archives/edgar/data/1075736/000165495426009040/cxdo_def14a.htm | https://www.sec.gov/Archives/edgar/data/1075736/000165495426009477/cxdo_ex991.htm",
+        "statut": "ANALYSE_PROVISOIRE_DOCUMENTEE",
+        "commentaire": "Écart GAAP/ajusté et croissance acquise distincts de l'organique. Aucune opération autorisée.",
+        "date_collecte": "2026-11-09"
       },
       "cx_sur_5": {
-        "valeur": null,
-        "unite": null,
-        "periode": null,
-        "date_source": null,
-        "source_url": null,
-        "statut": "A_COLLECTER",
-        "commentaire": null,
-        "recherche": {
-          "date": "2026-11-04",
-          "statut": "MANQUANT_RECHERCHE_NON_CLOSE",
-          "motif": "Analyse MCPA/IPS argumentée encore nécessaire; ce champ ne doit pas être rempli par une statistique de fournisseur.",
-          "journal": "journal_recherches"
-        }
+        "valeur": 3.0,
+        "unite": "note/5",
+        "periode": "analyse au 2026-11-09",
+        "date_source": "2026-11-09",
+        "source_url": "https://data.sec.gov/api/xbrl/companyfacts/CIK0001075736.json | https://data.sec.gov/submissions/CIK0001075736.json | https://query1.finance.yahoo.com/v10/finance/quoteSummary/CXDO?modules=earningsTrend | https://query1.finance.yahoo.com/ws/fundamentals-timeseries/v1/finance/timeseries/CXDO?type=annualEBITDA&period1=1640995200&period2=1793872599 | https://stockanalysis.com/stocks/cxdo/financials/ | https://stockanalysis.com/stocks/cxdo/financials/balance-sheet/ | https://stockanalysis.com/stocks/cxdo/forecast/ | https://stockanalysis.com/stocks/cxdo/statistics/ | https://www.sec.gov/Archives/edgar/data/1075736/000165495426009040/cxdo_def14a.htm | https://www.sec.gov/Archives/edgar/data/1075736/000165495426009477/cxdo_ex991.htm",
+        "statut": "ANALYSE_PROVISOIRE_DOCUMENTEE",
+        "commentaire": "Écart GAAP/ajusté et croissance acquise distincts de l'organique. Aucune opération autorisée.",
+        "date_collecte": "2026-11-09"
       },
       "delta": {
-        "valeur": null,
-        "unite": null,
-        "periode": null,
-        "date_source": null,
-        "source_url": null,
-        "statut": "A_COLLECTER",
-        "commentaire": null,
-        "recherche": {
-          "date": "2026-11-04",
-          "statut": "MANQUANT_RECHERCHE_NON_CLOSE",
-          "motif": "Analyse MCPA/IPS argumentée encore nécessaire; ce champ ne doit pas être rempli par une statistique de fournisseur.",
-          "journal": "journal_recherches"
-        }
+        "valeur": "MIXTE_SOUS_REVUE",
+        "unite": "texte",
+        "periode": "analyse au 2026-11-09",
+        "date_source": "2026-11-09",
+        "source_url": "https://data.sec.gov/api/xbrl/companyfacts/CIK0001075736.json | https://data.sec.gov/submissions/CIK0001075736.json | https://query1.finance.yahoo.com/v10/finance/quoteSummary/CXDO?modules=earningsTrend | https://query1.finance.yahoo.com/ws/fundamentals-timeseries/v1/finance/timeseries/CXDO?type=annualEBITDA&period1=1640995200&period2=1793872599 | https://stockanalysis.com/stocks/cxdo/financials/ | https://stockanalysis.com/stocks/cxdo/financials/balance-sheet/ | https://stockanalysis.com/stocks/cxdo/forecast/ | https://stockanalysis.com/stocks/cxdo/statistics/ | https://www.sec.gov/Archives/edgar/data/1075736/000165495426009040/cxdo_def14a.htm | https://www.sec.gov/Archives/edgar/data/1075736/000165495426009477/cxdo_ex991.htm",
+        "statut": "ANALYSE_PROVISOIRE_DOCUMENTEE",
+        "commentaire": "Écart GAAP/ajusté et croissance acquise distincts de l'organique. Aucune opération autorisée.",
+        "date_collecte": "2026-11-09"
       },
       "wwws": {
         "valeur": null,
@@ -1110,244 +1085,164 @@
         }
       },
       "scenario_bear_3m_pct": {
-        "valeur": null,
-        "unite": null,
-        "periode": null,
-        "date_source": null,
-        "source_url": null,
-        "statut": "A_COLLECTER",
-        "commentaire": null,
-        "recherche": {
-          "date": "2026-11-04",
-          "statut": "MANQUANT_RECHERCHE_NON_CLOSE",
-          "motif": "Analyse MCPA/IPS argumentée encore nécessaire; ce champ ne doit pas être rempli par une statistique de fournisseur.",
-          "journal": "journal_recherches"
-        }
+        "valeur": -25.0,
+        "unite": "pct",
+        "periode": "3 mois depuis 2026-11-06",
+        "date_source": "2026-11-09",
+        "source_url": "https://data.sec.gov/api/xbrl/companyfacts/CIK0001075736.json | https://data.sec.gov/submissions/CIK0001075736.json | https://query1.finance.yahoo.com/v10/finance/quoteSummary/CXDO?modules=earningsTrend | https://query1.finance.yahoo.com/ws/fundamentals-timeseries/v1/finance/timeseries/CXDO?type=annualEBITDA&period1=1640995200&period2=1793872599 | https://stockanalysis.com/stocks/cxdo/financials/ | https://stockanalysis.com/stocks/cxdo/financials/balance-sheet/ | https://stockanalysis.com/stocks/cxdo/forecast/ | https://stockanalysis.com/stocks/cxdo/statistics/ | https://www.sec.gov/Archives/edgar/data/1075736/000165495426009040/cxdo_def14a.htm | https://www.sec.gov/Archives/edgar/data/1075736/000165495426009477/cxdo_ex991.htm",
+        "statut": "HYPOTHESE_PROSPECTIVE_ANALYSTE",
+        "commentaire": "Intégration coûteuse et licences ralenties. Écart GAAP/ajusté et croissance acquise distincts de l'organique.",
+        "date_collecte": "2026-11-09"
       },
       "prob_bear_3m_pct": {
-        "valeur": null,
-        "unite": null,
-        "periode": null,
-        "date_source": null,
-        "source_url": null,
-        "statut": "A_COLLECTER",
-        "commentaire": null,
-        "recherche": {
-          "date": "2026-11-04",
-          "statut": "MANQUANT_RECHERCHE_NON_CLOSE",
-          "motif": "Analyse MCPA/IPS argumentée encore nécessaire; ce champ ne doit pas être rempli par une statistique de fournisseur.",
-          "journal": "journal_recherches"
-        }
+        "valeur": 25.0,
+        "unite": "pct",
+        "periode": "probabilité subjective 3 mois",
+        "date_source": "2026-11-09",
+        "source_url": "https://data.sec.gov/api/xbrl/companyfacts/CIK0001075736.json | https://data.sec.gov/submissions/CIK0001075736.json | https://query1.finance.yahoo.com/v10/finance/quoteSummary/CXDO?modules=earningsTrend | https://query1.finance.yahoo.com/ws/fundamentals-timeseries/v1/finance/timeseries/CXDO?type=annualEBITDA&period1=1640995200&period2=1793872599 | https://stockanalysis.com/stocks/cxdo/financials/ | https://stockanalysis.com/stocks/cxdo/financials/balance-sheet/ | https://stockanalysis.com/stocks/cxdo/forecast/ | https://stockanalysis.com/stocks/cxdo/statistics/ | https://www.sec.gov/Archives/edgar/data/1075736/000165495426009040/cxdo_def14a.htm | https://www.sec.gov/Archives/edgar/data/1075736/000165495426009477/cxdo_ex991.htm",
+        "statut": "PROBABILITE_SUBJECTIVE_NON_CALIBREE",
+        "commentaire": "Pondération par jugement du risque et des opportunités décrits; aucune fréquence statistique. Incertitude au moins +/-10 points. Écart GAAP/ajusté et croissance acquise distincts de l'organique.",
+        "date_collecte": "2026-11-09"
       },
       "scenario_central_3m_pct": {
-        "valeur": null,
-        "unite": null,
-        "periode": null,
-        "date_source": null,
-        "source_url": null,
-        "statut": "A_COLLECTER",
-        "commentaire": null,
-        "recherche": {
-          "date": "2026-11-04",
-          "statut": "MANQUANT_RECHERCHE_NON_CLOSE",
-          "motif": "Analyse MCPA/IPS argumentée encore nécessaire; ce champ ne doit pas être rempli par une statistique de fournisseur.",
-          "journal": "journal_recherches"
-        }
+        "valeur": 8.0,
+        "unite": "pct",
+        "periode": "3 mois depuis 2026-11-06",
+        "date_source": "2026-11-09",
+        "source_url": "https://data.sec.gov/api/xbrl/companyfacts/CIK0001075736.json | https://data.sec.gov/submissions/CIK0001075736.json | https://query1.finance.yahoo.com/v10/finance/quoteSummary/CXDO?modules=earningsTrend | https://query1.finance.yahoo.com/ws/fundamentals-timeseries/v1/finance/timeseries/CXDO?type=annualEBITDA&period1=1640995200&period2=1793872599 | https://stockanalysis.com/stocks/cxdo/financials/ | https://stockanalysis.com/stocks/cxdo/financials/balance-sheet/ | https://stockanalysis.com/stocks/cxdo/forecast/ | https://stockanalysis.com/stocks/cxdo/statistics/ | https://www.sec.gov/Archives/edgar/data/1075736/000165495426009040/cxdo_def14a.htm | https://www.sec.gov/Archives/edgar/data/1075736/000165495426009477/cxdo_ex991.htm",
+        "statut": "HYPOTHESE_PROSPECTIVE_ANALYSTE",
+        "commentaire": "Croissance et intégration progressive. Écart GAAP/ajusté et croissance acquise distincts de l'organique.",
+        "date_collecte": "2026-11-09"
       },
       "prob_central_3m_pct": {
-        "valeur": null,
-        "unite": null,
-        "periode": null,
-        "date_source": null,
-        "source_url": null,
-        "statut": "A_COLLECTER",
-        "commentaire": null,
-        "recherche": {
-          "date": "2026-11-04",
-          "statut": "MANQUANT_RECHERCHE_NON_CLOSE",
-          "motif": "Analyse MCPA/IPS argumentée encore nécessaire; ce champ ne doit pas être rempli par une statistique de fournisseur.",
-          "journal": "journal_recherches"
-        }
+        "valeur": 50.0,
+        "unite": "pct",
+        "periode": "probabilité subjective 3 mois",
+        "date_source": "2026-11-09",
+        "source_url": "https://data.sec.gov/api/xbrl/companyfacts/CIK0001075736.json | https://data.sec.gov/submissions/CIK0001075736.json | https://query1.finance.yahoo.com/v10/finance/quoteSummary/CXDO?modules=earningsTrend | https://query1.finance.yahoo.com/ws/fundamentals-timeseries/v1/finance/timeseries/CXDO?type=annualEBITDA&period1=1640995200&period2=1793872599 | https://stockanalysis.com/stocks/cxdo/financials/ | https://stockanalysis.com/stocks/cxdo/financials/balance-sheet/ | https://stockanalysis.com/stocks/cxdo/forecast/ | https://stockanalysis.com/stocks/cxdo/statistics/ | https://www.sec.gov/Archives/edgar/data/1075736/000165495426009040/cxdo_def14a.htm | https://www.sec.gov/Archives/edgar/data/1075736/000165495426009477/cxdo_ex991.htm",
+        "statut": "PROBABILITE_SUBJECTIVE_NON_CALIBREE",
+        "commentaire": "Pondération par jugement du risque et des opportunités décrits; aucune fréquence statistique. Incertitude au moins +/-10 points. Écart GAAP/ajusté et croissance acquise distincts de l'organique.",
+        "date_collecte": "2026-11-09"
       },
       "scenario_bull_3m_pct": {
-        "valeur": null,
-        "unite": null,
-        "periode": null,
-        "date_source": null,
-        "source_url": null,
-        "statut": "A_COLLECTER",
-        "commentaire": null,
-        "recherche": {
-          "date": "2026-11-04",
-          "statut": "MANQUANT_RECHERCHE_NON_CLOSE",
-          "motif": "Analyse MCPA/IPS argumentée encore nécessaire; ce champ ne doit pas être rempli par une statistique de fournisseur.",
-          "journal": "journal_recherches"
-        }
+        "valeur": 30.0,
+        "unite": "pct",
+        "periode": "3 mois depuis 2026-11-06",
+        "date_source": "2026-11-09",
+        "source_url": "https://data.sec.gov/api/xbrl/companyfacts/CIK0001075736.json | https://data.sec.gov/submissions/CIK0001075736.json | https://query1.finance.yahoo.com/v10/finance/quoteSummary/CXDO?modules=earningsTrend | https://query1.finance.yahoo.com/ws/fundamentals-timeseries/v1/finance/timeseries/CXDO?type=annualEBITDA&period1=1640995200&period2=1793872599 | https://stockanalysis.com/stocks/cxdo/financials/ | https://stockanalysis.com/stocks/cxdo/financials/balance-sheet/ | https://stockanalysis.com/stocks/cxdo/forecast/ | https://stockanalysis.com/stocks/cxdo/statistics/ | https://www.sec.gov/Archives/edgar/data/1075736/000165495426009040/cxdo_def14a.htm | https://www.sec.gov/Archives/edgar/data/1075736/000165495426009477/cxdo_ex991.htm",
+        "statut": "HYPOTHESE_PROSPECTIVE_ANALYSTE",
+        "commentaire": "Conversion commerciale et amélioration GAAP. Écart GAAP/ajusté et croissance acquise distincts de l'organique.",
+        "date_collecte": "2026-11-09"
       },
       "prob_bull_3m_pct": {
-        "valeur": null,
-        "unite": null,
-        "periode": null,
-        "date_source": null,
-        "source_url": null,
-        "statut": "A_COLLECTER",
-        "commentaire": null,
-        "recherche": {
-          "date": "2026-11-04",
-          "statut": "MANQUANT_RECHERCHE_NON_CLOSE",
-          "motif": "Analyse MCPA/IPS argumentée encore nécessaire; ce champ ne doit pas être rempli par une statistique de fournisseur.",
-          "journal": "journal_recherches"
-        }
+        "valeur": 25.0,
+        "unite": "pct",
+        "periode": "probabilité subjective 3 mois",
+        "date_source": "2026-11-09",
+        "source_url": "https://data.sec.gov/api/xbrl/companyfacts/CIK0001075736.json | https://data.sec.gov/submissions/CIK0001075736.json | https://query1.finance.yahoo.com/v10/finance/quoteSummary/CXDO?modules=earningsTrend | https://query1.finance.yahoo.com/ws/fundamentals-timeseries/v1/finance/timeseries/CXDO?type=annualEBITDA&period1=1640995200&period2=1793872599 | https://stockanalysis.com/stocks/cxdo/financials/ | https://stockanalysis.com/stocks/cxdo/financials/balance-sheet/ | https://stockanalysis.com/stocks/cxdo/forecast/ | https://stockanalysis.com/stocks/cxdo/statistics/ | https://www.sec.gov/Archives/edgar/data/1075736/000165495426009040/cxdo_def14a.htm | https://www.sec.gov/Archives/edgar/data/1075736/000165495426009477/cxdo_ex991.htm",
+        "statut": "PROBABILITE_SUBJECTIVE_NON_CALIBREE",
+        "commentaire": "Pondération par jugement du risque et des opportunités décrits; aucune fréquence statistique. Incertitude au moins +/-10 points. Écart GAAP/ajusté et croissance acquise distincts de l'organique.",
+        "date_collecte": "2026-11-09"
       },
       "scenario_bear_6m_pct": {
-        "valeur": null,
-        "unite": null,
-        "periode": null,
-        "date_source": null,
-        "source_url": null,
-        "statut": "A_COLLECTER",
-        "commentaire": null,
-        "recherche": {
-          "date": "2026-11-04",
-          "statut": "MANQUANT_RECHERCHE_NON_CLOSE",
-          "motif": "Analyse MCPA/IPS argumentée encore nécessaire; ce champ ne doit pas être rempli par une statistique de fournisseur.",
-          "journal": "journal_recherches"
-        }
+        "valeur": -35.0,
+        "unite": "pct",
+        "periode": "6 mois depuis 2026-11-06",
+        "date_source": "2026-11-09",
+        "source_url": "https://data.sec.gov/api/xbrl/companyfacts/CIK0001075736.json | https://data.sec.gov/submissions/CIK0001075736.json | https://query1.finance.yahoo.com/v10/finance/quoteSummary/CXDO?modules=earningsTrend | https://query1.finance.yahoo.com/ws/fundamentals-timeseries/v1/finance/timeseries/CXDO?type=annualEBITDA&period1=1640995200&period2=1793872599 | https://stockanalysis.com/stocks/cxdo/financials/ | https://stockanalysis.com/stocks/cxdo/financials/balance-sheet/ | https://stockanalysis.com/stocks/cxdo/forecast/ | https://stockanalysis.com/stocks/cxdo/statistics/ | https://www.sec.gov/Archives/edgar/data/1075736/000165495426009040/cxdo_def14a.htm | https://www.sec.gov/Archives/edgar/data/1075736/000165495426009477/cxdo_ex991.htm",
+        "statut": "HYPOTHESE_PROSPECTIVE_ANALYSTE",
+        "commentaire": "Intégration coûteuse et licences ralenties. Écart GAAP/ajusté et croissance acquise distincts de l'organique.",
+        "date_collecte": "2026-11-09"
       },
       "prob_bear_6m_pct": {
-        "valeur": null,
-        "unite": null,
-        "periode": null,
-        "date_source": null,
-        "source_url": null,
-        "statut": "A_COLLECTER",
-        "commentaire": null,
-        "recherche": {
-          "date": "2026-11-04",
-          "statut": "MANQUANT_RECHERCHE_NON_CLOSE",
-          "motif": "Analyse MCPA/IPS argumentée encore nécessaire; ce champ ne doit pas être rempli par une statistique de fournisseur.",
-          "journal": "journal_recherches"
-        }
+        "valeur": 25.0,
+        "unite": "pct",
+        "periode": "probabilité subjective 6 mois",
+        "date_source": "2026-11-09",
+        "source_url": "https://data.sec.gov/api/xbrl/companyfacts/CIK0001075736.json | https://data.sec.gov/submissions/CIK0001075736.json | https://query1.finance.yahoo.com/v10/finance/quoteSummary/CXDO?modules=earningsTrend | https://query1.finance.yahoo.com/ws/fundamentals-timeseries/v1/finance/timeseries/CXDO?type=annualEBITDA&period1=1640995200&period2=1793872599 | https://stockanalysis.com/stocks/cxdo/financials/ | https://stockanalysis.com/stocks/cxdo/financials/balance-sheet/ | https://stockanalysis.com/stocks/cxdo/forecast/ | https://stockanalysis.com/stocks/cxdo/statistics/ | https://www.sec.gov/Archives/edgar/data/1075736/000165495426009040/cxdo_def14a.htm | https://www.sec.gov/Archives/edgar/data/1075736/000165495426009477/cxdo_ex991.htm",
+        "statut": "PROBABILITE_SUBJECTIVE_NON_CALIBREE",
+        "commentaire": "Pondération par jugement du risque et des opportunités décrits; aucune fréquence statistique. Incertitude au moins +/-10 points. Écart GAAP/ajusté et croissance acquise distincts de l'organique.",
+        "date_collecte": "2026-11-09"
       },
       "scenario_central_6m_pct": {
-        "valeur": null,
-        "unite": null,
-        "periode": null,
-        "date_source": null,
-        "source_url": null,
-        "statut": "A_COLLECTER",
-        "commentaire": null,
-        "recherche": {
-          "date": "2026-11-04",
-          "statut": "MANQUANT_RECHERCHE_NON_CLOSE",
-          "motif": "Analyse MCPA/IPS argumentée encore nécessaire; ce champ ne doit pas être rempli par une statistique de fournisseur.",
-          "journal": "journal_recherches"
-        }
+        "valeur": 18.0,
+        "unite": "pct",
+        "periode": "6 mois depuis 2026-11-06",
+        "date_source": "2026-11-09",
+        "source_url": "https://data.sec.gov/api/xbrl/companyfacts/CIK0001075736.json | https://data.sec.gov/submissions/CIK0001075736.json | https://query1.finance.yahoo.com/v10/finance/quoteSummary/CXDO?modules=earningsTrend | https://query1.finance.yahoo.com/ws/fundamentals-timeseries/v1/finance/timeseries/CXDO?type=annualEBITDA&period1=1640995200&period2=1793872599 | https://stockanalysis.com/stocks/cxdo/financials/ | https://stockanalysis.com/stocks/cxdo/financials/balance-sheet/ | https://stockanalysis.com/stocks/cxdo/forecast/ | https://stockanalysis.com/stocks/cxdo/statistics/ | https://www.sec.gov/Archives/edgar/data/1075736/000165495426009040/cxdo_def14a.htm | https://www.sec.gov/Archives/edgar/data/1075736/000165495426009477/cxdo_ex991.htm",
+        "statut": "HYPOTHESE_PROSPECTIVE_ANALYSTE",
+        "commentaire": "Croissance et intégration progressive. Écart GAAP/ajusté et croissance acquise distincts de l'organique.",
+        "date_collecte": "2026-11-09"
       },
       "prob_central_6m_pct": {
-        "valeur": null,
-        "unite": null,
-        "periode": null,
-        "date_source": null,
-        "source_url": null,
-        "statut": "A_COLLECTER",
-        "commentaire": null,
-        "recherche": {
-          "date": "2026-11-04",
-          "statut": "MANQUANT_RECHERCHE_NON_CLOSE",
-          "motif": "Analyse MCPA/IPS argumentée encore nécessaire; ce champ ne doit pas être rempli par une statistique de fournisseur.",
-          "journal": "journal_recherches"
-        }
+        "valeur": 45.0,
+        "unite": "pct",
+        "periode": "probabilité subjective 6 mois",
+        "date_source": "2026-11-09",
+        "source_url": "https://data.sec.gov/api/xbrl/companyfacts/CIK0001075736.json | https://data.sec.gov/submissions/CIK0001075736.json | https://query1.finance.yahoo.com/v10/finance/quoteSummary/CXDO?modules=earningsTrend | https://query1.finance.yahoo.com/ws/fundamentals-timeseries/v1/finance/timeseries/CXDO?type=annualEBITDA&period1=1640995200&period2=1793872599 | https://stockanalysis.com/stocks/cxdo/financials/ | https://stockanalysis.com/stocks/cxdo/financials/balance-sheet/ | https://stockanalysis.com/stocks/cxdo/forecast/ | https://stockanalysis.com/stocks/cxdo/statistics/ | https://www.sec.gov/Archives/edgar/data/1075736/000165495426009040/cxdo_def14a.htm | https://www.sec.gov/Archives/edgar/data/1075736/000165495426009477/cxdo_ex991.htm",
+        "statut": "PROBABILITE_SUBJECTIVE_NON_CALIBREE",
+        "commentaire": "Pondération par jugement du risque et des opportunités décrits; aucune fréquence statistique. Incertitude au moins +/-10 points. Écart GAAP/ajusté et croissance acquise distincts de l'organique.",
+        "date_collecte": "2026-11-09"
       },
       "scenario_bull_6m_pct": {
-        "valeur": null,
-        "unite": null,
-        "periode": null,
-        "date_source": null,
-        "source_url": null,
-        "statut": "A_COLLECTER",
-        "commentaire": null,
-        "recherche": {
-          "date": "2026-11-04",
-          "statut": "MANQUANT_RECHERCHE_NON_CLOSE",
-          "motif": "Analyse MCPA/IPS argumentée encore nécessaire; ce champ ne doit pas être rempli par une statistique de fournisseur.",
-          "journal": "journal_recherches"
-        }
+        "valeur": 50.0,
+        "unite": "pct",
+        "periode": "6 mois depuis 2026-11-06",
+        "date_source": "2026-11-09",
+        "source_url": "https://data.sec.gov/api/xbrl/companyfacts/CIK0001075736.json | https://data.sec.gov/submissions/CIK0001075736.json | https://query1.finance.yahoo.com/v10/finance/quoteSummary/CXDO?modules=earningsTrend | https://query1.finance.yahoo.com/ws/fundamentals-timeseries/v1/finance/timeseries/CXDO?type=annualEBITDA&period1=1640995200&period2=1793872599 | https://stockanalysis.com/stocks/cxdo/financials/ | https://stockanalysis.com/stocks/cxdo/financials/balance-sheet/ | https://stockanalysis.com/stocks/cxdo/forecast/ | https://stockanalysis.com/stocks/cxdo/statistics/ | https://www.sec.gov/Archives/edgar/data/1075736/000165495426009040/cxdo_def14a.htm | https://www.sec.gov/Archives/edgar/data/1075736/000165495426009477/cxdo_ex991.htm",
+        "statut": "HYPOTHESE_PROSPECTIVE_ANALYSTE",
+        "commentaire": "Conversion commerciale et amélioration GAAP. Écart GAAP/ajusté et croissance acquise distincts de l'organique.",
+        "date_collecte": "2026-11-09"
       },
       "prob_bull_6m_pct": {
-        "valeur": null,
-        "unite": null,
-        "periode": null,
-        "date_source": null,
-        "source_url": null,
-        "statut": "A_COLLECTER",
-        "commentaire": null,
-        "recherche": {
-          "date": "2026-11-04",
-          "statut": "MANQUANT_RECHERCHE_NON_CLOSE",
-          "motif": "Analyse MCPA/IPS argumentée encore nécessaire; ce champ ne doit pas être rempli par une statistique de fournisseur.",
-          "journal": "journal_recherches"
-        }
+        "valeur": 30.0,
+        "unite": "pct",
+        "periode": "probabilité subjective 6 mois",
+        "date_source": "2026-11-09",
+        "source_url": "https://data.sec.gov/api/xbrl/companyfacts/CIK0001075736.json | https://data.sec.gov/submissions/CIK0001075736.json | https://query1.finance.yahoo.com/v10/finance/quoteSummary/CXDO?modules=earningsTrend | https://query1.finance.yahoo.com/ws/fundamentals-timeseries/v1/finance/timeseries/CXDO?type=annualEBITDA&period1=1640995200&period2=1793872599 | https://stockanalysis.com/stocks/cxdo/financials/ | https://stockanalysis.com/stocks/cxdo/financials/balance-sheet/ | https://stockanalysis.com/stocks/cxdo/forecast/ | https://stockanalysis.com/stocks/cxdo/statistics/ | https://www.sec.gov/Archives/edgar/data/1075736/000165495426009040/cxdo_def14a.htm | https://www.sec.gov/Archives/edgar/data/1075736/000165495426009477/cxdo_ex991.htm",
+        "statut": "PROBABILITE_SUBJECTIVE_NON_CALIBREE",
+        "commentaire": "Pondération par jugement du risque et des opportunités décrits; aucune fréquence statistique. Incertitude au moins +/-10 points. Écart GAAP/ajusté et croissance acquise distincts de l'organique.",
+        "date_collecte": "2026-11-09"
       },
       "role_ips": {
-        "valeur": null,
-        "unite": null,
-        "periode": null,
-        "date_source": null,
-        "source_url": null,
-        "statut": "A_COLLECTER",
-        "commentaire": null,
-        "recherche": {
-          "date": "2026-11-04",
-          "statut": "MANQUANT_RECHERCHE_NON_CLOSE",
-          "motif": "Analyse MCPA/IPS argumentée encore nécessaire; ce champ ne doit pas être rempli par une statistique de fournisseur.",
-          "journal": "journal_recherches"
-        }
+        "valeur": "INCUBATION_VIRTUELLE_SOUS_REVUE",
+        "unite": "texte",
+        "periode": "analyse au 2026-11-09",
+        "date_source": "2026-11-09",
+        "source_url": "https://data.sec.gov/api/xbrl/companyfacts/CIK0001075736.json | https://data.sec.gov/submissions/CIK0001075736.json | https://query1.finance.yahoo.com/v10/finance/quoteSummary/CXDO?modules=earningsTrend | https://query1.finance.yahoo.com/ws/fundamentals-timeseries/v1/finance/timeseries/CXDO?type=annualEBITDA&period1=1640995200&period2=1793872599 | https://stockanalysis.com/stocks/cxdo/financials/ | https://stockanalysis.com/stocks/cxdo/financials/balance-sheet/ | https://stockanalysis.com/stocks/cxdo/forecast/ | https://stockanalysis.com/stocks/cxdo/statistics/ | https://www.sec.gov/Archives/edgar/data/1075736/000165495426009040/cxdo_def14a.htm | https://www.sec.gov/Archives/edgar/data/1075736/000165495426009477/cxdo_ex991.htm",
+        "statut": "ANALYSE_PROVISOIRE_DOCUMENTEE",
+        "commentaire": "Écart GAAP/ajusté et croissance acquise distincts de l'organique. Aucune opération autorisée.",
+        "date_collecte": "2026-11-09"
       },
       "decision": {
-        "valeur": null,
-        "unite": null,
-        "periode": null,
-        "date_source": null,
-        "source_url": null,
-        "statut": "A_COLLECTER",
-        "commentaire": null,
-        "recherche": {
-          "date": "2026-11-04",
-          "statut": "MANQUANT_RECHERCHE_NON_CLOSE",
-          "motif": "Analyse MCPA/IPS argumentée encore nécessaire; ce champ ne doit pas être rempli par une statistique de fournisseur.",
-          "journal": "journal_recherches"
-        }
+        "valeur": "ATTENTE",
+        "unite": "texte",
+        "periode": "analyse au 2026-11-09",
+        "date_source": "2026-11-09",
+        "source_url": "https://data.sec.gov/api/xbrl/companyfacts/CIK0001075736.json | https://data.sec.gov/submissions/CIK0001075736.json | https://query1.finance.yahoo.com/v10/finance/quoteSummary/CXDO?modules=earningsTrend | https://query1.finance.yahoo.com/ws/fundamentals-timeseries/v1/finance/timeseries/CXDO?type=annualEBITDA&period1=1640995200&period2=1793872599 | https://stockanalysis.com/stocks/cxdo/financials/ | https://stockanalysis.com/stocks/cxdo/financials/balance-sheet/ | https://stockanalysis.com/stocks/cxdo/forecast/ | https://stockanalysis.com/stocks/cxdo/statistics/ | https://www.sec.gov/Archives/edgar/data/1075736/000165495426009040/cxdo_def14a.htm | https://www.sec.gov/Archives/edgar/data/1075736/000165495426009477/cxdo_ex991.htm",
+        "statut": "ANALYSE_PROVISOIRE_DOCUMENTEE",
+        "commentaire": "Écart GAAP/ajusté et croissance acquise distincts de l'organique. Aucune opération autorisée.",
+        "date_collecte": "2026-11-09"
       },
       "condition_renforcement": {
-        "valeur": null,
-        "unite": null,
-        "periode": null,
-        "date_source": null,
-        "source_url": null,
-        "statut": "A_COLLECTER",
-        "commentaire": null,
-        "recherche": {
-          "date": "2026-11-04",
-          "statut": "MANQUANT_RECHERCHE_NON_CLOSE",
-          "motif": "Analyse MCPA/IPS argumentée encore nécessaire; ce champ ne doit pas être rempli par une statistique de fournisseur.",
-          "journal": "journal_recherches"
-        }
+        "valeur": "SSI documenté >=65, MCPA >=80, IC >=3,5, données rapprochées, revue stricte valide et duel favorable après frais.",
+        "unite": "texte",
+        "periode": "analyse au 2026-11-09",
+        "date_source": "2026-11-09",
+        "source_url": "https://data.sec.gov/api/xbrl/companyfacts/CIK0001075736.json | https://data.sec.gov/submissions/CIK0001075736.json | https://query1.finance.yahoo.com/v10/finance/quoteSummary/CXDO?modules=earningsTrend | https://query1.finance.yahoo.com/ws/fundamentals-timeseries/v1/finance/timeseries/CXDO?type=annualEBITDA&period1=1640995200&period2=1793872599 | https://stockanalysis.com/stocks/cxdo/financials/ | https://stockanalysis.com/stocks/cxdo/financials/balance-sheet/ | https://stockanalysis.com/stocks/cxdo/forecast/ | https://stockanalysis.com/stocks/cxdo/statistics/ | https://www.sec.gov/Archives/edgar/data/1075736/000165495426009040/cxdo_def14a.htm | https://www.sec.gov/Archives/edgar/data/1075736/000165495426009477/cxdo_ex991.htm",
+        "statut": "ANALYSE_PROVISOIRE_DOCUMENTEE",
+        "commentaire": "Écart GAAP/ajusté et croissance acquise distincts de l'organique. Aucune opération autorisée.",
+        "date_collecte": "2026-11-09"
       },
       "condition_allegement_sortie": {
-        "valeur": null,
-        "unite": null,
-        "periode": null,
-        "date_source": null,
-        "source_url": null,
-        "statut": "A_COLLECTER",
-        "commentaire": null,
-        "recherche": {
-          "date": "2026-11-04",
-          "statut": "MANQUANT_RECHERCHE_NON_CLOSE",
-          "motif": "Analyse MCPA/IPS argumentée encore nécessaire; ce champ ne doit pas être rempli par une statistique de fournisseur.",
-          "journal": "journal_recherches"
-        }
+        "valeur": "Intégration coûteuse et licences ralenties. Contrôle des coûts et de la liquidité avant décision virtuelle.",
+        "unite": "texte",
+        "periode": "analyse au 2026-11-09",
+        "date_source": "2026-11-09",
+        "source_url": "https://data.sec.gov/api/xbrl/companyfacts/CIK0001075736.json | https://data.sec.gov/submissions/CIK0001075736.json | https://query1.finance.yahoo.com/v10/finance/quoteSummary/CXDO?modules=earningsTrend | https://query1.finance.yahoo.com/ws/fundamentals-timeseries/v1/finance/timeseries/CXDO?type=annualEBITDA&period1=1640995200&period2=1793872599 | https://stockanalysis.com/stocks/cxdo/financials/ | https://stockanalysis.com/stocks/cxdo/financials/balance-sheet/ | https://stockanalysis.com/stocks/cxdo/forecast/ | https://stockanalysis.com/stocks/cxdo/statistics/ | https://www.sec.gov/Archives/edgar/data/1075736/000165495426009040/cxdo_def14a.htm | https://www.sec.gov/Archives/edgar/data/1075736/000165495426009477/cxdo_ex991.htm",
+        "statut": "ANALYSE_PROVISOIRE_DOCUMENTEE",
+        "commentaire": "Écart GAAP/ajusté et croissance acquise distincts de l'organique. Aucune opération autorisée.",
+        "date_collecte": "2026-11-09"
       },
       "challengers_compares": {
         "valeur": null,
@@ -1376,23 +1271,37 @@
       "diversification": 10
     },
     "notes": {
-      "qualite": null,
-      "valorisation": null,
-      "croissance": null,
-      "risque": null,
-      "momentum": null,
-      "diversification": null
+      "qualite": 23.0,
+      "valorisation": 12.0,
+      "croissance": 16.0,
+      "risque": 6.0,
+      "momentum": 0,
+      "diversification": 5.0
     },
-    "total_mcpa": null,
-    "statut": "NON_VALIDEE",
+    "total_mcpa": 62.0,
+    "statut": "DOCUMENTEE_NON_VALIDEE",
     "justifications": {
-      "qualite": null,
-      "valorisation": null,
-      "croissance": null,
-      "risque": null,
-      "momentum": null,
-      "diversification": null
-    }
+      "qualite": "Logiciels télécoms à forte marge, intégration à suivre.",
+      "valorisation": "EV/CA modéré mais PE GAAP élevé.",
+      "croissance": "T3 +44 %, ESI et nouvelles licences; organique à isoler.",
+      "risque": "Cash au bilan, déclarations d'initiés tardives au proxy.",
+      "diversification": "Télécoms cloud, chevauchement logiciels important.",
+      "momentum": "Grille explicite au 2026-11-06: 0/10, 0 points non observables. Absence d'historique distincte d'un signal baissier; score provisoire si incomplet."
+    },
+    "date_analyse": "2026-11-09",
+    "sources": [
+      "https://data.sec.gov/api/xbrl/companyfacts/CIK0001075736.json",
+      "https://data.sec.gov/submissions/CIK0001075736.json",
+      "https://query1.finance.yahoo.com/v10/finance/quoteSummary/CXDO?modules=earningsTrend",
+      "https://query1.finance.yahoo.com/ws/fundamentals-timeseries/v1/finance/timeseries/CXDO?type=annualEBITDA&period1=1640995200&period2=1793872599",
+      "https://stockanalysis.com/stocks/cxdo/financials/",
+      "https://stockanalysis.com/stocks/cxdo/financials/balance-sheet/",
+      "https://stockanalysis.com/stocks/cxdo/forecast/",
+      "https://stockanalysis.com/stocks/cxdo/statistics/",
+      "https://www.sec.gov/Archives/edgar/data/1075736/000165495426009040/cxdo_def14a.htm",
+      "https://www.sec.gov/Archives/edgar/data/1075736/000165495426009477/cxdo_ex991.htm"
+    ],
+    "limite": "Notes discrétionnaires provisoires; multiples secondaires à rapprocher, SSI et revue stricte obligatoires. Grille momentum locale ne modifiant pas le maître."
   },
   "preuves_complementaires": [
     {
@@ -2096,7 +2005,7 @@
     }
   ],
   "anomalies": [],
-  "statut_fiche": "ENRICHIE_NON_VALIDEE",
+  "statut_fiche": "NOTEE_SCENARISEE_NON_VALIDEE",
   "arbitrage_autorise": false,
   "observations_complementaires": [
     {
@@ -3067,9 +2976,9 @@
   "audit_couverture": {
     "date": "2026-11-09",
     "champs_total": 108,
-    "champs_renseignes": 67,
-    "couverture_pct": 62.04,
-    "champs_secondaires_non_rapproches": 34,
+    "champs_renseignes": 88,
+    "couverture_pct": 81.48,
+    "champs_secondaires_non_rapproches": 47,
     "champs_manquants": [
       "identite.lei",
       "identite.marche",
@@ -3089,44 +2998,23 @@
       "risque.risque_concentration",
       "risque.transactions_initiees_net_180j",
       "diversification.zone_geographique",
-      "diversification.interet_strategique",
-      "diversification.complementarite_portefeuille",
-      "complements.ic_sur_5",
-      "complements.cx_sur_5",
-      "complements.delta",
       "complements.wwws",
-      "complements.scenario_bear_3m_pct",
-      "complements.prob_bear_3m_pct",
-      "complements.scenario_central_3m_pct",
-      "complements.prob_central_3m_pct",
-      "complements.scenario_bull_3m_pct",
-      "complements.prob_bull_3m_pct",
-      "complements.scenario_bear_6m_pct",
-      "complements.prob_bear_6m_pct",
-      "complements.scenario_central_6m_pct",
-      "complements.prob_central_6m_pct",
-      "complements.scenario_bull_6m_pct",
-      "complements.prob_bull_6m_pct",
-      "complements.role_ips",
-      "complements.decision",
-      "complements.condition_renforcement",
-      "complements.condition_allegement_sortie",
       "complements.challengers_compares"
     ],
     "indisponibilite_definitive_demontree": [],
-    "statut": "TRAITE_MAIS_INCOMPLET",
-    "cours_date_limite": "2026-11-03"
+    "statut": "ANALYSE_DOCUMENTEE_NON_CERTIFIEE",
+    "cours_date_limite": "2026-11-06"
   },
   "audit_poursuite": {
     "date": "2026-11-09",
     "comptage": {
-      "RENSEIGNE": 67,
+      "RENSEIGNE": 88,
       "NON_APPLICABLE": 1,
       "INDISPONIBLE_A_DATE": 0,
-      "RECHERCHE_A_POURSUIVRE": 40
+      "RECHERCHE_A_POURSUIVRE": 19
     },
-    "couverture_valeurs_pct": 62.04,
-    "couverture_applicable_pct": 62.62,
+    "couverture_valeurs_pct": 81.48,
+    "couverture_applicable_pct": 82.24,
     "recherches_non_closes": [
       "identite.lei",
       "identite.marche",
@@ -3145,32 +3033,850 @@
       "risque.risque_concentration",
       "risque.transactions_initiees_net_180j",
       "diversification.zone_geographique",
-      "diversification.interet_strategique",
-      "diversification.complementarite_portefeuille",
-      "complements.ic_sur_5",
-      "complements.cx_sur_5",
-      "complements.delta",
       "complements.wwws",
-      "complements.scenario_bear_3m_pct",
-      "complements.prob_bear_3m_pct",
-      "complements.scenario_central_3m_pct",
-      "complements.prob_central_3m_pct",
-      "complements.scenario_bull_3m_pct",
-      "complements.prob_bull_3m_pct",
-      "complements.scenario_bear_6m_pct",
-      "complements.prob_bear_6m_pct",
-      "complements.scenario_central_6m_pct",
-      "complements.prob_central_6m_pct",
-      "complements.scenario_bull_6m_pct",
-      "complements.prob_bull_6m_pct",
-      "complements.role_ips",
-      "complements.decision",
-      "complements.condition_renforcement",
-      "complements.condition_allegement_sortie",
       "complements.challengers_compares"
     ],
-    "notes_justifiees": false,
-    "validation_individuelle": "BLOQUEE_DONNEES_ET_ANALYSES_RESTANTES",
+    "notes_justifiees": true,
+    "validation_individuelle": "NOTES_SCENARIOS_DOCUMENTES_VALIDATION_REQUISE",
     "aucune_indisponibilite_definitive_presumee": true
-  }
+  },
+  "historique_relectures": [
+    {
+      "preuve_id": "ANALYSE_20261109_momentum_1m_pct",
+      "champ": "momentum.momentum_1m_pct",
+      "ancienne_cellule": {
+        "valeur": -2.702700090373533,
+        "unite": "pct",
+        "periode": "2026-10-02 / 2026-11-03",
+        "date_source": "2026-11-03",
+        "source_url": "https://query1.finance.yahoo.com/v8/finance/chart/CXDO?range=5y&interval=1d&events=div%2Csplits",
+        "statut": "CALCULE_HISTORIQUE_SECONDAIRE",
+        "commentaire": "Cours ajustés, ancrage calendaire; dernière séance <= date cible.",
+        "date_collecte": "2026-11-04"
+      },
+      "motif": "Calcul reproductible 10Q; ancrage dernière séance <= date calendaire cible, aucune période pré-IPO extrapolée.",
+      "date_relecture": "2026-11-09"
+    },
+    {
+      "preuve_id": "ANALYSE_20261109_momentum_3m_pct",
+      "champ": "momentum.momentum_3m_pct",
+      "ancienne_cellule": {
+        "valeur": -20.221601159784242,
+        "unite": "pct",
+        "periode": "2026-08-03 / 2026-11-03",
+        "date_source": "2026-11-03",
+        "source_url": "https://query1.finance.yahoo.com/v8/finance/chart/CXDO?range=5y&interval=1d&events=div%2Csplits",
+        "statut": "CALCULE_HISTORIQUE_SECONDAIRE",
+        "commentaire": "Cours ajustés, ancrage calendaire; dernière séance <= date cible.",
+        "date_collecte": "2026-11-04"
+      },
+      "motif": "Calcul reproductible 10Q; ancrage dernière séance <= date calendaire cible, aucune période pré-IPO extrapolée.",
+      "date_relecture": "2026-11-09"
+    },
+    {
+      "preuve_id": "ANALYSE_20261109_momentum_6m_pct",
+      "champ": "momentum.momentum_6m_pct",
+      "ancienne_cellule": {
+        "valeur": -23.607423633643354,
+        "unite": "pct",
+        "periode": "2026-05-01 / 2026-11-03",
+        "date_source": "2026-11-03",
+        "source_url": "https://query1.finance.yahoo.com/v8/finance/chart/CXDO?range=5y&interval=1d&events=div%2Csplits",
+        "statut": "CALCULE_HISTORIQUE_SECONDAIRE",
+        "commentaire": "Cours ajustés, ancrage calendaire; dernière séance <= date cible.",
+        "date_collecte": "2026-11-04"
+      },
+      "motif": "Calcul reproductible 10Q; ancrage dernière séance <= date calendaire cible, aucune période pré-IPO extrapolée.",
+      "date_relecture": "2026-11-09"
+    },
+    {
+      "preuve_id": "ANALYSE_20261109_momentum_12m_pct",
+      "champ": "momentum.momentum_12m_pct",
+      "ancienne_cellule": {
+        "valeur": -17.478506975041398,
+        "unite": "pct",
+        "periode": "2025-11-03 / 2026-11-03",
+        "date_source": "2026-11-03",
+        "source_url": "https://query1.finance.yahoo.com/v8/finance/chart/CXDO?range=5y&interval=1d&events=div%2Csplits",
+        "statut": "CALCULE_HISTORIQUE_SECONDAIRE",
+        "commentaire": "Cours ajustés, ancrage calendaire; dernière séance <= date cible.",
+        "date_collecte": "2026-11-04"
+      },
+      "motif": "Calcul reproductible 10Q; ancrage dernière séance <= date calendaire cible, aucune période pré-IPO extrapolée.",
+      "date_relecture": "2026-11-09"
+    },
+    {
+      "preuve_id": "ANALYSE_20261109_prix_vers_mm200",
+      "champ": "momentum.prix_vers_mm200",
+      "ancienne_cellule": {
+        "valeur": 0.8383944211258391,
+        "unite": "ratio",
+        "periode": "200 dernières séances",
+        "date_source": "2026-11-03",
+        "source_url": "https://query1.finance.yahoo.com/v8/finance/chart/CXDO?range=5y&interval=1d&events=div%2Csplits",
+        "statut": "CALCULE_HISTORIQUE_SECONDAIRE",
+        "commentaire": "Cours ajusté / moyenne mobile 200 séances.",
+        "date_collecte": "2026-11-04"
+      },
+      "motif": "Calcul reproductible 10Q; ancrage dernière séance <= date calendaire cible, aucune période pré-IPO extrapolée.",
+      "date_relecture": "2026-11-09"
+    },
+    {
+      "preuve_id": "ANALYSE_20261109_tendance_mm200",
+      "champ": "momentum.tendance_mm200",
+      "ancienne_cellule": {
+        "valeur": -1.3688649746568804,
+        "unite": "pct",
+        "periode": "variation MM200 sur 20 séances",
+        "date_source": "2026-11-03",
+        "source_url": "https://query1.finance.yahoo.com/v8/finance/chart/CXDO?range=5y&interval=1d&events=div%2Csplits",
+        "statut": "CALCULE_HISTORIQUE_SECONDAIRE",
+        "commentaire": "Pente approchée par variation MM200(t)/MM200(t-20)-1; niveau MM200 non confondu avec pente.",
+        "date_collecte": "2026-11-04"
+      },
+      "motif": "Calcul reproductible 10Q; ancrage dernière séance <= date calendaire cible, aucune période pré-IPO extrapolée.",
+      "date_relecture": "2026-11-09"
+    },
+    {
+      "preuve_id": "ANALYSE_20261109_momentum_6_1_pct",
+      "champ": "momentum.momentum_6_1_pct",
+      "ancienne_cellule": {
+        "valeur": -21.485409731500205,
+        "unite": "pct",
+        "periode": "2026-05-01 / 2026-10-02",
+        "date_source": "2026-11-03",
+        "source_url": "https://query1.finance.yahoo.com/v8/finance/chart/CXDO?range=5y&interval=1d&events=div%2Csplits",
+        "statut": "CALCULE_HISTORIQUE_SECONDAIRE",
+        "commentaire": "Momentum 6–1 : prix à -1 mois / prix à -6 mois - 1; aucune modification de la règle de sélection.",
+        "date_collecte": "2026-11-04"
+      },
+      "motif": "Calcul reproductible 10Q; ancrage dernière séance <= date calendaire cible, aucune période pré-IPO extrapolée.",
+      "date_relecture": "2026-11-09"
+    },
+    {
+      "preuve_id": "ANALYSE_20261109_volume_moyen_20j",
+      "champ": "momentum.volume_moyen_20j",
+      "ancienne_cellule": {
+        "valeur": 197835,
+        "unite": "titres",
+        "periode": "20 dernières séances",
+        "date_source": "2026-11-03",
+        "source_url": "https://query1.finance.yahoo.com/v8/finance/chart/CXDO?range=5y&interval=1d&events=div%2Csplits",
+        "statut": "CALCULE_HISTORIQUE_SECONDAIRE",
+        "commentaire": "Moyenne arithmétique des volumes Yahoo non ajustés.",
+        "date_collecte": "2026-11-04"
+      },
+      "motif": "Calcul reproductible 10Q; ancrage dernière séance <= date calendaire cible, aucune période pré-IPO extrapolée.",
+      "date_relecture": "2026-11-09"
+    },
+    {
+      "preuve_id": "ANALYSE_20261109_ratio_volume",
+      "champ": "momentum.ratio_volume",
+      "ancienne_cellule": {
+        "valeur": 1.6159931255844517,
+        "unite": "ratio",
+        "periode": "dernière séance / moyenne 20 séances",
+        "date_source": "2026-11-03",
+        "source_url": "https://query1.finance.yahoo.com/v8/finance/chart/CXDO?range=5y&interval=1d&events=div%2Csplits",
+        "statut": "CALCULE_HISTORIQUE_SECONDAIRE",
+        "commentaire": "Ratio de volume de la dernière séance.",
+        "date_collecte": "2026-11-04"
+      },
+      "motif": "Calcul reproductible 10Q; ancrage dernière séance <= date calendaire cible, aucune période pré-IPO extrapolée.",
+      "date_relecture": "2026-11-09"
+    },
+    {
+      "preuve_id": "ANALYSE_20261109_volatilite_90j_pct",
+      "champ": "momentum.volatilite_90j_pct",
+      "ancienne_cellule": {
+        "valeur": 48.90560429262106,
+        "unite": "pct",
+        "periode": "90 rendements quotidiens",
+        "date_source": "2026-11-03",
+        "source_url": "https://query1.finance.yahoo.com/v8/finance/chart/CXDO?range=5y&interval=1d&events=div%2Csplits",
+        "statut": "CALCULE_HISTORIQUE_SECONDAIRE",
+        "commentaire": "Écart-type échantillon des log-rendements ajustés annualisé sqrt(252).",
+        "date_collecte": "2026-11-04"
+      },
+      "motif": "Calcul reproductible 10Q; ancrage dernière séance <= date calendaire cible, aucune période pré-IPO extrapolée.",
+      "date_relecture": "2026-11-09"
+    },
+    {
+      "preuve_id": "ANALYSE_20261109_drawdown_12m_pct",
+      "champ": "momentum.drawdown_12m_pct",
+      "ancienne_cellule": {
+        "valeur": -47.75549521792004,
+        "unite": "pct",
+        "periode": "2025-11-03 / 2026-11-03",
+        "date_source": "2026-11-03",
+        "source_url": "https://query1.finance.yahoo.com/v8/finance/chart/CXDO?range=5y&interval=1d&events=div%2Csplits",
+        "statut": "CALCULE_HISTORIQUE_SECONDAIRE",
+        "commentaire": "Maximum drawdown du prix ajusté sur la fenêtre, valeur négative.",
+        "date_collecte": "2026-11-04"
+      },
+      "motif": "Calcul reproductible 10Q; ancrage dernière séance <= date calendaire cible, aucune période pré-IPO extrapolée.",
+      "date_relecture": "2026-11-09"
+    },
+    {
+      "preuve_id": "ANALYSE_20261109_cours",
+      "champ": "valorisation.cours",
+      "ancienne_cellule": {
+        "valeur": 5.760000228881836,
+        "unite": "USD",
+        "periode": "cloture 2026-11-03",
+        "date_source": "2026-11-03",
+        "source_url": "https://query1.finance.yahoo.com/v8/finance/chart/CXDO?range=5y&interval=1d&events=div%2Csplits",
+        "statut": "SOURCE_MARCHE",
+        "commentaire": "Cours non ajuste; GBp/100 pour Londres.",
+        "date_collecte": "2026-11-04"
+      },
+      "motif": "Cours non ajusté, conversion GBp/100 vers GBP pour Londres.",
+      "date_relecture": "2026-11-09"
+    },
+    {
+      "preuve_id": "ANALYSE_20261109_date_cours",
+      "champ": "valorisation.date_cours",
+      "ancienne_cellule": {
+        "valeur": "2026-11-03",
+        "unite": "date",
+        "periode": "cloture",
+        "date_source": "2026-11-03",
+        "source_url": "https://query1.finance.yahoo.com/v8/finance/chart/CXDO?range=5y&interval=1d&events=div%2Csplits",
+        "statut": "SOURCE_MARCHE",
+        "commentaire": null,
+        "date_collecte": "2026-11-04"
+      },
+      "motif": "Clôture commune aux 40 fiches.",
+      "date_relecture": "2026-11-09"
+    },
+    {
+      "preuve_id": "ANALYSE_20261109_scenario_bear_3m_pct",
+      "champ": "complements.scenario_bear_3m_pct",
+      "ancienne_cellule": {
+        "valeur": null,
+        "unite": null,
+        "periode": null,
+        "date_source": null,
+        "source_url": null,
+        "statut": "A_COLLECTER",
+        "commentaire": null,
+        "recherche": {
+          "date": "2026-11-04",
+          "statut": "MANQUANT_RECHERCHE_NON_CLOSE",
+          "motif": "Analyse MCPA/IPS argumentée encore nécessaire; ce champ ne doit pas être rempli par une statistique de fournisseur.",
+          "journal": "journal_recherches"
+        }
+      },
+      "motif": "Intégration coûteuse et licences ralenties. Écart GAAP/ajusté et croissance acquise distincts de l'organique.",
+      "date_relecture": "2026-11-09"
+    },
+    {
+      "preuve_id": "ANALYSE_20261109_prob_bear_3m_pct",
+      "champ": "complements.prob_bear_3m_pct",
+      "ancienne_cellule": {
+        "valeur": null,
+        "unite": null,
+        "periode": null,
+        "date_source": null,
+        "source_url": null,
+        "statut": "A_COLLECTER",
+        "commentaire": null,
+        "recherche": {
+          "date": "2026-11-04",
+          "statut": "MANQUANT_RECHERCHE_NON_CLOSE",
+          "motif": "Analyse MCPA/IPS argumentée encore nécessaire; ce champ ne doit pas être rempli par une statistique de fournisseur.",
+          "journal": "journal_recherches"
+        }
+      },
+      "motif": "Pondération par jugement du risque et des opportunités décrits; aucune fréquence statistique. Incertitude au moins +/-10 points. Écart GAAP/ajusté et croissance acquise distincts de l'organique.",
+      "date_relecture": "2026-11-09"
+    },
+    {
+      "preuve_id": "ANALYSE_20261109_scenario_central_3m_pct",
+      "champ": "complements.scenario_central_3m_pct",
+      "ancienne_cellule": {
+        "valeur": null,
+        "unite": null,
+        "periode": null,
+        "date_source": null,
+        "source_url": null,
+        "statut": "A_COLLECTER",
+        "commentaire": null,
+        "recherche": {
+          "date": "2026-11-04",
+          "statut": "MANQUANT_RECHERCHE_NON_CLOSE",
+          "motif": "Analyse MCPA/IPS argumentée encore nécessaire; ce champ ne doit pas être rempli par une statistique de fournisseur.",
+          "journal": "journal_recherches"
+        }
+      },
+      "motif": "Croissance et intégration progressive. Écart GAAP/ajusté et croissance acquise distincts de l'organique.",
+      "date_relecture": "2026-11-09"
+    },
+    {
+      "preuve_id": "ANALYSE_20261109_prob_central_3m_pct",
+      "champ": "complements.prob_central_3m_pct",
+      "ancienne_cellule": {
+        "valeur": null,
+        "unite": null,
+        "periode": null,
+        "date_source": null,
+        "source_url": null,
+        "statut": "A_COLLECTER",
+        "commentaire": null,
+        "recherche": {
+          "date": "2026-11-04",
+          "statut": "MANQUANT_RECHERCHE_NON_CLOSE",
+          "motif": "Analyse MCPA/IPS argumentée encore nécessaire; ce champ ne doit pas être rempli par une statistique de fournisseur.",
+          "journal": "journal_recherches"
+        }
+      },
+      "motif": "Pondération par jugement du risque et des opportunités décrits; aucune fréquence statistique. Incertitude au moins +/-10 points. Écart GAAP/ajusté et croissance acquise distincts de l'organique.",
+      "date_relecture": "2026-11-09"
+    },
+    {
+      "preuve_id": "ANALYSE_20261109_scenario_bull_3m_pct",
+      "champ": "complements.scenario_bull_3m_pct",
+      "ancienne_cellule": {
+        "valeur": null,
+        "unite": null,
+        "periode": null,
+        "date_source": null,
+        "source_url": null,
+        "statut": "A_COLLECTER",
+        "commentaire": null,
+        "recherche": {
+          "date": "2026-11-04",
+          "statut": "MANQUANT_RECHERCHE_NON_CLOSE",
+          "motif": "Analyse MCPA/IPS argumentée encore nécessaire; ce champ ne doit pas être rempli par une statistique de fournisseur.",
+          "journal": "journal_recherches"
+        }
+      },
+      "motif": "Conversion commerciale et amélioration GAAP. Écart GAAP/ajusté et croissance acquise distincts de l'organique.",
+      "date_relecture": "2026-11-09"
+    },
+    {
+      "preuve_id": "ANALYSE_20261109_prob_bull_3m_pct",
+      "champ": "complements.prob_bull_3m_pct",
+      "ancienne_cellule": {
+        "valeur": null,
+        "unite": null,
+        "periode": null,
+        "date_source": null,
+        "source_url": null,
+        "statut": "A_COLLECTER",
+        "commentaire": null,
+        "recherche": {
+          "date": "2026-11-04",
+          "statut": "MANQUANT_RECHERCHE_NON_CLOSE",
+          "motif": "Analyse MCPA/IPS argumentée encore nécessaire; ce champ ne doit pas être rempli par une statistique de fournisseur.",
+          "journal": "journal_recherches"
+        }
+      },
+      "motif": "Pondération par jugement du risque et des opportunités décrits; aucune fréquence statistique. Incertitude au moins +/-10 points. Écart GAAP/ajusté et croissance acquise distincts de l'organique.",
+      "date_relecture": "2026-11-09"
+    },
+    {
+      "preuve_id": "ANALYSE_20261109_scenario_bear_6m_pct",
+      "champ": "complements.scenario_bear_6m_pct",
+      "ancienne_cellule": {
+        "valeur": null,
+        "unite": null,
+        "periode": null,
+        "date_source": null,
+        "source_url": null,
+        "statut": "A_COLLECTER",
+        "commentaire": null,
+        "recherche": {
+          "date": "2026-11-04",
+          "statut": "MANQUANT_RECHERCHE_NON_CLOSE",
+          "motif": "Analyse MCPA/IPS argumentée encore nécessaire; ce champ ne doit pas être rempli par une statistique de fournisseur.",
+          "journal": "journal_recherches"
+        }
+      },
+      "motif": "Intégration coûteuse et licences ralenties. Écart GAAP/ajusté et croissance acquise distincts de l'organique.",
+      "date_relecture": "2026-11-09"
+    },
+    {
+      "preuve_id": "ANALYSE_20261109_prob_bear_6m_pct",
+      "champ": "complements.prob_bear_6m_pct",
+      "ancienne_cellule": {
+        "valeur": null,
+        "unite": null,
+        "periode": null,
+        "date_source": null,
+        "source_url": null,
+        "statut": "A_COLLECTER",
+        "commentaire": null,
+        "recherche": {
+          "date": "2026-11-04",
+          "statut": "MANQUANT_RECHERCHE_NON_CLOSE",
+          "motif": "Analyse MCPA/IPS argumentée encore nécessaire; ce champ ne doit pas être rempli par une statistique de fournisseur.",
+          "journal": "journal_recherches"
+        }
+      },
+      "motif": "Pondération par jugement du risque et des opportunités décrits; aucune fréquence statistique. Incertitude au moins +/-10 points. Écart GAAP/ajusté et croissance acquise distincts de l'organique.",
+      "date_relecture": "2026-11-09"
+    },
+    {
+      "preuve_id": "ANALYSE_20261109_scenario_central_6m_pct",
+      "champ": "complements.scenario_central_6m_pct",
+      "ancienne_cellule": {
+        "valeur": null,
+        "unite": null,
+        "periode": null,
+        "date_source": null,
+        "source_url": null,
+        "statut": "A_COLLECTER",
+        "commentaire": null,
+        "recherche": {
+          "date": "2026-11-04",
+          "statut": "MANQUANT_RECHERCHE_NON_CLOSE",
+          "motif": "Analyse MCPA/IPS argumentée encore nécessaire; ce champ ne doit pas être rempli par une statistique de fournisseur.",
+          "journal": "journal_recherches"
+        }
+      },
+      "motif": "Croissance et intégration progressive. Écart GAAP/ajusté et croissance acquise distincts de l'organique.",
+      "date_relecture": "2026-11-09"
+    },
+    {
+      "preuve_id": "ANALYSE_20261109_prob_central_6m_pct",
+      "champ": "complements.prob_central_6m_pct",
+      "ancienne_cellule": {
+        "valeur": null,
+        "unite": null,
+        "periode": null,
+        "date_source": null,
+        "source_url": null,
+        "statut": "A_COLLECTER",
+        "commentaire": null,
+        "recherche": {
+          "date": "2026-11-04",
+          "statut": "MANQUANT_RECHERCHE_NON_CLOSE",
+          "motif": "Analyse MCPA/IPS argumentée encore nécessaire; ce champ ne doit pas être rempli par une statistique de fournisseur.",
+          "journal": "journal_recherches"
+        }
+      },
+      "motif": "Pondération par jugement du risque et des opportunités décrits; aucune fréquence statistique. Incertitude au moins +/-10 points. Écart GAAP/ajusté et croissance acquise distincts de l'organique.",
+      "date_relecture": "2026-11-09"
+    },
+    {
+      "preuve_id": "ANALYSE_20261109_scenario_bull_6m_pct",
+      "champ": "complements.scenario_bull_6m_pct",
+      "ancienne_cellule": {
+        "valeur": null,
+        "unite": null,
+        "periode": null,
+        "date_source": null,
+        "source_url": null,
+        "statut": "A_COLLECTER",
+        "commentaire": null,
+        "recherche": {
+          "date": "2026-11-04",
+          "statut": "MANQUANT_RECHERCHE_NON_CLOSE",
+          "motif": "Analyse MCPA/IPS argumentée encore nécessaire; ce champ ne doit pas être rempli par une statistique de fournisseur.",
+          "journal": "journal_recherches"
+        }
+      },
+      "motif": "Conversion commerciale et amélioration GAAP. Écart GAAP/ajusté et croissance acquise distincts de l'organique.",
+      "date_relecture": "2026-11-09"
+    },
+    {
+      "preuve_id": "ANALYSE_20261109_prob_bull_6m_pct",
+      "champ": "complements.prob_bull_6m_pct",
+      "ancienne_cellule": {
+        "valeur": null,
+        "unite": null,
+        "periode": null,
+        "date_source": null,
+        "source_url": null,
+        "statut": "A_COLLECTER",
+        "commentaire": null,
+        "recherche": {
+          "date": "2026-11-04",
+          "statut": "MANQUANT_RECHERCHE_NON_CLOSE",
+          "motif": "Analyse MCPA/IPS argumentée encore nécessaire; ce champ ne doit pas être rempli par une statistique de fournisseur.",
+          "journal": "journal_recherches"
+        }
+      },
+      "motif": "Pondération par jugement du risque et des opportunités décrits; aucune fréquence statistique. Incertitude au moins +/-10 points. Écart GAAP/ajusté et croissance acquise distincts de l'organique.",
+      "date_relecture": "2026-11-09"
+    },
+    {
+      "preuve_id": "ANALYSE_20261109_ic_sur_5",
+      "champ": "complements.ic_sur_5",
+      "ancienne_cellule": {
+        "valeur": null,
+        "unite": null,
+        "periode": null,
+        "date_source": null,
+        "source_url": null,
+        "statut": "A_COLLECTER",
+        "commentaire": null,
+        "recherche": {
+          "date": "2026-11-04",
+          "statut": "MANQUANT_RECHERCHE_NON_CLOSE",
+          "motif": "Analyse MCPA/IPS argumentée encore nécessaire; ce champ ne doit pas être rempli par une statistique de fournisseur.",
+          "journal": "journal_recherches"
+        }
+      },
+      "motif": "Écart GAAP/ajusté et croissance acquise distincts de l'organique. Aucune opération autorisée.",
+      "date_relecture": "2026-11-09"
+    },
+    {
+      "preuve_id": "ANALYSE_20261109_cx_sur_5",
+      "champ": "complements.cx_sur_5",
+      "ancienne_cellule": {
+        "valeur": null,
+        "unite": null,
+        "periode": null,
+        "date_source": null,
+        "source_url": null,
+        "statut": "A_COLLECTER",
+        "commentaire": null,
+        "recherche": {
+          "date": "2026-11-04",
+          "statut": "MANQUANT_RECHERCHE_NON_CLOSE",
+          "motif": "Analyse MCPA/IPS argumentée encore nécessaire; ce champ ne doit pas être rempli par une statistique de fournisseur.",
+          "journal": "journal_recherches"
+        }
+      },
+      "motif": "Écart GAAP/ajusté et croissance acquise distincts de l'organique. Aucune opération autorisée.",
+      "date_relecture": "2026-11-09"
+    },
+    {
+      "preuve_id": "ANALYSE_20261109_delta",
+      "champ": "complements.delta",
+      "ancienne_cellule": {
+        "valeur": null,
+        "unite": null,
+        "periode": null,
+        "date_source": null,
+        "source_url": null,
+        "statut": "A_COLLECTER",
+        "commentaire": null,
+        "recherche": {
+          "date": "2026-11-04",
+          "statut": "MANQUANT_RECHERCHE_NON_CLOSE",
+          "motif": "Analyse MCPA/IPS argumentée encore nécessaire; ce champ ne doit pas être rempli par une statistique de fournisseur.",
+          "journal": "journal_recherches"
+        }
+      },
+      "motif": "Écart GAAP/ajusté et croissance acquise distincts de l'organique. Aucune opération autorisée.",
+      "date_relecture": "2026-11-09"
+    },
+    {
+      "preuve_id": "ANALYSE_20261109_role_ips",
+      "champ": "complements.role_ips",
+      "ancienne_cellule": {
+        "valeur": null,
+        "unite": null,
+        "periode": null,
+        "date_source": null,
+        "source_url": null,
+        "statut": "A_COLLECTER",
+        "commentaire": null,
+        "recherche": {
+          "date": "2026-11-04",
+          "statut": "MANQUANT_RECHERCHE_NON_CLOSE",
+          "motif": "Analyse MCPA/IPS argumentée encore nécessaire; ce champ ne doit pas être rempli par une statistique de fournisseur.",
+          "journal": "journal_recherches"
+        }
+      },
+      "motif": "Écart GAAP/ajusté et croissance acquise distincts de l'organique. Aucune opération autorisée.",
+      "date_relecture": "2026-11-09"
+    },
+    {
+      "preuve_id": "ANALYSE_20261109_decision",
+      "champ": "complements.decision",
+      "ancienne_cellule": {
+        "valeur": null,
+        "unite": null,
+        "periode": null,
+        "date_source": null,
+        "source_url": null,
+        "statut": "A_COLLECTER",
+        "commentaire": null,
+        "recherche": {
+          "date": "2026-11-04",
+          "statut": "MANQUANT_RECHERCHE_NON_CLOSE",
+          "motif": "Analyse MCPA/IPS argumentée encore nécessaire; ce champ ne doit pas être rempli par une statistique de fournisseur.",
+          "journal": "journal_recherches"
+        }
+      },
+      "motif": "Écart GAAP/ajusté et croissance acquise distincts de l'organique. Aucune opération autorisée.",
+      "date_relecture": "2026-11-09"
+    },
+    {
+      "preuve_id": "ANALYSE_20261109_condition_renforcement",
+      "champ": "complements.condition_renforcement",
+      "ancienne_cellule": {
+        "valeur": null,
+        "unite": null,
+        "periode": null,
+        "date_source": null,
+        "source_url": null,
+        "statut": "A_COLLECTER",
+        "commentaire": null,
+        "recherche": {
+          "date": "2026-11-04",
+          "statut": "MANQUANT_RECHERCHE_NON_CLOSE",
+          "motif": "Analyse MCPA/IPS argumentée encore nécessaire; ce champ ne doit pas être rempli par une statistique de fournisseur.",
+          "journal": "journal_recherches"
+        }
+      },
+      "motif": "Écart GAAP/ajusté et croissance acquise distincts de l'organique. Aucune opération autorisée.",
+      "date_relecture": "2026-11-09"
+    },
+    {
+      "preuve_id": "ANALYSE_20261109_condition_allegement_sortie",
+      "champ": "complements.condition_allegement_sortie",
+      "ancienne_cellule": {
+        "valeur": null,
+        "unite": null,
+        "periode": null,
+        "date_source": null,
+        "source_url": null,
+        "statut": "A_COLLECTER",
+        "commentaire": null,
+        "recherche": {
+          "date": "2026-11-04",
+          "statut": "MANQUANT_RECHERCHE_NON_CLOSE",
+          "motif": "Analyse MCPA/IPS argumentée encore nécessaire; ce champ ne doit pas être rempli par une statistique de fournisseur.",
+          "journal": "journal_recherches"
+        }
+      },
+      "motif": "Écart GAAP/ajusté et croissance acquise distincts de l'organique. Aucune opération autorisée.",
+      "date_relecture": "2026-11-09"
+    },
+    {
+      "preuve_id": "ANALYSE_20261109_interet_strategique",
+      "champ": "diversification.interet_strategique",
+      "ancienne_cellule": {
+        "valeur": null,
+        "unite": null,
+        "periode": null,
+        "date_source": null,
+        "source_url": null,
+        "statut": "A_COLLECTER",
+        "commentaire": null,
+        "recherche": {
+          "date": "2026-11-04",
+          "statut": "MANQUANT_RECHERCHE_NON_CLOSE",
+          "motif": "Analyse MCPA/IPS argumentée encore nécessaire; ce champ ne doit pas être rempli par une statistique de fournisseur.",
+          "journal": "journal_recherches"
+        }
+      },
+      "motif": "Diversification sectorielle, sans garantie de décorrélation en crise.",
+      "date_relecture": "2026-11-09"
+    },
+    {
+      "preuve_id": "ANALYSE_20261109_complementarite_portefeuille",
+      "champ": "diversification.complementarite_portefeuille",
+      "ancienne_cellule": {
+        "valeur": null,
+        "unite": null,
+        "periode": null,
+        "date_source": null,
+        "source_url": null,
+        "statut": "A_COLLECTER",
+        "commentaire": null,
+        "recherche": {
+          "date": "2026-11-04",
+          "statut": "MANQUANT_RECHERCHE_NON_CLOSE",
+          "motif": "Analyse MCPA/IPS argumentée encore nécessaire; ce champ ne doit pas être rempli par une statistique de fournisseur.",
+          "journal": "journal_recherches"
+        }
+      },
+      "motif": "Diversification sectorielle, sans garantie de décorrélation en crise.",
+      "date_relecture": "2026-11-09"
+    }
+  ],
+  "historique_notations": [
+    {
+      "bareme": {
+        "qualite": 30,
+        "valorisation": 20,
+        "croissance": 20,
+        "risque": 10,
+        "momentum": 10,
+        "diversification": 10
+      },
+      "notes": {
+        "qualite": null,
+        "valorisation": null,
+        "croissance": null,
+        "risque": null,
+        "momentum": null,
+        "diversification": null
+      },
+      "total_mcpa": null,
+      "statut": "NON_VALIDEE",
+      "justifications": {
+        "qualite": null,
+        "valorisation": null,
+        "croissance": null,
+        "risque": null,
+        "momentum": null,
+        "diversification": null
+      }
+    }
+  ],
+  "calculs_marche": {
+    "date": "2026-11-06",
+    "cours_non_ajuste": 5.070000171661377,
+    "ancrages": {
+      "1": {
+        "date": "2026-10-06",
+        "cours_ajuste": 5.960000038146973
+      },
+      "3": {
+        "date": "2026-08-06",
+        "cours_ajuste": 6.489999771118164
+      },
+      "6": {
+        "date": "2026-05-06",
+        "cours_ajuste": 9.739999771118164
+      },
+      "12": {
+        "date": "2025-11-06",
+        "cours_ajuste": 6.75
+      }
+    },
+    "indicateurs": {
+      "momentum_1m_pct": -14.932883570287792,
+      "momentum_3m_pct": -21.879809700087783,
+      "momentum_6m_pct": -47.94660892400273,
+      "momentum_12m_pct": -24.888886345757378,
+      "prix_vers_mm200": 0.7414665787056527,
+      "tendance_mm200": -1.6395093056781773,
+      "momentum_6_1_pct": -38.809033078008405,
+      "volume_moyen_20j": 249615.0,
+      "ratio_volume": 1.6224986479177934,
+      "volatilite_90j_pct": 50.17982543770897,
+      "drawdown_12m_pct": -52.626552897361776
+    },
+    "grille": [
+      {
+        "indicateur": "prix_vers_mm200",
+        "seuil_strict": 1,
+        "maximum": 2,
+        "valeur": 0.7414665787056527,
+        "points": 0
+      },
+      {
+        "indicateur": "tendance_mm200",
+        "seuil_strict": 0,
+        "maximum": 1,
+        "valeur": -1.6395093056781773,
+        "points": 0
+      },
+      {
+        "indicateur": "momentum_1m_pct",
+        "seuil_strict": 0,
+        "maximum": 1,
+        "valeur": -14.932883570287792,
+        "points": 0
+      },
+      {
+        "indicateur": "momentum_3m_pct",
+        "seuil_strict": 0,
+        "maximum": 2,
+        "valeur": -21.879809700087783,
+        "points": 0
+      },
+      {
+        "indicateur": "momentum_6m_pct",
+        "seuil_strict": 0,
+        "maximum": 2,
+        "valeur": -47.94660892400273,
+        "points": 0
+      },
+      {
+        "indicateur": "momentum_12m_pct",
+        "seuil_strict": 0,
+        "maximum": 1,
+        "valeur": -24.888886345757378,
+        "points": 0
+      },
+      {
+        "indicateur": "momentum_6_1_pct",
+        "seuil_strict": 0,
+        "maximum": 1,
+        "valeur": -38.809033078008405,
+        "points": 0
+      }
+    ],
+    "M": 0,
+    "points_non_observables": 0,
+    "source_url": "https://query1.finance.yahoo.com/v8/finance/chart/CXDO?range=5y&interval=1d&events=div%2Csplits"
+  },
+  "analyse_prospective": {
+    "date_analyse": "2026-11-09",
+    "date_ancrage": "2026-11-06",
+    "cours_ancrage": 5.070000171661377,
+    "devise": "USD",
+    "incertitude": "Écart GAAP/ajusté et croissance acquise distincts de l'organique.",
+    "nature": "Probabilités subjectives non calibrées, incertitude au moins +/-10 points. Rendements du cours en devise locale, hors change, dividendes et frais.",
+    "horizons": {
+      "3m": {
+        "echeance_calendaire": "2027-02-06",
+        "scenarios": [
+          {
+            "cas": "bear",
+            "rendement_pct": -25.0,
+            "probabilite_pct": 25.0,
+            "cours_conditionnel": 3.8025001287460327,
+            "declencheur": "Intégration coûteuse et licences ralenties."
+          },
+          {
+            "cas": "central",
+            "rendement_pct": 8.0,
+            "probabilite_pct": 50.0,
+            "cours_conditionnel": 5.4756001853942875,
+            "declencheur": "Croissance et intégration progressive."
+          },
+          {
+            "cas": "bull",
+            "rendement_pct": 30.0,
+            "probabilite_pct": 25.0,
+            "cours_conditionnel": 6.59100022315979,
+            "declencheur": "Conversion commerciale et amélioration GAAP."
+          }
+        ],
+        "esperance_subjective_brute_pct": 5.25,
+        "esperance_apres_rotation_vente_achat_2_5pct": 0.11585365853659102,
+        "convention_frais": "Friction théorique: vente 2,5 % du brut, achat 2,5 % du nominal acheté. Pas de transaction."
+      },
+      "6m": {
+        "echeance_calendaire": "2027-05-06",
+        "scenarios": [
+          {
+            "cas": "bear",
+            "rendement_pct": -35.0,
+            "probabilite_pct": 25.0,
+            "cours_conditionnel": 3.295500111579895,
+            "declencheur": "Intégration coûteuse et licences ralenties."
+          },
+          {
+            "cas": "central",
+            "rendement_pct": 18.0,
+            "probabilite_pct": 45.0,
+            "cours_conditionnel": 5.982600202560424,
+            "declencheur": "Croissance et intégration progressive."
+          },
+          {
+            "cas": "bull",
+            "rendement_pct": 50.0,
+            "probabilite_pct": 30.0,
+            "cours_conditionnel": 7.605000257492065,
+            "declencheur": "Conversion commerciale et amélioration GAAP."
+          }
+        ],
+        "esperance_subjective_brute_pct": 14.35,
+        "esperance_apres_rotation_vente_achat_2_5pct": 8.771951219512196,
+        "convention_frais": "Friction théorique: vente 2,5 % du brut, achat 2,5 % du nominal acheté. Pas de transaction."
+      }
+    }
+  },
+  "date_analyse": "2026-11-09"
 }

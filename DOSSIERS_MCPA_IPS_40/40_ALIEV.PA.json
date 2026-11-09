@@ -282,24 +282,24 @@
     },
     "valorisation": {
       "cours": {
-        "valeur": 8.100000381469727,
+        "valeur": 7.960000038146973,
         "unite": "EUR",
-        "periode": "cloture 2026-11-03",
-        "date_source": "2026-11-03",
+        "periode": "clôture 2026-11-06",
+        "date_source": "2026-11-06",
         "source_url": "https://query1.finance.yahoo.com/v8/finance/chart/ALIEV.PA?range=5y&interval=1d&events=div%2Csplits",
         "statut": "SOURCE_MARCHE",
-        "commentaire": "Cours non ajuste; GBp/100 pour Londres.",
-        "date_collecte": "2026-11-04"
+        "commentaire": "Cours non ajusté, conversion GBp/100 vers GBP pour Londres.",
+        "date_collecte": "2026-11-09"
       },
       "date_cours": {
-        "valeur": "2026-11-03",
+        "valeur": "2026-11-06",
         "unite": "date",
-        "periode": "cloture",
-        "date_source": "2026-11-03",
+        "periode": "clôture",
+        "date_source": "2026-11-06",
         "source_url": "https://query1.finance.yahoo.com/v8/finance/chart/ALIEV.PA?range=5y&interval=1d&events=div%2Csplits",
         "statut": "SOURCE_MARCHE",
-        "commentaire": null,
-        "date_collecte": "2026-11-04"
+        "commentaire": "Clôture commune aux 40 fiches.",
+        "date_collecte": "2026-11-09"
       },
       "capitalisation": {
         "valeur": 78180000,
@@ -871,75 +871,75 @@
     "momentum": {
       "prix_vers_mm200": {
         "valeur": null,
-        "unite": null,
-        "periode": "cotations disponibles au 03/11/2026",
-        "date_source": "2026-11-04",
-        "source_url": "DONNEES/HISTORIQUES_YAHOO_40.csv",
-        "statut": "INDISPONIBLE_A_DATE_HISTORIQUE_COURT",
-        "commentaire": "Historique IPO archivé plus court que la fenêtre requise au 03/11/2026; durée antérieure à la cotation inexistante.",
+        "unite": "ratio",
+        "periode": "historique ajusté au 2026-11-06",
+        "date_source": "2026-11-06",
+        "source_url": "https://query1.finance.yahoo.com/v8/finance/chart/ALIEV.PA?range=5y&interval=1d&events=div%2Csplits",
+        "statut": "HISTORIQUE_INSUFFISANT_AVANT_COTATION",
+        "commentaire": "Calcul reproductible 10Q; ancrage dernière séance <= date calendaire cible, aucune période pré-IPO extrapolée.",
+        "date_collecte": "2026-11-09",
         "recherche": {
-          "date": "2026-11-04",
-          "statut": "INDISPONIBLE_A_DATE_HISTORIQUE_COURT",
-          "motif": "Historique IPO archivé plus court que la fenêtre requise au 03/11/2026; durée antérieure à la cotation inexistante.",
+          "date": "2026-11-09",
+          "statut": "HISTORIQUE_INSUFFISANT_AVANT_COTATION",
+          "motif": "Calcul reproductible 10Q; ancrage dernière séance <= date calendaire cible, aucune période pré-IPO extrapolée.",
           "journal": "journal_recherches"
-        },
-        "date_collecte": "2026-11-04"
+        }
       },
       "momentum_1m_pct": {
-        "valeur": -10.596026420356253,
+        "valeur": -5.238090480536073,
         "unite": "pct",
-        "periode": "2026-10-02 / 2026-11-03",
-        "date_source": "2026-11-03",
+        "periode": "historique ajusté au 2026-11-06",
+        "date_source": "2026-11-06",
         "source_url": "https://query1.finance.yahoo.com/v8/finance/chart/ALIEV.PA?range=5y&interval=1d&events=div%2Csplits",
         "statut": "CALCULE_HISTORIQUE_SECONDAIRE",
-        "commentaire": "Cours ajustés, ancrage calendaire; dernière séance <= date cible.",
-        "date_collecte": "2026-11-04"
+        "commentaire": "Calcul reproductible 10Q; ancrage dernière séance <= date calendaire cible, aucune période pré-IPO extrapolée.",
+        "date_collecte": "2026-11-09"
       },
       "momentum_3m_pct": {
-        "valeur": -15.624999379118309,
+        "valeur": -16.73640492929892,
         "unite": "pct",
-        "periode": "2026-08-03 / 2026-11-03",
-        "date_source": "2026-11-03",
+        "periode": "historique ajusté au 2026-11-06",
+        "date_source": "2026-11-06",
         "source_url": "https://query1.finance.yahoo.com/v8/finance/chart/ALIEV.PA?range=5y&interval=1d&events=div%2Csplits",
         "statut": "CALCULE_HISTORIQUE_SECONDAIRE",
-        "commentaire": "Cours ajustés, ancrage calendaire; dernière séance <= date cible.",
-        "date_collecte": "2026-11-04"
+        "commentaire": "Calcul reproductible 10Q; ancrage dernière séance <= date calendaire cible, aucune période pré-IPO extrapolée.",
+        "date_collecte": "2026-11-09"
       },
       "momentum_6m_pct": {
-        "valeur": -14.285708518976048,
+        "valeur": -5.238090480536073,
         "unite": "pct",
-        "periode": "2026-04-30 / 2026-11-03",
-        "date_source": "2026-11-03",
+        "periode": "historique ajusté au 2026-11-06",
+        "date_source": "2026-11-06",
         "source_url": "https://query1.finance.yahoo.com/v8/finance/chart/ALIEV.PA?range=5y&interval=1d&events=div%2Csplits",
         "statut": "CALCULE_HISTORIQUE_SECONDAIRE",
-        "commentaire": "Cours ajustés, ancrage calendaire; dernière séance <= date cible.",
-        "date_collecte": "2026-11-04"
+        "commentaire": "Calcul reproductible 10Q; ancrage dernière séance <= date calendaire cible, aucune période pré-IPO extrapolée.",
+        "date_collecte": "2026-11-09"
       },
       "momentum_12m_pct": {
         "valeur": null,
-        "unite": null,
-        "periode": "cotations disponibles au 03/11/2026",
-        "date_source": "2026-11-04",
-        "source_url": "DONNEES/HISTORIQUES_YAHOO_40.csv",
-        "statut": "INDISPONIBLE_A_DATE_HISTORIQUE_COURT",
-        "commentaire": "Historique IPO archivé plus court que la fenêtre requise au 03/11/2026; durée antérieure à la cotation inexistante.",
+        "unite": "pct",
+        "periode": "historique ajusté au 2026-11-06",
+        "date_source": "2026-11-06",
+        "source_url": "https://query1.finance.yahoo.com/v8/finance/chart/ALIEV.PA?range=5y&interval=1d&events=div%2Csplits",
+        "statut": "HISTORIQUE_INSUFFISANT_AVANT_COTATION",
+        "commentaire": "Calcul reproductible 10Q; ancrage dernière séance <= date calendaire cible, aucune période pré-IPO extrapolée.",
+        "date_collecte": "2026-11-09",
         "recherche": {
-          "date": "2026-11-04",
-          "statut": "INDISPONIBLE_A_DATE_HISTORIQUE_COURT",
-          "motif": "Historique IPO archivé plus court que la fenêtre requise au 03/11/2026; durée antérieure à la cotation inexistante.",
+          "date": "2026-11-09",
+          "statut": "HISTORIQUE_INSUFFISANT_AVANT_COTATION",
+          "motif": "Calcul reproductible 10Q; ancrage dernière séance <= date calendaire cible, aucune période pré-IPO extrapolée.",
           "journal": "journal_recherches"
-        },
-        "date_collecte": "2026-11-04"
+        }
       },
       "momentum_6_1_pct": {
-        "valeur": -4.126977751534633,
+        "valeur": 0.0,
         "unite": "pct",
-        "periode": "2026-04-30 / 2026-10-02",
-        "date_source": "2026-11-03",
+        "periode": "historique ajusté au 2026-11-06",
+        "date_source": "2026-11-06",
         "source_url": "https://query1.finance.yahoo.com/v8/finance/chart/ALIEV.PA?range=5y&interval=1d&events=div%2Csplits",
         "statut": "CALCULE_HISTORIQUE_SECONDAIRE",
-        "commentaire": "Momentum 6–1 : prix à -1 mois / prix à -6 mois - 1; aucune modification de la règle de sélection.",
-        "date_collecte": "2026-11-04"
+        "commentaire": "Calcul reproductible 10Q; ancrage dernière séance <= date calendaire cible, aucune période pré-IPO extrapolée.",
+        "date_collecte": "2026-11-09"
       },
       "force_relative_indice": {
         "valeur": {
@@ -968,66 +968,66 @@
         "commentaire": "Ratio (titre ajusté converti en USD / URTH ajusté) sur chaque fenêtre, moins 1. Ancrages communs titre/ETF/FX; GBp constant annulé dans le ratio. URTH est un proxy ETF avec frais/écart de suivi; horaires de clôture non synchrones. Fenêtres impossibles avant IPO omises, jamais extrapolées."
       },
       "volume_moyen_20j": {
-        "valeur": 3955.05,
-        "unite": "titres",
-        "periode": "20 dernières séances",
-        "date_source": "2026-11-03",
+        "valeur": 3957.0,
+        "unite": "titres/jour",
+        "periode": "historique ajusté au 2026-11-06",
+        "date_source": "2026-11-06",
         "source_url": "https://query1.finance.yahoo.com/v8/finance/chart/ALIEV.PA?range=5y&interval=1d&events=div%2Csplits",
         "statut": "CALCULE_HISTORIQUE_SECONDAIRE",
-        "commentaire": "Moyenne arithmétique des volumes Yahoo non ajustés.",
-        "date_collecte": "2026-11-04"
+        "commentaire": "Calcul reproductible 10Q; ancrage dernière séance <= date calendaire cible, aucune période pré-IPO extrapolée.",
+        "date_collecte": "2026-11-09"
       },
       "ratio_volume": {
-        "valeur": 0.007332397820507958,
+        "valeur": 0.003032600454890068,
         "unite": "ratio",
-        "periode": "dernière séance / moyenne 20 séances",
-        "date_source": "2026-11-03",
+        "periode": "historique ajusté au 2026-11-06",
+        "date_source": "2026-11-06",
         "source_url": "https://query1.finance.yahoo.com/v8/finance/chart/ALIEV.PA?range=5y&interval=1d&events=div%2Csplits",
         "statut": "CALCULE_HISTORIQUE_SECONDAIRE",
-        "commentaire": "Ratio de volume de la dernière séance.",
-        "date_collecte": "2026-11-04"
+        "commentaire": "Calcul reproductible 10Q; ancrage dernière séance <= date calendaire cible, aucune période pré-IPO extrapolée.",
+        "date_collecte": "2026-11-09"
       },
       "tendance_mm200": {
         "valeur": null,
-        "unite": null,
-        "periode": "cotations disponibles au 03/11/2026",
-        "date_source": "2026-11-04",
-        "source_url": "DONNEES/HISTORIQUES_YAHOO_40.csv",
-        "statut": "INDISPONIBLE_A_DATE_HISTORIQUE_COURT",
-        "commentaire": "Historique IPO archivé plus court que la fenêtre requise au 03/11/2026; durée antérieure à la cotation inexistante.",
+        "unite": "pct",
+        "periode": "historique ajusté au 2026-11-06",
+        "date_source": "2026-11-06",
+        "source_url": "https://query1.finance.yahoo.com/v8/finance/chart/ALIEV.PA?range=5y&interval=1d&events=div%2Csplits",
+        "statut": "HISTORIQUE_INSUFFISANT_AVANT_COTATION",
+        "commentaire": "Calcul reproductible 10Q; ancrage dernière séance <= date calendaire cible, aucune période pré-IPO extrapolée.",
+        "date_collecte": "2026-11-09",
         "recherche": {
-          "date": "2026-11-04",
-          "statut": "INDISPONIBLE_A_DATE_HISTORIQUE_COURT",
-          "motif": "Historique IPO archivé plus court que la fenêtre requise au 03/11/2026; durée antérieure à la cotation inexistante.",
+          "date": "2026-11-09",
+          "statut": "HISTORIQUE_INSUFFISANT_AVANT_COTATION",
+          "motif": "Calcul reproductible 10Q; ancrage dernière séance <= date calendaire cible, aucune période pré-IPO extrapolée.",
           "journal": "journal_recherches"
-        },
-        "date_collecte": "2026-11-04"
+        }
       },
       "volatilite_90j_pct": {
-        "valeur": 51.396768594144305,
+        "valeur": 34.19319487375015,
         "unite": "pct",
-        "periode": "90 rendements quotidiens",
-        "date_source": "2026-11-03",
+        "periode": "historique ajusté au 2026-11-06",
+        "date_source": "2026-11-06",
         "source_url": "https://query1.finance.yahoo.com/v8/finance/chart/ALIEV.PA?range=5y&interval=1d&events=div%2Csplits",
         "statut": "CALCULE_HISTORIQUE_SECONDAIRE",
-        "commentaire": "Écart-type échantillon des log-rendements ajustés annualisé sqrt(252).",
-        "date_collecte": "2026-11-04"
+        "commentaire": "Calcul reproductible 10Q; ancrage dernière séance <= date calendaire cible, aucune période pré-IPO extrapolée.",
+        "date_collecte": "2026-11-09"
       },
       "drawdown_12m_pct": {
         "valeur": null,
-        "unite": null,
-        "periode": "cotations disponibles au 03/11/2026",
-        "date_source": "2026-11-04",
-        "source_url": "DONNEES/HISTORIQUES_YAHOO_40.csv",
-        "statut": "INDISPONIBLE_A_DATE_HISTORIQUE_COURT",
-        "commentaire": "Historique IPO archivé plus court que la fenêtre requise au 03/11/2026; durée antérieure à la cotation inexistante.",
+        "unite": "pct",
+        "periode": "historique ajusté au 2026-11-06",
+        "date_source": "2026-11-06",
+        "source_url": "https://query1.finance.yahoo.com/v8/finance/chart/ALIEV.PA?range=5y&interval=1d&events=div%2Csplits",
+        "statut": "HISTORIQUE_INSUFFISANT_AVANT_COTATION",
+        "commentaire": "Calcul reproductible 10Q; ancrage dernière séance <= date calendaire cible, aucune période pré-IPO extrapolée.",
+        "date_collecte": "2026-11-09",
         "recherche": {
-          "date": "2026-11-04",
-          "statut": "INDISPONIBLE_A_DATE_HISTORIQUE_COURT",
-          "motif": "Historique IPO archivé plus court que la fenêtre requise au 03/11/2026; durée antérieure à la cotation inexistante.",
+          "date": "2026-11-09",
+          "statut": "HISTORIQUE_INSUFFISANT_AVANT_COTATION",
+          "motif": "Calcul reproductible 10Q; ancrage dernière séance <= date calendaire cible, aucune période pré-IPO extrapolée.",
           "journal": "journal_recherches"
-        },
-        "date_collecte": "2026-11-04"
+        }
       }
     },
     "diversification": {
@@ -1085,34 +1085,24 @@
         "date_collecte": "2026-11-04"
       },
       "interet_strategique": {
-        "valeur": null,
-        "unite": null,
-        "periode": null,
-        "date_source": null,
-        "source_url": null,
-        "statut": "A_COLLECTER",
-        "commentaire": null,
-        "recherche": {
-          "date": "2026-11-04",
-          "statut": "MANQUANT_RECHERCHE_NON_CLOSE",
-          "motif": "Analyse MCPA/IPS argumentée encore nécessaire; ce champ ne doit pas être rempli par une statistique de fournisseur.",
-          "journal": "journal_recherches"
-        }
+        "valeur": "Beauté et services fortement diversifiants.",
+        "unite": "analyse",
+        "periode": "cohorte 40 titulaires",
+        "date_source": "2026-11-09",
+        "source_url": "https://bdif.amf-france.org/back/api/v1/informations?Jetons=RS00008533&TypesInformation=DD&DateDebut=2026-01-01T00%3A00%3A00.000Z&DateFin=2026-11-05T23%3A59%3A59.000Z&From=0&Size=100 | https://stockanalysis.com/quote/epa/ALIEV/financials/ | https://stockanalysis.com/quote/epa/ALIEV/statistics/ | https://www.eqs-news.com/news/regulatory-circuit-france/ieva-group-ieva-group-publie-ses-premiers-resultats-semestriels-en-tres-forte-hausse/0cda8815-6371-47eb-8fcb-9699eb7a529e_fr",
+        "statut": "JUGEMENT_ANALYSTE",
+        "commentaire": "Diversification sectorielle, sans garantie de décorrélation en crise.",
+        "date_collecte": "2026-11-09"
       },
       "complementarite_portefeuille": {
-        "valeur": null,
-        "unite": null,
-        "periode": null,
-        "date_source": null,
-        "source_url": null,
-        "statut": "A_COLLECTER",
-        "commentaire": null,
-        "recherche": {
-          "date": "2026-11-04",
-          "statut": "MANQUANT_RECHERCHE_NON_CLOSE",
-          "motif": "Analyse MCPA/IPS argumentée encore nécessaire; ce champ ne doit pas être rempli par une statistique de fournisseur.",
-          "journal": "journal_recherches"
-        }
+        "valeur": "Beauté et services fortement diversifiants.",
+        "unite": "analyse",
+        "periode": "cohorte 40 titulaires",
+        "date_source": "2026-11-09",
+        "source_url": "https://bdif.amf-france.org/back/api/v1/informations?Jetons=RS00008533&TypesInformation=DD&DateDebut=2026-01-01T00%3A00%3A00.000Z&DateFin=2026-11-05T23%3A59%3A59.000Z&From=0&Size=100 | https://stockanalysis.com/quote/epa/ALIEV/financials/ | https://stockanalysis.com/quote/epa/ALIEV/statistics/ | https://www.eqs-news.com/news/regulatory-circuit-france/ieva-group-ieva-group-publie-ses-premiers-resultats-semestriels-en-tres-forte-hausse/0cda8815-6371-47eb-8fcb-9699eb7a529e_fr",
+        "statut": "JUGEMENT_ANALYSTE",
+        "commentaire": "Diversification sectorielle, sans garantie de décorrélation en crise.",
+        "date_collecte": "2026-11-09"
       }
     },
     "complements": {
@@ -1132,49 +1122,34 @@
         }
       },
       "ic_sur_5": {
-        "valeur": null,
-        "unite": null,
-        "periode": null,
-        "date_source": null,
-        "source_url": null,
-        "statut": "A_COLLECTER",
-        "commentaire": null,
-        "recherche": {
-          "date": "2026-11-04",
-          "statut": "MANQUANT_RECHERCHE_NON_CLOSE",
-          "motif": "Analyse MCPA/IPS argumentée encore nécessaire; ce champ ne doit pas être rempli par une statistique de fournisseur.",
-          "journal": "journal_recherches"
-        }
+        "valeur": 2.5,
+        "unite": "note/5",
+        "periode": "analyse au 2026-11-09",
+        "date_source": "2026-11-09",
+        "source_url": "https://bdif.amf-france.org/back/api/v1/informations?Jetons=RS00008533&TypesInformation=DD&DateDebut=2026-01-01T00%3A00%3A00.000Z&DateFin=2026-11-05T23%3A59%3A59.000Z&From=0&Size=100 | https://stockanalysis.com/quote/epa/ALIEV/financials/ | https://stockanalysis.com/quote/epa/ALIEV/statistics/ | https://www.eqs-news.com/news/regulatory-circuit-france/ieva-group-ieva-group-publie-ses-premiers-resultats-semestriels-en-tres-forte-hausse/0cda8815-6371-47eb-8fcb-9699eb7a529e_fr",
+        "statut": "ANALYSE_PROVISOIRE_DOCUMENTEE",
+        "commentaire": "MM200 et douze mois non observables avant l'IPO; cash levé non opérationnel. Aucune opération autorisée.",
+        "date_collecte": "2026-11-09"
       },
       "cx_sur_5": {
-        "valeur": null,
-        "unite": null,
-        "periode": null,
-        "date_source": null,
-        "source_url": null,
-        "statut": "A_COLLECTER",
-        "commentaire": null,
-        "recherche": {
-          "date": "2026-11-04",
-          "statut": "MANQUANT_RECHERCHE_NON_CLOSE",
-          "motif": "Analyse MCPA/IPS argumentée encore nécessaire; ce champ ne doit pas être rempli par une statistique de fournisseur.",
-          "journal": "journal_recherches"
-        }
+        "valeur": 3.0,
+        "unite": "note/5",
+        "periode": "analyse au 2026-11-09",
+        "date_source": "2026-11-09",
+        "source_url": "https://bdif.amf-france.org/back/api/v1/informations?Jetons=RS00008533&TypesInformation=DD&DateDebut=2026-01-01T00%3A00%3A00.000Z&DateFin=2026-11-05T23%3A59%3A59.000Z&From=0&Size=100 | https://stockanalysis.com/quote/epa/ALIEV/financials/ | https://stockanalysis.com/quote/epa/ALIEV/statistics/ | https://www.eqs-news.com/news/regulatory-circuit-france/ieva-group-ieva-group-publie-ses-premiers-resultats-semestriels-en-tres-forte-hausse/0cda8815-6371-47eb-8fcb-9699eb7a529e_fr",
+        "statut": "ANALYSE_PROVISOIRE_DOCUMENTEE",
+        "commentaire": "MM200 et douze mois non observables avant l'IPO; cash levé non opérationnel. Aucune opération autorisée.",
+        "date_collecte": "2026-11-09"
       },
       "delta": {
-        "valeur": null,
-        "unite": null,
-        "periode": null,
-        "date_source": null,
-        "source_url": null,
-        "statut": "A_COLLECTER",
-        "commentaire": null,
-        "recherche": {
-          "date": "2026-11-04",
-          "statut": "MANQUANT_RECHERCHE_NON_CLOSE",
-          "motif": "Analyse MCPA/IPS argumentée encore nécessaire; ce champ ne doit pas être rempli par une statistique de fournisseur.",
-          "journal": "journal_recherches"
-        }
+        "valeur": "MIXTE_SOUS_REVUE",
+        "unite": "texte",
+        "periode": "analyse au 2026-11-09",
+        "date_source": "2026-11-09",
+        "source_url": "https://bdif.amf-france.org/back/api/v1/informations?Jetons=RS00008533&TypesInformation=DD&DateDebut=2026-01-01T00%3A00%3A00.000Z&DateFin=2026-11-05T23%3A59%3A59.000Z&From=0&Size=100 | https://stockanalysis.com/quote/epa/ALIEV/financials/ | https://stockanalysis.com/quote/epa/ALIEV/statistics/ | https://www.eqs-news.com/news/regulatory-circuit-france/ieva-group-ieva-group-publie-ses-premiers-resultats-semestriels-en-tres-forte-hausse/0cda8815-6371-47eb-8fcb-9699eb7a529e_fr",
+        "statut": "ANALYSE_PROVISOIRE_DOCUMENTEE",
+        "commentaire": "MM200 et douze mois non observables avant l'IPO; cash levé non opérationnel. Aucune opération autorisée.",
+        "date_collecte": "2026-11-09"
       },
       "wwws": {
         "valeur": null,
@@ -1192,244 +1167,164 @@
         }
       },
       "scenario_bear_3m_pct": {
-        "valeur": null,
-        "unite": null,
-        "periode": null,
-        "date_source": null,
-        "source_url": null,
-        "statut": "A_COLLECTER",
-        "commentaire": null,
-        "recherche": {
-          "date": "2026-11-04",
-          "statut": "MANQUANT_RECHERCHE_NON_CLOSE",
-          "motif": "Analyse MCPA/IPS argumentée encore nécessaire; ce champ ne doit pas être rempli par une statistique de fournisseur.",
-          "journal": "journal_recherches"
-        }
+        "valeur": -30.0,
+        "unite": "pct",
+        "periode": "3 mois depuis 2026-11-06",
+        "date_source": "2026-11-09",
+        "source_url": "https://bdif.amf-france.org/back/api/v1/informations?Jetons=RS00008533&TypesInformation=DD&DateDebut=2026-01-01T00%3A00%3A00.000Z&DateFin=2026-11-05T23%3A59%3A59.000Z&From=0&Size=100 | https://stockanalysis.com/quote/epa/ALIEV/financials/ | https://stockanalysis.com/quote/epa/ALIEV/statistics/ | https://www.eqs-news.com/news/regulatory-circuit-france/ieva-group-ieva-group-publie-ses-premiers-resultats-semestriels-en-tres-forte-hausse/0cda8815-6371-47eb-8fcb-9699eb7a529e_fr",
+        "statut": "HYPOTHESE_PROSPECTIVE_ANALYSTE",
+        "commentaire": "Synergies faibles et cash consommé. MM200 et douze mois non observables avant l'IPO; cash levé non opérationnel.",
+        "date_collecte": "2026-11-09"
       },
       "prob_bear_3m_pct": {
-        "valeur": null,
-        "unite": null,
-        "periode": null,
-        "date_source": null,
-        "source_url": null,
-        "statut": "A_COLLECTER",
-        "commentaire": null,
-        "recherche": {
-          "date": "2026-11-04",
-          "statut": "MANQUANT_RECHERCHE_NON_CLOSE",
-          "motif": "Analyse MCPA/IPS argumentée encore nécessaire; ce champ ne doit pas être rempli par une statistique de fournisseur.",
-          "journal": "journal_recherches"
-        }
+        "valeur": 35.0,
+        "unite": "pct",
+        "periode": "probabilité subjective 3 mois",
+        "date_source": "2026-11-09",
+        "source_url": "https://bdif.amf-france.org/back/api/v1/informations?Jetons=RS00008533&TypesInformation=DD&DateDebut=2026-01-01T00%3A00%3A00.000Z&DateFin=2026-11-05T23%3A59%3A59.000Z&From=0&Size=100 | https://stockanalysis.com/quote/epa/ALIEV/financials/ | https://stockanalysis.com/quote/epa/ALIEV/statistics/ | https://www.eqs-news.com/news/regulatory-circuit-france/ieva-group-ieva-group-publie-ses-premiers-resultats-semestriels-en-tres-forte-hausse/0cda8815-6371-47eb-8fcb-9699eb7a529e_fr",
+        "statut": "PROBABILITE_SUBJECTIVE_NON_CALIBREE",
+        "commentaire": "Pondération par jugement du risque et des opportunités décrits; aucune fréquence statistique. Incertitude au moins +/-10 points. MM200 et douze mois non observables avant l'IPO; cash levé non opérationnel.",
+        "date_collecte": "2026-11-09"
       },
       "scenario_central_3m_pct": {
-        "valeur": null,
-        "unite": null,
-        "periode": null,
-        "date_source": null,
-        "source_url": null,
-        "statut": "A_COLLECTER",
-        "commentaire": null,
-        "recherche": {
-          "date": "2026-11-04",
-          "statut": "MANQUANT_RECHERCHE_NON_CLOSE",
-          "motif": "Analyse MCPA/IPS argumentée encore nécessaire; ce champ ne doit pas être rempli par une statistique de fournisseur.",
-          "journal": "journal_recherches"
-        }
+        "valeur": 5.0,
+        "unite": "pct",
+        "periode": "3 mois depuis 2026-11-06",
+        "date_source": "2026-11-09",
+        "source_url": "https://bdif.amf-france.org/back/api/v1/informations?Jetons=RS00008533&TypesInformation=DD&DateDebut=2026-01-01T00%3A00%3A00.000Z&DateFin=2026-11-05T23%3A59%3A59.000Z&From=0&Size=100 | https://stockanalysis.com/quote/epa/ALIEV/financials/ | https://stockanalysis.com/quote/epa/ALIEV/statistics/ | https://www.eqs-news.com/news/regulatory-circuit-france/ieva-group-ieva-group-publie-ses-premiers-resultats-semestriels-en-tres-forte-hausse/0cda8815-6371-47eb-8fcb-9699eb7a529e_fr",
+        "statut": "HYPOTHESE_PROSPECTIVE_ANALYSTE",
+        "commentaire": "Intégration et équilibre progressifs. MM200 et douze mois non observables avant l'IPO; cash levé non opérationnel.",
+        "date_collecte": "2026-11-09"
       },
       "prob_central_3m_pct": {
-        "valeur": null,
-        "unite": null,
-        "periode": null,
-        "date_source": null,
-        "source_url": null,
-        "statut": "A_COLLECTER",
-        "commentaire": null,
-        "recherche": {
-          "date": "2026-11-04",
-          "statut": "MANQUANT_RECHERCHE_NON_CLOSE",
-          "motif": "Analyse MCPA/IPS argumentée encore nécessaire; ce champ ne doit pas être rempli par une statistique de fournisseur.",
-          "journal": "journal_recherches"
-        }
+        "valeur": 40.0,
+        "unite": "pct",
+        "periode": "probabilité subjective 3 mois",
+        "date_source": "2026-11-09",
+        "source_url": "https://bdif.amf-france.org/back/api/v1/informations?Jetons=RS00008533&TypesInformation=DD&DateDebut=2026-01-01T00%3A00%3A00.000Z&DateFin=2026-11-05T23%3A59%3A59.000Z&From=0&Size=100 | https://stockanalysis.com/quote/epa/ALIEV/financials/ | https://stockanalysis.com/quote/epa/ALIEV/statistics/ | https://www.eqs-news.com/news/regulatory-circuit-france/ieva-group-ieva-group-publie-ses-premiers-resultats-semestriels-en-tres-forte-hausse/0cda8815-6371-47eb-8fcb-9699eb7a529e_fr",
+        "statut": "PROBABILITE_SUBJECTIVE_NON_CALIBREE",
+        "commentaire": "Pondération par jugement du risque et des opportunités décrits; aucune fréquence statistique. Incertitude au moins +/-10 points. MM200 et douze mois non observables avant l'IPO; cash levé non opérationnel.",
+        "date_collecte": "2026-11-09"
       },
       "scenario_bull_3m_pct": {
-        "valeur": null,
-        "unite": null,
-        "periode": null,
-        "date_source": null,
-        "source_url": null,
-        "statut": "A_COLLECTER",
-        "commentaire": null,
-        "recherche": {
-          "date": "2026-11-04",
-          "statut": "MANQUANT_RECHERCHE_NON_CLOSE",
-          "motif": "Analyse MCPA/IPS argumentée encore nécessaire; ce champ ne doit pas être rempli par une statistique de fournisseur.",
-          "journal": "journal_recherches"
-        }
+        "valeur": 35.0,
+        "unite": "pct",
+        "periode": "3 mois depuis 2026-11-06",
+        "date_source": "2026-11-09",
+        "source_url": "https://bdif.amf-france.org/back/api/v1/informations?Jetons=RS00008533&TypesInformation=DD&DateDebut=2026-01-01T00%3A00%3A00.000Z&DateFin=2026-11-05T23%3A59%3A59.000Z&From=0&Size=100 | https://stockanalysis.com/quote/epa/ALIEV/financials/ | https://stockanalysis.com/quote/epa/ALIEV/statistics/ | https://www.eqs-news.com/news/regulatory-circuit-france/ieva-group-ieva-group-publie-ses-premiers-resultats-semestriels-en-tres-forte-hausse/0cda8815-6371-47eb-8fcb-9699eb7a529e_fr",
+        "statut": "HYPOTHESE_PROSPECTIVE_ANALYSTE",
+        "commentaire": "Synergies et organique améliorées. MM200 et douze mois non observables avant l'IPO; cash levé non opérationnel.",
+        "date_collecte": "2026-11-09"
       },
       "prob_bull_3m_pct": {
-        "valeur": null,
-        "unite": null,
-        "periode": null,
-        "date_source": null,
-        "source_url": null,
-        "statut": "A_COLLECTER",
-        "commentaire": null,
-        "recherche": {
-          "date": "2026-11-04",
-          "statut": "MANQUANT_RECHERCHE_NON_CLOSE",
-          "motif": "Analyse MCPA/IPS argumentée encore nécessaire; ce champ ne doit pas être rempli par une statistique de fournisseur.",
-          "journal": "journal_recherches"
-        }
+        "valeur": 25.0,
+        "unite": "pct",
+        "periode": "probabilité subjective 3 mois",
+        "date_source": "2026-11-09",
+        "source_url": "https://bdif.amf-france.org/back/api/v1/informations?Jetons=RS00008533&TypesInformation=DD&DateDebut=2026-01-01T00%3A00%3A00.000Z&DateFin=2026-11-05T23%3A59%3A59.000Z&From=0&Size=100 | https://stockanalysis.com/quote/epa/ALIEV/financials/ | https://stockanalysis.com/quote/epa/ALIEV/statistics/ | https://www.eqs-news.com/news/regulatory-circuit-france/ieva-group-ieva-group-publie-ses-premiers-resultats-semestriels-en-tres-forte-hausse/0cda8815-6371-47eb-8fcb-9699eb7a529e_fr",
+        "statut": "PROBABILITE_SUBJECTIVE_NON_CALIBREE",
+        "commentaire": "Pondération par jugement du risque et des opportunités décrits; aucune fréquence statistique. Incertitude au moins +/-10 points. MM200 et douze mois non observables avant l'IPO; cash levé non opérationnel.",
+        "date_collecte": "2026-11-09"
       },
       "scenario_bear_6m_pct": {
-        "valeur": null,
-        "unite": null,
-        "periode": null,
-        "date_source": null,
-        "source_url": null,
-        "statut": "A_COLLECTER",
-        "commentaire": null,
-        "recherche": {
-          "date": "2026-11-04",
-          "statut": "MANQUANT_RECHERCHE_NON_CLOSE",
-          "motif": "Analyse MCPA/IPS argumentée encore nécessaire; ce champ ne doit pas être rempli par une statistique de fournisseur.",
-          "journal": "journal_recherches"
-        }
+        "valeur": -45.0,
+        "unite": "pct",
+        "periode": "6 mois depuis 2026-11-06",
+        "date_source": "2026-11-09",
+        "source_url": "https://bdif.amf-france.org/back/api/v1/informations?Jetons=RS00008533&TypesInformation=DD&DateDebut=2026-01-01T00%3A00%3A00.000Z&DateFin=2026-11-05T23%3A59%3A59.000Z&From=0&Size=100 | https://stockanalysis.com/quote/epa/ALIEV/financials/ | https://stockanalysis.com/quote/epa/ALIEV/statistics/ | https://www.eqs-news.com/news/regulatory-circuit-france/ieva-group-ieva-group-publie-ses-premiers-resultats-semestriels-en-tres-forte-hausse/0cda8815-6371-47eb-8fcb-9699eb7a529e_fr",
+        "statut": "HYPOTHESE_PROSPECTIVE_ANALYSTE",
+        "commentaire": "Synergies faibles et cash consommé. MM200 et douze mois non observables avant l'IPO; cash levé non opérationnel.",
+        "date_collecte": "2026-11-09"
       },
       "prob_bear_6m_pct": {
-        "valeur": null,
-        "unite": null,
-        "periode": null,
-        "date_source": null,
-        "source_url": null,
-        "statut": "A_COLLECTER",
-        "commentaire": null,
-        "recherche": {
-          "date": "2026-11-04",
-          "statut": "MANQUANT_RECHERCHE_NON_CLOSE",
-          "motif": "Analyse MCPA/IPS argumentée encore nécessaire; ce champ ne doit pas être rempli par une statistique de fournisseur.",
-          "journal": "journal_recherches"
-        }
+        "valeur": 35.0,
+        "unite": "pct",
+        "periode": "probabilité subjective 6 mois",
+        "date_source": "2026-11-09",
+        "source_url": "https://bdif.amf-france.org/back/api/v1/informations?Jetons=RS00008533&TypesInformation=DD&DateDebut=2026-01-01T00%3A00%3A00.000Z&DateFin=2026-11-05T23%3A59%3A59.000Z&From=0&Size=100 | https://stockanalysis.com/quote/epa/ALIEV/financials/ | https://stockanalysis.com/quote/epa/ALIEV/statistics/ | https://www.eqs-news.com/news/regulatory-circuit-france/ieva-group-ieva-group-publie-ses-premiers-resultats-semestriels-en-tres-forte-hausse/0cda8815-6371-47eb-8fcb-9699eb7a529e_fr",
+        "statut": "PROBABILITE_SUBJECTIVE_NON_CALIBREE",
+        "commentaire": "Pondération par jugement du risque et des opportunités décrits; aucune fréquence statistique. Incertitude au moins +/-10 points. MM200 et douze mois non observables avant l'IPO; cash levé non opérationnel.",
+        "date_collecte": "2026-11-09"
       },
       "scenario_central_6m_pct": {
-        "valeur": null,
-        "unite": null,
-        "periode": null,
-        "date_source": null,
-        "source_url": null,
-        "statut": "A_COLLECTER",
-        "commentaire": null,
-        "recherche": {
-          "date": "2026-11-04",
-          "statut": "MANQUANT_RECHERCHE_NON_CLOSE",
-          "motif": "Analyse MCPA/IPS argumentée encore nécessaire; ce champ ne doit pas être rempli par une statistique de fournisseur.",
-          "journal": "journal_recherches"
-        }
+        "valeur": 15.0,
+        "unite": "pct",
+        "periode": "6 mois depuis 2026-11-06",
+        "date_source": "2026-11-09",
+        "source_url": "https://bdif.amf-france.org/back/api/v1/informations?Jetons=RS00008533&TypesInformation=DD&DateDebut=2026-01-01T00%3A00%3A00.000Z&DateFin=2026-11-05T23%3A59%3A59.000Z&From=0&Size=100 | https://stockanalysis.com/quote/epa/ALIEV/financials/ | https://stockanalysis.com/quote/epa/ALIEV/statistics/ | https://www.eqs-news.com/news/regulatory-circuit-france/ieva-group-ieva-group-publie-ses-premiers-resultats-semestriels-en-tres-forte-hausse/0cda8815-6371-47eb-8fcb-9699eb7a529e_fr",
+        "statut": "HYPOTHESE_PROSPECTIVE_ANALYSTE",
+        "commentaire": "Intégration et équilibre progressifs. MM200 et douze mois non observables avant l'IPO; cash levé non opérationnel.",
+        "date_collecte": "2026-11-09"
       },
       "prob_central_6m_pct": {
-        "valeur": null,
-        "unite": null,
-        "periode": null,
-        "date_source": null,
-        "source_url": null,
-        "statut": "A_COLLECTER",
-        "commentaire": null,
-        "recherche": {
-          "date": "2026-11-04",
-          "statut": "MANQUANT_RECHERCHE_NON_CLOSE",
-          "motif": "Analyse MCPA/IPS argumentée encore nécessaire; ce champ ne doit pas être rempli par une statistique de fournisseur.",
-          "journal": "journal_recherches"
-        }
+        "valeur": 35.0,
+        "unite": "pct",
+        "periode": "probabilité subjective 6 mois",
+        "date_source": "2026-11-09",
+        "source_url": "https://bdif.amf-france.org/back/api/v1/informations?Jetons=RS00008533&TypesInformation=DD&DateDebut=2026-01-01T00%3A00%3A00.000Z&DateFin=2026-11-05T23%3A59%3A59.000Z&From=0&Size=100 | https://stockanalysis.com/quote/epa/ALIEV/financials/ | https://stockanalysis.com/quote/epa/ALIEV/statistics/ | https://www.eqs-news.com/news/regulatory-circuit-france/ieva-group-ieva-group-publie-ses-premiers-resultats-semestriels-en-tres-forte-hausse/0cda8815-6371-47eb-8fcb-9699eb7a529e_fr",
+        "statut": "PROBABILITE_SUBJECTIVE_NON_CALIBREE",
+        "commentaire": "Pondération par jugement du risque et des opportunités décrits; aucune fréquence statistique. Incertitude au moins +/-10 points. MM200 et douze mois non observables avant l'IPO; cash levé non opérationnel.",
+        "date_collecte": "2026-11-09"
       },
       "scenario_bull_6m_pct": {
-        "valeur": null,
-        "unite": null,
-        "periode": null,
-        "date_source": null,
-        "source_url": null,
-        "statut": "A_COLLECTER",
-        "commentaire": null,
-        "recherche": {
-          "date": "2026-11-04",
-          "statut": "MANQUANT_RECHERCHE_NON_CLOSE",
-          "motif": "Analyse MCPA/IPS argumentée encore nécessaire; ce champ ne doit pas être rempli par une statistique de fournisseur.",
-          "journal": "journal_recherches"
-        }
+        "valeur": 60.0,
+        "unite": "pct",
+        "periode": "6 mois depuis 2026-11-06",
+        "date_source": "2026-11-09",
+        "source_url": "https://bdif.amf-france.org/back/api/v1/informations?Jetons=RS00008533&TypesInformation=DD&DateDebut=2026-01-01T00%3A00%3A00.000Z&DateFin=2026-11-05T23%3A59%3A59.000Z&From=0&Size=100 | https://stockanalysis.com/quote/epa/ALIEV/financials/ | https://stockanalysis.com/quote/epa/ALIEV/statistics/ | https://www.eqs-news.com/news/regulatory-circuit-france/ieva-group-ieva-group-publie-ses-premiers-resultats-semestriels-en-tres-forte-hausse/0cda8815-6371-47eb-8fcb-9699eb7a529e_fr",
+        "statut": "HYPOTHESE_PROSPECTIVE_ANALYSTE",
+        "commentaire": "Synergies et organique améliorées. MM200 et douze mois non observables avant l'IPO; cash levé non opérationnel.",
+        "date_collecte": "2026-11-09"
       },
       "prob_bull_6m_pct": {
-        "valeur": null,
-        "unite": null,
-        "periode": null,
-        "date_source": null,
-        "source_url": null,
-        "statut": "A_COLLECTER",
-        "commentaire": null,
-        "recherche": {
-          "date": "2026-11-04",
-          "statut": "MANQUANT_RECHERCHE_NON_CLOSE",
-          "motif": "Analyse MCPA/IPS argumentée encore nécessaire; ce champ ne doit pas être rempli par une statistique de fournisseur.",
-          "journal": "journal_recherches"
-        }
+        "valeur": 30.0,
+        "unite": "pct",
+        "periode": "probabilité subjective 6 mois",
+        "date_source": "2026-11-09",
+        "source_url": "https://bdif.amf-france.org/back/api/v1/informations?Jetons=RS00008533&TypesInformation=DD&DateDebut=2026-01-01T00%3A00%3A00.000Z&DateFin=2026-11-05T23%3A59%3A59.000Z&From=0&Size=100 | https://stockanalysis.com/quote/epa/ALIEV/financials/ | https://stockanalysis.com/quote/epa/ALIEV/statistics/ | https://www.eqs-news.com/news/regulatory-circuit-france/ieva-group-ieva-group-publie-ses-premiers-resultats-semestriels-en-tres-forte-hausse/0cda8815-6371-47eb-8fcb-9699eb7a529e_fr",
+        "statut": "PROBABILITE_SUBJECTIVE_NON_CALIBREE",
+        "commentaire": "Pondération par jugement du risque et des opportunités décrits; aucune fréquence statistique. Incertitude au moins +/-10 points. MM200 et douze mois non observables avant l'IPO; cash levé non opérationnel.",
+        "date_collecte": "2026-11-09"
       },
       "role_ips": {
-        "valeur": null,
-        "unite": null,
-        "periode": null,
-        "date_source": null,
-        "source_url": null,
-        "statut": "A_COLLECTER",
-        "commentaire": null,
-        "recherche": {
-          "date": "2026-11-04",
-          "statut": "MANQUANT_RECHERCHE_NON_CLOSE",
-          "motif": "Analyse MCPA/IPS argumentée encore nécessaire; ce champ ne doit pas être rempli par une statistique de fournisseur.",
-          "journal": "journal_recherches"
-        }
+        "valeur": "INCUBATION_VIRTUELLE_SOUS_REVUE",
+        "unite": "texte",
+        "periode": "analyse au 2026-11-09",
+        "date_source": "2026-11-09",
+        "source_url": "https://bdif.amf-france.org/back/api/v1/informations?Jetons=RS00008533&TypesInformation=DD&DateDebut=2026-01-01T00%3A00%3A00.000Z&DateFin=2026-11-05T23%3A59%3A59.000Z&From=0&Size=100 | https://stockanalysis.com/quote/epa/ALIEV/financials/ | https://stockanalysis.com/quote/epa/ALIEV/statistics/ | https://www.eqs-news.com/news/regulatory-circuit-france/ieva-group-ieva-group-publie-ses-premiers-resultats-semestriels-en-tres-forte-hausse/0cda8815-6371-47eb-8fcb-9699eb7a529e_fr",
+        "statut": "ANALYSE_PROVISOIRE_DOCUMENTEE",
+        "commentaire": "MM200 et douze mois non observables avant l'IPO; cash levé non opérationnel. Aucune opération autorisée.",
+        "date_collecte": "2026-11-09"
       },
       "decision": {
-        "valeur": null,
-        "unite": null,
-        "periode": null,
-        "date_source": null,
-        "source_url": null,
-        "statut": "A_COLLECTER",
-        "commentaire": null,
-        "recherche": {
-          "date": "2026-11-04",
-          "statut": "MANQUANT_RECHERCHE_NON_CLOSE",
-          "motif": "Analyse MCPA/IPS argumentée encore nécessaire; ce champ ne doit pas être rempli par une statistique de fournisseur.",
-          "journal": "journal_recherches"
-        }
+        "valeur": "ATTENTE",
+        "unite": "texte",
+        "periode": "analyse au 2026-11-09",
+        "date_source": "2026-11-09",
+        "source_url": "https://bdif.amf-france.org/back/api/v1/informations?Jetons=RS00008533&TypesInformation=DD&DateDebut=2026-01-01T00%3A00%3A00.000Z&DateFin=2026-11-05T23%3A59%3A59.000Z&From=0&Size=100 | https://stockanalysis.com/quote/epa/ALIEV/financials/ | https://stockanalysis.com/quote/epa/ALIEV/statistics/ | https://www.eqs-news.com/news/regulatory-circuit-france/ieva-group-ieva-group-publie-ses-premiers-resultats-semestriels-en-tres-forte-hausse/0cda8815-6371-47eb-8fcb-9699eb7a529e_fr",
+        "statut": "ANALYSE_PROVISOIRE_DOCUMENTEE",
+        "commentaire": "MM200 et douze mois non observables avant l'IPO; cash levé non opérationnel. Aucune opération autorisée.",
+        "date_collecte": "2026-11-09"
       },
       "condition_renforcement": {
-        "valeur": null,
-        "unite": null,
-        "periode": null,
-        "date_source": null,
-        "source_url": null,
-        "statut": "A_COLLECTER",
-        "commentaire": null,
-        "recherche": {
-          "date": "2026-11-04",
-          "statut": "MANQUANT_RECHERCHE_NON_CLOSE",
-          "motif": "Analyse MCPA/IPS argumentée encore nécessaire; ce champ ne doit pas être rempli par une statistique de fournisseur.",
-          "journal": "journal_recherches"
-        }
+        "valeur": "SSI documenté >=65, MCPA >=80, IC >=3,5, données rapprochées, revue stricte valide et duel favorable après frais.",
+        "unite": "texte",
+        "periode": "analyse au 2026-11-09",
+        "date_source": "2026-11-09",
+        "source_url": "https://bdif.amf-france.org/back/api/v1/informations?Jetons=RS00008533&TypesInformation=DD&DateDebut=2026-01-01T00%3A00%3A00.000Z&DateFin=2026-11-05T23%3A59%3A59.000Z&From=0&Size=100 | https://stockanalysis.com/quote/epa/ALIEV/financials/ | https://stockanalysis.com/quote/epa/ALIEV/statistics/ | https://www.eqs-news.com/news/regulatory-circuit-france/ieva-group-ieva-group-publie-ses-premiers-resultats-semestriels-en-tres-forte-hausse/0cda8815-6371-47eb-8fcb-9699eb7a529e_fr",
+        "statut": "ANALYSE_PROVISOIRE_DOCUMENTEE",
+        "commentaire": "MM200 et douze mois non observables avant l'IPO; cash levé non opérationnel. Aucune opération autorisée.",
+        "date_collecte": "2026-11-09"
       },
       "condition_allegement_sortie": {
-        "valeur": null,
-        "unite": null,
-        "periode": null,
-        "date_source": null,
-        "source_url": null,
-        "statut": "A_COLLECTER",
-        "commentaire": null,
-        "recherche": {
-          "date": "2026-11-04",
-          "statut": "MANQUANT_RECHERCHE_NON_CLOSE",
-          "motif": "Analyse MCPA/IPS argumentée encore nécessaire; ce champ ne doit pas être rempli par une statistique de fournisseur.",
-          "journal": "journal_recherches"
-        }
+        "valeur": "Synergies faibles et cash consommé. Contrôle des coûts et de la liquidité avant décision virtuelle.",
+        "unite": "texte",
+        "periode": "analyse au 2026-11-09",
+        "date_source": "2026-11-09",
+        "source_url": "https://bdif.amf-france.org/back/api/v1/informations?Jetons=RS00008533&TypesInformation=DD&DateDebut=2026-01-01T00%3A00%3A00.000Z&DateFin=2026-11-05T23%3A59%3A59.000Z&From=0&Size=100 | https://stockanalysis.com/quote/epa/ALIEV/financials/ | https://stockanalysis.com/quote/epa/ALIEV/statistics/ | https://www.eqs-news.com/news/regulatory-circuit-france/ieva-group-ieva-group-publie-ses-premiers-resultats-semestriels-en-tres-forte-hausse/0cda8815-6371-47eb-8fcb-9699eb7a529e_fr",
+        "statut": "ANALYSE_PROVISOIRE_DOCUMENTEE",
+        "commentaire": "MM200 et douze mois non observables avant l'IPO; cash levé non opérationnel. Aucune opération autorisée.",
+        "date_collecte": "2026-11-09"
       },
       "challengers_compares": {
         "valeur": null,
@@ -1458,23 +1353,31 @@
       "diversification": 10
     },
     "notes": {
-      "qualite": null,
-      "valorisation": null,
-      "croissance": null,
-      "risque": null,
-      "momentum": null,
-      "diversification": null
+      "qualite": 16.0,
+      "valorisation": 9.0,
+      "croissance": 13.0,
+      "risque": 5.0,
+      "momentum": 0,
+      "diversification": 9.0
     },
-    "total_mcpa": null,
-    "statut": "NON_VALIDEE",
+    "total_mcpa": 52.0,
+    "statut": "DOCUMENTEE_NON_VALIDEE",
     "justifications": {
-      "qualite": null,
-      "valorisation": null,
-      "croissance": null,
-      "risque": null,
-      "momentum": null,
-      "diversification": null
-    }
+      "qualite": "Marge brute élevée, intégration et équilibre ajusté.",
+      "valorisation": "Ventes à périmètre stabilisé, bénéfices insuffisants.",
+      "croissance": "S1 +145,4 % publié, +3,9 % organique.",
+      "risque": "Cash post-IPO, consommation opérationnelle et historique court.",
+      "diversification": "Beauté et services fortement diversifiants.",
+      "momentum": "Grille explicite au 2026-11-06: 0/10, 4 points non observables. Absence d'historique distincte d'un signal baissier; score provisoire si incomplet."
+    },
+    "date_analyse": "2026-11-09",
+    "sources": [
+      "https://bdif.amf-france.org/back/api/v1/informations?Jetons=RS00008533&TypesInformation=DD&DateDebut=2026-01-01T00%3A00%3A00.000Z&DateFin=2026-11-05T23%3A59%3A59.000Z&From=0&Size=100",
+      "https://stockanalysis.com/quote/epa/ALIEV/financials/",
+      "https://stockanalysis.com/quote/epa/ALIEV/statistics/",
+      "https://www.eqs-news.com/news/regulatory-circuit-france/ieva-group-ieva-group-publie-ses-premiers-resultats-semestriels-en-tres-forte-hausse/0cda8815-6371-47eb-8fcb-9699eb7a529e_fr"
+    ],
+    "limite": "Notes discrétionnaires provisoires; multiples secondaires à rapprocher, SSI et revue stricte obligatoires. Grille momentum locale ne modifiant pas le maître."
   },
   "preuves_complementaires": [
     {
@@ -2760,7 +2663,7 @@
   "anomalies": [
     "HISTORIQUE_COURT_IPO: MM200 et momentum12m non calculables avec les données archivées."
   ],
-  "statut_fiche": "ENRICHIE_NON_VALIDEE",
+  "statut_fiche": "NOTEE_SCENARISEE_NON_VALIDEE",
   "arbitrage_autorise": false,
   "observations_complementaires": [
     {
@@ -3449,9 +3352,9 @@
   "audit_couverture": {
     "date": "2026-11-09",
     "champs_total": 108,
-    "champs_renseignes": 47,
-    "couverture_pct": 43.52,
-    "champs_secondaires_non_rapproches": 24,
+    "champs_renseignes": 68,
+    "couverture_pct": 62.96,
+    "champs_secondaires_non_rapproches": 32,
     "champs_manquants": [
       "identite.marche",
       "qualite.conversion_fcf_pct",
@@ -3490,45 +3393,24 @@
       "momentum.tendance_mm200",
       "momentum.drawdown_12m_pct",
       "diversification.zone_geographique",
-      "diversification.interet_strategique",
-      "diversification.complementarite_portefeuille",
       "complements.ssi",
-      "complements.ic_sur_5",
-      "complements.cx_sur_5",
-      "complements.delta",
       "complements.wwws",
-      "complements.scenario_bear_3m_pct",
-      "complements.prob_bear_3m_pct",
-      "complements.scenario_central_3m_pct",
-      "complements.prob_central_3m_pct",
-      "complements.scenario_bull_3m_pct",
-      "complements.prob_bull_3m_pct",
-      "complements.scenario_bear_6m_pct",
-      "complements.prob_bear_6m_pct",
-      "complements.scenario_central_6m_pct",
-      "complements.prob_central_6m_pct",
-      "complements.scenario_bull_6m_pct",
-      "complements.prob_bull_6m_pct",
-      "complements.role_ips",
-      "complements.decision",
-      "complements.condition_renforcement",
-      "complements.condition_allegement_sortie",
       "complements.challengers_compares"
     ],
     "indisponibilite_definitive_demontree": [],
-    "statut": "TRAITE_MAIS_INCOMPLET",
-    "cours_date_limite": "2026-11-03"
+    "statut": "ANALYSE_DOCUMENTEE_NON_CERTIFIEE",
+    "cours_date_limite": "2026-11-06"
   },
   "audit_poursuite": {
     "date": "2026-11-09",
     "comptage": {
-      "RENSEIGNE": 47,
+      "RENSEIGNE": 68,
       "NON_APPLICABLE": 8,
       "INDISPONIBLE_A_DATE": 4,
-      "RECHERCHE_A_POURSUIVRE": 49
+      "RECHERCHE_A_POURSUIVRE": 28
     },
-    "couverture_valeurs_pct": 43.52,
-    "couverture_applicable_pct": 47.0,
+    "couverture_valeurs_pct": 62.96,
+    "couverture_applicable_pct": 68.0,
     "recherches_non_closes": [
       "identite.marche",
       "qualite.concentration_clients_pct",
@@ -3555,33 +3437,872 @@
       "risque.risque_reglementaire",
       "risque.risque_concentration",
       "diversification.zone_geographique",
-      "diversification.interet_strategique",
-      "diversification.complementarite_portefeuille",
       "complements.ssi",
-      "complements.ic_sur_5",
-      "complements.cx_sur_5",
-      "complements.delta",
       "complements.wwws",
-      "complements.scenario_bear_3m_pct",
-      "complements.prob_bear_3m_pct",
-      "complements.scenario_central_3m_pct",
-      "complements.prob_central_3m_pct",
-      "complements.scenario_bull_3m_pct",
-      "complements.prob_bull_3m_pct",
-      "complements.scenario_bear_6m_pct",
-      "complements.prob_bear_6m_pct",
-      "complements.scenario_central_6m_pct",
-      "complements.prob_central_6m_pct",
-      "complements.scenario_bull_6m_pct",
-      "complements.prob_bull_6m_pct",
-      "complements.role_ips",
-      "complements.decision",
-      "complements.condition_renforcement",
-      "complements.condition_allegement_sortie",
       "complements.challengers_compares"
     ],
-    "notes_justifiees": false,
-    "validation_individuelle": "BLOQUEE_DONNEES_ET_ANALYSES_RESTANTES",
+    "notes_justifiees": true,
+    "validation_individuelle": "NOTES_SCENARIOS_DOCUMENTES_VALIDATION_REQUISE",
     "aucune_indisponibilite_definitive_presumee": true
-  }
+  },
+  "historique_relectures": [
+    {
+      "preuve_id": "ANALYSE_20261109_momentum_1m_pct",
+      "champ": "momentum.momentum_1m_pct",
+      "ancienne_cellule": {
+        "valeur": -10.596026420356253,
+        "unite": "pct",
+        "periode": "2026-10-02 / 2026-11-03",
+        "date_source": "2026-11-03",
+        "source_url": "https://query1.finance.yahoo.com/v8/finance/chart/ALIEV.PA?range=5y&interval=1d&events=div%2Csplits",
+        "statut": "CALCULE_HISTORIQUE_SECONDAIRE",
+        "commentaire": "Cours ajustés, ancrage calendaire; dernière séance <= date cible.",
+        "date_collecte": "2026-11-04"
+      },
+      "motif": "Calcul reproductible 10Q; ancrage dernière séance <= date calendaire cible, aucune période pré-IPO extrapolée.",
+      "date_relecture": "2026-11-09"
+    },
+    {
+      "preuve_id": "ANALYSE_20261109_momentum_3m_pct",
+      "champ": "momentum.momentum_3m_pct",
+      "ancienne_cellule": {
+        "valeur": -15.624999379118309,
+        "unite": "pct",
+        "periode": "2026-08-03 / 2026-11-03",
+        "date_source": "2026-11-03",
+        "source_url": "https://query1.finance.yahoo.com/v8/finance/chart/ALIEV.PA?range=5y&interval=1d&events=div%2Csplits",
+        "statut": "CALCULE_HISTORIQUE_SECONDAIRE",
+        "commentaire": "Cours ajustés, ancrage calendaire; dernière séance <= date cible.",
+        "date_collecte": "2026-11-04"
+      },
+      "motif": "Calcul reproductible 10Q; ancrage dernière séance <= date calendaire cible, aucune période pré-IPO extrapolée.",
+      "date_relecture": "2026-11-09"
+    },
+    {
+      "preuve_id": "ANALYSE_20261109_momentum_6m_pct",
+      "champ": "momentum.momentum_6m_pct",
+      "ancienne_cellule": {
+        "valeur": -14.285708518976048,
+        "unite": "pct",
+        "periode": "2026-04-30 / 2026-11-03",
+        "date_source": "2026-11-03",
+        "source_url": "https://query1.finance.yahoo.com/v8/finance/chart/ALIEV.PA?range=5y&interval=1d&events=div%2Csplits",
+        "statut": "CALCULE_HISTORIQUE_SECONDAIRE",
+        "commentaire": "Cours ajustés, ancrage calendaire; dernière séance <= date cible.",
+        "date_collecte": "2026-11-04"
+      },
+      "motif": "Calcul reproductible 10Q; ancrage dernière séance <= date calendaire cible, aucune période pré-IPO extrapolée.",
+      "date_relecture": "2026-11-09"
+    },
+    {
+      "preuve_id": "ANALYSE_20261109_momentum_12m_pct",
+      "champ": "momentum.momentum_12m_pct",
+      "ancienne_cellule": {
+        "valeur": null,
+        "unite": null,
+        "periode": "cotations disponibles au 03/11/2026",
+        "date_source": "2026-11-04",
+        "source_url": "DONNEES/HISTORIQUES_YAHOO_40.csv",
+        "statut": "INDISPONIBLE_A_DATE_HISTORIQUE_COURT",
+        "commentaire": "Historique IPO archivé plus court que la fenêtre requise au 03/11/2026; durée antérieure à la cotation inexistante.",
+        "recherche": {
+          "date": "2026-11-04",
+          "statut": "INDISPONIBLE_A_DATE_HISTORIQUE_COURT",
+          "motif": "Historique IPO archivé plus court que la fenêtre requise au 03/11/2026; durée antérieure à la cotation inexistante.",
+          "journal": "journal_recherches"
+        },
+        "date_collecte": "2026-11-04"
+      },
+      "motif": "Calcul reproductible 10Q; ancrage dernière séance <= date calendaire cible, aucune période pré-IPO extrapolée.",
+      "date_relecture": "2026-11-09"
+    },
+    {
+      "preuve_id": "ANALYSE_20261109_prix_vers_mm200",
+      "champ": "momentum.prix_vers_mm200",
+      "ancienne_cellule": {
+        "valeur": null,
+        "unite": null,
+        "periode": "cotations disponibles au 03/11/2026",
+        "date_source": "2026-11-04",
+        "source_url": "DONNEES/HISTORIQUES_YAHOO_40.csv",
+        "statut": "INDISPONIBLE_A_DATE_HISTORIQUE_COURT",
+        "commentaire": "Historique IPO archivé plus court que la fenêtre requise au 03/11/2026; durée antérieure à la cotation inexistante.",
+        "recherche": {
+          "date": "2026-11-04",
+          "statut": "INDISPONIBLE_A_DATE_HISTORIQUE_COURT",
+          "motif": "Historique IPO archivé plus court que la fenêtre requise au 03/11/2026; durée antérieure à la cotation inexistante.",
+          "journal": "journal_recherches"
+        },
+        "date_collecte": "2026-11-04"
+      },
+      "motif": "Calcul reproductible 10Q; ancrage dernière séance <= date calendaire cible, aucune période pré-IPO extrapolée.",
+      "date_relecture": "2026-11-09"
+    },
+    {
+      "preuve_id": "ANALYSE_20261109_tendance_mm200",
+      "champ": "momentum.tendance_mm200",
+      "ancienne_cellule": {
+        "valeur": null,
+        "unite": null,
+        "periode": "cotations disponibles au 03/11/2026",
+        "date_source": "2026-11-04",
+        "source_url": "DONNEES/HISTORIQUES_YAHOO_40.csv",
+        "statut": "INDISPONIBLE_A_DATE_HISTORIQUE_COURT",
+        "commentaire": "Historique IPO archivé plus court que la fenêtre requise au 03/11/2026; durée antérieure à la cotation inexistante.",
+        "recherche": {
+          "date": "2026-11-04",
+          "statut": "INDISPONIBLE_A_DATE_HISTORIQUE_COURT",
+          "motif": "Historique IPO archivé plus court que la fenêtre requise au 03/11/2026; durée antérieure à la cotation inexistante.",
+          "journal": "journal_recherches"
+        },
+        "date_collecte": "2026-11-04"
+      },
+      "motif": "Calcul reproductible 10Q; ancrage dernière séance <= date calendaire cible, aucune période pré-IPO extrapolée.",
+      "date_relecture": "2026-11-09"
+    },
+    {
+      "preuve_id": "ANALYSE_20261109_momentum_6_1_pct",
+      "champ": "momentum.momentum_6_1_pct",
+      "ancienne_cellule": {
+        "valeur": -4.126977751534633,
+        "unite": "pct",
+        "periode": "2026-04-30 / 2026-10-02",
+        "date_source": "2026-11-03",
+        "source_url": "https://query1.finance.yahoo.com/v8/finance/chart/ALIEV.PA?range=5y&interval=1d&events=div%2Csplits",
+        "statut": "CALCULE_HISTORIQUE_SECONDAIRE",
+        "commentaire": "Momentum 6–1 : prix à -1 mois / prix à -6 mois - 1; aucune modification de la règle de sélection.",
+        "date_collecte": "2026-11-04"
+      },
+      "motif": "Calcul reproductible 10Q; ancrage dernière séance <= date calendaire cible, aucune période pré-IPO extrapolée.",
+      "date_relecture": "2026-11-09"
+    },
+    {
+      "preuve_id": "ANALYSE_20261109_volume_moyen_20j",
+      "champ": "momentum.volume_moyen_20j",
+      "ancienne_cellule": {
+        "valeur": 3955.05,
+        "unite": "titres",
+        "periode": "20 dernières séances",
+        "date_source": "2026-11-03",
+        "source_url": "https://query1.finance.yahoo.com/v8/finance/chart/ALIEV.PA?range=5y&interval=1d&events=div%2Csplits",
+        "statut": "CALCULE_HISTORIQUE_SECONDAIRE",
+        "commentaire": "Moyenne arithmétique des volumes Yahoo non ajustés.",
+        "date_collecte": "2026-11-04"
+      },
+      "motif": "Calcul reproductible 10Q; ancrage dernière séance <= date calendaire cible, aucune période pré-IPO extrapolée.",
+      "date_relecture": "2026-11-09"
+    },
+    {
+      "preuve_id": "ANALYSE_20261109_ratio_volume",
+      "champ": "momentum.ratio_volume",
+      "ancienne_cellule": {
+        "valeur": 0.007332397820507958,
+        "unite": "ratio",
+        "periode": "dernière séance / moyenne 20 séances",
+        "date_source": "2026-11-03",
+        "source_url": "https://query1.finance.yahoo.com/v8/finance/chart/ALIEV.PA?range=5y&interval=1d&events=div%2Csplits",
+        "statut": "CALCULE_HISTORIQUE_SECONDAIRE",
+        "commentaire": "Ratio de volume de la dernière séance.",
+        "date_collecte": "2026-11-04"
+      },
+      "motif": "Calcul reproductible 10Q; ancrage dernière séance <= date calendaire cible, aucune période pré-IPO extrapolée.",
+      "date_relecture": "2026-11-09"
+    },
+    {
+      "preuve_id": "ANALYSE_20261109_volatilite_90j_pct",
+      "champ": "momentum.volatilite_90j_pct",
+      "ancienne_cellule": {
+        "valeur": 51.396768594144305,
+        "unite": "pct",
+        "periode": "90 rendements quotidiens",
+        "date_source": "2026-11-03",
+        "source_url": "https://query1.finance.yahoo.com/v8/finance/chart/ALIEV.PA?range=5y&interval=1d&events=div%2Csplits",
+        "statut": "CALCULE_HISTORIQUE_SECONDAIRE",
+        "commentaire": "Écart-type échantillon des log-rendements ajustés annualisé sqrt(252).",
+        "date_collecte": "2026-11-04"
+      },
+      "motif": "Calcul reproductible 10Q; ancrage dernière séance <= date calendaire cible, aucune période pré-IPO extrapolée.",
+      "date_relecture": "2026-11-09"
+    },
+    {
+      "preuve_id": "ANALYSE_20261109_drawdown_12m_pct",
+      "champ": "momentum.drawdown_12m_pct",
+      "ancienne_cellule": {
+        "valeur": null,
+        "unite": null,
+        "periode": "cotations disponibles au 03/11/2026",
+        "date_source": "2026-11-04",
+        "source_url": "DONNEES/HISTORIQUES_YAHOO_40.csv",
+        "statut": "INDISPONIBLE_A_DATE_HISTORIQUE_COURT",
+        "commentaire": "Historique IPO archivé plus court que la fenêtre requise au 03/11/2026; durée antérieure à la cotation inexistante.",
+        "recherche": {
+          "date": "2026-11-04",
+          "statut": "INDISPONIBLE_A_DATE_HISTORIQUE_COURT",
+          "motif": "Historique IPO archivé plus court que la fenêtre requise au 03/11/2026; durée antérieure à la cotation inexistante.",
+          "journal": "journal_recherches"
+        },
+        "date_collecte": "2026-11-04"
+      },
+      "motif": "Calcul reproductible 10Q; ancrage dernière séance <= date calendaire cible, aucune période pré-IPO extrapolée.",
+      "date_relecture": "2026-11-09"
+    },
+    {
+      "preuve_id": "ANALYSE_20261109_cours",
+      "champ": "valorisation.cours",
+      "ancienne_cellule": {
+        "valeur": 8.100000381469727,
+        "unite": "EUR",
+        "periode": "cloture 2026-11-03",
+        "date_source": "2026-11-03",
+        "source_url": "https://query1.finance.yahoo.com/v8/finance/chart/ALIEV.PA?range=5y&interval=1d&events=div%2Csplits",
+        "statut": "SOURCE_MARCHE",
+        "commentaire": "Cours non ajuste; GBp/100 pour Londres.",
+        "date_collecte": "2026-11-04"
+      },
+      "motif": "Cours non ajusté, conversion GBp/100 vers GBP pour Londres.",
+      "date_relecture": "2026-11-09"
+    },
+    {
+      "preuve_id": "ANALYSE_20261109_date_cours",
+      "champ": "valorisation.date_cours",
+      "ancienne_cellule": {
+        "valeur": "2026-11-03",
+        "unite": "date",
+        "periode": "cloture",
+        "date_source": "2026-11-03",
+        "source_url": "https://query1.finance.yahoo.com/v8/finance/chart/ALIEV.PA?range=5y&interval=1d&events=div%2Csplits",
+        "statut": "SOURCE_MARCHE",
+        "commentaire": null,
+        "date_collecte": "2026-11-04"
+      },
+      "motif": "Clôture commune aux 40 fiches.",
+      "date_relecture": "2026-11-09"
+    },
+    {
+      "preuve_id": "ANALYSE_20261109_scenario_bear_3m_pct",
+      "champ": "complements.scenario_bear_3m_pct",
+      "ancienne_cellule": {
+        "valeur": null,
+        "unite": null,
+        "periode": null,
+        "date_source": null,
+        "source_url": null,
+        "statut": "A_COLLECTER",
+        "commentaire": null,
+        "recherche": {
+          "date": "2026-11-04",
+          "statut": "MANQUANT_RECHERCHE_NON_CLOSE",
+          "motif": "Analyse MCPA/IPS argumentée encore nécessaire; ce champ ne doit pas être rempli par une statistique de fournisseur.",
+          "journal": "journal_recherches"
+        }
+      },
+      "motif": "Synergies faibles et cash consommé. MM200 et douze mois non observables avant l'IPO; cash levé non opérationnel.",
+      "date_relecture": "2026-11-09"
+    },
+    {
+      "preuve_id": "ANALYSE_20261109_prob_bear_3m_pct",
+      "champ": "complements.prob_bear_3m_pct",
+      "ancienne_cellule": {
+        "valeur": null,
+        "unite": null,
+        "periode": null,
+        "date_source": null,
+        "source_url": null,
+        "statut": "A_COLLECTER",
+        "commentaire": null,
+        "recherche": {
+          "date": "2026-11-04",
+          "statut": "MANQUANT_RECHERCHE_NON_CLOSE",
+          "motif": "Analyse MCPA/IPS argumentée encore nécessaire; ce champ ne doit pas être rempli par une statistique de fournisseur.",
+          "journal": "journal_recherches"
+        }
+      },
+      "motif": "Pondération par jugement du risque et des opportunités décrits; aucune fréquence statistique. Incertitude au moins +/-10 points. MM200 et douze mois non observables avant l'IPO; cash levé non opérationnel.",
+      "date_relecture": "2026-11-09"
+    },
+    {
+      "preuve_id": "ANALYSE_20261109_scenario_central_3m_pct",
+      "champ": "complements.scenario_central_3m_pct",
+      "ancienne_cellule": {
+        "valeur": null,
+        "unite": null,
+        "periode": null,
+        "date_source": null,
+        "source_url": null,
+        "statut": "A_COLLECTER",
+        "commentaire": null,
+        "recherche": {
+          "date": "2026-11-04",
+          "statut": "MANQUANT_RECHERCHE_NON_CLOSE",
+          "motif": "Analyse MCPA/IPS argumentée encore nécessaire; ce champ ne doit pas être rempli par une statistique de fournisseur.",
+          "journal": "journal_recherches"
+        }
+      },
+      "motif": "Intégration et équilibre progressifs. MM200 et douze mois non observables avant l'IPO; cash levé non opérationnel.",
+      "date_relecture": "2026-11-09"
+    },
+    {
+      "preuve_id": "ANALYSE_20261109_prob_central_3m_pct",
+      "champ": "complements.prob_central_3m_pct",
+      "ancienne_cellule": {
+        "valeur": null,
+        "unite": null,
+        "periode": null,
+        "date_source": null,
+        "source_url": null,
+        "statut": "A_COLLECTER",
+        "commentaire": null,
+        "recherche": {
+          "date": "2026-11-04",
+          "statut": "MANQUANT_RECHERCHE_NON_CLOSE",
+          "motif": "Analyse MCPA/IPS argumentée encore nécessaire; ce champ ne doit pas être rempli par une statistique de fournisseur.",
+          "journal": "journal_recherches"
+        }
+      },
+      "motif": "Pondération par jugement du risque et des opportunités décrits; aucune fréquence statistique. Incertitude au moins +/-10 points. MM200 et douze mois non observables avant l'IPO; cash levé non opérationnel.",
+      "date_relecture": "2026-11-09"
+    },
+    {
+      "preuve_id": "ANALYSE_20261109_scenario_bull_3m_pct",
+      "champ": "complements.scenario_bull_3m_pct",
+      "ancienne_cellule": {
+        "valeur": null,
+        "unite": null,
+        "periode": null,
+        "date_source": null,
+        "source_url": null,
+        "statut": "A_COLLECTER",
+        "commentaire": null,
+        "recherche": {
+          "date": "2026-11-04",
+          "statut": "MANQUANT_RECHERCHE_NON_CLOSE",
+          "motif": "Analyse MCPA/IPS argumentée encore nécessaire; ce champ ne doit pas être rempli par une statistique de fournisseur.",
+          "journal": "journal_recherches"
+        }
+      },
+      "motif": "Synergies et organique améliorées. MM200 et douze mois non observables avant l'IPO; cash levé non opérationnel.",
+      "date_relecture": "2026-11-09"
+    },
+    {
+      "preuve_id": "ANALYSE_20261109_prob_bull_3m_pct",
+      "champ": "complements.prob_bull_3m_pct",
+      "ancienne_cellule": {
+        "valeur": null,
+        "unite": null,
+        "periode": null,
+        "date_source": null,
+        "source_url": null,
+        "statut": "A_COLLECTER",
+        "commentaire": null,
+        "recherche": {
+          "date": "2026-11-04",
+          "statut": "MANQUANT_RECHERCHE_NON_CLOSE",
+          "motif": "Analyse MCPA/IPS argumentée encore nécessaire; ce champ ne doit pas être rempli par une statistique de fournisseur.",
+          "journal": "journal_recherches"
+        }
+      },
+      "motif": "Pondération par jugement du risque et des opportunités décrits; aucune fréquence statistique. Incertitude au moins +/-10 points. MM200 et douze mois non observables avant l'IPO; cash levé non opérationnel.",
+      "date_relecture": "2026-11-09"
+    },
+    {
+      "preuve_id": "ANALYSE_20261109_scenario_bear_6m_pct",
+      "champ": "complements.scenario_bear_6m_pct",
+      "ancienne_cellule": {
+        "valeur": null,
+        "unite": null,
+        "periode": null,
+        "date_source": null,
+        "source_url": null,
+        "statut": "A_COLLECTER",
+        "commentaire": null,
+        "recherche": {
+          "date": "2026-11-04",
+          "statut": "MANQUANT_RECHERCHE_NON_CLOSE",
+          "motif": "Analyse MCPA/IPS argumentée encore nécessaire; ce champ ne doit pas être rempli par une statistique de fournisseur.",
+          "journal": "journal_recherches"
+        }
+      },
+      "motif": "Synergies faibles et cash consommé. MM200 et douze mois non observables avant l'IPO; cash levé non opérationnel.",
+      "date_relecture": "2026-11-09"
+    },
+    {
+      "preuve_id": "ANALYSE_20261109_prob_bear_6m_pct",
+      "champ": "complements.prob_bear_6m_pct",
+      "ancienne_cellule": {
+        "valeur": null,
+        "unite": null,
+        "periode": null,
+        "date_source": null,
+        "source_url": null,
+        "statut": "A_COLLECTER",
+        "commentaire": null,
+        "recherche": {
+          "date": "2026-11-04",
+          "statut": "MANQUANT_RECHERCHE_NON_CLOSE",
+          "motif": "Analyse MCPA/IPS argumentée encore nécessaire; ce champ ne doit pas être rempli par une statistique de fournisseur.",
+          "journal": "journal_recherches"
+        }
+      },
+      "motif": "Pondération par jugement du risque et des opportunités décrits; aucune fréquence statistique. Incertitude au moins +/-10 points. MM200 et douze mois non observables avant l'IPO; cash levé non opérationnel.",
+      "date_relecture": "2026-11-09"
+    },
+    {
+      "preuve_id": "ANALYSE_20261109_scenario_central_6m_pct",
+      "champ": "complements.scenario_central_6m_pct",
+      "ancienne_cellule": {
+        "valeur": null,
+        "unite": null,
+        "periode": null,
+        "date_source": null,
+        "source_url": null,
+        "statut": "A_COLLECTER",
+        "commentaire": null,
+        "recherche": {
+          "date": "2026-11-04",
+          "statut": "MANQUANT_RECHERCHE_NON_CLOSE",
+          "motif": "Analyse MCPA/IPS argumentée encore nécessaire; ce champ ne doit pas être rempli par une statistique de fournisseur.",
+          "journal": "journal_recherches"
+        }
+      },
+      "motif": "Intégration et équilibre progressifs. MM200 et douze mois non observables avant l'IPO; cash levé non opérationnel.",
+      "date_relecture": "2026-11-09"
+    },
+    {
+      "preuve_id": "ANALYSE_20261109_prob_central_6m_pct",
+      "champ": "complements.prob_central_6m_pct",
+      "ancienne_cellule": {
+        "valeur": null,
+        "unite": null,
+        "periode": null,
+        "date_source": null,
+        "source_url": null,
+        "statut": "A_COLLECTER",
+        "commentaire": null,
+        "recherche": {
+          "date": "2026-11-04",
+          "statut": "MANQUANT_RECHERCHE_NON_CLOSE",
+          "motif": "Analyse MCPA/IPS argumentée encore nécessaire; ce champ ne doit pas être rempli par une statistique de fournisseur.",
+          "journal": "journal_recherches"
+        }
+      },
+      "motif": "Pondération par jugement du risque et des opportunités décrits; aucune fréquence statistique. Incertitude au moins +/-10 points. MM200 et douze mois non observables avant l'IPO; cash levé non opérationnel.",
+      "date_relecture": "2026-11-09"
+    },
+    {
+      "preuve_id": "ANALYSE_20261109_scenario_bull_6m_pct",
+      "champ": "complements.scenario_bull_6m_pct",
+      "ancienne_cellule": {
+        "valeur": null,
+        "unite": null,
+        "periode": null,
+        "date_source": null,
+        "source_url": null,
+        "statut": "A_COLLECTER",
+        "commentaire": null,
+        "recherche": {
+          "date": "2026-11-04",
+          "statut": "MANQUANT_RECHERCHE_NON_CLOSE",
+          "motif": "Analyse MCPA/IPS argumentée encore nécessaire; ce champ ne doit pas être rempli par une statistique de fournisseur.",
+          "journal": "journal_recherches"
+        }
+      },
+      "motif": "Synergies et organique améliorées. MM200 et douze mois non observables avant l'IPO; cash levé non opérationnel.",
+      "date_relecture": "2026-11-09"
+    },
+    {
+      "preuve_id": "ANALYSE_20261109_prob_bull_6m_pct",
+      "champ": "complements.prob_bull_6m_pct",
+      "ancienne_cellule": {
+        "valeur": null,
+        "unite": null,
+        "periode": null,
+        "date_source": null,
+        "source_url": null,
+        "statut": "A_COLLECTER",
+        "commentaire": null,
+        "recherche": {
+          "date": "2026-11-04",
+          "statut": "MANQUANT_RECHERCHE_NON_CLOSE",
+          "motif": "Analyse MCPA/IPS argumentée encore nécessaire; ce champ ne doit pas être rempli par une statistique de fournisseur.",
+          "journal": "journal_recherches"
+        }
+      },
+      "motif": "Pondération par jugement du risque et des opportunités décrits; aucune fréquence statistique. Incertitude au moins +/-10 points. MM200 et douze mois non observables avant l'IPO; cash levé non opérationnel.",
+      "date_relecture": "2026-11-09"
+    },
+    {
+      "preuve_id": "ANALYSE_20261109_ic_sur_5",
+      "champ": "complements.ic_sur_5",
+      "ancienne_cellule": {
+        "valeur": null,
+        "unite": null,
+        "periode": null,
+        "date_source": null,
+        "source_url": null,
+        "statut": "A_COLLECTER",
+        "commentaire": null,
+        "recherche": {
+          "date": "2026-11-04",
+          "statut": "MANQUANT_RECHERCHE_NON_CLOSE",
+          "motif": "Analyse MCPA/IPS argumentée encore nécessaire; ce champ ne doit pas être rempli par une statistique de fournisseur.",
+          "journal": "journal_recherches"
+        }
+      },
+      "motif": "MM200 et douze mois non observables avant l'IPO; cash levé non opérationnel. Aucune opération autorisée.",
+      "date_relecture": "2026-11-09"
+    },
+    {
+      "preuve_id": "ANALYSE_20261109_cx_sur_5",
+      "champ": "complements.cx_sur_5",
+      "ancienne_cellule": {
+        "valeur": null,
+        "unite": null,
+        "periode": null,
+        "date_source": null,
+        "source_url": null,
+        "statut": "A_COLLECTER",
+        "commentaire": null,
+        "recherche": {
+          "date": "2026-11-04",
+          "statut": "MANQUANT_RECHERCHE_NON_CLOSE",
+          "motif": "Analyse MCPA/IPS argumentée encore nécessaire; ce champ ne doit pas être rempli par une statistique de fournisseur.",
+          "journal": "journal_recherches"
+        }
+      },
+      "motif": "MM200 et douze mois non observables avant l'IPO; cash levé non opérationnel. Aucune opération autorisée.",
+      "date_relecture": "2026-11-09"
+    },
+    {
+      "preuve_id": "ANALYSE_20261109_delta",
+      "champ": "complements.delta",
+      "ancienne_cellule": {
+        "valeur": null,
+        "unite": null,
+        "periode": null,
+        "date_source": null,
+        "source_url": null,
+        "statut": "A_COLLECTER",
+        "commentaire": null,
+        "recherche": {
+          "date": "2026-11-04",
+          "statut": "MANQUANT_RECHERCHE_NON_CLOSE",
+          "motif": "Analyse MCPA/IPS argumentée encore nécessaire; ce champ ne doit pas être rempli par une statistique de fournisseur.",
+          "journal": "journal_recherches"
+        }
+      },
+      "motif": "MM200 et douze mois non observables avant l'IPO; cash levé non opérationnel. Aucune opération autorisée.",
+      "date_relecture": "2026-11-09"
+    },
+    {
+      "preuve_id": "ANALYSE_20261109_role_ips",
+      "champ": "complements.role_ips",
+      "ancienne_cellule": {
+        "valeur": null,
+        "unite": null,
+        "periode": null,
+        "date_source": null,
+        "source_url": null,
+        "statut": "A_COLLECTER",
+        "commentaire": null,
+        "recherche": {
+          "date": "2026-11-04",
+          "statut": "MANQUANT_RECHERCHE_NON_CLOSE",
+          "motif": "Analyse MCPA/IPS argumentée encore nécessaire; ce champ ne doit pas être rempli par une statistique de fournisseur.",
+          "journal": "journal_recherches"
+        }
+      },
+      "motif": "MM200 et douze mois non observables avant l'IPO; cash levé non opérationnel. Aucune opération autorisée.",
+      "date_relecture": "2026-11-09"
+    },
+    {
+      "preuve_id": "ANALYSE_20261109_decision",
+      "champ": "complements.decision",
+      "ancienne_cellule": {
+        "valeur": null,
+        "unite": null,
+        "periode": null,
+        "date_source": null,
+        "source_url": null,
+        "statut": "A_COLLECTER",
+        "commentaire": null,
+        "recherche": {
+          "date": "2026-11-04",
+          "statut": "MANQUANT_RECHERCHE_NON_CLOSE",
+          "motif": "Analyse MCPA/IPS argumentée encore nécessaire; ce champ ne doit pas être rempli par une statistique de fournisseur.",
+          "journal": "journal_recherches"
+        }
+      },
+      "motif": "MM200 et douze mois non observables avant l'IPO; cash levé non opérationnel. Aucune opération autorisée.",
+      "date_relecture": "2026-11-09"
+    },
+    {
+      "preuve_id": "ANALYSE_20261109_condition_renforcement",
+      "champ": "complements.condition_renforcement",
+      "ancienne_cellule": {
+        "valeur": null,
+        "unite": null,
+        "periode": null,
+        "date_source": null,
+        "source_url": null,
+        "statut": "A_COLLECTER",
+        "commentaire": null,
+        "recherche": {
+          "date": "2026-11-04",
+          "statut": "MANQUANT_RECHERCHE_NON_CLOSE",
+          "motif": "Analyse MCPA/IPS argumentée encore nécessaire; ce champ ne doit pas être rempli par une statistique de fournisseur.",
+          "journal": "journal_recherches"
+        }
+      },
+      "motif": "MM200 et douze mois non observables avant l'IPO; cash levé non opérationnel. Aucune opération autorisée.",
+      "date_relecture": "2026-11-09"
+    },
+    {
+      "preuve_id": "ANALYSE_20261109_condition_allegement_sortie",
+      "champ": "complements.condition_allegement_sortie",
+      "ancienne_cellule": {
+        "valeur": null,
+        "unite": null,
+        "periode": null,
+        "date_source": null,
+        "source_url": null,
+        "statut": "A_COLLECTER",
+        "commentaire": null,
+        "recherche": {
+          "date": "2026-11-04",
+          "statut": "MANQUANT_RECHERCHE_NON_CLOSE",
+          "motif": "Analyse MCPA/IPS argumentée encore nécessaire; ce champ ne doit pas être rempli par une statistique de fournisseur.",
+          "journal": "journal_recherches"
+        }
+      },
+      "motif": "MM200 et douze mois non observables avant l'IPO; cash levé non opérationnel. Aucune opération autorisée.",
+      "date_relecture": "2026-11-09"
+    },
+    {
+      "preuve_id": "ANALYSE_20261109_interet_strategique",
+      "champ": "diversification.interet_strategique",
+      "ancienne_cellule": {
+        "valeur": null,
+        "unite": null,
+        "periode": null,
+        "date_source": null,
+        "source_url": null,
+        "statut": "A_COLLECTER",
+        "commentaire": null,
+        "recherche": {
+          "date": "2026-11-04",
+          "statut": "MANQUANT_RECHERCHE_NON_CLOSE",
+          "motif": "Analyse MCPA/IPS argumentée encore nécessaire; ce champ ne doit pas être rempli par une statistique de fournisseur.",
+          "journal": "journal_recherches"
+        }
+      },
+      "motif": "Diversification sectorielle, sans garantie de décorrélation en crise.",
+      "date_relecture": "2026-11-09"
+    },
+    {
+      "preuve_id": "ANALYSE_20261109_complementarite_portefeuille",
+      "champ": "diversification.complementarite_portefeuille",
+      "ancienne_cellule": {
+        "valeur": null,
+        "unite": null,
+        "periode": null,
+        "date_source": null,
+        "source_url": null,
+        "statut": "A_COLLECTER",
+        "commentaire": null,
+        "recherche": {
+          "date": "2026-11-04",
+          "statut": "MANQUANT_RECHERCHE_NON_CLOSE",
+          "motif": "Analyse MCPA/IPS argumentée encore nécessaire; ce champ ne doit pas être rempli par une statistique de fournisseur.",
+          "journal": "journal_recherches"
+        }
+      },
+      "motif": "Diversification sectorielle, sans garantie de décorrélation en crise.",
+      "date_relecture": "2026-11-09"
+    }
+  ],
+  "historique_notations": [
+    {
+      "bareme": {
+        "qualite": 30,
+        "valorisation": 20,
+        "croissance": 20,
+        "risque": 10,
+        "momentum": 10,
+        "diversification": 10
+      },
+      "notes": {
+        "qualite": null,
+        "valorisation": null,
+        "croissance": null,
+        "risque": null,
+        "momentum": null,
+        "diversification": null
+      },
+      "total_mcpa": null,
+      "statut": "NON_VALIDEE",
+      "justifications": {
+        "qualite": null,
+        "valorisation": null,
+        "croissance": null,
+        "risque": null,
+        "momentum": null,
+        "diversification": null
+      }
+    }
+  ],
+  "calculs_marche": {
+    "date": "2026-11-06",
+    "cours_non_ajuste": 7.960000038146973,
+    "ancrages": {
+      "1": {
+        "date": "2026-10-06",
+        "cours_ajuste": 8.399999618530273
+      },
+      "3": {
+        "date": "2026-08-06",
+        "cours_ajuste": 9.5600004196167
+      },
+      "6": {
+        "date": "2026-05-06",
+        "cours_ajuste": 8.399999618530273
+      },
+      "12": null
+    },
+    "indicateurs": {
+      "momentum_1m_pct": -5.238090480536073,
+      "momentum_3m_pct": -16.73640492929892,
+      "momentum_6m_pct": -5.238090480536073,
+      "momentum_12m_pct": null,
+      "prix_vers_mm200": null,
+      "tendance_mm200": null,
+      "momentum_6_1_pct": 0.0,
+      "volume_moyen_20j": 3957.0,
+      "ratio_volume": 0.003032600454890068,
+      "volatilite_90j_pct": 34.19319487375015,
+      "drawdown_12m_pct": null
+    },
+    "grille": [
+      {
+        "indicateur": "prix_vers_mm200",
+        "seuil_strict": 1,
+        "maximum": 2,
+        "valeur": null,
+        "points": null
+      },
+      {
+        "indicateur": "tendance_mm200",
+        "seuil_strict": 0,
+        "maximum": 1,
+        "valeur": null,
+        "points": null
+      },
+      {
+        "indicateur": "momentum_1m_pct",
+        "seuil_strict": 0,
+        "maximum": 1,
+        "valeur": -5.238090480536073,
+        "points": 0
+      },
+      {
+        "indicateur": "momentum_3m_pct",
+        "seuil_strict": 0,
+        "maximum": 2,
+        "valeur": -16.73640492929892,
+        "points": 0
+      },
+      {
+        "indicateur": "momentum_6m_pct",
+        "seuil_strict": 0,
+        "maximum": 2,
+        "valeur": -5.238090480536073,
+        "points": 0
+      },
+      {
+        "indicateur": "momentum_12m_pct",
+        "seuil_strict": 0,
+        "maximum": 1,
+        "valeur": null,
+        "points": null
+      },
+      {
+        "indicateur": "momentum_6_1_pct",
+        "seuil_strict": 0,
+        "maximum": 1,
+        "valeur": 0.0,
+        "points": 0
+      }
+    ],
+    "M": 0,
+    "points_non_observables": 4,
+    "source_url": "https://query1.finance.yahoo.com/v8/finance/chart/ALIEV.PA?range=5y&interval=1d&events=div%2Csplits"
+  },
+  "analyse_prospective": {
+    "date_analyse": "2026-11-09",
+    "date_ancrage": "2026-11-06",
+    "cours_ancrage": 7.960000038146973,
+    "devise": "EUR",
+    "incertitude": "MM200 et douze mois non observables avant l'IPO; cash levé non opérationnel.",
+    "nature": "Probabilités subjectives non calibrées, incertitude au moins +/-10 points. Rendements du cours en devise locale, hors change, dividendes et frais.",
+    "horizons": {
+      "3m": {
+        "echeance_calendaire": "2027-02-06",
+        "scenarios": [
+          {
+            "cas": "bear",
+            "rendement_pct": -30.0,
+            "probabilite_pct": 35.0,
+            "cours_conditionnel": 5.572000026702881,
+            "declencheur": "Synergies faibles et cash consommé."
+          },
+          {
+            "cas": "central",
+            "rendement_pct": 5.0,
+            "probabilite_pct": 40.0,
+            "cours_conditionnel": 8.358000040054321,
+            "declencheur": "Intégration et équilibre progressifs."
+          },
+          {
+            "cas": "bull",
+            "rendement_pct": 35.0,
+            "probabilite_pct": 25.0,
+            "cours_conditionnel": 10.746000051498413,
+            "declencheur": "Synergies et organique améliorées."
+          }
+        ],
+        "esperance_subjective_brute_pct": 0.25,
+        "esperance_apres_rotation_vente_achat_2_5pct": -4.640243902439023,
+        "convention_frais": "Friction théorique: vente 2,5 % du brut, achat 2,5 % du nominal acheté. Pas de transaction."
+      },
+      "6m": {
+        "echeance_calendaire": "2027-05-06",
+        "scenarios": [
+          {
+            "cas": "bear",
+            "rendement_pct": -45.0,
+            "probabilite_pct": 35.0,
+            "cours_conditionnel": 4.378000020980835,
+            "declencheur": "Synergies faibles et cash consommé."
+          },
+          {
+            "cas": "central",
+            "rendement_pct": 15.0,
+            "probabilite_pct": 35.0,
+            "cours_conditionnel": 9.154000043869019,
+            "declencheur": "Intégration et équilibre progressifs."
+          },
+          {
+            "cas": "bull",
+            "rendement_pct": 60.0,
+            "probabilite_pct": 30.0,
+            "cours_conditionnel": 12.736000061035156,
+            "declencheur": "Synergies et organique améliorées."
+          }
+        ],
+        "esperance_subjective_brute_pct": 7.5,
+        "esperance_apres_rotation_vente_achat_2_5pct": 2.256097560975623,
+        "convention_frais": "Friction théorique: vente 2,5 % du brut, achat 2,5 % du nominal acheté. Pas de transaction."
+      }
+    }
+  },
+  "date_analyse": "2026-11-09"
 }
