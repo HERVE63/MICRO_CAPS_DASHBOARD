@@ -34,8 +34,11 @@ def _ecrire_atomique(path, contenu):
 
 def collecter():
     positions = pd.read_csv(SRC, dtype={"Ticker": str}, keep_default_na=False)
-    if len(positions) != 40 or positions["Ticker"].nunique() != 40:
-        raise RuntimeError("Inventaire des 40 positions incoherent")
+    if (len(positions) != 40 or positions["Ticker"].nunique() != 40
+            or positions["ID_position"].nunique() != 40
+            or positions["Ticker"].astype(str).str.strip().eq("").any()
+            or positions["ID_position"].astype(str).str.strip().eq("").any()):
+        raise RuntimeError("Inventaire des 40 positions incoherent : identifiants ou tickers manquants/dupliques")
     api = os.environ.get("EODHD_API_TOKEN") or os.environ.get("EODHD_API_KEY")
     debut = datetime.now(timezone.utc).isoformat()
     stamp = datetime.now(timezone.utc).strftime("%Y%m%dT%H%M%S%fZ")
