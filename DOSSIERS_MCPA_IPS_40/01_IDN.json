@@ -77,19 +77,20 @@
         "date_collecte": "2026-11-04"
       },
       "marche": {
-        "valeur": null,
-        "unite": null,
-        "periode": null,
-        "date_source": null,
-        "source_url": null,
-        "statut": "A_COLLECTER",
-        "commentaire": null,
+        "valeur": "Nasdaq",
+        "unite": "texte",
+        "periode": "identité SEC au 2026-11-04",
+        "date_source": "2026-11-04",
+        "source_url": "https://data.sec.gov/submissions/CIK0001040896.json",
+        "statut": "DERIVE_PLACE_COTATION_EXISTANTE",
+        "commentaire": "Reprise de la place de cotation déjà documentée dans la même fiche; ne prouve pas le segment de marché.",
         "recherche": {
           "date": "2026-11-04",
           "statut": "MANQUANT_RECHERCHE_NON_CLOSE",
           "motif": "Aucune valeur vérifiée importée à cette étape; les recherches tracées ne démontrent pas une indisponibilité définitive.",
           "journal": "journal_recherches"
-        }
+        },
+        "date_collecte": "2026-11-09"
       },
       "capitalisation_eur": {
         "valeur": 37685275.58356261,
