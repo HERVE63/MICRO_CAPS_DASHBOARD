@@ -3406,8 +3406,8 @@
     "comptage": {
       "RENSEIGNE": 68,
       "NON_APPLICABLE": 8,
-      "INDISPONIBLE_A_DATE": 4,
-      "RECHERCHE_A_POURSUIVRE": 28
+      "INDISPONIBLE_A_DATE": 0,
+      "RECHERCHE_A_POURSUIVRE": 32
     },
     "couverture_valeurs_pct": 62.96,
     "couverture_applicable_pct": 68.0,
@@ -3436,6 +3436,10 @@
       "risque.risque_gouvernance",
       "risque.risque_reglementaire",
       "risque.risque_concentration",
+      "momentum.prix_vers_mm200",
+      "momentum.momentum_12m_pct",
+      "momentum.tendance_mm200",
+      "momentum.drawdown_12m_pct",
       "diversification.zone_geographique",
       "complements.ssi",
       "complements.wwws",
