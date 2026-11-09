@@ -18,7 +18,7 @@ D=BASE/"DONNEES"
 SRC=D/"OBSERVATIONS_SEC_TITULAIRES_US.csv"
 OUT=D/"FAITS_SEC_TITULAIRES_US.csv"
 FIELDS=["ID_position","Ticker","CIK_piste","Concept","Unite","Valeur","Date_debut","Date_fin","Date_depot","Formulaire","Accession","Source_URL","SHA256_JSON","Statut_identite"]
-CONCEPTS={"Revenues","RevenueFromContractWithCustomerExcludingAssessedTax","NetIncomeLoss","Assets","Liabilities","StockholdersEquity","OperatingIncomeLoss","NetCashProvidedByUsedInOperatingActivities","PaymentsToAcquirePropertyPlantAndEquipment"}
+CONCEPTS={"Revenues","RevenueFromContractWithCustomerExcludingAssessedTax","NetIncomeLoss","Assets","Liabilities","StockholdersEquity","OperatingIncomeLoss","NetCashProvidedByUsedInOperatingActivities","PaymentsToAcquirePropertyPlantAndEquipment","CashAndCashEquivalentsAtCarryingValue","CashCashEquivalentsRestrictedCashAndRestrictedCashEquivalents","LongTermDebt","LongTermDebtCurrent","LongTermDebtNoncurrent","ShortTermBorrowings","GrossProfit","CostOfRevenue","CommonStockSharesOutstanding","WeightedAverageNumberOfDilutedSharesOutstanding"}
 def get(url,agent):
     req=Request(url,headers={"User-Agent":agent,"Accept":"application/json","Accept-Encoding":"identity"})
     with urlopen(req,timeout=25) as r:
