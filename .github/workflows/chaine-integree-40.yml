@@ -79,6 +79,29 @@ jobs:
         run: python -B SCRIPTS_ACTIFS/09T_ENRICHIR_FICHES_MCPA_40.py
       - name: Importer les complements publics dates dans les champs vides
         run: python -B SCRIPTS_ACTIFS/10H_IMPORTER_COMPLEMENTS_PUBLICS_40.py
+      - name: Renseigner la date de revue hebdomadaire des 40 titulaires
+        run: |
+          python - <<'PY'
+          import json
+          from datetime import datetime, timedelta, timezone
+          from pathlib import Path
+          # Le mardi du cycle en cours (UTC); jamais une date future.
+          today=datetime.now(timezone.utc).date()
+          review=today-timedelta(days=(today.weekday()-1)%7)
+          paths=sorted(Path('DOSSIERS_MCPA_IPS_40').glob('*.json'))
+          assert len(paths)==40, f'Attendu 40 fiches, obtenu {len(paths)}'
+          modified=0
+          for path in paths:
+            dossier=json.loads(path.read_text(encoding='utf-8'))
+            previous=dossier.get('date_revue')
+            if previous!=review.isoformat():
+              dossier['date_revue']=review.isoformat()
+              path.write_text(json.dumps(dossier,ensure_ascii=False,indent=2)+'\\n',encoding='utf-8')
+              modified+=1
+          assert all(json.loads(p.read_text(encoding='utf-8'))['date_revue']==review.isoformat() for p in paths)
+          print('DATE_REVUE_HEBDOMADAIRE',review.isoformat(),'FICHES',len(paths),'MISES_A_JOUR',modified)
+          print('Les dates des sources et la certification MCPA restent inchangees; 09S controle les sources posterieures.')
+          PY
       - name: Valider les 40 fiches et preparer la revue MCPA IPS
         run: python -B SCRIPTS_ACTIFS/09S_ADAPTATEUR_FICHES_MCPA_40.py
       - name: Tester la coherence des 40 dossiers et des exports sans notes fictives
