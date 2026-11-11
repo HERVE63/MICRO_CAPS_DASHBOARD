@@ -49,7 +49,7 @@ def validation_individuelle(x):
   rd=None
   issues.append('DATE_REVUE_INVALIDE:'+str(x.get('date_revue')))
  if rd is not None:
-  if rd.weekday()!=1:issues.append('REVUE_HORS_MARDI')
+  # Le workflow est programme le mardi, mais une relance datee du mercredi reste valide.
   if rd>date.today():issues.append('REVUE_FUTURE')
  for block_name,block in x['blocs'].items():
   for field_name,c in block.items():
