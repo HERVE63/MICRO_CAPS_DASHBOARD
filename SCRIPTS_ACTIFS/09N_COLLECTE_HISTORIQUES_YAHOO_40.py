@@ -2,7 +2,7 @@
 """Collect public Yahoo chart daily bars for 40 incumbents; no API key.
 Unverified or missing series remain missing. No scores or trades.
 """
-import csv,json,time,urllib.parse,urllib.request
+import csv,json,time,urllib.parse,urllib.request,urllib.error
 from pathlib import Path
 from datetime import datetime,timezone,date,timedelta
 from statistics import mean
@@ -10,10 +10,24 @@ BASE=Path(__file__).resolve().parents[1]; D=BASE/"DONNEES"
 SYMBOL_FIX={"ALSTI.PA":"ALSTI.PA","CEMX.TO":"CEMX.TO"}
 HEAD=["ID_position","Ticker","Yahoo_symbol","Date_UTC","Close","AdjClose","Volume","Status","Source"]
 def fetch(symbol):
-    url="https://query1.finance.yahoo.com/v8/finance/chart/"+urllib.parse.quote(symbol,safe="") + "?range=5y&interval=1d&events=div%2Csplits"
-    req=urllib.request.Request(url,headers={"User-Agent":"Mozilla/5.0 MicroCapsResearch/1.0","Accept":"application/json"})
-    with urllib.request.urlopen(req,timeout=18) as response: obj=json.load(response)
-    return obj["chart"]["result"][0],url
+    """Retry the same official Yahoo chart resource on the alternate host.
+
+    A provider/transport failure is not evidence of an absent quotation.
+    Never substitute another ticker or silently invent adjusted prices.
+    """
+    errors=[]
+    for host in ("query1.finance.yahoo.com","query2.finance.yahoo.com"):
+        url="https://"+host+"/v8/finance/chart/"+urllib.parse.quote(symbol,safe="") + "?range=5y&interval=1d&events=div%2Csplits"
+        req=urllib.request.Request(url,headers={"User-Agent":"Mozilla/5.0 MicroCapsResearch/1.0","Accept":"application/json"})
+        try:
+            with urllib.request.urlopen(req,timeout=18) as response: obj=json.load(response)
+            result=obj.get("chart",{}).get("result") or []
+            if not result or not isinstance(result[0],dict):
+                raise ValueError("YAHOO_CHART_RESULT_ABSENT")
+            return result[0],url
+        except (urllib.error.URLError,ValueError,KeyError,TypeError,IndexError) as exc:
+            errors.append(type(exc).__name__)
+    raise RuntimeError("YAHOO_HOSTS_FAILED:"+",".join(errors))
 INDICATOR_HEAD=["ID_position","Ticker","Date_fin","Seances_ajustees","MM200","Ratio_prix_MM200","Momentum_1m","Momentum_3m","Momentum_6m","Momentum_12m","Volume_moyen_20j","Statut_indicateurs","Source"]
 def compute_indicators(position, ticker, bars, source):
     """Price-only indicators; missing windows remain empty, never extrapolated."""
