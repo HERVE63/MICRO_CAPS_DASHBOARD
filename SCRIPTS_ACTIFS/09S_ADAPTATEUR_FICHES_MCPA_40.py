@@ -42,12 +42,24 @@ def validation_individuelle(x):
   if not x['blocs'][b][k]['valeur']:issues.append('REVUE_CHAMP_MANQUANT:'+b+'.'+k)
  sources=sorted({c['source_url'] for block in x['blocs'].values() for c in block.values() if c.get('valeur') is not None and c.get('source_url')})
  if not sources:issues.append('SOURCES_ABSENTES')
+ # Diagnostiquer chaque date individuellement, sans masquer les autres erreurs.
  try:
   rd=date.fromisoformat(x['date_revue'])
+ except (ValueError,TypeError,KeyError):
+  rd=None
+  issues.append('DATE_REVUE_INVALIDE:'+str(x.get('date_revue')))
+ if rd is not None:
   if rd.weekday()!=1:issues.append('REVUE_HORS_MARDI')
   if rd>date.today():issues.append('REVUE_FUTURE')
-  if any(date.fromisoformat(c['date_source'])>rd for block in x['blocs'].values() for c in block.values() if c.get('valeur') is not None and c.get('date_source')):issues.append('SOURCES_POSTERIEURES_A_REVUE')
- except (ValueError,TypeError):issues.append('DATE_INVALIDE')
+ for block_name,block in x['blocs'].items():
+  for field_name,c in block.items():
+   if c.get('valeur') is None or not c.get('date_source'):continue
+   try:
+    sd=date.fromisoformat(c['date_source'])
+   except (ValueError,TypeError):
+    issues.append('DATE_SOURCE_INVALIDE:'+block_name+'.'+field_name+':'+str(c['date_source']))
+    continue
+   if rd is not None and sd>rd:issues.append('SOURCE_POSTERIEURE_A_REVUE:'+block_name+'.'+field_name)
  decision=comp['decision']['valeur']
  if decision and decision not in {'RENFORCER','CONSERVER','ALLEGER','ALLÉGER','VENDRE','SONDE','INCUBATION','ATTENTE','SURVEILLER'}:issues.append('DECISION_NON_AUTORISEE')
  return issues
