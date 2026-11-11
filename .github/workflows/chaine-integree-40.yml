@@ -79,15 +79,14 @@ jobs:
         run: python -B SCRIPTS_ACTIFS/09T_ENRICHIR_FICHES_MCPA_40.py
       - name: Importer les complements publics dates dans les champs vides
         run: python -B SCRIPTS_ACTIFS/10H_IMPORTER_COMPLEMENTS_PUBLICS_40.py
-      - name: Renseigner la date de revue hebdomadaire des 40 titulaires
+      - name: Renseigner la date effective de revue des 40 titulaires
         run: |
           python - <<'PY'
           import json
           from datetime import datetime, timedelta, timezone
           from pathlib import Path
-          # Le mardi du cycle en cours (UTC); jamais une date future.
-          today=datetime.now(timezone.utc).date()
-          review=today-timedelta(days=(today.weekday()-1)%7)
+          # Date effective du run: aucune preuve publiee apres le mardi n'est antidatee.
+          review=datetime.now(timezone.utc).date()
           paths=sorted(Path('DOSSIERS_MCPA_IPS_40').glob('*.json'))
           assert len(paths)==40, f'Attendu 40 fiches, obtenu {len(paths)}'
           modified=0
