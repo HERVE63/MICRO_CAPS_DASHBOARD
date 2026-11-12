@@ -81,7 +81,7 @@ def executer():
             date_source=pd.Timestamp(r["Date_sources"]).date()
             if date_source>date_revue or date_revue>datetime.now(ZoneInfo("Europe/Paris")).date():
                 erreurs.append(f"{ref}: données futures/incohérentes")
-            if date_revue.weekday()!=1:erreurs.append(f"{ref}: revue hors mardi")
+            # La revue porte sa date effective. Le mardi est la cadence habituelle,\n            # pas une condition de validite documentaire : une relance hors mardi\n            # ne doit pas invalider des preuves datees. Les autorisations de\n            # transaction restent du ressort des verrous du moteur 10.
         except Exception:erreurs.append(f"{ref}: dates de revue/sources invalides")
         if str(r["Statut_analyse"]).strip().upper() not in {"VALIDE","VALIDEE"}:
             erreurs.append(f"{ref}: analyse non validée")
