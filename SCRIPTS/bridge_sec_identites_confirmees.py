@@ -7,12 +7,13 @@ from pathlib import Path
 FIELDS = ['ID_position','Ticker','CIK','Concept','Unite','Valeur','Date_debut','Date_fin','Date_depot','Formulaire','Accession','Source_URL','Statut_preuve']
 
 def run(facts, identities, output):
-    with open(identities, newline='', encoding='utf-8-sig') as f:
-        proofs = {}
-        for row in csv.DictReader(f):
-            if row['Statut_identite'].startswith('CIK_CONFIRME'):
-                key = (row['Ticker'],row['CIK'].zfill(10))
-                proofs[key] = row
+    proofs = {}
+    for identity_path in identities:
+        with open(identity_path, newline='', encoding='utf-8-sig') as f:
+            for row in csv.DictReader(f):
+                if row['Statut_identite'].startswith('CIK_CONFIRME'):
+                    key = (row['Ticker'],row['CIK'].zfill(10))
+                    proofs[key] = row
     # The complement has no ID_position; CIK and ticker are matched together.
     # Keep original source rows and never promote financial facts to audited.
     seen = set()
@@ -40,7 +41,7 @@ def run(facts, identities, output):
 if __name__ == '__main__':
     parser=argparse.ArgumentParser()
     parser.add_argument('--facts',default='DONNEES/FAITS_SEC_TITULAIRES_US.csv')
-    parser.add_argument('--identities',default='DONNEES/PREUVES_IDENTITE_SEC_20261113_COMPLEMENT.csv')
+    parser.add_argument('--identities', nargs='+', default=['DONNEES/PREUVES_IDENTITE_SEC_20261112.csv', 'DONNEES/PREUVES_IDENTITE_SEC_20261113_COMPLEMENT.csv'])
     parser.add_argument('--output',default='DONNEES/FAITS_SEC_RAPPROCHES_NON_CERTIFIES.csv')
     args=parser.parse_args()
     run(args.facts,args.identities,args.output)
