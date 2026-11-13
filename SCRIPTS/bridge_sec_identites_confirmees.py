@@ -11,14 +11,16 @@ def run(facts, identities, output):
         proofs = {}
         for row in csv.DictReader(f):
             if row['Statut_identite'].startswith('CIK_CONFIRME'):
-                key = (row['ID_position'],row['Ticker'],row['CIK'].zfill(10))
+                key = (row['Ticker'],row['CIK'].zfill(10))
                 proofs[key] = row
+    # The complement has no ID_position; CIK and ticker are matched together.
+    # Keep original source rows and never promote financial facts to audited.
     seen = set()
     rows = []
     with open(facts, newline='', encoding='utf-8-sig') as f:
         for row in csv.DictReader(f):
-            key = (row['ID_position'],row['Ticker'],row['CIK_piste'].zfill(10))
-            if key not in proofs or row['Statut_identite'] != 'CIK_CONFIRME_SEC_20261112':
+            key = (row['Ticker'],row['CIK_piste'].zfill(10))
+            if key not in proofs:
                 continue
             if not row['Source_URL'].startswith('https://data.sec.gov/') or not row['Date_depot'] or not row['Accession']:
                 continue
@@ -26,7 +28,7 @@ def run(facts, identities, output):
             if fingerprint in seen:
                 continue
             seen.add(fingerprint)
-            rows.append(dict(zip(FIELDS,[row['ID_position'],row['Ticker'],key[2],row['Concept'],row['Unite'],row['Valeur'],row['Date_debut'],row['Date_fin'],row['Date_depot'],row['Formulaire'],row['Accession'],row['Source_URL'],'IDENTITE_CIK_CONFIRMEE_FAIT_NON_AUDITE'])))
+            rows.append(dict(zip(FIELDS,[row['ID_position'],row['Ticker'],key[1],row['Concept'],row['Unite'],row['Valeur'],row['Date_debut'],row['Date_fin'],row['Date_depot'],row['Formulaire'],row['Accession'],row['Source_URL'],'IDENTITE_CIK_CONFIRMEE_FAIT_NON_AUDITE'])))
     output = Path(output)
     output.parent.mkdir(parents=True, exist_ok=True)
     with output.open('w',newline='',encoding='utf-8') as f:
@@ -38,7 +40,7 @@ def run(facts, identities, output):
 if __name__ == '__main__':
     parser=argparse.ArgumentParser()
     parser.add_argument('--facts',default='DONNEES/FAITS_SEC_TITULAIRES_US.csv')
-    parser.add_argument('--identities',default='DONNEES/PREUVES_IDENTITE_SEC_20261112.csv')
+    parser.add_argument('--identities',default='DONNEES/PREUVES_IDENTITE_SEC_20261113_COMPLEMENT.csv')
     parser.add_argument('--output',default='DONNEES/FAITS_SEC_RAPPROCHES_NON_CERTIFIES.csv')
     args=parser.parse_args()
     run(args.facts,args.identities,args.output)
