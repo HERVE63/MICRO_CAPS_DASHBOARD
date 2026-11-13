@@ -21,7 +21,9 @@ def validate(path=PATH):
         checks += 1
         cfo, capex, fcf = (value(k) for k in ("CFO_YTD_USD", "Capex_YTD_USD", "FCF_proxy_YTD_USD"))
         if cfo is None or capex is None:
-            assert fcf is None and r["Statut_FCF"] == "INCOMPLET_CFO_OU_CAPEX"
+            assert fcf is None and r["Statut_FCF"] in {"INCOMPLET_CFO_OU_CAPEX", "INCOMPLET_CAPEX_ZERO_NON_VERIFIE"}
+            if r["Ticker"] == "CXDO":
+                assert cfo is not None and capex is None and r["Statut_FCF"] == "INCOMPLET_CAPEX_ZERO_NON_VERIFIE"
         else:
             assert fcf is not None and abs((cfo - capex) - fcf) < 0.01
         checks += 1
