@@ -2,15 +2,17 @@
 """Collect public SEC facts and issuer identity without credentials or orders."""
 import concurrent.futures, hashlib, json, urllib.request
 from pathlib import Path
+from datetime import datetime, timezone
+DATE=datetime.now(timezone.utc).date()
 BASE=Path(__file__).resolve().parents[1]
-OUT=BASE/'AUDITS/FINALISATION_FICHES_20261104/SEC'
+OUT=BASE/('AUDITS/FINALISATION_FICHES_'+DATE.strftime('%Y%m%d'))/'SEC'
 CIKS={'IDN':'0001040896','INFU':'0001337013','OSS':'0001394056','CXDO':'0001075736','LWAY':'0000814586'}
 def collect(item):
  ticker,cik=item; results=[]
  for kind,url in [('submissions',f'https://data.sec.gov/submissions/CIK{cik}.json'),('companyfacts',f'https://data.sec.gov/api/xbrl/companyfacts/CIK{cik}.json')]:
-  row={'ticker':ticker,'type':kind,'url':url,'date_collecte':'2026-11-04'}
+  row={'ticker':ticker,'type':kind,'url':url,'date_collecte':DATE.isoformat()}
   try:
-   req=urllib.request.Request(url,headers={'User-Agent':'Microcaps research contact research@example.com','Accept':'application/json'})
+   req=urllib.request.Request(url,headers={'User-Agent':'MicroCapsResearch https://github.com/HERVE63/MICRO_CAPS_DASHBOARD','Accept':'application/json'})
    with urllib.request.urlopen(req,timeout=25) as response: raw=response.read();row['http']=response.status
    data=json.loads(raw)
    if kind=='submissions' and ticker not in data.get('tickers',[]):raise ValueError('Ticker mismatch')

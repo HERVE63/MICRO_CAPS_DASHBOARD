@@ -2,14 +2,16 @@
 """Collect only missing annual share-count evidence; preserve prior acquisitions."""
 import concurrent.futures,hashlib,html,importlib.util,json,re,urllib.request
 from pathlib import Path
+from datetime import date
+DATE=date.today().isoformat()
 B=Path(__file__).resolve().parents[1]
 s=importlib.util.spec_from_file_location('stats',B/'SCRIPTS_ACTIFS/09V_COLLECTE_STATISTIQUES_40.py');m=importlib.util.module_from_spec(s);s.loader.exec_module(m)
-OUT=B/'DONNEES/BILANS_ANNUELS_40_20261104.json'
+OUT=B/('DONNEES/BILANS_ANNUELS_40_'+DATE.replace('-','')+'.json')
 cache={r['ticker']:r for r in json.loads(OUT.read_text())} if OUT.exists() else {}
 def collect(d):
  t=d['ticker']
- if t in cache:return cache[t]
- url=m.url_for(t).removesuffix('statistics/')+'financials/balance-sheet/';r=dict(ticker=t,url=url,date_collecte='2026-11-04')
+ if t in cache and cache[t].get('statut')=='SOURCE_SECONDAIRE_A_RAPPROCHER':return cache[t]
+ url=m.url_for(t).removesuffix('statistics/')+'financials/balance-sheet/';r=dict(ticker=t,url=url,date_collecte=DATE)
  try:
   with urllib.request.urlopen(urllib.request.Request(url,headers={'User-Agent':'Mozilla/5.0'}),timeout=25) as resp:raw=resp.read();r['http']=resp.status
   txt=raw.decode();title=html.unescape(re.search('<title>(.*?)</title>',txt,re.S)[1]);r['titre']=title

@@ -2,6 +2,7 @@
 """Collect public Yahoo chart daily bars for 40 incumbents; no API key.
 Unverified or missing series remain missing. No scores or trades.
 """
+import concurrent.futures
 import csv,json,time,urllib.parse,urllib.request,urllib.error,math,gzip,hashlib
 from zoneinfo import ZoneInfo
 from pathlib import Path
@@ -62,10 +63,12 @@ def main():
     archive=D.parent/'AUDITS'/'HISTORIQUES_PUBLICS_40'/now.strftime('%Y%m%dT%H%M%SZ')
     archive.mkdir(parents=True,exist_ok=True)
     manifest=[]
+    pool=concurrent.futures.ThreadPoolExecutor(max_workers=4)
+    futures={p["Ticker"]:pool.submit(fetch,SYMBOL_FIX.get(p["Ticker"],p["Ticker"])) for p in holdings}
     for p in holdings:
         symbol=SYMBOL_FIX.get(p["Ticker"],p["Ticker"]); n=0; status="OK"; missing_adjusted=0; missing_volume=0; position_rows=[]; url=""
         try:
-            obj,url=fetch(symbol)
+            obj,url=futures[p["Ticker"]].result()
             meta=obj.get('meta',{})
             if meta.get('symbol') and meta['symbol'].upper()!=symbol.upper():raise ValueError('YAHOO_SYMBOL_MISMATCH')
             zone=ZoneInfo(meta.get('exchangeTimezoneName','UTC'))
@@ -113,7 +116,8 @@ def main():
         last=max((r[3] for r in position_rows),default='')
         age=(now.date()-date.fromisoformat(last)).days if last else None
         summary.append([p["ID_position"],p["Ticker"],symbol,n,status,n-missing_adjusted,n-missing_volume, "OUI" if n>=200 and missing_adjusted==0 else "NON", "OUI" if n>=252 and missing_adjusted==0 else "NON",last,now.isoformat(),'OUI' if age is not None and age<=5 and status=='OK' else 'NON'])
-        time.sleep(0.35)
+        print(p["Ticker"],status,n,flush=True)
+    pool.shutdown(wait=True)
     (archive/'MANIFESTE.json').write_text(json.dumps(manifest,ensure_ascii=False,indent=2)+'\n',encoding='utf-8')
     for filename,headers,data in [("HISTORIQUES_YAHOO_40.csv",HEAD,rows),("COUVERTURE_HISTORIQUES_YAHOO_40.csv",["ID_position","Ticker","Yahoo_symbol","Nb_seances","Statut","Seances_ajustees","Seances_volume","MM200_eligible","Momentum_12m_eligible","Derniere_cloture","Collecte_UTC","Collecte_fraiche"],summary),("INDICATEURS_YAHOO_40.csv",INDICATOR_HEAD,indicators)]:
         target=D/filename;tmp=target.with_suffix(".tmp")

@@ -2,8 +2,8 @@
 """Aggregate SEC Form 4 P/S trades; amendments/incomplete windows block totals."""
 import concurrent.futures,datetime as dt,hashlib,json,sys,urllib.request,xml.etree.ElementTree as ET
 from pathlib import Path
-BASE=Path(__file__).resolve().parents[1];D=BASE/'AUDITS/FINALISATION_FICHES_20261104/SEC'
-ASOF=dt.date(2026,11,4);START=(ASOF-dt.timedelta(days=180)).isoformat()
+BASE=Path(__file__).resolve().parents[1];D=BASE/('AUDITS/FINALISATION_FICHES_'+ASOF.strftime('%Y%m%d'))/'SEC'
+ASOF=dt.date.today();START=(ASOF-dt.timedelta(days=180)).isoformat()
 def issuer(p):
  s=json.loads(p.read_text());t=p.name.split('_')[0];cik=int(s['cik']);recent=s['filings']['recent'];forms=[];errors=[]
  dates=recent.get('filingDate',[]);covers=bool(dates) and min(dates)<=START

@@ -8,9 +8,11 @@ BASE=Path(__file__).resolve().parents[1];D=BASE/'DONNEES';F=BASE/'DOSSIERS_MCPA_
 DATE='2026-11-04';PRICE_CUTOFF='2026-11-03'
 BASELINE_COMMIT='076ba2accecd4bc0b161ecb9d5c020e0a08f7533'
 PROTECTED={}
-for _path in sorted(F.glob('*.json')):
- _original=json.loads(subprocess.check_output(['git','show',BASELINE_COMMIT+':'+str(_path.relative_to(BASE))],cwd=BASE,text=True))
- PROTECTED[_original['ticker']]={(b,k) for b,block in _original['blocs'].items() for k,c in block.items() if c['valeur'] is not None}
+def load_protected_baseline():
+ for _path in sorted(F.glob('*.json')):
+  _original=json.loads(subprocess.check_output(['git','show',BASELINE_COMMIT+':'+str(_path.relative_to(BASE))],cwd=BASE,text=True))
+  PROTECTED[_original['ticker']]={(b,k) for b,block in _original['blocs'].items() for k,c in block.items() if c['valeur'] is not None}
+
 def load(p):return json.loads(p.read_text())
 def cell(value,unit,period,date,url,status,comment=None):
  return dict(valeur=value,unite=unit,periode=period,date_source=date,source_url=url,statut=status,commentaire=comment,date_collecte=DATE)
@@ -220,6 +222,7 @@ def sec(doc):
  for key,val,pd in [('croissance_ca_1a_pct',(rev25/rev24-1)*100 if rev25 is not None and rev24 and rev24>0 else None,'FY2025 / FY2024'),('croissance_ca_3a_cagr_pct',((rev25/rev22)**(1/3)-1)*100 if rev25 and rev25>0 and rev22 and rev22>0 else None,'FY2022 / FY2025')]:
   if val is not None:put(doc,'croissance',key,cell(val,'pct',pd,DATE,url,status,'Calcul sur exercices calendaires complets SEC, non sur un semestre.'))
 def main():
+ load_protected_baseline()
  paths=sorted(F.glob('*.json'));assert len(paths)==40
  histories={}
  with (D/'HISTORIQUES_YAHOO_40.csv').open() as f:

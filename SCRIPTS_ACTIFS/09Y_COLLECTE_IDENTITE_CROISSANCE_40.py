@@ -2,13 +2,16 @@
 """Secondary issuer profiles and annual growth series, with explicit fiscal dates."""
 import concurrent.futures,csv,hashlib,html,importlib.util,json,re,urllib.request
 from pathlib import Path
+from datetime import date
+DATE=date.today().isoformat()
+NAME="IDENTITES_CROISSANCE_40_"+DATE.replace("-","")+".json"
 BASE=Path(__file__).resolve().parents[1]
 spec=importlib.util.spec_from_file_location('statcollector',BASE/'SCRIPTS_ACTIFS/09V_COLLECTE_STATISTIQUES_40.py');mod=importlib.util.module_from_spec(spec);spec.loader.exec_module(mod)
 PROFILE={'Country','Industry','Sector','Exchange','Reporting Currency','ISIN Number','Fiscal Year','Ticker Symbol'}
 FINANCE={'Fiscal Year','Period Ending','Fiscal Quarter','Revenue','Revenue Growth (YoY)','EBITDA','EBITDA Growth','EPS (Diluted)','EPS Growth','Free Cash Flow','Net Income','Revenue Growth'}
 def collect(h):
- t=h['Ticker'];base=mod.url_for(t).removesuffix('statistics/');out={'ticker':t,'date_collecte':'2026-11-04'}
- cachefile=BASE/'DONNEES/IDENTITES_CROISSANCE_40_20261104.json'
+ t=h['Ticker'];base=mod.url_for(t).removesuffix('statistics/');out={'ticker':t,'date_collecte':DATE}
+ cachefile=BASE/'DONNEES'/NAME
  cache={r['ticker']:r for r in json.loads(cachefile.read_text())} if cachefile.exists() else {}
  for kind,path in [('profil','company/'),('annuel','financials/')]:
   if kind=='profil' and cache.get(t,{}).get(kind,{}).get('statut')=='SOURCE_SECONDAIRE_A_RAPPROCHER':out[kind]=cache[t][kind];continue
@@ -35,6 +38,6 @@ def collect(h):
 def main():
  with (BASE/'DONNEES/ETAT_INITIAL_PORTEFEUILLE_GERE.csv').open() as f:holdings=list(csv.DictReader(f))
  with concurrent.futures.ThreadPoolExecutor(max_workers=8) as ex:rows=list(ex.map(collect,holdings))
- (BASE/'DONNEES/IDENTITES_CROISSANCE_40_20261104.json').write_text(json.dumps(rows,indent=2,ensure_ascii=False)+'\n')
+ (BASE/'DONNEES'/NAME).write_text(json.dumps(rows,indent=2,ensure_ascii=False)+'\n')
  print(json.dumps([{'ticker':r['ticker'],'profil':r['profil']['statut'],'annuel':r['annuel']['statut']} for r in rows]))
 if __name__=='__main__':main()

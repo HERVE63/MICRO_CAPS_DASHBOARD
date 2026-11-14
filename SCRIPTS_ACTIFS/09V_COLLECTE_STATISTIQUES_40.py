@@ -5,7 +5,7 @@ Only selected facts are retained; no complete copyrighted page is republished.
 import csv,concurrent.futures,datetime as dt,hashlib,html,json,re,urllib.request
 from html.parser import HTMLParser
 from pathlib import Path
-BASE=Path(__file__).resolve().parents[1];OUT=BASE/'DONNEES/STATISTIQUES_SECONDAIRES_40_20261104.json'
+BASE=Path(__file__).resolve().parents[1];OUT=BASE/('DONNEES/STATISTIQUES_SECONDAIRES_40_'+dt.date.today().strftime('%Y%m%d')+'.json')
 LABELS=set('Market Cap|Enterprise Value|Shares Outstanding|Shares Change (YoY)|Owned by Insiders (%)|Float|PE Ratio|Forward PE|PS Ratio|PB Ratio|P/FCF Ratio|PEG Ratio|EV / Sales|EV / EBITDA|EV / EBIT|Current Ratio|Interest Coverage|Return on Equity (ROE)|Return on Invested Capital (ROIC)|Revenue|Gross Profit|Operating Income|Net Income|EBITDA|Earnings Per Share (EPS)|Cash & Cash Equivalents|Total Debt|Net Cash|Equity (Book Value)|Operating Cash Flow|Capital Expenditures|Free Cash Flow|Gross Margin|Operating Margin|Profit Margin|EBITDA Margin|FCF Yield|Revenue Growth Forecast (3Y)|EPS Growth Forecast (3Y)|Earnings Date'.split('|'))
 class Tables(HTMLParser):
  def __init__(self):super().__init__();self.table=0;self.cell=False;self.text='';self.row=[];self.rows=[]
