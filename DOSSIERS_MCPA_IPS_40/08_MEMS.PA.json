@@ -134,7 +134,7 @@
     },
     "qualite": {
       "ca_ttm": {
-        "valeur": 13490000.0,
+        "valeur": 13490000,
         "unite": "EUR",
         "periode": "TTM fournisseur; arrêté indiqué dans son tableau financier : Sep '26 Sep 30, 2026",
         "date_source": "2026-11-04",
@@ -202,7 +202,7 @@
         "date_collecte": "2026-11-04"
       },
       "fcf_ttm": {
-        "valeur": 1300000.0,
+        "valeur": 1300000,
         "unite": "EUR",
         "periode": "TTM fournisseur; arrêté indiqué dans son tableau financier : Sep '26 Sep 30, 2026",
         "date_source": "2026-11-04",
@@ -1087,7 +1087,7 @@
         }
       },
       "ic_sur_5": {
-        "valeur": 3.0,
+        "valeur": 3,
         "unite": "note/5",
         "periode": "analyse au 2026-11-09",
         "date_source": "2026-11-09",
@@ -1097,7 +1097,7 @@
         "date_collecte": "2026-11-09"
       },
       "cx_sur_5": {
-        "valeur": 3.0,
+        "valeur": 3,
         "unite": "note/5",
         "periode": "analyse au 2026-11-09",
         "date_source": "2026-11-09",
@@ -1132,7 +1132,7 @@
         }
       },
       "scenario_bear_3m_pct": {
-        "valeur": -20.0,
+        "valeur": -20,
         "unite": "pct",
         "periode": "3 mois depuis 2026-11-06",
         "date_source": "2026-11-09",
@@ -1142,7 +1142,7 @@
         "date_collecte": "2026-11-09"
       },
       "prob_bear_3m_pct": {
-        "valeur": 25.0,
+        "valeur": 25,
         "unite": "pct",
         "periode": "probabilité subjective 3 mois",
         "date_source": "2026-11-09",
@@ -1152,7 +1152,7 @@
         "date_collecte": "2026-11-09"
       },
       "scenario_central_3m_pct": {
-        "valeur": 8.0,
+        "valeur": 8,
         "unite": "pct",
         "periode": "3 mois depuis 2026-11-06",
         "date_source": "2026-11-09",
@@ -1162,7 +1162,7 @@
         "date_collecte": "2026-11-09"
       },
       "prob_central_3m_pct": {
-        "valeur": 50.0,
+        "valeur": 50,
         "unite": "pct",
         "periode": "probabilité subjective 3 mois",
         "date_source": "2026-11-09",
@@ -1172,7 +1172,7 @@
         "date_collecte": "2026-11-09"
       },
       "scenario_bull_3m_pct": {
-        "valeur": 25.0,
+        "valeur": 25,
         "unite": "pct",
         "periode": "3 mois depuis 2026-11-06",
         "date_source": "2026-11-09",
@@ -1182,7 +1182,7 @@
         "date_collecte": "2026-11-09"
       },
       "prob_bull_3m_pct": {
-        "valeur": 25.0,
+        "valeur": 25,
         "unite": "pct",
         "periode": "probabilité subjective 3 mois",
         "date_source": "2026-11-09",
@@ -1192,7 +1192,7 @@
         "date_collecte": "2026-11-09"
       },
       "scenario_bear_6m_pct": {
-        "valeur": -30.0,
+        "valeur": -30,
         "unite": "pct",
         "periode": "6 mois depuis 2026-11-06",
         "date_source": "2026-11-09",
@@ -1202,7 +1202,7 @@
         "date_collecte": "2026-11-09"
       },
       "prob_bear_6m_pct": {
-        "valeur": 25.0,
+        "valeur": 25,
         "unite": "pct",
         "periode": "probabilité subjective 6 mois",
         "date_source": "2026-11-09",
@@ -1212,7 +1212,7 @@
         "date_collecte": "2026-11-09"
       },
       "scenario_central_6m_pct": {
-        "valeur": 18.0,
+        "valeur": 18,
         "unite": "pct",
         "periode": "6 mois depuis 2026-11-06",
         "date_source": "2026-11-09",
@@ -1222,7 +1222,7 @@
         "date_collecte": "2026-11-09"
       },
       "prob_central_6m_pct": {
-        "valeur": 45.0,
+        "valeur": 45,
         "unite": "pct",
         "periode": "probabilité subjective 6 mois",
         "date_source": "2026-11-09",
@@ -1232,7 +1232,7 @@
         "date_collecte": "2026-11-09"
       },
       "scenario_bull_6m_pct": {
-        "valeur": 45.0,
+        "valeur": 45,
         "unite": "pct",
         "periode": "6 mois depuis 2026-11-06",
         "date_source": "2026-11-09",
@@ -1242,7 +1242,7 @@
         "date_collecte": "2026-11-09"
       },
       "prob_bull_6m_pct": {
-        "valeur": 30.0,
+        "valeur": 30,
         "unite": "pct",
         "periode": "probabilité subjective 6 mois",
         "date_source": "2026-11-09",
@@ -1318,14 +1318,14 @@
       "diversification": 10
     },
     "notes": {
-      "qualite": 22.0,
-      "valorisation": 10.0,
-      "croissance": 14.0,
-      "risque": 7.0,
+      "qualite": 22,
+      "valorisation": 10,
+      "croissance": 14,
+      "risque": 7,
       "momentum": 2,
-      "diversification": 7.0
+      "diversification": 7
     },
-    "total_mcpa": 62.0,
+    "total_mcpa": 62,
     "statut": "DOCUMENTEE_NON_VALIDEE",
     "justifications": {
       "qualite": "Capteurs spécialisés et marges améliorées.",
@@ -1426,7 +1426,7 @@
                 "periodType": "12M",
                 "currencyCode": "EUR",
                 "reportedValue": {
-                  "raw": 1449000.0,
+                  "raw": 1449000,
                   "fmt": "1.45M"
                 }
               },
@@ -1436,7 +1436,7 @@
                 "periodType": "12M",
                 "currencyCode": "EUR",
                 "reportedValue": {
-                  "raw": 3040000.0,
+                  "raw": 3040000,
                   "fmt": "3.04M"
                 }
               },
@@ -1446,7 +1446,7 @@
                 "periodType": "12M",
                 "currencyCode": "EUR",
                 "reportedValue": {
-                  "raw": 2361000.0,
+                  "raw": 2361000,
                   "fmt": "2.36M"
                 }
               },
@@ -1456,7 +1456,7 @@
                 "periodType": "12M",
                 "currencyCode": "EUR",
                 "reportedValue": {
-                  "raw": 1828000.0,
+                  "raw": 1828000,
                   "fmt": "1.83M"
                 }
               }
@@ -3424,22 +3424,22 @@
         "scenarios": [
           {
             "cas": "bear",
-            "rendement_pct": -20.0,
-            "probabilite_pct": 25.0,
+            "rendement_pct": -20,
+            "probabilite_pct": 25,
             "cours_conditionnel": 3.8560001373291017,
             "declencheur": "Retards clients et dollar défavorable."
           },
           {
             "cas": "central",
-            "rendement_pct": 8.0,
-            "probabilite_pct": 50.0,
+            "rendement_pct": 8,
+            "probabilite_pct": 50,
             "cours_conditionnel": 5.205600185394287,
             "declencheur": "Croissance sans forte revalorisation."
           },
           {
             "cas": "bull",
-            "rendement_pct": 25.0,
-            "probabilite_pct": 25.0,
+            "rendement_pct": 25,
+            "probabilite_pct": 25,
             "cours_conditionnel": 6.025000214576721,
             "declencheur": "Effet de volume durable."
           }
@@ -3453,22 +3453,22 @@
         "scenarios": [
           {
             "cas": "bear",
-            "rendement_pct": -30.0,
-            "probabilite_pct": 25.0,
+            "rendement_pct": -30,
+            "probabilite_pct": 25,
             "cours_conditionnel": 3.3740001201629637,
             "declencheur": "Retards clients et dollar défavorable."
           },
           {
             "cas": "central",
-            "rendement_pct": 18.0,
-            "probabilite_pct": 45.0,
+            "rendement_pct": 18,
+            "probabilite_pct": 45,
             "cours_conditionnel": 5.687600202560424,
             "declencheur": "Croissance sans forte revalorisation."
           },
           {
             "cas": "bull",
-            "rendement_pct": 45.0,
-            "probabilite_pct": 30.0,
+            "rendement_pct": 45,
+            "probabilite_pct": 30,
             "cours_conditionnel": 6.989000248908996,
             "declencheur": "Effet de volume durable."
           }
@@ -3479,5 +3479,31 @@
       }
     }
   },
-  "date_analyse": "2026-11-09"
+  "date_analyse": "2026-11-09",
+  "zonebourse_seule_20261114": {
+    "source": "https://www.zonebourse.com/actualite-bourse/memscap-resultats-du-3eme-trimestre-et-des-9-premiers-mois-2026-ce785cdcdf8aff25",
+    "date_publication": "2026-10-26",
+    "date_revue": "2026-11-14",
+    "statut": "DONNEES_FACTUELLES_ZONEBOURSE_NON_CERTIFICATION",
+    "unite": "milliers EUR sauf pourcentages",
+    "donnees": {
+      "ca_t3_2026": 3333,
+      "ca_t3_2025": 2622,
+      "croissance_ca_t3_pct": 27.1,
+      "ca_9m_2026": 10272,
+      "croissance_ca_9m_pct": 17.2,
+      "resultat_operationnel_t3_2026": 498,
+      "marge_operationnelle_t3_pct": 14.9,
+      "ebitda_ajuste_t3_2026": 552,
+      "marge_brute_t3_pct": 44.2,
+      "resultat_net_t3_2026": 293,
+      "resultat_net_9m_2026": 849,
+      "ca_aeronautique_t3_2026": 2347,
+      "ca_medical_t3_2026": 534,
+      "ca_communications_optiques_t3_2026": 423
+    },
+    "catalyseurs": "Programmes contrôle moteur et systèmes fluidiques; communications optiques et centres de données",
+    "risques": "Dépendance aéronautique; change transactionnel; transition industrielle de la production optique",
+    "notes": "Résultats T3 non audités; ne certifie pas les six notes MCPA/IPS."
+  }
 }
