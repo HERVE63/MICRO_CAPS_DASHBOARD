@@ -139,7 +139,7 @@
     },
     "qualite": {
       "ca_ttm": {
-        "valeur": 81600000.0,
+        "valeur": 81600000,
         "unite": "EUR",
         "periode": "TTM fournisseur; arrêté indiqué dans son tableau financier : Jun '26 Jun 30, 2026",
         "date_source": "2026-11-04",
@@ -209,7 +209,7 @@
         "date_collecte": "2026-11-04"
       },
       "fcf_ttm": {
-        "valeur": 1610000.0,
+        "valeur": 1610000,
         "unite": "EUR",
         "periode": "TTM fournisseur; arrêté indiqué dans son tableau financier : Jun '26 Jun 30, 2026",
         "date_source": "2026-11-04",
@@ -1162,7 +1162,7 @@
         }
       },
       "ic_sur_5": {
-        "valeur": 3.0,
+        "valeur": 3,
         "unite": "note/5",
         "periode": "analyse au 2026-11-09",
         "date_source": "2026-11-09",
@@ -1172,7 +1172,7 @@
         "date_collecte": "2026-11-09"
       },
       "cx_sur_5": {
-        "valeur": 3.0,
+        "valeur": 3,
         "unite": "note/5",
         "periode": "analyse au 2026-11-09",
         "date_source": "2026-11-09",
@@ -1207,7 +1207,7 @@
         }
       },
       "scenario_bear_3m_pct": {
-        "valeur": -25.0,
+        "valeur": -25,
         "unite": "pct",
         "periode": "3 mois depuis 2026-11-06",
         "date_source": "2026-11-09",
@@ -1217,7 +1217,7 @@
         "date_collecte": "2026-11-09"
       },
       "prob_bear_3m_pct": {
-        "valeur": 30.0,
+        "valeur": 30,
         "unite": "pct",
         "periode": "probabilité subjective 3 mois",
         "date_source": "2026-11-09",
@@ -1227,7 +1227,7 @@
         "date_collecte": "2026-11-09"
       },
       "scenario_central_3m_pct": {
-        "valeur": 5.0,
+        "valeur": 5,
         "unite": "pct",
         "periode": "3 mois depuis 2026-11-06",
         "date_source": "2026-11-09",
@@ -1237,7 +1237,7 @@
         "date_collecte": "2026-11-09"
       },
       "prob_central_3m_pct": {
-        "valeur": 45.0,
+        "valeur": 45,
         "unite": "pct",
         "periode": "probabilité subjective 3 mois",
         "date_source": "2026-11-09",
@@ -1247,7 +1247,7 @@
         "date_collecte": "2026-11-09"
       },
       "scenario_bull_3m_pct": {
-        "valeur": 30.0,
+        "valeur": 30,
         "unite": "pct",
         "periode": "3 mois depuis 2026-11-06",
         "date_source": "2026-11-09",
@@ -1257,7 +1257,7 @@
         "date_collecte": "2026-11-09"
       },
       "prob_bull_3m_pct": {
-        "valeur": 25.0,
+        "valeur": 25,
         "unite": "pct",
         "periode": "probabilité subjective 3 mois",
         "date_source": "2026-11-09",
@@ -1267,7 +1267,7 @@
         "date_collecte": "2026-11-09"
       },
       "scenario_bear_6m_pct": {
-        "valeur": -40.0,
+        "valeur": -40,
         "unite": "pct",
         "periode": "6 mois depuis 2026-11-06",
         "date_source": "2026-11-09",
@@ -1277,7 +1277,7 @@
         "date_collecte": "2026-11-09"
       },
       "prob_bear_6m_pct": {
-        "valeur": 30.0,
+        "valeur": 30,
         "unite": "pct",
         "periode": "probabilité subjective 6 mois",
         "date_source": "2026-11-09",
@@ -1287,7 +1287,7 @@
         "date_collecte": "2026-11-09"
       },
       "scenario_central_6m_pct": {
-        "valeur": 15.0,
+        "valeur": 15,
         "unite": "pct",
         "periode": "6 mois depuis 2026-11-06",
         "date_source": "2026-11-09",
@@ -1297,7 +1297,7 @@
         "date_collecte": "2026-11-09"
       },
       "prob_central_6m_pct": {
-        "valeur": 40.0,
+        "valeur": 40,
         "unite": "pct",
         "periode": "probabilité subjective 6 mois",
         "date_source": "2026-11-09",
@@ -1307,7 +1307,7 @@
         "date_collecte": "2026-11-09"
       },
       "scenario_bull_6m_pct": {
-        "valeur": 50.0,
+        "valeur": 50,
         "unite": "pct",
         "periode": "6 mois depuis 2026-11-06",
         "date_source": "2026-11-09",
@@ -1317,7 +1317,7 @@
         "date_collecte": "2026-11-09"
       },
       "prob_bull_6m_pct": {
-        "valeur": 30.0,
+        "valeur": 30,
         "unite": "pct",
         "periode": "probabilité subjective 6 mois",
         "date_source": "2026-11-09",
@@ -1393,14 +1393,14 @@
       "diversification": 10
     },
     "notes": {
-      "qualite": 16.0,
-      "valorisation": 15.0,
-      "croissance": 12.0,
-      "risque": 6.0,
+      "qualite": 16,
+      "valorisation": 15,
+      "croissance": 12,
+      "risque": 6,
       "momentum": 0,
-      "diversification": 5.0
+      "diversification": 5
     },
-    "total_mcpa": 54.0,
+    "total_mcpa": 54,
     "statut": "DOCUMENTEE_NON_VALIDEE",
     "justifications": {
       "qualite": "EBITDA rétabli, perte nette et mix CPaaS.",
@@ -1453,7 +1453,7 @@
                 "periodType": "12M",
                 "currencyCode": "EUR",
                 "reportedValue": {
-                  "raw": 3950845.0,
+                  "raw": 3950845,
                   "fmt": "3.95M"
                 }
               },
@@ -1463,7 +1463,7 @@
                 "periodType": "12M",
                 "currencyCode": "EUR",
                 "reportedValue": {
-                  "raw": 314081.0,
+                  "raw": 314081,
                   "fmt": "314.08k"
                 }
               },
@@ -1473,7 +1473,7 @@
                 "periodType": "12M",
                 "currencyCode": "EUR",
                 "reportedValue": {
-                  "raw": -110744.0,
+                  "raw": -110744,
                   "fmt": "-110.74k"
                 }
               },
@@ -1483,7 +1483,7 @@
                 "periodType": "12M",
                 "currencyCode": "EUR",
                 "reportedValue": {
-                  "raw": 2540434.0,
+                  "raw": 2540434,
                   "fmt": "2.54M"
                 }
               }
@@ -6448,22 +6448,22 @@
         "scenarios": [
           {
             "cas": "bear",
-            "rendement_pct": -25.0,
-            "probabilite_pct": 30.0,
+            "rendement_pct": -25,
+            "probabilite_pct": 30,
             "cours_conditionnel": 1.2599999606609344,
             "declencheur": "Cash consommé sans levier."
           },
           {
             "cas": "central",
-            "rendement_pct": 5.0,
-            "probabilite_pct": 45.0,
+            "rendement_pct": 5,
+            "probabilite_pct": 45,
             "cours_conditionnel": 1.7639999449253083,
             "declencheur": "Croissance et pertes contenues."
           },
           {
             "cas": "bull",
-            "rendement_pct": 30.0,
-            "probabilite_pct": 25.0,
+            "rendement_pct": 30,
+            "probabilite_pct": 25,
             "cours_conditionnel": 2.1839999318122865,
             "declencheur": "Accélération SaaS et marges."
           }
@@ -6477,31 +6477,53 @@
         "scenarios": [
           {
             "cas": "bear",
-            "rendement_pct": -40.0,
-            "probabilite_pct": 30.0,
+            "rendement_pct": -40,
+            "probabilite_pct": 30,
             "cours_conditionnel": 1.0079999685287475,
             "declencheur": "Cash consommé sans levier."
           },
           {
             "cas": "central",
-            "rendement_pct": 15.0,
-            "probabilite_pct": 40.0,
+            "rendement_pct": 15,
+            "probabilite_pct": 40,
             "cours_conditionnel": 1.9319999396800993,
             "declencheur": "Croissance et pertes contenues."
           },
           {
             "cas": "bull",
-            "rendement_pct": 50.0,
-            "probabilite_pct": 30.0,
+            "rendement_pct": 50,
+            "probabilite_pct": 30,
             "cours_conditionnel": 2.519999921321869,
             "declencheur": "Accélération SaaS et marges."
           }
         ],
-        "esperance_subjective_brute_pct": 9.0,
+        "esperance_subjective_brute_pct": 9,
         "esperance_apres_rotation_vente_achat_2_5pct": 3.682926829268318,
         "convention_frais": "Friction théorique: vente 2,5 % du brut, achat 2,5 % du nominal acheté. Pas de transaction."
       }
     }
   },
-  "date_analyse": "2026-11-09"
+  "date_analyse": "2026-11-09",
+  "zonebourse_observations_20261114": {
+    "source_unique": "Zonebourse",
+    "date_consultation": "2026-11-14",
+    "observations": [
+      {
+        "url": "https://www.zonebourse.com/cours/action/GROWENS-S-P-A-17039534/cotations/",
+        "period": "12/11/2026",
+        "kind": "cours",
+        "values": {
+          "cours_eur": 1.765,
+          "momentum_1m_pct": -3.55,
+          "momentum_3m_pct": -6.37,
+          "momentum_6m_pct": -21.56,
+          "momentum_12m_pct": -30.24,
+          "performance_2026_pct": -36.05,
+          "volume_actions_2026_11_12": 15660
+        }
+      }
+    ],
+    "statut": "ENRICHIE_NON_CERTIFIEE",
+    "note": "Conservation des autres sources historiques avec leur attribution d'origine; aucune nouvelle note inventée."
+  }
 }
