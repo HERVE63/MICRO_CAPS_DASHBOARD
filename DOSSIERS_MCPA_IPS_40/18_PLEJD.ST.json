@@ -139,7 +139,7 @@
     },
     "qualite": {
       "ca_ttm": {
-        "valeur": 1150000000.0,
+        "valeur": 1150000000,
         "unite": "SEK",
         "periode": "TTM fournisseur; arrêté indiqué dans son tableau financier : Sep '26 Sep 30, 2026",
         "date_source": "2026-11-04",
@@ -207,7 +207,7 @@
         "date_collecte": "2026-11-04"
       },
       "fcf_ttm": {
-        "valeur": 191160000.0,
+        "valeur": 191160000,
         "unite": "SEK",
         "periode": "TTM fournisseur; arrêté indiqué dans son tableau financier : Sep '26 Sep 30, 2026",
         "date_source": "2026-11-04",
@@ -289,7 +289,7 @@
     },
     "valorisation": {
       "cours": {
-        "valeur": 833.0,
+        "valeur": 833,
         "unite": "SEK",
         "periode": "clôture 2026-11-06",
         "date_source": "2026-11-06",
@@ -1116,7 +1116,7 @@
         }
       },
       "scenario_bear_3m_pct": {
-        "valeur": -25.0,
+        "valeur": -25,
         "unite": "pct",
         "periode": "3 mois depuis 2026-11-06",
         "date_source": "2026-11-09",
@@ -1126,7 +1126,7 @@
         "date_collecte": "2026-11-09"
       },
       "prob_bear_3m_pct": {
-        "valeur": 25.0,
+        "valeur": 25,
         "unite": "pct",
         "periode": "probabilité subjective 3 mois",
         "date_source": "2026-11-09",
@@ -1136,7 +1136,7 @@
         "date_collecte": "2026-11-09"
       },
       "scenario_central_3m_pct": {
-        "valeur": 8.0,
+        "valeur": 8,
         "unite": "pct",
         "periode": "3 mois depuis 2026-11-06",
         "date_source": "2026-11-09",
@@ -1146,7 +1146,7 @@
         "date_collecte": "2026-11-09"
       },
       "prob_central_3m_pct": {
-        "valeur": 50.0,
+        "valeur": 50,
         "unite": "pct",
         "periode": "probabilité subjective 3 mois",
         "date_source": "2026-11-09",
@@ -1156,7 +1156,7 @@
         "date_collecte": "2026-11-09"
       },
       "scenario_bull_3m_pct": {
-        "valeur": 30.0,
+        "valeur": 30,
         "unite": "pct",
         "periode": "3 mois depuis 2026-11-06",
         "date_source": "2026-11-09",
@@ -1166,7 +1166,7 @@
         "date_collecte": "2026-11-09"
       },
       "prob_bull_3m_pct": {
-        "valeur": 25.0,
+        "valeur": 25,
         "unite": "pct",
         "periode": "probabilité subjective 3 mois",
         "date_source": "2026-11-09",
@@ -1176,7 +1176,7 @@
         "date_collecte": "2026-11-09"
       },
       "scenario_bear_6m_pct": {
-        "valeur": -35.0,
+        "valeur": -35,
         "unite": "pct",
         "periode": "6 mois depuis 2026-11-06",
         "date_source": "2026-11-09",
@@ -1186,7 +1186,7 @@
         "date_collecte": "2026-11-09"
       },
       "prob_bear_6m_pct": {
-        "valeur": 25.0,
+        "valeur": 25,
         "unite": "pct",
         "periode": "probabilité subjective 6 mois",
         "date_source": "2026-11-09",
@@ -1196,7 +1196,7 @@
         "date_collecte": "2026-11-09"
       },
       "scenario_central_6m_pct": {
-        "valeur": 18.0,
+        "valeur": 18,
         "unite": "pct",
         "periode": "6 mois depuis 2026-11-06",
         "date_source": "2026-11-09",
@@ -1206,7 +1206,7 @@
         "date_collecte": "2026-11-09"
       },
       "prob_central_6m_pct": {
-        "valeur": 45.0,
+        "valeur": 45,
         "unite": "pct",
         "periode": "probabilité subjective 6 mois",
         "date_source": "2026-11-09",
@@ -1216,7 +1216,7 @@
         "date_collecte": "2026-11-09"
       },
       "scenario_bull_6m_pct": {
-        "valeur": 50.0,
+        "valeur": 50,
         "unite": "pct",
         "periode": "6 mois depuis 2026-11-06",
         "date_source": "2026-11-09",
@@ -1226,7 +1226,7 @@
         "date_collecte": "2026-11-09"
       },
       "prob_bull_6m_pct": {
-        "valeur": 30.0,
+        "valeur": 30,
         "unite": "pct",
         "periode": "probabilité subjective 6 mois",
         "date_source": "2026-11-09",
@@ -1302,14 +1302,14 @@
       "diversification": 10
     },
     "notes": {
-      "qualite": 27.0,
-      "valorisation": 6.0,
-      "croissance": 18.0,
-      "risque": 7.0,
+      "qualite": 27,
+      "valorisation": 6,
+      "croissance": 18,
+      "risque": 7,
       "momentum": 2,
-      "diversification": 7.0
+      "diversification": 7
     },
-    "total_mcpa": 67.0,
+    "total_mcpa": 67,
     "statut": "DOCUMENTEE_NON_VALIDEE",
     "justifications": {
       "qualite": "Marge EBIT neuf mois 27,8 %, effet d'échelle.",
@@ -1419,7 +1419,7 @@
                 "periodType": "12M",
                 "currencyCode": "SEK",
                 "reportedValue": {
-                  "raw": 118558000.0,
+                  "raw": 118558000,
                   "fmt": "118.56M"
                 }
               },
@@ -1429,7 +1429,7 @@
                 "periodType": "12M",
                 "currencyCode": "SEK",
                 "reportedValue": {
-                  "raw": 115032000.0,
+                  "raw": 115032000,
                   "fmt": "115.03M"
                 }
               },
@@ -1439,7 +1439,7 @@
                 "periodType": "12M",
                 "currencyCode": "SEK",
                 "reportedValue": {
-                  "raw": 202627000.0,
+                  "raw": 202627000,
                   "fmt": "202.63M"
                 }
               },
@@ -1449,7 +1449,7 @@
                 "periodType": "12M",
                 "currencyCode": "SEK",
                 "reportedValue": {
-                  "raw": 317834000.0,
+                  "raw": 317834000,
                   "fmt": "317.83M"
                 }
               }
@@ -1702,7 +1702,7 @@
                 "fmt": "8.88"
               },
               "7daysAgo": {
-                "raw": 0.0,
+                "raw": 0,
                 "fmt": "0"
               },
               "30daysAgo": {
@@ -3458,23 +3458,23 @@
   ],
   "calculs_marche": {
     "date": "2026-11-06",
-    "cours_non_ajuste": 833.0,
+    "cours_non_ajuste": 833,
     "ancrages": {
       "1": {
         "date": "2026-10-06",
-        "cours_ajuste": 937.0
+        "cours_ajuste": 937
       },
       "3": {
         "date": "2026-08-06",
-        "cours_ajuste": 850.0
+        "cours_ajuste": 850
       },
       "6": {
         "date": "2026-05-06",
-        "cours_ajuste": 1046.0
+        "cours_ajuste": 1046
       },
       "12": {
         "date": "2025-11-06",
-        "cours_ajuste": 795.0
+        "cours_ajuste": 795
       }
     },
     "indicateurs": {
@@ -3548,7 +3548,7 @@
   "analyse_prospective": {
     "date_analyse": "2026-11-09",
     "date_ancrage": "2026-11-06",
-    "cours_ancrage": 833.0,
+    "cours_ancrage": 833,
     "devise": "SEK",
     "incertitude": "LPN cycle long; TRL/CMS prévus début 2027, pas commandes acquises.",
     "nature": "Probabilités subjectives non calibrées, incertitude au moins +/-10 points. Rendements du cours en devise locale, hors change, dividendes et frais.",
@@ -3558,22 +3558,22 @@
         "scenarios": [
           {
             "cas": "bear",
-            "rendement_pct": -25.0,
-            "probabilite_pct": 25.0,
+            "rendement_pct": -25,
+            "probabilite_pct": 25,
             "cours_conditionnel": 624.75,
             "declencheur": "Croissance ralentie et multiples comprimés."
           },
           {
             "cas": "central",
-            "rendement_pct": 8.0,
-            "probabilite_pct": 50.0,
+            "rendement_pct": 8,
+            "probabilite_pct": 50,
             "cours_conditionnel": 899.6400000000001,
             "declencheur": "Croissance absorbant la prime."
           },
           {
             "cas": "bull",
-            "rendement_pct": 30.0,
-            "probabilite_pct": 25.0,
+            "rendement_pct": 30,
+            "probabilite_pct": 25,
             "cours_conditionnel": 1082.9,
             "declencheur": "Nouveaux produits rapidement adoptés."
           }
@@ -3587,22 +3587,22 @@
         "scenarios": [
           {
             "cas": "bear",
-            "rendement_pct": -35.0,
-            "probabilite_pct": 25.0,
+            "rendement_pct": -35,
+            "probabilite_pct": 25,
             "cours_conditionnel": 541.45,
             "declencheur": "Croissance ralentie et multiples comprimés."
           },
           {
             "cas": "central",
-            "rendement_pct": 18.0,
-            "probabilite_pct": 45.0,
+            "rendement_pct": 18,
+            "probabilite_pct": 45,
             "cours_conditionnel": 982.9399999999999,
             "declencheur": "Croissance absorbant la prime."
           },
           {
             "cas": "bull",
-            "rendement_pct": 50.0,
-            "probabilite_pct": 30.0,
+            "rendement_pct": 50,
+            "probabilite_pct": 30,
             "cours_conditionnel": 1249.5,
             "declencheur": "Nouveaux produits rapidement adoptés."
           }
@@ -3613,5 +3613,19 @@
       }
     }
   },
-  "date_analyse": "2026-11-09"
+  "date_analyse": "2026-11-09",
+  "zonebourse_source_unique_complement": {
+    "source_url": "https://www.zonebourse.com/cours/action/PLEJD-AB-44548803/actualite/",
+    "date_collecte": "2026-11-14",
+    "donnees": {
+      "publication_resultats_t3_2026": "2026-10-16",
+      "achat_inities_2026_10_29_sek": 29000000,
+      "objectif_pareto_2026_10_09_sek": 1250,
+      "objectif_seb_2026_09_16_sek": 1400,
+      "risque": "Première position courte publique signalée le 15 octobre 2026",
+      "catalyseur": "Nouveau luminaire et rubans LED annoncés le 7 septembre 2026"
+    },
+    "statut": "FAITS_ET_ESTIMATIONS_ZONEBOURSE_A_VALIDER_MCPA",
+    "note": "Les données estimées, consensus et actualités sont distingués des résultats réalisés; autres sources historiques conservées sans être attribuées à Zonebourse."
+  }
 }
