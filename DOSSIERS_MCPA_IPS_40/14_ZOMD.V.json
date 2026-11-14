@@ -134,7 +134,7 @@
     },
     "qualite": {
       "ca_ttm": {
-        "valeur": 54240000.0,
+        "valeur": 54240000,
         "unite": "CAD",
         "periode": "TTM fournisseur; arrêté indiqué dans son tableau financier : Jun '26 Jun 30, 2026",
         "date_source": "2026-11-04",
@@ -204,7 +204,7 @@
         "date_collecte": "2026-11-04"
       },
       "fcf_ttm": {
-        "valeur": 12980000.0,
+        "valeur": 12980000,
         "unite": "CAD",
         "periode": "TTM fournisseur; arrêté indiqué dans son tableau financier : Jun '26 Jun 30, 2026",
         "date_source": "2026-11-04",
@@ -942,7 +942,7 @@
         "commentaire": "Ratio (titre ajusté converti en USD / URTH ajusté) sur chaque fenêtre, moins 1. Ancrages communs titre/ETF/FX; GBp constant annulé dans le ratio. URTH est un proxy ETF avec frais/écart de suivi; horaires de clôture non synchrones. Fenêtres impossibles avant IPO omises, jamais extrapolées."
       },
       "volume_moyen_20j": {
-        "valeur": 74595.0,
+        "valeur": 74595,
         "unite": "titres/jour",
         "periode": "historique ajusté au 2026-11-06",
         "date_source": "2026-11-06",
@@ -1084,7 +1084,7 @@
         }
       },
       "ic_sur_5": {
-        "valeur": 3.0,
+        "valeur": 3,
         "unite": "note/5",
         "periode": "analyse au 2026-11-09",
         "date_source": "2026-11-09",
@@ -1129,7 +1129,7 @@
         }
       },
       "scenario_bear_3m_pct": {
-        "valeur": -35.0,
+        "valeur": -35,
         "unite": "pct",
         "periode": "3 mois depuis 2026-11-06",
         "date_source": "2026-11-09",
@@ -1139,7 +1139,7 @@
         "date_collecte": "2026-11-09"
       },
       "prob_bear_3m_pct": {
-        "valeur": 40.0,
+        "valeur": 40,
         "unite": "pct",
         "periode": "probabilité subjective 3 mois",
         "date_source": "2026-11-09",
@@ -1149,7 +1149,7 @@
         "date_collecte": "2026-11-09"
       },
       "scenario_central_3m_pct": {
-        "valeur": 0.0,
+        "valeur": 0,
         "unite": "pct",
         "periode": "3 mois depuis 2026-11-06",
         "date_source": "2026-11-09",
@@ -1159,7 +1159,7 @@
         "date_collecte": "2026-11-09"
       },
       "prob_central_3m_pct": {
-        "valeur": 40.0,
+        "valeur": 40,
         "unite": "pct",
         "periode": "probabilité subjective 3 mois",
         "date_source": "2026-11-09",
@@ -1169,7 +1169,7 @@
         "date_collecte": "2026-11-09"
       },
       "scenario_bull_3m_pct": {
-        "valeur": 35.0,
+        "valeur": 35,
         "unite": "pct",
         "periode": "3 mois depuis 2026-11-06",
         "date_source": "2026-11-09",
@@ -1179,7 +1179,7 @@
         "date_collecte": "2026-11-09"
       },
       "prob_bull_3m_pct": {
-        "valeur": 20.0,
+        "valeur": 20,
         "unite": "pct",
         "periode": "probabilité subjective 3 mois",
         "date_source": "2026-11-09",
@@ -1189,7 +1189,7 @@
         "date_collecte": "2026-11-09"
       },
       "scenario_bear_6m_pct": {
-        "valeur": -50.0,
+        "valeur": -50,
         "unite": "pct",
         "periode": "6 mois depuis 2026-11-06",
         "date_source": "2026-11-09",
@@ -1199,7 +1199,7 @@
         "date_collecte": "2026-11-09"
       },
       "prob_bear_6m_pct": {
-        "valeur": 40.0,
+        "valeur": 40,
         "unite": "pct",
         "periode": "probabilité subjective 6 mois",
         "date_source": "2026-11-09",
@@ -1209,7 +1209,7 @@
         "date_collecte": "2026-11-09"
       },
       "scenario_central_6m_pct": {
-        "valeur": 10.0,
+        "valeur": 10,
         "unite": "pct",
         "periode": "6 mois depuis 2026-11-06",
         "date_source": "2026-11-09",
@@ -1219,7 +1219,7 @@
         "date_collecte": "2026-11-09"
       },
       "prob_central_6m_pct": {
-        "valeur": 35.0,
+        "valeur": 35,
         "unite": "pct",
         "periode": "probabilité subjective 6 mois",
         "date_source": "2026-11-09",
@@ -1229,7 +1229,7 @@
         "date_collecte": "2026-11-09"
       },
       "scenario_bull_6m_pct": {
-        "valeur": 65.0,
+        "valeur": 65,
         "unite": "pct",
         "periode": "6 mois depuis 2026-11-06",
         "date_source": "2026-11-09",
@@ -1239,7 +1239,7 @@
         "date_collecte": "2026-11-09"
       },
       "prob_bull_6m_pct": {
-        "valeur": 25.0,
+        "valeur": 25,
         "unite": "pct",
         "periode": "probabilité subjective 6 mois",
         "date_source": "2026-11-09",
@@ -1315,14 +1315,14 @@
       "diversification": 10
     },
     "notes": {
-      "qualite": 18.0,
-      "valorisation": 15.0,
-      "croissance": 4.0,
-      "risque": 5.0,
+      "qualite": 18,
+      "valorisation": 15,
+      "croissance": 4,
+      "risque": 5,
       "momentum": 1,
-      "diversification": 6.0
+      "diversification": 6
     },
-    "total_mcpa": 49.0,
+    "total_mcpa": 49,
     "statut": "DOCUMENTEE_NON_VALIDEE",
     "justifications": {
       "qualite": "Cash et bénéfice, mais concentration clients.",
@@ -1377,7 +1377,7 @@
                 "periodType": "12M",
                 "currencyCode": "USD",
                 "reportedValue": {
-                  "raw": 1611000.0,
+                  "raw": 1611000,
                   "fmt": "1.61M"
                 }
               },
@@ -1387,7 +1387,7 @@
                 "periodType": "12M",
                 "currencyCode": "USD",
                 "reportedValue": {
-                  "raw": -1726000.0,
+                  "raw": -1726000,
                   "fmt": "-1.73M"
                 }
               },
@@ -1397,7 +1397,7 @@
                 "periodType": "12M",
                 "currencyCode": "USD",
                 "reportedValue": {
-                  "raw": 11538000.0,
+                  "raw": 11538000,
                   "fmt": "11.54M"
                 }
               },
@@ -1407,7 +1407,7 @@
                 "periodType": "12M",
                 "currencyCode": "USD",
                 "reportedValue": {
-                  "raw": 16329000.0,
+                  "raw": 16329000,
                   "fmt": "16.33M"
                 }
               }
@@ -1609,7 +1609,7 @@
                 "fmt": "0.01"
               },
               "yearAgoEps": {
-                "raw": 0.0,
+                "raw": 0,
                 "fmt": "0"
               },
               "numberOfAnalysts": {
@@ -1618,7 +1618,7 @@
                 "longFmt": "2"
               },
               "growth": {
-                "raw": 0.0,
+                "raw": 0,
                 "fmt": "0.00%"
               },
               "earningsCurrency": "USD"
@@ -1661,19 +1661,19 @@
                 "fmt": "0.01"
               },
               "7daysAgo": {
-                "raw": 0.0,
+                "raw": 0,
                 "fmt": "0"
               },
               "30daysAgo": {
-                "raw": 0.0,
+                "raw": 0,
                 "fmt": "0"
               },
               "60daysAgo": {
-                "raw": 0.0,
+                "raw": 0,
                 "fmt": "0"
               },
               "90daysAgo": {
-                "raw": 0.0,
+                "raw": 0,
                 "fmt": "0"
               },
               "epsTrendCurrency": "USD"
@@ -1774,19 +1774,19 @@
                 "fmt": "0.03"
               },
               "7daysAgo": {
-                "raw": 0.0,
+                "raw": 0,
                 "fmt": "0"
               },
               "30daysAgo": {
-                "raw": 0.0,
+                "raw": 0,
                 "fmt": "0"
               },
               "60daysAgo": {
-                "raw": 0.0,
+                "raw": 0,
                 "fmt": "0"
               },
               "90daysAgo": {
-                "raw": 0.0,
+                "raw": 0,
                 "fmt": "0"
               },
               "epsTrendCurrency": "USD"
@@ -2075,7 +2075,7 @@
                 "fmt": "0.01"
               },
               "yearAgoEps": {
-                "raw": 0.0,
+                "raw": 0,
                 "fmt": "0"
               },
               "numberOfAnalysts": {
@@ -2084,7 +2084,7 @@
                 "longFmt": "2"
               },
               "growth": {
-                "raw": 0.0,
+                "raw": 0,
                 "fmt": "0.00%"
               },
               "earningsCurrency": "USD"
@@ -2127,19 +2127,19 @@
                 "fmt": "0.01"
               },
               "7daysAgo": {
-                "raw": 0.0,
+                "raw": 0,
                 "fmt": "0"
               },
               "30daysAgo": {
-                "raw": 0.0,
+                "raw": 0,
                 "fmt": "0"
               },
               "60daysAgo": {
-                "raw": 0.0,
+                "raw": 0,
                 "fmt": "0"
               },
               "90daysAgo": {
-                "raw": 0.0,
+                "raw": 0,
                 "fmt": "0"
               },
               "epsTrendCurrency": "USD"
@@ -2240,19 +2240,19 @@
                 "fmt": "0.03"
               },
               "7daysAgo": {
-                "raw": 0.0,
+                "raw": 0,
                 "fmt": "0"
               },
               "30daysAgo": {
-                "raw": 0.0,
+                "raw": 0,
                 "fmt": "0"
               },
               "60daysAgo": {
-                "raw": 0.0,
+                "raw": 0,
                 "fmt": "0"
               },
               "90daysAgo": {
-                "raw": 0.0,
+                "raw": 0,
                 "fmt": "0"
               },
               "epsTrendCurrency": "USD"
@@ -2541,7 +2541,7 @@
                 "fmt": "0.01"
               },
               "yearAgoEps": {
-                "raw": 0.0,
+                "raw": 0,
                 "fmt": "0"
               },
               "numberOfAnalysts": {
@@ -2550,7 +2550,7 @@
                 "longFmt": "2"
               },
               "growth": {
-                "raw": 0.0,
+                "raw": 0,
                 "fmt": "0.00%"
               },
               "earningsCurrency": "USD"
@@ -2593,19 +2593,19 @@
                 "fmt": "0.01"
               },
               "7daysAgo": {
-                "raw": 0.0,
+                "raw": 0,
                 "fmt": "0"
               },
               "30daysAgo": {
-                "raw": 0.0,
+                "raw": 0,
                 "fmt": "0"
               },
               "60daysAgo": {
-                "raw": 0.0,
+                "raw": 0,
                 "fmt": "0"
               },
               "90daysAgo": {
-                "raw": 0.0,
+                "raw": 0,
                 "fmt": "0"
               },
               "epsTrendCurrency": "USD"
@@ -2706,19 +2706,19 @@
                 "fmt": "0.03"
               },
               "7daysAgo": {
-                "raw": 0.0,
+                "raw": 0,
                 "fmt": "0"
               },
               "30daysAgo": {
-                "raw": 0.0,
+                "raw": 0,
                 "fmt": "0"
               },
               "60daysAgo": {
-                "raw": 0.0,
+                "raw": 0,
                 "fmt": "0"
               },
               "90daysAgo": {
-                "raw": 0.0,
+                "raw": 0,
                 "fmt": "0"
               },
               "epsTrendCurrency": "USD"
@@ -3007,7 +3007,7 @@
                 "fmt": "0.01"
               },
               "yearAgoEps": {
-                "raw": 0.0,
+                "raw": 0,
                 "fmt": "0"
               },
               "numberOfAnalysts": {
@@ -3016,7 +3016,7 @@
                 "longFmt": "2"
               },
               "growth": {
-                "raw": 0.0,
+                "raw": 0,
                 "fmt": "0.00%"
               },
               "earningsCurrency": "USD"
@@ -3059,19 +3059,19 @@
                 "fmt": "0.01"
               },
               "7daysAgo": {
-                "raw": 0.0,
+                "raw": 0,
                 "fmt": "0"
               },
               "30daysAgo": {
-                "raw": 0.0,
+                "raw": 0,
                 "fmt": "0"
               },
               "60daysAgo": {
-                "raw": 0.0,
+                "raw": 0,
                 "fmt": "0"
               },
               "90daysAgo": {
-                "raw": 0.0,
+                "raw": 0,
                 "fmt": "0"
               },
               "epsTrendCurrency": "USD"
@@ -3172,19 +3172,19 @@
                 "fmt": "0.03"
               },
               "7daysAgo": {
-                "raw": 0.0,
+                "raw": 0,
                 "fmt": "0"
               },
               "30daysAgo": {
-                "raw": 0.0,
+                "raw": 0,
                 "fmt": "0"
               },
               "60daysAgo": {
-                "raw": 0.0,
+                "raw": 0,
                 "fmt": "0"
               },
               "90daysAgo": {
-                "raw": 0.0,
+                "raw": 0,
                 "fmt": "0"
               },
               "epsTrendCurrency": "USD"
@@ -3473,7 +3473,7 @@
                 "fmt": "0.01"
               },
               "yearAgoEps": {
-                "raw": 0.0,
+                "raw": 0,
                 "fmt": "0"
               },
               "numberOfAnalysts": {
@@ -3482,7 +3482,7 @@
                 "longFmt": "2"
               },
               "growth": {
-                "raw": 0.0,
+                "raw": 0,
                 "fmt": "0.00%"
               },
               "earningsCurrency": "USD"
@@ -3525,19 +3525,19 @@
                 "fmt": "0.01"
               },
               "7daysAgo": {
-                "raw": 0.0,
+                "raw": 0,
                 "fmt": "0"
               },
               "30daysAgo": {
-                "raw": 0.0,
+                "raw": 0,
                 "fmt": "0"
               },
               "60daysAgo": {
-                "raw": 0.0,
+                "raw": 0,
                 "fmt": "0"
               },
               "90daysAgo": {
-                "raw": 0.0,
+                "raw": 0,
                 "fmt": "0"
               },
               "epsTrendCurrency": "USD"
@@ -3638,19 +3638,19 @@
                 "fmt": "0.03"
               },
               "7daysAgo": {
-                "raw": 0.0,
+                "raw": 0,
                 "fmt": "0"
               },
               "30daysAgo": {
-                "raw": 0.0,
+                "raw": 0,
                 "fmt": "0"
               },
               "60daysAgo": {
-                "raw": 0.0,
+                "raw": 0,
                 "fmt": "0"
               },
               "90daysAgo": {
-                "raw": 0.0,
+                "raw": 0,
                 "fmt": "0"
               },
               "epsTrendCurrency": "USD"
@@ -3939,7 +3939,7 @@
                 "fmt": "0.01"
               },
               "yearAgoEps": {
-                "raw": 0.0,
+                "raw": 0,
                 "fmt": "0"
               },
               "numberOfAnalysts": {
@@ -3948,7 +3948,7 @@
                 "longFmt": "2"
               },
               "growth": {
-                "raw": 0.0,
+                "raw": 0,
                 "fmt": "0.00%"
               },
               "earningsCurrency": "USD"
@@ -3991,19 +3991,19 @@
                 "fmt": "0.01"
               },
               "7daysAgo": {
-                "raw": 0.0,
+                "raw": 0,
                 "fmt": "0"
               },
               "30daysAgo": {
-                "raw": 0.0,
+                "raw": 0,
                 "fmt": "0"
               },
               "60daysAgo": {
-                "raw": 0.0,
+                "raw": 0,
                 "fmt": "0"
               },
               "90daysAgo": {
-                "raw": 0.0,
+                "raw": 0,
                 "fmt": "0"
               },
               "epsTrendCurrency": "USD"
@@ -4104,19 +4104,19 @@
                 "fmt": "0.03"
               },
               "7daysAgo": {
-                "raw": 0.0,
+                "raw": 0,
                 "fmt": "0"
               },
               "30daysAgo": {
-                "raw": 0.0,
+                "raw": 0,
                 "fmt": "0"
               },
               "60daysAgo": {
-                "raw": 0.0,
+                "raw": 0,
                 "fmt": "0"
               },
               "90daysAgo": {
-                "raw": 0.0,
+                "raw": 0,
                 "fmt": "0"
               },
               "epsTrendCurrency": "USD"
@@ -4405,7 +4405,7 @@
                 "fmt": "0.01"
               },
               "yearAgoEps": {
-                "raw": 0.0,
+                "raw": 0,
                 "fmt": "0"
               },
               "numberOfAnalysts": {
@@ -4414,7 +4414,7 @@
                 "longFmt": "2"
               },
               "growth": {
-                "raw": 0.0,
+                "raw": 0,
                 "fmt": "0.00%"
               },
               "earningsCurrency": "USD"
@@ -4457,19 +4457,19 @@
                 "fmt": "0.01"
               },
               "7daysAgo": {
-                "raw": 0.0,
+                "raw": 0,
                 "fmt": "0"
               },
               "30daysAgo": {
-                "raw": 0.0,
+                "raw": 0,
                 "fmt": "0"
               },
               "60daysAgo": {
-                "raw": 0.0,
+                "raw": 0,
                 "fmt": "0"
               },
               "90daysAgo": {
-                "raw": 0.0,
+                "raw": 0,
                 "fmt": "0"
               },
               "epsTrendCurrency": "USD"
@@ -4570,19 +4570,19 @@
                 "fmt": "0.03"
               },
               "7daysAgo": {
-                "raw": 0.0,
+                "raw": 0,
                 "fmt": "0"
               },
               "30daysAgo": {
-                "raw": 0.0,
+                "raw": 0,
                 "fmt": "0"
               },
               "60daysAgo": {
-                "raw": 0.0,
+                "raw": 0,
                 "fmt": "0"
               },
               "90daysAgo": {
-                "raw": 0.0,
+                "raw": 0,
                 "fmt": "0"
               },
               "epsTrendCurrency": "USD"
@@ -4871,7 +4871,7 @@
                 "fmt": "0.01"
               },
               "yearAgoEps": {
-                "raw": 0.0,
+                "raw": 0,
                 "fmt": "0"
               },
               "numberOfAnalysts": {
@@ -4880,7 +4880,7 @@
                 "longFmt": "2"
               },
               "growth": {
-                "raw": 0.0,
+                "raw": 0,
                 "fmt": "0.00%"
               },
               "earningsCurrency": "USD"
@@ -4923,19 +4923,19 @@
                 "fmt": "0.01"
               },
               "7daysAgo": {
-                "raw": 0.0,
+                "raw": 0,
                 "fmt": "0"
               },
               "30daysAgo": {
-                "raw": 0.0,
+                "raw": 0,
                 "fmt": "0"
               },
               "60daysAgo": {
-                "raw": 0.0,
+                "raw": 0,
                 "fmt": "0"
               },
               "90daysAgo": {
-                "raw": 0.0,
+                "raw": 0,
                 "fmt": "0"
               },
               "epsTrendCurrency": "USD"
@@ -5036,19 +5036,19 @@
                 "fmt": "0.03"
               },
               "7daysAgo": {
-                "raw": 0.0,
+                "raw": 0,
                 "fmt": "0"
               },
               "30daysAgo": {
-                "raw": 0.0,
+                "raw": 0,
                 "fmt": "0"
               },
               "60daysAgo": {
-                "raw": 0.0,
+                "raw": 0,
                 "fmt": "0"
               },
               "90daysAgo": {
-                "raw": 0.0,
+                "raw": 0,
                 "fmt": "0"
               },
               "epsTrendCurrency": "USD"
@@ -5337,7 +5337,7 @@
                 "fmt": "0.01"
               },
               "yearAgoEps": {
-                "raw": 0.0,
+                "raw": 0,
                 "fmt": "0"
               },
               "numberOfAnalysts": {
@@ -5346,7 +5346,7 @@
                 "longFmt": "2"
               },
               "growth": {
-                "raw": 0.0,
+                "raw": 0,
                 "fmt": "0.00%"
               },
               "earningsCurrency": "USD"
@@ -5389,19 +5389,19 @@
                 "fmt": "0.01"
               },
               "7daysAgo": {
-                "raw": 0.0,
+                "raw": 0,
                 "fmt": "0"
               },
               "30daysAgo": {
-                "raw": 0.0,
+                "raw": 0,
                 "fmt": "0"
               },
               "60daysAgo": {
-                "raw": 0.0,
+                "raw": 0,
                 "fmt": "0"
               },
               "90daysAgo": {
-                "raw": 0.0,
+                "raw": 0,
                 "fmt": "0"
               },
               "epsTrendCurrency": "USD"
@@ -5502,19 +5502,19 @@
                 "fmt": "0.03"
               },
               "7daysAgo": {
-                "raw": 0.0,
+                "raw": 0,
                 "fmt": "0"
               },
               "30daysAgo": {
-                "raw": 0.0,
+                "raw": 0,
                 "fmt": "0"
               },
               "60daysAgo": {
-                "raw": 0.0,
+                "raw": 0,
                 "fmt": "0"
               },
               "90daysAgo": {
-                "raw": 0.0,
+                "raw": 0,
                 "fmt": "0"
               },
               "epsTrendCurrency": "USD"
@@ -6233,8 +6233,8 @@
       "valeur": {
         "exercice": "2026-12-31",
         "courant": 0.025,
-        "J_30": 0.0,
-        "J_90": 0.0,
+        "J_30": 0,
+        "J_90": 0,
         "nombre_analystes": 2
       },
       "unite": "USD/action",
@@ -6251,8 +6251,8 @@
       "valeur": {
         "exercice": "2026-12-31",
         "courant": 0.025,
-        "J_30": 0.0,
-        "J_90": 0.0,
+        "J_30": 0,
+        "J_90": 0,
         "nombre_analystes": 2
       },
       "unite": "USD/action",
@@ -6269,8 +6269,8 @@
       "valeur": {
         "exercice": "2026-12-31",
         "courant": 0.025,
-        "J_30": 0.0,
-        "J_90": 0.0,
+        "J_30": 0,
+        "J_90": 0,
         "nombre_analystes": 2
       },
       "unite": "USD/action",
@@ -6287,8 +6287,8 @@
       "valeur": {
         "exercice": "2026-12-31",
         "courant": 0.025,
-        "J_30": 0.0,
-        "J_90": 0.0,
+        "J_30": 0,
+        "J_90": 0,
         "nombre_analystes": 2
       },
       "unite": "USD/action",
@@ -6305,8 +6305,8 @@
       "valeur": {
         "exercice": "2026-12-31",
         "courant": 0.025,
-        "J_30": 0.0,
-        "J_90": 0.0,
+        "J_30": 0,
+        "J_90": 0,
         "nombre_analystes": 2
       },
       "unite": "USD/action",
@@ -6323,8 +6323,8 @@
       "valeur": {
         "exercice": "2026-12-31",
         "courant": 0.025,
-        "J_30": 0.0,
-        "J_90": 0.0,
+        "J_30": 0,
+        "J_90": 0,
         "nombre_analystes": 2
       },
       "unite": "USD/action",
@@ -6341,8 +6341,8 @@
       "valeur": {
         "exercice": "2026-12-31",
         "courant": 0.025,
-        "J_30": 0.0,
-        "J_90": 0.0,
+        "J_30": 0,
+        "J_90": 0,
         "nombre_analystes": 2
       },
       "unite": "USD/action",
@@ -6359,8 +6359,8 @@
       "valeur": {
         "exercice": "2026-12-31",
         "courant": 0.025,
-        "J_30": 0.0,
-        "J_90": 0.0,
+        "J_30": 0,
+        "J_90": 0,
         "nombre_analystes": 2
       },
       "unite": "USD/action",
@@ -7456,7 +7456,7 @@
       "prix_vers_mm200": 0.5913427463608556,
       "tendance_mm200": -11.745877036290842,
       "momentum_6_1_pct": -33.92857085837394,
-      "volume_moyen_20j": 74595.0,
+      "volume_moyen_20j": 74595,
       "ratio_volume": 1.6837589650780884,
       "volatilite_90j_pct": 44.35256654986187,
       "drawdown_12m_pct": -84.00900969837365
@@ -7529,27 +7529,27 @@
         "scenarios": [
           {
             "cas": "bear",
-            "rendement_pct": -35.0,
-            "probabilite_pct": 40.0,
+            "rendement_pct": -35,
+            "probabilite_pct": 40,
             "cours_conditionnel": 0.24375000000000002,
             "declencheur": "Érosion des clients et du cash."
           },
           {
             "cas": "central",
-            "rendement_pct": 0.0,
-            "probabilite_pct": 40.0,
+            "rendement_pct": 0,
+            "probabilite_pct": 40,
             "cours_conditionnel": 0.375,
             "declencheur": "Stabilisation à un niveau réduit."
           },
           {
             "cas": "bull",
-            "rendement_pct": 35.0,
-            "probabilite_pct": 20.0,
+            "rendement_pct": 35,
+            "probabilite_pct": 20,
             "cours_conditionnel": 0.5062500000000001,
             "declencheur": "Diversification et revalorisation."
           }
         ],
-        "esperance_subjective_brute_pct": -7.0,
+        "esperance_subjective_brute_pct": -7,
         "esperance_apres_rotation_vente_achat_2_5pct": -11.536585365853657,
         "convention_frais": "Friction théorique: vente 2,5 % du brut, achat 2,5 % du nominal acheté. Pas de transaction."
       },
@@ -7558,22 +7558,22 @@
         "scenarios": [
           {
             "cas": "bear",
-            "rendement_pct": -50.0,
-            "probabilite_pct": 40.0,
+            "rendement_pct": -50,
+            "probabilite_pct": 40,
             "cours_conditionnel": 0.1875,
             "declencheur": "Érosion des clients et du cash."
           },
           {
             "cas": "central",
-            "rendement_pct": 10.0,
-            "probabilite_pct": 35.0,
+            "rendement_pct": 10,
+            "probabilite_pct": 35,
             "cours_conditionnel": 0.41250000000000003,
             "declencheur": "Stabilisation à un niveau réduit."
           },
           {
             "cas": "bull",
-            "rendement_pct": 65.0,
-            "probabilite_pct": 25.0,
+            "rendement_pct": 65,
+            "probabilite_pct": 25,
             "cours_conditionnel": 0.6187499999999999,
             "declencheur": "Diversification et revalorisation."
           }
@@ -7584,5 +7584,17 @@
       }
     }
   },
-  "date_analyse": "2026-11-09"
+  "date_analyse": "2026-11-09",
+  "zonebourse_verification_20261114": {
+    "source_url": "https://www.zonebourse.com/cours/action/ZOOMD-TECHNOLOGIES-LTD-103932542/actualite/",
+    "date_consultation": "2026-11-14",
+    "periode_et_date_publication": "cours au 13/11/2026; chiffre d'affaires T2 publié le 31/08/2026",
+    "donnees": {
+      "cours_2026_11_13_cad": 0.36,
+      "variation_2026_pct": -70,
+      "ca_t2_2026_millions_usd": 7.7
+    },
+    "statut": "VERIFIE_ZONEBOURSE_NON_CERTIFIE",
+    "note": "Données publiées ou cours différés; ne remplace pas la notation validée."
+  }
 }
