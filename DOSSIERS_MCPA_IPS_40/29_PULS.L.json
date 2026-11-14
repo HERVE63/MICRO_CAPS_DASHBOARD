@@ -620,13 +620,7 @@
         "date_source": "2026-07-20",
         "source_url": "https://www.zonebourse.com/actualite-bourse/pulsar-group-reduit-sa-perte-semestrielle-apres-une-restructuration-de-sa-base-de-couts-ce7f51dbd88cf024",
         "statut": "ZONEBOURSE_PUBLIE",
-        "commentaire": null,
-        "recherche": {
-          "date": "2026-11-04",
-          "statut": "MANQUANT_RECHERCHE_NON_CLOSE",
-          "motif": "Aucune valeur vérifiée importée à cette étape; les recherches tracées ne démontrent pas une indisponibilité définitive.",
-          "journal": "journal_recherches"
-        }
+        "commentaire": null
       },
       "taille_marche_adressable": {
         "valeur": null,
@@ -738,13 +732,7 @@
         "date_source": "2026-07-20",
         "source_url": "https://www.zonebourse.com/actualite-bourse/pulsar-group-reduit-sa-perte-semestrielle-apres-une-restructuration-de-sa-base-de-couts-ce7f51dbd88cf024",
         "statut": "ZONEBOURSE_PUBLIE",
-        "commentaire": null,
-        "recherche": {
-          "date": "2026-11-04",
-          "statut": "MANQUANT_RECHERCHE_NON_CLOSE",
-          "motif": "Aucune valeur vérifiée importée à cette étape; les recherches tracées ne démontrent pas une indisponibilité définitive.",
-          "journal": "journal_recherches"
-        }
+        "commentaire": null
       },
       "risque_pays": {
         "valeur": null,
@@ -778,13 +766,7 @@
         "date_source": "2026-07-20",
         "source_url": "https://www.zonebourse.com/actualite-bourse/pulsar-group-reduit-sa-perte-semestrielle-apres-une-restructuration-de-sa-base-de-couts-ce7f51dbd88cf024",
         "statut": "ZONEBOURSE_PUBLIE",
-        "commentaire": null,
-        "recherche": {
-          "date": "2026-11-04",
-          "statut": "MANQUANT_RECHERCHE_NON_CLOSE",
-          "motif": "Aucune valeur vérifiée importée à cette étape; les recherches tracées ne démontrent pas une indisponibilité définitive.",
-          "journal": "journal_recherches"
-        }
+        "commentaire": null
       },
       "risque_reglementaire": {
         "valeur": null,
@@ -2668,8 +2650,8 @@
   "audit_couverture": {
     "date": "2026-11-14",
     "champs_total": 108,
-    "champs_renseignes": 80,
-    "couverture_pct": 74.07,
+    "champs_renseignes": 83,
+    "couverture_pct": 76.85,
     "champs_secondaires_non_rapproches": 49,
     "champs_manquants": [
       "identite.lei",
@@ -2686,12 +2668,9 @@
       "croissance.previsions_ca_1a",
       "croissance.previsions_bpa_1a",
       "croissance.peg",
-      "croissance.catalyseurs_dates",
       "croissance.taille_marche_adressable",
       "risque.cash_runway_mois",
-      "risque.risque_refinancement",
       "risque.risque_pays",
-      "risque.risque_gouvernance",
       "risque.risque_reglementaire",
       "risque.risque_concentration",
       "risque.transactions_initiees_net_90j",
@@ -2708,13 +2687,13 @@
   "audit_poursuite": {
     "date": "2026-11-14",
     "comptage": {
-      "RENSEIGNE": 80,
+      "RENSEIGNE": 83,
       "NON_APPLICABLE": 5,
       "INDISPONIBLE_A_DATE": 0,
-      "RECHERCHE_A_POURSUIVRE": 23
+      "RECHERCHE_A_POURSUIVRE": 20
     },
-    "couverture_valeurs_pct": 74.07,
-    "couverture_applicable_pct": 77.67,
+    "couverture_valeurs_pct": 76.85,
+    "couverture_applicable_pct": 80.58,
     "recherches_non_closes": [
       "identite.lei",
       "qualite.concentration_clients_pct",
@@ -2726,11 +2705,8 @@
       "croissance.previsions_ca_1a",
       "croissance.previsions_bpa_1a",
       "croissance.peg",
-      "croissance.catalyseurs_dates",
       "croissance.taille_marche_adressable",
-      "risque.risque_refinancement",
       "risque.risque_pays",
-      "risque.risque_gouvernance",
       "risque.risque_reglementaire",
       "risque.risque_concentration",
       "risque.transactions_initiees_net_90j",

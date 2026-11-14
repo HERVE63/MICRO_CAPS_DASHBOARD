@@ -481,19 +481,14 @@
         "date_collecte": "2026-11-04"
       },
       "croissance_ebitda_pct": {
-        "valeur": null,
-        "unite": null,
-        "periode": null,
-        "date_source": null,
-        "source_url": null,
-        "statut": "A_COLLECTER",
-        "commentaire": null,
-        "recherche": {
-          "date": "2026-11-04",
-          "statut": "MANQUANT_RECHERCHE_NON_CLOSE",
-          "motif": "Aucune valeur vérifiée importée à cette étape; les recherches tracées ne démontrent pas une indisponibilité définitive.",
-          "journal": "journal_recherches"
-        }
+        "valeur": 28.514161220043576,
+        "unite": "pct",
+        "periode": "2025-06-30 / 2026-06-30",
+        "date_source": "2026-11-14",
+        "source_url": "https://query1.finance.yahoo.com/ws/fundamentals-timeseries/v1/finance/timeseries/TSTL.L?type=annualEBITDA&period1=1640995200&period2=1794633650",
+        "statut": "SOURCE_SECONDAIRE_DATEE_A_RAPPROCHER",
+        "commentaire": "Yahoo annualEBITDA; devise commune GBP. Arrêté aligné sur dernier exercice connu; source secondaire non rapprochée.",
+        "date_collecte": "2026-11-14"
       },
       "croissance_bpa_pct": {
         "valeur": 19.81,
@@ -3383,8 +3378,8 @@
   "audit_couverture": {
     "date": "2026-11-14",
     "champs_total": 108,
-    "champs_renseignes": 88,
-    "couverture_pct": 81.48,
+    "champs_renseignes": 89,
+    "couverture_pct": 82.41,
     "champs_secondaires_non_rapproches": 50,
     "champs_manquants": [
       "identite.lei",
@@ -3392,7 +3387,6 @@
       "qualite.concentration_clients_pct",
       "valorisation.comparables_sectoriels",
       "valorisation.marge_securite_pct",
-      "croissance.croissance_ebitda_pct",
       "croissance.carnet_commandes",
       "croissance.book_to_bill",
       "croissance.taille_marche_adressable",
@@ -3415,20 +3409,19 @@
   "audit_poursuite": {
     "date": "2026-11-14",
     "comptage": {
-      "RENSEIGNE": 88,
+      "RENSEIGNE": 89,
       "NON_APPLICABLE": 1,
       "INDISPONIBLE_A_DATE": 0,
-      "RECHERCHE_A_POURSUIVRE": 19
+      "RECHERCHE_A_POURSUIVRE": 18
     },
-    "couverture_valeurs_pct": 81.48,
-    "couverture_applicable_pct": 82.24,
+    "couverture_valeurs_pct": 82.41,
+    "couverture_applicable_pct": 83.18,
     "recherches_non_closes": [
       "identite.lei",
       "qualite.revenus_recurrents_pct",
       "qualite.concentration_clients_pct",
       "valorisation.comparables_sectoriels",
       "valorisation.marge_securite_pct",
-      "croissance.croissance_ebitda_pct",
       "croissance.carnet_commandes",
       "croissance.book_to_bill",
       "croissance.taille_marche_adressable",
