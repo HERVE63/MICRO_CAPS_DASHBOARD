@@ -202,7 +202,7 @@
         "date_collecte": "2026-11-04"
       },
       "fcf_ttm": {
-        "valeur": 11850000.0,
+        "valeur": 11850000,
         "unite": "GBP",
         "periode": "TTM fournisseur; arrêté indiqué dans son tableau financier : Mar '26 Mar 31, 2026",
         "date_source": "2026-11-04",
@@ -1077,7 +1077,7 @@
         }
       },
       "ic_sur_5": {
-        "valeur": 3.0,
+        "valeur": 3,
         "unite": "note/5",
         "periode": "analyse au 2026-11-09",
         "date_source": "2026-11-09",
@@ -1087,7 +1087,7 @@
         "date_collecte": "2026-11-09"
       },
       "cx_sur_5": {
-        "valeur": 3.0,
+        "valeur": 3,
         "unite": "note/5",
         "periode": "analyse au 2026-11-09",
         "date_source": "2026-11-09",
@@ -1122,7 +1122,7 @@
         }
       },
       "scenario_bear_3m_pct": {
-        "valeur": -30.0,
+        "valeur": -30,
         "unite": "pct",
         "periode": "3 mois depuis 2026-11-06",
         "date_source": "2026-11-09",
@@ -1132,7 +1132,7 @@
         "date_collecte": "2026-11-09"
       },
       "prob_bear_3m_pct": {
-        "valeur": 35.0,
+        "valeur": 35,
         "unite": "pct",
         "periode": "probabilité subjective 3 mois",
         "date_source": "2026-11-09",
@@ -1142,7 +1142,7 @@
         "date_collecte": "2026-11-09"
       },
       "scenario_central_3m_pct": {
-        "valeur": 0.0,
+        "valeur": 0,
         "unite": "pct",
         "periode": "3 mois depuis 2026-11-06",
         "date_source": "2026-11-09",
@@ -1152,7 +1152,7 @@
         "date_collecte": "2026-11-09"
       },
       "prob_central_3m_pct": {
-        "valeur": 45.0,
+        "valeur": 45,
         "unite": "pct",
         "periode": "probabilité subjective 3 mois",
         "date_source": "2026-11-09",
@@ -1162,7 +1162,7 @@
         "date_collecte": "2026-11-09"
       },
       "scenario_bull_3m_pct": {
-        "valeur": 30.0,
+        "valeur": 30,
         "unite": "pct",
         "periode": "3 mois depuis 2026-11-06",
         "date_source": "2026-11-09",
@@ -1172,7 +1172,7 @@
         "date_collecte": "2026-11-09"
       },
       "prob_bull_3m_pct": {
-        "valeur": 20.0,
+        "valeur": 20,
         "unite": "pct",
         "periode": "probabilité subjective 3 mois",
         "date_source": "2026-11-09",
@@ -1182,7 +1182,7 @@
         "date_collecte": "2026-11-09"
       },
       "scenario_bear_6m_pct": {
-        "valeur": -45.0,
+        "valeur": -45,
         "unite": "pct",
         "periode": "6 mois depuis 2026-11-06",
         "date_source": "2026-11-09",
@@ -1192,7 +1192,7 @@
         "date_collecte": "2026-11-09"
       },
       "prob_bear_6m_pct": {
-        "valeur": 35.0,
+        "valeur": 35,
         "unite": "pct",
         "periode": "probabilité subjective 6 mois",
         "date_source": "2026-11-09",
@@ -1202,7 +1202,7 @@
         "date_collecte": "2026-11-09"
       },
       "scenario_central_6m_pct": {
-        "valeur": 8.0,
+        "valeur": 8,
         "unite": "pct",
         "periode": "6 mois depuis 2026-11-06",
         "date_source": "2026-11-09",
@@ -1212,7 +1212,7 @@
         "date_collecte": "2026-11-09"
       },
       "prob_central_6m_pct": {
-        "valeur": 40.0,
+        "valeur": 40,
         "unite": "pct",
         "periode": "probabilité subjective 6 mois",
         "date_source": "2026-11-09",
@@ -1222,7 +1222,7 @@
         "date_collecte": "2026-11-09"
       },
       "scenario_bull_6m_pct": {
-        "valeur": 50.0,
+        "valeur": 50,
         "unite": "pct",
         "periode": "6 mois depuis 2026-11-06",
         "date_source": "2026-11-09",
@@ -1232,7 +1232,7 @@
         "date_collecte": "2026-11-09"
       },
       "prob_bull_6m_pct": {
-        "valeur": 25.0,
+        "valeur": 25,
         "unite": "pct",
         "periode": "probabilité subjective 6 mois",
         "date_source": "2026-11-09",
@@ -1308,14 +1308,14 @@
       "diversification": 10
     },
     "notes": {
-      "qualite": 22.0,
-      "valorisation": 15.0,
-      "croissance": 7.0,
-      "risque": 6.0,
+      "qualite": 22,
+      "valorisation": 15,
+      "croissance": 7,
+      "risque": 6,
       "momentum": 1,
-      "diversification": 5.0
+      "diversification": 5
     },
-    "total_mcpa": 56.0,
+    "total_mcpa": 56,
     "statut": "DOCUMENTEE_NON_VALIDEE",
     "justifications": {
       "qualite": "Abonnements dominants et cash; marges sensibles à l'échelle.",
@@ -1418,7 +1418,7 @@
                 "periodType": "12M",
                 "currencyCode": "GBP",
                 "reportedValue": {
-                  "raw": 842000.0,
+                  "raw": 842000,
                   "fmt": "842.00k"
                 }
               },
@@ -1428,7 +1428,7 @@
                 "periodType": "12M",
                 "currencyCode": "GBP",
                 "reportedValue": {
-                  "raw": 2268000.0,
+                  "raw": 2268000,
                   "fmt": "2.27M"
                 }
               },
@@ -1438,7 +1438,7 @@
                 "periodType": "12M",
                 "currencyCode": "GBP",
                 "reportedValue": {
-                  "raw": 2774000.0,
+                  "raw": 2774000,
                   "fmt": "2.77M"
                 }
               },
@@ -1448,7 +1448,7 @@
                 "periodType": "12M",
                 "currencyCode": "GBP",
                 "reportedValue": {
-                  "raw": 432000.0,
+                  "raw": 432000,
                   "fmt": "432.00k"
                 }
               }
@@ -3635,11 +3635,11 @@
   ],
   "calculs_marche": {
     "date": "2026-11-06",
-    "cours_non_ajuste": 89.0,
+    "cours_non_ajuste": 89,
     "ancrages": {
       "1": {
         "date": "2026-10-06",
-        "cours_ajuste": 215.0
+        "cours_ajuste": 215
       },
       "3": {
         "date": "2026-08-06",
@@ -3651,7 +3651,7 @@
       },
       "12": {
         "date": "2025-11-06",
-        "cours_ajuste": 244.0
+        "cours_ajuste": 244
       }
     },
     "indicateurs": {
@@ -3735,22 +3735,22 @@
         "scenarios": [
           {
             "cas": "bear",
-            "rendement_pct": -30.0,
-            "probabilite_pct": 35.0,
+            "rendement_pct": -30,
+            "probabilite_pct": 35,
             "cours_conditionnel": 0.623,
             "declencheur": "Contrat perdu insuffisamment remplacé."
           },
           {
             "cas": "central",
-            "rendement_pct": 0.0,
-            "probabilite_pct": 45.0,
+            "rendement_pct": 0,
+            "probabilite_pct": 45,
             "cours_conditionnel": 0.89,
             "declencheur": "Nouveaux clients limitant l'érosion."
           },
           {
             "cas": "bull",
-            "rendement_pct": 30.0,
-            "probabilite_pct": 20.0,
+            "rendement_pct": 30,
+            "probabilite_pct": 20,
             "cours_conditionnel": 1.157,
             "declencheur": "Signatures compensant l'essentiel de la perte."
           }
@@ -3764,22 +3764,22 @@
         "scenarios": [
           {
             "cas": "bear",
-            "rendement_pct": -45.0,
-            "probabilite_pct": 35.0,
+            "rendement_pct": -45,
+            "probabilite_pct": 35,
             "cours_conditionnel": 0.48950000000000005,
             "declencheur": "Contrat perdu insuffisamment remplacé."
           },
           {
             "cas": "central",
-            "rendement_pct": 8.0,
-            "probabilite_pct": 40.0,
+            "rendement_pct": 8,
+            "probabilite_pct": 40,
             "cours_conditionnel": 0.9612,
             "declencheur": "Nouveaux clients limitant l'érosion."
           },
           {
             "cas": "bull",
-            "rendement_pct": 50.0,
-            "probabilite_pct": 25.0,
+            "rendement_pct": 50,
+            "probabilite_pct": 25,
             "cours_conditionnel": 1.335,
             "declencheur": "Signatures compensant l'essentiel de la perte."
           }
@@ -3790,5 +3790,18 @@
       }
     }
   },
-  "date_analyse": "2026-11-09"
+  "date_analyse": "2026-11-09",
+  "zonebourse_verification_20261114": {
+    "source_url": "https://www.zonebourse.com/actualite-bourse/activeops-plc-publie-ses-resultats-annuels-pour-l-exercice-clos-le-31-mars-2026-ce7f5fd2d188f322",
+    "date_consultation": "2026-11-14",
+    "periode_et_date_publication": "exercice clos le 31/03/2026; publication 02/07/2026",
+    "donnees": {
+      "ca_exercice_2026_millions_gbp": 45,
+      "ca_exercice_2025_millions_gbp": 30.46,
+      "resultat_net_exercice_2026_millions_gbp": -2.3,
+      "resultat_net_exercice_2025_millions_gbp": 1.1
+    },
+    "statut": "VERIFIE_ZONEBOURSE_NON_CERTIFIE",
+    "note": "Données publiées ou cours différés; ne remplace pas la notation validée."
+  }
 }
