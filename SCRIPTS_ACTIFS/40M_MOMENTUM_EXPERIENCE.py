@@ -40,15 +40,11 @@ def main():
             prev=min(candidates,key=lambda row:abs((row[0]-target).days))[1]
             return 100*(history[-1][1]/prev-1)
         vals={key:period_return(days) for key,days in (("1m",30),("2m",61),("3m",91))}
-        # Un cours Zonebourse date prime sur l'historique uniquement si le point de depart
-        # du meme horizon est connu; pas de combinaison artificielle de deux fournisseurs.
-        for key in ("1m","3m"):
-            item=m.get("momentum_"+key+"_pct",{})
-            v=number(item.get("valeur"))
-            if v is not None and "zonebourse.com" in (item.get("source_url") or ""):
-                vals[key]=v
+        # Cohérence: ne pas mélanger des rendements Zonebourse avec une
+        # clôture historique d'une autre date/fournisseur. Série homogène.
         vol=number(sum(v for _,_,v in history[-20:] if v is not None)/20) if len(history)>=20 and all(v is not None for _,_,v in history[-20:]) else None
         valid=all(vals[k] is not None for k in ("1m","2m","3m")) and vol is not None
+        fresh=end is not None and (date.today()-end).days<=5
         # La dernière clôture prime: variation dernière séance puis cinq séances.
         # Les rendements M1/M2/M3 restent des repères, non des déclencheurs exclusifs.
         last=100*(history[-1][1]/history[-2][1]-1) if len(history)>=2 else None
@@ -66,8 +62,8 @@ def main():
             signal="REBOND_A_CONFIRMER"
         else:
             signal="DIRECTION_HAUSSIERE" if last>0 else "DIRECTION_BAISSIERE" if last<0 else "STABLE"
-        out.append({"Ticker":ticker,"Date_historique":end.isoformat() if end else "","Variation_derniere_seance_pct":last,"Variation_5_seances_pct":five,"Acceleration_derniere_seance_pct_vs_moyenne_5j":acceleration,"Momentum_1m_pct":vals["1m"],"Momentum_2m_pct":vals["2m"],"Momentum_3m_pct":vals["3m"],"Volume_moyen_20j":vol,"Statut":"CALCULABLE_HISTORIQUE_A_ACTUALISER_ZONEBOURSE" if valid else "INCOMPLET_SANS_SIGNAL","Signal":signal,"Source":"Zonebourse pour les champs deja raccordes; archives historiques existantes pour les autres","Arbitrage_autorise":"NON"})
-    ranked=sorted([x for x in out if x["Variation_derniere_seance_pct"] is not None and x["Variation_5_seances_pct"] is not None],key=lambda x:(x["Variation_5_seances_pct"],x["Variation_derniere_seance_pct"]),reverse=True)
+        out.append({"Ticker":ticker,"Date_historique":end.isoformat() if end else "","Variation_derniere_seance_pct":last,"Variation_5_seances_pct":five,"Acceleration_derniere_seance_pct_vs_moyenne_5j":acceleration,"Momentum_1m_pct":vals["1m"],"Momentum_2m_pct":vals["2m"],"Momentum_3m_pct":vals["3m"],"Volume_moyen_20j":vol,"Statut":("CALCULABLE_FRAIS" if fresh else "HISTORIQUE_PERIME") if valid else "INCOMPLET_SANS_SIGNAL","Signal":signal if fresh else "DONNEES_PERIMEES_SANS_ARBITRAGE","Source":"Archives historiques existantes (Yahoo), sans nouvelle collecte; actualisation Zonebourse requise","Arbitrage_autorise":"NON"})
+    ranked=sorted([x for x in out if x["Statut"]=="CALCULABLE_FRAIS" and x["Variation_derniere_seance_pct"] is not None and x["Variation_5_seances_pct"] is not None],key=lambda x:(x["Variation_5_seances_pct"],x["Variation_derniere_seance_pct"]),reverse=True)
     for i,row in enumerate(ranked,1):row["Rang_momentum"]=i
     for row in out:row.setdefault("Rang_momentum","")
     target=D/"EXPERIENCE_MOMENTUM_40.csv"
