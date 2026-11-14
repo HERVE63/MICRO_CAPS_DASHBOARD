@@ -134,7 +134,7 @@
     },
     "qualite": {
       "ca_ttm": {
-        "valeur": 102000000.0,
+        "valeur": 102000000,
         "unite": "CAD",
         "periode": "TTM fournisseur; arrêté indiqué dans son tableau financier : Jun '26 Jun 30, 2026",
         "date_source": "2026-11-04",
@@ -204,7 +204,7 @@
         "date_collecte": "2026-11-04"
       },
       "fcf_ttm": {
-        "valeur": -22200000.0,
+        "valeur": -22200000,
         "unite": "CAD",
         "periode": "TTM fournisseur; arrêté indiqué dans son tableau financier : Jun '26 Jun 30, 2026",
         "date_source": "2026-11-04",
@@ -922,7 +922,7 @@
         "commentaire": "Ratio (titre ajusté converti en USD / URTH ajusté) sur chaque fenêtre, moins 1. Ancrages communs titre/ETF/FX; GBp constant annulé dans le ratio. URTH est un proxy ETF avec frais/écart de suivi; horaires de clôture non synchrones. Fenêtres impossibles avant IPO omises, jamais extrapolées."
       },
       "volume_moyen_20j": {
-        "valeur": 194180.0,
+        "valeur": 194180,
         "unite": "titres/jour",
         "periode": "historique ajusté au 2026-11-06",
         "date_source": "2026-11-06",
@@ -1116,7 +1116,7 @@
         }
       },
       "scenario_bear_3m_pct": {
-        "valeur": -35.0,
+        "valeur": -35,
         "unite": "pct",
         "periode": "3 mois depuis 2026-11-06",
         "date_source": "2026-11-09",
@@ -1126,7 +1126,7 @@
         "date_collecte": "2026-11-09"
       },
       "prob_bear_3m_pct": {
-        "valeur": 35.0,
+        "valeur": 35,
         "unite": "pct",
         "periode": "probabilité subjective 3 mois",
         "date_source": "2026-11-09",
@@ -1136,7 +1136,7 @@
         "date_collecte": "2026-11-09"
       },
       "scenario_central_3m_pct": {
-        "valeur": 5.0,
+        "valeur": 5,
         "unite": "pct",
         "periode": "3 mois depuis 2026-11-06",
         "date_source": "2026-11-09",
@@ -1146,7 +1146,7 @@
         "date_collecte": "2026-11-09"
       },
       "prob_central_3m_pct": {
-        "valeur": 40.0,
+        "valeur": 40,
         "unite": "pct",
         "periode": "probabilité subjective 3 mois",
         "date_source": "2026-11-09",
@@ -1156,7 +1156,7 @@
         "date_collecte": "2026-11-09"
       },
       "scenario_bull_3m_pct": {
-        "valeur": 40.0,
+        "valeur": 40,
         "unite": "pct",
         "periode": "3 mois depuis 2026-11-06",
         "date_source": "2026-11-09",
@@ -1166,7 +1166,7 @@
         "date_collecte": "2026-11-09"
       },
       "prob_bull_3m_pct": {
-        "valeur": 25.0,
+        "valeur": 25,
         "unite": "pct",
         "periode": "probabilité subjective 3 mois",
         "date_source": "2026-11-09",
@@ -1176,7 +1176,7 @@
         "date_collecte": "2026-11-09"
       },
       "scenario_bear_6m_pct": {
-        "valeur": -50.0,
+        "valeur": -50,
         "unite": "pct",
         "periode": "6 mois depuis 2026-11-06",
         "date_source": "2026-11-09",
@@ -1186,7 +1186,7 @@
         "date_collecte": "2026-11-09"
       },
       "prob_bear_6m_pct": {
-        "valeur": 35.0,
+        "valeur": 35,
         "unite": "pct",
         "periode": "probabilité subjective 6 mois",
         "date_source": "2026-11-09",
@@ -1196,7 +1196,7 @@
         "date_collecte": "2026-11-09"
       },
       "scenario_central_6m_pct": {
-        "valeur": 18.0,
+        "valeur": 18,
         "unite": "pct",
         "periode": "6 mois depuis 2026-11-06",
         "date_source": "2026-11-09",
@@ -1206,7 +1206,7 @@
         "date_collecte": "2026-11-09"
       },
       "prob_central_6m_pct": {
-        "valeur": 35.0,
+        "valeur": 35,
         "unite": "pct",
         "periode": "probabilité subjective 6 mois",
         "date_source": "2026-11-09",
@@ -1216,7 +1216,7 @@
         "date_collecte": "2026-11-09"
       },
       "scenario_bull_6m_pct": {
-        "valeur": 70.0,
+        "valeur": 70,
         "unite": "pct",
         "periode": "6 mois depuis 2026-11-06",
         "date_source": "2026-11-09",
@@ -1226,7 +1226,7 @@
         "date_collecte": "2026-11-09"
       },
       "prob_bull_6m_pct": {
-        "valeur": 30.0,
+        "valeur": 30,
         "unite": "pct",
         "periode": "probabilité subjective 6 mois",
         "date_source": "2026-11-09",
@@ -1302,14 +1302,14 @@
       "diversification": 10
     },
     "notes": {
-      "qualite": 18.0,
-      "valorisation": 8.0,
-      "croissance": 16.0,
-      "risque": 4.0,
+      "qualite": 18,
+      "valorisation": 8,
+      "croissance": 16,
+      "risque": 4,
       "momentum": 0,
-      "diversification": 7.0
+      "diversification": 7
     },
-    "total_mcpa": 53.0,
+    "total_mcpa": 53,
     "statut": "DOCUMENTEE_NON_VALIDEE",
     "justifications": {
       "qualite": "Croissance batteries, cash-flow et financement fragiles.",
@@ -1383,7 +1383,7 @@
                 "periodType": "12M",
                 "currencyCode": "USD",
                 "reportedValue": {
-                  "raw": -6417000.0,
+                  "raw": -6417000,
                   "fmt": "-6.42M"
                 }
               },
@@ -1393,7 +1393,7 @@
                 "periodType": "12M",
                 "currencyCode": "USD",
                 "reportedValue": {
-                  "raw": 1248000.0,
+                  "raw": 1248000,
                   "fmt": "1.25M"
                 }
               },
@@ -1403,7 +1403,7 @@
                 "periodType": "12M",
                 "currencyCode": "USD",
                 "reportedValue": {
-                  "raw": 2924000.0,
+                  "raw": 2924000,
                   "fmt": "2.92M"
                 }
               },
@@ -1413,7 +1413,7 @@
                 "periodType": "12M",
                 "currencyCode": "USD",
                 "reportedValue": {
-                  "raw": 5441000.0,
+                  "raw": 5441000,
                   "fmt": "5.44M"
                 }
               }
@@ -1604,7 +1604,7 @@
             "period": "+1q",
             "endDate": "2026-12-31",
             "growth": {
-              "raw": 2.0,
+              "raw": 2,
               "fmt": "200.00%"
             },
             "earningsEstimate": {
@@ -1630,7 +1630,7 @@
                 "longFmt": "2"
               },
               "growth": {
-                "raw": 2.0,
+                "raw": 2,
                 "fmt": "200.00%"
               },
               "earningsCurrency": "USD"
@@ -3522,7 +3522,7 @@
       "prix_vers_mm200": 0.5985537893854979,
       "tendance_mm200": -3.853766435136874,
       "momentum_6_1_pct": -35.08036555248497,
-      "volume_moyen_20j": 194180.0,
+      "volume_moyen_20j": 194180,
       "ratio_volume": 0.8224327943145535,
       "volatilite_90j_pct": 111.15985872088507,
       "drawdown_12m_pct": -61.78194498808354
@@ -3595,22 +3595,22 @@
         "scenarios": [
           {
             "cas": "bear",
-            "rendement_pct": -35.0,
-            "probabilite_pct": 35.0,
+            "rendement_pct": -35,
+            "probabilite_pct": 35,
             "cours_conditionnel": 4.498000049591065,
             "declencheur": "Retard industriel et financement dilutif."
           },
           {
             "cas": "central",
-            "rendement_pct": 5.0,
-            "probabilite_pct": 40.0,
+            "rendement_pct": 5,
+            "probabilite_pct": 40,
             "cours_conditionnel": 7.266000080108643,
             "declencheur": "Croissance absorbée par la montée en charge."
           },
           {
             "cas": "bull",
-            "rendement_pct": 40.0,
-            "probabilite_pct": 25.0,
+            "rendement_pct": 40,
+            "probabilite_pct": 25,
             "cours_conditionnel": 9.688000106811522,
             "declencheur": "Commandes et cash validant Jamestown."
           }
@@ -3624,22 +3624,22 @@
         "scenarios": [
           {
             "cas": "bear",
-            "rendement_pct": -50.0,
-            "probabilite_pct": 35.0,
+            "rendement_pct": -50,
+            "probabilite_pct": 35,
             "cours_conditionnel": 3.4600000381469727,
             "declencheur": "Retard industriel et financement dilutif."
           },
           {
             "cas": "central",
-            "rendement_pct": 18.0,
-            "probabilite_pct": 35.0,
+            "rendement_pct": 18,
+            "probabilite_pct": 35,
             "cours_conditionnel": 8.165600090026855,
             "declencheur": "Croissance absorbée par la montée en charge."
           },
           {
             "cas": "bull",
-            "rendement_pct": 70.0,
-            "probabilite_pct": 30.0,
+            "rendement_pct": 70,
+            "probabilite_pct": 30,
             "cours_conditionnel": 11.764000129699706,
             "declencheur": "Commandes et cash validant Jamestown."
           }
@@ -3650,5 +3650,22 @@
       }
     }
   },
-  "date_analyse": "2026-11-09"
+  "date_analyse": "2026-11-09",
+  "zonebourse_source_unique_complement": {
+    "source_url": "https://www.zonebourse.com/cours/action/ELECTROVAYA-INC-1409845/",
+    "date_collecte": "2026-11-14",
+    "donnees": {
+      "cours_2026_11_13_cad": 6.31,
+      "variation_5j_pct": -8.82,
+      "variation_2026_pct": -41.79,
+      "capitalisation_estimee_cad": 221000000,
+      "per_2026_estime": 83,
+      "per_2027_estime": 22.8,
+      "ve_ca_2026_estime": 3.45,
+      "ve_ca_2027_estime": 2.3,
+      "flottant_pct": 69.27
+    },
+    "commentaire": "Valeurs arrondies et ratios prévisionnels tels qu'affichés sur Zonebourse; cours 13/11/2026.",
+    "statut": "SOURCE_ZONEBOURSE_PUBLIEE_NON_CERTIFICATION"
+  }
 }
