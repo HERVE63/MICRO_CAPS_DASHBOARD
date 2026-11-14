@@ -49,10 +49,25 @@ def main():
                 vals[key]=v
         vol=number(sum(v for _,_,v in history[-20:] if v is not None)/20) if len(history)>=20 and all(v is not None for _,_,v in history[-20:]) else None
         valid=all(vals[k] is not None for k in ("1m","2m","3m")) and vol is not None
-        # Score simple equipondere; poids ajustables apres validation du protocole.
-        score=sum(vals.values())/3 if valid else None
-        out.append({"Ticker":ticker,"Date_historique":end.isoformat() if end else "","Momentum_1m_pct":vals["1m"],"Momentum_2m_pct":vals["2m"],"Momentum_3m_pct":vals["3m"],"Score_momentum_moyenne_pct":score,"Volume_moyen_20j":vol,"Statut":"CALCULABLE_HISTORIQUE_A_ACTUALISER_ZONEBOURSE" if valid else "INCOMPLET_SANS_SIGNAL","Signal":"OBSERVATION" if valid else "AUCUN","Source":"Zonebourse pour les champs deja raccordes; archives historiques existantes pour les autres","Arbitrage_autorise":"NON"})
-    ranked=sorted([x for x in out if x["Score_momentum_moyenne_pct"] is not None],key=lambda x:x["Score_momentum_moyenne_pct"],reverse=True)
+        # La dernière clôture prime: variation dernière séance puis cinq séances.
+        # Les rendements M1/M2/M3 restent des repères, non des déclencheurs exclusifs.
+        last=100*(history[-1][1]/history[-2][1]-1) if len(history)>=2 else None
+        five=100*(history[-1][1]/history[-6][1]-1) if len(history)>=6 else None
+        acceleration=last-(five/5) if last is not None and five is not None else None
+        if last is None or five is None:
+            signal="DONNEES_INSUFFISANTES"
+        elif last<0 and five<0 and vals["1m"] is not None and vals["1m"]>0:
+            signal="ALERTE_RETOURNEMENT_BAISSIER"
+        elif last>0 and five>0 and vals["1m"] is not None and vals["1m"]<0:
+            signal="ALERTE_REPRISE_HAUSSIERE"
+        elif last<0 and five>0:
+            signal="DECELERATION_A_SURVEILLER"
+        elif last>0 and five<0:
+            signal="REBOND_A_CONFIRMER"
+        else:
+            signal="DIRECTION_HAUSSIERE" if last>0 else "DIRECTION_BAISSIERE" if last<0 else "STABLE"
+        out.append({"Ticker":ticker,"Date_historique":end.isoformat() if end else "","Variation_derniere_seance_pct":last,"Variation_5_seances_pct":five,"Acceleration_derniere_seance_pct_vs_moyenne_5j":acceleration,"Momentum_1m_pct":vals["1m"],"Momentum_2m_pct":vals["2m"],"Momentum_3m_pct":vals["3m"],"Volume_moyen_20j":vol,"Statut":"CALCULABLE_HISTORIQUE_A_ACTUALISER_ZONEBOURSE" if valid else "INCOMPLET_SANS_SIGNAL","Signal":signal,"Source":"Zonebourse pour les champs deja raccordes; archives historiques existantes pour les autres","Arbitrage_autorise":"NON"})
+    ranked=sorted([x for x in out if x["Variation_derniere_seance_pct"] is not None and x["Variation_5_seances_pct"] is not None],key=lambda x:(x["Variation_5_seances_pct"],x["Variation_derniere_seance_pct"]),reverse=True)
     for i,row in enumerate(ranked,1):row["Rang_momentum"]=i
     for row in out:row.setdefault("Rang_momentum","")
     target=D/"EXPERIENCE_MOMENTUM_40.csv"
