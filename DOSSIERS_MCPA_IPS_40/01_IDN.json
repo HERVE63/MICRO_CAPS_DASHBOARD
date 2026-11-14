@@ -3751,5 +3751,66 @@
     },
     "statut": "DONNEES_ZONEBOURSE_VERIFIEES_NON_CERTIFICATION",
     "note": "Valeurs extraites des pages Zonebourse; estimations susceptibles de varier; ne remplacent pas les jugements MCPA/IPS."
+  },
+  "zonebourse_observations_verifiees_20261114": {
+    "date_consultation": "2026-11-14",
+    "source_unique": "Zonebourse",
+    "observations": [
+      {
+        "champ": "cours",
+        "valeur": 1.86,
+        "unite": "USD",
+        "periode": "2026-11-13",
+        "type": "publie",
+        "source_url": "https://www.zonebourse.com/cours/action/INTELLICHECK-INC-18044767/cotations/",
+        "date_source": "2026-11-13"
+      },
+      {
+        "champ": "performance_1m",
+        "valeur": -19.13,
+        "unite": "%",
+        "periode": "1 mois au 2026-11-13",
+        "type": "publie",
+        "source_url": "https://www.zonebourse.com/cours/action/INTELLICHECK-INC-18044767/cotations/",
+        "date_source": "2026-11-13"
+      },
+      {
+        "champ": "performance_3m",
+        "valeur": -50.4,
+        "unite": "%",
+        "periode": "3 mois au 2026-11-13",
+        "type": "publie",
+        "source_url": "https://www.zonebourse.com/cours/action/INTELLICHECK-INC-18044767/cotations/",
+        "date_source": "2026-11-13"
+      },
+      {
+        "champ": "performance_6m",
+        "valeur": -58.2,
+        "unite": "%",
+        "periode": "6 mois au 2026-11-13",
+        "type": "publie",
+        "source_url": "https://www.zonebourse.com/cours/action/INTELLICHECK-INC-18044767/cotations/",
+        "date_source": "2026-11-13"
+      },
+      {
+        "champ": "performance_12m",
+        "valeur": -69.9,
+        "unite": "%",
+        "periode": "12 mois au 2026-11-13",
+        "type": "publie",
+        "source_url": "https://www.zonebourse.com/cours/action/INTELLICHECK-INC-18044767/cotations/",
+        "date_source": "2026-11-13"
+      },
+      {
+        "champ": "volume_jour",
+        "valeur": 479908,
+        "unite": "actions",
+        "periode": "2026-11-13",
+        "type": "publie",
+        "source_url": "https://www.zonebourse.com/cours/action/INTELLICHECK-INC-18044767/cotations/",
+        "date_source": "2026-11-13"
+      }
+    ],
+    "statut": "DONNEES_DOCUMENTEES_NON_CERTIFIEES"
   }
 }
