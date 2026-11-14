@@ -134,7 +134,7 @@
     },
     "qualite": {
       "ca_ttm": {
-        "valeur": 34350000.0,
+        "valeur": 34350000,
         "unite": "CAD",
         "periode": "TTM fournisseur; arrêté indiqué dans son tableau financier : Jun '26 Jun 30, 2026",
         "date_source": "2026-11-04",
@@ -203,7 +203,7 @@
         "date_collecte": "2026-11-04"
       },
       "fcf_ttm": {
-        "valeur": 5550000.0,
+        "valeur": 5550000,
         "unite": "CAD",
         "periode": "TTM fournisseur; arrêté indiqué dans son tableau financier : Jun '26 Jun 30, 2026",
         "date_source": "2026-11-04",
@@ -321,7 +321,7 @@
         "date_collecte": "2026-11-04"
       },
       "ev_ca": {
-        "valeur": 3.0,
+        "valeur": 3,
         "unite": "ratio",
         "periode": "TTM fournisseur; arrêté indiqué dans son tableau financier : Jun '26 Jun 30, 2026",
         "date_source": "2026-11-04",
@@ -924,7 +924,7 @@
         "commentaire": "Ratio (titre ajusté converti en USD / URTH ajusté) sur chaque fenêtre, moins 1. Ancrages communs titre/ETF/FX; GBp constant annulé dans le ratio. URTH est un proxy ETF avec frais/écart de suivi; horaires de clôture non synchrones. Fenêtres impossibles avant IPO omises, jamais extrapolées."
       },
       "volume_moyen_20j": {
-        "valeur": 19535.0,
+        "valeur": 19535,
         "unite": "titres/jour",
         "periode": "historique ajusté au 2026-11-06",
         "date_source": "2026-11-06",
@@ -1068,7 +1068,7 @@
         }
       },
       "ic_sur_5": {
-        "valeur": 3.0,
+        "valeur": 3,
         "unite": "note/5",
         "periode": "analyse au 2026-11-09",
         "date_source": "2026-11-09",
@@ -1078,7 +1078,7 @@
         "date_collecte": "2026-11-09"
       },
       "cx_sur_5": {
-        "valeur": 3.0,
+        "valeur": 3,
         "unite": "note/5",
         "periode": "analyse au 2026-11-09",
         "date_source": "2026-11-09",
@@ -1113,7 +1113,7 @@
         }
       },
       "scenario_bear_3m_pct": {
-        "valeur": -25.0,
+        "valeur": -25,
         "unite": "pct",
         "periode": "3 mois depuis 2026-11-06",
         "date_source": "2026-11-09",
@@ -1123,7 +1123,7 @@
         "date_collecte": "2026-11-09"
       },
       "prob_bear_3m_pct": {
-        "valeur": 25.0,
+        "valeur": 25,
         "unite": "pct",
         "periode": "probabilité subjective 3 mois",
         "date_source": "2026-11-09",
@@ -1133,7 +1133,7 @@
         "date_collecte": "2026-11-09"
       },
       "scenario_central_3m_pct": {
-        "valeur": 8.0,
+        "valeur": 8,
         "unite": "pct",
         "periode": "3 mois depuis 2026-11-06",
         "date_source": "2026-11-09",
@@ -1143,7 +1143,7 @@
         "date_collecte": "2026-11-09"
       },
       "prob_central_3m_pct": {
-        "valeur": 50.0,
+        "valeur": 50,
         "unite": "pct",
         "periode": "probabilité subjective 3 mois",
         "date_source": "2026-11-09",
@@ -1153,7 +1153,7 @@
         "date_collecte": "2026-11-09"
       },
       "scenario_bull_3m_pct": {
-        "valeur": 30.0,
+        "valeur": 30,
         "unite": "pct",
         "periode": "3 mois depuis 2026-11-06",
         "date_source": "2026-11-09",
@@ -1163,7 +1163,7 @@
         "date_collecte": "2026-11-09"
       },
       "prob_bull_3m_pct": {
-        "valeur": 25.0,
+        "valeur": 25,
         "unite": "pct",
         "periode": "probabilité subjective 3 mois",
         "date_source": "2026-11-09",
@@ -1173,7 +1173,7 @@
         "date_collecte": "2026-11-09"
       },
       "scenario_bear_6m_pct": {
-        "valeur": -35.0,
+        "valeur": -35,
         "unite": "pct",
         "periode": "6 mois depuis 2026-11-06",
         "date_source": "2026-11-09",
@@ -1183,7 +1183,7 @@
         "date_collecte": "2026-11-09"
       },
       "prob_bear_6m_pct": {
-        "valeur": 25.0,
+        "valeur": 25,
         "unite": "pct",
         "periode": "probabilité subjective 6 mois",
         "date_source": "2026-11-09",
@@ -1193,7 +1193,7 @@
         "date_collecte": "2026-11-09"
       },
       "scenario_central_6m_pct": {
-        "valeur": 18.0,
+        "valeur": 18,
         "unite": "pct",
         "periode": "6 mois depuis 2026-11-06",
         "date_source": "2026-11-09",
@@ -1203,7 +1203,7 @@
         "date_collecte": "2026-11-09"
       },
       "prob_central_6m_pct": {
-        "valeur": 45.0,
+        "valeur": 45,
         "unite": "pct",
         "periode": "probabilité subjective 6 mois",
         "date_source": "2026-11-09",
@@ -1213,7 +1213,7 @@
         "date_collecte": "2026-11-09"
       },
       "scenario_bull_6m_pct": {
-        "valeur": 50.0,
+        "valeur": 50,
         "unite": "pct",
         "periode": "6 mois depuis 2026-11-06",
         "date_source": "2026-11-09",
@@ -1223,7 +1223,7 @@
         "date_collecte": "2026-11-09"
       },
       "prob_bull_6m_pct": {
-        "valeur": 30.0,
+        "valeur": 30,
         "unite": "pct",
         "periode": "probabilité subjective 6 mois",
         "date_source": "2026-11-09",
@@ -1299,14 +1299,14 @@
       "diversification": 10
     },
     "notes": {
-      "qualite": 24.0,
-      "valorisation": 10.0,
-      "croissance": 16.0,
-      "risque": 8.0,
+      "qualite": 24,
+      "valorisation": 10,
+      "croissance": 16,
+      "risque": 8,
       "momentum": 10,
-      "diversification": 8.0
+      "diversification": 8
     },
-    "total_mcpa": 76.0,
+    "total_mcpa": 76,
     "statut": "DOCUMENTEE_NON_VALIDEE",
     "justifications": {
       "qualite": "Produits hospitaliers à marge élevée et bilan liquide.",
@@ -1415,7 +1415,7 @@
                 "periodType": "12M",
                 "currencyCode": "CAD",
                 "reportedValue": {
-                  "raw": -8109520.0,
+                  "raw": -8109520,
                   "fmt": "-8.11M"
                 }
               },
@@ -1425,7 +1425,7 @@
                 "periodType": "12M",
                 "currencyCode": "CAD",
                 "reportedValue": {
-                  "raw": -3559130.0,
+                  "raw": -3559130,
                   "fmt": "-3.56M"
                 }
               },
@@ -1435,7 +1435,7 @@
                 "periodType": "12M",
                 "currencyCode": "CAD",
                 "reportedValue": {
-                  "raw": 3137491.0,
+                  "raw": 3137491,
                   "fmt": "3.14M"
                 }
               },
@@ -1445,7 +1445,7 @@
                 "periodType": "12M",
                 "currencyCode": "CAD",
                 "reportedValue": {
-                  "raw": 2718615.0,
+                  "raw": 2718615,
                   "fmt": "2.72M"
                 }
               }
@@ -3571,7 +3571,7 @@
       "prix_vers_mm200": 1.7577487528309057,
       "tendance_mm200": 11.126217995894816,
       "momentum_6_1_pct": 117.74194406379723,
-      "volume_moyen_20j": 19535.0,
+      "volume_moyen_20j": 19535,
       "ratio_volume": 2.3598669055541337,
       "volatilite_90j_pct": 75.37247115811371,
       "drawdown_12m_pct": -23.902440045576334
@@ -3644,22 +3644,22 @@
         "scenarios": [
           {
             "cas": "bear",
-            "rendement_pct": -25.0,
-            "probabilite_pct": 25.0,
+            "rendement_pct": -25,
+            "probabilite_pct": 25,
             "cours_conditionnel": 3.2324999570846558,
             "declencheur": "Croissance non répétée et baisse du multiple."
           },
           {
             "cas": "central",
-            "rendement_pct": 8.0,
-            "probabilite_pct": 50.0,
+            "rendement_pct": 8,
+            "probabilite_pct": 50,
             "cours_conditionnel": 4.654799938201904,
             "declencheur": "Adoption régulière et marges maintenues."
           },
           {
             "cas": "bull",
-            "rendement_pct": 30.0,
-            "probabilite_pct": 25.0,
+            "rendement_pct": 30,
+            "probabilite_pct": 25,
             "cours_conditionnel": 5.602999925613403,
             "declencheur": "Diffusion rapide entre services hospitaliers."
           }
@@ -3673,22 +3673,22 @@
         "scenarios": [
           {
             "cas": "bear",
-            "rendement_pct": -35.0,
-            "probabilite_pct": 25.0,
+            "rendement_pct": -35,
+            "probabilite_pct": 25,
             "cours_conditionnel": 2.8014999628067017,
             "declencheur": "Croissance non répétée et baisse du multiple."
           },
           {
             "cas": "central",
-            "rendement_pct": 18.0,
-            "probabilite_pct": 45.0,
+            "rendement_pct": 18,
+            "probabilite_pct": 45,
             "cours_conditionnel": 5.085799932479858,
             "declencheur": "Adoption régulière et marges maintenues."
           },
           {
             "cas": "bull",
-            "rendement_pct": 50.0,
-            "probabilite_pct": 30.0,
+            "rendement_pct": 50,
+            "probabilite_pct": 30,
             "cours_conditionnel": 6.4649999141693115,
             "declencheur": "Diffusion rapide entre services hospitaliers."
           }
@@ -3699,5 +3699,26 @@
       }
     }
   },
-  "date_analyse": "2026-11-09"
+  "date_analyse": "2026-11-09",
+  "zonebourse_source_unique_complement": {
+    "source_url": "https://www.zonebourse.com/cours/action/COVALON-TECHNOLOGIES-LTD-49477322/",
+    "date_collecte": "2026-11-14",
+    "donnees": {
+      "cours_2026_11_13_cad": 4.21,
+      "capitalisation_estimee_cad": 115000000,
+      "per_2026_estime": 24.8,
+      "per_2027_estime": 18.3,
+      "ve_ca_2026_estime": 3.22,
+      "ve_ca_2027_estime": 2.75,
+      "momentum_1m_pct": 6.05,
+      "momentum_3m_pct": 78.01,
+      "momentum_6m_pct": 113.71,
+      "flottant_pct": 52.84,
+      "ca_t3_2026_cad": 10000000,
+      "consensus_analystes": 1,
+      "objectif_consensus_cad": 4.7
+    },
+    "statut": "FAITS_ET_ESTIMATIONS_ZONEBOURSE_A_VALIDER_MCPA",
+    "note": "Les données estimées, consensus et actualités sont distingués des résultats réalisés; autres sources historiques conservées sans être attribuées à Zonebourse."
+  }
 }
