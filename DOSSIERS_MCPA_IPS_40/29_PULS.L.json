@@ -3638,5 +3638,23 @@
     ],
     "statut": "DOCUMENTE_NON_CERTIFIE",
     "note": "Cours et estimations datés, aucun arbitrage ni certification automatique."
+  },
+  "controle_coherence_cotation_20261114": {
+    "statut": "ECART_UNITE_A_RESoudre",
+    "source_historique": {
+      "valeur": 0.0014749999344348909,
+      "unite": "GBP",
+      "date": "2026-11-06",
+      "source_url": "https://query1.finance.yahoo.com/v8/finance/chart/PULS.L?range=5y&interval=1d&events=div%2Csplits"
+    },
+    "source_zonebourse": {
+      "valeur": 14.75,
+      "unite": "GBX",
+      "date": "2026-10-28",
+      "source_url": "https://www.zonebourse.com/cours/action/PULSAR-GROUP-PLC-46952632/"
+    },
+    "conversion_zonebourse_en_gbp": 0.1475,
+    "ratio_conversion_zonebourse_sur_historique": 100.00000444509234,
+    "conclusion": "Ecart de facteur 100 entre le cours historique enregistré et la cotation Zonebourse convertie GBX/100. Ne pas corriger automatiquement avant vérification de l'historique et des éventuelles opérations sur titres. Interdire utilisation du cours historique pour arbitrage."
   }
 }
