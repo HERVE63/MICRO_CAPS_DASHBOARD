@@ -614,12 +614,12 @@
         }
       },
       "catalyseurs_dates": {
-        "valeur": null,
-        "unite": null,
-        "periode": null,
-        "date_source": null,
-        "source_url": null,
-        "statut": "A_COLLECTER",
+        "valeur": "20/07/2026 : croissance CA S1 de 10 %, EBITDA ajusté +39 %, marge ajustée de 12 % à 15 % ; économies opérationnelles et produits IA.",
+        "unite": "texte",
+        "periode": "S1 clos le 31/05/2026",
+        "date_source": "2026-07-20",
+        "source_url": "https://www.zonebourse.com/actualite-bourse/pulsar-group-reduit-sa-perte-semestrielle-apres-une-restructuration-de-sa-base-de-couts-ce7f51dbd88cf024",
+        "statut": "ZONEBOURSE_PUBLIE",
         "commentaire": null,
         "recherche": {
           "date": "2026-11-04",
@@ -732,12 +732,12 @@
         "date_collecte": "2026-11-04"
       },
       "risque_refinancement": {
-        "valeur": null,
-        "unite": null,
-        "periode": null,
-        "date_source": null,
-        "source_url": null,
-        "statut": "A_COLLECTER",
+        "valeur": "Dette nette 6,0 M GBP au 31/05/2026 ; facilités HSBC de 8,0 M GBP sur trois ans (prêt 6 M et revolving 2 M).",
+        "unite": "texte",
+        "periode": "S1 clos le 31/05/2026",
+        "date_source": "2026-07-20",
+        "source_url": "https://www.zonebourse.com/actualite-bourse/pulsar-group-reduit-sa-perte-semestrielle-apres-une-restructuration-de-sa-base-de-couts-ce7f51dbd88cf024",
+        "statut": "ZONEBOURSE_PUBLIE",
         "commentaire": null,
         "recherche": {
           "date": "2026-11-04",
@@ -772,12 +772,12 @@
         "date_collecte": "2026-11-04"
       },
       "risque_gouvernance": {
-        "valeur": null,
-        "unite": null,
-        "periode": null,
-        "date_source": null,
-        "source_url": null,
-        "statut": "A_COLLECTER",
+        "valeur": "Surveillance de la liquidité et de la restructuration ; dette nette de 6,0 M GBP au 31/05/2026 ; refinancement HSBC sur trois ans.",
+        "unite": "texte",
+        "periode": "S1 clos le 31/05/2026",
+        "date_source": "2026-07-20",
+        "source_url": "https://www.zonebourse.com/actualite-bourse/pulsar-group-reduit-sa-perte-semestrielle-apres-une-restructuration-de-sa-base-de-couts-ce7f51dbd88cf024",
+        "statut": "ZONEBOURSE_PUBLIE",
         "commentaire": null,
         "recherche": {
           "date": "2026-11-04",
@@ -3656,5 +3656,52 @@
     "conversion_zonebourse_en_gbp": 0.1475,
     "ratio_conversion_zonebourse_sur_historique": 100.00000444509234,
     "conclusion": "Ecart de facteur 100 entre le cours historique enregistré et la cotation Zonebourse convertie GBX/100. Ne pas corriger automatiquement avant vérification de l'historique et des éventuelles opérations sur titres. Interdire utilisation du cours historique pour arbitrage."
+  },
+  "historique_zonebourse_20261114": {
+    "catalyseurs_dates": {
+      "valeur": null,
+      "unite": null,
+      "periode": null,
+      "date_source": null,
+      "source_url": null,
+      "statut": "A_COLLECTER",
+      "commentaire": null,
+      "recherche": {
+        "date": "2026-11-04",
+        "statut": "MANQUANT_RECHERCHE_NON_CLOSE",
+        "motif": "Aucune valeur vérifiée importée à cette étape; les recherches tracées ne démontrent pas une indisponibilité définitive.",
+        "journal": "journal_recherches"
+      }
+    },
+    "risque_gouvernance": {
+      "valeur": null,
+      "unite": null,
+      "periode": null,
+      "date_source": null,
+      "source_url": null,
+      "statut": "A_COLLECTER",
+      "commentaire": null,
+      "recherche": {
+        "date": "2026-11-04",
+        "statut": "MANQUANT_RECHERCHE_NON_CLOSE",
+        "motif": "Aucune valeur vérifiée importée à cette étape; les recherches tracées ne démontrent pas une indisponibilité définitive.",
+        "journal": "journal_recherches"
+      }
+    },
+    "risque_refinancement": {
+      "valeur": null,
+      "unite": null,
+      "periode": null,
+      "date_source": null,
+      "source_url": null,
+      "statut": "A_COLLECTER",
+      "commentaire": null,
+      "recherche": {
+        "date": "2026-11-04",
+        "statut": "MANQUANT_RECHERCHE_NON_CLOSE",
+        "motif": "Aucune valeur vérifiée importée à cette étape; les recherches tracées ne démontrent pas une indisponibilité définitive.",
+        "journal": "journal_recherches"
+      }
+    }
   }
 }
