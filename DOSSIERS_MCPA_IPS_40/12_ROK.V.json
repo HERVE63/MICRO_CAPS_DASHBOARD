@@ -134,7 +134,7 @@
     },
     "qualite": {
       "ca_ttm": {
-        "valeur": 59200000.0,
+        "valeur": 59200000,
         "unite": "CAD",
         "periode": "TTM fournisseur; arrêté indiqué dans son tableau financier : Jun '26 Jun 30, 2026",
         "date_source": "2026-11-04",
@@ -204,7 +204,7 @@
         "date_collecte": "2026-11-04"
       },
       "fcf_ttm": {
-        "valeur": 9960000.0,
+        "valeur": 9960000,
         "unite": "CAD",
         "periode": "TTM fournisseur; arrêté indiqué dans son tableau financier : Jun '26 Jun 30, 2026",
         "date_source": "2026-11-04",
@@ -941,7 +941,7 @@
         "commentaire": "Ratio (titre ajusté converti en USD / URTH ajusté) sur chaque fenêtre, moins 1. Ancrages communs titre/ETF/FX; GBp constant annulé dans le ratio. URTH est un proxy ETF avec frais/écart de suivi; horaires de clôture non synchrones. Fenêtres impossibles avant IPO omises, jamais extrapolées."
       },
       "volume_moyen_20j": {
-        "valeur": 829835.0,
+        "valeur": 829835,
         "unite": "titres/jour",
         "periode": "historique ajusté au 2026-11-06",
         "date_source": "2026-11-06",
@@ -1082,7 +1082,7 @@
         }
       },
       "ic_sur_5": {
-        "valeur": 3.0,
+        "valeur": 3,
         "unite": "note/5",
         "periode": "analyse au 2026-11-09",
         "date_source": "2026-11-09",
@@ -1092,7 +1092,7 @@
         "date_collecte": "2026-11-09"
       },
       "cx_sur_5": {
-        "valeur": 3.0,
+        "valeur": 3,
         "unite": "note/5",
         "periode": "analyse au 2026-11-09",
         "date_source": "2026-11-09",
@@ -1127,7 +1127,7 @@
         }
       },
       "scenario_bear_3m_pct": {
-        "valeur": -25.0,
+        "valeur": -25,
         "unite": "pct",
         "periode": "3 mois depuis 2026-11-06",
         "date_source": "2026-11-09",
@@ -1137,7 +1137,7 @@
         "date_collecte": "2026-11-09"
       },
       "prob_bear_3m_pct": {
-        "valeur": 30.0,
+        "valeur": 30,
         "unite": "pct",
         "periode": "probabilité subjective 3 mois",
         "date_source": "2026-11-09",
@@ -1147,7 +1147,7 @@
         "date_collecte": "2026-11-09"
       },
       "scenario_central_3m_pct": {
-        "valeur": 5.0,
+        "valeur": 5,
         "unite": "pct",
         "periode": "3 mois depuis 2026-11-06",
         "date_source": "2026-11-09",
@@ -1157,7 +1157,7 @@
         "date_collecte": "2026-11-09"
       },
       "prob_central_3m_pct": {
-        "valeur": 45.0,
+        "valeur": 45,
         "unite": "pct",
         "periode": "probabilité subjective 3 mois",
         "date_source": "2026-11-09",
@@ -1167,7 +1167,7 @@
         "date_collecte": "2026-11-09"
       },
       "scenario_bull_3m_pct": {
-        "valeur": 25.0,
+        "valeur": 25,
         "unite": "pct",
         "periode": "3 mois depuis 2026-11-06",
         "date_source": "2026-11-09",
@@ -1177,7 +1177,7 @@
         "date_collecte": "2026-11-09"
       },
       "prob_bull_3m_pct": {
-        "valeur": 25.0,
+        "valeur": 25,
         "unite": "pct",
         "periode": "probabilité subjective 3 mois",
         "date_source": "2026-11-09",
@@ -1187,7 +1187,7 @@
         "date_collecte": "2026-11-09"
       },
       "scenario_bear_6m_pct": {
-        "valeur": -40.0,
+        "valeur": -40,
         "unite": "pct",
         "periode": "6 mois depuis 2026-11-06",
         "date_source": "2026-11-09",
@@ -1197,7 +1197,7 @@
         "date_collecte": "2026-11-09"
       },
       "prob_bear_6m_pct": {
-        "valeur": 30.0,
+        "valeur": 30,
         "unite": "pct",
         "periode": "probabilité subjective 6 mois",
         "date_source": "2026-11-09",
@@ -1207,7 +1207,7 @@
         "date_collecte": "2026-11-09"
       },
       "scenario_central_6m_pct": {
-        "valeur": 10.0,
+        "valeur": 10,
         "unite": "pct",
         "periode": "6 mois depuis 2026-11-06",
         "date_source": "2026-11-09",
@@ -1217,7 +1217,7 @@
         "date_collecte": "2026-11-09"
       },
       "prob_central_6m_pct": {
-        "valeur": 40.0,
+        "valeur": 40,
         "unite": "pct",
         "periode": "probabilité subjective 6 mois",
         "date_source": "2026-11-09",
@@ -1227,7 +1227,7 @@
         "date_collecte": "2026-11-09"
       },
       "scenario_bull_6m_pct": {
-        "valeur": 45.0,
+        "valeur": 45,
         "unite": "pct",
         "periode": "6 mois depuis 2026-11-06",
         "date_source": "2026-11-09",
@@ -1237,7 +1237,7 @@
         "date_collecte": "2026-11-09"
       },
       "prob_bull_6m_pct": {
-        "valeur": 30.0,
+        "valeur": 30,
         "unite": "pct",
         "periode": "probabilité subjective 6 mois",
         "date_source": "2026-11-09",
@@ -1313,14 +1313,14 @@
       "diversification": 10
     },
     "notes": {
-      "qualite": 16.0,
-      "valorisation": 15.0,
-      "croissance": 8.0,
-      "risque": 6.0,
+      "qualite": 16,
+      "valorisation": 15,
+      "croissance": 8,
+      "risque": 6,
       "momentum": 9,
-      "diversification": 9.0
+      "diversification": 9
     },
-    "total_mcpa": 63.0,
+    "total_mcpa": 63,
     "statut": "DOCUMENTEE_NON_VALIDEE",
     "justifications": {
       "qualite": "Cash opérationnel, rentabilité cyclique.",
@@ -1377,7 +1377,7 @@
                 "periodType": "12M",
                 "currencyCode": "CAD",
                 "reportedValue": {
-                  "raw": 111680476.0,
+                  "raw": 111680476,
                   "fmt": "111.68M"
                 }
               },
@@ -1387,7 +1387,7 @@
                 "periodType": "12M",
                 "currencyCode": "CAD",
                 "reportedValue": {
-                  "raw": 17057459.0,
+                  "raw": 17057459,
                   "fmt": "17.06M"
                 }
               },
@@ -1397,7 +1397,7 @@
                 "periodType": "12M",
                 "currencyCode": "CAD",
                 "reportedValue": {
-                  "raw": 23922000.0,
+                  "raw": 23922000,
                   "fmt": "23.92M"
                 }
               },
@@ -1407,7 +1407,7 @@
                 "periodType": "12M",
                 "currencyCode": "CAD",
                 "reportedValue": {
-                  "raw": 5297000.0,
+                  "raw": 5297000,
                   "fmt": "5.30M"
                 }
               }
@@ -1491,7 +1491,7 @@
                 "fmt": "0"
               },
               "low": {
-                "raw": 0.0,
+                "raw": 0,
                 "fmt": "0"
               },
               "high": {
@@ -1544,11 +1544,11 @@
                 "fmt": "0"
               },
               "7daysAgo": {
-                "raw": 0.0,
+                "raw": 0,
                 "fmt": "0"
               },
               "30daysAgo": {
-                "raw": 0.0,
+                "raw": 0,
                 "fmt": "0"
               },
               "60daysAgo": {
@@ -1600,7 +1600,7 @@
                 "fmt": "0.01"
               },
               "low": {
-                "raw": 0.0,
+                "raw": 0,
                 "fmt": "0"
               },
               "high": {
@@ -1653,19 +1653,19 @@
                 "fmt": "0.01"
               },
               "7daysAgo": {
-                "raw": 0.0,
+                "raw": 0,
                 "fmt": "0"
               },
               "30daysAgo": {
-                "raw": 0.0,
+                "raw": 0,
                 "fmt": "0"
               },
               "60daysAgo": {
-                "raw": 0.0,
+                "raw": 0,
                 "fmt": "0"
               },
               "90daysAgo": {
-                "raw": 0.0,
+                "raw": 0,
                 "fmt": "0"
               },
               "epsTrendCurrency": "CAD"
@@ -1885,19 +1885,19 @@
                 "fmt": "0.04"
               },
               "7daysAgo": {
-                "raw": 0.0,
+                "raw": 0,
                 "fmt": "0"
               },
               "30daysAgo": {
-                "raw": 0.0,
+                "raw": 0,
                 "fmt": "0"
               },
               "60daysAgo": {
-                "raw": 0.0,
+                "raw": 0,
                 "fmt": "0"
               },
               "90daysAgo": {
-                "raw": 0.0,
+                "raw": 0,
                 "fmt": "0"
               },
               "epsTrendCurrency": "CAD"
@@ -3349,7 +3349,7 @@
       "prix_vers_mm200": 1.1299435443348007,
       "tendance_mm200": 5.700325640715498,
       "momentum_6_1_pct": 25.92592224662702,
-      "volume_moyen_20j": 829835.0,
+      "volume_moyen_20j": 829835,
       "ratio_volume": 0.1771436490386643,
       "volatilite_90j_pct": 62.80151376806632,
       "drawdown_12m_pct": -21.95122057593061
@@ -3422,27 +3422,27 @@
         "scenarios": [
           {
             "cas": "bear",
-            "rendement_pct": -25.0,
-            "probabilite_pct": 30.0,
+            "rendement_pct": -25,
+            "probabilite_pct": 30,
             "cours_conditionnel": 0.2475000098347664,
             "declencheur": "Prix faibles ou forages décevants."
           },
           {
             "cas": "central",
-            "rendement_pct": 5.0,
-            "probabilite_pct": 45.0,
+            "rendement_pct": 5,
+            "probabilite_pct": 45,
             "cours_conditionnel": 0.34650001376867295,
             "declencheur": "Production conforme et bilan sain."
           },
           {
             "cas": "bull",
-            "rendement_pct": 25.0,
-            "probabilite_pct": 25.0,
+            "rendement_pct": 25,
+            "probabilite_pct": 25,
             "cours_conditionnel": 0.4125000163912773,
             "declencheur": "Prix et volumes favorables."
           }
         ],
-        "esperance_subjective_brute_pct": 1.0,
+        "esperance_subjective_brute_pct": 1,
         "esperance_apres_rotation_vente_achat_2_5pct": -3.9268292682926753,
         "convention_frais": "Friction théorique: vente 2,5 % du brut, achat 2,5 % du nominal acheté. Pas de transaction."
       },
@@ -3451,22 +3451,22 @@
         "scenarios": [
           {
             "cas": "bear",
-            "rendement_pct": -40.0,
-            "probabilite_pct": 30.0,
+            "rendement_pct": -40,
+            "probabilite_pct": 30,
             "cours_conditionnel": 0.1980000078678131,
             "declencheur": "Prix faibles ou forages décevants."
           },
           {
             "cas": "central",
-            "rendement_pct": 10.0,
-            "probabilite_pct": 40.0,
+            "rendement_pct": 10,
+            "probabilite_pct": 40,
             "cours_conditionnel": 0.36300001442432406,
             "declencheur": "Production conforme et bilan sain."
           },
           {
             "cas": "bull",
-            "rendement_pct": 45.0,
-            "probabilite_pct": 30.0,
+            "rendement_pct": 45,
+            "probabilite_pct": 30,
             "cours_conditionnel": 0.4785000190138817,
             "declencheur": "Prix et volumes favorables."
           }
@@ -3477,5 +3477,27 @@
       }
     }
   },
-  "date_analyse": "2026-11-09"
+  "date_analyse": "2026-11-09",
+  "zonebourse_source_unique_complement": {
+    "source_url": "https://www.zonebourse.com/cours/action/ROK-RESOURCES-INC-58675303/",
+    "date_collecte": "2026-11-14",
+    "donnees": {
+      "cours_2026_11_13_cad": 0.31,
+      "capitalisation_estimee_cad": 67840000,
+      "per_2026_estime": 10.3,
+      "per_2027_estime": 8.86,
+      "ve_ca_2026_estime": 0.82,
+      "ve_ca_2027_estime": 0.64,
+      "momentum_1m_pct": -15.07,
+      "momentum_3m_pct": 5.98,
+      "momentum_6m_pct": 8.77,
+      "flottant_pct": 89.71,
+      "ca_2026_estime_cad": 74400000,
+      "ca_2027_estime_cad": 87400000,
+      "objectif_consensus_cad": 0.475,
+      "publication_resultats_t3_2026": "2026-11-19"
+    },
+    "statut": "FAITS_ET_ESTIMATIONS_ZONEBOURSE_A_VALIDER_MCPA",
+    "note": "Les données estimées, consensus et actualités sont distingués des résultats réalisés; autres sources historiques conservées sans être attribuées à Zonebourse."
+  }
 }
