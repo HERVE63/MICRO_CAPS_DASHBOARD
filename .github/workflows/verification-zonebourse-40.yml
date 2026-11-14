@@ -1,0 +1,54 @@
+name: MICRO CAPS - verification documentaire 40 (sans collecte)
+on:
+  push:
+    branches: [repair/microcaps-chain-20261030]
+    paths:
+      - '.github/workflows/verification-zonebourse-40.yml'
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  verifier:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: repair/microcaps-chain-20261030
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Controle structurel et provenance des 40 dossiers
+        run: |
+          mkdir -p /tmp/preuves40
+          python - <<'PY' | tee /tmp/preuves40/controle.csv
+          import csv,json
+          from pathlib import Path
+          paths=sorted(Path("DOSSIERS_MCPA_IPS_40").glob("*.json"))
+          print("ticker,statut,ssi_absent,wwws_absent,challengers_absents,arbitrage_autorise")
+          for p in paths:
+              x=json.loads(p.read_text())
+              c=x["blocs"]["complements"]
+              missing=lambda k: c[k]["valeur"] is None
+              print(f'{x["ticker"]},{x["statut_fiche"]},{int(missing("ssi"))},{int(missing("wwws"))},{int(missing("challengers_compares"))},{str(x.get("arbitrage_autorise",False)).lower()}')
+          assert len(paths)==40
+          PY
+      - name: Executer le validateur individuel 09S dans une copie sans sauvegarde
+        run: |
+          mkdir -p /tmp/preuves40/validation
+          cp -a SCRIPTS_ACTIFS DOSSIERS_MCPA_IPS_40 DONNEES /tmp/preuves40/validation/
+          cd /tmp/preuves40/validation
+          python SCRIPTS_ACTIFS/09S_ADAPTATEUR_FICHES_MCPA_40.py | tee /tmp/preuves40/09S.log
+          cp DONNEES/AUDIT_DOSSIERS_MCPA_IPS_40.csv /tmp/preuves40/
+          cp DONNEES/FICHES_MCPA_IPS_ELIGIBLES_40.csv /tmp/preuves40/
+      - name: Executer le controle strict 09 sans toucher au depot
+        if: always()
+        run: |
+          cd /tmp/preuves40/validation
+          python SCRIPTS_ACTIFS/09_CONTROLE_REVUE_MCPA_IPS.py > /tmp/preuves40/09_strict.log 2>&1
+      - name: Archiver les preuves et erreurs
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: verification-documentaire-40
+          path: /tmp/preuves40/
