@@ -199,7 +199,7 @@
         "date_collecte": "2026-11-04"
       },
       "fcf_ttm": {
-        "valeur": 6210000.0,
+        "valeur": 6210000,
         "unite": "GBP",
         "periode": "TTM fournisseur; arrêté indiqué dans son tableau financier : May '26 May 31, 2026",
         "date_source": "2026-11-04",
@@ -940,7 +940,7 @@
         "commentaire": "Ratio (titre ajusté converti en USD / URTH ajusté) sur chaque fenêtre, moins 1. Ancrages communs titre/ETF/FX; GBp constant annulé dans le ratio. URTH est un proxy ETF avec frais/écart de suivi; horaires de clôture non synchrones. Fenêtres impossibles avant IPO omises, jamais extrapolées."
       },
       "volume_moyen_20j": {
-        "valeur": 17753.0,
+        "valeur": 17753,
         "unite": "titres/jour",
         "periode": "historique ajusté au 2026-11-06",
         "date_source": "2026-11-06",
@@ -950,7 +950,7 @@
         "date_collecte": "2026-11-09"
       },
       "ratio_volume": {
-        "valeur": 0.0,
+        "valeur": 0,
         "unite": "ratio",
         "periode": "historique ajusté au 2026-11-06",
         "date_source": "2026-11-06",
@@ -1096,7 +1096,7 @@
         }
       },
       "ic_sur_5": {
-        "valeur": 3.0,
+        "valeur": 3,
         "unite": "note/5",
         "periode": "analyse au 2026-11-09",
         "date_source": "2026-11-09",
@@ -1106,7 +1106,7 @@
         "date_collecte": "2026-11-09"
       },
       "cx_sur_5": {
-        "valeur": 3.0,
+        "valeur": 3,
         "unite": "note/5",
         "periode": "analyse au 2026-11-09",
         "date_source": "2026-11-09",
@@ -1141,7 +1141,7 @@
         }
       },
       "scenario_bear_3m_pct": {
-        "valeur": -30.0,
+        "valeur": -30,
         "unite": "pct",
         "periode": "3 mois depuis 2026-11-06",
         "date_source": "2026-11-09",
@@ -1151,7 +1151,7 @@
         "date_collecte": "2026-11-09"
       },
       "prob_bear_3m_pct": {
-        "valeur": 30.0,
+        "valeur": 30,
         "unite": "pct",
         "periode": "probabilité subjective 3 mois",
         "date_source": "2026-11-09",
@@ -1161,7 +1161,7 @@
         "date_collecte": "2026-11-09"
       },
       "scenario_central_3m_pct": {
-        "valeur": 5.0,
+        "valeur": 5,
         "unite": "pct",
         "periode": "3 mois depuis 2026-11-06",
         "date_source": "2026-11-09",
@@ -1171,7 +1171,7 @@
         "date_collecte": "2026-11-09"
       },
       "prob_central_3m_pct": {
-        "valeur": 45.0,
+        "valeur": 45,
         "unite": "pct",
         "periode": "probabilité subjective 3 mois",
         "date_source": "2026-11-09",
@@ -1181,7 +1181,7 @@
         "date_collecte": "2026-11-09"
       },
       "scenario_bull_3m_pct": {
-        "valeur": 30.0,
+        "valeur": 30,
         "unite": "pct",
         "periode": "3 mois depuis 2026-11-06",
         "date_source": "2026-11-09",
@@ -1191,7 +1191,7 @@
         "date_collecte": "2026-11-09"
       },
       "prob_bull_3m_pct": {
-        "valeur": 25.0,
+        "valeur": 25,
         "unite": "pct",
         "periode": "probabilité subjective 3 mois",
         "date_source": "2026-11-09",
@@ -1201,7 +1201,7 @@
         "date_collecte": "2026-11-09"
       },
       "scenario_bear_6m_pct": {
-        "valeur": -45.0,
+        "valeur": -45,
         "unite": "pct",
         "periode": "6 mois depuis 2026-11-06",
         "date_source": "2026-11-09",
@@ -1211,7 +1211,7 @@
         "date_collecte": "2026-11-09"
       },
       "prob_bear_6m_pct": {
-        "valeur": 30.0,
+        "valeur": 30,
         "unite": "pct",
         "periode": "probabilité subjective 6 mois",
         "date_source": "2026-11-09",
@@ -1221,7 +1221,7 @@
         "date_collecte": "2026-11-09"
       },
       "scenario_central_6m_pct": {
-        "valeur": 15.0,
+        "valeur": 15,
         "unite": "pct",
         "periode": "6 mois depuis 2026-11-06",
         "date_source": "2026-11-09",
@@ -1231,7 +1231,7 @@
         "date_collecte": "2026-11-09"
       },
       "prob_central_6m_pct": {
-        "valeur": 40.0,
+        "valeur": 40,
         "unite": "pct",
         "periode": "probabilité subjective 6 mois",
         "date_source": "2026-11-09",
@@ -1241,7 +1241,7 @@
         "date_collecte": "2026-11-09"
       },
       "scenario_bull_6m_pct": {
-        "valeur": 55.0,
+        "valeur": 55,
         "unite": "pct",
         "periode": "6 mois depuis 2026-11-06",
         "date_source": "2026-11-09",
@@ -1251,7 +1251,7 @@
         "date_collecte": "2026-11-09"
       },
       "prob_bull_6m_pct": {
-        "valeur": 30.0,
+        "valeur": 30,
         "unite": "pct",
         "periode": "probabilité subjective 6 mois",
         "date_source": "2026-11-09",
@@ -1327,14 +1327,14 @@
       "diversification": 10
     },
     "notes": {
-      "qualite": 20.0,
-      "valorisation": 16.0,
-      "croissance": 8.0,
-      "risque": 5.0,
+      "qualite": 20,
+      "valorisation": 16,
+      "croissance": 8,
+      "risque": 5,
       "momentum": 0,
-      "diversification": 5.0
+      "diversification": 5
     },
-    "total_mcpa": 54.0,
+    "total_mcpa": 54,
     "statut": "DOCUMENTEE_NON_VALIDEE",
     "justifications": {
       "qualite": "97 % récurrents, pertes GAAP et ajustements.",
@@ -1390,7 +1390,7 @@
                 "periodType": "12M",
                 "currencyCode": "GBP",
                 "reportedValue": {
-                  "raw": -249000.0,
+                  "raw": -249000,
                   "fmt": "-249.00k"
                 }
               },
@@ -1400,7 +1400,7 @@
                 "periodType": "12M",
                 "currencyCode": "GBP",
                 "reportedValue": {
-                  "raw": -2826000.0,
+                  "raw": -2826000,
                   "fmt": "-2.83M"
                 }
               },
@@ -1410,7 +1410,7 @@
                 "periodType": "12M",
                 "currencyCode": "GBP",
                 "reportedValue": {
-                  "raw": 1485000.0,
+                  "raw": 1485000,
                   "fmt": "1.49M"
                 }
               },
@@ -1420,7 +1420,7 @@
                 "periodType": "12M",
                 "currencyCode": "GBP",
                 "reportedValue": {
-                  "raw": -65000.0,
+                  "raw": -65000,
                   "fmt": "-65.00k"
                 }
               }
@@ -1795,7 +1795,7 @@
                 "fmt": "0.03"
               },
               "90daysAgo": {
-                "raw": 0.0,
+                "raw": 0,
                 "fmt": "0"
               },
               "epsTrendCurrency": "GBP"
@@ -3435,11 +3435,11 @@
       },
       "3": {
         "date": "2026-08-06",
-        "cours_ajuste": 35.0
+        "cours_ajuste": 35
       },
       "6": {
         "date": "2026-05-06",
-        "cours_ajuste": 40.0
+        "cours_ajuste": 40
       },
       "12": {
         "date": "2025-11-06",
@@ -3454,8 +3454,8 @@
       "prix_vers_mm200": 0.004403785118997359,
       "tendance_mm200": -8.106828081153605,
       "momentum_6_1_pct": -66.25,
-      "volume_moyen_20j": 17753.0,
-      "ratio_volume": 0.0,
+      "volume_moyen_20j": 17753,
+      "ratio_volume": 0,
       "volatilite_90j_pct": 771.1442070238431,
       "drawdown_12m_pct": -99.69587630217838
     },
@@ -3527,22 +3527,22 @@
         "scenarios": [
           {
             "cas": "bear",
-            "rendement_pct": -30.0,
-            "probabilite_pct": 30.0,
+            "rendement_pct": -30,
+            "probabilite_pct": 30,
             "cours_conditionnel": 0.0010324999541044236,
             "declencheur": "Attrition et charges récurrentes."
           },
           {
             "cas": "central",
-            "rendement_pct": 5.0,
-            "probabilite_pct": 45.0,
+            "rendement_pct": 5,
+            "probabilite_pct": 45,
             "cours_conditionnel": 0.0015487499311566354,
             "declencheur": "Récurrence stabilisant l'activité."
           },
           {
             "cas": "bull",
-            "rendement_pct": 30.0,
-            "probabilite_pct": 25.0,
+            "rendement_pct": 30,
+            "probabilite_pct": 25,
             "cours_conditionnel": 0.001917499914765358,
             "declencheur": "ARR croissant et dette réduite."
           }
@@ -3556,31 +3556,87 @@
         "scenarios": [
           {
             "cas": "bear",
-            "rendement_pct": -45.0,
-            "probabilite_pct": 30.0,
+            "rendement_pct": -45,
+            "probabilite_pct": 30,
             "cours_conditionnel": 0.0008112499639391901,
             "declencheur": "Attrition et charges récurrentes."
           },
           {
             "cas": "central",
-            "rendement_pct": 15.0,
-            "probabilite_pct": 40.0,
+            "rendement_pct": 15,
+            "probabilite_pct": 40,
             "cours_conditionnel": 0.0016962499246001243,
             "declencheur": "Récurrence stabilisant l'activité."
           },
           {
             "cas": "bull",
-            "rendement_pct": 55.0,
-            "probabilite_pct": 30.0,
+            "rendement_pct": 55,
+            "probabilite_pct": 30,
             "cours_conditionnel": 0.002286249898374081,
             "declencheur": "ARR croissant et dette réduite."
           }
         ],
-        "esperance_subjective_brute_pct": 9.0,
+        "esperance_subjective_brute_pct": 9,
         "esperance_apres_rotation_vente_achat_2_5pct": 3.682926829268318,
         "convention_frais": "Friction théorique: vente 2,5 % du brut, achat 2,5 % du nominal acheté. Pas de transaction."
       }
     }
   },
-  "date_analyse": "2026-11-09"
+  "date_analyse": "2026-11-09",
+  "zonebourse_donnees_tracees_20261114": {
+    "date_collecte": "2026-11-14",
+    "source_unique": "Zonebourse",
+    "observations": [
+      {
+        "champ": "cours_dernier_affiche",
+        "valeur": 14.75,
+        "unite": "GBX",
+        "periode": "2026-10-28",
+        "type": "cotation_historique",
+        "source_url": "https://www.zonebourse.com/cours/action/PULSAR-GROUP-PLC-46952632/"
+      },
+      {
+        "champ": "per_2026",
+        "valeur": -7.76,
+        "unite": "x",
+        "periode": "2026",
+        "type": "estime",
+        "source_url": "https://www.zonebourse.com/cours/action/PULSAR-GROUP-PLC-46952632/"
+      },
+      {
+        "champ": "per_2027",
+        "valeur": 21.1,
+        "unite": "x",
+        "periode": "2027",
+        "type": "estime",
+        "source_url": "https://www.zonebourse.com/cours/action/PULSAR-GROUP-PLC-46952632/"
+      },
+      {
+        "champ": "ve_ca_2026",
+        "valeur": 0.31,
+        "unite": "x",
+        "periode": "2026",
+        "type": "estime",
+        "source_url": "https://www.zonebourse.com/cours/action/PULSAR-GROUP-PLC-46952632/"
+      },
+      {
+        "champ": "ve_ca_2027",
+        "valeur": 0.21,
+        "unite": "x",
+        "periode": "2027",
+        "type": "estime",
+        "source_url": "https://www.zonebourse.com/cours/action/PULSAR-GROUP-PLC-46952632/"
+      },
+      {
+        "champ": "flottant",
+        "valeur": 89.94,
+        "unite": "%",
+        "periode": "2026-10",
+        "type": "publie",
+        "source_url": "https://www.zonebourse.com/cours/action/PULSAR-GROUP-PLC-46952632/"
+      }
+    ],
+    "statut": "DOCUMENTE_NON_CERTIFIE",
+    "note": "Cours et estimations datés, aucun arbitrage ni certification automatique."
+  }
 }
