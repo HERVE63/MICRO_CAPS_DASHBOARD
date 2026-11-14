@@ -491,13 +491,13 @@
     },
     "croissance": {
       "croissance_ca_1a_pct": {
-        "valeur": -16.65,
+        "valeur": -16.58,
         "unite": "pct",
-        "periode": "FY 2026 / FY 2025; clôture Jun '26 Jun 30, 2026",
-        "date_source": "2026-11-04",
-        "source_url": "https://stockanalysis.com/quote/aim/TRT/financials/",
-        "statut": "SOURCE_SECONDAIRE_NON_RAPPROCHEE",
-        "commentaire": "Croissance publiée par le fournisseur si disponible; sinon calcul sur montants annuels arrondis, dénominateur positif.",
+        "periode": "FY2026 / FY2025, exercices clos au 30 juin",
+        "date_source": "2026-11-14",
+        "source_url": "https://www.zonebourse.com/actualite-bourse/transense-technologies-plc-publie-ses-resultats-pour-l-exercice-clos-le-30-juin-2026-ce785ad8d880f023",
+        "statut": "CALCULE_SUR_DONNEES_ZONEBOURSE",
+        "commentaire": "Calcul (CA 2026 / CA 2025 - 1)*100 = (4.63 / 5.55 - 1)*100; arrondi à 2 décimales. Montants en millions GBP. Source financière publiée; calcul analyste.",
         "date_collecte": "2026-11-04"
       },
       "croissance_ca_3a_cagr_pct": {
@@ -3629,5 +3629,15 @@
     ],
     "statut": "DOCUMENTE_NON_CERTIFIE",
     "note": "Cours et estimations datés, aucun arbitrage ni certification automatique."
+  },
+  "historique_croissance_avant_zonebourse_20261114": {
+    "valeur": -16.65,
+    "unite": "pct",
+    "periode": "FY 2026 / FY 2025; clôture Jun '26 Jun 30, 2026",
+    "date_source": "2026-11-04",
+    "source_url": "https://stockanalysis.com/quote/aim/TRT/financials/",
+    "statut": "SOURCE_SECONDAIRE_NON_RAPPROCHEE",
+    "commentaire": "Croissance publiée par le fournisseur si disponible; sinon calcul sur montants annuels arrondis, dénominateur positif.",
+    "date_collecte": "2026-11-04"
   }
 }
