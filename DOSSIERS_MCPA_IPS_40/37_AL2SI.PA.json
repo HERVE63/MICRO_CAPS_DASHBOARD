@@ -201,7 +201,7 @@
         "date_collecte": "2026-11-04"
       },
       "fcf_ttm": {
-        "valeur": 6920000.0,
+        "valeur": 6920000,
         "unite": "EUR",
         "periode": "TTM fournisseur; arrêté indiqué dans son tableau financier : Jun '26 Jun 30, 2026",
         "date_source": "2026-11-04",
@@ -1088,7 +1088,7 @@
         "date_collecte": "2026-11-09"
       },
       "cx_sur_5": {
-        "valeur": 2.0,
+        "valeur": 2,
         "unite": "note/5",
         "periode": "analyse au 2026-11-09",
         "date_source": "2026-11-09",
@@ -1123,7 +1123,7 @@
         }
       },
       "scenario_bear_3m_pct": {
-        "valeur": -45.0,
+        "valeur": -45,
         "unite": "pct",
         "periode": "3 mois depuis 2026-11-06",
         "date_source": "2026-11-09",
@@ -1133,7 +1133,7 @@
         "date_collecte": "2026-11-09"
       },
       "prob_bear_3m_pct": {
-        "valeur": 45.0,
+        "valeur": 45,
         "unite": "pct",
         "periode": "probabilité subjective 3 mois",
         "date_source": "2026-11-09",
@@ -1143,7 +1143,7 @@
         "date_collecte": "2026-11-09"
       },
       "scenario_central_3m_pct": {
-        "valeur": -5.0,
+        "valeur": -5,
         "unite": "pct",
         "periode": "3 mois depuis 2026-11-06",
         "date_source": "2026-11-09",
@@ -1153,7 +1153,7 @@
         "date_collecte": "2026-11-09"
       },
       "prob_central_3m_pct": {
-        "valeur": 35.0,
+        "valeur": 35,
         "unite": "pct",
         "periode": "probabilité subjective 3 mois",
         "date_source": "2026-11-09",
@@ -1163,7 +1163,7 @@
         "date_collecte": "2026-11-09"
       },
       "scenario_bull_3m_pct": {
-        "valeur": 40.0,
+        "valeur": 40,
         "unite": "pct",
         "periode": "3 mois depuis 2026-11-06",
         "date_source": "2026-11-09",
@@ -1173,7 +1173,7 @@
         "date_collecte": "2026-11-09"
       },
       "prob_bull_3m_pct": {
-        "valeur": 20.0,
+        "valeur": 20,
         "unite": "pct",
         "periode": "probabilité subjective 3 mois",
         "date_source": "2026-11-09",
@@ -1183,7 +1183,7 @@
         "date_collecte": "2026-11-09"
       },
       "scenario_bear_6m_pct": {
-        "valeur": -70.0,
+        "valeur": -70,
         "unite": "pct",
         "periode": "6 mois depuis 2026-11-06",
         "date_source": "2026-11-09",
@@ -1193,7 +1193,7 @@
         "date_collecte": "2026-11-09"
       },
       "prob_bear_6m_pct": {
-        "valeur": 45.0,
+        "valeur": 45,
         "unite": "pct",
         "periode": "probabilité subjective 6 mois",
         "date_source": "2026-11-09",
@@ -1203,7 +1203,7 @@
         "date_collecte": "2026-11-09"
       },
       "scenario_central_6m_pct": {
-        "valeur": 0.0,
+        "valeur": 0,
         "unite": "pct",
         "periode": "6 mois depuis 2026-11-06",
         "date_source": "2026-11-09",
@@ -1213,7 +1213,7 @@
         "date_collecte": "2026-11-09"
       },
       "prob_central_6m_pct": {
-        "valeur": 30.0,
+        "valeur": 30,
         "unite": "pct",
         "periode": "probabilité subjective 6 mois",
         "date_source": "2026-11-09",
@@ -1223,7 +1223,7 @@
         "date_collecte": "2026-11-09"
       },
       "scenario_bull_6m_pct": {
-        "valeur": 75.0,
+        "valeur": 75,
         "unite": "pct",
         "periode": "6 mois depuis 2026-11-06",
         "date_source": "2026-11-09",
@@ -1233,7 +1233,7 @@
         "date_collecte": "2026-11-09"
       },
       "prob_bull_6m_pct": {
-        "valeur": 25.0,
+        "valeur": 25,
         "unite": "pct",
         "periode": "probabilité subjective 6 mois",
         "date_source": "2026-11-09",
@@ -1309,14 +1309,14 @@
       "diversification": 10
     },
     "notes": {
-      "qualite": 12.0,
-      "valorisation": 7.0,
-      "croissance": 15.0,
-      "risque": 1.0,
+      "qualite": 12,
+      "valorisation": 7,
+      "croissance": 15,
+      "risque": 1,
       "momentum": 2,
-      "diversification": 5.0
+      "diversification": 5
     },
-    "total_mcpa": 42.0,
+    "total_mcpa": 42,
     "statut": "DOCUMENTEE_NON_VALIDEE",
     "justifications": {
       "qualite": "Croissance affichée, fiabilité comptable fortement réduite.",
@@ -1462,7 +1462,7 @@
                 "periodType": "12M",
                 "currencyCode": "EUR",
                 "reportedValue": {
-                  "raw": 8050000.0,
+                  "raw": 8050000,
                   "fmt": "8.05M"
                 }
               },
@@ -1472,7 +1472,7 @@
                 "periodType": "12M",
                 "currencyCode": "EUR",
                 "reportedValue": {
-                  "raw": -3717000.0,
+                  "raw": -3717000,
                   "fmt": "-3.72M"
                 }
               }
@@ -1498,7 +1498,7 @@
                 "periodType": "12M",
                 "currencyCode": "EUR",
                 "reportedValue": {
-                  "raw": 8218000.0,
+                  "raw": 8218000,
                   "fmt": "8.22M"
                 }
               },
@@ -1508,7 +1508,7 @@
                 "periodType": "12M",
                 "currencyCode": "EUR",
                 "reportedValue": {
-                  "raw": 3404000.0,
+                  "raw": 3404000,
                   "fmt": "3.40M"
                 }
               }
@@ -1995,7 +1995,7 @@
                 "periodType": "12M",
                 "currencyCode": "EUR",
                 "reportedValue": {
-                  "raw": 8050000.0,
+                  "raw": 8050000,
                   "fmt": "8.05M"
                 }
               },
@@ -2005,7 +2005,7 @@
                 "periodType": "12M",
                 "currencyCode": "EUR",
                 "reportedValue": {
-                  "raw": -3717000.0,
+                  "raw": -3717000,
                   "fmt": "-3.72M"
                 }
               },
@@ -2015,7 +2015,7 @@
                 "periodType": "12M",
                 "currencyCode": "EUR",
                 "reportedValue": {
-                  "raw": 24183000.0,
+                  "raw": 24183000,
                   "fmt": "24.18M"
                 }
               }
@@ -2043,7 +2043,7 @@
                 "periodType": "12M",
                 "currencyCode": "EUR",
                 "reportedValue": {
-                  "raw": 8218000.0,
+                  "raw": 8218000,
                   "fmt": "8.22M"
                 }
               },
@@ -2053,7 +2053,7 @@
                 "periodType": "12M",
                 "currencyCode": "EUR",
                 "reportedValue": {
-                  "raw": 3404000.0,
+                  "raw": 3404000,
                   "fmt": "3.40M"
                 }
               },
@@ -2063,7 +2063,7 @@
                 "periodType": "12M",
                 "currencyCode": "EUR",
                 "reportedValue": {
-                  "raw": 331000.0,
+                  "raw": 331000,
                   "fmt": "331.00k"
                 }
               },
@@ -2073,7 +2073,7 @@
                 "periodType": "12M",
                 "currencyCode": "EUR",
                 "reportedValue": {
-                  "raw": 6915000.0,
+                  "raw": 6915000,
                   "fmt": "6.92M"
                 }
               }
@@ -2161,7 +2161,7 @@
                 "periodType": "12M",
                 "currencyCode": "EUR",
                 "reportedValue": {
-                  "raw": 8050000.0,
+                  "raw": 8050000,
                   "fmt": "8.05M"
                 }
               },
@@ -2171,7 +2171,7 @@
                 "periodType": "12M",
                 "currencyCode": "EUR",
                 "reportedValue": {
-                  "raw": -3717000.0,
+                  "raw": -3717000,
                   "fmt": "-3.72M"
                 }
               },
@@ -2181,7 +2181,7 @@
                 "periodType": "12M",
                 "currencyCode": "EUR",
                 "reportedValue": {
-                  "raw": 24183000.0,
+                  "raw": 24183000,
                   "fmt": "24.18M"
                 }
               }
@@ -2269,7 +2269,7 @@
                 "periodType": "12M",
                 "currencyCode": "EUR",
                 "reportedValue": {
-                  "raw": 8050000.0,
+                  "raw": 8050000,
                   "fmt": "8.05M"
                 }
               },
@@ -2279,7 +2279,7 @@
                 "periodType": "12M",
                 "currencyCode": "EUR",
                 "reportedValue": {
-                  "raw": -3717000.0,
+                  "raw": -3717000,
                   "fmt": "-3.72M"
                 }
               },
@@ -2289,7 +2289,7 @@
                 "periodType": "12M",
                 "currencyCode": "EUR",
                 "reportedValue": {
-                  "raw": 24183000.0,
+                  "raw": 24183000,
                   "fmt": "24.18M"
                 }
               }
@@ -2377,7 +2377,7 @@
                 "periodType": "12M",
                 "currencyCode": "EUR",
                 "reportedValue": {
-                  "raw": 8050000.0,
+                  "raw": 8050000,
                   "fmt": "8.05M"
                 }
               },
@@ -2387,7 +2387,7 @@
                 "periodType": "12M",
                 "currencyCode": "EUR",
                 "reportedValue": {
-                  "raw": -3717000.0,
+                  "raw": -3717000,
                   "fmt": "-3.72M"
                 }
               },
@@ -2397,7 +2397,7 @@
                 "periodType": "12M",
                 "currencyCode": "EUR",
                 "reportedValue": {
-                  "raw": 24183000.0,
+                  "raw": 24183000,
                   "fmt": "24.18M"
                 }
               }
@@ -2485,7 +2485,7 @@
                 "periodType": "12M",
                 "currencyCode": "EUR",
                 "reportedValue": {
-                  "raw": 8050000.0,
+                  "raw": 8050000,
                   "fmt": "8.05M"
                 }
               },
@@ -2495,7 +2495,7 @@
                 "periodType": "12M",
                 "currencyCode": "EUR",
                 "reportedValue": {
-                  "raw": -3717000.0,
+                  "raw": -3717000,
                   "fmt": "-3.72M"
                 }
               },
@@ -2505,7 +2505,7 @@
                 "periodType": "12M",
                 "currencyCode": "EUR",
                 "reportedValue": {
-                  "raw": 24183000.0,
+                  "raw": 24183000,
                   "fmt": "24.18M"
                 }
               }
@@ -2593,7 +2593,7 @@
                 "periodType": "12M",
                 "currencyCode": "EUR",
                 "reportedValue": {
-                  "raw": 8050000.0,
+                  "raw": 8050000,
                   "fmt": "8.05M"
                 }
               },
@@ -2603,7 +2603,7 @@
                 "periodType": "12M",
                 "currencyCode": "EUR",
                 "reportedValue": {
-                  "raw": -3717000.0,
+                  "raw": -3717000,
                   "fmt": "-3.72M"
                 }
               },
@@ -2613,7 +2613,7 @@
                 "periodType": "12M",
                 "currencyCode": "EUR",
                 "reportedValue": {
-                  "raw": 24183000.0,
+                  "raw": 24183000,
                   "fmt": "24.18M"
                 }
               }
@@ -2701,7 +2701,7 @@
                 "periodType": "12M",
                 "currencyCode": "EUR",
                 "reportedValue": {
-                  "raw": 8050000.0,
+                  "raw": 8050000,
                   "fmt": "8.05M"
                 }
               },
@@ -2711,7 +2711,7 @@
                 "periodType": "12M",
                 "currencyCode": "EUR",
                 "reportedValue": {
-                  "raw": -3717000.0,
+                  "raw": -3717000,
                   "fmt": "-3.72M"
                 }
               },
@@ -2721,7 +2721,7 @@
                 "periodType": "12M",
                 "currencyCode": "EUR",
                 "reportedValue": {
-                  "raw": 24183000.0,
+                  "raw": 24183000,
                   "fmt": "24.18M"
                 }
               }
@@ -2809,7 +2809,7 @@
                 "periodType": "12M",
                 "currencyCode": "EUR",
                 "reportedValue": {
-                  "raw": 8050000.0,
+                  "raw": 8050000,
                   "fmt": "8.05M"
                 }
               },
@@ -2819,7 +2819,7 @@
                 "periodType": "12M",
                 "currencyCode": "EUR",
                 "reportedValue": {
-                  "raw": -3717000.0,
+                  "raw": -3717000,
                   "fmt": "-3.72M"
                 }
               },
@@ -2829,7 +2829,7 @@
                 "periodType": "12M",
                 "currencyCode": "EUR",
                 "reportedValue": {
-                  "raw": 24183000.0,
+                  "raw": 24183000,
                   "fmt": "24.18M"
                 }
               }
@@ -3228,7 +3228,7 @@
     {
       "bloc": "qualite",
       "champ": "marge_brute_pct",
-      "valeur": 100.0,
+      "valeur": 100,
       "unite": "pct",
       "periode": "TTM affiché au 2026-11-04; date exacte de fin non fournie sur la page statistiques",
       "date_source": "2026-11-04",
@@ -4424,27 +4424,27 @@
         "scenarios": [
           {
             "cas": "bear",
-            "rendement_pct": -45.0,
-            "probabilite_pct": 45.0,
+            "rendement_pct": -45,
+            "probabilite_pct": 45,
             "cours_conditionnel": 8.734000062942506,
             "declencheur": "Corrections nouvelles ou financement difficile."
           },
           {
             "cas": "central",
-            "rendement_pct": -5.0,
-            "probabilite_pct": 35.0,
+            "rendement_pct": -5,
+            "probabilite_pct": 35,
             "cours_conditionnel": 15.08600010871887,
             "declencheur": "Activité maintenue, décote de confiance."
           },
           {
             "cas": "bull",
-            "rendement_pct": 40.0,
-            "probabilite_pct": 20.0,
+            "rendement_pct": 40,
+            "probabilite_pct": 20,
             "cours_conditionnel": 22.232000160217282,
             "declencheur": "Clarification probante et cash encaissé."
           }
         ],
-        "esperance_subjective_brute_pct": -14.0,
+        "esperance_subjective_brute_pct": -14,
         "esperance_apres_rotation_vente_achat_2_5pct": -18.195121951219505,
         "convention_frais": "Friction théorique: vente 2,5 % du brut, achat 2,5 % du nominal acheté. Pas de transaction."
       },
@@ -4453,22 +4453,22 @@
         "scenarios": [
           {
             "cas": "bear",
-            "rendement_pct": -70.0,
-            "probabilite_pct": 45.0,
+            "rendement_pct": -70,
+            "probabilite_pct": 45,
             "cours_conditionnel": 4.764000034332276,
             "declencheur": "Corrections nouvelles ou financement difficile."
           },
           {
             "cas": "central",
-            "rendement_pct": 0.0,
-            "probabilite_pct": 30.0,
+            "rendement_pct": 0,
+            "probabilite_pct": 30,
             "cours_conditionnel": 15.880000114440918,
             "declencheur": "Activité maintenue, décote de confiance."
           },
           {
             "cas": "bull",
-            "rendement_pct": 75.0,
-            "probabilite_pct": 25.0,
+            "rendement_pct": 75,
+            "probabilite_pct": 25,
             "cours_conditionnel": 27.790000200271606,
             "declencheur": "Clarification probante et cash encaissé."
           }
@@ -4479,5 +4479,25 @@
       }
     }
   },
-  "date_analyse": "2026-11-09"
+  "date_analyse": "2026-11-09",
+  "zonebourse_controle_20261114": {
+    "source_url": "https://www.zonebourse.com/cours/action/2CRSI-44358422/valorisation/",
+    "date_collecte": "2026-11-14",
+    "donnees": {
+      "cours_2026_11_13_eur": 18.31,
+      "capitalisation_2027_estimee_millions_eur": 413.7,
+      "ve_2027_estimee_millions_eur": 370.7,
+      "per_2027_estime": 6.87,
+      "per_2028_estime": 4.52,
+      "ve_ca_2027_estime": 0.32,
+      "ve_ca_2028_estime": 0.21,
+      "ca_2027_estime_millions_eur": 1165,
+      "ca_2028_estime_millions_eur": 1454,
+      "ebitda_2027_estime_millions_eur": 86.85,
+      "ebitda_2028_estime_millions_eur": 127.4,
+      "flottant_pct": 38.84
+    },
+    "precision": "Exercice fiscal clos en juin; chiffres 2027 et 2028 estimés, ne pas les traiter comme publiés.",
+    "statut": "DOCUMENTE_NON_CERTIFIE"
+  }
 }
