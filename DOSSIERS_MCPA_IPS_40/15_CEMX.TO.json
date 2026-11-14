@@ -926,7 +926,7 @@
         "commentaire": "Ratio (titre ajusté converti en USD / URTH ajusté) sur chaque fenêtre, moins 1. Ancrages communs titre/ETF/FX; GBp constant annulé dans le ratio. URTH est un proxy ETF avec frais/écart de suivi; horaires de clôture non synchrones. Fenêtres impossibles avant IPO omises, jamais extrapolées."
       },
       "volume_moyen_20j": {
-        "valeur": 146125.0,
+        "valeur": 146125,
         "unite": "titres/jour",
         "periode": "historique ajusté au 2026-11-06",
         "date_source": "2026-11-06",
@@ -1074,7 +1074,7 @@
         "date_collecte": "2026-11-09"
       },
       "cx_sur_5": {
-        "valeur": 3.0,
+        "valeur": 3,
         "unite": "note/5",
         "periode": "analyse au 2026-11-09",
         "date_source": "2026-11-09",
@@ -1109,7 +1109,7 @@
         }
       },
       "scenario_bear_3m_pct": {
-        "valeur": -20.0,
+        "valeur": -20,
         "unite": "pct",
         "periode": "3 mois depuis 2026-11-06",
         "date_source": "2026-11-09",
@@ -1119,7 +1119,7 @@
         "date_collecte": "2026-11-09"
       },
       "prob_bear_3m_pct": {
-        "valeur": 25.0,
+        "valeur": 25,
         "unite": "pct",
         "periode": "probabilité subjective 3 mois",
         "date_source": "2026-11-09",
@@ -1129,7 +1129,7 @@
         "date_collecte": "2026-11-09"
       },
       "scenario_central_3m_pct": {
-        "valeur": 5.0,
+        "valeur": 5,
         "unite": "pct",
         "periode": "3 mois depuis 2026-11-06",
         "date_source": "2026-11-09",
@@ -1139,7 +1139,7 @@
         "date_collecte": "2026-11-09"
       },
       "prob_central_3m_pct": {
-        "valeur": 50.0,
+        "valeur": 50,
         "unite": "pct",
         "periode": "probabilité subjective 3 mois",
         "date_source": "2026-11-09",
@@ -1149,7 +1149,7 @@
         "date_collecte": "2026-11-09"
       },
       "scenario_bull_3m_pct": {
-        "valeur": 25.0,
+        "valeur": 25,
         "unite": "pct",
         "periode": "3 mois depuis 2026-11-06",
         "date_source": "2026-11-09",
@@ -1159,7 +1159,7 @@
         "date_collecte": "2026-11-09"
       },
       "prob_bull_3m_pct": {
-        "valeur": 25.0,
+        "valeur": 25,
         "unite": "pct",
         "periode": "probabilité subjective 3 mois",
         "date_source": "2026-11-09",
@@ -1169,7 +1169,7 @@
         "date_collecte": "2026-11-09"
       },
       "scenario_bear_6m_pct": {
-        "valeur": -30.0,
+        "valeur": -30,
         "unite": "pct",
         "periode": "6 mois depuis 2026-11-06",
         "date_source": "2026-11-09",
@@ -1179,7 +1179,7 @@
         "date_collecte": "2026-11-09"
       },
       "prob_bear_6m_pct": {
-        "valeur": 25.0,
+        "valeur": 25,
         "unite": "pct",
         "periode": "probabilité subjective 6 mois",
         "date_source": "2026-11-09",
@@ -1189,7 +1189,7 @@
         "date_collecte": "2026-11-09"
       },
       "scenario_central_6m_pct": {
-        "valeur": 15.0,
+        "valeur": 15,
         "unite": "pct",
         "periode": "6 mois depuis 2026-11-06",
         "date_source": "2026-11-09",
@@ -1199,7 +1199,7 @@
         "date_collecte": "2026-11-09"
       },
       "prob_central_6m_pct": {
-        "valeur": 45.0,
+        "valeur": 45,
         "unite": "pct",
         "periode": "probabilité subjective 6 mois",
         "date_source": "2026-11-09",
@@ -1209,7 +1209,7 @@
         "date_collecte": "2026-11-09"
       },
       "scenario_bull_6m_pct": {
-        "valeur": 40.0,
+        "valeur": 40,
         "unite": "pct",
         "periode": "6 mois depuis 2026-11-06",
         "date_source": "2026-11-09",
@@ -1219,7 +1219,7 @@
         "date_collecte": "2026-11-09"
       },
       "prob_bull_6m_pct": {
-        "valeur": 30.0,
+        "valeur": 30,
         "unite": "pct",
         "periode": "probabilité subjective 6 mois",
         "date_source": "2026-11-09",
@@ -1295,14 +1295,14 @@
       "diversification": 10
     },
     "notes": {
-      "qualite": 22.0,
-      "valorisation": 14.0,
-      "croissance": 12.0,
-      "risque": 8.0,
+      "qualite": 22,
+      "valorisation": 14,
+      "croissance": 12,
+      "risque": 8,
       "momentum": 4,
-      "diversification": 9.0
+      "diversification": 9
     },
-    "total_mcpa": 69.0,
+    "total_mcpa": 69,
     "statut": "DOCUMENTEE_NON_VALIDEE",
     "justifications": {
       "qualite": "Rentabilité et cash, saisonnalité des chantiers.",
@@ -3678,7 +3678,7 @@
       "prix_vers_mm200": 1.0050251033647626,
       "tendance_mm200": 2.897769983233567,
       "momentum_6_1_pct": -9.259261098908711,
-      "volume_moyen_20j": 146125.0,
+      "volume_moyen_20j": 146125,
       "ratio_volume": 3.886398631308811,
       "volatilite_90j_pct": 40.56737424011234,
       "drawdown_12m_pct": -22.03389342507196
@@ -3751,22 +3751,22 @@
         "scenarios": [
           {
             "cas": "bear",
-            "rendement_pct": -20.0,
-            "probabilite_pct": 25.0,
+            "rendement_pct": -20,
+            "probabilite_pct": 25,
             "cours_conditionnel": 0.3839999914169312,
             "declencheur": "Chantiers reportés par la météo."
           },
           {
             "cas": "central",
-            "rendement_pct": 5.0,
-            "probabilite_pct": 50.0,
+            "rendement_pct": 5,
+            "probabilite_pct": 50,
             "cours_conditionnel": 0.5039999887347222,
             "declencheur": "Exécution dans la fourchette annoncée."
           },
           {
             "cas": "bull",
-            "rendement_pct": 25.0,
-            "probabilite_pct": 25.0,
+            "rendement_pct": 25,
+            "probabilite_pct": 25,
             "cours_conditionnel": 0.5999999865889549,
             "declencheur": "Volumes et utilisation supérieurs."
           }
@@ -3780,22 +3780,22 @@
         "scenarios": [
           {
             "cas": "bear",
-            "rendement_pct": -30.0,
-            "probabilite_pct": 25.0,
+            "rendement_pct": -30,
+            "probabilite_pct": 25,
             "cours_conditionnel": 0.3359999924898147,
             "declencheur": "Chantiers reportés par la météo."
           },
           {
             "cas": "central",
-            "rendement_pct": 15.0,
-            "probabilite_pct": 45.0,
+            "rendement_pct": 15,
+            "probabilite_pct": 45,
             "cours_conditionnel": 0.5519999876618384,
             "declencheur": "Exécution dans la fourchette annoncée."
           },
           {
             "cas": "bull",
-            "rendement_pct": 40.0,
-            "probabilite_pct": 30.0,
+            "rendement_pct": 40,
+            "probabilite_pct": 30,
             "cours_conditionnel": 0.6719999849796294,
             "declencheur": "Volumes et utilisation supérieurs."
           }
@@ -3806,5 +3806,21 @@
       }
     }
   },
-  "date_analyse": "2026-11-09"
+  "date_analyse": "2026-11-09",
+  "zonebourse_verification_20261114": {
+    "source_url": "https://www.zonebourse.com/cours/action/CEMATRIX-CORPORATION-172765632/cotations/",
+    "date_consultation": "2026-11-14",
+    "periode_et_date_publication": "cours au 13/11/2026; flash T3 publié le 28/10/2026",
+    "donnees": {
+      "cours_2026_11_13_cad": 0.465,
+      "momentum_1m_pct": -4.12,
+      "momentum_3m_pct": -6.06,
+      "momentum_6m_pct": -13.89,
+      "momentum_12m_pct": 36.76,
+      "volume_moyen_20_seances": 207197,
+      "ca_t3_2026_millions_cad": 11.9
+    },
+    "statut": "VERIFIE_ZONEBOURSE_NON_CERTIFIE",
+    "note": "Données publiées ou cours différés; ne remplace pas la notation validée."
+  }
 }
