@@ -890,7 +890,7 @@
         "commentaire": "Ratio (titre ajusté converti en USD / URTH ajusté) sur chaque fenêtre, moins 1. Ancrages communs titre/ETF/FX; GBp constant annulé dans le ratio. URTH est un proxy ETF avec frais/écart de suivi; horaires de clôture non synchrones. Fenêtres impossibles avant IPO omises, jamais extrapolées."
       },
       "volume_moyen_20j": {
-        "valeur": 249410.0,
+        "valeur": 249410,
         "unite": "titres/jour",
         "periode": "historique ajusté au 2026-11-06",
         "date_source": "2026-11-06",
@@ -1037,7 +1037,7 @@
         "commentaire": "SSI 75/100 : B1 17, B2 13, B3 8, B4 14, B5 6, B6 9, B7 8. Justifications, sources et limites dans la note. Ne vaut pas validation MCPA ni arbitrage."
       },
       "ic_sur_5": {
-        "valeur": 3.0,
+        "valeur": 3,
         "unite": "note/5",
         "periode": "analyse au 2026-11-09",
         "date_source": "2026-11-09",
@@ -1047,7 +1047,7 @@
         "date_collecte": "2026-11-09"
       },
       "cx_sur_5": {
-        "valeur": 2.0,
+        "valeur": 2,
         "unite": "note/5",
         "periode": "analyse au 2026-11-09",
         "date_source": "2026-11-09",
@@ -1082,7 +1082,7 @@
         }
       },
       "scenario_bear_3m_pct": {
-        "valeur": -30.0,
+        "valeur": -30,
         "unite": "pct",
         "periode": "3 mois depuis 2026-11-06",
         "date_source": "2026-11-09",
@@ -1092,7 +1092,7 @@
         "date_collecte": "2026-11-09"
       },
       "prob_bear_3m_pct": {
-        "valeur": 35.0,
+        "valeur": 35,
         "unite": "pct",
         "periode": "probabilité subjective 3 mois",
         "date_source": "2026-11-09",
@@ -1102,7 +1102,7 @@
         "date_collecte": "2026-11-09"
       },
       "scenario_central_3m_pct": {
-        "valeur": 0.0,
+        "valeur": 0,
         "unite": "pct",
         "periode": "3 mois depuis 2026-11-06",
         "date_source": "2026-11-09",
@@ -1112,7 +1112,7 @@
         "date_collecte": "2026-11-09"
       },
       "prob_central_3m_pct": {
-        "valeur": 45.0,
+        "valeur": 45,
         "unite": "pct",
         "periode": "probabilité subjective 3 mois",
         "date_source": "2026-11-09",
@@ -1122,7 +1122,7 @@
         "date_collecte": "2026-11-09"
       },
       "scenario_bull_3m_pct": {
-        "valeur": 25.0,
+        "valeur": 25,
         "unite": "pct",
         "periode": "3 mois depuis 2026-11-06",
         "date_source": "2026-11-09",
@@ -1132,7 +1132,7 @@
         "date_collecte": "2026-11-09"
       },
       "prob_bull_3m_pct": {
-        "valeur": 20.0,
+        "valeur": 20,
         "unite": "pct",
         "periode": "probabilité subjective 3 mois",
         "date_source": "2026-11-09",
@@ -1142,7 +1142,7 @@
         "date_collecte": "2026-11-09"
       },
       "scenario_bear_6m_pct": {
-        "valeur": -45.0,
+        "valeur": -45,
         "unite": "pct",
         "periode": "6 mois depuis 2026-11-06",
         "date_source": "2026-11-09",
@@ -1152,7 +1152,7 @@
         "date_collecte": "2026-11-09"
       },
       "prob_bear_6m_pct": {
-        "valeur": 40.0,
+        "valeur": 40,
         "unite": "pct",
         "periode": "probabilité subjective 6 mois",
         "date_source": "2026-11-09",
@@ -1162,7 +1162,7 @@
         "date_collecte": "2026-11-09"
       },
       "scenario_central_6m_pct": {
-        "valeur": 5.0,
+        "valeur": 5,
         "unite": "pct",
         "periode": "6 mois depuis 2026-11-06",
         "date_source": "2026-11-09",
@@ -1172,7 +1172,7 @@
         "date_collecte": "2026-11-09"
       },
       "prob_central_6m_pct": {
-        "valeur": 35.0,
+        "valeur": 35,
         "unite": "pct",
         "periode": "probabilité subjective 6 mois",
         "date_source": "2026-11-09",
@@ -1182,7 +1182,7 @@
         "date_collecte": "2026-11-09"
       },
       "scenario_bull_6m_pct": {
-        "valeur": 45.0,
+        "valeur": 45,
         "unite": "pct",
         "periode": "6 mois depuis 2026-11-06",
         "date_source": "2026-11-09",
@@ -1192,7 +1192,7 @@
         "date_collecte": "2026-11-09"
       },
       "prob_bull_6m_pct": {
-        "valeur": 25.0,
+        "valeur": 25,
         "unite": "pct",
         "periode": "probabilité subjective 6 mois",
         "date_source": "2026-11-09",
@@ -1268,14 +1268,14 @@
       "diversification": 10
     },
     "notes": {
-      "qualite": 22.0,
-      "valorisation": 13.0,
-      "croissance": 7.0,
-      "risque": 6.0,
+      "qualite": 22,
+      "valorisation": 13,
+      "croissance": 7,
+      "risque": 6,
       "momentum": 0,
-      "diversification": 6.0
+      "diversification": 6
     },
-    "total_mcpa": 54.0,
+    "total_mcpa": 54,
     "statut": "DOCUMENTEE_NON_VALIDEE",
     "justifications": {
       "qualite": "Marge brute élevée et FCF positif; dépendance au volume client.",
@@ -1283,7 +1283,7 @@
       "croissance": "Perte de volumes du client représentant 29 % du CA semestriel.",
       "risque": "Cash publié sans dette; concentration et volatilité élevées.",
       "diversification": "Vérification d'identité, au sein d'une poche logiciels déjà dominante.",
-      "momentum": "Grille explicite au 2026-11-06: 0/10, 0 points non observables. Absence d'historique distincte d'un signal baissier; score provisoire si incomplet."
+      "momentum": "Score M=0/10 calculé sur historique ajusté vérifié au 2026-11-06 (DONNEES/CALCULS_MARCHE_40_20261106.json et HISTORIQUES_VERIFIES_40_20261106.csv.gz). Momentum 1/3/6/12 mois : 1m -11.69%, 3m -46.17%, 6m -73.64%, 12m -50.61% ; prix/MM200=0.461 ; tendance MM200=-8.50% ; volume moyen 20j=249410. Ce score de 0 est une observation de tendance baissière, et non une absence de données. Source secondaire Yahoo, sans certification documentaire globale."
     },
     "date_analyse": "2026-11-09",
     "sources": [
@@ -3604,7 +3604,7 @@
       "prix_vers_mm200": 0.46135578921763126,
       "tendance_mm200": -8.504474656566574,
       "momentum_6_1_pct": -70.15503861641812,
-      "volume_moyen_20j": 249410.0,
+      "volume_moyen_20j": 249410,
       "ratio_volume": 0.8516097991259373,
       "volatilite_90j_pct": 62.12761484643201,
       "drawdown_12m_pct": -77.64182378601711
@@ -3677,22 +3677,22 @@
         "scenarios": [
           {
             "cas": "bear",
-            "rendement_pct": -30.0,
-            "probabilite_pct": 35.0,
+            "rendement_pct": -30,
+            "probabilite_pct": 35,
             "cours_conditionnel": 1.4279999732971191,
             "declencheur": "Baisse client supérieure aux économies."
           },
           {
             "cas": "central",
-            "rendement_pct": 0.0,
-            "probabilite_pct": 45.0,
+            "rendement_pct": 0,
+            "probabilite_pct": 45,
             "cours_conditionnel": 2.0399999618530273,
             "declencheur": "Compensation partielle du recul."
           },
           {
             "cas": "bull",
-            "rendement_pct": 25.0,
-            "probabilite_pct": 20.0,
+            "rendement_pct": 25,
+            "probabilite_pct": 20,
             "cours_conditionnel": 2.549999952316284,
             "declencheur": "Nouveaux comptes compensant le client perdu."
           }
@@ -3706,27 +3706,27 @@
         "scenarios": [
           {
             "cas": "bear",
-            "rendement_pct": -45.0,
-            "probabilite_pct": 40.0,
+            "rendement_pct": -45,
+            "probabilite_pct": 40,
             "cours_conditionnel": 1.121999979019165,
             "declencheur": "Baisse client supérieure aux économies."
           },
           {
             "cas": "central",
-            "rendement_pct": 5.0,
-            "probabilite_pct": 35.0,
+            "rendement_pct": 5,
+            "probabilite_pct": 35,
             "cours_conditionnel": 2.1419999599456787,
             "declencheur": "Compensation partielle du recul."
           },
           {
             "cas": "bull",
-            "rendement_pct": 45.0,
-            "probabilite_pct": 25.0,
+            "rendement_pct": 45,
+            "probabilite_pct": 25,
             "cours_conditionnel": 2.9579999446868896,
             "declencheur": "Nouveaux comptes compensant le client perdu."
           }
         ],
-        "esperance_subjective_brute_pct": -5.0,
+        "esperance_subjective_brute_pct": -5,
         "esperance_apres_rotation_vente_achat_2_5pct": -9.634146341463412,
         "convention_frais": "Friction théorique: vente 2,5 % du brut, achat 2,5 % du nominal acheté. Pas de transaction."
       }
