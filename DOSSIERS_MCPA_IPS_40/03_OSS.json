@@ -909,7 +909,7 @@
         "commentaire": "Ratio (titre ajusté converti en USD / URTH ajusté) sur chaque fenêtre, moins 1. Ancrages communs titre/ETF/FX; GBp constant annulé dans le ratio. URTH est un proxy ETF avec frais/écart de suivi; horaires de clôture non synchrones. Fenêtres impossibles avant IPO omises, jamais extrapolées."
       },
       "volume_moyen_20j": {
-        "valeur": 1504245.0,
+        "valeur": 1504245,
         "unite": "titres/jour",
         "periode": "historique ajusté au 2026-11-06",
         "date_source": "2026-11-06",
@@ -1060,7 +1060,7 @@
         "commentaire": "SSI 68/100 : B1 12, B2 6, B3 13, B4 14, B5 6, B6 8, B7 9. SEUIL_SSI_ATTEINT_SUR_PREUVES_DATEES. Ne vaut pas validation MCPA ni arbitrage."
       },
       "ic_sur_5": {
-        "valeur": 3.0,
+        "valeur": 3,
         "unite": "note/5",
         "periode": "analyse au 2026-11-09",
         "date_source": "2026-11-09",
@@ -1070,7 +1070,7 @@
         "date_collecte": "2026-11-09"
       },
       "cx_sur_5": {
-        "valeur": 3.0,
+        "valeur": 3,
         "unite": "note/5",
         "periode": "analyse au 2026-11-09",
         "date_source": "2026-11-09",
@@ -1105,7 +1105,7 @@
         }
       },
       "scenario_bear_3m_pct": {
-        "valeur": -35.0,
+        "valeur": -35,
         "unite": "pct",
         "periode": "3 mois depuis 2026-11-06",
         "date_source": "2026-11-09",
@@ -1115,7 +1115,7 @@
         "date_collecte": "2026-11-09"
       },
       "prob_bear_3m_pct": {
-        "valeur": 35.0,
+        "valeur": 35,
         "unite": "pct",
         "periode": "probabilité subjective 3 mois",
         "date_source": "2026-11-09",
@@ -1125,7 +1125,7 @@
         "date_collecte": "2026-11-09"
       },
       "scenario_central_3m_pct": {
-        "valeur": 5.0,
+        "valeur": 5,
         "unite": "pct",
         "periode": "3 mois depuis 2026-11-06",
         "date_source": "2026-11-09",
@@ -1135,7 +1135,7 @@
         "date_collecte": "2026-11-09"
       },
       "prob_central_3m_pct": {
-        "valeur": 40.0,
+        "valeur": 40,
         "unite": "pct",
         "periode": "probabilité subjective 3 mois",
         "date_source": "2026-11-09",
@@ -1145,7 +1145,7 @@
         "date_collecte": "2026-11-09"
       },
       "scenario_bull_3m_pct": {
-        "valeur": 40.0,
+        "valeur": 40,
         "unite": "pct",
         "periode": "3 mois depuis 2026-11-06",
         "date_source": "2026-11-09",
@@ -1155,7 +1155,7 @@
         "date_collecte": "2026-11-09"
       },
       "prob_bull_3m_pct": {
-        "valeur": 25.0,
+        "valeur": 25,
         "unite": "pct",
         "periode": "probabilité subjective 3 mois",
         "date_source": "2026-11-09",
@@ -1165,7 +1165,7 @@
         "date_collecte": "2026-11-09"
       },
       "scenario_bear_6m_pct": {
-        "valeur": -50.0,
+        "valeur": -50,
         "unite": "pct",
         "periode": "6 mois depuis 2026-11-06",
         "date_source": "2026-11-09",
@@ -1175,7 +1175,7 @@
         "date_collecte": "2026-11-09"
       },
       "prob_bear_6m_pct": {
-        "valeur": 35.0,
+        "valeur": 35,
         "unite": "pct",
         "periode": "probabilité subjective 6 mois",
         "date_source": "2026-11-09",
@@ -1185,7 +1185,7 @@
         "date_collecte": "2026-11-09"
       },
       "scenario_central_6m_pct": {
-        "valeur": 15.0,
+        "valeur": 15,
         "unite": "pct",
         "periode": "6 mois depuis 2026-11-06",
         "date_source": "2026-11-09",
@@ -1195,7 +1195,7 @@
         "date_collecte": "2026-11-09"
       },
       "prob_central_6m_pct": {
-        "valeur": 35.0,
+        "valeur": 35,
         "unite": "pct",
         "periode": "probabilité subjective 6 mois",
         "date_source": "2026-11-09",
@@ -1205,7 +1205,7 @@
         "date_collecte": "2026-11-09"
       },
       "scenario_bull_6m_pct": {
-        "valeur": 65.0,
+        "valeur": 65,
         "unite": "pct",
         "periode": "6 mois depuis 2026-11-06",
         "date_source": "2026-11-09",
@@ -1215,7 +1215,7 @@
         "date_collecte": "2026-11-09"
       },
       "prob_bull_6m_pct": {
-        "valeur": 30.0,
+        "valeur": 30,
         "unite": "pct",
         "periode": "probabilité subjective 6 mois",
         "date_source": "2026-11-09",
@@ -1291,14 +1291,14 @@
       "diversification": 10
     },
     "notes": {
-      "qualite": 15.0,
-      "valorisation": 9.0,
-      "croissance": 15.0,
-      "risque": 4.0,
+      "qualite": 15,
+      "valorisation": 9,
+      "croissance": 15,
+      "risque": 4,
       "momentum": 0,
-      "diversification": 6.0
+      "diversification": 6
     },
-    "total_mcpa": 49.0,
+    "total_mcpa": 49,
     "statut": "DOCUMENTEE_NON_VALIDEE",
     "justifications": {
       "qualite": "Marge brute améliorée, pertes et cash consommé.",
@@ -1306,7 +1306,7 @@
       "croissance": "CA poursuivi neuf mois +48,3 %, book-to-bill 1,46.",
       "risque": "Stocks, litige et commandes défense consomment du cash.",
       "diversification": "Calcul embarqué défense, recoupement avec le matériel IA.",
-      "momentum": "Grille explicite au 2026-11-06: 0/10, 0 points non observables. Absence d'historique distincte d'un signal baissier; score provisoire si incomplet."
+      "momentum": "Score 0/10 fondé sur historique ajusté au 2026-11-06 (DONNEES/CALCULS_MARCHE_40_20261106.json, HISTORIQUES_VERIFIES_40_20261106.csv.gz), grille 10Q existante. 1m -48.32%; 3m -67.64%; 6m -71.89%; 12m -19.29% ; prix/MM200 0.388, tendance MM200 -2.67%, volume 20j 1504245. Score observé, non estimation d'absence de données; source secondaire Yahoo, validation documentaire globale toujours requise."
     },
     "date_analyse": "2026-11-09",
     "sources": [
@@ -3731,7 +3731,7 @@
       "prix_vers_mm200": 0.38840112998818516,
       "tendance_mm200": -2.6699002399264704,
       "momentum_6_1_pct": -45.59686761843322,
-      "volume_moyen_20j": 1504245.0,
+      "volume_moyen_20j": 1504245,
       "ratio_volume": 0.8630243078753793,
       "volatilite_90j_pct": 84.90967316552542,
       "drawdown_12m_pct": -80.35087756198979
@@ -3804,22 +3804,22 @@
         "scenarios": [
           {
             "cas": "bear",
-            "rendement_pct": -35.0,
-            "probabilite_pct": 35.0,
+            "rendement_pct": -35,
+            "probabilite_pct": 35,
             "cours_conditionnel": 2.8014999628067017,
             "declencheur": "Stocks non convertis et nouvelles pertes."
           },
           {
             "cas": "central",
-            "rendement_pct": 5.0,
-            "probabilite_pct": 40.0,
+            "rendement_pct": 5,
+            "probabilite_pct": 40,
             "cours_conditionnel": 4.525499939918518,
             "declencheur": "Livraisons progressives et faible rentabilité."
           },
           {
             "cas": "bull",
-            "rendement_pct": 40.0,
-            "probabilite_pct": 25.0,
+            "rendement_pct": 40,
+            "probabilite_pct": 25,
             "cours_conditionnel": 6.033999919891357,
             "declencheur": "Accélération défense et effet de volume."
           }
@@ -3833,22 +3833,22 @@
         "scenarios": [
           {
             "cas": "bear",
-            "rendement_pct": -50.0,
-            "probabilite_pct": 35.0,
+            "rendement_pct": -50,
+            "probabilite_pct": 35,
             "cours_conditionnel": 2.1549999713897705,
             "declencheur": "Stocks non convertis et nouvelles pertes."
           },
           {
             "cas": "central",
-            "rendement_pct": 15.0,
-            "probabilite_pct": 35.0,
+            "rendement_pct": 15,
+            "probabilite_pct": 35,
             "cours_conditionnel": 4.956499934196472,
             "declencheur": "Livraisons progressives et faible rentabilité."
           },
           {
             "cas": "bull",
-            "rendement_pct": 65.0,
-            "probabilite_pct": 30.0,
+            "rendement_pct": 65,
+            "probabilite_pct": 30,
             "cours_conditionnel": 7.111499905586243,
             "declencheur": "Accélération défense et effet de volume."
           }
