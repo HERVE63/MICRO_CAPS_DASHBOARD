@@ -87,7 +87,7 @@
         }
       },
       "capitalisation_eur": {
-        "valeur": 171560000.0,
+        "valeur": 171560000,
         "unite": "EUR",
         "periode": "capitalisation fournisseur et référence BCE du 2026-11-04",
         "date_source": "2026-11-04",
@@ -134,7 +134,7 @@
     },
     "qualite": {
       "ca_ttm": {
-        "valeur": 27620000.0,
+        "valeur": 27620000,
         "unite": "EUR",
         "periode": "TTM fournisseur; arrêté indiqué dans son tableau financier : Jun '26 Jun 30, 2026",
         "date_source": "2026-11-04",
@@ -204,7 +204,7 @@
         "date_collecte": "2026-11-04"
       },
       "fcf_ttm": {
-        "valeur": 3270000.0,
+        "valeur": 3270000,
         "unite": "EUR",
         "periode": "TTM fournisseur; arrêté indiqué dans son tableau financier : Jun '26 Jun 30, 2026",
         "date_source": "2026-11-04",
@@ -301,7 +301,7 @@
         "date_collecte": "2026-11-09"
       },
       "capitalisation": {
-        "valeur": 171560000.0,
+        "valeur": 171560000,
         "unite": "EUR",
         "periode": "cotation au 2026-11-04",
         "date_source": "2026-11-04",
@@ -311,7 +311,7 @@
         "date_collecte": "2026-11-04"
       },
       "valeur_entreprise": {
-        "valeur": 161320000.0,
+        "valeur": 161320000,
         "unite": "EUR",
         "periode": "valorisation affichée au 2026-11-04",
         "date_source": "2026-11-04",
@@ -825,7 +825,7 @@
         "commentaire": "Achats moins ventes d’actions au comptant déclarés et publiés à la date de collecte; exercices/attributions/dons distingués. Cessions liées à des programmes signalées. Hors frais, produits des prix/volumes déclarés. Pas preuve d’absence de transactions non publiées. Source détaillée et PDF archivés : DONNEES/DECLARATIONS_AMF_14_20261105.json. Un zéro décrit le net des déclarations couvertes; il ne certifie pas une absence de transactions réelles."
       },
       "transactions_initiees_net_180j": {
-        "valeur": -53010.0,
+        "valeur": -53010,
         "unite": "EUR",
         "periode": "2026-05-09 / 2026-11-05; 180 jours calendaires",
         "date_source": "2026-11-05",
@@ -1018,7 +1018,7 @@
         "valeur": {
           "classification": "Technology",
           "nombre_lignes": 16,
-          "poids_initial_pct": 40.0,
+          "poids_initial_pct": 40,
           "tickers": [
             "IDN",
             "OSS",
@@ -1084,7 +1084,7 @@
         }
       },
       "ic_sur_5": {
-        "valeur": 3.0,
+        "valeur": 3,
         "unite": "note/5",
         "periode": "analyse au 2026-11-09",
         "date_source": "2026-11-09",
@@ -1094,7 +1094,7 @@
         "date_collecte": "2026-11-09"
       },
       "cx_sur_5": {
-        "valeur": 3.0,
+        "valeur": 3,
         "unite": "note/5",
         "periode": "analyse au 2026-11-09",
         "date_source": "2026-11-09",
@@ -1129,7 +1129,7 @@
         }
       },
       "scenario_bear_3m_pct": {
-        "valeur": -25.0,
+        "valeur": -25,
         "unite": "pct",
         "periode": "3 mois depuis 2026-11-06",
         "date_source": "2026-11-09",
@@ -1139,7 +1139,7 @@
         "date_collecte": "2026-11-09"
       },
       "prob_bear_3m_pct": {
-        "valeur": 30.0,
+        "valeur": 30,
         "unite": "pct",
         "periode": "probabilité subjective 3 mois",
         "date_source": "2026-11-09",
@@ -1149,7 +1149,7 @@
         "date_collecte": "2026-11-09"
       },
       "scenario_central_3m_pct": {
-        "valeur": 5.0,
+        "valeur": 5,
         "unite": "pct",
         "periode": "3 mois depuis 2026-11-06",
         "date_source": "2026-11-09",
@@ -1159,7 +1159,7 @@
         "date_collecte": "2026-11-09"
       },
       "prob_central_3m_pct": {
-        "valeur": 45.0,
+        "valeur": 45,
         "unite": "pct",
         "periode": "probabilité subjective 3 mois",
         "date_source": "2026-11-09",
@@ -1169,7 +1169,7 @@
         "date_collecte": "2026-11-09"
       },
       "scenario_bull_3m_pct": {
-        "valeur": 30.0,
+        "valeur": 30,
         "unite": "pct",
         "periode": "3 mois depuis 2026-11-06",
         "date_source": "2026-11-09",
@@ -1179,7 +1179,7 @@
         "date_collecte": "2026-11-09"
       },
       "prob_bull_3m_pct": {
-        "valeur": 25.0,
+        "valeur": 25,
         "unite": "pct",
         "periode": "probabilité subjective 3 mois",
         "date_source": "2026-11-09",
@@ -1189,7 +1189,7 @@
         "date_collecte": "2026-11-09"
       },
       "scenario_bear_6m_pct": {
-        "valeur": -35.0,
+        "valeur": -35,
         "unite": "pct",
         "periode": "6 mois depuis 2026-11-06",
         "date_source": "2026-11-09",
@@ -1199,7 +1199,7 @@
         "date_collecte": "2026-11-09"
       },
       "prob_bear_6m_pct": {
-        "valeur": 30.0,
+        "valeur": 30,
         "unite": "pct",
         "periode": "probabilité subjective 6 mois",
         "date_source": "2026-11-09",
@@ -1209,7 +1209,7 @@
         "date_collecte": "2026-11-09"
       },
       "scenario_central_6m_pct": {
-        "valeur": 15.0,
+        "valeur": 15,
         "unite": "pct",
         "periode": "6 mois depuis 2026-11-06",
         "date_source": "2026-11-09",
@@ -1219,7 +1219,7 @@
         "date_collecte": "2026-11-09"
       },
       "prob_central_6m_pct": {
-        "valeur": 40.0,
+        "valeur": 40,
         "unite": "pct",
         "periode": "probabilité subjective 6 mois",
         "date_source": "2026-11-09",
@@ -1229,7 +1229,7 @@
         "date_collecte": "2026-11-09"
       },
       "scenario_bull_6m_pct": {
-        "valeur": 50.0,
+        "valeur": 50,
         "unite": "pct",
         "periode": "6 mois depuis 2026-11-06",
         "date_source": "2026-11-09",
@@ -1239,7 +1239,7 @@
         "date_collecte": "2026-11-09"
       },
       "prob_bull_6m_pct": {
-        "valeur": 30.0,
+        "valeur": 30,
         "unite": "pct",
         "periode": "probabilité subjective 6 mois",
         "date_source": "2026-11-09",
@@ -1315,14 +1315,14 @@
       "diversification": 10
     },
     "notes": {
-      "qualite": 24.0,
-      "valorisation": 9.0,
-      "croissance": 12.0,
-      "risque": 6.0,
+      "qualite": 24,
+      "valorisation": 9,
+      "croissance": 12,
+      "risque": 6,
       "momentum": 0,
-      "diversification": 5.0
+      "diversification": 5
     },
-    "total_mcpa": 56.0,
+    "total_mcpa": 56,
     "statut": "DOCUMENTEE_NON_VALIDEE",
     "justifications": {
       "qualite": "Logiciels rentables, investissements pesants.",
@@ -1423,7 +1423,7 @@
                 "periodType": "12M",
                 "currencyCode": "EUR",
                 "reportedValue": {
-                  "raw": 9831000.0,
+                  "raw": 9831000,
                   "fmt": "9.83M"
                 }
               },
@@ -1433,7 +1433,7 @@
                 "periodType": "12M",
                 "currencyCode": "EUR",
                 "reportedValue": {
-                  "raw": 11621000.0,
+                  "raw": 11621000,
                   "fmt": "11.62M"
                 }
               },
@@ -1443,7 +1443,7 @@
                 "periodType": "12M",
                 "currencyCode": "EUR",
                 "reportedValue": {
-                  "raw": 14211000.0,
+                  "raw": 14211000,
                   "fmt": "14.21M"
                 }
               },
@@ -1453,7 +1453,7 @@
                 "periodType": "12M",
                 "currencyCode": "EUR",
                 "reportedValue": {
-                  "raw": 15445000.0,
+                  "raw": 15445000,
                   "fmt": "15.45M"
                 }
               }
@@ -1869,7 +1869,7 @@
     {
       "bloc": "risque",
       "champ": "dette_nette",
-      "valeur": -10240000.0,
+      "valeur": -10240000,
       "unite": "EUR",
       "periode": "Dernier bilan affiché au 2026-11-04; date comptable exacte à rapprocher",
       "date_source": "2026-11-04",
@@ -2061,7 +2061,7 @@
     {
       "bloc": "qualite",
       "champ": "ca_ttm",
-      "valeur": 27620000.0,
+      "valeur": 27620000,
       "unite": "EUR",
       "periode": "TTM fournisseur; arrêté indiqué dans son tableau financier : Jun '26 Jun 30, 2026",
       "date_source": "2026-11-04",
@@ -2073,7 +2073,7 @@
     {
       "bloc": "qualite",
       "champ": "fcf_ttm",
-      "valeur": 3270000.0,
+      "valeur": 3270000,
       "unite": "EUR",
       "periode": "TTM fournisseur; arrêté indiqué dans son tableau financier : Jun '26 Jun 30, 2026",
       "date_source": "2026-11-04",
@@ -2169,7 +2169,7 @@
     {
       "bloc": "risque",
       "champ": "cash",
-      "valeur": 19600000.0,
+      "valeur": 19600000,
       "unite": "EUR",
       "periode": "Dernier bilan affiché au 2026-11-04; date comptable exacte à rapprocher",
       "date_source": "2026-11-04",
@@ -2181,7 +2181,7 @@
     {
       "bloc": "risque",
       "champ": "dette_brute",
-      "valeur": 9360000.0,
+      "valeur": 9360000,
       "unite": "EUR",
       "periode": "Dernier bilan affiché au 2026-11-04; date comptable exacte à rapprocher",
       "date_source": "2026-11-04",
@@ -2205,7 +2205,7 @@
     {
       "bloc": "risque",
       "champ": "liquidite_courante",
-      "valeur": 2.0,
+      "valeur": 2,
       "unite": "ratio",
       "periode": "Dernier bilan affiché au 2026-11-04; date comptable exacte à rapprocher",
       "date_source": "2026-11-04",
@@ -3334,11 +3334,11 @@
     "ancrages": {
       "1": {
         "date": "2026-10-06",
-        "cours_ajuste": 69.0
+        "cours_ajuste": 69
       },
       "3": {
         "date": "2026-08-06",
-        "cours_ajuste": 79.0
+        "cours_ajuste": 79
       },
       "6": {
         "date": "2026-05-06",
@@ -3430,22 +3430,22 @@
         "scenarios": [
           {
             "cas": "bear",
-            "rendement_pct": -25.0,
-            "probabilite_pct": 30.0,
+            "rendement_pct": -25,
+            "probabilite_pct": 30,
             "cours_conditionnel": 46.65000057220459,
             "declencheur": "Dépenses sans accélération."
           },
           {
             "cas": "central",
-            "rendement_pct": 5.0,
-            "probabilite_pct": 45.0,
+            "rendement_pct": 5,
+            "probabilite_pct": 45,
             "cours_conditionnel": 65.31000080108643,
             "declencheur": "Croissance graduelle, marges sous pression."
           },
           {
             "cas": "bull",
-            "rendement_pct": 30.0,
-            "probabilite_pct": 25.0,
+            "rendement_pct": 30,
+            "probabilite_pct": 25,
             "cours_conditionnel": 80.8600009918213,
             "declencheur": "Adoption et effet d'échelle."
           }
@@ -3459,22 +3459,22 @@
         "scenarios": [
           {
             "cas": "bear",
-            "rendement_pct": -35.0,
-            "probabilite_pct": 30.0,
+            "rendement_pct": -35,
+            "probabilite_pct": 30,
             "cours_conditionnel": 40.43000049591065,
             "declencheur": "Dépenses sans accélération."
           },
           {
             "cas": "central",
-            "rendement_pct": 15.0,
-            "probabilite_pct": 40.0,
+            "rendement_pct": 15,
+            "probabilite_pct": 40,
             "cours_conditionnel": 71.53000087738036,
             "declencheur": "Croissance graduelle, marges sous pression."
           },
           {
             "cas": "bull",
-            "rendement_pct": 50.0,
-            "probabilite_pct": 30.0,
+            "rendement_pct": 50,
+            "probabilite_pct": 30,
             "cours_conditionnel": 93.30000114440918,
             "declencheur": "Adoption et effet d'échelle."
           }
@@ -3485,5 +3485,19 @@
       }
     }
   },
-  "date_analyse": "2026-11-09"
+  "date_analyse": "2026-11-09",
+  "zonebourse_controle_20261114": {
+    "date_collecte": "2026-11-14",
+    "source_url": "https://www.zonebourse.com/cours/action/STREAMWIDE-382968/",
+    "donnees_cours_et_estimations": {
+      "cours_2026_11_13_eur": 63,
+      "objectif_consensus_eur": 77,
+      "analystes_consensus": 1,
+      "recommandation_consensus": "CONSERVER",
+      "volume_2026_11_13_actions": 3375
+    },
+    "publications": [],
+    "statut": "DOCUMENTATION_ZONEBOURSE_NON_CERTIFICATION",
+    "note": "Estimations séparées des données publiées. Cours datés; aucune note MCPA modifiée automatiquement."
+  }
 }
