@@ -1,0 +1,47 @@
+name: Micro Caps - momentum quotidien (1 2 3 mois)
+on:
+  schedule:
+    - cron: '15 20 * * 1-5'
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  calcul-momentum:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: repair/microcaps-chain-20261030
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Calcul des 40 fiches sans collecte secondaire
+        run: python -B SCRIPTS_ACTIFS/40M_MOMENTUM_EXPERIENCE.py
+      - name: Controle de fraicheur et couverture des cotations
+        run: |
+          python - <<'PY'
+          import csv,datetime,json
+          from pathlib import Path
+          p=Path('DONNEES/EXPERIENCE_MOMENTUM_40.csv')
+          with p.open(encoding='utf-8',newline='') as f: rows=list(csv.DictReader(f))
+          assert len(rows)==40,f'{len(rows)} fiches au lieu de 40'
+          today=datetime.datetime.now(datetime.timezone.utc).date()
+          fresh=[]
+          for r in rows:
+              try: age=(today-datetime.date.fromisoformat(r['Date_historique'])).days
+              except (ValueError,KeyError):age=999
+              if age<=4 and r['Statut'].startswith('CALCULABLE'):fresh.append(r['Ticker'])
+          report={'date_utc':str(today),'fiches':len(rows),'cotations_recentes_et_indicateurs_calculables':len(fresh),'statut':'PRET_POUR_REVUE' if len(fresh)==40 else 'DONNEES_NON_ACTUALISEES','source_requise_pour_actualisation':'Zonebourse uniquement','arbitrage_automatique':'DESACTIVE'}
+          Path('DONNEES/ETAT_MOMENTUM_QUOTIDIEN.json').write_text(json.dumps(report,ensure_ascii=False,indent=2)+'\n',encoding='utf-8')
+          print(json.dumps(report,ensure_ascii=False))
+          if len(fresh)!=40:raise SystemExit('Actualisation Zonebourse non raccordee : pas de signal frais certifie')
+          PY
+      - name: Conserver les rapports meme en cas de donnees anciennes
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: microcaps-momentum-quotidien-${{ github.run_id }}
+          path: |
+            DONNEES/EXPERIENCE_MOMENTUM_40.csv
+            DONNEES/ETAT_MOMENTUM_QUOTIDIEN.json
+          if-no-files-found: warn
