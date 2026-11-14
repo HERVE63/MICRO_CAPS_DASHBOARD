@@ -134,7 +134,7 @@
     },
     "qualite": {
       "ca_ttm": {
-        "valeur": 51410000.0,
+        "valeur": 51410000,
         "unite": "EUR",
         "periode": "TTM fournisseur; arrêté indiqué dans son tableau financier : Jun '26 Jun 30, 2026",
         "date_source": "2026-11-04",
@@ -204,7 +204,7 @@
         "date_collecte": "2026-11-04"
       },
       "fcf_ttm": {
-        "valeur": -4530000.0,
+        "valeur": -4530000,
         "unite": "EUR",
         "periode": "TTM fournisseur; arrêté indiqué dans son tableau financier : Jun '26 Jun 30, 2026",
         "date_source": "2026-11-04",
@@ -1072,7 +1072,7 @@
         "date_collecte": "2026-11-09"
       },
       "cx_sur_5": {
-        "valeur": 3.0,
+        "valeur": 3,
         "unite": "note/5",
         "periode": "analyse au 2026-11-09",
         "date_source": "2026-11-09",
@@ -1107,7 +1107,7 @@
         }
       },
       "scenario_bear_3m_pct": {
-        "valeur": -30.0,
+        "valeur": -30,
         "unite": "pct",
         "periode": "3 mois depuis 2026-11-06",
         "date_source": "2026-11-09",
@@ -1117,7 +1117,7 @@
         "date_collecte": "2026-11-09"
       },
       "prob_bear_3m_pct": {
-        "valeur": 35.0,
+        "valeur": 35,
         "unite": "pct",
         "periode": "probabilité subjective 3 mois",
         "date_source": "2026-11-09",
@@ -1127,7 +1127,7 @@
         "date_collecte": "2026-11-09"
       },
       "scenario_central_3m_pct": {
-        "valeur": 5.0,
+        "valeur": 5,
         "unite": "pct",
         "periode": "3 mois depuis 2026-11-06",
         "date_source": "2026-11-09",
@@ -1137,7 +1137,7 @@
         "date_collecte": "2026-11-09"
       },
       "prob_central_3m_pct": {
-        "valeur": 40.0,
+        "valeur": 40,
         "unite": "pct",
         "periode": "probabilité subjective 3 mois",
         "date_source": "2026-11-09",
@@ -1147,7 +1147,7 @@
         "date_collecte": "2026-11-09"
       },
       "scenario_bull_3m_pct": {
-        "valeur": 30.0,
+        "valeur": 30,
         "unite": "pct",
         "periode": "3 mois depuis 2026-11-06",
         "date_source": "2026-11-09",
@@ -1157,7 +1157,7 @@
         "date_collecte": "2026-11-09"
       },
       "prob_bull_3m_pct": {
-        "valeur": 25.0,
+        "valeur": 25,
         "unite": "pct",
         "periode": "probabilité subjective 3 mois",
         "date_source": "2026-11-09",
@@ -1167,7 +1167,7 @@
         "date_collecte": "2026-11-09"
       },
       "scenario_bear_6m_pct": {
-        "valeur": -45.0,
+        "valeur": -45,
         "unite": "pct",
         "periode": "6 mois depuis 2026-11-06",
         "date_source": "2026-11-09",
@@ -1177,7 +1177,7 @@
         "date_collecte": "2026-11-09"
       },
       "prob_bear_6m_pct": {
-        "valeur": 35.0,
+        "valeur": 35,
         "unite": "pct",
         "periode": "probabilité subjective 6 mois",
         "date_source": "2026-11-09",
@@ -1187,7 +1187,7 @@
         "date_collecte": "2026-11-09"
       },
       "scenario_central_6m_pct": {
-        "valeur": 15.0,
+        "valeur": 15,
         "unite": "pct",
         "periode": "6 mois depuis 2026-11-06",
         "date_source": "2026-11-09",
@@ -1197,7 +1197,7 @@
         "date_collecte": "2026-11-09"
       },
       "prob_central_6m_pct": {
-        "valeur": 35.0,
+        "valeur": 35,
         "unite": "pct",
         "periode": "probabilité subjective 6 mois",
         "date_source": "2026-11-09",
@@ -1207,7 +1207,7 @@
         "date_collecte": "2026-11-09"
       },
       "scenario_bull_6m_pct": {
-        "valeur": 55.0,
+        "valeur": 55,
         "unite": "pct",
         "periode": "6 mois depuis 2026-11-06",
         "date_source": "2026-11-09",
@@ -1217,7 +1217,7 @@
         "date_collecte": "2026-11-09"
       },
       "prob_bull_6m_pct": {
-        "valeur": 30.0,
+        "valeur": 30,
         "unite": "pct",
         "periode": "probabilité subjective 6 mois",
         "date_source": "2026-11-09",
@@ -1293,14 +1293,14 @@
       "diversification": 10
     },
     "notes": {
-      "qualite": 18.0,
-      "valorisation": 8.0,
-      "croissance": 14.0,
-      "risque": 3.0,
+      "qualite": 18,
+      "valorisation": 8,
+      "croissance": 14,
+      "risque": 3,
       "momentum": 1,
-      "diversification": 8.0
+      "diversification": 8
     },
-    "total_mcpa": 52.0,
+    "total_mcpa": 52,
     "statut": "DOCUMENTEE_NON_VALIDEE",
     "justifications": {
       "qualite": "Rentabilité améliorée, conversion cash fragile.",
@@ -1356,7 +1356,7 @@
                 "periodType": "12M",
                 "currencyCode": "EUR",
                 "reportedValue": {
-                  "raw": -2951000.0,
+                  "raw": -2951000,
                   "fmt": "-2.95M"
                 }
               },
@@ -1366,7 +1366,7 @@
                 "periodType": "12M",
                 "currencyCode": "EUR",
                 "reportedValue": {
-                  "raw": -5056000.0,
+                  "raw": -5056000,
                   "fmt": "-5.06M"
                 }
               },
@@ -1376,7 +1376,7 @@
                 "periodType": "12M",
                 "currencyCode": "EUR",
                 "reportedValue": {
-                  "raw": 702000.0,
+                  "raw": 702000,
                   "fmt": "702.00k"
                 }
               },
@@ -1386,7 +1386,7 @@
                 "periodType": "12M",
                 "currencyCode": "EUR",
                 "reportedValue": {
-                  "raw": 3372000.0,
+                  "raw": 3372000,
                   "fmt": "3.37M"
                 }
               }
@@ -2395,7 +2395,7 @@
     "date": "2026-11-14",
     "champs_total": 108,
     "champs_renseignes": 81,
-    "couverture_pct": 75.0,
+    "couverture_pct": 75,
     "champs_secondaires_non_rapproches": 53,
     "champs_manquants": [
       "identite.lei",
@@ -2438,7 +2438,7 @@
       "INDISPONIBLE_A_DATE": 0,
       "RECHERCHE_A_POURSUIVRE": 25
     },
-    "couverture_valeurs_pct": 75.0,
+    "couverture_valeurs_pct": 75,
     "couverture_applicable_pct": 76.42,
     "recherches_non_closes": [
       "identite.lei",
@@ -3254,27 +3254,27 @@
         "scenarios": [
           {
             "cas": "bear",
-            "rendement_pct": -30.0,
-            "probabilite_pct": 35.0,
+            "rendement_pct": -30,
+            "probabilite_pct": 35,
             "cours_conditionnel": 0.6370000183582305,
             "declencheur": "Dette et BFR absorbent le résultat."
           },
           {
             "cas": "central",
-            "rendement_pct": 5.0,
-            "probabilite_pct": 40.0,
+            "rendement_pct": 5,
+            "probabilite_pct": 40,
             "cours_conditionnel": 0.955500027537346,
             "declencheur": "Profits en hausse, cash tendu."
           },
           {
             "cas": "bull",
-            "rendement_pct": 30.0,
-            "probabilite_pct": 25.0,
+            "rendement_pct": 30,
+            "probabilite_pct": 25,
             "cours_conditionnel": 1.183000034093857,
             "declencheur": "Cash et croissance réduisent le levier."
           }
         ],
-        "esperance_subjective_brute_pct": -1.0,
+        "esperance_subjective_brute_pct": -1,
         "esperance_apres_rotation_vente_achat_2_5pct": -5.8292682926829205,
         "convention_frais": "Friction théorique: vente 2,5 % du brut, achat 2,5 % du nominal acheté. Pas de transaction."
       },
@@ -3283,31 +3283,48 @@
         "scenarios": [
           {
             "cas": "bear",
-            "rendement_pct": -45.0,
-            "probabilite_pct": 35.0,
+            "rendement_pct": -45,
+            "probabilite_pct": 35,
             "cours_conditionnel": 0.5005000144243241,
             "declencheur": "Dette et BFR absorbent le résultat."
           },
           {
             "cas": "central",
-            "rendement_pct": 15.0,
-            "probabilite_pct": 35.0,
+            "rendement_pct": 15,
+            "probabilite_pct": 35,
             "cours_conditionnel": 1.04650003015995,
             "declencheur": "Profits en hausse, cash tendu."
           },
           {
             "cas": "bull",
-            "rendement_pct": 55.0,
-            "probabilite_pct": 30.0,
+            "rendement_pct": 55,
+            "probabilite_pct": 30,
             "cours_conditionnel": 1.4105000406503678,
             "declencheur": "Cash et croissance réduisent le levier."
           }
         ],
-        "esperance_subjective_brute_pct": 6.0,
+        "esperance_subjective_brute_pct": 6,
         "esperance_apres_rotation_vente_achat_2_5pct": 0.8292682926829498,
         "convention_frais": "Friction théorique: vente 2,5 % du brut, achat 2,5 % du nominal acheté. Pas de transaction."
       }
     }
   },
-  "date_analyse": "2026-11-09"
+  "date_analyse": "2026-11-09",
+  "zonebourse_controle_20261114": {
+    "source_url": "https://www.zonebourse.com/cours/action/DIAGNOSTIC-MEDICAL-SYSTEM-30049815/",
+    "date_collecte": "2026-11-14",
+    "donnees": {
+      "cours_2026_11_13_eur": 0.9,
+      "capitalisation_millions_eur": 23.28,
+      "ve_millions_eur": 41.68,
+      "per_2026_estime": 45,
+      "per_2027_estime": 10,
+      "ve_ca_2026_estime": 0.93,
+      "ve_ca_2027_estime": 0.57,
+      "flottant_pct": 69.9,
+      "catalyseur": "Commande de 15 systèmes de radiologie au Groenland annoncée le 27/10/2026"
+    },
+    "precision": "Clôture du 13 novembre 2026; estimations et actualité du 27 octobre.",
+    "statut": "DOCUMENTE_NON_CERTIFIE"
+  }
 }
