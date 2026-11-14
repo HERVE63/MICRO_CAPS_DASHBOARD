@@ -808,43 +808,43 @@
         "date_collecte": "2026-11-09"
       },
       "momentum_1m_pct": {
-        "valeur": 6.538453718816162,
+        "valeur": 22.24,
         "unite": "pct",
-        "periode": "historique ajusté au 2026-11-06",
-        "date_source": "2026-11-06",
-        "source_url": "https://query1.finance.yahoo.com/v8/finance/chart/ALSTI.PA?range=5y&interval=1d&events=div%2Csplits",
-        "statut": "CALCULE_HISTORIQUE_SECONDAIRE",
-        "commentaire": "Calcul reproductible 10Q; ancrage dernière séance <= date calendaire cible, aucune période pré-IPO extrapolée.",
+        "periode": "1 mois au 2026-11-13",
+        "date_source": "2026-11-13",
+        "source_url": "https://www.zonebourse.com/cours/action/STIF-162866171/cotations/",
+        "statut": "ZONEBOURSE_PUBLIE",
+        "commentaire": "Actualisation depuis Zonebourse; ancienne mesure conservée dans historique_momentum_avant_zonebourse_20261114.",
         "date_collecte": "2026-11-09"
       },
       "momentum_3m_pct": {
-        "valeur": -62.92543083651061,
+        "valeur": -62.26,
         "unite": "pct",
-        "periode": "historique ajusté au 2026-11-06",
-        "date_source": "2026-11-06",
-        "source_url": "https://query1.finance.yahoo.com/v8/finance/chart/ALSTI.PA?range=5y&interval=1d&events=div%2Csplits",
-        "statut": "CALCULE_HISTORIQUE_SECONDAIRE",
-        "commentaire": "Calcul reproductible 10Q; ancrage dernière séance <= date calendaire cible, aucune période pré-IPO extrapolée.",
+        "periode": "3 mois au 2026-11-13",
+        "date_source": "2026-11-13",
+        "source_url": "https://www.zonebourse.com/cours/action/STIF-162866171/cotations/",
+        "statut": "ZONEBOURSE_PUBLIE",
+        "commentaire": "Actualisation depuis Zonebourse; ancienne mesure conservée dans historique_momentum_avant_zonebourse_20261114.",
         "date_collecte": "2026-11-09"
       },
       "momentum_6m_pct": {
-        "valeur": -61.9105183749977,
+        "valeur": -60.89,
         "unite": "pct",
-        "periode": "historique ajusté au 2026-11-06",
-        "date_source": "2026-11-06",
-        "source_url": "https://query1.finance.yahoo.com/v8/finance/chart/ALSTI.PA?range=5y&interval=1d&events=div%2Csplits",
-        "statut": "CALCULE_HISTORIQUE_SECONDAIRE",
-        "commentaire": "Calcul reproductible 10Q; ancrage dernière séance <= date calendaire cible, aucune période pré-IPO extrapolée.",
+        "periode": "6 mois au 2026-11-13",
+        "date_source": "2026-11-13",
+        "source_url": "https://www.zonebourse.com/cours/action/STIF-162866171/cotations/",
+        "statut": "ZONEBOURSE_PUBLIE",
+        "commentaire": "Actualisation depuis Zonebourse; ancienne mesure conservée dans historique_momentum_avant_zonebourse_20261114.",
         "date_collecte": "2026-11-09"
       },
       "momentum_12m_pct": {
-        "valeur": -67.52304164395781,
+        "valeur": -68.71,
         "unite": "pct",
-        "periode": "historique ajusté au 2026-11-06",
-        "date_source": "2026-11-06",
-        "source_url": "https://query1.finance.yahoo.com/v8/finance/chart/ALSTI.PA?range=5y&interval=1d&events=div%2Csplits",
-        "statut": "CALCULE_HISTORIQUE_SECONDAIRE",
-        "commentaire": "Calcul reproductible 10Q; ancrage dernière séance <= date calendaire cible, aucune période pré-IPO extrapolée.",
+        "periode": "12 mois au 2026-11-13",
+        "date_source": "2026-11-13",
+        "source_url": "https://www.zonebourse.com/cours/action/STIF-162866171/cotations/",
+        "statut": "ZONEBOURSE_PUBLIE",
+        "commentaire": "Actualisation depuis Zonebourse; ancienne mesure conservée dans historique_momentum_avant_zonebourse_20261114.",
         "date_collecte": "2026-11-09"
       },
       "momentum_6_1_pct": {
@@ -3724,5 +3724,47 @@
       }
     ],
     "statut": "DONNEES_DOCUMENTEES_NON_CERTIFIEES"
+  },
+  "historique_momentum_avant_zonebourse_20261114": {
+    "momentum_1m_pct": {
+      "valeur": 6.538453718816162,
+      "unite": "pct",
+      "periode": "historique ajusté au 2026-11-06",
+      "date_source": "2026-11-06",
+      "source_url": "https://query1.finance.yahoo.com/v8/finance/chart/ALSTI.PA?range=5y&interval=1d&events=div%2Csplits",
+      "statut": "CALCULE_HISTORIQUE_SECONDAIRE",
+      "commentaire": "Calcul reproductible 10Q; ancrage dernière séance <= date calendaire cible, aucune période pré-IPO extrapolée.",
+      "date_collecte": "2026-11-09"
+    },
+    "momentum_3m_pct": {
+      "valeur": -62.92543083651061,
+      "unite": "pct",
+      "periode": "historique ajusté au 2026-11-06",
+      "date_source": "2026-11-06",
+      "source_url": "https://query1.finance.yahoo.com/v8/finance/chart/ALSTI.PA?range=5y&interval=1d&events=div%2Csplits",
+      "statut": "CALCULE_HISTORIQUE_SECONDAIRE",
+      "commentaire": "Calcul reproductible 10Q; ancrage dernière séance <= date calendaire cible, aucune période pré-IPO extrapolée.",
+      "date_collecte": "2026-11-09"
+    },
+    "momentum_6m_pct": {
+      "valeur": -61.9105183749977,
+      "unite": "pct",
+      "periode": "historique ajusté au 2026-11-06",
+      "date_source": "2026-11-06",
+      "source_url": "https://query1.finance.yahoo.com/v8/finance/chart/ALSTI.PA?range=5y&interval=1d&events=div%2Csplits",
+      "statut": "CALCULE_HISTORIQUE_SECONDAIRE",
+      "commentaire": "Calcul reproductible 10Q; ancrage dernière séance <= date calendaire cible, aucune période pré-IPO extrapolée.",
+      "date_collecte": "2026-11-09"
+    },
+    "momentum_12m_pct": {
+      "valeur": -67.52304164395781,
+      "unite": "pct",
+      "periode": "historique ajusté au 2026-11-06",
+      "date_source": "2026-11-06",
+      "source_url": "https://query1.finance.yahoo.com/v8/finance/chart/ALSTI.PA?range=5y&interval=1d&events=div%2Csplits",
+      "statut": "CALCULE_HISTORIQUE_SECONDAIRE",
+      "commentaire": "Calcul reproductible 10Q; ancrage dernière séance <= date calendaire cible, aucune période pré-IPO extrapolée.",
+      "date_collecte": "2026-11-09"
+    }
   }
 }
