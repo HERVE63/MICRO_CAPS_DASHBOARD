@@ -129,7 +129,7 @@
     },
     "qualite": {
       "ca_ttm": {
-        "valeur": 38540000.0,
+        "valeur": 38540000,
         "unite": "EUR",
         "periode": "TTM fournisseur; arrêté indiqué dans son tableau financier : Jun '26 Jun 30, 2026",
         "date_source": "2026-11-04",
@@ -139,7 +139,7 @@
         "date_collecte": "2026-11-04"
       },
       "marge_brute_pct": {
-        "valeur": 73.0,
+        "valeur": 73,
         "unite": "pct",
         "periode": "TTM fournisseur; arrêté indiqué dans son tableau financier : Jun '26 Jun 30, 2026",
         "date_source": "2026-11-04",
@@ -199,7 +199,7 @@
         "date_collecte": "2026-11-04"
       },
       "fcf_ttm": {
-        "valeur": -656000.0,
+        "valeur": -656000,
         "unite": "EUR",
         "periode": "TTM fournisseur; arrêté indiqué dans son tableau financier : Jun '26 Jun 30, 2026",
         "date_source": "2026-11-04",
@@ -932,7 +932,7 @@
         }
       },
       "momentum_6_1_pct": {
-        "valeur": 0.0,
+        "valeur": 0,
         "unite": "pct",
         "periode": "historique ajusté au 2026-11-06",
         "date_source": "2026-11-06",
@@ -968,7 +968,7 @@
         "commentaire": "Ratio (titre ajusté converti en USD / URTH ajusté) sur chaque fenêtre, moins 1. Ancrages communs titre/ETF/FX; GBp constant annulé dans le ratio. URTH est un proxy ETF avec frais/écart de suivi; horaires de clôture non synchrones. Fenêtres impossibles avant IPO omises, jamais extrapolées."
       },
       "volume_moyen_20j": {
-        "valeur": 3957.0,
+        "valeur": 3957,
         "unite": "titres/jour",
         "periode": "historique ajusté au 2026-11-06",
         "date_source": "2026-11-06",
@@ -1132,7 +1132,7 @@
         "date_collecte": "2026-11-09"
       },
       "cx_sur_5": {
-        "valeur": 3.0,
+        "valeur": 3,
         "unite": "note/5",
         "periode": "analyse au 2026-11-09",
         "date_source": "2026-11-09",
@@ -1167,7 +1167,7 @@
         }
       },
       "scenario_bear_3m_pct": {
-        "valeur": -30.0,
+        "valeur": -30,
         "unite": "pct",
         "periode": "3 mois depuis 2026-11-06",
         "date_source": "2026-11-09",
@@ -1177,7 +1177,7 @@
         "date_collecte": "2026-11-09"
       },
       "prob_bear_3m_pct": {
-        "valeur": 35.0,
+        "valeur": 35,
         "unite": "pct",
         "periode": "probabilité subjective 3 mois",
         "date_source": "2026-11-09",
@@ -1187,7 +1187,7 @@
         "date_collecte": "2026-11-09"
       },
       "scenario_central_3m_pct": {
-        "valeur": 5.0,
+        "valeur": 5,
         "unite": "pct",
         "periode": "3 mois depuis 2026-11-06",
         "date_source": "2026-11-09",
@@ -1197,7 +1197,7 @@
         "date_collecte": "2026-11-09"
       },
       "prob_central_3m_pct": {
-        "valeur": 40.0,
+        "valeur": 40,
         "unite": "pct",
         "periode": "probabilité subjective 3 mois",
         "date_source": "2026-11-09",
@@ -1207,7 +1207,7 @@
         "date_collecte": "2026-11-09"
       },
       "scenario_bull_3m_pct": {
-        "valeur": 35.0,
+        "valeur": 35,
         "unite": "pct",
         "periode": "3 mois depuis 2026-11-06",
         "date_source": "2026-11-09",
@@ -1217,7 +1217,7 @@
         "date_collecte": "2026-11-09"
       },
       "prob_bull_3m_pct": {
-        "valeur": 25.0,
+        "valeur": 25,
         "unite": "pct",
         "periode": "probabilité subjective 3 mois",
         "date_source": "2026-11-09",
@@ -1227,7 +1227,7 @@
         "date_collecte": "2026-11-09"
       },
       "scenario_bear_6m_pct": {
-        "valeur": -45.0,
+        "valeur": -45,
         "unite": "pct",
         "periode": "6 mois depuis 2026-11-06",
         "date_source": "2026-11-09",
@@ -1237,7 +1237,7 @@
         "date_collecte": "2026-11-09"
       },
       "prob_bear_6m_pct": {
-        "valeur": 35.0,
+        "valeur": 35,
         "unite": "pct",
         "periode": "probabilité subjective 6 mois",
         "date_source": "2026-11-09",
@@ -1247,7 +1247,7 @@
         "date_collecte": "2026-11-09"
       },
       "scenario_central_6m_pct": {
-        "valeur": 15.0,
+        "valeur": 15,
         "unite": "pct",
         "periode": "6 mois depuis 2026-11-06",
         "date_source": "2026-11-09",
@@ -1257,7 +1257,7 @@
         "date_collecte": "2026-11-09"
       },
       "prob_central_6m_pct": {
-        "valeur": 35.0,
+        "valeur": 35,
         "unite": "pct",
         "periode": "probabilité subjective 6 mois",
         "date_source": "2026-11-09",
@@ -1267,7 +1267,7 @@
         "date_collecte": "2026-11-09"
       },
       "scenario_bull_6m_pct": {
-        "valeur": 60.0,
+        "valeur": 60,
         "unite": "pct",
         "periode": "6 mois depuis 2026-11-06",
         "date_source": "2026-11-09",
@@ -1277,7 +1277,7 @@
         "date_collecte": "2026-11-09"
       },
       "prob_bull_6m_pct": {
-        "valeur": 30.0,
+        "valeur": 30,
         "unite": "pct",
         "periode": "probabilité subjective 6 mois",
         "date_source": "2026-11-09",
@@ -1353,14 +1353,14 @@
       "diversification": 10
     },
     "notes": {
-      "qualite": 16.0,
-      "valorisation": 9.0,
-      "croissance": 13.0,
-      "risque": 5.0,
+      "qualite": 16,
+      "valorisation": 9,
+      "croissance": 13,
+      "risque": 5,
       "momentum": 0,
-      "diversification": 9.0
+      "diversification": 9
     },
-    "total_mcpa": 52.0,
+    "total_mcpa": 52,
     "statut": "DOCUMENTEE_NON_VALIDEE",
     "justifications": {
       "qualite": "Marge brute élevée, intégration et équilibre ajusté.",
@@ -1412,7 +1412,7 @@
                 "periodType": "12M",
                 "currencyCode": "EUR",
                 "reportedValue": {
-                  "raw": -2020000.0,
+                  "raw": -2020000,
                   "fmt": "-2.02M"
                 }
               },
@@ -1422,7 +1422,7 @@
                 "periodType": "12M",
                 "currencyCode": "EUR",
                 "reportedValue": {
-                  "raw": -2947000.0,
+                  "raw": -2947000,
                   "fmt": "-2.95M"
                 }
               },
@@ -1432,7 +1432,7 @@
                 "periodType": "12M",
                 "currencyCode": "EUR",
                 "reportedValue": {
-                  "raw": -293000.0,
+                  "raw": -293000,
                   "fmt": "-293.00k"
                 }
               }
@@ -4426,7 +4426,7 @@
       "RECHERCHE_A_POURSUIVRE": 32
     },
     "couverture_valeurs_pct": 62.96,
-    "couverture_applicable_pct": 68.0,
+    "couverture_applicable_pct": 68,
     "recherches_non_closes": [
       "identite.marche",
       "qualite.concentration_clients_pct",
@@ -5195,8 +5195,8 @@
       "momentum_12m_pct": null,
       "prix_vers_mm200": null,
       "tendance_mm200": null,
-      "momentum_6_1_pct": 0.0,
-      "volume_moyen_20j": 3957.0,
+      "momentum_6_1_pct": 0,
+      "volume_moyen_20j": 3957,
       "ratio_volume": 0.003032600454890068,
       "volatilite_90j_pct": 34.19319487375015,
       "drawdown_12m_pct": null
@@ -5248,7 +5248,7 @@
         "indicateur": "momentum_6_1_pct",
         "seuil_strict": 0,
         "maximum": 1,
-        "valeur": 0.0,
+        "valeur": 0,
         "points": 0
       }
     ],
@@ -5269,22 +5269,22 @@
         "scenarios": [
           {
             "cas": "bear",
-            "rendement_pct": -30.0,
-            "probabilite_pct": 35.0,
+            "rendement_pct": -30,
+            "probabilite_pct": 35,
             "cours_conditionnel": 5.572000026702881,
             "declencheur": "Synergies faibles et cash consommé."
           },
           {
             "cas": "central",
-            "rendement_pct": 5.0,
-            "probabilite_pct": 40.0,
+            "rendement_pct": 5,
+            "probabilite_pct": 40,
             "cours_conditionnel": 8.358000040054321,
             "declencheur": "Intégration et équilibre progressifs."
           },
           {
             "cas": "bull",
-            "rendement_pct": 35.0,
-            "probabilite_pct": 25.0,
+            "rendement_pct": 35,
+            "probabilite_pct": 25,
             "cours_conditionnel": 10.746000051498413,
             "declencheur": "Synergies et organique améliorées."
           }
@@ -5298,22 +5298,22 @@
         "scenarios": [
           {
             "cas": "bear",
-            "rendement_pct": -45.0,
-            "probabilite_pct": 35.0,
+            "rendement_pct": -45,
+            "probabilite_pct": 35,
             "cours_conditionnel": 4.378000020980835,
             "declencheur": "Synergies faibles et cash consommé."
           },
           {
             "cas": "central",
-            "rendement_pct": 15.0,
-            "probabilite_pct": 35.0,
+            "rendement_pct": 15,
+            "probabilite_pct": 35,
             "cours_conditionnel": 9.154000043869019,
             "declencheur": "Intégration et équilibre progressifs."
           },
           {
             "cas": "bull",
-            "rendement_pct": 60.0,
-            "probabilite_pct": 30.0,
+            "rendement_pct": 60,
+            "probabilite_pct": 30,
             "cours_conditionnel": 12.736000061035156,
             "declencheur": "Synergies et organique améliorées."
           }
@@ -5324,5 +5324,53 @@
       }
     }
   },
-  "date_analyse": "2026-11-09"
+  "date_analyse": "2026-11-09",
+  "zonebourse_donnees_tracees_20261114": {
+    "date_collecte": "2026-11-14",
+    "source_unique": "Zonebourse",
+    "observations": [
+      {
+        "champ": "cours",
+        "valeur": 7.42,
+        "unite": "EUR",
+        "periode": "2026-11-13",
+        "type": "cotation",
+        "source_url": "https://www.zonebourse.com/cours/action/IEVA-GROUP-205825967/cotations/"
+      },
+      {
+        "champ": "performance_1m",
+        "valeur": -11.24,
+        "unite": "%",
+        "periode": "1 mois au 2026-11-13",
+        "type": "publie",
+        "source_url": "https://www.zonebourse.com/cours/action/IEVA-GROUP-205825967/cotations/"
+      },
+      {
+        "champ": "performance_3m",
+        "valeur": -22.55,
+        "unite": "%",
+        "periode": "3 mois au 2026-11-13",
+        "type": "publie",
+        "source_url": "https://www.zonebourse.com/cours/action/IEVA-GROUP-205825967/cotations/"
+      },
+      {
+        "champ": "performance_6m",
+        "valeur": -9.51,
+        "unite": "%",
+        "periode": "6 mois au 2026-11-13",
+        "type": "publie",
+        "source_url": "https://www.zonebourse.com/cours/action/IEVA-GROUP-205825967/cotations/"
+      },
+      {
+        "champ": "volume_jour",
+        "valeur": 361,
+        "unite": "actions",
+        "periode": "2026-11-13",
+        "type": "publie",
+        "source_url": "https://www.zonebourse.com/cours/action/IEVA-GROUP-205825967/cotations/"
+      }
+    ],
+    "statut": "DOCUMENTE_NON_CERTIFIE",
+    "note": "Cours et estimations datés, aucun arbitrage ni certification automatique."
+  }
 }
