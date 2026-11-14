@@ -8,7 +8,7 @@
   "statut_portefeuille": "ACTIF",
   "quantite_virtuelle": 21.08494659003807,
   "capital_initial_eur": 100,
-  "date_revue": "2026-11-12",
+  "date_revue": "2026-11-14",
   "blocs": {
     "identite": {
       "isin": {
@@ -2326,6 +2326,78 @@
           }
         ]
       }
+    },
+    {
+      "url": "https://query1.finance.yahoo.com/ws/fundamentals-timeseries/v1/finance/timeseries/TSTL.L?type=annualEBITDA&period1=1640995200&period2=1794633650",
+      "indicateur": "series_annuelles",
+      "valeur": null,
+      "unite": null,
+      "periode": "2026-11-14",
+      "date_collecte": "2026-11-14",
+      "statut": "A_VERIFIER_AVANT_NOTATION",
+      "sha256_reponse": "c8c8930af56d84704f7d8ea95ad3fecd4b86c671b706f46dfdeae43bbf19a631",
+      "donnees_brutes": {
+        "series": [
+          {
+            "meta": {
+              "symbol": [
+                "TSTL.L"
+              ],
+              "type": [
+                "annualEBITDA"
+              ]
+            },
+            "timestamp": [
+              1688083200,
+              1719705600,
+              1751241600,
+              1782777600
+            ],
+            "annualEBITDA": [
+              {
+                "dataId": 20190,
+                "asOfDate": "2023-06-30",
+                "periodType": "12M",
+                "currencyCode": "GBP",
+                "reportedValue": {
+                  "raw": 7841000.0,
+                  "fmt": "7.84M"
+                }
+              },
+              {
+                "dataId": 20190,
+                "asOfDate": "2024-06-30",
+                "periodType": "12M",
+                "currencyCode": "GBP",
+                "reportedValue": {
+                  "raw": 10006000.0,
+                  "fmt": "10.01M"
+                }
+              },
+              {
+                "dataId": 20190,
+                "asOfDate": "2025-06-30",
+                "periodType": "12M",
+                "currencyCode": "GBP",
+                "reportedValue": {
+                  "raw": 11475000.0,
+                  "fmt": "11.47M"
+                }
+              },
+              {
+                "dataId": 20190,
+                "asOfDate": "2026-06-30",
+                "periodType": "12M",
+                "currencyCode": "GBP",
+                "reportedValue": {
+                  "raw": 14747000.0,
+                  "fmt": "14.75M"
+                }
+              }
+            ]
+          }
+        ]
+      }
     }
   ],
   "anomalies": [],
@@ -3298,10 +3370,18 @@
       "http": 200,
       "statut": "SOURCE_SECONDAIRE_SERIES_DATEES",
       "limite": "Échec ou champ absent ne prouve pas une indisponibilité définitive."
+    },
+    {
+      "famille": "complement_public_series_annuelles",
+      "date": "2026-11-14",
+      "url": "https://query1.finance.yahoo.com/ws/fundamentals-timeseries/v1/finance/timeseries/TSTL.L?type=annualEBITDA&period1=1640995200&period2=1794633650",
+      "http": 200,
+      "statut": "SOURCE_SECONDAIRE_SERIES_DATEES",
+      "limite": "Échec ou champ absent ne prouve pas une indisponibilité définitive."
     }
   ],
   "audit_couverture": {
-    "date": "2026-11-12",
+    "date": "2026-11-14",
     "champs_total": 108,
     "champs_renseignes": 88,
     "couverture_pct": 81.48,
@@ -3333,7 +3413,7 @@
     "cours_date_limite": "2026-11-06"
   },
   "audit_poursuite": {
-    "date": "2026-11-12",
+    "date": "2026-11-14",
     "comptage": {
       "RENSEIGNE": 88,
       "NON_APPLICABLE": 1,
