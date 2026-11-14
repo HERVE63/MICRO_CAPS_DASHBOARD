@@ -133,7 +133,7 @@
     },
     "qualite": {
       "ca_ttm": {
-        "valeur": 46840000.0,
+        "valeur": 46840000,
         "unite": "EUR",
         "periode": "TTM fournisseur; arrêté indiqué dans son tableau financier : Jun '26 Jun 30, 2026",
         "date_source": "2026-11-04",
@@ -1130,7 +1130,7 @@
         "date_collecte": "2026-11-09"
       },
       "cx_sur_5": {
-        "valeur": 3.0,
+        "valeur": 3,
         "unite": "note/5",
         "periode": "analyse au 2026-11-09",
         "date_source": "2026-11-09",
@@ -1165,7 +1165,7 @@
         }
       },
       "scenario_bear_3m_pct": {
-        "valeur": -35.0,
+        "valeur": -35,
         "unite": "pct",
         "periode": "3 mois depuis 2026-11-06",
         "date_source": "2026-11-09",
@@ -1175,7 +1175,7 @@
         "date_collecte": "2026-11-09"
       },
       "prob_bear_3m_pct": {
-        "valeur": 40.0,
+        "valeur": 40,
         "unite": "pct",
         "periode": "probabilité subjective 3 mois",
         "date_source": "2026-11-09",
@@ -1185,7 +1185,7 @@
         "date_collecte": "2026-11-09"
       },
       "scenario_central_3m_pct": {
-        "valeur": 0.0,
+        "valeur": 0,
         "unite": "pct",
         "periode": "3 mois depuis 2026-11-06",
         "date_source": "2026-11-09",
@@ -1195,7 +1195,7 @@
         "date_collecte": "2026-11-09"
       },
       "prob_central_3m_pct": {
-        "valeur": 40.0,
+        "valeur": 40,
         "unite": "pct",
         "periode": "probabilité subjective 3 mois",
         "date_source": "2026-11-09",
@@ -1205,7 +1205,7 @@
         "date_collecte": "2026-11-09"
       },
       "scenario_bull_3m_pct": {
-        "valeur": 30.0,
+        "valeur": 30,
         "unite": "pct",
         "periode": "3 mois depuis 2026-11-06",
         "date_source": "2026-11-09",
@@ -1215,7 +1215,7 @@
         "date_collecte": "2026-11-09"
       },
       "prob_bull_3m_pct": {
-        "valeur": 20.0,
+        "valeur": 20,
         "unite": "pct",
         "periode": "probabilité subjective 3 mois",
         "date_source": "2026-11-09",
@@ -1225,7 +1225,7 @@
         "date_collecte": "2026-11-09"
       },
       "scenario_bear_6m_pct": {
-        "valeur": -55.0,
+        "valeur": -55,
         "unite": "pct",
         "periode": "6 mois depuis 2026-11-06",
         "date_source": "2026-11-09",
@@ -1235,7 +1235,7 @@
         "date_collecte": "2026-11-09"
       },
       "prob_bear_6m_pct": {
-        "valeur": 40.0,
+        "valeur": 40,
         "unite": "pct",
         "periode": "probabilité subjective 6 mois",
         "date_source": "2026-11-09",
@@ -1245,7 +1245,7 @@
         "date_collecte": "2026-11-09"
       },
       "scenario_central_6m_pct": {
-        "valeur": 8.0,
+        "valeur": 8,
         "unite": "pct",
         "periode": "6 mois depuis 2026-11-06",
         "date_source": "2026-11-09",
@@ -1255,7 +1255,7 @@
         "date_collecte": "2026-11-09"
       },
       "prob_central_6m_pct": {
-        "valeur": 35.0,
+        "valeur": 35,
         "unite": "pct",
         "periode": "probabilité subjective 6 mois",
         "date_source": "2026-11-09",
@@ -1265,7 +1265,7 @@
         "date_collecte": "2026-11-09"
       },
       "scenario_bull_6m_pct": {
-        "valeur": 60.0,
+        "valeur": 60,
         "unite": "pct",
         "periode": "6 mois depuis 2026-11-06",
         "date_source": "2026-11-09",
@@ -1275,7 +1275,7 @@
         "date_collecte": "2026-11-09"
       },
       "prob_bull_6m_pct": {
-        "valeur": 25.0,
+        "valeur": 25,
         "unite": "pct",
         "periode": "probabilité subjective 6 mois",
         "date_source": "2026-11-09",
@@ -1351,14 +1351,14 @@
       "diversification": 10
     },
     "notes": {
-      "qualite": 13.0,
-      "valorisation": 12.0,
-      "croissance": 6.0,
-      "risque": 3.0,
+      "qualite": 13,
+      "valorisation": 12,
+      "croissance": 6,
+      "risque": 3,
       "momentum": 0,
-      "diversification": 6.0
+      "diversification": 6
     },
-    "total_mcpa": 40.0,
+    "total_mcpa": 40,
     "statut": "DOCUMENTEE_NON_VALIDEE",
     "justifications": {
       "qualite": "Maintenance/SaaS, pertes et cash fragiles.",
@@ -1470,7 +1470,7 @@
                 "periodType": "12M",
                 "currencyCode": "EUR",
                 "reportedValue": {
-                  "raw": 31000.0,
+                  "raw": 31000,
                   "fmt": "31.00k"
                 }
               },
@@ -1480,7 +1480,7 @@
                 "periodType": "12M",
                 "currencyCode": "EUR",
                 "reportedValue": {
-                  "raw": -4870000.0,
+                  "raw": -4870000,
                   "fmt": "-4.87M"
                 }
               },
@@ -1490,7 +1490,7 @@
                 "periodType": "12M",
                 "currencyCode": "EUR",
                 "reportedValue": {
-                  "raw": -2465000.0,
+                  "raw": -2465000,
                   "fmt": "-2.46M"
                 }
               },
@@ -1500,7 +1500,7 @@
                 "periodType": "12M",
                 "currencyCode": "EUR",
                 "reportedValue": {
-                  "raw": 3205000.0,
+                  "raw": 3205000,
                   "fmt": "3.21M"
                 }
               }
@@ -3476,27 +3476,27 @@
         "scenarios": [
           {
             "cas": "bear",
-            "rendement_pct": -35.0,
-            "probabilite_pct": 40.0,
+            "rendement_pct": -35,
+            "probabilite_pct": 40,
             "cours_conditionnel": 1.0724999845027925,
             "declencheur": "Transition lente et trésorerie tendue."
           },
           {
             "cas": "central",
-            "rendement_pct": 0.0,
-            "probabilite_pct": 40.0,
+            "rendement_pct": 0,
+            "probabilite_pct": 40,
             "cours_conditionnel": 1.649999976158142,
             "declencheur": "Ventes stabilisées sans rentabilité solide."
           },
           {
             "cas": "bull",
-            "rendement_pct": 30.0,
-            "probabilite_pct": 20.0,
+            "rendement_pct": 30,
+            "probabilite_pct": 20,
             "cours_conditionnel": 2.144999969005585,
             "declencheur": "Récurrence au seuil rentable."
           }
         ],
-        "esperance_subjective_brute_pct": -8.0,
+        "esperance_subjective_brute_pct": -8,
         "esperance_apres_rotation_vente_achat_2_5pct": -12.48780487804877,
         "convention_frais": "Friction théorique: vente 2,5 % du brut, achat 2,5 % du nominal acheté. Pas de transaction."
       },
@@ -3505,22 +3505,22 @@
         "scenarios": [
           {
             "cas": "bear",
-            "rendement_pct": -55.0,
-            "probabilite_pct": 40.0,
+            "rendement_pct": -55,
+            "probabilite_pct": 40,
             "cours_conditionnel": 0.7424999892711639,
             "declencheur": "Transition lente et trésorerie tendue."
           },
           {
             "cas": "central",
-            "rendement_pct": 8.0,
-            "probabilite_pct": 35.0,
+            "rendement_pct": 8,
+            "probabilite_pct": 35,
             "cours_conditionnel": 1.7819999742507935,
             "declencheur": "Ventes stabilisées sans rentabilité solide."
           },
           {
             "cas": "bull",
-            "rendement_pct": 60.0,
-            "probabilite_pct": 25.0,
+            "rendement_pct": 60,
+            "probabilite_pct": 25,
             "cours_conditionnel": 2.6399999618530274,
             "declencheur": "Récurrence au seuil rentable."
           }
@@ -3531,5 +3531,48 @@
       }
     }
   },
-  "date_analyse": "2026-11-09"
+  "date_analyse": "2026-11-09",
+  "zonebourse_controle_20261114": {
+    "date_collecte": "2026-11-14",
+    "source_url": "https://www.zonebourse.com/cours/action/BROADPEAK-138444354/",
+    "donnees_cours_et_estimations": {
+      "cours_2026_11_13_eur": 1.63,
+      "capitalisation_millions_eur": 20.36,
+      "ve_millions_eur": 25.36,
+      "per_2026_estime": -13.7,
+      "per_2027_estime": 5.62,
+      "ve_ca_2026_estime": 0.58,
+      "ve_ca_2027_estime": 0.45,
+      "ca_2026_estime_millions_eur": 43.55,
+      "ca_2027_estime_millions_eur": 49.45,
+      "flottant_pct": 28.07
+    },
+    "publications": [
+      {
+        "url": "https://www.zonebourse.com/actualite-bourse/broadpeak-publie-ses-resultats-du-premier-semestre-2026-ce785ddad88af324",
+        "periode": "S1 2026",
+        "type": "publie",
+        "donnees": {
+          "ca_millions_eur": 17.141,
+          "ebitda_millions_eur": -2.281,
+          "ebitda_ajuste_millions_eur": -0.236,
+          "free_cash_flow_millions_eur": -1.2,
+          "resultat_net_millions_eur": -4.276
+        }
+      },
+      {
+        "url": "https://www.zonebourse.com/actualite-bourse/broadpeak-publie-son-chiffre-da-affaires-au-30-septembre-2026-ce785cdddf8afe27",
+        "periode": "T3 et 9M 2026",
+        "type": "publie",
+        "donnees": {
+          "ca_t3_millions_eur": 10.117,
+          "croissance_t3_pct": 5.1,
+          "ca_9m_millions_eur": 27.257,
+          "croissance_9m_pct": -12.9
+        }
+      }
+    ],
+    "statut": "DOCUMENTATION_ZONEBOURSE_NON_CERTIFICATION",
+    "note": "Estimations séparées des données publiées. Cours datés; aucune note MCPA modifiée automatiquement."
+  }
 }
