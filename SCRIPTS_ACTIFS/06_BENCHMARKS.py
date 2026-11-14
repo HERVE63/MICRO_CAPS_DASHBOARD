@@ -69,6 +69,11 @@ def executer():
         "STOXX Europe 600": "^STOXX"
     }
 
+    prix=pd.read_csv(BASE/"DONNEES/TEST_MOTEUR_V3.csv")
+    frozen=pd.read_csv(BASE/"SAUVEGARDES/MICRO_CAPS_T0_GELE_2026-10-01.csv")
+    dates=prix["Date_cloture"].astype(str).unique()
+    if len(dates)!=1:raise RuntimeError("Dates portefeuille non synchronisées")
+    reference=dates[0]
     resultats = []
 
     for nom, ticker in mapping.items():
@@ -116,7 +121,7 @@ def executer():
             clotures
             .derniere_cloture_benchmark(
                 ticker,
-                maintenant
+                maintenant,date_reference=reference
             )
         )
 
@@ -124,13 +129,14 @@ def executer():
             px["cours_cloture"]
         )
 
-        base100 = (
-            cours / cours_t0
-        ) * 100
-
-        perf = (
-            base100 - 100
-        )
+        currency="USD" if ticker in {"^GSPC","^NDX"} else "EUR"
+        if px["devise"]!=currency:raise RuntimeError("Devise benchmark divergente")
+        fx0s=frozen.loc[frozen["Devise"]==currency,"FX_T0_vers_EUR"].unique()
+        fxs=prix.loc[prix["Devise"]==currency,"FX_vers_EUR"].unique()
+        if len(fx0s)!=1 or len(fxs)!=1:raise RuntimeError("FX benchmark non unique")
+        fx0,fx=float(fx0s[0]),float(fxs[0])
+        base100_local=cours/cours_t0*100
+        base100=base100_local*fx/fx0;perf=base100-100
 
         resultats.append({
             "Benchmark":
@@ -157,8 +163,11 @@ def executer():
             "Performance_pct":
                 perf,
 
-            "Statut":
-                "OK"
+            "Devise_indice":currency,"Devise_performance":"EUR",
+            "FX_T0_vers_EUR":fx0,"FX_vers_EUR":fx,
+            "Base_100_devise_locale":base100_local,"Performance_locale_pct":base100_local-100,
+            "Convention":"Indice de prix, change inclus, dividendes non réinvestis",
+            "Statut":"OK"
         })
 
     df = pd.DataFrame(

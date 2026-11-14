@@ -20,7 +20,10 @@ from datetime import datetime, timedelta
 from zoneinfo import ZoneInfo
 
 import pandas as pd
-import yfinance as yf
+import importlib.util
+from pathlib import Path
+_spec=importlib.util.spec_from_file_location("marche_public",Path(__file__).with_name("marche_public.py"))
+marche=importlib.util.module_from_spec(_spec);_spec.loader.exec_module(marche)
 
 
 PAIRES = {
@@ -42,7 +45,7 @@ def _close_series(hist, ticker):
     return hist["Close"].dropna()
 
 
-def dernier_fx_termine(devise, maintenant_utc=None):
+def dernier_fx_termine(devise, maintenant_utc=None, date_reference=None):
 
     devise = str(devise).upper()
 
@@ -78,31 +81,12 @@ def dernier_fx_termine(devise, maintenant_utc=None):
         maintenant_utc.date() - timedelta(days=1)
     )
 
-    debut = dernier_jour_autorise - timedelta(days=10)
-
-    hist = yf.download(
-        ticker,
-        start=str(debut),
-        end=str(dernier_jour_autorise + timedelta(days=1)),
-        interval="1d",
-        auto_adjust=False,
-        progress=False,
-        threads=False
-    )
-
-    if hist.empty:
-        raise RuntimeError(
-            f"Aucune donnée FX pour {ticker}"
-        )
-
-    close = _close_series(hist, ticker)
-
-    if close.empty:
-        raise RuntimeError(
-            f"Aucun Close FX pour {ticker}"
-        )
-
-    valeur_eur_devise = float(close.iloc[-1])
+    if date_reference:dernier_jour_autorise=min(dernier_jour_autorise,pd.Timestamp(date_reference).date())
+    raw,preuve=marche.charger(ticker,dernier_jour_autorise)
+    close=marche.serie(raw);close=close[close.index<=str(dernier_jour_autorise)]
+    if close.empty:raise RuntimeError("FX absent : "+ticker)
+    if (dernier_jour_autorise-pd.Timestamp(close.index[-1]).date()).days>4:raise RuntimeError("FX périmé : "+ticker)
+    valeur_eur_devise=float(close.iloc[-1])
 
     if valeur_eur_devise <= 0:
         raise RuntimeError(
@@ -128,14 +112,14 @@ def dernier_fx_termine(devise, maintenant_utc=None):
     }
 
 
-def tous_les_fx(maintenant_utc=None):
+def tous_les_fx(maintenant_utc=None,date_reference=None):
 
     resultat = {}
 
     for devise in ["EUR", "USD", "CAD", "GBP", "SEK"]:
         resultat[devise] = dernier_fx_termine(
             devise,
-            maintenant_utc
+            maintenant_utc,date_reference=date_reference
         )
 
     return resultat

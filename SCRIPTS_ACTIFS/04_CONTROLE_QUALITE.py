@@ -17,7 +17,10 @@ from pathlib import Path
 from datetime import timedelta
 import pandas as pd
 import numpy as np
-import yfinance as yf
+import importlib.util
+from pathlib import Path
+_spec=importlib.util.spec_from_file_location("marche_public",Path(__file__).with_name("marche_public.py"))
+marche=importlib.util.module_from_spec(_spec);_spec.loader.exec_module(marche)
 
 
 BASE = Path(__file__).resolve().parent.parent
@@ -185,51 +188,9 @@ def cloture_t0_gelee(ticker, date_actuelle):
 
     return str(date_t0), cours_t0
 
-def cloture_precedente(ticker, date_actuelle):
-
-    date_actuelle = pd.Timestamp(
-        date_actuelle
-    ).date()
-
-    debut = date_actuelle - timedelta(days=10)
-
-    hist = yf.download(
-        ticker,
-        start=str(debut),
-        end=str(date_actuelle),
-        interval="1d",
-        auto_adjust=False,
-        progress=False,
-        threads=False
-    )
-
-    if hist.empty:
-        raise RuntimeError(
-            "Historique précédent indisponible"
-        )
-
-    close = close_series(
-        hist,
-        ticker
-    )
-
-    if close.empty:
-        raise RuntimeError(
-            "Clôture précédente indisponible"
-        )
-
-    cours = float(close.iloc[-1])
-
-    # Londres : GBp -> GBP
-    if str(ticker).upper().endswith(".L"):
-        cours /= 100.0
-
-    date_prec = close.index[-1]
-
-    if hasattr(date_prec, "date"):
-        date_prec = date_prec.date()
-
-    return str(date_prec), cours
+def cloture_precedente(ticker,date_actuelle):
+    r=marche.cloture(ticker,pd.Timestamp(date_actuelle).date()-timedelta(days=1))
+    return r["date"],r["cours"]
 
 
 def enregistrer_anomalie(
@@ -379,7 +340,7 @@ def executer():
             date_prec, cours_prec = (
                 cloture_precedente(
                     ticker,
-                    r["Date_cloture"]
+                    r.get("Date_cotation_reelle",r["Date_cloture"])
                 )
             )
 
@@ -465,6 +426,8 @@ def executer():
                 )
                 impact = "BLOQUEE"
 
+        if r.get("Statut_cotation")=="SUSPENDU_DOCUMENTE":
+            statut="SUSPENDU_DOCUMENTE";raison="Dernier cours réel ; aucune exécution sur ce titre.";impact="COMPTEE_DERNIER_COURS"
         controles.append({
 
             "ID_ligne":

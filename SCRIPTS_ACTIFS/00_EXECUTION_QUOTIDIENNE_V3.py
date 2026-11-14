@@ -84,7 +84,7 @@ def executer_script(code_etape, libelle, chemin):
     r = subprocess.run(
         [sys.executable, str(chemin)],
         capture_output=True,
-        text=True
+        text=True,timeout=900
     )
 
     if r.stdout:

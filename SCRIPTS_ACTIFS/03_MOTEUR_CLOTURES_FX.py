@@ -70,9 +70,8 @@ def executer():
         ZoneInfo("UTC")
     )
 
-    fx = fxmod.tous_les_fx(
-        maintenant
-    )
+    date_commune=min(clotures.derniere_session_terminee(t,maintenant)["date_session"] for t in t0["Ticker_cotation"])
+    fx=fxmod.tous_les_fx(maintenant,date_reference=date_commune)
 
     resultats = []
 
@@ -92,10 +91,12 @@ def executer():
                 clotures
                 .derniere_cloture_validee(
                     ticker,
-                    maintenant
+                    maintenant,date_reference=date_commune
                 )
             )
 
+            if px["unite_normalisee"]!=devise:raise RuntimeError("Devise de cotation divergente")
+            if px["statut"] not in {"OK","SUSPENDU_DOCUMENTE"}:raise RuntimeError("Cours périmé : "+str(px["date_cotation"]))
             taux = float(
                 fx[devise]["fx_vers_eur"]
             )
@@ -178,8 +179,9 @@ def executer():
                 "Contribution_EUR":
                     contribution,
 
-                "Statut":
-                    "OK"
+                "Date_cotation_reelle":str(px["date_cotation"]),
+                "Statut_cotation":px["statut"],"Negociable":px["negociable"],"Preuve_cours":px["preuve"],
+                "Statut":"OK"
             })
 
         except Exception as e:
