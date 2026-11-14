@@ -3879,5 +3879,48 @@
     },
     "statut": "DONNEES_ZONEBOURSE_PUBLIQUES_NON_CERTIFICATION",
     "note": "Prévisions et consensus Zonebourse, non des résultats acquis. Ne pas confondre prévision et donnée publiée; aucun arbitrage autorisé."
+  },
+  "zonebourse_observations_verifiees_20261114": {
+    "date_consultation": "2026-11-14",
+    "source_unique": "Zonebourse",
+    "observations": [
+      {
+        "champ": "cours",
+        "valeur": 4.51,
+        "unite": "USD",
+        "periode": "2026-11-13",
+        "type": "publie",
+        "source_url": "https://www.zonebourse.com/cours/action/ONE-STOP-SYSTEMS-INC-40546142/",
+        "date_source": "2026-11-13"
+      },
+      {
+        "champ": "volume_jour",
+        "valeur": 878988,
+        "unite": "actions",
+        "periode": "2026-11-13",
+        "type": "publie",
+        "source_url": "https://www.zonebourse.com/cours/action/ONE-STOP-SYSTEMS-INC-40546142/",
+        "date_source": "2026-11-13"
+      },
+      {
+        "champ": "objectif_consensus",
+        "valeur": 15.33,
+        "unite": "USD",
+        "periode": "page consultée 2026-11-14",
+        "type": "estimation_analystes",
+        "source_url": "https://www.zonebourse.com/cours/action/ONE-STOP-SYSTEMS-INC-40546142/",
+        "date_source": "2026-11-14"
+      },
+      {
+        "champ": "nombre_analystes",
+        "valeur": 3,
+        "unite": "analystes",
+        "periode": "page consultée 2026-11-14",
+        "type": "publie",
+        "source_url": "https://www.zonebourse.com/cours/action/ONE-STOP-SYSTEMS-INC-40546142/",
+        "date_source": "2026-11-14"
+      }
+    ],
+    "statut": "DONNEES_DOCUMENTEES_NON_CERTIFIEES"
   }
 }
