@@ -914,7 +914,7 @@
         "commentaire": "Ratio (titre ajusté converti en USD / URTH ajusté) sur chaque fenêtre, moins 1. Ancrages communs titre/ETF/FX; GBp constant annulé dans le ratio. URTH est un proxy ETF avec frais/écart de suivi; horaires de clôture non synchrones. Fenêtres impossibles avant IPO omises, jamais extrapolées."
       },
       "volume_moyen_20j": {
-        "valeur": 95575.0,
+        "valeur": 95575,
         "unite": "titres/jour",
         "periode": "historique ajusté au 2026-11-06",
         "date_source": "2026-11-06",
@@ -1046,7 +1046,7 @@
         "commentaire": "SSI 73/100 : B1 12, B2 11, B3 12, B4 16, B5 5, B6 8, B7 9. SEUIL_SSI_ATTEINT_SUR_PREUVES_DATEES. Ne vaut pas validation MCPA ni arbitrage."
       },
       "ic_sur_5": {
-        "valeur": 3.0,
+        "valeur": 3,
         "unite": "note/5",
         "periode": "analyse au 2026-11-09",
         "date_source": "2026-11-09",
@@ -1091,7 +1091,7 @@
         }
       },
       "scenario_bear_3m_pct": {
-        "valeur": -25.0,
+        "valeur": -25,
         "unite": "pct",
         "periode": "3 mois depuis 2026-11-06",
         "date_source": "2026-11-09",
@@ -1101,7 +1101,7 @@
         "date_collecte": "2026-11-09"
       },
       "prob_bear_3m_pct": {
-        "valeur": 30.0,
+        "valeur": 30,
         "unite": "pct",
         "periode": "probabilité subjective 3 mois",
         "date_source": "2026-11-09",
@@ -1111,7 +1111,7 @@
         "date_collecte": "2026-11-09"
       },
       "scenario_central_3m_pct": {
-        "valeur": 5.0,
+        "valeur": 5,
         "unite": "pct",
         "periode": "3 mois depuis 2026-11-06",
         "date_source": "2026-11-09",
@@ -1121,7 +1121,7 @@
         "date_collecte": "2026-11-09"
       },
       "prob_central_3m_pct": {
-        "valeur": 45.0,
+        "valeur": 45,
         "unite": "pct",
         "periode": "probabilité subjective 3 mois",
         "date_source": "2026-11-09",
@@ -1131,7 +1131,7 @@
         "date_collecte": "2026-11-09"
       },
       "scenario_bull_3m_pct": {
-        "valeur": 25.0,
+        "valeur": 25,
         "unite": "pct",
         "periode": "3 mois depuis 2026-11-06",
         "date_source": "2026-11-09",
@@ -1141,7 +1141,7 @@
         "date_collecte": "2026-11-09"
       },
       "prob_bull_3m_pct": {
-        "valeur": 25.0,
+        "valeur": 25,
         "unite": "pct",
         "periode": "probabilité subjective 3 mois",
         "date_source": "2026-11-09",
@@ -1151,7 +1151,7 @@
         "date_collecte": "2026-11-09"
       },
       "scenario_bear_6m_pct": {
-        "valeur": -35.0,
+        "valeur": -35,
         "unite": "pct",
         "periode": "6 mois depuis 2026-11-06",
         "date_source": "2026-11-09",
@@ -1161,7 +1161,7 @@
         "date_collecte": "2026-11-09"
       },
       "prob_bear_6m_pct": {
-        "valeur": 30.0,
+        "valeur": 30,
         "unite": "pct",
         "periode": "probabilité subjective 6 mois",
         "date_source": "2026-11-09",
@@ -1171,7 +1171,7 @@
         "date_collecte": "2026-11-09"
       },
       "scenario_central_6m_pct": {
-        "valeur": 12.0,
+        "valeur": 12,
         "unite": "pct",
         "periode": "6 mois depuis 2026-11-06",
         "date_source": "2026-11-09",
@@ -1181,7 +1181,7 @@
         "date_collecte": "2026-11-09"
       },
       "prob_central_6m_pct": {
-        "valeur": 40.0,
+        "valeur": 40,
         "unite": "pct",
         "periode": "probabilité subjective 6 mois",
         "date_source": "2026-11-09",
@@ -1191,7 +1191,7 @@
         "date_collecte": "2026-11-09"
       },
       "scenario_bull_6m_pct": {
-        "valeur": 40.0,
+        "valeur": 40,
         "unite": "pct",
         "periode": "6 mois depuis 2026-11-06",
         "date_source": "2026-11-09",
@@ -1201,7 +1201,7 @@
         "date_collecte": "2026-11-09"
       },
       "prob_bull_6m_pct": {
-        "valeur": 30.0,
+        "valeur": 30,
         "unite": "pct",
         "periode": "probabilité subjective 6 mois",
         "date_source": "2026-11-09",
@@ -1277,14 +1277,14 @@
       "diversification": 10
     },
     "notes": {
-      "qualite": 20.0,
-      "valorisation": 9.0,
-      "croissance": 13.0,
-      "risque": 5.0,
+      "qualite": 20,
+      "valorisation": 9,
+      "croissance": 13,
+      "risque": 5,
       "momentum": 1,
-      "diversification": 9.0
+      "diversification": 9
     },
-    "total_mcpa": 57.0,
+    "total_mcpa": 57,
     "statut": "DOCUMENTEE_NON_VALIDEE",
     "justifications": {
       "qualite": "Marque en croissance; coûts et FCF sous pression.",
@@ -1405,7 +1405,7 @@
                 "periodType": "12M",
                 "currencyCode": "USD",
                 "reportedValue": {
-                  "raw": 5080000.0,
+                  "raw": 5080000,
                   "fmt": "5.08M"
                 }
               },
@@ -1415,7 +1415,7 @@
                 "periodType": "12M",
                 "currencyCode": "USD",
                 "reportedValue": {
-                  "raw": 20195000.0,
+                  "raw": 20195000,
                   "fmt": "20.20M"
                 }
               },
@@ -1425,7 +1425,7 @@
                 "periodType": "12M",
                 "currencyCode": "USD",
                 "reportedValue": {
-                  "raw": 17460000.0,
+                  "raw": 17460000,
                   "fmt": "17.46M"
                 }
               },
@@ -1435,7 +1435,7 @@
                 "periodType": "12M",
                 "currencyCode": "USD",
                 "reportedValue": {
-                  "raw": 23743000.0,
+                  "raw": 23743000,
                   "fmt": "23.74M"
                 }
               }
@@ -1570,19 +1570,19 @@
                 "fmt": "0.05"
               },
               "7daysAgo": {
-                "raw": 0.0,
+                "raw": 0,
                 "fmt": "0"
               },
               "30daysAgo": {
-                "raw": 0.0,
+                "raw": 0,
                 "fmt": "0"
               },
               "60daysAgo": {
-                "raw": 0.0,
+                "raw": 0,
                 "fmt": "0"
               },
               "90daysAgo": {
-                "raw": 0.0,
+                "raw": 0,
                 "fmt": "0"
               },
               "epsTrendCurrency": "USD"
@@ -1677,19 +1677,19 @@
                 "fmt": "0.14"
               },
               "7daysAgo": {
-                "raw": 0.0,
+                "raw": 0,
                 "fmt": "0"
               },
               "30daysAgo": {
-                "raw": 0.0,
+                "raw": 0,
                 "fmt": "0"
               },
               "60daysAgo": {
-                "raw": 0.0,
+                "raw": 0,
                 "fmt": "0"
               },
               "90daysAgo": {
-                "raw": 0.0,
+                "raw": 0,
                 "fmt": "0"
               },
               "epsTrendCurrency": "USD"
@@ -1784,19 +1784,19 @@
                 "fmt": "0.5"
               },
               "7daysAgo": {
-                "raw": 0.0,
+                "raw": 0,
                 "fmt": "0"
               },
               "30daysAgo": {
-                "raw": 0.0,
+                "raw": 0,
                 "fmt": "0"
               },
               "60daysAgo": {
-                "raw": 0.0,
+                "raw": 0,
                 "fmt": "0"
               },
               "90daysAgo": {
-                "raw": 0.0,
+                "raw": 0,
                 "fmt": "0"
               },
               "epsTrendCurrency": "USD"
@@ -1900,19 +1900,19 @@
                 "fmt": "1.35"
               },
               "7daysAgo": {
-                "raw": 0.0,
+                "raw": 0,
                 "fmt": "0"
               },
               "30daysAgo": {
-                "raw": 0.0,
+                "raw": 0,
                 "fmt": "0"
               },
               "60daysAgo": {
-                "raw": 0.0,
+                "raw": 0,
                 "fmt": "0"
               },
               "90daysAgo": {
-                "raw": 0.0,
+                "raw": 0,
                 "fmt": "0"
               },
               "epsTrendCurrency": "USD"
@@ -2021,19 +2021,19 @@
                 "fmt": "0.05"
               },
               "7daysAgo": {
-                "raw": 0.0,
+                "raw": 0,
                 "fmt": "0"
               },
               "30daysAgo": {
-                "raw": 0.0,
+                "raw": 0,
                 "fmt": "0"
               },
               "60daysAgo": {
-                "raw": 0.0,
+                "raw": 0,
                 "fmt": "0"
               },
               "90daysAgo": {
-                "raw": 0.0,
+                "raw": 0,
                 "fmt": "0"
               },
               "epsTrendCurrency": "USD"
@@ -2128,19 +2128,19 @@
                 "fmt": "0.14"
               },
               "7daysAgo": {
-                "raw": 0.0,
+                "raw": 0,
                 "fmt": "0"
               },
               "30daysAgo": {
-                "raw": 0.0,
+                "raw": 0,
                 "fmt": "0"
               },
               "60daysAgo": {
-                "raw": 0.0,
+                "raw": 0,
                 "fmt": "0"
               },
               "90daysAgo": {
-                "raw": 0.0,
+                "raw": 0,
                 "fmt": "0"
               },
               "epsTrendCurrency": "USD"
@@ -2235,19 +2235,19 @@
                 "fmt": "0.5"
               },
               "7daysAgo": {
-                "raw": 0.0,
+                "raw": 0,
                 "fmt": "0"
               },
               "30daysAgo": {
-                "raw": 0.0,
+                "raw": 0,
                 "fmt": "0"
               },
               "60daysAgo": {
-                "raw": 0.0,
+                "raw": 0,
                 "fmt": "0"
               },
               "90daysAgo": {
-                "raw": 0.0,
+                "raw": 0,
                 "fmt": "0"
               },
               "epsTrendCurrency": "USD"
@@ -2351,19 +2351,19 @@
                 "fmt": "1.35"
               },
               "7daysAgo": {
-                "raw": 0.0,
+                "raw": 0,
                 "fmt": "0"
               },
               "30daysAgo": {
-                "raw": 0.0,
+                "raw": 0,
                 "fmt": "0"
               },
               "60daysAgo": {
-                "raw": 0.0,
+                "raw": 0,
                 "fmt": "0"
               },
               "90daysAgo": {
-                "raw": 0.0,
+                "raw": 0,
                 "fmt": "0"
               },
               "epsTrendCurrency": "USD"
@@ -2472,19 +2472,19 @@
                 "fmt": "0.05"
               },
               "7daysAgo": {
-                "raw": 0.0,
+                "raw": 0,
                 "fmt": "0"
               },
               "30daysAgo": {
-                "raw": 0.0,
+                "raw": 0,
                 "fmt": "0"
               },
               "60daysAgo": {
-                "raw": 0.0,
+                "raw": 0,
                 "fmt": "0"
               },
               "90daysAgo": {
-                "raw": 0.0,
+                "raw": 0,
                 "fmt": "0"
               },
               "epsTrendCurrency": "USD"
@@ -2579,19 +2579,19 @@
                 "fmt": "0.14"
               },
               "7daysAgo": {
-                "raw": 0.0,
+                "raw": 0,
                 "fmt": "0"
               },
               "30daysAgo": {
-                "raw": 0.0,
+                "raw": 0,
                 "fmt": "0"
               },
               "60daysAgo": {
-                "raw": 0.0,
+                "raw": 0,
                 "fmt": "0"
               },
               "90daysAgo": {
-                "raw": 0.0,
+                "raw": 0,
                 "fmt": "0"
               },
               "epsTrendCurrency": "USD"
@@ -2686,19 +2686,19 @@
                 "fmt": "0.5"
               },
               "7daysAgo": {
-                "raw": 0.0,
+                "raw": 0,
                 "fmt": "0"
               },
               "30daysAgo": {
-                "raw": 0.0,
+                "raw": 0,
                 "fmt": "0"
               },
               "60daysAgo": {
-                "raw": 0.0,
+                "raw": 0,
                 "fmt": "0"
               },
               "90daysAgo": {
-                "raw": 0.0,
+                "raw": 0,
                 "fmt": "0"
               },
               "epsTrendCurrency": "USD"
@@ -2802,19 +2802,19 @@
                 "fmt": "1.35"
               },
               "7daysAgo": {
-                "raw": 0.0,
+                "raw": 0,
                 "fmt": "0"
               },
               "30daysAgo": {
-                "raw": 0.0,
+                "raw": 0,
                 "fmt": "0"
               },
               "60daysAgo": {
-                "raw": 0.0,
+                "raw": 0,
                 "fmt": "0"
               },
               "90daysAgo": {
-                "raw": 0.0,
+                "raw": 0,
                 "fmt": "0"
               },
               "epsTrendCurrency": "USD"
@@ -2923,19 +2923,19 @@
                 "fmt": "0.05"
               },
               "7daysAgo": {
-                "raw": 0.0,
+                "raw": 0,
                 "fmt": "0"
               },
               "30daysAgo": {
-                "raw": 0.0,
+                "raw": 0,
                 "fmt": "0"
               },
               "60daysAgo": {
-                "raw": 0.0,
+                "raw": 0,
                 "fmt": "0"
               },
               "90daysAgo": {
-                "raw": 0.0,
+                "raw": 0,
                 "fmt": "0"
               },
               "epsTrendCurrency": "USD"
@@ -3030,19 +3030,19 @@
                 "fmt": "0.14"
               },
               "7daysAgo": {
-                "raw": 0.0,
+                "raw": 0,
                 "fmt": "0"
               },
               "30daysAgo": {
-                "raw": 0.0,
+                "raw": 0,
                 "fmt": "0"
               },
               "60daysAgo": {
-                "raw": 0.0,
+                "raw": 0,
                 "fmt": "0"
               },
               "90daysAgo": {
-                "raw": 0.0,
+                "raw": 0,
                 "fmt": "0"
               },
               "epsTrendCurrency": "USD"
@@ -3137,19 +3137,19 @@
                 "fmt": "0.5"
               },
               "7daysAgo": {
-                "raw": 0.0,
+                "raw": 0,
                 "fmt": "0"
               },
               "30daysAgo": {
-                "raw": 0.0,
+                "raw": 0,
                 "fmt": "0"
               },
               "60daysAgo": {
-                "raw": 0.0,
+                "raw": 0,
                 "fmt": "0"
               },
               "90daysAgo": {
-                "raw": 0.0,
+                "raw": 0,
                 "fmt": "0"
               },
               "epsTrendCurrency": "USD"
@@ -3253,19 +3253,19 @@
                 "fmt": "1.35"
               },
               "7daysAgo": {
-                "raw": 0.0,
+                "raw": 0,
                 "fmt": "0"
               },
               "30daysAgo": {
-                "raw": 0.0,
+                "raw": 0,
                 "fmt": "0"
               },
               "60daysAgo": {
-                "raw": 0.0,
+                "raw": 0,
                 "fmt": "0"
               },
               "90daysAgo": {
-                "raw": 0.0,
+                "raw": 0,
                 "fmt": "0"
               },
               "epsTrendCurrency": "USD"
@@ -3374,19 +3374,19 @@
                 "fmt": "0.05"
               },
               "7daysAgo": {
-                "raw": 0.0,
+                "raw": 0,
                 "fmt": "0"
               },
               "30daysAgo": {
-                "raw": 0.0,
+                "raw": 0,
                 "fmt": "0"
               },
               "60daysAgo": {
-                "raw": 0.0,
+                "raw": 0,
                 "fmt": "0"
               },
               "90daysAgo": {
-                "raw": 0.0,
+                "raw": 0,
                 "fmt": "0"
               },
               "epsTrendCurrency": "USD"
@@ -3481,19 +3481,19 @@
                 "fmt": "0.14"
               },
               "7daysAgo": {
-                "raw": 0.0,
+                "raw": 0,
                 "fmt": "0"
               },
               "30daysAgo": {
-                "raw": 0.0,
+                "raw": 0,
                 "fmt": "0"
               },
               "60daysAgo": {
-                "raw": 0.0,
+                "raw": 0,
                 "fmt": "0"
               },
               "90daysAgo": {
-                "raw": 0.0,
+                "raw": 0,
                 "fmt": "0"
               },
               "epsTrendCurrency": "USD"
@@ -3588,19 +3588,19 @@
                 "fmt": "0.5"
               },
               "7daysAgo": {
-                "raw": 0.0,
+                "raw": 0,
                 "fmt": "0"
               },
               "30daysAgo": {
-                "raw": 0.0,
+                "raw": 0,
                 "fmt": "0"
               },
               "60daysAgo": {
-                "raw": 0.0,
+                "raw": 0,
                 "fmt": "0"
               },
               "90daysAgo": {
-                "raw": 0.0,
+                "raw": 0,
                 "fmt": "0"
               },
               "epsTrendCurrency": "USD"
@@ -3704,19 +3704,19 @@
                 "fmt": "1.35"
               },
               "7daysAgo": {
-                "raw": 0.0,
+                "raw": 0,
                 "fmt": "0"
               },
               "30daysAgo": {
-                "raw": 0.0,
+                "raw": 0,
                 "fmt": "0"
               },
               "60daysAgo": {
-                "raw": 0.0,
+                "raw": 0,
                 "fmt": "0"
               },
               "90daysAgo": {
-                "raw": 0.0,
+                "raw": 0,
                 "fmt": "0"
               },
               "epsTrendCurrency": "USD"
@@ -3825,19 +3825,19 @@
                 "fmt": "0.05"
               },
               "7daysAgo": {
-                "raw": 0.0,
+                "raw": 0,
                 "fmt": "0"
               },
               "30daysAgo": {
-                "raw": 0.0,
+                "raw": 0,
                 "fmt": "0"
               },
               "60daysAgo": {
-                "raw": 0.0,
+                "raw": 0,
                 "fmt": "0"
               },
               "90daysAgo": {
-                "raw": 0.0,
+                "raw": 0,
                 "fmt": "0"
               },
               "epsTrendCurrency": "USD"
@@ -3932,19 +3932,19 @@
                 "fmt": "0.14"
               },
               "7daysAgo": {
-                "raw": 0.0,
+                "raw": 0,
                 "fmt": "0"
               },
               "30daysAgo": {
-                "raw": 0.0,
+                "raw": 0,
                 "fmt": "0"
               },
               "60daysAgo": {
-                "raw": 0.0,
+                "raw": 0,
                 "fmt": "0"
               },
               "90daysAgo": {
-                "raw": 0.0,
+                "raw": 0,
                 "fmt": "0"
               },
               "epsTrendCurrency": "USD"
@@ -4039,19 +4039,19 @@
                 "fmt": "0.5"
               },
               "7daysAgo": {
-                "raw": 0.0,
+                "raw": 0,
                 "fmt": "0"
               },
               "30daysAgo": {
-                "raw": 0.0,
+                "raw": 0,
                 "fmt": "0"
               },
               "60daysAgo": {
-                "raw": 0.0,
+                "raw": 0,
                 "fmt": "0"
               },
               "90daysAgo": {
-                "raw": 0.0,
+                "raw": 0,
                 "fmt": "0"
               },
               "epsTrendCurrency": "USD"
@@ -4155,19 +4155,19 @@
                 "fmt": "1.35"
               },
               "7daysAgo": {
-                "raw": 0.0,
+                "raw": 0,
                 "fmt": "0"
               },
               "30daysAgo": {
-                "raw": 0.0,
+                "raw": 0,
                 "fmt": "0"
               },
               "60daysAgo": {
-                "raw": 0.0,
+                "raw": 0,
                 "fmt": "0"
               },
               "90daysAgo": {
-                "raw": 0.0,
+                "raw": 0,
                 "fmt": "0"
               },
               "epsTrendCurrency": "USD"
@@ -4276,19 +4276,19 @@
                 "fmt": "0.05"
               },
               "7daysAgo": {
-                "raw": 0.0,
+                "raw": 0,
                 "fmt": "0"
               },
               "30daysAgo": {
-                "raw": 0.0,
+                "raw": 0,
                 "fmt": "0"
               },
               "60daysAgo": {
-                "raw": 0.0,
+                "raw": 0,
                 "fmt": "0"
               },
               "90daysAgo": {
-                "raw": 0.0,
+                "raw": 0,
                 "fmt": "0"
               },
               "epsTrendCurrency": "USD"
@@ -4383,19 +4383,19 @@
                 "fmt": "0.14"
               },
               "7daysAgo": {
-                "raw": 0.0,
+                "raw": 0,
                 "fmt": "0"
               },
               "30daysAgo": {
-                "raw": 0.0,
+                "raw": 0,
                 "fmt": "0"
               },
               "60daysAgo": {
-                "raw": 0.0,
+                "raw": 0,
                 "fmt": "0"
               },
               "90daysAgo": {
-                "raw": 0.0,
+                "raw": 0,
                 "fmt": "0"
               },
               "epsTrendCurrency": "USD"
@@ -4490,19 +4490,19 @@
                 "fmt": "0.5"
               },
               "7daysAgo": {
-                "raw": 0.0,
+                "raw": 0,
                 "fmt": "0"
               },
               "30daysAgo": {
-                "raw": 0.0,
+                "raw": 0,
                 "fmt": "0"
               },
               "60daysAgo": {
-                "raw": 0.0,
+                "raw": 0,
                 "fmt": "0"
               },
               "90daysAgo": {
-                "raw": 0.0,
+                "raw": 0,
                 "fmt": "0"
               },
               "epsTrendCurrency": "USD"
@@ -4606,19 +4606,19 @@
                 "fmt": "1.35"
               },
               "7daysAgo": {
-                "raw": 0.0,
+                "raw": 0,
                 "fmt": "0"
               },
               "30daysAgo": {
-                "raw": 0.0,
+                "raw": 0,
                 "fmt": "0"
               },
               "60daysAgo": {
-                "raw": 0.0,
+                "raw": 0,
                 "fmt": "0"
               },
               "90daysAgo": {
-                "raw": 0.0,
+                "raw": 0,
                 "fmt": "0"
               },
               "epsTrendCurrency": "USD"
@@ -4739,7 +4739,7 @@
                 "fmt": "0.05"
               },
               "90daysAgo": {
-                "raw": 0.0,
+                "raw": 0,
                 "fmt": "0"
               },
               "epsTrendCurrency": "USD"
@@ -4846,7 +4846,7 @@
                 "fmt": "0.14"
               },
               "90daysAgo": {
-                "raw": 0.0,
+                "raw": 0,
                 "fmt": "0"
               },
               "epsTrendCurrency": "USD"
@@ -4953,7 +4953,7 @@
                 "fmt": "0.5"
               },
               "90daysAgo": {
-                "raw": 0.0,
+                "raw": 0,
                 "fmt": "0"
               },
               "epsTrendCurrency": "USD"
@@ -5069,7 +5069,7 @@
                 "fmt": "1.35"
               },
               "90daysAgo": {
-                "raw": 0.0,
+                "raw": 0,
                 "fmt": "0"
               },
               "epsTrendCurrency": "USD"
@@ -5190,7 +5190,7 @@
                 "fmt": "0.14"
               },
               "90daysAgo": {
-                "raw": 0.0,
+                "raw": 0,
                 "fmt": "0"
               },
               "epsTrendCurrency": "USD"
@@ -5285,19 +5285,19 @@
                 "fmt": "0.22"
               },
               "7daysAgo": {
-                "raw": 0.0,
+                "raw": 0,
                 "fmt": "0"
               },
               "30daysAgo": {
-                "raw": 0.0,
+                "raw": 0,
                 "fmt": "0"
               },
               "60daysAgo": {
-                "raw": 0.0,
+                "raw": 0,
                 "fmt": "0"
               },
               "90daysAgo": {
-                "raw": 0.0,
+                "raw": 0,
                 "fmt": "0"
               },
               "epsTrendCurrency": "USD"
@@ -5404,7 +5404,7 @@
                 "fmt": "0.5"
               },
               "90daysAgo": {
-                "raw": 0.0,
+                "raw": 0,
                 "fmt": "0"
               },
               "epsTrendCurrency": "USD"
@@ -5520,7 +5520,7 @@
                 "fmt": "1.35"
               },
               "90daysAgo": {
-                "raw": 0.0,
+                "raw": 0,
                 "fmt": "0"
               },
               "epsTrendCurrency": "USD"
@@ -6197,8 +6197,8 @@
       "valeur": {
         "exercice": "2026-12-31",
         "courant": 0.5,
-        "J_30": 0.0,
-        "J_90": 0.0,
+        "J_30": 0,
+        "J_90": 0,
         "nombre_analystes": 1
       },
       "unite": "USD/action",
@@ -6215,8 +6215,8 @@
       "valeur": {
         "exercice": "2026-12-31",
         "courant": 0.5,
-        "J_30": 0.0,
-        "J_90": 0.0,
+        "J_30": 0,
+        "J_90": 0,
         "nombre_analystes": 1
       },
       "unite": "USD/action",
@@ -6233,8 +6233,8 @@
       "valeur": {
         "exercice": "2026-12-31",
         "courant": 0.5,
-        "J_30": 0.0,
-        "J_90": 0.0,
+        "J_30": 0,
+        "J_90": 0,
         "nombre_analystes": 1
       },
       "unite": "USD/action",
@@ -6251,8 +6251,8 @@
       "valeur": {
         "exercice": "2026-12-31",
         "courant": 0.5,
-        "J_30": 0.0,
-        "J_90": 0.0,
+        "J_30": 0,
+        "J_90": 0,
         "nombre_analystes": 1
       },
       "unite": "USD/action",
@@ -6269,8 +6269,8 @@
       "valeur": {
         "exercice": "2026-12-31",
         "courant": 0.5,
-        "J_30": 0.0,
-        "J_90": 0.0,
+        "J_30": 0,
+        "J_90": 0,
         "nombre_analystes": 1
       },
       "unite": "USD/action",
@@ -6287,8 +6287,8 @@
       "valeur": {
         "exercice": "2026-12-31",
         "courant": 0.5,
-        "J_30": 0.0,
-        "J_90": 0.0,
+        "J_30": 0,
+        "J_90": 0,
         "nombre_analystes": 1
       },
       "unite": "USD/action",
@@ -6306,7 +6306,7 @@
         "exercice": "2026-12-31",
         "courant": 0.45,
         "J_30": 0.5,
-        "J_90": 0.0,
+        "J_90": 0,
         "nombre_analystes": 1
       },
       "unite": "USD/action",
@@ -6324,7 +6324,7 @@
         "exercice": "2026-12-31",
         "courant": 0.45,
         "J_30": 0.5,
-        "J_90": 0.0,
+        "J_90": 0,
         "nombre_analystes": 1
       },
       "unite": "USD/action",
@@ -7393,7 +7393,7 @@
       "prix_vers_mm200": 0.88137289019438,
       "tendance_mm200": -0.14654469678206938,
       "momentum_6_1_pct": -23.227019221994983,
-      "volume_moyen_20j": 95575.0,
+      "volume_moyen_20j": 95575,
       "ratio_volume": 0.9489929374836515,
       "volatilite_90j_pct": 44.061230652073085,
       "drawdown_12m_pct": -36.715131686693134
@@ -7466,27 +7466,27 @@
         "scenarios": [
           {
             "cas": "bear",
-            "rendement_pct": -25.0,
-            "probabilite_pct": 30.0,
+            "rendement_pct": -25,
+            "probabilite_pct": 30,
             "cours_conditionnel": 16.237499713897705,
             "declencheur": "Intrants et stocks absorbent les gains."
           },
           {
             "cas": "central",
-            "rendement_pct": 5.0,
-            "probabilite_pct": 45.0,
+            "rendement_pct": 5,
+            "probabilite_pct": 45,
             "cours_conditionnel": 22.732499599456787,
             "declencheur": "Ventes en hausse et marges stabilisées."
           },
           {
             "cas": "bull",
-            "rendement_pct": 25.0,
-            "probabilite_pct": 25.0,
+            "rendement_pct": 25,
+            "probabilite_pct": 25,
             "cours_conditionnel": 27.062499523162842,
             "declencheur": "Volumes et coûts favorables."
           }
         ],
-        "esperance_subjective_brute_pct": 1.0,
+        "esperance_subjective_brute_pct": 1,
         "esperance_apres_rotation_vente_achat_2_5pct": -3.9268292682926753,
         "convention_frais": "Friction théorique: vente 2,5 % du brut, achat 2,5 % du nominal acheté. Pas de transaction."
       },
@@ -7495,22 +7495,22 @@
         "scenarios": [
           {
             "cas": "bear",
-            "rendement_pct": -35.0,
-            "probabilite_pct": 30.0,
+            "rendement_pct": -35,
+            "probabilite_pct": 30,
             "cours_conditionnel": 14.072499752044678,
             "declencheur": "Intrants et stocks absorbent les gains."
           },
           {
             "cas": "central",
-            "rendement_pct": 12.0,
-            "probabilite_pct": 40.0,
+            "rendement_pct": 12,
+            "probabilite_pct": 40,
             "cours_conditionnel": 24.24799957275391,
             "declencheur": "Ventes en hausse et marges stabilisées."
           },
           {
             "cas": "bull",
-            "rendement_pct": 40.0,
-            "probabilite_pct": 30.0,
+            "rendement_pct": 40,
+            "probabilite_pct": 30,
             "cours_conditionnel": 30.30999946594238,
             "declencheur": "Volumes et coûts favorables."
           }
@@ -7521,5 +7521,16 @@
       }
     }
   },
-  "date_analyse": "2026-11-09"
+  "date_analyse": "2026-11-09",
+  "zonebourse_source_unique_complement": {
+    "source_url": "https://www.zonebourse.com/actualite-bourse/lifeway-foods-inc-btig-persiste-a-l-achat-ce7859d3d88ef620",
+    "date_collecte": "2026-11-14",
+    "donnees": {
+      "consensus_nombre_analystes": 3,
+      "consensus_recommandation": "ACHETER",
+      "objectif_cours_moyen_usd": 33
+    },
+    "commentaire": "Consensus relevé dans un article Zonebourse du 20/08/2026; ne constitue pas un consensus actualisé au 14/11/2026.",
+    "statut": "SOURCE_ZONEBOURSE_PUBLIEE_NON_CERTIFICATION"
+  }
 }
