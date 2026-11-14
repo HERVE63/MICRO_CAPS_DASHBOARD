@@ -134,7 +134,7 @@
     },
     "qualite": {
       "ca_ttm": {
-        "valeur": 215790000.0,
+        "valeur": 215790000,
         "unite": "CAD",
         "periode": "TTM fournisseur; arrêté indiqué dans son tableau financier : Aug '26 Aug 28, 2026",
         "date_source": "2026-11-04",
@@ -204,7 +204,7 @@
         "date_collecte": "2026-11-04"
       },
       "fcf_ttm": {
-        "valeur": 20950000.0,
+        "valeur": 20950000,
         "unite": "CAD",
         "periode": "TTM fournisseur; arrêté indiqué dans son tableau financier : Aug '26 Aug 28, 2026",
         "date_source": "2026-11-04",
@@ -919,7 +919,7 @@
         "commentaire": "Ratio (titre ajusté converti en USD / URTH ajusté) sur chaque fenêtre, moins 1. Ancrages communs titre/ETF/FX; GBp constant annulé dans le ratio. URTH est un proxy ETF avec frais/écart de suivi; horaires de clôture non synchrones. Fenêtres impossibles avant IPO omises, jamais extrapolées."
       },
       "volume_moyen_20j": {
-        "valeur": 159225.0,
+        "valeur": 159225,
         "unite": "titres/jour",
         "periode": "historique ajusté au 2026-11-06",
         "date_source": "2026-11-06",
@@ -1113,7 +1113,7 @@
         }
       },
       "scenario_bear_3m_pct": {
-        "valeur": -25.0,
+        "valeur": -25,
         "unite": "pct",
         "periode": "3 mois depuis 2026-11-06",
         "date_source": "2026-11-09",
@@ -1123,7 +1123,7 @@
         "date_collecte": "2026-11-09"
       },
       "prob_bear_3m_pct": {
-        "valeur": 25.0,
+        "valeur": 25,
         "unite": "pct",
         "periode": "probabilité subjective 3 mois",
         "date_source": "2026-11-09",
@@ -1133,7 +1133,7 @@
         "date_collecte": "2026-11-09"
       },
       "scenario_central_3m_pct": {
-        "valeur": 8.0,
+        "valeur": 8,
         "unite": "pct",
         "periode": "3 mois depuis 2026-11-06",
         "date_source": "2026-11-09",
@@ -1143,7 +1143,7 @@
         "date_collecte": "2026-11-09"
       },
       "prob_central_3m_pct": {
-        "valeur": 50.0,
+        "valeur": 50,
         "unite": "pct",
         "periode": "probabilité subjective 3 mois",
         "date_source": "2026-11-09",
@@ -1153,7 +1153,7 @@
         "date_collecte": "2026-11-09"
       },
       "scenario_bull_3m_pct": {
-        "valeur": 25.0,
+        "valeur": 25,
         "unite": "pct",
         "periode": "3 mois depuis 2026-11-06",
         "date_source": "2026-11-09",
@@ -1163,7 +1163,7 @@
         "date_collecte": "2026-11-09"
       },
       "prob_bull_3m_pct": {
-        "valeur": 25.0,
+        "valeur": 25,
         "unite": "pct",
         "periode": "probabilité subjective 3 mois",
         "date_source": "2026-11-09",
@@ -1173,7 +1173,7 @@
         "date_collecte": "2026-11-09"
       },
       "scenario_bear_6m_pct": {
-        "valeur": -35.0,
+        "valeur": -35,
         "unite": "pct",
         "periode": "6 mois depuis 2026-11-06",
         "date_source": "2026-11-09",
@@ -1183,7 +1183,7 @@
         "date_collecte": "2026-11-09"
       },
       "prob_bear_6m_pct": {
-        "valeur": 25.0,
+        "valeur": 25,
         "unite": "pct",
         "periode": "probabilité subjective 6 mois",
         "date_source": "2026-11-09",
@@ -1193,7 +1193,7 @@
         "date_collecte": "2026-11-09"
       },
       "scenario_central_6m_pct": {
-        "valeur": 18.0,
+        "valeur": 18,
         "unite": "pct",
         "periode": "6 mois depuis 2026-11-06",
         "date_source": "2026-11-09",
@@ -1203,7 +1203,7 @@
         "date_collecte": "2026-11-09"
       },
       "prob_central_6m_pct": {
-        "valeur": 45.0,
+        "valeur": 45,
         "unite": "pct",
         "periode": "probabilité subjective 6 mois",
         "date_source": "2026-11-09",
@@ -1213,7 +1213,7 @@
         "date_collecte": "2026-11-09"
       },
       "scenario_bull_6m_pct": {
-        "valeur": 45.0,
+        "valeur": 45,
         "unite": "pct",
         "periode": "6 mois depuis 2026-11-06",
         "date_source": "2026-11-09",
@@ -1223,7 +1223,7 @@
         "date_collecte": "2026-11-09"
       },
       "prob_bull_6m_pct": {
-        "valeur": 30.0,
+        "valeur": 30,
         "unite": "pct",
         "periode": "probabilité subjective 6 mois",
         "date_source": "2026-11-09",
@@ -1299,14 +1299,14 @@
       "diversification": 10
     },
     "notes": {
-      "qualite": 25.0,
-      "valorisation": 8.0,
-      "croissance": 17.0,
-      "risque": 8.0,
+      "qualite": 25,
+      "valorisation": 8,
+      "croissance": 17,
+      "risque": 8,
       "momentum": 10,
-      "diversification": 6.0
+      "diversification": 6
     },
-    "total_mcpa": 74.0,
+    "total_mcpa": 74,
     "statut": "DOCUMENTEE_NON_VALIDEE",
     "justifications": {
       "qualite": "Rentabilité, commandes et cash solides.",
@@ -1416,7 +1416,7 @@
                 "periodType": "12M",
                 "currencyCode": "CAD",
                 "reportedValue": {
-                  "raw": 8545000.0,
+                  "raw": 8545000,
                   "fmt": "8.54M"
                 }
               },
@@ -1426,7 +1426,7 @@
                 "periodType": "12M",
                 "currencyCode": "CAD",
                 "reportedValue": {
-                  "raw": 22264000.0,
+                  "raw": 22264000,
                   "fmt": "22.26M"
                 }
               },
@@ -1436,7 +1436,7 @@
                 "periodType": "12M",
                 "currencyCode": "CAD",
                 "reportedValue": {
-                  "raw": 25728000.0,
+                  "raw": 25728000,
                   "fmt": "25.73M"
                 }
               },
@@ -1446,7 +1446,7 @@
                 "periodType": "12M",
                 "currencyCode": "CAD",
                 "reportedValue": {
-                  "raw": 31754000.0,
+                  "raw": 31754000,
                   "fmt": "31.75M"
                 }
               }
@@ -1700,19 +1700,19 @@
                 "fmt": "0.19"
               },
               "7daysAgo": {
-                "raw": 0.0,
+                "raw": 0,
                 "fmt": "0"
               },
               "30daysAgo": {
-                "raw": 0.0,
+                "raw": 0,
                 "fmt": "0"
               },
               "60daysAgo": {
-                "raw": 0.0,
+                "raw": 0,
                 "fmt": "0"
               },
               "90daysAgo": {
-                "raw": 0.0,
+                "raw": 0,
                 "fmt": "0"
               },
               "epsTrendCurrency": "CAD"
@@ -3714,7 +3714,7 @@
     "ancrages": {
       "1": {
         "date": "2026-10-06",
-        "cours_ajuste": 26.0
+        "cours_ajuste": 26
       },
       "3": {
         "date": "2026-08-06",
@@ -3737,7 +3737,7 @@
       "prix_vers_mm200": 1.4593666089212058,
       "tendance_mm200": 10.325943293895534,
       "momentum_6_1_pct": 24.28298233833466,
-      "volume_moyen_20j": 159225.0,
+      "volume_moyen_20j": 159225,
       "ratio_volume": 1.0111477468990422,
       "volatilite_90j_pct": 74.9157391700428,
       "drawdown_12m_pct": -28.614917280367692
@@ -3810,27 +3810,27 @@
         "scenarios": [
           {
             "cas": "bear",
-            "rendement_pct": -25.0,
-            "probabilite_pct": 25.0,
+            "rendement_pct": -25,
+            "probabilite_pct": 25,
             "cours_conditionnel": 24.42000102996826,
             "declencheur": "Retards et compression du multiple."
           },
           {
             "cas": "central",
-            "rendement_pct": 8.0,
-            "probabilite_pct": 50.0,
+            "rendement_pct": 8,
+            "probabilite_pct": 50,
             "cours_conditionnel": 35.1648014831543,
             "declencheur": "Livraisons conformes."
           },
           {
             "cas": "bull",
-            "rendement_pct": 25.0,
-            "probabilite_pct": 25.0,
+            "rendement_pct": 25,
+            "probabilite_pct": 25,
             "cours_conditionnel": 40.70000171661377,
             "declencheur": "Livraisons et marges dépassent les attentes."
           }
         ],
-        "esperance_subjective_brute_pct": 4.0,
+        "esperance_subjective_brute_pct": 4,
         "esperance_apres_rotation_vente_achat_2_5pct": -1.073170731707307,
         "convention_frais": "Friction théorique: vente 2,5 % du brut, achat 2,5 % du nominal acheté. Pas de transaction."
       },
@@ -3839,22 +3839,22 @@
         "scenarios": [
           {
             "cas": "bear",
-            "rendement_pct": -35.0,
-            "probabilite_pct": 25.0,
+            "rendement_pct": -35,
+            "probabilite_pct": 25,
             "cours_conditionnel": 21.164000892639162,
             "declencheur": "Retards et compression du multiple."
           },
           {
             "cas": "central",
-            "rendement_pct": 18.0,
-            "probabilite_pct": 45.0,
+            "rendement_pct": 18,
+            "probabilite_pct": 45,
             "cours_conditionnel": 38.420801620483395,
             "declencheur": "Livraisons conformes."
           },
           {
             "cas": "bull",
-            "rendement_pct": 45.0,
-            "probabilite_pct": 30.0,
+            "rendement_pct": 45,
+            "probabilite_pct": 30,
             "cours_conditionnel": 47.21200199127197,
             "declencheur": "Livraisons et marges dépassent les attentes."
           }
@@ -3865,5 +3865,24 @@
       }
     }
   },
-  "date_analyse": "2026-11-09"
+  "date_analyse": "2026-11-09",
+  "zonebourse_source_unique_complement": {
+    "source_url": "https://www.zonebourse.com/cours/action/FIRAN-TECHNOLOGY-GROUP-CO-1410064/cotations/",
+    "date_collecte": "2026-11-14",
+    "donnees": {
+      "cours_2026_11_13_cad": 31.77,
+      "capitalisation_cad": 861334602,
+      "momentum_1m_pct": -1.76,
+      "momentum_3m_pct": 29.41,
+      "momentum_6m_pct": 56.58,
+      "momentum_12m_pct": 205.48,
+      "volume_moyen_20j": 176820,
+      "capitalisation_flottant_cad": 595563737,
+      "mma20_cad": 33.64,
+      "mma50_cad": 27.89,
+      "ca_publie_cad": 190996000
+    },
+    "commentaire": "Cours du 13/11/2026 et indicateurs issus de la rubrique Cotations Zonebourse; source de données de marché différées.",
+    "statut": "SOURCE_ZONEBOURSE_PUBLIEE_NON_CERTIFICATION"
+  }
 }
