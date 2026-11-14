@@ -903,7 +903,7 @@
         "commentaire": "Ratio (titre ajusté converti en USD / URTH ajusté) sur chaque fenêtre, moins 1. Ancrages communs titre/ETF/FX; GBp constant annulé dans le ratio. URTH est un proxy ETF avec frais/écart de suivi; horaires de clôture non synchrones. Fenêtres impossibles avant IPO omises, jamais extrapolées."
       },
       "volume_moyen_20j": {
-        "valeur": 249615.0,
+        "valeur": 249615,
         "unite": "titres/jour",
         "periode": "historique ajusté au 2026-11-06",
         "date_source": "2026-11-06",
@@ -1040,7 +1040,7 @@
         "commentaire": "SSI 79/100 : B1 17, B2 12, B3 11, B4 16, B5 6, B6 8, B7 9. SEUIL_SSI_ATTEINT_SUR_PREUVES_DATEES. Ne vaut pas validation MCPA ni arbitrage."
       },
       "ic_sur_5": {
-        "valeur": 3.0,
+        "valeur": 3,
         "unite": "note/5",
         "periode": "analyse au 2026-11-09",
         "date_source": "2026-11-09",
@@ -1050,7 +1050,7 @@
         "date_collecte": "2026-11-09"
       },
       "cx_sur_5": {
-        "valeur": 3.0,
+        "valeur": 3,
         "unite": "note/5",
         "periode": "analyse au 2026-11-09",
         "date_source": "2026-11-09",
@@ -1085,7 +1085,7 @@
         }
       },
       "scenario_bear_3m_pct": {
-        "valeur": -25.0,
+        "valeur": -25,
         "unite": "pct",
         "periode": "3 mois depuis 2026-11-06",
         "date_source": "2026-11-09",
@@ -1095,7 +1095,7 @@
         "date_collecte": "2026-11-09"
       },
       "prob_bear_3m_pct": {
-        "valeur": 25.0,
+        "valeur": 25,
         "unite": "pct",
         "periode": "probabilité subjective 3 mois",
         "date_source": "2026-11-09",
@@ -1105,7 +1105,7 @@
         "date_collecte": "2026-11-09"
       },
       "scenario_central_3m_pct": {
-        "valeur": 8.0,
+        "valeur": 8,
         "unite": "pct",
         "periode": "3 mois depuis 2026-11-06",
         "date_source": "2026-11-09",
@@ -1115,7 +1115,7 @@
         "date_collecte": "2026-11-09"
       },
       "prob_central_3m_pct": {
-        "valeur": 50.0,
+        "valeur": 50,
         "unite": "pct",
         "periode": "probabilité subjective 3 mois",
         "date_source": "2026-11-09",
@@ -1125,7 +1125,7 @@
         "date_collecte": "2026-11-09"
       },
       "scenario_bull_3m_pct": {
-        "valeur": 30.0,
+        "valeur": 30,
         "unite": "pct",
         "periode": "3 mois depuis 2026-11-06",
         "date_source": "2026-11-09",
@@ -1135,7 +1135,7 @@
         "date_collecte": "2026-11-09"
       },
       "prob_bull_3m_pct": {
-        "valeur": 25.0,
+        "valeur": 25,
         "unite": "pct",
         "periode": "probabilité subjective 3 mois",
         "date_source": "2026-11-09",
@@ -1145,7 +1145,7 @@
         "date_collecte": "2026-11-09"
       },
       "scenario_bear_6m_pct": {
-        "valeur": -35.0,
+        "valeur": -35,
         "unite": "pct",
         "periode": "6 mois depuis 2026-11-06",
         "date_source": "2026-11-09",
@@ -1155,7 +1155,7 @@
         "date_collecte": "2026-11-09"
       },
       "prob_bear_6m_pct": {
-        "valeur": 25.0,
+        "valeur": 25,
         "unite": "pct",
         "periode": "probabilité subjective 6 mois",
         "date_source": "2026-11-09",
@@ -1165,7 +1165,7 @@
         "date_collecte": "2026-11-09"
       },
       "scenario_central_6m_pct": {
-        "valeur": 18.0,
+        "valeur": 18,
         "unite": "pct",
         "periode": "6 mois depuis 2026-11-06",
         "date_source": "2026-11-09",
@@ -1175,7 +1175,7 @@
         "date_collecte": "2026-11-09"
       },
       "prob_central_6m_pct": {
-        "valeur": 45.0,
+        "valeur": 45,
         "unite": "pct",
         "periode": "probabilité subjective 6 mois",
         "date_source": "2026-11-09",
@@ -1185,7 +1185,7 @@
         "date_collecte": "2026-11-09"
       },
       "scenario_bull_6m_pct": {
-        "valeur": 50.0,
+        "valeur": 50,
         "unite": "pct",
         "periode": "6 mois depuis 2026-11-06",
         "date_source": "2026-11-09",
@@ -1195,7 +1195,7 @@
         "date_collecte": "2026-11-09"
       },
       "prob_bull_6m_pct": {
-        "valeur": 30.0,
+        "valeur": 30,
         "unite": "pct",
         "periode": "probabilité subjective 6 mois",
         "date_source": "2026-11-09",
@@ -1271,14 +1271,14 @@
       "diversification": 10
     },
     "notes": {
-      "qualite": 23.0,
-      "valorisation": 12.0,
-      "croissance": 16.0,
-      "risque": 6.0,
+      "qualite": 23,
+      "valorisation": 12,
+      "croissance": 16,
+      "risque": 6,
       "momentum": 0,
-      "diversification": 5.0
+      "diversification": 5
     },
-    "total_mcpa": 62.0,
+    "total_mcpa": 62,
     "statut": "DOCUMENTEE_NON_VALIDEE",
     "justifications": {
       "qualite": "Logiciels télécoms à forte marge, intégration à suivre.",
@@ -1286,7 +1286,7 @@
       "croissance": "T3 +44 %, ESI et nouvelles licences; organique à isoler.",
       "risque": "Cash au bilan, déclarations d'initiés tardives au proxy.",
       "diversification": "Télécoms cloud, chevauchement logiciels important.",
-      "momentum": "Grille explicite au 2026-11-06: 0/10, 0 points non observables. Absence d'historique distincte d'un signal baissier; score provisoire si incomplet."
+      "momentum": "Score M=0/10 calculé sur historique ajusté vérifié au 2026-11-06 (DONNEES/CALCULS_MARCHE_40_20261106.json et HISTORIQUES_VERIFIES_40_20261106.csv.gz). Momentum 1/3/6/12 mois : 1m -14.93%, 3m -21.88%, 6m -47.95%, 12m -24.89% ; prix/MM200=0.741 ; tendance MM200=-1.64% ; volume moyen 20j=249615. Ce score de 0 est une observation de tendance baissière, et non une absence de données. Source secondaire Yahoo, sans certification documentaire globale."
     },
     "date_analyse": "2026-11-09",
     "sources": [
@@ -1436,7 +1436,7 @@
                 "periodType": "12M",
                 "currencyCode": "USD",
                 "reportedValue": {
-                  "raw": -33350000.0,
+                  "raw": -33350000,
                   "fmt": "-33.35M"
                 }
               },
@@ -1446,7 +1446,7 @@
                 "periodType": "12M",
                 "currencyCode": "USD",
                 "reportedValue": {
-                  "raw": 3424000.0,
+                  "raw": 3424000,
                   "fmt": "3.42M"
                 }
               },
@@ -1456,7 +1456,7 @@
                 "periodType": "12M",
                 "currencyCode": "USD",
                 "reportedValue": {
-                  "raw": 5262000.0,
+                  "raw": 5262000,
                   "fmt": "5.26M"
                 }
               },
@@ -1466,7 +1466,7 @@
                 "periodType": "12M",
                 "currencyCode": "USD",
                 "reportedValue": {
-                  "raw": 8685000.0,
+                  "raw": 8685000,
                   "fmt": "8.69M"
                 }
               }
@@ -3750,7 +3750,7 @@
       "prix_vers_mm200": 0.7414665787056527,
       "tendance_mm200": -1.6395093056781773,
       "momentum_6_1_pct": -38.809033078008405,
-      "volume_moyen_20j": 249615.0,
+      "volume_moyen_20j": 249615,
       "ratio_volume": 1.6224986479177934,
       "volatilite_90j_pct": 50.17982543770897,
       "drawdown_12m_pct": -52.626552897361776
@@ -3823,22 +3823,22 @@
         "scenarios": [
           {
             "cas": "bear",
-            "rendement_pct": -25.0,
-            "probabilite_pct": 25.0,
+            "rendement_pct": -25,
+            "probabilite_pct": 25,
             "cours_conditionnel": 3.8025001287460327,
             "declencheur": "Intégration coûteuse et licences ralenties."
           },
           {
             "cas": "central",
-            "rendement_pct": 8.0,
-            "probabilite_pct": 50.0,
+            "rendement_pct": 8,
+            "probabilite_pct": 50,
             "cours_conditionnel": 5.4756001853942875,
             "declencheur": "Croissance et intégration progressive."
           },
           {
             "cas": "bull",
-            "rendement_pct": 30.0,
-            "probabilite_pct": 25.0,
+            "rendement_pct": 30,
+            "probabilite_pct": 25,
             "cours_conditionnel": 6.59100022315979,
             "declencheur": "Conversion commerciale et amélioration GAAP."
           }
@@ -3852,22 +3852,22 @@
         "scenarios": [
           {
             "cas": "bear",
-            "rendement_pct": -35.0,
-            "probabilite_pct": 25.0,
+            "rendement_pct": -35,
+            "probabilite_pct": 25,
             "cours_conditionnel": 3.295500111579895,
             "declencheur": "Intégration coûteuse et licences ralenties."
           },
           {
             "cas": "central",
-            "rendement_pct": 18.0,
-            "probabilite_pct": 45.0,
+            "rendement_pct": 18,
+            "probabilite_pct": 45,
             "cours_conditionnel": 5.982600202560424,
             "declencheur": "Croissance et intégration progressive."
           },
           {
             "cas": "bull",
-            "rendement_pct": 50.0,
-            "probabilite_pct": 30.0,
+            "rendement_pct": 50,
+            "probabilite_pct": 30,
             "cours_conditionnel": 7.605000257492065,
             "declencheur": "Conversion commerciale et amélioration GAAP."
           }
