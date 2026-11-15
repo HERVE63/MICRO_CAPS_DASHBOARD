@@ -25,6 +25,11 @@ def test_real_infu_deceleration():
  assert r['Variation_derniere_seance_pct']<0<r['Variation_5_seances_pct']
  assert r['Signal']=='DECELERATION_A_SURVEILLER'
  assert r['Momentum_1m_pct']==pytest.approx((14.72/13.49-1)*100)
+def test_real_london_closing_price_without_intraday_time():
+ r=m.calculate(record('MTEC.L'),'MTEC.L',ASOF)
+ assert r['Statut']=='CALCULABLE_ZONEBOURSE_VERIFIE'
+ assert r['Nature_cotation']=='CLOTURE' and r['Heure_cotation_source'] is None
+ assert r['Cours_devise']==pytest.approx(.52) and r['Devise']=='GBP'
 def test_old_receipt_never_becomes_current():
  r=m.calculate(record(),'IDN',datetime(2026,11,16,23,tzinfo=timezone.utc))
  assert r['Statut']=='HISTORIQUE_PERIME'
@@ -58,7 +63,8 @@ def test_two_replays_identical_without_order(tmp_path):
  import shutil
  d=tmp_path/'DONNEES';d.mkdir()
  for name in ['ETAT_INITIAL_PORTEFEUILLE_GERE.csv','JOURNAL_ARBITRAGES_GERE.csv']:(d/name).write_bytes((ROOT/'DONNEES'/name).read_bytes())
- s=d/'ZONEBOURSE_NAVIGATEUR/2026-11-15';shutil.copytree(SOURCE,s)
+ s=d/'ZONEBOURSE_NAVIGATEUR/2026-11-15';s.mkdir(parents=True)
+ for name in ['IDN.json','INFU.json','MANIFESTE.json']:shutil.copy2(SOURCE/name,s/name)
  first=m.main(tmp_path,ASOF,s);csv1=(d/'EXPERIENCE_MOMENTUM_40.csv').read_bytes();second=m.main(tmp_path,ASOF,s)
  assert first==second and csv1==(d/'EXPERIENCE_MOMENTUM_40.csv').read_bytes()
  assert first['lectures_exploitables']==2 and first['transactions']==0
@@ -74,3 +80,33 @@ def test_pence_are_not_pounds():
  assert m.calculate(x,'IDN',ASOF)['Cours_devise']==pytest.approx(.0186)
  x['body']=x['body'].replace('1,860 GBp','1,860 GBP')
  assert m.calculate(x,'IDN',ASOF)['Cours_devise']==pytest.approx(1.86)
+
+def test_suspension_requires_documented_resumption():
+ controls=json.loads((ROOT/'CONFIG/CONTROLES_MARCHE_DOCUMENTES.json').read_text())
+ assert m.market_block(controls,'PULS.L',ASOF)['derniere_cotation']=='2026-10-27'
+ assert m.market_block(controls,'IDN',ASOF) is None
+ assert m.market_block(controls,'PULS.L',datetime(2026,10,27,20,tzinfo=timezone.utc)) is None
+ controls=copy.deepcopy(controls);controls[0]['date_reprise']='2026-11-16'
+ assert m.market_block(controls,'PULS.L',ASOF) is not None
+ assert m.market_block(controls,'PULS.L',datetime(2026,11,16,20,tzinfo=timezone.utc)) is None
+
+def test_current_looking_quote_does_not_override_suspension(tmp_path,monkeypatch):
+ import shutil
+ d=tmp_path/'DONNEES';d.mkdir();c=tmp_path/'CONFIG';c.mkdir()
+ for name in ['ETAT_INITIAL_PORTEFEUILLE_GERE.csv','JOURNAL_ARBITRAGES_GERE.csv']:(d/name).write_bytes((ROOT/'DONNEES'/name).read_bytes())
+ (c/'CONTROLES_MARCHE_DOCUMENTES.json').write_bytes((ROOT/'CONFIG/CONTROLES_MARCHE_DOCUMENTES.json').read_bytes())
+ s=d/'ZONEBOURSE_NAVIGATEUR/2026-11-15';s.mkdir(parents=True)
+ for name in ['IDN.json','INFU.json','MANIFESTE.json']:shutil.copy2(SOURCE/name,s/name)
+ (s/'PULS.L.json').write_text('{}')
+ actual_calculate=m.calculate
+ def candidate(receipt,ticker,asof):
+  if ticker!='PULS.L':return actual_calculate(receipt,ticker,asof)
+  return dict(actual_calculate(record(),'IDN',asof),Devise='GBP')
+ monkeypatch.setattr(m,'calculate',candidate)
+ report=m.main(tmp_path,ASOF,s)
+ rows=m.read(d/'EXPERIENCE_MOMENTUM_40.csv');puls=next(r for r in rows if r['Ticker']=='PULS.L')
+ assert report['lectures_exploitables']==2 and report['suspensions_documentees']==['PULS.L']
+ assert puls['Statut']=='COTATION_NON_NEGOCIABLE' and not puls['Rang_momentum']
+ assert puls['Signal']=='MARCHE_SUSPENDU_SANS_ARBITRAGE' and puls['Arbitrage_autorise']=='NON'
+ prep=next(r for r in m.read(d/'PREPARATION_HEBDOMADAIRE_MOMENTUM_40.csv') if r['Ticker']=='PULS.L')
+ assert prep['Preparation']=='SUSPENSION_NE_PAS_ARBITRER' and prep['Operation_virtuelle']=='AUCUNE'

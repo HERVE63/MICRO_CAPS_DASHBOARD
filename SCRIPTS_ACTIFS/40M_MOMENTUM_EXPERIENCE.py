@@ -27,6 +27,12 @@ def latest_closed(t,asof):
 def months_before(d,n):
     y,m=divmod(d.year*12+d.month-1-n,12);m+=1
     return date(y,m,min(d.day,calendar.monthrange(y,m)[1]))
+def market_block(controls,ticker,asof):
+    day=asof.astimezone(ZoneInfo('Europe/Paris')).date().isoformat()
+    for item in controls:
+        if item['ticker']==ticker and item['statut']=='SUSPENDU' and item['debut']<=day and (not item.get('date_reprise') or day<item['date_reprise']):
+            return item
+    return None
 def parse_history(record):
     rows={}
     for page in record.get('history',[]):
@@ -55,17 +61,17 @@ def calculate(record,ticker,asof):
     if captured>asof:raise ValueError('Consultation future')
     body=record['body']
     if '\n'+ticker.split('.')[0]+'\n' not in body:raise ValueError('Ticker de page divergent')
-    match=re.search(r'(Marché Fermé|Temps réel|Cours en différé|Temps Différé)[^\n]*?(\d\d:\d\d:\d\d) (\d\d/\d\d/\d{4})[^\n]*\n([\d\s,\.]+) (USD|CAD|EUR|GBp|GBX|GBP|SEK)\t',body)
+    match=re.search(r'(Marché Fermé|Cours en clôture|Temps réel|Cours en différé|Temps Différé)[^\n]*?(?:(\d\d:\d\d:\d\d) )?(\d\d/\d\d/\d{4})[^\n]*\n([\d\s,\.]+) (USD|CAD|EUR|GBp|GBX|GBP|SEK)\t',body)
     if not match:raise ValueError('Date, heure et unité de cotation non identifiées')
     market_state,clock,quote_date,price,unit=match.groups();qd=datetime.strptime(quote_date,'%d/%m/%Y').date();price=numeric(price)
     if price<=0:raise ValueError('Cours non positif')
-    quote_type='CLOTURE' if market_state=='Marché Fermé' else 'INTRADAY'
+    quote_type='CLOTURE' if market_state in ('Marché Fermé','Cours en clôture') else 'INTRADAY'
     history=parse_history(record)
     if any(d>qd for d in history):raise ValueError('Ligne historique postérieure à la cotation')
     if quote_type=='CLOTURE' and (qd not in history or abs(history[qd]['close']-price)>max(.00001,price*.00001)):raise ValueError('Clôture d’en-tête et tableau divergents')
     expected=latest_closed(ticker,asof)
-    quote_time=datetime.combine(qd,datetime.strptime(clock,'%H:%M:%S').time(),ZoneInfo('Europe/Paris'))
-    fresh=qd>=expected and (quote_type=='CLOTURE' or timedelta(0)<=asof-quote_time<=timedelta(minutes=30)) and captured.astimezone(ZoneInfo('Europe/Paris')).date()==asof.astimezone(ZoneInfo('Europe/Paris')).date()
+    quote_time=datetime.combine(qd,datetime.strptime(clock,'%H:%M:%S').time(),ZoneInfo('Europe/Paris')) if clock else None
+    fresh=qd>=expected and (quote_type=='CLOTURE' or quote_time is not None and timedelta(0)<=asof-quote_time<=timedelta(minutes=30)) and captured.astimezone(ZoneInfo('Europe/Paris')).date()==asof.astimezone(ZoneInfo('Europe/Paris')).date()
     if qd>asof.date():raise ValueError('Date de cours future')
     ds=sessions(ticker,qd-timedelta(days=30),qd)
     if qd not in ds:raise ValueError('Cotation hors calendrier')
@@ -109,6 +115,8 @@ def main(root=ROOT,asof=None,source=None):
     if len(holdings)!=40 or len({r['Ticker'] for r in holdings})!=40:raise ValueError('Cohorte 40 requise')
     journal=data/'JOURNAL_ARBITRAGES_GERE.csv';journal_hash=hashlib.sha256(journal.read_bytes()).hexdigest()
     manifest=json.loads((source/'MANIFESTE.json').read_text()) if (source/'MANIFESTE.json').exists() else {}
+    controls_path=root/'CONFIG/CONTROLES_MARCHE_DOCUMENTES.json'
+    controls=json.loads(controls_path.read_text()) if controls_path.exists() else []
     rows=[]
     for h in holdings:
         t=h['Ticker'];p=source/(t+'.json');r={'ID_position':h['ID_position'],'Ticker':t,'Societe':h['Societe'],'Date_execution':day,'Arbitrage_autorise':'NON','Rang_momentum':''}
@@ -118,14 +126,20 @@ def main(root=ROOT,asof=None,source=None):
                 r.update(calculate(json.loads(p.read_text()),t,asof));r['SHA256_preuve']=hashlib.sha256(p.read_bytes()).hexdigest()
                 if r['Devise']!=h['Devise']:raise ValueError('Devise différente de la position')
             except (ValueError,KeyError,IndexError) as e:r.update(Statut='PREUVE_INEXPLOITABLE',Signal='AUCUN_SIGNAL_SANS_PREUVE',Limites=str(e))
+        blocked=market_block(controls,t,asof)
+        if blocked:
+            r.update(Controle_marche='SUSPENDU',Sources_controle_marche=' | '.join(blocked['sources']),Signal='MARCHE_SUSPENDU_SANS_ARBITRAGE',Changement_direction='NON_EVALUABLE')
+            if r['Statut']=='CALCULABLE_ZONEBOURSE_VERIFIE':r['Statut']='COTATION_NON_NEGOCIABLE'
+            r['Limites']=r.get('Limites','')+' | '+blocked['motif']
         rows.append(r)
     verified=[r for r in rows if r['Statut']=='CALCULABLE_ZONEBOURSE_VERIFIE']
     # Priorité au mouvement de la dernière cotation; 5 séances puis M1/M2/M3 départagent.
     for i,r in enumerate(sorted(verified,key=lambda r:tuple(r[k] for k in ['Variation_derniere_seance_pct','Variation_5_seances_pct','Momentum_1m_pct','Momentum_2m_pct','Momentum_3m_pct']),reverse=True),1):r['Rang_momentum']=i
     write_csv(data/'EXPERIENCE_MOMENTUM_40.csv',rows)
     report={'date_execution':day,'asof_utc':asof.isoformat(),'titulaires':40,'lectures_exploitables':len(verified),'lignes_sans_cotation_actualisee':40-len(verified),'statut':'PRET_POUR_REVUE_HEBDOMADAIRE' if len(verified)==40 else 'COLLECTE_PARTIELLE_ARBITRAGE_NON_PREPARE','source_requise':'Zonebourse, consultation individuelle navigateur','source_dossier':str(source.relative_to(root)),'frais_vente_pct':2.5,'frais_achat_pct':2.5,'friction_vente_achat_pct':(1-.975/1.025)*100,'journal_sha256':journal_hash,'transactions':0,'arbitrage_automatique':'DESACTIVE','classement':'DIAGNOSTIC_PARTIEL' if len(verified)<40 else 'COMPLET_A_REVOIR','temoin':'40 positions T0 figées; aucune valorisation complète réétiquetée comme Zonebourse actuelle','blocage_collecte':manifest.get('blocage')}
+    report['suspensions_documentees']=[r['Ticker'] for r in rows if r.get('Controle_marche')=='SUSPENDU']
     (data/'ETAT_MOMENTUM_QUOTIDIEN.json').write_text(json.dumps(report,ensure_ascii=False,indent=2)+'\n')
-    preparation=[{'Ticker':r['Ticker'],'Date_revue':day,'Signal':r['Signal'],'Statut_cotation':r['Statut'],'Preparation':'SURVEILLER_DECELERATION' if r['Signal']=='DECELERATION_A_SURVEILLER' else 'EXAMINER_REDUCTION' if 'BAISSIER' in r['Signal'] else 'EXAMINER_REPRISE' if 'HAUSSIER' in r['Signal'] else 'ATTENDRE_PREUVES' if r not in verified else 'CONSERVER_SOUS_REVUE','Confrontation_40':'COMPLETE' if len(verified)==40 else 'INCOMPLETE','Operation_virtuelle':'AUCUNE','Friction_rotation_pct':report['friction_vente_achat_pct']} for r in rows]
+    preparation=[{'Ticker':r['Ticker'],'Date_revue':day,'Signal':r['Signal'],'Statut_cotation':r['Statut'],'Preparation':'SUSPENSION_NE_PAS_ARBITRER' if r.get('Controle_marche')=='SUSPENDU' else 'SURVEILLER_DECELERATION' if r['Signal']=='DECELERATION_A_SURVEILLER' else 'EXAMINER_REDUCTION' if 'BAISSIER' in r['Signal'] else 'EXAMINER_REPRISE' if 'HAUSSIER' in r['Signal'] else 'ATTENDRE_PREUVES' if r not in verified else 'CONSERVER_SOUS_REVUE','Confrontation_40':'COMPLETE' if len(verified)==40 else 'INCOMPLETE','Operation_virtuelle':'AUCUNE','Friction_rotation_pct':report['friction_vente_achat_pct']} for r in rows]
     write_csv(data/'PREPARATION_HEBDOMADAIRE_MOMENTUM_40.csv',preparation)
     if hashlib.sha256(journal.read_bytes()).hexdigest()!=journal_hash:raise RuntimeError('Journal modifié')
     print(json.dumps(report,ensure_ascii=False));return report

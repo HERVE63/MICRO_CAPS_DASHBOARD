@@ -1,9 +1,9 @@
 {
   "date_execution": "2026-11-15",
-  "asof_utc": "2026-11-15T14:36:27.558497+00:00",
+  "asof_utc": "2026-11-15T15:11:12.118012+00:00",
   "titulaires": 40,
-  "lectures_exploitables": 2,
-  "lignes_sans_cotation_actualisee": 38,
+  "lectures_exploitables": 15,
+  "lignes_sans_cotation_actualisee": 25,
   "statut": "COLLECTE_PARTIELLE_ARBITRAGE_NON_PREPARE",
   "source_requise": "Zonebourse, consultation individuelle navigateur",
   "source_dossier": "DONNEES/ZONEBOURSE_NAVIGATEUR/2026-11-15",
@@ -15,5 +15,8 @@
   "arbitrage_automatique": "DESACTIVE",
   "classement": "DIAGNOSTIC_PARTIEL",
   "temoin": "40 positions T0 figées; aucune valorisation complète réétiquetée comme Zonebourse actuelle",
-  "blocage_collecte": "Zonebourse affiche LIMITE QUOTIDIENNE GRATUITE ATTEINTE, demande de connexion; pas un blocage anti-robot. Aucune nouvelle route tentée pour contourner cette limite."
+  "blocage_collecte": null,
+  "suspensions_documentees": [
+    "PULS.L"
+  ]
 }

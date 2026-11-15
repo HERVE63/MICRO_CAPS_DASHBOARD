@@ -29,7 +29,7 @@ jobs:
         with:
           python-version: '3.12'
       - name: Installer les dependances de controle
-        run: python -m pip install pandas pytest requests
+        run: python -m pip install pandas pandas_market_calendars pytest requests
       - name: Tester le classement momentum des 40 titulaires et le verrou virtuel
         run: python -m pytest -q tests/test_40m_momentum_experience_integration.py
       - name: Tester la collecte sans reseau

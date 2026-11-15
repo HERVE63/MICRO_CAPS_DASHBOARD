@@ -9,7 +9,7 @@ on:
       - 'tests/test_40m_momentum_experience_integration.py'
       - '.github/workflows/microcaps-momentum-quotidien.yml'
 permissions:
-  contents: read
+  contents: write
 concurrency:
   group: microcaps-momentum-zonebourse
   cancel-in-progress: false
@@ -42,6 +42,23 @@ jobs:
             DONNEES/EXPERIENCE_MOMENTUM_40.csv
             DONNEES/ETAT_MOMENTUM_QUOTIDIEN.json
             DONNEES/PREPARATION_HEBDOMADAIRE_MOMENTUM_40.csv
+      - name: Sauvegarder les calculs sur la branche de travail
+        if: success()
+        env:
+          EXPECTED_HEAD: ${{ github.sha }}
+        run: |
+          git fetch origin repair/microcaps-chain-20261030
+          if [ "$(git rev-parse FETCH_HEAD)" != "$EXPECTED_HEAD" ]; then
+            echo 'Branche avancée : résultats conservés dans l’artefact, sans écraser un passage plus récent.'
+            exit 0
+          fi
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add DONNEES/EXPERIENCE_MOMENTUM_40.csv DONNEES/ETAT_MOMENTUM_QUOTIDIEN.json DONNEES/PREPARATION_HEBDOMADAIRE_MOMENTUM_40.csv
+          if ! git diff --cached --quiet; then
+            git commit -m "data: calculs momentum depuis lectures Zonebourse [skip ci]"
+            git push origin HEAD:repair/microcaps-chain-20261030
+          fi
       - name: Vérifier la couverture actuelle distinctement des tests logiciels
         run: |
           python - <<'PY'
