@@ -1,47 +1,54 @@
-name: Micro Caps - momentum quotidien (1 2 3 mois)
+name: Micro Caps - lectures Zonebourse et momentum 1 2 3 mois
 on:
-  schedule:
-    - cron: '15 20 * * 1-5'
   workflow_dispatch:
+  push:
+    branches: [repair/microcaps-chain-20261030]
+    paths:
+      - 'DONNEES/ZONEBOURSE_NAVIGATEUR/**'
+      - 'SCRIPTS_ACTIFS/40M_MOMENTUM_EXPERIENCE.py'
+      - 'tests/test_40m_momentum_experience_integration.py'
+      - '.github/workflows/microcaps-momentum-quotidien.yml'
 permissions:
   contents: read
+concurrency:
+  group: microcaps-momentum-zonebourse
+  cancel-in-progress: false
 jobs:
-  calcul-momentum:
+  tests-et-calculs:
     runs-on: ubuntu-latest
+    timeout-minutes: 10
     steps:
       - uses: actions/checkout@v4
         with:
-          ref: repair/microcaps-chain-20261030
+          ref: ${{ github.sha }}
       - uses: actions/setup-python@v5
         with:
-          python-version: '3.11'
-      - name: Calcul des 40 fiches sans collecte secondaire
-        run: python -B SCRIPTS_ACTIFS/40M_MOMENTUM_EXPERIENCE.py
-      - name: Controle de fraicheur et couverture des cotations
+          python-version: '3.12'
+      - name: Installer les dépendances
+        run: python -m pip install pandas pandas_market_calendars pytest
+      - name: Tester les vrais relevés et les refus de données périmées
+        run: python -m pytest -q tests/test_40m_momentum_experience_integration.py
+      - name: Vérifier le T0 et exécuter le moteur sur les lectures du jour
         run: |
-          python - <<'PY'
-          import csv,datetime,json
-          from pathlib import Path
-          p=Path('DONNEES/EXPERIENCE_MOMENTUM_40.csv')
-          with p.open(encoding='utf-8',newline='') as f: rows=list(csv.DictReader(f))
-          assert len(rows)==40,f'{len(rows)} fiches au lieu de 40'
-          today=datetime.datetime.now(datetime.timezone.utc).date()
-          fresh=[]
-          for r in rows:
-              try: age=(today-datetime.date.fromisoformat(r['Date_historique'])).days
-              except (ValueError,KeyError):age=999
-              if age<=4 and r['Statut'].startswith('CALCULABLE'):fresh.append(r['Ticker'])
-          report={'date_utc':str(today),'fiches':len(rows),'cotations_recentes_et_indicateurs_calculables':len(fresh),'statut':'PRET_POUR_REVUE' if len(fresh)==40 else 'DONNEES_NON_ACTUALISEES','source_requise_pour_actualisation':'Zonebourse uniquement','arbitrage_automatique':'DESACTIVE'}
-          Path('DONNEES/ETAT_MOMENTUM_QUOTIDIEN.json').write_text(json.dumps(report,ensure_ascii=False,indent=2)+'\n',encoding='utf-8')
-          print(json.dumps(report,ensure_ascii=False))
-          if len(fresh)!=40:raise SystemExit('Actualisation Zonebourse non raccordee : pas de signal frais certifie')
-          PY
-      - name: Conserver les rapports meme en cas de donnees anciennes
+          python SCRIPTS_ACTIFS/07AC_CONTROLER_T0.py
+          python SCRIPTS_ACTIFS/40M_MOMENTUM_EXPERIENCE.py
+      - name: Archiver résultats et preuves
         if: always()
         uses: actions/upload-artifact@v4
         with:
-          name: microcaps-momentum-quotidien-${{ github.run_id }}
+          name: microcaps-zonebourse-${{ github.run_id }}
           path: |
+            DONNEES/ZONEBOURSE_NAVIGATEUR/
             DONNEES/EXPERIENCE_MOMENTUM_40.csv
             DONNEES/ETAT_MOMENTUM_QUOTIDIEN.json
-          if-no-files-found: warn
+            DONNEES/PREPARATION_HEBDOMADAIRE_MOMENTUM_40.csv
+      - name: Vérifier la couverture actuelle distinctement des tests logiciels
+        run: |
+          python - <<'PY'
+          import json
+          from pathlib import Path
+          r=json.loads(Path('DONNEES/ETAT_MOMENTUM_QUOTIDIEN.json').read_text())
+          print(json.dumps(r,ensure_ascii=False))
+          if r['lectures_exploitables']!=40:
+              raise SystemExit('COLLECTE INCOMPLETE : '+str(r['lectures_exploitables'])+'/40. Tests logiciels exécutés ; aucun arbitrage autorisé.')
+          PY
