@@ -1,9 +1,6 @@
 name: Micro Caps - lectures Zonebourse et momentum 1 2 3 mois
 on:
   workflow_dispatch:
-  schedule:
-    # Contrôle quotidien, sans prétendre collecter des pages authentifiées.
-    - cron: '30 21 * * 1-5'
   push:
     branches: [repair/microcaps-chain-20261030]
     paths:
