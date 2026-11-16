@@ -60,13 +60,5 @@ jobs:
             git commit -m "data: calculs momentum depuis lectures Zonebourse [skip ci]"
             git push origin HEAD:repair/microcaps-chain-20261030
           fi
-      - name: Vérifier la couverture actuelle distinctement des tests logiciels
-        run: |
-          python - <<'PY'
-          import json
-          from pathlib import Path
-          r=json.loads(Path('DONNEES/ETAT_MOMENTUM_QUOTIDIEN.json').read_text())
-          print(json.dumps(r,ensure_ascii=False))
-          if r['lectures_exploitables']!=40:
-              raise SystemExit('COLLECTE INCOMPLETE : '+str(r['lectures_exploitables'])+'/40. Tests logiciels exécutés ; aucun arbitrage autorisé.')
-          PY
+      - name: Contrôle final 40/40 Zonebourse et intégrité du journal virtuel
+        run: python SCRIPTS_ACTIFS/ZONEBOURSE_MOMENTUM_40_GATE.py
