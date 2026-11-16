@@ -1,0 +1,433 @@
+﻿2026-11-16T14:34:11.6096125Z Current runner version: '2.338.2'
+2026-11-16T14:34:11.6112951Z ##[group]Runner Image Provisioner
+2026-11-16T14:34:11.6113651Z Hosted Compute Agent
+2026-11-16T14:34:11.6114080Z Version: 20261103.629
+2026-11-16T14:34:11.6114533Z Commit: 15dbd9ccb5dbf34fae002b6ed1a2670f52df37bc
+2026-11-16T14:34:11.6115052Z Build Date: 2026-11-03T17:26:59Z
+2026-11-16T14:34:11.6115575Z Worker ID: {9c357a94-5596-45d7-a049-49c757ad163a}
+2026-11-16T14:34:11.6116126Z Region: us-west-2
+2026-11-16T14:34:11.6116510Z Cloud: AWS
+2026-11-16T14:34:11.6116877Z ##[endgroup]
+2026-11-16T14:34:11.6117868Z ##[group]Operating System
+2026-11-16T14:34:11.6118293Z Ubuntu
+2026-11-16T14:34:11.6118682Z 26.04.1
+2026-11-16T14:34:11.6119327Z LTS
+2026-11-16T14:34:11.6119683Z ##[endgroup]
+2026-11-16T14:34:11.6120099Z ##[group]Runner Image
+2026-11-16T14:34:11.6120544Z Image: ubuntu-26.04
+2026-11-16T14:34:11.6121118Z Version: 20261111.82.6
+2026-11-16T14:34:11.6121984Z Included Software: https://github.com/actions/runner-images/blob/ubuntu26/20261111.82/images/ubuntu/Ubuntu2604-Readme.md
+2026-11-16T14:34:11.6123054Z Image Release: https://github.com/actions/runner-images/releases/tag/ubuntu26%2F20261111.82
+2026-11-16T14:34:11.6123740Z ##[endgroup]
+2026-11-16T14:34:11.6124518Z ##[group]GITHUB_TOKEN Permissions
+2026-11-16T14:34:11.6126236Z Contents: write
+2026-11-16T14:34:11.6126659Z Metadata: read
+2026-11-16T14:34:11.6127044Z ##[endgroup]
+2026-11-16T14:34:11.6128533Z Secret source: Actions
+2026-11-16T14:34:11.6129517Z Cache mode: write
+2026-11-16T14:34:11.6129992Z Prepare workflow directory
+2026-11-16T14:34:11.6354608Z Prepare all required actions
+2026-11-16T14:34:11.6390747Z Getting action download info
+2026-11-16T14:34:12.0287235Z Download action repository 'actions/checkout@v4' (SHA:11d5960a326750d5838078e36cf38b85af677262)
+2026-11-16T14:34:14.6965889Z Download action repository 'actions/setup-python@v5' (SHA:a26af69be951a213d495a4c3e4e4022e16d87065)
+2026-11-16T14:34:14.8244825Z Download action repository 'actions/upload-artifact@v4' (SHA:ea165f8d65b6e75b540449e92b4886f43607fa02)
+2026-11-16T14:34:15.0365621Z Complete job name: tests-et-calculs
+2026-11-16T14:34:15.0995646Z ##[group]Run actions/checkout@v4
+2026-11-16T14:34:15.0996330Z with:
+2026-11-16T14:34:15.0996756Z   ref: 412be729c3f11e77c78ff2b6014702349cfbab48
+2026-11-16T14:34:15.0997362Z   repository: HERVE63/MICRO_CAPS_DASHBOARD
+2026-11-16T14:34:15.1000960Z   token: ***
+2026-11-16T14:34:15.1001432Z   ssh-strict: true
+2026-11-16T14:34:15.1001849Z   ssh-user: git
+2026-11-16T14:34:15.1002246Z   persist-credentials: true
+2026-11-16T14:34:15.1002739Z   clean: true
+2026-11-16T14:34:15.1003156Z   sparse-checkout-cone-mode: true
+2026-11-16T14:34:15.1003639Z   fetch-depth: 1
+2026-11-16T14:34:15.1004061Z   fetch-tags: false
+2026-11-16T14:34:15.1004481Z   show-progress: true
+2026-11-16T14:34:15.1004906Z   lfs: false
+2026-11-16T14:34:15.1005312Z   submodules: false
+2026-11-16T14:34:15.1005752Z   set-safe-directory: true
+2026-11-16T14:34:15.1006225Z   allow-unsafe-pr-checkout: false
+2026-11-16T14:34:15.1006880Z ##[endgroup]
+2026-11-16T14:34:21.3618734Z Syncing repository: HERVE63/MICRO_CAPS_DASHBOARD
+2026-11-16T14:34:21.3621075Z ##[group]Getting Git version info
+2026-11-16T14:34:21.3621765Z Working directory is '/home/runner/work/MICRO_CAPS_DASHBOARD/MICRO_CAPS_DASHBOARD'
+2026-11-16T14:34:21.3622732Z [command]/usr/bin/git version
+2026-11-16T14:34:21.3623034Z git version 2.56.1
+2026-11-16T14:34:21.3624380Z ##[endgroup]
+2026-11-16T14:34:21.3628683Z Temporarily overriding HOME='/home/runner/work/_temp/d01b1ab0-7cb2-4344-9e89-5563fd42cef4' before making global git config changes
+2026-11-16T14:34:21.3629737Z Adding repository directory to the temporary git global config as a safe directory
+2026-11-16T14:34:21.3630661Z [command]/usr/bin/git config --global --add safe.directory /home/runner/work/MICRO_CAPS_DASHBOARD/MICRO_CAPS_DASHBOARD
+2026-11-16T14:34:21.4037872Z Deleting the contents of '/home/runner/work/MICRO_CAPS_DASHBOARD/MICRO_CAPS_DASHBOARD'
+2026-11-16T14:34:21.4040066Z ##[group]Initializing the repository
+2026-11-16T14:34:21.4042904Z [command]/usr/bin/git init /home/runner/work/MICRO_CAPS_DASHBOARD/MICRO_CAPS_DASHBOARD
+2026-11-16T14:34:21.5050791Z hint: Using 'master' as the name for the initial branch. This default branch name
+2026-11-16T14:34:21.5051561Z hint: will change to "main" in Git 3.0. To configure the initial branch name
+2026-11-16T14:34:21.5052069Z hint: to use in all of your new repositories, which will suppress this warning,
+2026-11-16T14:34:21.5052537Z hint: call:
+2026-11-16T14:34:21.5052783Z hint:
+2026-11-16T14:34:21.5053143Z hint: 	git config --global init.defaultBranch <name>
+2026-11-16T14:34:21.5053492Z hint:
+2026-11-16T14:34:21.5053830Z hint: Names commonly chosen instead of 'master' are 'main', 'trunk' and
+2026-11-16T14:34:21.5054315Z hint: 'development'. The just-created branch can be renamed via this command:
+2026-11-16T14:34:21.5054732Z hint:
+2026-11-16T14:34:21.5054975Z hint: 	git branch -m <name>
+2026-11-16T14:34:21.5055269Z hint:
+2026-11-16T14:34:21.5055624Z hint: Disable this message with "git config set advice.defaultBranchName false"
+2026-11-16T14:34:21.5073818Z Initialized empty Git repository in /home/runner/work/MICRO_CAPS_DASHBOARD/MICRO_CAPS_DASHBOARD/.git/
+2026-11-16T14:34:21.5080225Z [command]/usr/bin/git remote add origin https://github.com/HERVE63/MICRO_CAPS_DASHBOARD
+2026-11-16T14:34:21.5142862Z ##[endgroup]
+2026-11-16T14:34:21.5143382Z ##[group]Disabling automatic garbage collection
+2026-11-16T14:34:21.5144924Z [command]/usr/bin/git config --local gc.auto 0
+2026-11-16T14:34:21.5163689Z ##[endgroup]
+2026-11-16T14:34:21.5164116Z ##[group]Setting up auth
+2026-11-16T14:34:21.5167914Z [command]/usr/bin/git config --local --name-only --get-regexp core\.sshCommand
+2026-11-16T14:34:21.5189068Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'core\.sshCommand' && git config --local --unset-all 'core.sshCommand' || :"
+2026-11-16T14:34:22.0598190Z [command]/usr/bin/git config --local --name-only --get-regexp http\.https\:\/\/github\.com\/\.extraheader
+2026-11-16T14:34:22.0620742Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'http\.https\:\/\/github\.com\/\.extraheader' && git config --local --unset-all 'http.https://github.com/.extraheader' || :"
+2026-11-16T14:34:22.0795847Z [command]/usr/bin/git config --local --name-only --get-regexp ^includeIf\.gitdir:
+2026-11-16T14:34:22.0820646Z [command]/usr/bin/git submodule foreach --recursive git config --local --show-origin --name-only --get-regexp remote.origin.url
+2026-11-16T14:34:22.0994313Z [command]/usr/bin/git config --local http.https://github.com/.extraheader AUTHORIZATION: basic ***
+2026-11-16T14:34:22.1018139Z ##[endgroup]
+2026-11-16T14:34:22.1018655Z ##[group]Fetching the repository
+2026-11-16T14:34:22.1024806Z [command]/usr/bin/git -c protocol.version=2 fetch --no-tags --prune --no-recurse-submodules --depth=1 origin 412be729c3f11e77c78ff2b6014702349cfbab48
+2026-11-16T14:34:47.1701552Z From https://github.com/HERVE63/MICRO_CAPS_DASHBOARD
+2026-11-16T14:34:47.1702202Z  * branch              412be729c3f11e77c78ff2b6014702349cfbab48 -> FETCH_HEAD
+2026-11-16T14:34:47.1707366Z ##[endgroup]
+2026-11-16T14:34:47.1708033Z ##[group]Determining the checkout info
+2026-11-16T14:34:47.1708501Z ##[endgroup]
+2026-11-16T14:34:47.1712930Z [command]/usr/bin/git sparse-checkout disable
+2026-11-16T14:34:47.1769984Z [command]/usr/bin/git config --local --unset-all extensions.worktreeConfig
+2026-11-16T14:34:47.1782720Z ##[group]Checking out the ref
+2026-11-16T14:34:47.1792006Z [command]/usr/bin/git checkout --progress --force 412be729c3f11e77c78ff2b6014702349cfbab48
+2026-11-16T14:34:49.2056812Z Updating files:   1% (411/39472)
+2026-11-16T14:34:50.1286647Z Updating files:   1% (599/39472)
+2026-11-16T14:34:50.2109071Z Updating files:   2% (790/39472)
+2026-11-16T14:34:51.2026080Z Updating files:   2% (804/39472)
+2026-11-16T14:34:52.1844647Z Updating files:   2% (980/39472)
+2026-11-16T14:34:52.2118357Z Updating files:   3% (1185/39472)
+2026-11-16T14:34:52.7550903Z Updating files:   3% (1189/39472)
+2026-11-16T14:34:52.8903205Z Updating files:   4% (1579/39472)
+2026-11-16T14:34:53.0316983Z Updating files:   5% (1974/39472)
+2026-11-16T14:34:53.1721852Z Updating files:   6% (2369/39472)
+2026-11-16T14:34:53.2025528Z Updating files:   7% (2764/39472)
+2026-11-16T14:34:53.3143714Z Updating files:   7% (2849/39472)
+2026-11-16T14:34:53.4475275Z Updating files:   8% (3158/39472)
+2026-11-16T14:34:53.5877275Z Updating files:   9% (3553/39472)
+2026-11-16T14:34:53.6961027Z Updating files:  10% (3948/39472)
+2026-11-16T14:34:53.7182937Z Updating files:  11% (4342/39472)
+2026-11-16T14:34:53.7312279Z Updating files:  12% (4737/39472)
+2026-11-16T14:34:53.7442531Z Updating files:  13% (5132/39472)
+2026-11-16T14:34:53.7571093Z Updating files:  14% (5527/39472)
+2026-11-16T14:34:53.7701048Z Updating files:  15% (5921/39472)
+2026-11-16T14:34:53.7829716Z Updating files:  16% (6316/39472)
+2026-11-16T14:34:53.8008255Z Updating files:  17% (6711/39472)
+2026-11-16T14:34:53.8106697Z Updating files:  18% (7105/39472)
+2026-11-16T14:34:53.8203158Z Updating files:  19% (7500/39472)
+2026-11-16T14:34:53.8299741Z Updating files:  20% (7895/39472)
+2026-11-16T14:34:53.8397620Z Updating files:  21% (8290/39472)
+2026-11-16T14:34:53.8495475Z Updating files:  22% (8684/39472)
+2026-11-16T14:34:53.8592332Z Updating files:  23% (9079/39472)
+2026-11-16T14:34:53.8689935Z Updating files:  24% (9474/39472)
+2026-11-16T14:34:53.8788219Z Updating files:  25% (9868/39472)
+2026-11-16T14:34:53.8887645Z Updating files:  26% (10263/39472)
+2026-11-16T14:34:53.8987183Z Updating files:  27% (10658/39472)
+2026-11-16T14:34:53.9083407Z Updating files:  28% (11053/39472)
+2026-11-16T14:34:53.9822888Z Updating files:  29% (11447/39472)
+2026-11-16T14:34:54.0958152Z Updating files:  30% (11842/39472)
+2026-11-16T14:34:54.2022277Z Updating files:  31% (12237/39472)
+2026-11-16T14:34:54.2066913Z Updating files:  31% (12611/39472)
+2026-11-16T14:34:54.2694429Z Updating files:  32% (12632/39472)
+2026-11-16T14:34:54.2922552Z Updating files:  33% (13026/39472)
+2026-11-16T14:34:54.5982424Z Updating files:  34% (13421/39472)
+2026-11-16T14:34:54.7093960Z Updating files:  35% (13816/39472)
+2026-11-16T14:34:54.8224820Z Updating files:  36% (14210/39472)
+2026-11-16T14:34:54.9287261Z Updating files:  37% (14605/39472)
+2026-11-16T14:34:55.0494927Z Updating files:  38% (15000/39472)
+2026-11-16T14:34:55.1634964Z Updating files:  39% (15395/39472)
+2026-11-16T14:34:55.2022644Z Updating files:  40% (15789/39472)
+2026-11-16T14:34:55.2926079Z Updating files:  40% (15904/39472)
+2026-11-16T14:34:55.3606367Z Updating files:  41% (16184/39472)
+2026-11-16T14:34:55.3735393Z Updating files:  42% (16579/39472)
+2026-11-16T14:34:55.3856400Z Updating files:  43% (16973/39472)
+2026-11-16T14:34:55.3969590Z Updating files:  44% (17368/39472)
+2026-11-16T14:34:55.4081316Z Updating files:  45% (17763/39472)
+2026-11-16T14:34:55.4294537Z Updating files:  46% (18158/39472)
+2026-11-16T14:34:55.5428719Z Updating files:  47% (18552/39472)
+2026-11-16T14:34:55.5994702Z Updating files:  48% (18947/39472)
+2026-11-16T14:34:55.6619786Z Updating files:  49% (19342/39472)
+2026-11-16T14:34:55.7051869Z Updating files:  50% (19736/39472)
+2026-11-16T14:34:55.7535386Z Updating files:  51% (20131/39472)
+2026-11-16T14:34:55.7843845Z Updating files:  52% (20526/39472)
+2026-11-16T14:34:55.8457422Z Updating files:  53% (20921/39472)
+2026-11-16T14:34:55.9114441Z Updating files:  54% (21315/39472)
+2026-11-16T14:34:55.9655983Z Updating files:  55% (21710/39472)
+2026-11-16T14:34:56.0225249Z Updating files:  56% (22105/39472)
+2026-11-16T14:34:56.0747956Z Updating files:  57% (22500/39472)
+2026-11-16T14:34:56.1315517Z Updating files:  58% (22894/39472)
+2026-11-16T14:34:56.1733452Z Updating files:  59% (23289/39472)
+2026-11-16T14:34:56.2028499Z Updating files:  60% (23684/39472)
+2026-11-16T14:34:56.2323561Z Updating files:  60% (23850/39472)
+2026-11-16T14:34:56.2783076Z Updating files:  61% (24078/39472)
+2026-11-16T14:34:56.3521241Z Updating files:  62% (24473/39472)
+2026-11-16T14:34:56.4044869Z Updating files:  63% (24868/39472)
+2026-11-16T14:34:56.8554538Z Updating files:  64% (25263/39472)
+2026-11-16T14:34:57.0048545Z Updating files:  65% (25657/39472)
+2026-11-16T14:34:57.1110131Z Updating files:  66% (26052/39472)
+2026-11-16T14:34:57.2052136Z Updating files:  67% (26447/39472)
+2026-11-16T14:34:57.2348145Z Updating files:  67% (26683/39472)
+2026-11-16T14:34:57.3010843Z Updating files:  68% (26841/39472)
+2026-11-16T14:34:57.3869781Z Updating files:  69% (27236/39472)
+2026-11-16T14:34:57.5653826Z Updating files:  70% (27631/39472)
+2026-11-16T14:34:57.6762173Z Updating files:  71% (28026/39472)
+2026-11-16T14:34:57.8161432Z Updating files:  72% (28420/39472)
+2026-11-16T14:34:57.9506817Z Updating files:  73% (28815/39472)
+2026-11-16T14:34:58.0656317Z Updating files:  74% (29210/39472)
+2026-11-16T14:34:58.2072186Z Updating files:  75% (29604/39472)
+2026-11-16T14:34:58.2222515Z Updating files:  75% (29865/39472)
+2026-11-16T14:34:58.3435740Z Updating files:  76% (29999/39472)
+2026-11-16T14:34:58.4333526Z Updating files:  77% (30394/39472)
+2026-11-16T14:34:58.5462767Z Updating files:  78% (30789/39472)
+2026-11-16T14:34:58.6953166Z Updating files:  79% (31183/39472)
+2026-11-16T14:34:58.8182382Z Updating files:  80% (31578/39472)
+2026-11-16T14:34:59.3495572Z Updating files:  81% (31973/39472)
+2026-11-16T14:34:59.5090144Z Updating files:  81% (32028/39472)
+2026-11-16T14:34:59.5729453Z Updating files:  82% (32368/39472)
+2026-11-16T14:34:59.6345887Z Updating files:  83% (32762/39472)
+2026-11-16T14:34:59.7688197Z Updating files:  84% (33157/39472)
+2026-11-16T14:34:59.8497979Z Updating files:  85% (33552/39472)
+2026-11-16T14:34:59.9629467Z Updating files:  86% (33946/39472)
+2026-11-16T14:35:00.1472994Z Updating files:  87% (34341/39472)
+2026-11-16T14:35:00.2026570Z Updating files:  88% (34736/39472)
+2026-11-16T14:35:00.2741735Z Updating files:  88% (34862/39472)
+2026-11-16T14:35:00.4532405Z Updating files:  89% (35131/39472)
+2026-11-16T14:35:00.6185537Z Updating files:  90% (35525/39472)
+2026-11-16T14:35:00.7336112Z Updating files:  91% (35920/39472)
+2026-11-16T14:35:00.9130537Z Updating files:  92% (36315/39472)
+2026-11-16T14:35:01.0724852Z Updating files:  93% (36709/39472)
+2026-11-16T14:35:01.1782225Z Updating files:  94% (37104/39472)
+2026-11-16T14:35:01.2104421Z Updating files:  95% (37499/39472)
+2026-11-16T14:35:01.3187839Z Updating files:  95% (37610/39472)
+2026-11-16T14:35:01.5107979Z Updating files:  96% (37894/39472)
+2026-11-16T14:35:01.6576017Z Updating files:  97% (38288/39472)
+2026-11-16T14:35:02.4758084Z Updating files:  98% (38683/39472)
+2026-11-16T14:35:03.0920466Z Updating files:  98% (38724/39472)
+2026-11-16T14:35:03.2096712Z Updating files:  99% (39078/39472)
+2026-11-16T14:35:03.2678034Z Updating files:  99% (39154/39472)
+2026-11-16T14:35:03.2679221Z Updating files: 100% (39472/39472)
+2026-11-16T14:35:03.2679867Z Updating files: 100% (39472/39472), done.
+2026-11-16T14:35:03.3005632Z Note: switching to '412be729c3f11e77c78ff2b6014702349cfbab48'.
+2026-11-16T14:35:03.3005902Z 
+2026-11-16T14:35:03.3006074Z You are in 'detached HEAD' state. You can look around, make experimental
+2026-11-16T14:35:03.3006651Z changes and commit them, and you can discard any commits you make in this
+2026-11-16T14:35:03.3007066Z state without impacting any branches by switching back to a branch.
+2026-11-16T14:35:03.3007278Z 
+2026-11-16T14:35:03.3007466Z If you want to create a new branch to retain commits you create, you may
+2026-11-16T14:35:03.3007899Z do so (now or later) by using -c with the switch command. Example:
+2026-11-16T14:35:03.3008127Z 
+2026-11-16T14:35:03.3008231Z   git switch -c <new-branch-name>
+2026-11-16T14:35:03.3008408Z 
+2026-11-16T14:35:03.3008492Z Or undo this operation with:
+2026-11-16T14:35:03.3008684Z 
+2026-11-16T14:35:03.3008799Z   git switch -
+2026-11-16T14:35:03.3009098Z 
+2026-11-16T14:35:03.3009307Z Turn off this advice by setting config variable advice.detachedHead to false
+2026-11-16T14:35:03.3009557Z 
+2026-11-16T14:35:03.3009854Z HEAD is now at 412be729 fix(momentum): validate Growens identity and process 21 new individual Premium readings
+2026-11-16T14:35:03.3124999Z ##[endgroup]
+2026-11-16T14:35:03.3160691Z [command]/usr/bin/git log -1 --format=%H
+2026-11-16T14:35:03.3178506Z 412be729c3f11e77c78ff2b6014702349cfbab48
+2026-11-16T14:35:03.3427779Z ##[group]Run actions/setup-python@v5
+2026-11-16T14:35:03.3428051Z with:
+2026-11-16T14:35:03.3428318Z   python-version: 3.12
+2026-11-16T14:35:03.3428544Z   check-latest: false
+2026-11-16T14:35:03.3430625Z   token: ***
+2026-11-16T14:35:03.3430851Z   update-environment: true
+2026-11-16T14:35:03.3431100Z   allow-prereleases: false
+2026-11-16T14:35:03.3431363Z   freethreaded: false
+2026-11-16T14:35:03.3431584Z ##[endgroup]
+2026-11-16T14:35:03.4435361Z ##[group]Installed versions
+2026-11-16T14:35:03.6582966Z (node:2374) [DEP0040] DeprecationWarning: The `punycode` module is deprecated. Please use a userland alternative instead.
+2026-11-16T14:35:03.6583753Z (Use `node --trace-deprecation ...` to show where the warning was created)
+2026-11-16T14:35:03.6584253Z Successfully set up CPython (3.12.16)
+2026-11-16T14:35:03.6584984Z ##[endgroup]
+2026-11-16T14:35:03.6742502Z ##[group]Run python -m pip install pandas pandas_market_calendars pytest
+2026-11-16T14:35:03.6743222Z [36;1mpython -m pip install pandas pandas_market_calendars pytest[0m
+2026-11-16T14:35:03.7411833Z shell: /usr/bin/bash -e {0}
+2026-11-16T14:35:03.7412181Z env:
+2026-11-16T14:35:03.7412500Z   pythonLocation: /opt/hostedtoolcache/Python/3.12.16/x64
+2026-11-16T14:35:03.7412889Z   PKG_CONFIG_PATH: /opt/hostedtoolcache/Python/3.12.16/x64/lib/pkgconfig
+2026-11-16T14:35:03.7413286Z   Python_ROOT_DIR: /opt/hostedtoolcache/Python/3.12.16/x64
+2026-11-16T14:35:03.7413680Z   Python2_ROOT_DIR: /opt/hostedtoolcache/Python/3.12.16/x64
+2026-11-16T14:35:03.7414025Z   Python3_ROOT_DIR: /opt/hostedtoolcache/Python/3.12.16/x64
+2026-11-16T14:35:03.7414395Z   LD_LIBRARY_PATH: /opt/hostedtoolcache/Python/3.12.16/x64/lib
+2026-11-16T14:35:03.7414695Z ##[endgroup]
+2026-11-16T14:35:10.2203015Z Collecting pandas
+2026-11-16T14:35:10.2528182Z   Downloading pandas-3.1.1-cp312-cp312-manylinux_2_24_x86_64.manylinux_2_28_x86_64.whl.metadata (16 kB)
+2026-11-16T14:35:10.2731239Z Collecting pandas_market_calendars
+2026-11-16T14:35:10.2807362Z   Downloading pandas_market_calendars-5.6.1-py3-none-any.whl.metadata (8.9 kB)
+2026-11-16T14:35:10.3044089Z Collecting pytest
+2026-11-16T14:35:10.3151484Z   Downloading pytest-9.2.0-py3-none-any.whl.metadata (7.9 kB)
+2026-11-16T14:35:10.4346033Z Collecting numpy>=2.0.2 (from pandas)
+2026-11-16T14:35:10.4430044Z   Downloading numpy-2.5.5-cp312-cp312-manylinux_2_27_x86_64.manylinux_2_28_x86_64.whl.metadata (6.6 kB)
+2026-11-16T14:35:10.4566184Z Collecting python-dateutil>=2.9.0 (from pandas)
+2026-11-16T14:35:10.4639433Z   Downloading python_dateutil-4.0.0-py3-none-any.whl.metadata (7.3 kB)
+2026-11-16T14:35:10.4790313Z Collecting exchange-calendars>=3.3 (from pandas_market_calendars)
+2026-11-16T14:35:10.4875448Z   Downloading exchange_calendars-4.13.3-py3-none-any.whl.metadata (26 kB)
+2026-11-16T14:35:10.5080343Z Collecting iniconfig>=2 (from pytest)
+2026-11-16T14:35:10.5158553Z   Downloading iniconfig-2.3.1-py3-none-any.whl.metadata (2.8 kB)
+2026-11-16T14:35:10.5306683Z Collecting packaging>=24 (from pytest)
+2026-11-16T14:35:10.5383629Z   Downloading packaging-26.3-py3-none-any.whl.metadata (3.5 kB)
+2026-11-16T14:35:10.5510859Z Collecting pluggy<2,>=1.6 (from pytest)
+2026-11-16T14:35:10.5593291Z   Downloading pluggy-1.7.0-py3-none-any.whl.metadata (5.0 kB)
+2026-11-16T14:35:10.5753631Z Collecting pygments>=2.15 (from pytest)
+2026-11-16T14:35:10.5831809Z   Downloading pygments-2.21.0-py3-none-any.whl.metadata (2.5 kB)
+2026-11-16T14:35:10.5980998Z Collecting pyluach>=2.3.0 (from exchange-calendars>=3.3->pandas_market_calendars)
+2026-11-16T14:35:10.6122625Z   Downloading pyluach-2.3.0-py3-none-any.whl.metadata (4.3 kB)
+2026-11-16T14:35:10.6251756Z Collecting toolz>=1.0.0 (from exchange-calendars>=3.3->pandas_market_calendars)
+2026-11-16T14:35:10.6399581Z   Downloading toolz-1.2.0-py3-none-any.whl.metadata (5.2 kB)
+2026-11-16T14:35:10.6530220Z Collecting tzdata>=2025.2 (from exchange-calendars>=3.3->pandas_market_calendars)
+2026-11-16T14:35:10.6680982Z   Downloading tzdata-2026.6-py2.py3-none-any.whl.metadata (1.4 kB)
+2026-11-16T14:35:10.6793206Z Collecting korean_lunar_calendar>=0.3.1 (from exchange-calendars>=3.3->pandas_market_calendars)
+2026-11-16T14:35:10.6868399Z   Downloading korean_lunar_calendar-0.4.0-py3-none-any.whl.metadata (6.6 kB)
+2026-11-16T14:35:10.6981206Z Downloading pandas-3.1.1-cp312-cp312-manylinux_2_24_x86_64.manylinux_2_28_x86_64.whl (12.0 MB)
+2026-11-16T14:35:10.7751223Z    ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 12.0/12.0 MB 204.0 MB/s  0:00:00
+2026-11-16T14:35:10.7835795Z Downloading pandas_market_calendars-5.6.1-py3-none-any.whl (148 kB)
+2026-11-16T14:35:10.7926464Z Downloading pytest-9.2.0-py3-none-any.whl (411 kB)
+2026-11-16T14:35:10.8020477Z Downloading pluggy-1.7.0-py3-none-any.whl (27 kB)
+2026-11-16T14:35:10.8130220Z Downloading exchange_calendars-4.13.3-py3-none-any.whl (216 kB)
+2026-11-16T14:35:10.8222418Z Downloading iniconfig-2.3.1-py3-none-any.whl (7.6 kB)
+2026-11-16T14:35:10.8317782Z Downloading korean_lunar_calendar-0.4.0-py3-none-any.whl (11 kB)
+2026-11-16T14:35:10.8406307Z Downloading numpy-2.5.5-cp312-cp312-manylinux_2_27_x86_64.manylinux_2_28_x86_64.whl (15.7 MB)
+2026-11-16T14:35:10.8921255Z    ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 15.7/15.7 MB 308.7 MB/s  0:00:00
+2026-11-16T14:35:10.8997546Z Downloading packaging-26.3-py3-none-any.whl (129 kB)
+2026-11-16T14:35:10.9090388Z Downloading pygments-2.21.0-py3-none-any.whl (1.3 MB)
+2026-11-16T14:35:10.9152689Z    ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 1.3/1.3 MB 220.8 MB/s  0:00:00
+2026-11-16T14:35:10.9236219Z Downloading pyluach-2.3.0-py3-none-any.whl (25 kB)
+2026-11-16T14:35:10.9326070Z Downloading python_dateutil-4.0.0-py3-none-any.whl (92 kB)
+2026-11-16T14:35:10.9415180Z Downloading toolz-1.2.0-py3-none-any.whl (60 kB)
+2026-11-16T14:35:10.9507483Z Downloading tzdata-2026.6-py2.py3-none-any.whl (348 kB)
+2026-11-16T14:35:11.2603643Z Installing collected packages: tzdata, toolz, pyluach, pygments, pluggy, packaging, numpy, korean_lunar_calendar, iniconfig, python-dateutil, pytest, pandas, exchange-calendars, pandas_market_calendars
+2026-11-16T14:35:17.2911612Z 
+2026-11-16T14:35:17.2926231Z Successfully installed exchange-calendars-4.13.3 iniconfig-2.3.1 korean_lunar_calendar-0.4.0 numpy-2.5.5 packaging-26.3 pandas-3.1.1 pandas_market_calendars-5.6.1 pluggy-1.7.0 pygments-2.21.0 pyluach-2.3.0 pytest-9.2.0 python-dateutil-4.0.0 toolz-1.2.0 tzdata-2026.6
+2026-11-16T14:35:17.3586613Z ##[group]Run python -m pytest -q tests/test_40m_momentum_experience_integration.py
+2026-11-16T14:35:17.3587109Z [36;1mpython -m pytest -q tests/test_40m_momentum_experience_integration.py[0m
+2026-11-16T14:35:17.3606462Z shell: /usr/bin/bash -e {0}
+2026-11-16T14:35:17.3606782Z env:
+2026-11-16T14:35:17.3607047Z   pythonLocation: /opt/hostedtoolcache/Python/3.12.16/x64
+2026-11-16T14:35:17.3607410Z   PKG_CONFIG_PATH: /opt/hostedtoolcache/Python/3.12.16/x64/lib/pkgconfig
+2026-11-16T14:35:17.3607821Z   Python_ROOT_DIR: /opt/hostedtoolcache/Python/3.12.16/x64
+2026-11-16T14:35:17.3608212Z   Python2_ROOT_DIR: /opt/hostedtoolcache/Python/3.12.16/x64
+2026-11-16T14:35:17.3608573Z   Python3_ROOT_DIR: /opt/hostedtoolcache/Python/3.12.16/x64
+2026-11-16T14:35:17.3609051Z   LD_LIBRARY_PATH: /opt/hostedtoolcache/Python/3.12.16/x64/lib
+2026-11-16T14:35:17.3609347Z ##[endgroup]
+2026-11-16T14:35:27.8147134Z ...............                                                          [100%]
+2026-11-16T14:35:27.8147720Z 15 passed in 9.40s
+2026-11-16T14:35:27.8767031Z ##[group]Run python SCRIPTS_ACTIFS/07AC_CONTROLER_T0.py
+2026-11-16T14:35:27.8767417Z [36;1mpython SCRIPTS_ACTIFS/07AC_CONTROLER_T0.py[0m
+2026-11-16T14:35:27.8767833Z [36;1mpython SCRIPTS_ACTIFS/40M_MOMENTUM_EXPERIENCE.py[0m
+2026-11-16T14:35:27.8786910Z shell: /usr/bin/bash -e {0}
+2026-11-16T14:35:27.8787185Z env:
+2026-11-16T14:35:27.8787446Z   pythonLocation: /opt/hostedtoolcache/Python/3.12.16/x64
+2026-11-16T14:35:27.8787863Z   PKG_CONFIG_PATH: /opt/hostedtoolcache/Python/3.12.16/x64/lib/pkgconfig
+2026-11-16T14:35:27.8788362Z   Python_ROOT_DIR: /opt/hostedtoolcache/Python/3.12.16/x64
+2026-11-16T14:35:27.8788679Z   Python2_ROOT_DIR: /opt/hostedtoolcache/Python/3.12.16/x64
+2026-11-16T14:35:27.8789381Z   Python3_ROOT_DIR: /opt/hostedtoolcache/Python/3.12.16/x64
+2026-11-16T14:35:27.8789746Z   LD_LIBRARY_PATH: /opt/hostedtoolcache/Python/3.12.16/x64/lib
+2026-11-16T14:35:27.8790173Z ##[endgroup]
+2026-11-16T14:35:27.9008333Z Intégrité T0 SHA256 : OK
+2026-11-16T14:35:32.9410040Z {"date_execution": "2026-11-16", "asof_utc": "2026-11-16T14:35:28.176699+00:00", "titulaires": 40, "lectures_exploitables": 0, "lignes_sans_cotation_actualisee": 40, "statut": "COLLECTE_PARTIELLE_ARBITRAGE_NON_PREPARE", "source_requise": "Zonebourse, consultation individuelle navigateur", "source_dossier": "DONNEES/ZONEBOURSE_NAVIGATEUR/2026-11-16", "frais_vente_pct": 2.5, "frais_achat_pct": 2.5, "friction_vente_achat_pct": 4.8780487804877986, "journal_sha256": "8662c18842e2f06d8fabe714e5032a375b306102aee2691309ef9220e6b72e78", "transactions": 0, "arbitrage_automatique": "DESACTIVE", "classement": "DIAGNOSTIC_PARTIEL", "temoin": "40 positions T0 figées; aucune valorisation complète réétiquetée comme Zonebourse actuelle", "blocage_collecte": "Rejet explicite du navigateur Work : URL policy gate did not grant access / requested URL protocol is not allowed. Aucun contournement essayé.", "suspensions_documentees": ["PULS.L"]}
+2026-11-16T14:35:33.0020753Z ##[group]Run actions/upload-artifact@v4
+2026-11-16T14:35:33.0021057Z with:
+2026-11-16T14:35:33.0021326Z   name: microcaps-zonebourse-43872640958
+2026-11-16T14:35:33.0021902Z   path: DONNEES/ZONEBOURSE_NAVIGATEUR/
+DONNEES/EXPERIENCE_MOMENTUM_40.csv
+DONNEES/ETAT_MOMENTUM_QUOTIDIEN.json
+DONNEES/PREPARATION_HEBDOMADAIRE_MOMENTUM_40.csv
+
+2026-11-16T14:35:33.0022458Z   if-no-files-found: warn
+2026-11-16T14:35:33.0022712Z   compression-level: 6
+2026-11-16T14:35:33.0022972Z   overwrite: false
+2026-11-16T14:35:33.0023261Z   include-hidden-files: false
+2026-11-16T14:35:33.0023534Z env:
+2026-11-16T14:35:33.0023792Z   pythonLocation: /opt/hostedtoolcache/Python/3.12.16/x64
+2026-11-16T14:35:33.0024178Z   PKG_CONFIG_PATH: /opt/hostedtoolcache/Python/3.12.16/x64/lib/pkgconfig
+2026-11-16T14:35:33.0024550Z   Python_ROOT_DIR: /opt/hostedtoolcache/Python/3.12.16/x64
+2026-11-16T14:35:33.0024898Z   Python2_ROOT_DIR: /opt/hostedtoolcache/Python/3.12.16/x64
+2026-11-16T14:35:33.0025337Z   Python3_ROOT_DIR: /opt/hostedtoolcache/Python/3.12.16/x64
+2026-11-16T14:35:33.0025671Z   LD_LIBRARY_PATH: /opt/hostedtoolcache/Python/3.12.16/x64/lib
+2026-11-16T14:35:33.0025989Z ##[endgroup]
+2026-11-16T14:35:33.1221831Z (node:2422) [DEP0040] DeprecationWarning: The `punycode` module is deprecated. Please use a userland alternative instead.
+2026-11-16T14:35:33.1222688Z (Use `node --trace-deprecation ...` to show where the warning was created)
+2026-11-16T14:35:33.1339522Z Multiple search paths detected. Calculating the least common ancestor of all paths
+2026-11-16T14:35:33.1342195Z The least common ancestor is /home/runner/work/MICRO_CAPS_DASHBOARD/MICRO_CAPS_DASHBOARD/DONNEES. This will be the root directory of the artifact
+2026-11-16T14:35:33.1343217Z With the provided path, there will be 44 files uploaded
+2026-11-16T14:35:33.1344094Z Artifact name is valid!
+2026-11-16T14:35:33.1344560Z Root directory input is valid!
+2026-11-16T14:35:33.7714343Z Beginning upload of artifact content to blob storage
+2026-11-16T14:35:33.9077570Z (node:2422) [DEP0169] DeprecationWarning: `url.parse()` behavior is not standardized and prone to errors that have security implications. Use the WHATWG URL API instead. CVEs are not issued for `url.parse()` vulnerabilities.
+2026-11-16T14:35:34.4733485Z Uploaded bytes 100230
+2026-11-16T14:35:34.5617776Z Finished uploading artifact content to blob storage!
+2026-11-16T14:35:34.5619155Z SHA256 digest of uploaded artifact zip is 136dbc82e32a2fca10a24e2c6cff0d4cf34d2e49aefcf56de3ae67e38aca7372
+2026-11-16T14:35:34.5619969Z Finalizing artifact upload
+2026-11-16T14:35:34.9584571Z Artifact microcaps-zonebourse-43872640958.zip successfully finalized. Artifact ID 14234319172
+2026-11-16T14:35:34.9585767Z Artifact microcaps-zonebourse-43872640958 has been successfully uploaded! Final size is 100230 bytes. Artifact ID is 14234319172
+2026-11-16T14:35:34.9589625Z Artifact download URL: https://github.com/HERVE63/MICRO_CAPS_DASHBOARD/actions/runs/43872640958/artifacts/14234319172
+2026-11-16T14:35:34.9700094Z ##[group]Run git fetch origin repair/microcaps-chain-20261030
+2026-11-16T14:35:34.9700617Z [36;1mgit fetch origin repair/microcaps-chain-20261030[0m
+2026-11-16T14:35:34.9700986Z [36;1mif [ "$(git rev-parse FETCH_HEAD)" != "$EXPECTED_HEAD" ]; then[0m
+2026-11-16T14:35:34.9701553Z [36;1m  echo 'Branche avancée : résultats conservés dans l’artefact, sans écraser un passage plus récent.'[0m
+2026-11-16T14:35:34.9701954Z [36;1m  exit 0[0m
+2026-11-16T14:35:34.9702174Z [36;1mfi[0m
+2026-11-16T14:35:34.9702462Z [36;1mgit config user.name "github-actions[bot]"[0m
+2026-11-16T14:35:34.9702850Z [36;1mgit config user.email "41898282+github-actions[bot]@users.noreply.github.com"[0m
+2026-11-16T14:35:34.9703458Z [36;1mgit add DONNEES/EXPERIENCE_MOMENTUM_40.csv DONNEES/ETAT_MOMENTUM_QUOTIDIEN.json DONNEES/PREPARATION_HEBDOMADAIRE_MOMENTUM_40.csv[0m
+2026-11-16T14:35:34.9703967Z [36;1mif ! git diff --cached --quiet; then[0m
+2026-11-16T14:35:34.9704441Z [36;1m  git commit -m "data: calculs momentum depuis lectures Zonebourse [skip ci]"[0m
+2026-11-16T14:35:34.9704850Z [36;1m  git push origin HEAD:repair/microcaps-chain-20261030[0m
+2026-11-16T14:35:34.9705168Z [36;1mfi[0m
+2026-11-16T14:35:34.9724431Z shell: /usr/bin/bash -e {0}
+2026-11-16T14:35:34.9724691Z env:
+2026-11-16T14:35:34.9725310Z   pythonLocation: /opt/hostedtoolcache/Python/3.12.16/x64
+2026-11-16T14:35:34.9725695Z   PKG_CONFIG_PATH: /opt/hostedtoolcache/Python/3.12.16/x64/lib/pkgconfig
+2026-11-16T14:35:34.9726099Z   Python_ROOT_DIR: /opt/hostedtoolcache/Python/3.12.16/x64
+2026-11-16T14:35:34.9726468Z   Python2_ROOT_DIR: /opt/hostedtoolcache/Python/3.12.16/x64
+2026-11-16T14:35:34.9726813Z   Python3_ROOT_DIR: /opt/hostedtoolcache/Python/3.12.16/x64
+2026-11-16T14:35:34.9727189Z   LD_LIBRARY_PATH: /opt/hostedtoolcache/Python/3.12.16/x64/lib
+2026-11-16T14:35:34.9727539Z   EXPECTED_HEAD: 412be729c3f11e77c78ff2b6014702349cfbab48
+2026-11-16T14:35:34.9727821Z ##[endgroup]
+2026-11-16T14:35:58.2260822Z From https://github.com/HERVE63/MICRO_CAPS_DASHBOARD
+2026-11-16T14:35:58.2261295Z  * branch              repair/microcaps-chain-20261030 -> FETCH_HEAD
+2026-11-16T14:35:58.2261760Z  * [new branch]        repair/microcaps-chain-20261030 -> origin/repair/microcaps-chain-20261030
+2026-11-16T14:35:58.2285968Z Branche avancée : résultats conservés dans l’artefact, sans écraser un passage plus récent.
+2026-11-16T14:35:58.2312121Z ##[group]Run python SCRIPTS_ACTIFS/ZONEBOURSE_MOMENTUM_40_GATE.py
+2026-11-16T14:35:58.2312561Z [36;1mpython SCRIPTS_ACTIFS/ZONEBOURSE_MOMENTUM_40_GATE.py[0m
+2026-11-16T14:35:58.2329970Z shell: /usr/bin/bash -e {0}
+2026-11-16T14:35:58.2330283Z env:
+2026-11-16T14:35:58.2330549Z   pythonLocation: /opt/hostedtoolcache/Python/3.12.16/x64
+2026-11-16T14:35:58.2330932Z   PKG_CONFIG_PATH: /opt/hostedtoolcache/Python/3.12.16/x64/lib/pkgconfig
+2026-11-16T14:35:58.2331319Z   Python_ROOT_DIR: /opt/hostedtoolcache/Python/3.12.16/x64
+2026-11-16T14:35:58.2331688Z   Python2_ROOT_DIR: /opt/hostedtoolcache/Python/3.12.16/x64
+2026-11-16T14:35:58.2332027Z   Python3_ROOT_DIR: /opt/hostedtoolcache/Python/3.12.16/x64
+2026-11-16T14:35:58.2332369Z   LD_LIBRARY_PATH: /opt/hostedtoolcache/Python/3.12.16/x64/lib
+2026-11-16T14:35:58.2332668Z ##[endgroup]
+2026-11-16T14:36:03.2721843Z {"date_execution": "2026-11-16", "asof_utc": "2026-11-16T14:35:58.509021+00:00", "titulaires": 40, "lectures_exploitables": 0, "lignes_sans_cotation_actualisee": 40, "statut": "COLLECTE_PARTIELLE_ARBITRAGE_NON_PREPARE", "source_requise": "Zonebourse, consultation individuelle navigateur", "source_dossier": "DONNEES/ZONEBOURSE_NAVIGATEUR/2026-11-16", "frais_vente_pct": 2.5, "frais_achat_pct": 2.5, "friction_vente_achat_pct": 4.8780487804877986, "journal_sha256": "8662c18842e2f06d8fabe714e5032a375b306102aee2691309ef9220e6b72e78", "transactions": 0, "arbitrage_automatique": "DESACTIVE", "classement": "DIAGNOSTIC_PARTIEL", "temoin": "40 positions T0 figées; aucune valorisation complète réétiquetée comme Zonebourse actuelle", "blocage_collecte": "Rejet explicite du navigateur Work : URL policy gate did not grant access / requested URL protocol is not allowed. Aucun contournement essayé.", "suspensions_documentees": ["PULS.L"]}
+2026-11-16T14:36:03.2725511Z {"titulaires": 40, "zonebourse_valides": 0, "manquants": 40, "journal_inchange": true, "arbitrage_autorise": false, "suspensions": ["PULS.L"]}
+2026-11-16T14:36:03.3257131Z ##[error]Process completed with exit code 2.
+2026-11-16T14:36:03.3353955Z Post job cleanup.
+2026-11-16T14:36:03.3977311Z [command]/usr/bin/git version
+2026-11-16T14:36:03.4008275Z git version 2.56.1
+2026-11-16T14:36:03.4038121Z Temporarily overriding HOME='/home/runner/work/_temp/05656738-7889-4c44-ba46-5bafd1328264' before making global git config changes
+2026-11-16T14:36:03.4038760Z Adding repository directory to the temporary git global config as a safe directory
+2026-11-16T14:36:03.4043165Z [command]/usr/bin/git config --global --add safe.directory /home/runner/work/MICRO_CAPS_DASHBOARD/MICRO_CAPS_DASHBOARD
+2026-11-16T14:36:03.4072469Z [command]/usr/bin/git config --local --name-only --get-regexp core\.sshCommand
+2026-11-16T14:36:03.4095494Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'core\.sshCommand' && git config --local --unset-all 'core.sshCommand' || :"
+2026-11-16T14:36:03.4324699Z [command]/usr/bin/git config --local --name-only --get-regexp http\.https\:\/\/github\.com\/\.extraheader
+2026-11-16T14:36:03.4336423Z http.https://github.com/.extraheader
+2026-11-16T14:36:03.4349667Z [command]/usr/bin/git config --local --unset-all http.https://github.com/.extraheader
+2026-11-16T14:36:03.4370819Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'http\.https\:\/\/github\.com\/\.extraheader' && git config --local --unset-all 'http.https://github.com/.extraheader' || :"
+2026-11-16T14:36:03.4591517Z [command]/usr/bin/git config --local --name-only --get-regexp ^includeIf\.gitdir:
+2026-11-16T14:36:03.4611806Z [command]/usr/bin/git submodule foreach --recursive git config --local --show-origin --name-only --get-regexp remote.origin.url
+2026-11-16T14:36:03.4921159Z Cleaning up orphan processes
+2026-11-16T14:36:03.5185331Z ##[warning]Node.js 20 is deprecated. The following actions target Node.js 20 but are being forced to run on Node.js 24: actions/checkout@v4, actions/setup-python@v5, actions/upload-artifact@v4. For more information see: https://github.blog/changelog/2025-09-19-deprecation-of-node-20-on-github-actions-runners/
