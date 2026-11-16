@@ -60,7 +60,11 @@ def calculate(record,ticker,asof):
     captured=datetime.fromisoformat(record['consulted_at'].replace('Z','+00:00'))
     if captured>asof:raise ValueError('Consultation future')
     body=record['body']
-    if '\n'+ticker.split('.')[0]+'\n' not in body:raise ValueError('Ticker de page divergent')
+    page_ticker=ticker.split('.')[0]
+    if ticker=='GROW.MI':
+        # Même ISIN que le dossier historique ; Zonebourse publie le symbole MAIL.
+        if '\nMAIL\n' in body and '\nIT0005040354\n' in body:page_ticker='MAIL'
+    if '\n'+page_ticker+'\n' not in body:raise ValueError('Ticker de page divergent')
     match=re.search(r'(Marché Fermé|Cours en clôture|Temps réel|Cours en différé|Temps Différé)[^\n]*?(?:(\d\d:\d\d:\d\d) )?(\d\d/\d\d/\d{4})[^\n]*\n([\d\s,\.]+) (USD|CAD|EUR|GBp|GBX|GBP|SEK)\t',body)
     if not match:raise ValueError('Date, heure et unité de cotation non identifiées')
     market_state,clock,quote_date,price,unit=match.groups();qd=datetime.strptime(quote_date,'%d/%m/%Y').date();price=numeric(price)

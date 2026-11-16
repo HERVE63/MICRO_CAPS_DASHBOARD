@@ -91,6 +91,15 @@ def test_pence_are_not_pounds():
  x['body']=x['body'].replace('1,860 GBp','1,860 GBP')
  assert m.calculate(x,'IDN',ASOF)['Cours_devise']==pytest.approx(1.86)
 
+def test_growens_zonebourse_alias_requires_exact_isin():
+ p=ROOT/'DONNEES/ZONEBOURSE_NAVIGATEUR/2026-11-16/GROW.MI.json'
+ x=json.loads(p.read_text());asof=datetime.fromisoformat(x['consulted_at'].replace('Z','+00:00'))
+ r=m.calculate(x,'GROW.MI',asof)
+ assert r['Cours_source']==pytest.approx(1.75) and r['Devise']=='EUR'
+ assert r['Momentum_1m_pct'] is not None
+ x['body']=x['body'].replace('IT0005040354','IT0000000000')
+ with pytest.raises(ValueError,match='Ticker'):m.calculate(x,'GROW.MI',asof)
+
 def test_suspension_requires_documented_resumption():
  controls=json.loads((ROOT/'CONFIG/CONTROLES_MARCHE_DOCUMENTES.json').read_text())
  assert m.market_block(controls,'PULS.L',ASOF)['derniere_cotation']=='2026-10-27'
