@@ -1,37 +1,42 @@
-# Micro Caps — résultat effectif du 16 novembre 2026
+# Micro Caps — reprise exécutée du 16 novembre 2026
 
-**Chaîne non opérationnelle : collecte bloquée techniquement.**
+**Résultat vérifié : 10/40 lignes admissibles au contrôle de 14 h 07, chaîne globale encore bloquée.**
 
-- Relevés complets et frais validés : **0/40** pour ce passage.
-- Une preuve Premium partielle de Broadpeak conservée : dernier cours affiché 1,645 EUR au 16/11/2026 11:40:40, dernière clôture 1,630 EUR au 13/11 et 1 199 titres. Historiques un et deux mois récupérés ; trois mois absent. Cette preuve n’est pas validée pour arbitrage.
-- Les 15 relevés complets du 15 novembre restent conservés à leur date et ne sont pas réétiquetés comme actualisés.
+21 sociétés ont fait l’objet d’une nouvelle lecture individuelle Premium dans cette reprise ; 20 dossiers contiennent les quatre pages demandées. Transense reste partielle. Avec la preuve Broadpeak partielle du passage précédent, 22 preuves du jour sont conservées dans GitHub. Les 15 preuves complètes du 15 novembre restent archivées à leur date et ne sont pas présentées comme actuelles.
 
-## Tests réellement exécutés dans GitHub
+## Réparations et résultats distants
 
-[Exécution 43861938553](https://github.com/HERVE63/MICRO_CAPS_DASHBOARD/actions/runs/43861938553), commit `66399348e65961e6d261f25eef8ced742ddda7cb`.
+- Growens est identifiée par MAIL et ISIN IT0005040354, contrôlé contre le dossier existant. L’alias est refusé si l’ISIN diffère. La cohorte T0 est inchangée.
+- La relance du navigateur a effectivement rétabli la session Premium et permis 21 lectures supplémentaires. Chaque société et chaque historique ont été consultés dans le navigateur, sans requête cachée ni autre fournisseur.
+- Tests d’intégration : **15 passed in 11.78s**, GitHub Actions [43872640958](https://github.com/HERVE63/MICRO_CAPS_DASHBOARD/actions/runs/43872640958).
+- Intégrité T0 : réussite. Moteur 40M : exécuté, 40 lignes exportées, 10 admissibles. Archivage et sauvegarde des calculs : réussis.
+- Gate ZONEBOURSE_MOMENTUM_40_GATE.py : **échec, code 2**, 10/40 admissibles, 30 non admissibles, journal_inchange=true, arbitrage_autorise=false.
+- Journal SHA256 : 8662c18842e2f06d8fabe714e5032a375b306102aee2691309ef9220e6b72e78. Aucune transaction réelle ou virtuelle ajoutée.
 
-| Contrôle | Résultat réel |
-|---|---|
-| tests/test_40m_momentum_experience_integration.py | **14 passed in 8.68s** |
-| Intégrité T0 | Réussie |
-| 40M_MOMENTUM_EXPERIENCE.py | Exécuté ; 40 lignes exportées, 0 lecture exploitable |
-| Archivage et sauvegarde des calculs | Réussis |
-| ZONEBOURSE_MOMENTUM_40_GATE.py | Échec, code 2 : 0/40, journal inchangé, arbitrage_autorise=false |
+Commit logiciel et données : 412be729c3f11e77c78ff2b6014702349cfbab48. Résultats calculés enregistrés par GitHub : 6789c9169400348c96723e4c5dbb7b4dc5e5a081. Première sauvegarde de dix relevés : 80b8ebe0f9540f5b5dfa2fd505301bf97f9695fa.
 
-Résultats calculés sauvegardés par GitHub dans `eac4f6fa286301daae98a38e55b84ce64194f01a`. Empreinte journal : `8662c18842e2f06d8fabe714e5032a375b306102aee2691309ef9220e6b72e78`.
+## Changements de direction admissibles au contrôle
 
-## Correction et blocages précis
+- CTT Systems (CTT.ST) : DECELERATION_A_SURVEILLER → DIRECTION_HAUSSIERE.
+- Light Science Technologies (LST.L) : REBOND_A_CONFIRMER → ALERTE_REPRISE_HAUSSIERE.
+- Entech (ALESE.PA) : DIRECTION_BAISSIERE → ALERTE_REPRISE_HAUSSIERE.
+- Sogeclair (ALSOG.PA) : ALERTE_REPRISE_HAUSSIERE → DIRECTION_HAUSSIERE.
+- Mon Courtier Énergie Groupe (ALMCE.PA) : STABLE → REBOND_A_CONFIRMER.
+- 2CRSi (AL2SI.PA) : DECELERATION_A_SURVEILLER → DIRECTION_BAISSIERE.
+- WALLIX (ALLIX.PA) : STABLE → DECELERATION_A_SURVEILLER.
 
-La correction distingue le volume de la dernière séance terminée du volume cumulé en séance, conserve leurs dates et refuse leur absence. Le test utilise un cours intrajournalier sans bougie du jour et vérifie la conservation du volume de la dernière clôture. Aucun champ requis absent ne devient un signal négociable.
+Ces signaux sont des diagnostics partiels au moment du contrôle, pas une confrontation complète des 40 ni une prévision de rendement. Tous les cours restent soumis à leur date et heure affichées ; un signal ne devient pas une autorisation de transaction.
 
-Le navigateur Work affiche Premium, mais les commandes expirent : « CDP operation exceeded its deadline before command dispatch ». Récupération d’onglet, lecture ciblée et contrôle visuel essayés ; réinitialisations du noyau. Aucun message anti-robot observé. L’onglet Broadpeak est conservé pour reprise. Les 39 autres lectures actuelles n’ont pas été effectuées après ce blocage. Le manifeste conserve les 40 statuts individuels. Aucun autre fournisseur utilisé.
+## Blocages restants précis
 
-Pulsar reste sous suspension documentée. Plejd présentait des cotations anciennes lors du passage antérieur ; aucune cotation actuelle n’a été substituée. La différence de symbole Growens/MAIL devra être validée par ISIN avant admission d’un nouveau relevé.
+18 sociétés sans nouvelle lecture du passage : IDN, INFU, OSS, CXDO, LWAY, AOM.L, ALSTI.PA, MEMS.PA, FTG.TO, ELVA.TO, COV.V, ROK.V, MTEC.L, ZOMD.V, CEMX.TO, PLEJD.ST, PULS.L, HSP.L.
 
-## Revue hebdomadaire et alertes
+Onze preuves supplémentaires ont été rejetées pour fraîcheur à l’instant du calcul : ALICA.PA, SFT.L, TSTL.L, GENI.ST, ALBFR.PA, TRT.L, ALBPK.PA, ALDMS.PA, ALSTW.PA, ALCUR.PA, ALIEV.PA. À ces onze rejets s’ajoute Kenorland pour preuve inexploitable. Kenorland : le tableau « latest » récupéré ne certifie pas la clôture d’en-tête ; aucune substitution depuis les archives. Transense : dates septembre/août non confirmées par le tableau resté en octobre ; Broadpeak : trois mois absent. Ces deux derniers cas figurent déjà dans les onze rejets de fraîcheur.
 
-Le tableau des 40 sociétés et la préparation hebdomadaire sont générés ; la confrontation complète et les alertes actuelles sont **non validables**. Aucun changement de direction actuel n’est affirmé. Les anciens signaux restent historiques. Aucun arbitrage virtuel autorisé, aucune opération réelle. Témoin statique et journal inchangés. Paramètres : T0 01/10/2026, 4 000 EUR par portefeuille, frais 2,5 % par côté.
+Dernier blocage du navigateur, observé directement : « Browser Use rejected this action due to browser security policy … URL policy gate did not grant access … requested URL protocol is not allowed ». L’outil interdit explicitement un contournement par une autre surface ou une exécution indirecte. L’action concernée a été arrêtée ; aucun contournement essayé. Il ne s’agit pas d’un quota Zonebourse annoncé par le site. L’onglet est conservé pour reprise.
 
-GitHub Actions assure les tests, calculs, classements des lignes admissibles, exports et archivage lors des dépôts de preuves. La collecte Premium reste une consultation du navigateur Work ; son fonctionnement sans intervention n’est pas déclaré validé. Branche de travail exclusivement ; main et maîtres figés inchangés.
+## Revue hebdomadaire
 
-[Tableau des 40](TABLEAU_40.md) · [Preuves du passage](../../DONNEES/ZONEBOURSE_NAVIGATEUR/2026-11-16/)
+Préparation et tableau 40 lignes produits automatiquement par GitHub. Classement et alertes limités aux dix lignes admissibles ; confrontation complète impossible avec 30 lignes non admissibles. Arbitrage global désactivé. T0 01/10/2026, 4 000 EUR virtuels géré et 4 000 EUR témoin statique, frais 2,5 % par côté. Témoin inchangé. Aucune note MCPA, SSI ou WWWS ne conditionne le moteur momentum.
+
+[Tableau des 40](TABLEAU_40.md) · [Preuves Zonebourse](../../DONNEES/ZONEBOURSE_NAVIGATEUR/2026-11-16/). Travail exclusivement sur repair/microcaps-chain-20261030 ; main et maîtres figés inchangés.
