@@ -1,11 +1,15 @@
 name: Micro Caps - lectures Zonebourse et momentum 1 2 3 mois
 on:
   workflow_dispatch:
+  schedule:
+    # Contrôle quotidien, sans prétendre collecter des pages authentifiées.
+    - cron: '30 21 * * 1-5'
   push:
     branches: [repair/microcaps-chain-20261030]
     paths:
       - 'DONNEES/ZONEBOURSE_NAVIGATEUR/**'
       - 'SCRIPTS_ACTIFS/40M_MOMENTUM_EXPERIENCE.py'
+      - 'SCRIPTS_ACTIFS/ZONEBOURSE_MOMENTUM_40_GATE.py'
       - 'tests/test_40m_momentum_experience_integration.py'
       - '.github/workflows/microcaps-momentum-quotidien.yml'
 permissions:
