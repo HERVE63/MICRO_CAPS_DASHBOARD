@@ -1,23 +1,37 @@
-# Exécution Micro Caps du 16 novembre 2026
+# Micro Caps — résultat effectif du 16 novembre 2026
 
-## Résultat de collecte
+**Chaîne non opérationnelle : collecte bloquée techniquement.**
 
-0/40 relevés complets actuellement validés pour ce passage. Une lecture Premium partielle de Broadpeak est conservée avec son URL et son heure de consultation. Les relevés du 15 novembre sont archivés à leur date, sans promotion à la date du 16.
+- Relevés complets et frais validés : **0/40** pour ce passage.
+- Une preuve Premium partielle de Broadpeak conservée : dernier cours affiché 1,645 EUR au 16/11/2026 11:40:40, dernière clôture 1,630 EUR au 13/11 et 1 199 titres. Historiques un et deux mois récupérés ; trois mois absent. Cette preuve n’est pas validée pour arbitrage.
+- Les 15 relevés complets du 15 novembre restent conservés à leur date et ne sont pas réétiquetés comme actualisés.
 
-Broadpeak : 1,645 EUR, 16/11/2026 11:40:40 (heure affichée), variation publiée +0,92 %, cinq séances -0,30 %. Dernière clôture disponible dans le tableau : 1,630 EUR le 13/11, volume 1 199 titres. Historique 1 mois : 1,505 EUR au 16/10 ; 2 mois : 2,120 EUR au 16/09. Historique trois mois non récupéré ; aucun signal validé ni rang attribué.
+## Tests réellement exécutés dans GitHub
 
-## Blocage technique constaté
+[Exécution 43861938553](https://github.com/HERVE63/MICRO_CAPS_DASHBOARD/actions/runs/43861938553), commit `66399348e65961e6d261f25eef8ced742ddda7cb`.
 
-Après une lecture de la page Premium et deux historiques, les commandes du navigateur Work expirent et réinitialisent le noyau. Erreur précise : « CDP operation exceeded its deadline before command dispatch ». La récupération de l’onglet et la lecture ciblée du tableau échouent aussi. Le contrôle visuel affiche le navigateur sans réaction au changement d’onglet. Aucune preuve de blocage anti-robot ni de déconnexion Premium. Aucun contournement et aucune donnée d’un autre fournisseur.
+| Contrôle | Résultat réel |
+|---|---|
+| tests/test_40m_momentum_experience_integration.py | **14 passed in 8.68s** |
+| Intégrité T0 | Réussie |
+| 40M_MOMENTUM_EXPERIENCE.py | Exécuté ; 40 lignes exportées, 0 lecture exploitable |
+| Archivage et sauvegarde des calculs | Réussis |
+| ZONEBOURSE_MOMENTUM_40_GATE.py | Échec, code 2 : 0/40, journal inchangé, arbitrage_autorise=false |
 
-## Calculs et tests
+Résultats calculés sauvegardés par GitHub dans `eac4f6fa286301daae98a38e55b84ce64194f01a`. Empreinte journal : `8662c18842e2f06d8fabe714e5032a375b306102aee2691309ef9220e6b72e78`.
 
-Le moteur existant, ses tests d’intégration et ZONEBOURSE_MOMENTUM_40_GATE.py sont exécutés par GitHub Actions sur ce commit. Les résultats et preuves sont archivés par ce workflow. Le contrôle 40/40 doit rester en échec tant que les relevés sont incomplets. Une correction distingue le volume de la dernière séance terminée du volume cumulé intrajournalier, et exige leur présence avant validation.
+## Correction et blocages précis
 
-Les tentatives locales ont constaté l’absence de pytest et pandas_market_calendars dans le runtime renouvelé. GitHub installe ces dépendances ; le résultat distant fait foi. Le contrôle d’intégrité T0 local passe.
+La correction distingue le volume de la dernière séance terminée du volume cumulé en séance, conserve leurs dates et refuse leur absence. Le test utilise un cours intrajournalier sans bougie du jour et vérifie la conservation du volume de la dernière clôture. Aucun champ requis absent ne devient un signal négociable.
 
-## Arbitrage
+Le navigateur Work affiche Premium, mais les commandes expirent : « CDP operation exceeded its deadline before command dispatch ». Récupération d’onglet, lecture ciblée et contrôle visuel essayés ; réinitialisations du noyau. Aucun message anti-robot observé. L’onglet Broadpeak est conservé pour reprise. Les 39 autres lectures actuelles n’ont pas été effectuées après ce blocage. Le manifeste conserve les 40 statuts individuels. Aucun autre fournisseur utilisé.
 
-Statut : COLLECTE_INCOMPLETE, aucun arbitrage autorisé. Le portefeuille témoin et le journal virtuel ne sont pas modifiés. Le capital T0 reste de 4 000 EUR par portefeuille ; frais 2,5 % par côté. Le classement et les alertes complètes ne peuvent pas être validés avec ces données. Pulsar reste sous le verrou de suspension déjà documenté ; Plejd nécessitait déjà une résolution de ses cotations anciennes. Les 40 statuts et les champs calculables sont exportés par le moteur, sans invention des champs manquants.
+Pulsar reste sous suspension documentée. Plejd présentait des cotations anciennes lors du passage antérieur ; aucune cotation actuelle n’a été substituée. La différence de symbole Growens/MAIL devra être validée par ISIN avant admission d’un nouveau relevé.
 
-Branche exclusivement : repair/microcaps-chain-20261030. main et les maîtres figés restent inchangés.
+## Revue hebdomadaire et alertes
+
+Le tableau des 40 sociétés et la préparation hebdomadaire sont générés ; la confrontation complète et les alertes actuelles sont **non validables**. Aucun changement de direction actuel n’est affirmé. Les anciens signaux restent historiques. Aucun arbitrage virtuel autorisé, aucune opération réelle. Témoin statique et journal inchangés. Paramètres : T0 01/10/2026, 4 000 EUR par portefeuille, frais 2,5 % par côté.
+
+GitHub Actions assure les tests, calculs, classements des lignes admissibles, exports et archivage lors des dépôts de preuves. La collecte Premium reste une consultation du navigateur Work ; son fonctionnement sans intervention n’est pas déclaré validé. Branche de travail exclusivement ; main et maîtres figés inchangés.
+
+[Tableau des 40](TABLEAU_40.md) · [Preuves du passage](../../DONNEES/ZONEBOURSE_NAVIGATEUR/2026-11-16/)
