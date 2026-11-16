@@ -1,9 +1,9 @@
 {
   "date_execution": "2026-11-16",
-  "asof_utc": "2026-11-16T13:01:53.827836+00:00",
+  "asof_utc": "2026-11-16T13:07:45.930495+00:00",
   "titulaires": 40,
-  "lectures_exploitables": 6,
-  "lignes_sans_cotation_actualisee": 34,
+  "lectures_exploitables": 10,
+  "lignes_sans_cotation_actualisee": 30,
   "statut": "COLLECTE_PARTIELLE_ARBITRAGE_NON_PREPARE",
   "source_requise": "Zonebourse, consultation individuelle navigateur",
   "source_dossier": "DONNEES/ZONEBOURSE_NAVIGATEUR/2026-11-16",
@@ -15,7 +15,7 @@
   "arbitrage_automatique": "DESACTIVE",
   "classement": "DIAGNOSTIC_PARTIEL",
   "temoin": "40 positions T0 figées; aucune valorisation complète réétiquetée comme Zonebourse actuelle",
-  "blocage_collecte": "Navigateur Work: CDP operation exceeded its deadline before command dispatch; lectures ciblées et récupération de l’onglet expirent, réinitialisation du noyau. Contrôle visuel: navigateur sans réaction. Aucun blocage anti-robot constaté.",
+  "blocage_collecte": "Rejet explicite du navigateur Work : URL policy gate did not grant access / requested URL protocol is not allowed. Aucun contournement essayé.",
   "suspensions_documentees": [
     "PULS.L"
   ]
