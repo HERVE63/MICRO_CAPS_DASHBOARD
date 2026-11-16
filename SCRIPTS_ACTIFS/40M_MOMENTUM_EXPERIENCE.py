@@ -77,6 +77,13 @@ def calculate(record,ticker,asof):
     if qd not in ds:raise ValueError('Cotation hors calendrier')
     result={'Date_historique':qd.isoformat(),'Heure_cotation_source':clock,'Nature_cotation':quote_type,'Cours_source':price,'Unite_source':unit,'Cours_devise':price/100 if unit in ('GBp','GBX') else price,'Devise': 'GBP' if unit in ('GBp','GBX') else unit,'Volume_derniere_seance':history.get(qd,{}).get('volume'),'Date_consultation_UTC':record['consulted_at'],'Source':record['url']}
     anchors={};missing=[]
+    last_closed_day=max((d for d in history if d<=expected),default=None)
+    result['Date_volume_derniere_seance']=str(last_closed_day) if last_closed_day else None
+    result['Volume_derniere_seance']=history[last_closed_day]['volume'] if last_closed_day else None
+    intraday_volume=re.search(r'Volume du jour\n([\d\s,.]+)\n',body)
+    result['Volume_cumule_en_seance']=numeric(intraday_volume[1]) if quote_type=='INTRADAY' and intraday_volume else None
+    if last_closed_day!=expected:missing.append('volume de la dernière séance terminée '+str(expected))
+    if quote_type=='INTRADAY' and result['Volume_cumule_en_seance'] is None:missing.append('volume en séance')
     for label,days in [('derniere_seance',1),('5_seances',5)]:
         baseline=ds[-1-days];r=history.get(baseline);anchors[label]=r
         result['Variation_'+label+'_pct']=100*(price/r['close']-1) if r else None

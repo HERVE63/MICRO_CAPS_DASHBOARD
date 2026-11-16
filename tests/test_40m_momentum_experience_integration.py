@@ -25,6 +25,16 @@ def test_real_infu_deceleration():
  assert r['Variation_derniere_seance_pct']<0<r['Variation_5_seances_pct']
  assert r['Signal']=='DECELERATION_A_SURVEILLER'
  assert r['Momentum_1m_pct']==pytest.approx((14.72/13.49-1)*100)
+
+def test_intraday_missing_current_bar_keeps_last_closed_volume():
+ x=record();x['body']=x['body'].replace('Marché Fermé','Temps réel').replace('22:00:00 13/11/2026','15:10:00 16/11/2026')
+ x['consulted_at']='2026-11-16T14:15:00+00:00'
+ r=m.calculate(x,'IDN',datetime(2026,11,16,14,15,tzinfo=timezone.utc))
+ assert r['Nature_cotation']=='INTRADAY'
+ assert r['Date_volume_derniere_seance']=='2026-11-13'
+ assert r['Volume_derniere_seance']==479914
+ assert r['Statut']=='INCOMPLET_SANS_SIGNAL'
+ assert r['Signal']=='DONNEES_INSUFFISANTES'
 def test_real_london_closing_price_without_intraday_time():
  r=m.calculate(record('MTEC.L'),'MTEC.L',ASOF)
  assert r['Statut']=='CALCULABLE_ZONEBOURSE_VERIFIE'
