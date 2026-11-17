@@ -34,10 +34,12 @@ def test_intraday_price_is_ignored_for_previous_closing_session():
  assert r['Date_historique']=='2026-11-13' and r['Volume_derniere_seance']==479914
  assert r['Statut']=='CALCULABLE_ZONEBOURSE_VERIFIE'
 def test_reference_is_previous_session_even_after_close_and_on_holidays():
- assert str(m.reference_close('IDN',datetime(2026,11,16,23,tzinfo=timezone.utc)))=='2026-11-13'
+ assert str(m.reference_close('IDN',datetime(2026,11,16,22,30,tzinfo=timezone.utc)))=='2026-11-13'
  assert str(m.reference_close('IDN',datetime(2026,11,15,20,tzinfo=timezone.utc)))=='2026-11-13'
  assert str(m.reference_close('IDN',datetime(2026,11,27,12,tzinfo=timezone.utc)))=='2026-11-25'
  assert str(m.reference_close('ALSTI.PA',datetime(2026,11,27,12,tzinfo=timezone.utc)))=='2026-11-26'
+def test_paris_midnight_changes_previous_session():
+ assert str(m.reference_close('IDN',datetime(2026,11,16,23,tzinfo=timezone.utc)))=='2026-11-16'
 def test_missing_previous_session_is_rejected_not_backfilled():
  r=m.calculate(record(),'IDN',datetime(2026,11,17,10,tzinfo=timezone.utc))
  assert r['Statut']=='HISTORIQUE_PERIME' and r['Date_cloture_attendue']=='2026-11-16'
