@@ -26,15 +26,22 @@ def test_real_infu_deceleration():
  assert r['Signal']=='DECELERATION_A_SURVEILLER'
  assert r['Momentum_1m_pct']==pytest.approx((14.72/13.49-1)*100)
 
-def test_intraday_missing_current_bar_keeps_last_closed_volume():
- x=record();x['body']=x['body'].replace('Marché Fermé','Temps réel').replace('22:00:00 13/11/2026','15:10:00 16/11/2026')
+def test_intraday_price_is_ignored_for_previous_closing_session():
+ x=record();x['body']=x['body'].replace('Marché Fermé','Temps réel').replace('22:00:00 13/11/2026','15:10:00 16/11/2026').replace('1,860 USD','999,000 USD')
  x['consulted_at']='2026-11-16T14:15:00+00:00'
  r=m.calculate(x,'IDN',datetime(2026,11,16,14,15,tzinfo=timezone.utc))
- assert r['Nature_cotation']=='INTRADAY'
- assert r['Date_volume_derniere_seance']=='2026-11-13'
- assert r['Volume_derniere_seance']==479914
- assert r['Statut']=='INCOMPLET_SANS_SIGNAL'
- assert r['Signal']=='DONNEES_INSUFFISANTES'
+ assert r['Nature_cotation']=='CLOTURE' and r['Cours_source']==pytest.approx(1.86)
+ assert r['Date_historique']=='2026-11-13' and r['Volume_derniere_seance']==479914
+ assert r['Statut']=='CALCULABLE_ZONEBOURSE_VERIFIE'
+def test_reference_is_previous_session_even_after_close_and_on_holidays():
+ assert str(m.reference_close('IDN',datetime(2026,11,16,23,tzinfo=timezone.utc)))=='2026-11-13'
+ assert str(m.reference_close('IDN',datetime(2026,11,15,20,tzinfo=timezone.utc)))=='2026-11-13'
+ assert str(m.reference_close('IDN',datetime(2026,11,27,12,tzinfo=timezone.utc)))=='2026-11-25'
+ assert str(m.reference_close('ALSTI.PA',datetime(2026,11,27,12,tzinfo=timezone.utc)))=='2026-11-26'
+def test_missing_previous_session_is_rejected_not_backfilled():
+ r=m.calculate(record(),'IDN',datetime(2026,11,17,10,tzinfo=timezone.utc))
+ assert r['Statut']=='HISTORIQUE_PERIME' and r['Date_cloture_attendue']=='2026-11-16'
+ assert r['Date_historique']=='2026-11-13' and r['Changement_direction']=='NON_EVALUABLE'
 def test_real_london_closing_price_without_intraday_time():
  r=m.calculate(record('MTEC.L'),'MTEC.L',ASOF)
  assert r['Statut']=='CALCULABLE_ZONEBOURSE_VERIFIE'
@@ -95,7 +102,7 @@ def test_growens_zonebourse_alias_requires_exact_isin():
  p=ROOT/'DONNEES/ZONEBOURSE_NAVIGATEUR/2026-11-16/GROW.MI.json'
  x=json.loads(p.read_text());asof=datetime.fromisoformat(x['consulted_at'].replace('Z','+00:00'))
  r=m.calculate(x,'GROW.MI',asof)
- assert r['Cours_source']==pytest.approx(1.75) and r['Devise']=='EUR'
+ assert r['Cours_source']==pytest.approx(1.76) and r['Devise']=='EUR'
  assert r['Momentum_1m_pct'] is not None
  x['body']=x['body'].replace('IT0005040354','IT0000000000')
  with pytest.raises(ValueError,match='Ticker'):m.calculate(x,'GROW.MI',asof)

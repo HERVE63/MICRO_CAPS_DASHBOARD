@@ -24,6 +24,10 @@ def latest_closed(t,asof):
     done=s[s.market_close<=asof]
     if done.empty:raise ValueError('Calendrier sans séance terminée')
     return done.index[-1].date()
+def reference_close(t,asof):
+    # Veille de la date de contrôle à Paris ; calendrier propre à chaque place.
+    day=asof.astimezone(ZoneInfo('Europe/Paris')).date()
+    return sessions(t,day-timedelta(days=20),day-timedelta(days=1))[-1]
 def months_before(d,n):
     y,m=divmod(d.year*12+d.month-1-n,12);m+=1
     return date(y,m,min(d.day,calendar.monthrange(y,m)[1]))
@@ -72,22 +76,23 @@ def calculate(record,ticker,asof):
     quote_type='CLOTURE' if market_state in ('Marché Fermé','Cours en clôture') else 'INTRADAY'
     history=parse_history(record)
     if any(d>qd for d in history):raise ValueError('Ligne historique postérieure à la cotation')
-    if quote_type=='CLOTURE' and (qd not in history or abs(history[qd]['close']-price)>max(.00001,price*.00001)):raise ValueError('Clôture d’en-tête et tableau divergents')
-    expected=latest_closed(ticker,asof)
-    quote_time=datetime.combine(qd,datetime.strptime(clock,'%H:%M:%S').time(),ZoneInfo('Europe/Paris')) if clock else None
-    fresh=qd>=expected and (quote_type=='CLOTURE' or quote_time is not None and timedelta(0)<=asof-quote_time<=timedelta(minutes=30)) and captured.astimezone(ZoneInfo('Europe/Paris')).date()==asof.astimezone(ZoneInfo('Europe/Paris')).date()
-    if qd>asof.date():raise ValueError('Date de cours future')
+    if quote_type=='CLOTURE' and qd in history and abs(history[qd]['close']-price)>max(.00001,price*.00001):raise ValueError('Clôture d’en-tête et tableau divergents')
+    expected=reference_close(ticker,asof)
+    # Seules des lignes historiques de clôture sont utilisées, jamais le prix en séance.
+    available=[d for d in history if d<=expected]
+    if not available:raise ValueError('Aucune clôture historique disponible avant la séance cible '+str(expected))
+    selected=max(available)
+    market=mcal.get_calendar(calendar_code(ticker))
+    closed_at=market.schedule(start_date=selected,end_date=selected).iloc[0].market_close.to_pydatetime()
+    if captured<closed_at:raise ValueError('Lecture antérieure à la clôture historique retenue')
+    header_qd=qd;header_clock=clock;header_type=quote_type
+    qd=selected;price=history[qd]['close'];quote_type='CLOTURE'
+    clock=header_clock if header_qd==qd and header_type=='CLOTURE' else None
+    fresh=qd==expected
     ds=sessions(ticker,qd-timedelta(days=30),qd)
-    if qd not in ds:raise ValueError('Cotation hors calendrier')
-    result={'Date_historique':qd.isoformat(),'Heure_cotation_source':clock,'Nature_cotation':quote_type,'Cours_source':price,'Unite_source':unit,'Cours_devise':price/100 if unit in ('GBp','GBX') else price,'Devise': 'GBP' if unit in ('GBp','GBX') else unit,'Volume_derniere_seance':history.get(qd,{}).get('volume'),'Date_consultation_UTC':record['consulted_at'],'Source':record['url']}
+    result={'Date_historique':qd.isoformat(),'Date_cloture_attendue':expected.isoformat(),'Heure_cotation_source':clock,'Heure_cloture_calendrier_UTC':closed_at.isoformat(),'Nature_cotation':quote_type,'Cours_source':price,'Unite_source':unit,'Cours_devise':price/100 if unit in ('GBp','GBX') else price,'Devise':'GBP' if unit in ('GBp','GBX') else unit,'Volume_derniere_seance':history[qd]['volume'],'Date_volume_derniere_seance':qd.isoformat(),'Date_consultation_UTC':record['consulted_at'],'Source':record['url'],'Date_cotation_entete_non_utilisee':header_qd.isoformat()}
     anchors={};missing=[]
-    last_closed_day=max((d for d in history if d<=expected),default=None)
-    result['Date_volume_derniere_seance']=str(last_closed_day) if last_closed_day else None
-    result['Volume_derniere_seance']=history[last_closed_day]['volume'] if last_closed_day else None
-    intraday_volume=re.search(r'Volume du jour\n([\d\s,.]+)\n',body)
-    result['Volume_cumule_en_seance']=numeric(intraday_volume[1]) if quote_type=='INTRADAY' and intraday_volume else None
-    if last_closed_day!=expected:missing.append('volume de la dernière séance terminée '+str(expected))
-    if quote_type=='INTRADAY' and result['Volume_cumule_en_seance'] is None:missing.append('volume en séance')
+    if not fresh:missing.append('clôture attendue '+str(expected)+' absente ; dernière disponible '+str(qd))
     for label,days in [('derniere_seance',1),('5_seances',5)]:
         baseline=ds[-1-days];r=history.get(baseline);anchors[label]=r
         result['Variation_'+label+'_pct']=100*(price/r['close']-1) if r else None
@@ -103,7 +108,7 @@ def calculate(record,ticker,asof):
     warnings=[]
     for label,key in [('1 jour','Variation_derniere_seance_pct'),('1 semaine','Variation_5_seances_pct'),('1 mois','Momentum_1m_pct'),('3 mois','Momentum_3m_pct')]:
         m=re.search(r'(?:^|\n)'+label+r'\t\s*([+−\-\d\s,.]+)%',body)
-        if m and result.get(key) is not None and abs(numeric(m[1])-result[key])>.06:warnings.append(label+': performance synthétique différente du calcul sur dates exactes')
+        if header_qd==qd and header_type=='CLOTURE' and m and result.get(key) is not None and abs(numeric(m[1])-result[key])>.06:warnings.append(label+': performance synthétique différente du calcul sur dates exactes')
     result['Statut']='HISTORIQUE_PERIME' if not fresh else 'INCOMPLET_SANS_SIGNAL' if missing else 'CALCULABLE_ZONEBOURSE_VERIFIE'
     result['Signal']=signal(last,five,result['Momentum_1m_pct']) if fresh and not missing else 'DONNEES_PERIMEES_SANS_ARBITRAGE' if not fresh else 'DONNEES_INSUFFISANTES'
     prior_day=ds[-2];prior=history.get(prior_day);prior_1=history.get(ds[-3]);prior_5=history.get(ds[-7]);target=months_before(prior_day,1);prior_month=history.get(sessions(ticker,target-timedelta(days=14),target)[-1])
@@ -121,7 +126,10 @@ def write_csv(path,rows):
 
 def main(root=ROOT,asof=None,source=None):
     asof=asof or datetime.now(timezone.utc);data=root/'DONNEES';day=asof.astimezone(ZoneInfo('Europe/Paris')).date().isoformat()
+    explicit_source=source is not None
     source=source or data/'ZONEBOURSE_NAVIGATEUR'/day
+    directories=[source] if explicit_source else sorted((data/'ZONEBOURSE_NAVIGATEUR').glob('????-??-??'),reverse=True)
+    directories=[p for p in directories if p.name<=day]
     holdings=read(data/'ETAT_INITIAL_PORTEFEUILLE_GERE.csv')
     if len(holdings)!=40 or len({r['Ticker'] for r in holdings})!=40:raise ValueError('Cohorte 40 requise')
     journal=data/'JOURNAL_ARBITRAGES_GERE.csv';journal_hash=hashlib.sha256(journal.read_bytes()).hexdigest()
@@ -130,7 +138,7 @@ def main(root=ROOT,asof=None,source=None):
     controls=json.loads(controls_path.read_text()) if controls_path.exists() else []
     rows=[]
     for h in holdings:
-        t=h['Ticker'];p=source/(t+'.json');r={'ID_position':h['ID_position'],'Ticker':t,'Societe':h['Societe'],'Date_execution':day,'Arbitrage_autorise':'NON','Rang_momentum':''}
+        t=h['Ticker'];p=next((folder/(t+'.json') for folder in directories if (folder/(t+'.json')).exists()),source/(t+'.json'));r={'ID_position':h['ID_position'],'Ticker':t,'Societe':h['Societe'],'Date_execution':day,'Arbitrage_autorise':'NON','Rang_momentum':''}
         if not p.exists():r.update(Statut='NON_COLLECTE',Signal='AUCUN_SIGNAL_SANS_COLLECTE',Source='',Limites=manifest.get('statuts_par_ticker',{}).get(t,'Aucune lecture navigateur de ce passage'))
         else:
             try:
@@ -147,7 +155,7 @@ def main(root=ROOT,asof=None,source=None):
     # Priorité au mouvement de la dernière cotation; 5 séances puis M1/M2/M3 départagent.
     for i,r in enumerate(sorted(verified,key=lambda r:tuple(r[k] for k in ['Variation_derniere_seance_pct','Variation_5_seances_pct','Momentum_1m_pct','Momentum_2m_pct','Momentum_3m_pct']),reverse=True),1):r['Rang_momentum']=i
     write_csv(data/'EXPERIENCE_MOMENTUM_40.csv',rows)
-    report={'date_execution':day,'asof_utc':asof.isoformat(),'titulaires':40,'lectures_exploitables':len(verified),'lignes_sans_cotation_actualisee':40-len(verified),'statut':'PRET_POUR_REVUE_HEBDOMADAIRE' if len(verified)==40 else 'COLLECTE_PARTIELLE_ARBITRAGE_NON_PREPARE','source_requise':'Zonebourse, consultation individuelle navigateur','source_dossier':str(source.relative_to(root)),'frais_vente_pct':2.5,'frais_achat_pct':2.5,'friction_vente_achat_pct':(1-.975/1.025)*100,'journal_sha256':journal_hash,'transactions':0,'arbitrage_automatique':'DESACTIVE','classement':'DIAGNOSTIC_PARTIEL' if len(verified)<40 else 'COMPLET_A_REVOIR','temoin':'40 positions T0 figées; aucune valorisation complète réétiquetée comme Zonebourse actuelle','blocage_collecte':manifest.get('blocage')}
+    report={'date_execution':day,'asof_utc':asof.isoformat(),'titulaires':40,'lectures_exploitables':len(verified),'lignes_sans_cotation_actualisee':40-len(verified),'statut':'PRET_POUR_REVUE_HEBDOMADAIRE' if len(verified)==40 else 'COLLECTE_PARTIELLE_ARBITRAGE_NON_PREPARE','regle_cloture':'Dernière séance strictement antérieure au jour du contrôle (Europe/Paris), calendrier de chaque marché','source_requise':'Zonebourse, consultation individuelle navigateur','source_dossier':str(source.relative_to(root)),'frais_vente_pct':2.5,'frais_achat_pct':2.5,'friction_vente_achat_pct':(1-.975/1.025)*100,'journal_sha256':journal_hash,'transactions':0,'arbitrage_automatique':'DESACTIVE','classement':'DIAGNOSTIC_PARTIEL' if len(verified)<40 else 'COMPLET_A_REVOIR','temoin':'40 positions T0 figées; aucune valorisation complète réétiquetée comme Zonebourse actuelle','blocage_collecte':manifest.get('blocage')}
     report['suspensions_documentees']=[r['Ticker'] for r in rows if r.get('Controle_marche')=='SUSPENDU']
     (data/'ETAT_MOMENTUM_QUOTIDIEN.json').write_text(json.dumps(report,ensure_ascii=False,indent=2)+'\n')
     preparation=[{'Ticker':r['Ticker'],'Date_revue':day,'Signal':r['Signal'],'Statut_cotation':r['Statut'],'Preparation':'SUSPENSION_NE_PAS_ARBITRER' if r.get('Controle_marche')=='SUSPENDU' else 'SURVEILLER_DECELERATION' if r['Signal']=='DECELERATION_A_SURVEILLER' else 'EXAMINER_REDUCTION' if 'BAISSIER' in r['Signal'] else 'EXAMINER_REPRISE' if 'HAUSSIER' in r['Signal'] else 'ATTENDRE_PREUVES' if r not in verified else 'CONSERVER_SOUS_REVUE','Confrontation_40':'COMPLETE' if len(verified)==40 else 'INCOMPLETE','Operation_virtuelle':'AUCUNE','Friction_rotation_pct':report['friction_vente_achat_pct']} for r in rows]
