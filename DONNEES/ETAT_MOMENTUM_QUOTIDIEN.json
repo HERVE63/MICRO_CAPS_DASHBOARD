@@ -1,12 +1,13 @@
 {
-  "date_execution": "2026-11-16",
-  "asof_utc": "2026-11-16T13:07:45.930495+00:00",
+  "date_execution": "2026-11-17",
+  "asof_utc": "2026-11-17T10:09:42.753292+00:00",
   "titulaires": 40,
-  "lectures_exploitables": 10,
-  "lignes_sans_cotation_actualisee": 30,
+  "lectures_exploitables": 0,
+  "lignes_sans_cotation_actualisee": 40,
   "statut": "COLLECTE_PARTIELLE_ARBITRAGE_NON_PREPARE",
+  "regle_cloture": "Dernière séance strictement antérieure au jour du contrôle (Europe/Paris), calendrier de chaque marché",
   "source_requise": "Zonebourse, consultation individuelle navigateur",
-  "source_dossier": "DONNEES/ZONEBOURSE_NAVIGATEUR/2026-11-16",
+  "source_dossier": "DONNEES/ZONEBOURSE_NAVIGATEUR/2026-11-17",
   "frais_vente_pct": 2.5,
   "frais_achat_pct": 2.5,
   "friction_vente_achat_pct": 4.8780487804877986,
@@ -15,7 +16,7 @@
   "arbitrage_automatique": "DESACTIVE",
   "classement": "DIAGNOSTIC_PARTIEL",
   "temoin": "40 positions T0 figées; aucune valorisation complète réétiquetée comme Zonebourse actuelle",
-  "blocage_collecte": "Rejet explicite du navigateur Work : URL policy gate did not grant access / requested URL protocol is not allowed. Aucun contournement essayé.",
+  "blocage_collecte": null,
   "suspensions_documentees": [
     "PULS.L"
   ]
