@@ -16,4 +16,4 @@ Shareprices affiche 14,75 GBX le 12/11 avec volume nul. Cette date appartient à
 
 ## Statut
 
-La recherche apporte une alternative chiffrée pour Plejd et permet de lever le contrôle de suspension actuel de Pulsar. Elle ne certifie pas encore 40/40 dossiers complets, et ne change aucun journal de transactions. Le manifeste actualisé déclenche les contrôles du moteur dans GitHub ; leur résultat sera vérifié après exécution.
+La recherche apporte une alternative chiffrée pour Plejd et permet de lever le contrôle de suspension actuel de Pulsar. Elle ne certifie pas encore 40/40 dossiers complets, et ne change aucun journal de transactions. Vérification GitHub réellement terminée : 19 tests réussis en 31,60 secondes, T0/calculs/archivage/sauvegarde réussis. Gate : code 2, 38/40, aucune suspension actuelle, journal inchangé et arbitrage interdit. L'alternative Plejd demeure provisoire et hors gate ; le point Pulsar porte sur l'ancrage durant la suspension passée. Résultats : https://github.com/HERVE63/MICRO_CAPS_DASHBOARD/actions/runs/44758887551.

@@ -1,0 +1,24 @@
+{
+  "date": "2026-11-20",
+  "commit_collecte_alternative": "a3cb67963897f06e2af95876a94660e263f55575",
+  "commit_resultats": "b9cd95301d2b337a7c2cb3fa02ba350d9bcf432b",
+  "run_id": 44758887551,
+  "job_id": 136365844283,
+  "tests": {
+    "passed": 19,
+    "failed": 0,
+    "duration_seconds": 31.6
+  },
+  "calculs": "success",
+  "sauvegarde": "success",
+  "gate": {
+    "exit_code": 2,
+    "zonebourse_valides": 38,
+    "suspensions_actuelles": [],
+    "journal_inchange": true,
+    "arbitrage_autorise": false
+  },
+  "journal_sha256": "8662c18842e2f06d8fabe714e5032a375b306102aee2691309ef9220e6b72e78",
+  "source_alternative_plejd": "provisoire, hors validation du gate Zonebourse",
+  "reprise_pulsar": "confirmée officiellement 2026-11-17"
+}
