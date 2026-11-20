@@ -141,7 +141,7 @@ def test_current_looking_quote_does_not_override_suspension(tmp_path,monkeypatch
 
 def test_nov20_real_collection_and_pulsar_alias():
  source=ROOT/'DONNEES/ZONEBOURSE_NAVIGATEUR/2026-11-20'
- asof=datetime(2026,11,20,23,tzinfo=timezone.utc)
+ asof=datetime(2026,11,20,20,tzinfo=timezone.utc)
  files=[p for p in source.glob('*.json') if p.name!='MANIFESTE.json']
  assert len(files)==40
  receipts={p.stem:json.loads(p.read_text()) for p in files}
