@@ -1,0 +1,27 @@
+{
+  "date": "2026-11-20",
+  "instruction": "Arbitrages virtuels autorisés dès 35 titulaires validés sur 40, sur le périmètre validé uniquement.",
+  "commit_code": "cdd8c27f115a18d42dc5c6df497fed27e9f236a2",
+  "commit_resultats": "f2a5de0549770b9885adff0c9a464a5b5ea2d799",
+  "run_id": 44761847632,
+  "job_id": 136376133346,
+  "workflow_conclusion": "success",
+  "tests": {
+    "passed": 24,
+    "failed": 0,
+    "duration_seconds": 47.77
+  },
+  "titulaires": 40,
+  "valides": 38,
+  "seuil": 35,
+  "arbitrage_autorise": true,
+  "exclusions": [
+    "PLEJD.ST",
+    "PULS.L"
+  ],
+  "confrontation": "PARTIELLE_AUTORISEE",
+  "transactions_executees": 0,
+  "execution_automatique": "DESACTIVE",
+  "journal_inchange": true,
+  "journal_sha256": "8662c18842e2f06d8fabe714e5032a375b306102aee2691309ef9220e6b72e78"
+}
