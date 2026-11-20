@@ -10,6 +10,12 @@ from zoneinfo import ZoneInfo
 import pandas_market_calendars as mcal
 ROOT=Path(__file__).resolve().parents[1];D=ROOT/'DONNEES'
 HORIZONS=('1m','2m','3m')
+MIN_VALIDATED=35
+
+def arbitrage_scope(rows):
+    eligible=[r for r in rows if r.get('Statut')=='CALCULABLE_ZONEBOURSE_VERIFIE' and r.get('Controle_marche')!='SUSPENDU']
+    cohort_ok=len(rows)==40 and len({r.get('Ticker') for r in rows})==40
+    return eligible,cohort_ok and len(eligible)>=MIN_VALIDATED
 def read(p):
     with p.open(encoding='utf-8-sig',newline='') as f:return list(csv.DictReader(f))
 def numeric(v):
@@ -155,14 +161,16 @@ def main(root=ROOT,asof=None,source=None):
             if r['Statut']=='CALCULABLE_ZONEBOURSE_VERIFIE':r['Statut']='COTATION_NON_NEGOCIABLE'
             r['Limites']=r.get('Limites','')+' | '+blocked['motif']
         rows.append(r)
-    verified=[r for r in rows if r['Statut']=='CALCULABLE_ZONEBOURSE_VERIFIE']
+    verified,review_allowed=arbitrage_scope(rows)
+    for r in rows:r['Arbitrage_autorise']='OUI' if review_allowed and r in verified else 'NON'
     # Priorité au mouvement de la dernière cotation; 5 séances puis M1/M2/M3 départagent.
     for i,r in enumerate(sorted(verified,key=lambda r:tuple(r[k] for k in ['Variation_derniere_seance_pct','Variation_5_seances_pct','Momentum_1m_pct','Momentum_2m_pct','Momentum_3m_pct']),reverse=True),1):r['Rang_momentum']=i
     write_csv(data/'EXPERIENCE_MOMENTUM_40.csv',rows)
-    report={'date_execution':day,'asof_utc':asof.isoformat(),'titulaires':40,'lectures_exploitables':len(verified),'lignes_sans_cotation_actualisee':40-len(verified),'statut':'PRET_POUR_REVUE_HEBDOMADAIRE' if len(verified)==40 else 'COLLECTE_PARTIELLE_ARBITRAGE_NON_PREPARE','regle_cloture':'Dernière séance strictement antérieure au jour du contrôle (Europe/Paris), calendrier de chaque marché','source_requise':'Zonebourse, consultation individuelle navigateur','source_dossier':str(source.relative_to(root)),'frais_vente_pct':2.5,'frais_achat_pct':2.5,'friction_vente_achat_pct':(1-.975/1.025)*100,'journal_sha256':journal_hash,'transactions':0,'arbitrage_automatique':'DESACTIVE','classement':'DIAGNOSTIC_PARTIEL' if len(verified)<40 else 'COMPLET_A_REVOIR','temoin':'40 positions T0 figées; aucune valorisation complète réétiquetée comme Zonebourse actuelle','blocage_collecte':manifest.get('blocage')}
+    report={'date_execution':day,'asof_utc':asof.isoformat(),'titulaires':40,'lectures_exploitables':len(verified),'lignes_sans_cotation_actualisee':40-len(verified),'statut':'PRET_POUR_REVUE_HEBDOMADAIRE' if review_allowed else 'SEUIL_35_NON_ATTEINT','regle_cloture':'Dernière séance strictement antérieure au jour du contrôle (Europe/Paris), calendrier de chaque marché','source_requise':'Zonebourse, consultation individuelle navigateur','source_dossier':str(source.relative_to(root)),'frais_vente_pct':2.5,'frais_achat_pct':2.5,'friction_vente_achat_pct':(1-.975/1.025)*100,'journal_sha256':journal_hash,'transactions':0,'arbitrage_automatique':'DESACTIVE','classement':'COMPLET_A_REVOIR' if len(verified)==40 else 'PERIMETRE_VALIDE_35_MINIMUM' if review_allowed else 'DIAGNOSTIC_PARTIEL','temoin':'40 positions T0 figées; aucune valorisation complète réétiquetée comme Zonebourse actuelle','blocage_collecte':manifest.get('blocage')}
+    report.update(seuil_minimum_valides=MIN_VALIDATED,arbitrage_autorise=review_allowed,perimetre_arbitrable=[r['Ticker'] for r in verified] if review_allowed else [],lignes_exclues=[r['Ticker'] for r in rows if r not in verified],confrontation='COMPLETE' if len(verified)==40 else 'PARTIELLE_AUTORISEE' if review_allowed else 'BLOQUEE')
     report['suspensions_documentees']=[r['Ticker'] for r in rows if r.get('Controle_marche')=='SUSPENDU']
     (data/'ETAT_MOMENTUM_QUOTIDIEN.json').write_text(json.dumps(report,ensure_ascii=False,indent=2)+'\n')
-    preparation=[{'Ticker':r['Ticker'],'Date_revue':day,'Signal':r['Signal'],'Statut_cotation':r['Statut'],'Preparation':'SUSPENSION_NE_PAS_ARBITRER' if r.get('Controle_marche')=='SUSPENDU' else 'SURVEILLER_DECELERATION' if r['Signal']=='DECELERATION_A_SURVEILLER' else 'EXAMINER_REDUCTION' if 'BAISSIER' in r['Signal'] else 'EXAMINER_REPRISE' if 'HAUSSIER' in r['Signal'] else 'ATTENDRE_PREUVES' if r not in verified else 'CONSERVER_SOUS_REVUE','Confrontation_40':'COMPLETE' if len(verified)==40 else 'INCOMPLETE','Operation_virtuelle':'AUCUNE','Friction_rotation_pct':report['friction_vente_achat_pct']} for r in rows]
+    preparation=[{'Ticker':r['Ticker'],'Date_revue':day,'Signal':r['Signal'],'Statut_cotation':r['Statut'],'Preparation':'SUSPENSION_NE_PAS_ARBITRER' if r.get('Controle_marche')=='SUSPENDU' else 'ATTENDRE_PREUVES' if r not in verified else 'SEUIL_35_NON_ATTEINT' if not review_allowed else 'SURVEILLER_DECELERATION' if r['Signal']=='DECELERATION_A_SURVEILLER' else 'EXAMINER_REDUCTION' if 'BAISSIER' in r['Signal'] else 'EXAMINER_REPRISE' if 'HAUSSIER' in r['Signal'] else 'ATTENDRE_PREUVES' if r not in verified else 'CONSERVER_SOUS_REVUE','Arbitrage_autorise':r['Arbitrage_autorise'],'Confrontation_40':report['confrontation'],'Operation_virtuelle':'AUCUNE','Friction_rotation_pct':report['friction_vente_achat_pct']} for r in rows]
     write_csv(data/'PREPARATION_HEBDOMADAIRE_MOMENTUM_40.csv',preparation)
     if hashlib.sha256(journal.read_bytes()).hexdigest()!=journal_hash:raise RuntimeError('Journal modifié')
     print(json.dumps(report,ensure_ascii=False));return report

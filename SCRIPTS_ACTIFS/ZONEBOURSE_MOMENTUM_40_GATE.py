@@ -25,9 +25,10 @@ def main():
     count=report.get("lectures_exploitables",0)
     print(json.dumps({"titulaires":40,"zonebourse_valides":count,
         "manquants":40-count,"journal_inchange":True,
-        "arbitrage_autorise":count==40 and not report.get("suspensions_documentees"),
+        "seuil_minimum":module.MIN_VALIDATED,"arbitrage_autorise":report["arbitrage_autorise"],
+        "lignes_exclues":report["lignes_exclues"],
         "suspensions":report.get("suspensions_documentees",[])},ensure_ascii=False))
-    if count!=40 or report.get("suspensions_documentees"):
+    if not report["arbitrage_autorise"]:
         raise SystemExit(2)
 
 if __name__=="__main__":

@@ -161,3 +161,34 @@ def test_nov20_real_collection_and_pulsar_alias():
  bad=copy.deepcopy(receipts['PULS.L']);bad['body']=bad['body'].replace('GB00BGQVB052','GB0000000000')
  with pytest.raises(ValueError,match='Ticker'):m.calculate(bad,'PULS.L',asof)
  with pytest.raises(ValueError,match='Aucune clôture historique'):m.calculate(receipts['PLEJD.ST'],'PLEJD.ST',asof)
+
+@pytest.mark.parametrize('count,allowed',[(34,False),(35,True),(38,True),(40,True)])
+def test_arbitrage_threshold_preserves_individual_exclusions(count,allowed):
+ rows=[{'Ticker':'T'+str(i),'Statut':'CALCULABLE_ZONEBOURSE_VERIFIE' if i<count else 'HISTORIQUE_PERIME'} for i in range(40)]
+ eligible,ready=m.arbitrage_scope(rows)
+ assert ready is allowed and len(eligible)==count
+ assert all(r['Statut']=='CALCULABLE_ZONEBOURSE_VERIFIE' for r in eligible)
+ if count==35:
+  rows[0]['Controle_marche']='SUSPENDU'
+  eligible,ready=m.arbitrage_scope(rows)
+  assert not ready and len(eligible)==34
+ assert not m.arbitrage_scope(rows[:35])[1]
+
+def test_real_38_line_review_authorized_without_trading_invalid_positions(tmp_path):
+ import shutil
+ d=tmp_path/'DONNEES';d.mkdir();c=tmp_path/'CONFIG';c.mkdir()
+ for name in ['ETAT_INITIAL_PORTEFEUILLE_GERE.csv','JOURNAL_ARBITRAGES_GERE.csv']:(d/name).write_bytes((ROOT/'DONNEES'/name).read_bytes())
+ (c/'CONTROLES_MARCHE_DOCUMENTES.json').write_bytes((ROOT/'CONFIG/CONTROLES_MARCHE_DOCUMENTES.json').read_bytes())
+ s=d/'ZONEBOURSE_NAVIGATEUR/2026-11-20'
+ shutil.copytree(ROOT/'DONNEES/ZONEBOURSE_NAVIGATEUR/2026-11-20',s)
+ before=(d/'JOURNAL_ARBITRAGES_GERE.csv').read_bytes()
+ report=m.main(tmp_path,datetime(2026,11,20,20,tzinfo=timezone.utc),s)
+ assert report['lectures_exploitables']==38 and report['arbitrage_autorise']
+ assert report['confrontation']=='PARTIELLE_AUTORISEE'
+ assert set(report['lignes_exclues'])=={'PLEJD.ST','PULS.L'}
+ rows=m.read(d/'EXPERIENCE_MOMENTUM_40.csv')
+ assert sum(r['Arbitrage_autorise']=='OUI' for r in rows)==38
+ assert all(r['Arbitrage_autorise']=='NON' for r in rows if r['Ticker'] in report['lignes_exclues'])
+ prep=m.read(d/'PREPARATION_HEBDOMADAIRE_MOMENTUM_40.csv')
+ assert all(r['Preparation']=='ATTENDRE_PREUVES' for r in prep if r['Ticker'] in report['lignes_exclues'])
+ assert (d/'JOURNAL_ARBITRAGES_GERE.csv').read_bytes()==before and report['transactions']==0
