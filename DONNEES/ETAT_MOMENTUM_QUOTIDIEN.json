@@ -1,6 +1,6 @@
 {
   "date_execution": "2026-11-20",
-  "asof_utc": "2026-11-20T14:46:45.313161+00:00",
+  "asof_utc": "2026-11-20T15:01:47.877731+00:00",
   "titulaires": 40,
   "lectures_exploitables": 38,
   "lignes_sans_cotation_actualisee": 2,
@@ -16,8 +16,6 @@
   "arbitrage_automatique": "DESACTIVE",
   "classement": "DIAGNOSTIC_PARTIEL",
   "temoin": "40 positions T0 figées; aucune valorisation complète réétiquetée comme Zonebourse actuelle",
-  "blocage_collecte": "PLEJD.ST : clôtures affichées 30/09/2026 (Spotlight) et 27/06/2025 (Nordic Growth), aucune clôture 19/11. PULS.L : historique récent limité aux 18 et 19/11 ; ancrage cinq séances absent, contrôle de suspension historique non levé sans preuve de reprise officielle.",
-  "suspensions_documentees": [
-    "PULS.L"
-  ]
+  "blocage_collecte": "PLEJD.ST : Zonebourse reste périmé ; cotations alternatives trouvées dans DONNEES/SOURCES_ALTERNATIVES/2026-11-20/PLEJD.ST.json, hors validation du gate Zonebourse. PULS.L : reprise officielle confirmée le 17/11 par RNS 4755D ; historique Zonebourse cinq séances incomplet, ancrage 12/11 pendant la suspension à ne pas traiter comme une cotation négociée.",
+  "suspensions_documentees": []
 }
