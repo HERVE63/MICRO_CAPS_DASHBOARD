@@ -1,0 +1,55 @@
+{
+  "ticker": "PLEJD.ST",
+  "isin": "SE0008014476",
+  "currency": "SEK",
+  "quote_date": "2026-11-19",
+  "close": 813,
+  "volumes_by_source": {
+    "Financial Times": 23946,
+    "Yahoo Finance": 23915
+  },
+  "anchors": {
+    "derniere_seance": {
+      "date": "2026-11-18",
+      "close": 821.5
+    },
+    "5_seances": {
+      "date": "2026-11-12",
+      "close": 868.5
+    },
+    "1m": {
+      "date": "2026-10-19",
+      "close": 871.5
+    },
+    "2m": {
+      "date": "2026-09-18",
+      "close": 977
+    },
+    "3m": {
+      "date": "2026-08-19",
+      "close": 918.5
+    }
+  },
+  "source_policy": "RECHERCHE_ALTERNATIVE_AUTORISEE_PAR_UTILISATEUR; ne pas présenter comme un relevé Zonebourse",
+  "method": "WEB_SEARCH_INDEX; accès direct FT 403 et Yahoo 429; ancrages issus des tableaux indexés",
+  "status": "CALCUL_PROVISOIRE_HORS_GATE_ZONEBOURSE",
+  "urls": [
+    "https://markets.ft.markitdigital.com/data/equities/tearsheet/historical?s=PLEJD%3AAKT",
+    "https://finance.yahoo.com/quote/PLEJD.ST/history/",
+    "https://www.investing.com/equities/plejd-ab-historical-data?_pmch=1661100738028",
+    "https://indicator.spotlightstockmarket.com/en/market-overview/share-prices/search-share-prices-and-trades/?companyAndMdaInsRefs=1626&endDate=10%2F23%2F2026&isAdjusted=True&resultType=0&startDate=9%2F23%2F2026"
+  ],
+  "limitations": [
+    "Écart de 31 titres entre volumes FT et Yahoo ; ne pas inventer un volume unique certifié.",
+    "Clôtures concordantes entre FT, Yahoo et Investing pour le 19/11 ; ancrage 19/10 corroboré par Spotlight.",
+    "Ancrages septembre/août issus du tableau Yahoo indexé, pas d'une consultation navigateur Premium."
+  ],
+  "variations_pct": {
+    "derniere_seance": -1.0346926354230068,
+    "5_seances": -6.39032815198618,
+    "1m": -6.712564543889843,
+    "2m": -16.78607983623337,
+    "3m": -11.486118671747414
+  },
+  "date_consultation": "2026-11-20"
+}

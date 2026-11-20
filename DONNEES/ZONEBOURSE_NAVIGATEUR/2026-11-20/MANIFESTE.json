@@ -6,10 +6,10 @@
   "cloture_attendue": "2026-11-19",
   "societes_consultees": 40,
   "clotures_cibles_observees": 39,
-  "blocage": "PLEJD.ST : clôtures affichées 30/09/2026 (Spotlight) et 27/06/2025 (Nordic Growth), aucune clôture 19/11. PULS.L : historique récent limité aux 18 et 19/11 ; ancrage cinq séances absent, contrôle de suspension historique non levé sans preuve de reprise officielle.",
+  "blocage": "PLEJD.ST : Zonebourse reste périmé ; cotations alternatives trouvées dans DONNEES/SOURCES_ALTERNATIVES/2026-11-20/PLEJD.ST.json, hors validation du gate Zonebourse. PULS.L : reprise officielle confirmée le 17/11 par RNS 4755D ; historique Zonebourse cinq séances incomplet, ancrage 12/11 pendant la suspension à ne pas traiter comme une cotation négociée.",
   "statuts_par_ticker": {
     "PLEJD.ST": "Page accessible mais cotation périmée et historique absent",
-    "PULS.L": "Dernière clôture 19/11 observée, volume 0 ; historique cinq séances incomplet ; preuve de reprise officielle à contrôler"
+    "PULS.L": "Reprise officielle confirmée 17/11 ; clôture 19/11 observée, volume 0 ; ancrage cinq séances non négocié durant la suspension"
   },
   "fichiers": [
     "AL2SI.PA.json",
@@ -52,5 +52,6 @@
     "TRT.L.json",
     "TSTL.L.json",
     "ZOMD.V.json"
-  ]
+  ],
+  "mise_a_jour_sources_alternatives": "2026-11-20"
 }
