@@ -29,22 +29,27 @@ def taux():
     p=pd.read_csv(PARAMS).set_index("Parametre")
     return float(p.loc["Frais_achat","Valeur"])/100,float(p.loc["Frais_vente","Valeur"])/100
 
-def executer(dry_run=False):
+def executer(dry_run=False, momentum_context=None):
     charger("07AC_CONTROLER_T0.py").executer()
     maintenant=datetime.now(ZoneInfo("Europe/Paris"))
+    if momentum_context is not None:
+        if (momentum_context.get('autorisation_date')!=maintenant.date().isoformat()
+                or momentum_context.get('mode')!='VIRTUEL_MOMENTUM_COMMANDE_UTILISATEUR'
+                or momentum_context.get('valides',0)<35):
+            raise RuntimeError('Autorisation momentum datée absente ou périmètre insuffisant')
     force=os.getenv("MICRO_CAPS_FORCE_MENSUEL","0")=="1"
-    if force and not (dry_run or os.getenv("MICRO_CAPS_DRY_RUN","0")=="1"):
+    if momentum_context is None and force and not (dry_run or os.getenv("MICRO_CAPS_DRY_RUN","0")=="1"):
         raise RuntimeError("Forçage hors fenêtre interdit sans exception grave documentée")
     hebdo=os.getenv("MICRO_CAPS_ARBITRAGE_HEBDO","0")=="1"
-    if not force and not (dernier_mardi(maintenant.date()) or (hebdo and maintenant.weekday()==1)):
+    if momentum_context is None and not force and not (dernier_mardi(maintenant.date()) or (hebdo and maintenant.weekday()==1)):
         print("Hors fenêtre mensuelle : aucune opération.")
         return pd.DataFrame()
 
     # Une revue vide n'est pas un motif pour interrompre la valorisation.
     # Publier la couverture des positions ACTIVES sans inventer de scores.
-    if not REVUE.exists():
+    if momentum_context is None and not REVUE.exists():
         raise RuntimeError("Revue MCPA/IPS absente : aucune decision autorisee.")
-    revue_existante=pd.read_csv(REVUE,dtype=str,keep_default_na=False)
+    revue_existante=pd.read_csv(REVUE,dtype=str,keep_default_na=False) if momentum_context is None else pd.DataFrame([{"Type":"MOMENTUM"}])
     if revue_existante.empty:
         etat=charger("05C_REPLAY_PORTEFEUILLE_GERE.py").executer()
         actifs=etat["positions"]
@@ -59,12 +64,12 @@ def executer(dry_run=False):
         return pd.DataFrame()
 
     # Recalcule les contrôles/duels sur la revue courante.
-    duels=charger("09B_DUEL_PROCHAIN_EURO.py").executer()
+    duels=charger("09B_DUEL_PROCHAIN_EURO.py").executer() if momentum_context is None else momentum_context["duels"]
     if duels.empty:
         print("Aucune sortie VENDRE : aucun arbitrage.")
         return pd.DataFrame()
 
-    revue=pd.read_csv(REVUE)
+    revue=pd.read_csv(REVUE) if momentum_context is None else pd.DataFrame()
     journal=pd.read_csv(JOURNAL)
     replay=charger("05C_REPLAY_PORTEFEUILLE_GERE.py").executer()
     positions=replay["positions"]
@@ -74,9 +79,13 @@ def executer(dry_run=False):
     if not __import__("math").isfinite(cash_preexistant) or cash_preexistant < -1e-8:
         raise RuntimeError("Cash du replay invalide ou negatif : arbitrage bloque.")
 
-    px=charger("03A_MOTEUR_CLOTURES_V3.py")
-    fxm=charger("03B_MOTEUR_FX_V3.py")
-    fx=fxm.tous_les_fx(datetime.now(ZoneInfo("UTC")))
+    if momentum_context is None:
+        px=charger("03A_MOTEUR_CLOTURES_V3.py")
+        fx=charger("03B_MOTEUR_FX_V3.py").tous_les_fx(datetime.now(ZoneInfo("UTC")))
+    else:
+        from types import SimpleNamespace
+        px=SimpleNamespace(derniere_cloture_validee=lambda ticker,asof: {'cours_cloture':momentum_context['prix'][ticker]})
+        fx=momentum_context['fx']
     ta,tv=taux()
     date_exec=maintenant.date().isoformat()
     existants=set(journal["ID_operation"].astype(str)) if len(journal) else set()
@@ -95,7 +104,8 @@ def executer(dry_run=False):
     def base_row(opid,typ):
         return {c:"" for c in journal.columns} | {
             "ID_operation":opid,"Date_decision":date_exec,"Date_execution":date_exec,
-            "Sequence_execution":seq,"Type_operation":typ,"Statut_operation":"EXECUTEE"
+            "Sequence_execution":seq,"Type_operation":typ,"Statut_operation":"EXECUTEE",
+            "Commentaire":momentum_context["commentaire"] if momentum_context is not None else ""
         }
 
     for source,grp in duels.groupby("ID_position_source",sort=False):
@@ -121,7 +131,7 @@ def executer(dry_run=False):
         row.update({"ID_ligne_sortante":source,"Societe_sortante":ps["Societe"],"Ticker_sortant":ps["Ticker"],
           "Devise_sortante":ps["Devise"],"Cours_execution_sortie":cours_s,"FX_sortie_vers_EUR":fx_s,
           "Frais_sortie_EUR":frais_s,"Quantite_vendue":q,"Capital_realise_EUR":net,
-          "Motif":"Arbitrage mensuel après revues hebdomadaires","Decision_comite":"VENDRE"})
+          "Motif":"Rotation momentum sur commande utilisateur" if momentum_context is not None else "Arbitrage mensuel après revues hebdomadaires","Decision_comite":"VENDRE"})
         lignes.append(row); seq+=1
 
         if cash_seul:
@@ -153,6 +163,12 @@ def executer(dry_run=False):
               "Motif":"Allocation du capital libéré après frais","Decision_comite":typop})
             lignes.append(row); seq+=1
 
+    cash_cursor=cash_preexistant
+    for row in lignes:
+        row['Cash_avant_EUR']=cash_cursor
+        if row['Type_operation']=='SORTIE':cash_cursor+=float(row['Capital_realise_EUR'])
+        else:cash_cursor-=float(row['Montant_EUR'])
+        row['Cash_apres_EUR']=cash_cursor
     ajout=pd.DataFrame(lignes,columns=journal.columns)
     if ajout.empty: return ajout
     if dry_run or os.getenv("MICRO_CAPS_DRY_RUN","0")=="1":

@@ -1,0 +1,11 @@
+{
+  "date": "2026-11-20",
+  "type": "COMMANDE_UTILISATEUR_VIRTUELLE",
+  "demande": "effectue l’arbitrage virtuel maintenant",
+  "maximum_rotations": 1,
+  "regle": "Destination positive aux cinq horizons ; source négative aux cinq, même devise, moins bien classée ; rotation limitée pour cette première exécution.",
+  "date_prix": "2026-11-19",
+  "execution": "Simulation maintenant sur clôtures veille connues, sans prétention à un fill réel ou backtest causal.",
+  "frais_achat_pct": 2.5,
+  "frais_vente_pct": 2.5
+}
