@@ -1,0 +1,42 @@
+{
+  "date": "2026-11-20",
+  "source": "Zonebourse navigateur Premium",
+  "run_id": 44756469292,
+  "job_id": 136357390993,
+  "run_url": "https://github.com/HERVE63/MICRO_CAPS_DASHBOARD/actions/runs/44756469292",
+  "commit_execution": "a3ff11479c474161099bf708d28a44d7e6b288b0",
+  "commit_resultats": "6fdbe0122a570dcb1680dfd9934a08619cd8c503",
+  "societes_consultees": 40,
+  "clotures_du_19_novembre_observees": 39,
+  "dossiers_complets_valides": 38,
+  "tests": {
+    "passed": 19,
+    "failed": 0,
+    "duration_seconds": 40.14
+  },
+  "T0": "success",
+  "calculs": "success",
+  "sauvegarde": "success",
+  "gate": {
+    "exit_code": 2,
+    "arbitrage_autorise": false,
+    "journal_inchange": true
+  },
+  "workflow_conclusion": "failure",
+  "journal_sha256": "8662c18842e2f06d8fabe714e5032a375b306102aee2691309ef9220e6b72e78",
+  "nouvelles_alertes_baissieres": [
+    "MEMS.PA",
+    "CTT.ST",
+    "ALBPK.PA",
+    "ALDMS.PA",
+    "ALSTW.PA"
+  ],
+  "alertes_baissieres_persistantes": [
+    "INFU",
+    "ALSTI.PA",
+    "CER.L",
+    "HSP.L"
+  ],
+  "transactions": 0,
+  "chaine_complete_operationnelle": false
+}
