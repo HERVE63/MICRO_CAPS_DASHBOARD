@@ -1,0 +1,54 @@
+{
+  "prioritaires": [
+    {
+      "ticker": "SRT.L",
+      "alias_registre": "6S7.F",
+      "societe": "SRT Marine Systems",
+      "isin": "GB00B0M8KM36",
+      "devise": "GBP"
+    },
+    {
+      "ticker": "ELCO.L",
+      "alias_registre": "5H3.F",
+      "societe": "Eleco",
+      "isin": "GB0003081246",
+      "devise": "GBP"
+    },
+    {
+      "ticker": "PDEX",
+      "alias_registre": "PDEX",
+      "societe": "Pro-Dex",
+      "isin": null,
+      "devise": "USD"
+    },
+    {
+      "ticker": "KEQU",
+      "alias_registre": "KEQU",
+      "societe": "Kewaunee Scientific",
+      "isin": "US4928541048",
+      "devise": "USD"
+    }
+  ],
+  "evenements": {
+    "ELCO.L": {
+      "type": "OFFRE_NUMERAIRE",
+      "prix_offre_devise": 2.35,
+      "devise": "GBP",
+      "date_verification": "2026-11-20",
+      "sources": [
+        "https://ir.eleco.com/regulatory/accel-kkr-recommended-cash-offer-for-eleco-plc/",
+        "https://ir.eleco.com/regulatory/court-sanction-of-the-scheme-of-arrangement/",
+        "https://ir.eleco.com/regulatory/update-on-conditions-and-expected-scheme-timetable/"
+      ],
+      "motif": "Offre à 235 pence ; ne pas confondre la hausse historique liée à l’offre et une tendance renouvelable."
+    }
+  },
+  "mandat": {
+    "debut": "2026-11-20",
+    "arbitrage_virtuel": true,
+    "jour_hebdomadaire": 1,
+    "execution_exceptionnelle": "2026-11-20",
+    "maximum_rotations_par_revue": 1,
+    "aucun_ordre_reel": true
+  }
+}

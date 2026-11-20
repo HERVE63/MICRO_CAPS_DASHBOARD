@@ -69,7 +69,7 @@ def executer(dry_run=False, momentum_context=None):
         print("Aucune sortie VENDRE : aucun arbitrage.")
         return pd.DataFrame()
 
-    revue=pd.read_csv(REVUE) if momentum_context is None else pd.DataFrame()
+    revue=pd.read_csv(REVUE) if momentum_context is None else pd.DataFrame(momentum_context.get("revue",[]))
     journal=pd.read_csv(JOURNAL)
     replay=charger("05C_REPLAY_PORTEFEUILLE_GERE.py").executer()
     positions=replay["positions"]
@@ -90,6 +90,9 @@ def executer(dry_run=False, momentum_context=None):
     date_exec=maintenant.date().isoformat()
     existants=set(journal["ID_operation"].astype(str)) if len(journal) else set()
     lignes=[]; seq=1
+    if len(journal):
+        same=journal[journal["Date_execution"].astype(str)==date_exec]
+        if len(same):seq=int(pd.to_numeric(same["Sequence_execution"]).max())+1
 
     def pos_active(idp):
         z=positions[(positions["ID_position"].astype(str)==str(idp)) & (positions["Statut"].astype(str).str.upper()=="ACTIF")]

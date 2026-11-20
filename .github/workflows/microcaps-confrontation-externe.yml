@@ -1,0 +1,80 @@
+name: Micro Caps - confrontation externe et affichage momentum
+on:
+  workflow_dispatch:
+  push:
+    branches: [repair/microcaps-chain-20261030]
+    paths:
+      - 'SCRIPTS_ACTIFS/41M_CONFRONTATION_EXTERNES.py'
+      - 'SCRIPTS_ACTIFS/08M_GENERER_DASHBOARD_MOMENTUM.py'
+      - 'CONFIG/CANDIDATS_EXTERNES_MOMENTUM.json'
+      - 'DONNEES/ZONEBOURSE_EXTERNES/**'
+      - 'DONNEES/ZONEBOURSE_NAVIGATEUR/**'
+      - 'tests/test_41m_external.py'
+      - '.github/workflows/microcaps-confrontation-externe.yml'
+permissions:
+  contents: write
+concurrency:
+  group: microcaps-momentum-zonebourse
+  cancel-in-progress: false
+jobs:
+  execution-verifiee:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: ${{ github.sha }}
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Installer les dependances
+        run: python -m pip install pandas pandas_market_calendars pytest
+      - name: Tester seuil, frais, exclusions, replay et non-duplication
+        run: python -m pytest -q tests/test_40m_momentum_experience_integration.py tests/test_40e_virtual_execution.py tests/test_41m_external.py
+      - name: Confronter les externes et executer uniquement si admissible
+        id: execute
+        run: |
+          python SCRIPTS_ACTIFS/ZONEBOURSE_MOMENTUM_40_GATE.py
+          python SCRIPTS_ACTIFS/41M_CONFRONTATION_EXTERNES.py --execute
+          python SCRIPTS_ACTIFS/08M_GENERER_DASHBOARD_MOMENTUM.py
+      - name: Archiver les preuves
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: microcaps-externes-${{ github.run_id }}
+          path: |
+            APPLICATION/
+            index.html
+            DONNEES/ETAT_CONFRONTATION_EXTERNES.json
+            DONNEES/CANDIDATS_EXTERNES_MOMENTUM.csv
+            DONNEES/CONFRONTATION_MOMENTUM_EXTERNES.csv
+            DONNEES/VIGILANCE_EXTERNES_QUOTIDIENNE.csv
+            DONNEES/ZONEBOURSE_EXTERNES/
+            DONNEES/ARBITRAGE_MOMENTUM_*.json
+            DONNEES/JOURNAL_ARBITRAGES_GERE.csv
+            DONNEES/TEST_ETAT_GERE_RECONSTRUIT.csv
+            DONNEES/EXPERIENCE_MOMENTUM_40.csv
+            DONNEES/ETAT_MOMENTUM_QUOTIDIEN.json
+            DONNEES/PREPARATION_HEBDOMADAIRE_MOMENTUM_40.csv
+            DONNEES/FX_REFERENCE_BCE_20261119.json
+      - name: Sauvegarder le journal et le portefeuille gere
+        if: success()
+        env:
+          EXPECTED_HEAD: ${{ github.sha }}
+        run: |
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add APPLICATION/index.html APPLICATION/momentum-data.json index.html DONNEES/ETAT_CONFRONTATION_EXTERNES.json DONNEES/CANDIDATS_EXTERNES_MOMENTUM.csv DONNEES/CONFRONTATION_MOMENTUM_EXTERNES.csv DONNEES/VIGILANCE_EXTERNES_QUOTIDIENNE.csv DONNEES/JOURNAL_ARBITRAGES_GERE.csv DONNEES/TEST_ETAT_GERE_RECONSTRUIT.csv DONNEES/ARBITRAGE_MOMENTUM_*.json DONNEES/EXPERIENCE_MOMENTUM_40.csv DONNEES/ETAT_MOMENTUM_QUOTIDIEN.json DONNEES/PREPARATION_HEBDOMADAIRE_MOMENTUM_40.csv
+          if git diff --cached --quiet; then exit 0; fi
+          git commit -m 'data: confrontation externe et affichage momentum verifies [skip ci]'
+          for attempt in 1 2 3; do
+            git fetch origin repair/microcaps-chain-20261030
+            changed=$(git diff --name-only "$EXPECTED_HEAD" FETCH_HEAD -- DONNEES/JOURNAL_ARBITRAGES_GERE.csv DONNEES/ZONEBOURSE_EXTERNES/ DONNEES/ZONEBOURSE_NAVIGATEUR/ CONFIG/AUTORISATION_MOMENTUM_VIRTUEL.json CONFIG/CONTROLES_MARCHE_DOCUMENTES.json SCRIPTS_ACTIFS/40E_EXECUTER_MOMENTUM_VIRTUEL.py SCRIPTS_ACTIFS/40M_MOMENTUM_EXPERIENCE.py SCRIPTS_ACTIFS/10_EXECUTION_MENSUELLE.py)
+            if [ -n "$changed" ]; then
+              echo 'Entrees changees : execution seulement dans artefact, journal non publie.'
+              exit 1
+            fi
+            if ! git rebase FETCH_HEAD; then git rebase --abort; exit 1; fi
+            if git push origin HEAD:repair/microcaps-chain-20261030; then exit 0; fi
+          done
+          exit 1
