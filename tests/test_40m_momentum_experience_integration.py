@@ -138,3 +138,26 @@ def test_current_looking_quote_does_not_override_suspension(tmp_path,monkeypatch
  assert puls['Signal']=='MARCHE_SUSPENDU_SANS_ARBITRAGE' and puls['Arbitrage_autorise']=='NON'
  prep=next(r for r in m.read(d/'PREPARATION_HEBDOMADAIRE_MOMENTUM_40.csv') if r['Ticker']=='PULS.L')
  assert prep['Preparation']=='SUSPENSION_NE_PAS_ARBITRER' and prep['Operation_virtuelle']=='AUCUNE'
+
+def test_nov20_real_collection_and_pulsar_alias():
+ source=ROOT/'DONNEES/ZONEBOURSE_NAVIGATEUR/2026-11-20'
+ asof=datetime(2026,11,20,23,tzinfo=timezone.utc)
+ files=[p for p in source.glob('*.json') if p.name!='MANIFESTE.json']
+ assert len(files)==40
+ receipts={p.stem:json.loads(p.read_text()) for p in files}
+ results={t:m.calculate(x,t,asof) for t,x in receipts.items() if t!='PLEJD.ST'}
+ assert all(r['Date_historique']=='2026-11-19' for r in results.values())
+ assert sum(r['Statut']=='CALCULABLE_ZONEBOURSE_VERIFIE' for r in results.values())==38
+ idn=results['IDN']
+ assert idn['Cours_source']==pytest.approx(1.77)
+ assert idn['Volume_derniere_seance']==159453
+ assert idn['Variation_5_seances_pct']==pytest.approx((1.77/2.24-1)*100)
+ assert idn['Momentum_1m_pct']==pytest.approx((1.77/2.16-1)*100)
+ p=results['PULS.L']
+ assert p['Cours_devise']==pytest.approx(.105)
+ assert p['Volume_derniere_seance']==0 and p['Variation_5_seances_pct'] is None
+ assert p['Momentum_1m_pct']==pytest.approx((10.5/14.75-1)*100)
+ assert p['Statut']=='INCOMPLET_SANS_SIGNAL'
+ bad=copy.deepcopy(receipts['PULS.L']);bad['body']=bad['body'].replace('GB00BGQVB052','GB0000000000')
+ with pytest.raises(ValueError,match='Ticker'):m.calculate(bad,'PULS.L',asof)
+ with pytest.raises(ValueError,match='Aucune clôture historique'):m.calculate(receipts['PLEJD.ST'],'PLEJD.ST',asof)

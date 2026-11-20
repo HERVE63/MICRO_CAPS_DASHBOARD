@@ -68,6 +68,10 @@ def calculate(record,ticker,asof):
     if ticker=='GROW.MI':
         # Même ISIN que le dossier historique ; Zonebourse publie le symbole MAIL.
         if '\nMAIL\n' in body and '\nIT0005040354\n' in body:page_ticker='MAIL'
+    if ticker=='PULS.L':
+        # Zonebourse conserve ACC ; rapprochement par l'ISIN de la cohorte.
+        # Ceci ne lève pas le contrôle distinct de suspension.
+        if '\nACC\n' in body and '\nGB00BGQVB052\n' in body:page_ticker='ACC'
     if '\n'+page_ticker+'\n' not in body:raise ValueError('Ticker de page divergent')
     match=re.search(r'(Marché Fermé|Cours en clôture|Temps réel|Cours en différé|Temps Différé)[^\n]*?(?:(\d\d:\d\d:\d\d) )?(\d\d/\d\d/\d{4})[^\n]*\n([\d\s,\.]+) (USD|CAD|EUR|GBp|GBX|GBP|SEK)\t',body)
     if not match:raise ValueError('Date, heure et unité de cotation non identifiées')
