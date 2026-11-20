@@ -30,6 +30,7 @@ jobs:
       - name: Tester les vrais relevés et les refus de données périmées
         run: python -m pytest -q tests/test_40m_momentum_experience_integration.py
       - name: Vérifier le T0 et exécuter le moteur sur les lectures du jour
+        id: calculate
         run: |
           python SCRIPTS_ACTIFS/07AC_CONTROLER_T0.py
           python SCRIPTS_ACTIFS/40M_MOMENTUM_EXPERIENCE.py
@@ -48,17 +49,34 @@ jobs:
         env:
           EXPECTED_HEAD: ${{ github.sha }}
         run: |
-          git fetch origin repair/microcaps-chain-20261030
-          if [ "$(git rev-parse FETCH_HEAD)" != "$EXPECTED_HEAD" ]; then
-            echo 'Branche avancée : résultats conservés dans l’artefact, sans écraser un passage plus récent.'
-            exit 0
-          fi
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
           git add DONNEES/EXPERIENCE_MOMENTUM_40.csv DONNEES/ETAT_MOMENTUM_QUOTIDIEN.json DONNEES/PREPARATION_HEBDOMADAIRE_MOMENTUM_40.csv
           if ! git diff --cached --quiet; then
             git commit -m "data: calculs momentum depuis lectures Zonebourse [skip ci]"
-            git push origin HEAD:repair/microcaps-chain-20261030
+            for attempt in 1 2 3; do
+              git fetch origin repair/microcaps-chain-20261030
+              # Une écriture MCPA indépendante peut être conservée par rebase.
+              # Des preuves ou calculs momentum plus récents ne sont jamais écrasés.
+              changed=$(git diff --name-only "$EXPECTED_HEAD" FETCH_HEAD -- \
+                DONNEES/ZONEBOURSE_NAVIGATEUR/ DONNEES/EXPERIENCE_MOMENTUM_40.csv \
+                DONNEES/ETAT_MOMENTUM_QUOTIDIEN.json DONNEES/PREPARATION_HEBDOMADAIRE_MOMENTUM_40.csv \
+                SCRIPTS_ACTIFS/40M_MOMENTUM_EXPERIENCE.py CONFIG/CONTROLES_MARCHE_DOCUMENTES.json)
+              if [ -n "$changed" ]; then
+                echo 'Entrées momentum plus récentes : résultats conservés dans l’artefact.'
+                exit 0
+              fi
+              if ! git rebase FETCH_HEAD; then
+                git rebase --abort
+                echo 'Conflit : résultats conservés dans l’artefact, aucun écrasement.'
+                exit 0
+              fi
+              if git push origin HEAD:repair/microcaps-chain-20261030; then
+                exit 0
+              fi
+            done
+            echo 'Branche occupée après trois essais : résultats disponibles dans l’artefact.'
           fi
       - name: Contrôle final 40/40 Zonebourse et intégrité du journal virtuel
+        if: always() && steps.calculate.outcome == 'success'
         run: python SCRIPTS_ACTIFS/ZONEBOURSE_MOMENTUM_40_GATE.py
