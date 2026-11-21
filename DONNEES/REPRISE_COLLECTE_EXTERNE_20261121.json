@@ -1,0 +1,56 @@
+{
+  "date_controle": "2026-11-21",
+  "date_cloture": "2026-11-20",
+  "source_lot": "Zonebourse, consultations individuelles navigateur",
+  "reprise_navigateur": "Lectures réussies après réouverture ; appels fractionnés et preuves sauvegardées après chaque ancrage.",
+  "externes_avant": {
+    "relus": 12,
+    "complets": 10,
+    "partiels": 2
+  },
+  "externes_apres": {
+    "relus": 27,
+    "complets": 27,
+    "partiels_du_lot": 0,
+    "nouveaux_dossiers": 15,
+    "dossiers_repares": [
+      "ALMDG.PA",
+      "STVG.L"
+    ],
+    "confrontations": 999,
+    "admissibles_achat": 0,
+    "cotations_registre": 7119,
+    "cotations_incompletes": 7092,
+    "couverture_exhaustive": false
+  },
+  "portefeuille": {
+    "cohorte_validee": 38,
+    "actifs_valides": 37,
+    "positions_actives": 39,
+    "exclus": [
+      "PLEJD.ST",
+      "PULS.L"
+    ]
+  },
+  "journal_inchange_sha256": "1eac2a5b42507a0b28a4c5fb54de4bb349a23a349fc2c257f540c68042c340ce",
+  "nouveaux_ordres_virtuels": 0,
+  "ordre_reel": false,
+  "identite_hvivo": "HVO officiel et VENN Zonebourse rapprochés uniquement par ISIN GB00B9275X97 ; refus si ISIN divergent. Sources dans CONFIG/RAPPROCHEMENT_IDENTITE_HVO_20261121.json.",
+  "tests_ajoutes": "Accepte le reçu HVO/VENN avec ISIN exact et refuse une copie au mauvais ISIN.",
+  "run_final": "https://github.com/HERVE63/MICRO_CAPS_DASHBOARD/actions/runs/44942263929",
+  "run_statut": "SUCCESS_VERIFIE",
+  "run_intermediaire": "44942103750 : tests et calculs réussis, publication refusée après changement concurrent du moteur ; remplacé par le run final.",
+  "commit_collecte": "47b9966961538ac8e858c9cc59c3446ea8ed1c41",
+  "commit_correction": "b6bae8583080d4c5dbd9ab9e0e6995b0af61ea8c",
+  "limites": [
+    "La couverture de l’ensemble des externes reste à compléter.",
+    "L’accès privé au contenu de l’affichage après connexion n’a pas été revérifié ; fichier de données à contrôler après le run."
+  ],
+  "tests_github": {
+    "passes": 33,
+    "duree_secondes": 146.02,
+    "job_id": 136962174625
+  },
+  "commit_resultats": "5e64e36d37c822e44b2ae1ff4a970876b910a6a0",
+  "affichage": "Fichier APPLICATION/momentum-data.json publié et relu : 27 complets/27 relus, cohorte 38/40, date du 21/11/2026. Vue privée après connexion non revérifiée."
+}
