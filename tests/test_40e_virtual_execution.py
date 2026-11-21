@@ -9,8 +9,11 @@ s=importlib.util.spec_from_file_location('exec40',ROOT/'SCRIPTS_ACTIFS/40E_EXECU
 m=importlib.util.module_from_spec(s);s.loader.exec_module(m)
 ASOF=datetime(2026,11,20,20,tzinfo=timezone.utc)
 
-def test_selection_ignores_one_day_rebounds_and_excluded_rows():
- rows=list(__import__('csv').DictReader(open(ROOT/'DONNEES/EXPERIENCE_MOMENTUM_40.csv')))
+def test_selection_ignores_one_day_rebounds_and_excluded_rows(tmp_path):
+ # Rejouer les preuves datées de cette rotation, indépendamment du classement courant.
+ d=setup(tmp_path)
+ m.load('40M_MOMENTUM_EXPERIENCE.py').main(tmp_path,ASOF)
+ rows=list(__import__('csv').DictReader(open(d/'EXPERIENCE_MOMENTUM_40.csv')))
  pair=m.select_pair(rows,{r['Ticker'] for r in rows})
  assert [r['Ticker'] for r in pair]==['SFT.L','MTEC.L']
  pair[1]['Arbitrage_autorise']='NON'
