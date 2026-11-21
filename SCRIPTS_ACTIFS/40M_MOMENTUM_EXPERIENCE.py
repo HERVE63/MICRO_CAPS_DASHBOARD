@@ -71,6 +71,9 @@ def calculate(record,ticker,asof):
     if captured>asof:raise ValueError('Consultation future')
     body=record['body']
     page_ticker=ticker.split('.')[0]
+    if ticker=='HVO.L':
+        # Zonebourse conserve VENN ; HVO est confirmé par l'émetteur et l'ISIN.
+        if '\nVENN\n' in body and '\nGB00B9275X97\n' in body:page_ticker='VENN'
     if ticker=='GROW.MI':
         # Même ISIN que le dossier historique ; Zonebourse publie le symbole MAIL.
         if '\nMAIL\n' in body and '\nIT0005040354\n' in body:page_ticker='MAIL'

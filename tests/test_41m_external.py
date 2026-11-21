@@ -55,3 +55,16 @@ def test_existing_executor_supports_new_external_entry_without_synthetic_mcpa(tm
  assert state['nb_actives']==40 and state['cash']==pytest.approx(0)
  assert 'SYNTHETIC_TEST_ONLY' in state['positions'].Ticker.tolist()
  assert pd.read_csv(ledger).SSI.isna().all()
+
+@pytest.mark.parametrize('isin_correct',[True,False])
+def test_hvivo_legacy_symbol_requires_verified_isin(isin_correct):
+ # Reçu réel daté, sans transformation des cours ni du symbole de la source.
+ raw=json.loads((ROOT/'DONNEES/ZONEBOURSE_EXTERNES/2026-11-21/HVO.L.json').read_text())
+ if not isin_correct:raw['body']=raw['body'].replace('GB00B9275X97','GB0000000000')
+ engine=m.load('40M_MOMENTUM_EXPERIENCE.py')
+ if not isin_correct:
+  with pytest.raises(ValueError,match='Ticker'):engine.calculate(raw,'HVO.L',datetime(2026,11,21,23,59,tzinfo=timezone.utc))
+ else:
+  result=engine.calculate(raw,'HVO.L',datetime(2026,11,21,23,59,tzinfo=timezone.utc))
+  assert result['Statut']=='CALCULABLE_ZONEBOURSE_VERIFIE'
+  assert result['Devise']=='GBP' and result['Cours_devise']==pytest.approx(.0455)
