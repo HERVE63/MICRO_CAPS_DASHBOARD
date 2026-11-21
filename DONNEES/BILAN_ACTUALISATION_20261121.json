@@ -1,0 +1,86 @@
+{
+  "date_controle": "2026-11-21",
+  "date_cloture_reference": "2026-11-20",
+  "source_exclusive_du_lot": "Zonebourse, consultations individuelles navigateur",
+  "portefeuille": {
+    "consultations": 40,
+    "valides": 38,
+    "exclus": [
+      "PLEJD.ST",
+      "PULS.L"
+    ],
+    "positions_actives": 39,
+    "positions_actives_validees": 37
+  },
+  "externes": {
+    "relus": 12,
+    "complets": 10,
+    "partiels": [
+      "ALMDG.PA",
+      "STVG.L"
+    ],
+    "nouveaux_dossiers_relus": 8,
+    "nouveaux_dossiers_complets": 6,
+    "cotations_registre_apres_rapprochements": 7130,
+    "exhaustif": false,
+    "duels_entre_dossiers_complets": 370,
+    "lignes_de_decision_total": 444,
+    "rejets_automatiques_dossiers_partiels": 74,
+    "admissibles_achat": 0
+  },
+  "alertes": [
+    {
+      "ticker": "ALSTI.PA",
+      "signal": "ALERTE_RETOURNEMENT_BAISSIER",
+      "changement_direction": "NON"
+    },
+    {
+      "ticker": "MEMS.PA",
+      "signal": "ALERTE_RETOURNEMENT_BAISSIER",
+      "changement_direction": "NON"
+    },
+    {
+      "ticker": "MTEC.L",
+      "signal": "ALERTE_RETOURNEMENT_BAISSIER",
+      "changement_direction": "OUI"
+    },
+    {
+      "ticker": "LST.L",
+      "signal": "ALERTE_REPRISE_HAUSSIERE",
+      "changement_direction": "OUI"
+    },
+    {
+      "ticker": "CER.L",
+      "signal": "ALERTE_RETOURNEMENT_BAISSIER",
+      "changement_direction": "NON"
+    },
+    {
+      "ticker": "ALLIX.PA",
+      "signal": "ALERTE_REPRISE_HAUSSIERE",
+      "changement_direction": "OUI"
+    }
+  ],
+  "tests_locaux": {
+    "resultat": "31 passed",
+    "duree_secondes": 88.73,
+    "correction": "Le test de sélection historique du 20/11 rejoue désormais ses reçus immuables dans un dossier temporaire ; aucun classement courant imposé."
+  },
+  "journal_sha256": "1eac2a5b42507a0b28a4c5fb54de4bb349a23a349fc2c257f540c68042c340ce",
+  "nouvelles_operations": 0,
+  "run_github": "https://github.com/HERVE63/MICRO_CAPS_DASHBOARD/actions/runs/44936144837",
+  "run_statut": "SUCCESS_VERIFIE",
+  "limites": [
+    "Collecte externe hebdomadaire exhaustive non atteinte.",
+    "Navigateur interrompu pendant le lot externe ; deux reprises échouent sur Emulation.setFocusEmulationEnabled timed out.",
+    "Valorisation complète et surperformance nette non publiées : deux titulaires insuffisamment documentés.",
+    "Affichage généré vérifié par ses données et syntaxe JavaScript ; vue privée après connexion non revérifiée."
+  ],
+  "commit_sources": "6c0aa5d5984b7093c4c0e3bb1edbf2d99138fbee",
+  "commit_resultats": "948dfd138d04a329d57fd30aa6394ba0e7f8073f",
+  "affichage_donnees_publiees_verifiees": "APPLICATION/momentum-data.json : date 2026-11-21, cohorte 38/40, externes 10 complets/12 relus",
+  "tests_github": {
+    "resultat": "31 passed",
+    "duree_secondes": 138,
+    "job_id": 136943059637
+  }
+}
