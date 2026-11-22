@@ -1,15 +1,16 @@
 {
-  "generated_at": "2026-11-21T19:47:00.278434+00:00",
+  "internal_review": null,
+  "generated_at": "2026-11-22T21:26:43.703841+00:00",
   "state": {
-    "date_execution": "2026-11-21",
-    "asof_utc": "2026-11-21T19:46:14.607765+00:00",
+    "date_execution": "2026-11-22",
+    "asof_utc": "2026-11-22T21:26:18.740443+00:00",
     "titulaires": 40,
     "lectures_exploitables": 38,
     "lignes_sans_cotation_actualisee": 2,
     "statut": "PRET_POUR_REVUE_HEBDOMADAIRE",
     "regle_cloture": "Dernière séance strictement antérieure au jour du contrôle (Europe/Paris), calendrier de chaque marché",
     "source_requise": "Zonebourse, consultation individuelle navigateur",
-    "source_dossier": "DONNEES/ZONEBOURSE_NAVIGATEUR/2026-11-21",
+    "source_dossier": "DONNEES/ZONEBOURSE_NAVIGATEUR/2026-11-22",
     "frais_vente_pct": 2.5,
     "frais_achat_pct": 2.5,
     "friction_vente_achat_pct": 4.8780487804877986,
@@ -18,7 +19,7 @@
     "arbitrage_automatique": "DESACTIVE",
     "classement": "PERIMETRE_VALIDE_35_MINIMUM",
     "temoin": "40 positions T0 figées; aucune valorisation complète réétiquetée comme Zonebourse actuelle",
-    "blocage_collecte": "PLEJD.ST : page périmée au 30/09. PULS.L : absence du 13/11 (ancrage cinq séances), suspension passée ; pas de réintégration artificielle.",
+    "blocage_collecte": null,
     "seuil_minimum_valides": 35,
     "arbitrage_autorise": true,
     "perimetre_arbitrable": [
@@ -69,8 +70,8 @@
     "suspensions_documentees": []
   },
   "external_state": {
-    "date_execution": "2026-11-21",
-    "asof_utc": "2026-11-21T19:46:14.607765+00:00",
+    "date_execution": "2026-11-22",
+    "asof_utc": "2026-11-22T21:26:18.740443+00:00",
     "candidats_repertories": 7119,
     "dossiers_relus": 27,
     "dossiers_momentum_complets": 27,
@@ -98,7 +99,7 @@
       "ID_position": "1",
       "Ticker": "IDN",
       "Societe": "Intellicheck",
-      "Date_execution": "2026-11-21",
+      "Date_execution": "2026-11-22",
       "Arbitrage_autorise": "OUI",
       "Rang_momentum": "35",
       "Date_historique": "2026-11-20",
@@ -141,7 +142,7 @@
       "ID_position": "2",
       "Ticker": "INFU",
       "Societe": "InfuSystem",
-      "Date_execution": "2026-11-21",
+      "Date_execution": "2026-11-22",
       "Arbitrage_autorise": "OUI",
       "Rang_momentum": "6",
       "Date_historique": "2026-11-20",
@@ -184,7 +185,7 @@
       "ID_position": "3",
       "Ticker": "OSS",
       "Societe": "One Stop Systems",
-      "Date_execution": "2026-11-21",
+      "Date_execution": "2026-11-22",
       "Arbitrage_autorise": "OUI",
       "Rang_momentum": "34",
       "Date_historique": "2026-11-20",
@@ -227,7 +228,7 @@
       "ID_position": "4",
       "Ticker": "CXDO",
       "Societe": "Crexendo",
-      "Date_execution": "2026-11-21",
+      "Date_execution": "2026-11-22",
       "Arbitrage_autorise": "OUI",
       "Rang_momentum": "33",
       "Date_historique": "2026-11-20",
@@ -270,7 +271,7 @@
       "ID_position": "5",
       "Ticker": "LWAY",
       "Societe": "Lifeway Foods",
-      "Date_execution": "2026-11-21",
+      "Date_execution": "2026-11-22",
       "Arbitrage_autorise": "OUI",
       "Rang_momentum": "26",
       "Date_historique": "2026-11-20",
@@ -313,7 +314,7 @@
       "ID_position": "6",
       "Ticker": "AOM.L",
       "Societe": "ActiveOps",
-      "Date_execution": "2026-11-21",
+      "Date_execution": "2026-11-22",
       "Arbitrage_autorise": "OUI",
       "Rang_momentum": "28",
       "Date_historique": "2026-11-20",
@@ -356,7 +357,7 @@
       "ID_position": "7",
       "Ticker": "ALSTI.PA",
       "Societe": "STIF",
-      "Date_execution": "2026-11-21",
+      "Date_execution": "2026-11-22",
       "Arbitrage_autorise": "OUI",
       "Rang_momentum": "31",
       "Date_historique": "2026-11-20",
@@ -399,7 +400,7 @@
       "ID_position": "8",
       "Ticker": "MEMS.PA",
       "Societe": "MEMSCAP",
-      "Date_execution": "2026-11-21",
+      "Date_execution": "2026-11-22",
       "Arbitrage_autorise": "OUI",
       "Rang_momentum": "21",
       "Date_historique": "2026-11-20",
@@ -442,7 +443,7 @@
       "ID_position": "9",
       "Ticker": "FTG.TO",
       "Societe": "Firan Technology",
-      "Date_execution": "2026-11-21",
+      "Date_execution": "2026-11-22",
       "Arbitrage_autorise": "OUI",
       "Rang_momentum": "36",
       "Date_historique": "2026-11-20",
@@ -485,7 +486,7 @@
       "ID_position": "10",
       "Ticker": "ELVA.TO",
       "Societe": "Electrovaya",
-      "Date_execution": "2026-11-21",
+      "Date_execution": "2026-11-22",
       "Arbitrage_autorise": "OUI",
       "Rang_momentum": "38",
       "Date_historique": "2026-11-20",
@@ -528,7 +529,7 @@
       "ID_position": "11",
       "Ticker": "COV.V",
       "Societe": "Covalon Technologies",
-      "Date_execution": "2026-11-21",
+      "Date_execution": "2026-11-22",
       "Arbitrage_autorise": "OUI",
       "Rang_momentum": "17",
       "Date_historique": "2026-11-20",
@@ -571,7 +572,7 @@
       "ID_position": "12",
       "Ticker": "ROK.V",
       "Societe": "ROK Resources",
-      "Date_execution": "2026-11-21",
+      "Date_execution": "2026-11-22",
       "Arbitrage_autorise": "OUI",
       "Rang_momentum": "32",
       "Date_historique": "2026-11-20",
@@ -614,7 +615,7 @@
       "ID_position": "13",
       "Ticker": "MTEC.L",
       "Societe": "Made Tech Group",
-      "Date_execution": "2026-11-21",
+      "Date_execution": "2026-11-22",
       "Arbitrage_autorise": "OUI",
       "Rang_momentum": "30",
       "Date_historique": "2026-11-20",
@@ -657,7 +658,7 @@
       "ID_position": "14",
       "Ticker": "ZOMD.V",
       "Societe": "Zoomd Technologies",
-      "Date_execution": "2026-11-21",
+      "Date_execution": "2026-11-22",
       "Arbitrage_autorise": "OUI",
       "Rang_momentum": "14",
       "Date_historique": "2026-11-20",
@@ -700,7 +701,7 @@
       "ID_position": "15",
       "Ticker": "CEMX.TO",
       "Societe": "CEMATRIX",
-      "Date_execution": "2026-11-21",
+      "Date_execution": "2026-11-22",
       "Arbitrage_autorise": "OUI",
       "Rang_momentum": "5",
       "Date_historique": "2026-11-20",
@@ -743,7 +744,7 @@
       "ID_position": "16",
       "Ticker": "CTT.ST",
       "Societe": "CTT Systems",
-      "Date_execution": "2026-11-21",
+      "Date_execution": "2026-11-22",
       "Arbitrage_autorise": "OUI",
       "Rang_momentum": "24",
       "Date_historique": "2026-11-20",
@@ -786,7 +787,7 @@
       "ID_position": "17",
       "Ticker": "ALICA.PA",
       "Societe": "ICAPE Holding",
-      "Date_execution": "2026-11-21",
+      "Date_execution": "2026-11-22",
       "Arbitrage_autorise": "OUI",
       "Rang_momentum": "22",
       "Date_historique": "2026-11-20",
@@ -829,7 +830,7 @@
       "ID_position": "18",
       "Ticker": "PLEJD.ST",
       "Societe": "Plejd",
-      "Date_execution": "2026-11-21",
+      "Date_execution": "2026-11-22",
       "Arbitrage_autorise": "NON",
       "Rang_momentum": "",
       "Date_historique": "",
@@ -872,7 +873,7 @@
       "ID_position": "19",
       "Ticker": "SFT.L",
       "Societe": "Software Circle",
-      "Date_execution": "2026-11-21",
+      "Date_execution": "2026-11-22",
       "Arbitrage_autorise": "OUI",
       "Rang_momentum": "3",
       "Date_historique": "2026-11-20",
@@ -915,7 +916,7 @@
       "ID_position": "20",
       "Ticker": "TSTL.L",
       "Societe": "Tristel",
-      "Date_execution": "2026-11-21",
+      "Date_execution": "2026-11-22",
       "Arbitrage_autorise": "OUI",
       "Rang_momentum": "10",
       "Date_historique": "2026-11-20",
@@ -958,7 +959,7 @@
       "ID_position": "21",
       "Ticker": "GENI.ST",
       "Societe": "Generic Sweden",
-      "Date_execution": "2026-11-21",
+      "Date_execution": "2026-11-22",
       "Arbitrage_autorise": "OUI",
       "Rang_momentum": "16",
       "Date_historique": "2026-11-20",
@@ -1001,7 +1002,7 @@
       "ID_position": "22",
       "Ticker": "LST.L",
       "Societe": "Light Science Technologies",
-      "Date_execution": "2026-11-21",
+      "Date_execution": "2026-11-22",
       "Arbitrage_autorise": "OUI",
       "Rang_momentum": "1",
       "Date_historique": "2026-11-20",
@@ -1044,7 +1045,7 @@
       "ID_position": "23",
       "Ticker": "GROW.MI",
       "Societe": "Growens",
-      "Date_execution": "2026-11-21",
+      "Date_execution": "2026-11-22",
       "Arbitrage_autorise": "OUI",
       "Rang_momentum": "4",
       "Date_historique": "2026-11-20",
@@ -1087,7 +1088,7 @@
       "ID_position": "24",
       "Ticker": "HDD.L",
       "Societe": "Hardide",
-      "Date_execution": "2026-11-21",
+      "Date_execution": "2026-11-22",
       "Arbitrage_autorise": "OUI",
       "Rang_momentum": "23",
       "Date_historique": "2026-11-20",
@@ -1130,7 +1131,7 @@
       "ID_position": "25",
       "Ticker": "KLD.V",
       "Societe": "Kenorland Minerals",
-      "Date_execution": "2026-11-21",
+      "Date_execution": "2026-11-22",
       "Arbitrage_autorise": "OUI",
       "Rang_momentum": "29",
       "Date_historique": "2026-11-20",
@@ -1173,7 +1174,7 @@
       "ID_position": "26",
       "Ticker": "ALBFR.PA",
       "Societe": "Sidetrade",
-      "Date_execution": "2026-11-21",
+      "Date_execution": "2026-11-22",
       "Arbitrage_autorise": "OUI",
       "Rang_momentum": "13",
       "Date_historique": "2026-11-20",
@@ -1216,7 +1217,7 @@
       "ID_position": "27",
       "Ticker": "CER.L",
       "Societe": "Cerillion",
-      "Date_execution": "2026-11-21",
+      "Date_execution": "2026-11-22",
       "Arbitrage_autorise": "OUI",
       "Rang_momentum": "25",
       "Date_historique": "2026-11-20",
@@ -1259,7 +1260,7 @@
       "ID_position": "28",
       "Ticker": "TRT.L",
       "Societe": "Transense Technologies",
-      "Date_execution": "2026-11-21",
+      "Date_execution": "2026-11-22",
       "Arbitrage_autorise": "OUI",
       "Rang_momentum": "12",
       "Date_historique": "2026-11-20",
@@ -1302,7 +1303,7 @@
       "ID_position": "29",
       "Ticker": "PULS.L",
       "Societe": "Pulsar Group",
-      "Date_execution": "2026-11-21",
+      "Date_execution": "2026-11-22",
       "Arbitrage_autorise": "NON",
       "Rang_momentum": "",
       "Date_historique": "2026-11-20",
@@ -1345,7 +1346,7 @@
       "ID_position": "30",
       "Ticker": "HSP.L",
       "Societe": "Hargreaves Services",
-      "Date_execution": "2026-11-21",
+      "Date_execution": "2026-11-22",
       "Arbitrage_autorise": "OUI",
       "Rang_momentum": "9",
       "Date_historique": "2026-11-20",
@@ -1388,7 +1389,7 @@
       "ID_position": "31",
       "Ticker": "ALBPK.PA",
       "Societe": "Broadpeak",
-      "Date_execution": "2026-11-21",
+      "Date_execution": "2026-11-22",
       "Arbitrage_autorise": "OUI",
       "Rang_momentum": "11",
       "Date_historique": "2026-11-20",
@@ -1431,7 +1432,7 @@
       "ID_position": "32",
       "Ticker": "ALESE.PA",
       "Societe": "Entech",
-      "Date_execution": "2026-11-21",
+      "Date_execution": "2026-11-22",
       "Arbitrage_autorise": "OUI",
       "Rang_momentum": "27",
       "Date_historique": "2026-11-20",
@@ -1474,7 +1475,7 @@
       "ID_position": "33",
       "Ticker": "ALDMS.PA",
       "Societe": "Diagnostic Medical Systems",
-      "Date_execution": "2026-11-21",
+      "Date_execution": "2026-11-22",
       "Arbitrage_autorise": "OUI",
       "Rang_momentum": "19",
       "Date_historique": "2026-11-20",
@@ -1517,7 +1518,7 @@
       "ID_position": "34",
       "Ticker": "ALSTW.PA",
       "Societe": "StreamWIDE",
-      "Date_execution": "2026-11-21",
+      "Date_execution": "2026-11-22",
       "Arbitrage_autorise": "OUI",
       "Rang_momentum": "8",
       "Date_historique": "2026-11-20",
@@ -1560,7 +1561,7 @@
       "ID_position": "35",
       "Ticker": "ALSOG.PA",
       "Societe": "Sogeclair",
-      "Date_execution": "2026-11-21",
+      "Date_execution": "2026-11-22",
       "Arbitrage_autorise": "OUI",
       "Rang_momentum": "15",
       "Date_historique": "2026-11-20",
@@ -1603,7 +1604,7 @@
       "ID_position": "36",
       "Ticker": "ALMCE.PA",
       "Societe": "Mon Courtier Énergie Groupe",
-      "Date_execution": "2026-11-21",
+      "Date_execution": "2026-11-22",
       "Arbitrage_autorise": "OUI",
       "Rang_momentum": "20",
       "Date_historique": "2026-11-20",
@@ -1646,7 +1647,7 @@
       "ID_position": "37",
       "Ticker": "AL2SI.PA",
       "Societe": "2CRSi",
-      "Date_execution": "2026-11-21",
+      "Date_execution": "2026-11-22",
       "Arbitrage_autorise": "OUI",
       "Rang_momentum": "37",
       "Date_historique": "2026-11-20",
@@ -1689,7 +1690,7 @@
       "ID_position": "38",
       "Ticker": "ALLIX.PA",
       "Societe": "WALLIX",
-      "Date_execution": "2026-11-21",
+      "Date_execution": "2026-11-22",
       "Arbitrage_autorise": "OUI",
       "Rang_momentum": "7",
       "Date_historique": "2026-11-20",
@@ -1732,7 +1733,7 @@
       "ID_position": "39",
       "Ticker": "ALCUR.PA",
       "Societe": "Arcure",
-      "Date_execution": "2026-11-21",
+      "Date_execution": "2026-11-22",
       "Arbitrage_autorise": "OUI",
       "Rang_momentum": "2",
       "Date_historique": "2026-11-20",
@@ -1775,7 +1776,7 @@
       "ID_position": "40",
       "Ticker": "ALIEV.PA",
       "Societe": "IEVA",
-      "Date_execution": "2026-11-21",
+      "Date_execution": "2026-11-22",
       "Arbitrage_autorise": "OUI",
       "Rang_momentum": "18",
       "Date_historique": "2026-11-20",
@@ -2827,7 +2828,7 @@
       "Decision_externe": "DOSSIER_INCOMPLET",
       "Manquants": "Identité/ISIN et cotation principale ; clôture attendue, volume, ancrages 1/5 séances et 1/2/3 mois, URL et preuve datée",
       "Priorite_collecte": "2",
-      "Date_prochaine_verification": "2026-11-21"
+      "Date_prochaine_verification": "2026-11-22"
     },
     {
       "Ticker": "00D0.F",
@@ -2839,7 +2840,7 @@
       "Decision_externe": "DOSSIER_INCOMPLET",
       "Manquants": "Identité/ISIN et cotation principale ; clôture attendue, volume, ancrages 1/5 séances et 1/2/3 mois, URL et preuve datée",
       "Priorite_collecte": "2",
-      "Date_prochaine_verification": "2026-11-21"
+      "Date_prochaine_verification": "2026-11-22"
     },
     {
       "Ticker": "014.F",
@@ -2851,7 +2852,7 @@
       "Decision_externe": "DOSSIER_INCOMPLET",
       "Manquants": "Identité/ISIN et cotation principale ; clôture attendue, volume, ancrages 1/5 séances et 1/2/3 mois, URL et preuve datée",
       "Priorite_collecte": "2",
-      "Date_prochaine_verification": "2026-11-21"
+      "Date_prochaine_verification": "2026-11-22"
     },
     {
       "Ticker": "014.SG",
@@ -2863,7 +2864,7 @@
       "Decision_externe": "DOSSIER_INCOMPLET",
       "Manquants": "Identité/ISIN et cotation principale ; clôture attendue, volume, ancrages 1/5 séances et 1/2/3 mois, URL et preuve datée",
       "Priorite_collecte": "2",
-      "Date_prochaine_verification": "2026-11-21"
+      "Date_prochaine_verification": "2026-11-22"
     },
     {
       "Ticker": "01R.F",
@@ -2875,7 +2876,7 @@
       "Decision_externe": "DOSSIER_INCOMPLET",
       "Manquants": "Identité/ISIN et cotation principale ; clôture attendue, volume, ancrages 1/5 séances et 1/2/3 mois, URL et preuve datée",
       "Priorite_collecte": "2",
-      "Date_prochaine_verification": "2026-11-21"
+      "Date_prochaine_verification": "2026-11-22"
     },
     {
       "Ticker": "024.F",
@@ -2887,7 +2888,7 @@
       "Decision_externe": "DOSSIER_INCOMPLET",
       "Manquants": "Identité/ISIN et cotation principale ; clôture attendue, volume, ancrages 1/5 séances et 1/2/3 mois, URL et preuve datée",
       "Priorite_collecte": "2",
-      "Date_prochaine_verification": "2026-11-21"
+      "Date_prochaine_verification": "2026-11-22"
     },
     {
       "Ticker": "02V.F",
@@ -2899,7 +2900,7 @@
       "Decision_externe": "DOSSIER_INCOMPLET",
       "Manquants": "Identité/ISIN et cotation principale ; clôture attendue, volume, ancrages 1/5 séances et 1/2/3 mois, URL et preuve datée",
       "Priorite_collecte": "2",
-      "Date_prochaine_verification": "2026-11-21"
+      "Date_prochaine_verification": "2026-11-22"
     },
     {
       "Ticker": "04T.F",
@@ -2911,7 +2912,7 @@
       "Decision_externe": "DOSSIER_INCOMPLET",
       "Manquants": "Identité/ISIN et cotation principale ; clôture attendue, volume, ancrages 1/5 séances et 1/2/3 mois, URL et preuve datée",
       "Priorite_collecte": "2",
-      "Date_prochaine_verification": "2026-11-21"
+      "Date_prochaine_verification": "2026-11-22"
     },
     {
       "Ticker": "05EA.F",
@@ -2923,7 +2924,7 @@
       "Decision_externe": "DOSSIER_INCOMPLET",
       "Manquants": "Identité/ISIN et cotation principale ; clôture attendue, volume, ancrages 1/5 séances et 1/2/3 mois, URL et preuve datée",
       "Priorite_collecte": "2",
-      "Date_prochaine_verification": "2026-11-21"
+      "Date_prochaine_verification": "2026-11-22"
     },
     {
       "Ticker": "05S.F",
@@ -2935,7 +2936,7 @@
       "Decision_externe": "DOSSIER_INCOMPLET",
       "Manquants": "Identité/ISIN et cotation principale ; clôture attendue, volume, ancrages 1/5 séances et 1/2/3 mois, URL et preuve datée",
       "Priorite_collecte": "2",
-      "Date_prochaine_verification": "2026-11-21"
+      "Date_prochaine_verification": "2026-11-22"
     },
     {
       "Ticker": "06P0.F",
@@ -2947,7 +2948,7 @@
       "Decision_externe": "DOSSIER_INCOMPLET",
       "Manquants": "Identité/ISIN et cotation principale ; clôture attendue, volume, ancrages 1/5 séances et 1/2/3 mois, URL et preuve datée",
       "Priorite_collecte": "2",
-      "Date_prochaine_verification": "2026-11-21"
+      "Date_prochaine_verification": "2026-11-22"
     },
     {
       "Ticker": "07F0.F",
@@ -2959,7 +2960,7 @@
       "Decision_externe": "DOSSIER_INCOMPLET",
       "Manquants": "Identité/ISIN et cotation principale ; clôture attendue, volume, ancrages 1/5 séances et 1/2/3 mois, URL et preuve datée",
       "Priorite_collecte": "2",
-      "Date_prochaine_verification": "2026-11-21"
+      "Date_prochaine_verification": "2026-11-22"
     },
     {
       "Ticker": "07F0.MU",
@@ -2971,7 +2972,7 @@
       "Decision_externe": "DOSSIER_INCOMPLET",
       "Manquants": "Identité/ISIN et cotation principale ; clôture attendue, volume, ancrages 1/5 séances et 1/2/3 mois, URL et preuve datée",
       "Priorite_collecte": "2",
-      "Date_prochaine_verification": "2026-11-21"
+      "Date_prochaine_verification": "2026-11-22"
     },
     {
       "Ticker": "07K.F",
@@ -2983,7 +2984,7 @@
       "Decision_externe": "DOSSIER_INCOMPLET",
       "Manquants": "Identité/ISIN et cotation principale ; clôture attendue, volume, ancrages 1/5 séances et 1/2/3 mois, URL et preuve datée",
       "Priorite_collecte": "2",
-      "Date_prochaine_verification": "2026-11-21"
+      "Date_prochaine_verification": "2026-11-22"
     },
     {
       "Ticker": "07R.F",
@@ -2995,7 +2996,7 @@
       "Decision_externe": "DOSSIER_INCOMPLET",
       "Manquants": "Identité/ISIN et cotation principale ; clôture attendue, volume, ancrages 1/5 séances et 1/2/3 mois, URL et preuve datée",
       "Priorite_collecte": "2",
-      "Date_prochaine_verification": "2026-11-21"
+      "Date_prochaine_verification": "2026-11-22"
     },
     {
       "Ticker": "087.F",
@@ -3007,7 +3008,7 @@
       "Decision_externe": "DOSSIER_INCOMPLET",
       "Manquants": "Identité/ISIN et cotation principale ; clôture attendue, volume, ancrages 1/5 séances et 1/2/3 mois, URL et preuve datée",
       "Priorite_collecte": "2",
-      "Date_prochaine_verification": "2026-11-21"
+      "Date_prochaine_verification": "2026-11-22"
     },
     {
       "Ticker": "08IA.F",
@@ -3019,7 +3020,7 @@
       "Decision_externe": "DOSSIER_INCOMPLET",
       "Manquants": "Identité/ISIN et cotation principale ; clôture attendue, volume, ancrages 1/5 séances et 1/2/3 mois, URL et preuve datée",
       "Priorite_collecte": "2",
-      "Date_prochaine_verification": "2026-11-21"
+      "Date_prochaine_verification": "2026-11-22"
     },
     {
       "Ticker": "09B.F",
@@ -3031,7 +3032,7 @@
       "Decision_externe": "DOSSIER_INCOMPLET",
       "Manquants": "Identité/ISIN et cotation principale ; clôture attendue, volume, ancrages 1/5 séances et 1/2/3 mois, URL et preuve datée",
       "Priorite_collecte": "2",
-      "Date_prochaine_verification": "2026-11-21"
+      "Date_prochaine_verification": "2026-11-22"
     },
     {
       "Ticker": "0A29.IL",
@@ -3043,7 +3044,7 @@
       "Decision_externe": "DOSSIER_INCOMPLET",
       "Manquants": "Identité/ISIN et cotation principale ; clôture attendue, volume, ancrages 1/5 séances et 1/2/3 mois, URL et preuve datée",
       "Priorite_collecte": "2",
-      "Date_prochaine_verification": "2026-11-21"
+      "Date_prochaine_verification": "2026-11-22"
     },
     {
       "Ticker": "0ABP.IL",
@@ -3055,7 +3056,7 @@
       "Decision_externe": "DOSSIER_INCOMPLET",
       "Manquants": "Identité/ISIN et cotation principale ; clôture attendue, volume, ancrages 1/5 séances et 1/2/3 mois, URL et preuve datée",
       "Priorite_collecte": "2",
-      "Date_prochaine_verification": "2026-11-21"
+      "Date_prochaine_verification": "2026-11-22"
     },
     {
       "Ticker": "0AD.F",
@@ -3067,7 +3068,7 @@
       "Decision_externe": "DOSSIER_INCOMPLET",
       "Manquants": "Identité/ISIN et cotation principale ; clôture attendue, volume, ancrages 1/5 séances et 1/2/3 mois, URL et preuve datée",
       "Priorite_collecte": "2",
-      "Date_prochaine_verification": "2026-11-21"
+      "Date_prochaine_verification": "2026-11-22"
     },
     {
       "Ticker": "0AP.F",
@@ -3079,7 +3080,7 @@
       "Decision_externe": "DOSSIER_INCOMPLET",
       "Manquants": "Identité/ISIN et cotation principale ; clôture attendue, volume, ancrages 1/5 séances et 1/2/3 mois, URL et preuve datée",
       "Priorite_collecte": "2",
-      "Date_prochaine_verification": "2026-11-21"
+      "Date_prochaine_verification": "2026-11-22"
     },
     {
       "Ticker": "0AS.F",
@@ -3091,7 +3092,7 @@
       "Decision_externe": "DOSSIER_INCOMPLET",
       "Manquants": "Identité/ISIN et cotation principale ; clôture attendue, volume, ancrages 1/5 séances et 1/2/3 mois, URL et preuve datée",
       "Priorite_collecte": "2",
-      "Date_prochaine_verification": "2026-11-21"
+      "Date_prochaine_verification": "2026-11-22"
     },
     {
       "Ticker": "0AS.SG",
@@ -3103,7 +3104,7 @@
       "Decision_externe": "DOSSIER_INCOMPLET",
       "Manquants": "Identité/ISIN et cotation principale ; clôture attendue, volume, ancrages 1/5 séances et 1/2/3 mois, URL et preuve datée",
       "Priorite_collecte": "2",
-      "Date_prochaine_verification": "2026-11-21"
+      "Date_prochaine_verification": "2026-11-22"
     },
     {
       "Ticker": "0B0.F",
@@ -3115,7 +3116,7 @@
       "Decision_externe": "DOSSIER_INCOMPLET",
       "Manquants": "Identité/ISIN et cotation principale ; clôture attendue, volume, ancrages 1/5 séances et 1/2/3 mois, URL et preuve datée",
       "Priorite_collecte": "2",
-      "Date_prochaine_verification": "2026-11-21"
+      "Date_prochaine_verification": "2026-11-22"
     },
     {
       "Ticker": "0BK.F",
@@ -3127,7 +3128,7 @@
       "Decision_externe": "DOSSIER_INCOMPLET",
       "Manquants": "Identité/ISIN et cotation principale ; clôture attendue, volume, ancrages 1/5 séances et 1/2/3 mois, URL et preuve datée",
       "Priorite_collecte": "2",
-      "Date_prochaine_verification": "2026-11-21"
+      "Date_prochaine_verification": "2026-11-22"
     },
     {
       "Ticker": "0BQ.F",
@@ -3139,7 +3140,7 @@
       "Decision_externe": "DOSSIER_INCOMPLET",
       "Manquants": "Identité/ISIN et cotation principale ; clôture attendue, volume, ancrages 1/5 séances et 1/2/3 mois, URL et preuve datée",
       "Priorite_collecte": "2",
-      "Date_prochaine_verification": "2026-11-21"
+      "Date_prochaine_verification": "2026-11-22"
     },
     {
       "Ticker": "0C9.F",
@@ -3151,7 +3152,7 @@
       "Decision_externe": "DOSSIER_INCOMPLET",
       "Manquants": "Identité/ISIN et cotation principale ; clôture attendue, volume, ancrages 1/5 séances et 1/2/3 mois, URL et preuve datée",
       "Priorite_collecte": "2",
-      "Date_prochaine_verification": "2026-11-21"
+      "Date_prochaine_verification": "2026-11-22"
     },
     {
       "Ticker": "0CD.F",
@@ -3163,7 +3164,7 @@
       "Decision_externe": "DOSSIER_INCOMPLET",
       "Manquants": "Identité/ISIN et cotation principale ; clôture attendue, volume, ancrages 1/5 séances et 1/2/3 mois, URL et preuve datée",
       "Priorite_collecte": "2",
-      "Date_prochaine_verification": "2026-11-21"
+      "Date_prochaine_verification": "2026-11-22"
     },
     {
       "Ticker": "0CG.F",
@@ -3175,7 +3176,7 @@
       "Decision_externe": "DOSSIER_INCOMPLET",
       "Manquants": "Identité/ISIN et cotation principale ; clôture attendue, volume, ancrages 1/5 séances et 1/2/3 mois, URL et preuve datée",
       "Priorite_collecte": "2",
-      "Date_prochaine_verification": "2026-11-21"
+      "Date_prochaine_verification": "2026-11-22"
     },
     {
       "Ticker": "0CKA.F",
@@ -3187,7 +3188,7 @@
       "Decision_externe": "DOSSIER_INCOMPLET",
       "Manquants": "Identité/ISIN et cotation principale ; clôture attendue, volume, ancrages 1/5 séances et 1/2/3 mois, URL et preuve datée",
       "Priorite_collecte": "2",
-      "Date_prochaine_verification": "2026-11-21"
+      "Date_prochaine_verification": "2026-11-22"
     },
     {
       "Ticker": "0CY.F",
@@ -3199,7 +3200,7 @@
       "Decision_externe": "DOSSIER_INCOMPLET",
       "Manquants": "Identité/ISIN et cotation principale ; clôture attendue, volume, ancrages 1/5 séances et 1/2/3 mois, URL et preuve datée",
       "Priorite_collecte": "2",
-      "Date_prochaine_verification": "2026-11-21"
+      "Date_prochaine_verification": "2026-11-22"
     },
     {
       "Ticker": "0DH.F",
@@ -3211,7 +3212,7 @@
       "Decision_externe": "DOSSIER_INCOMPLET",
       "Manquants": "Identité/ISIN et cotation principale ; clôture attendue, volume, ancrages 1/5 séances et 1/2/3 mois, URL et preuve datée",
       "Priorite_collecte": "2",
-      "Date_prochaine_verification": "2026-11-21"
+      "Date_prochaine_verification": "2026-11-22"
     },
     {
       "Ticker": "0DK9.IL",
@@ -3223,7 +3224,7 @@
       "Decision_externe": "DOSSIER_INCOMPLET",
       "Manquants": "Identité/ISIN et cotation principale ; clôture attendue, volume, ancrages 1/5 séances et 1/2/3 mois, URL et preuve datée",
       "Priorite_collecte": "2",
-      "Date_prochaine_verification": "2026-11-21"
+      "Date_prochaine_verification": "2026-11-22"
     },
     {
       "Ticker": "0DUK.IL",
@@ -3235,7 +3236,7 @@
       "Decision_externe": "DOSSIER_INCOMPLET",
       "Manquants": "Identité/ISIN et cotation principale ; clôture attendue, volume, ancrages 1/5 séances et 1/2/3 mois, URL et preuve datée",
       "Priorite_collecte": "2",
-      "Date_prochaine_verification": "2026-11-21"
+      "Date_prochaine_verification": "2026-11-22"
     },
     {
       "Ticker": "0DY.F",
@@ -3247,7 +3248,7 @@
       "Decision_externe": "DOSSIER_INCOMPLET",
       "Manquants": "Identité/ISIN et cotation principale ; clôture attendue, volume, ancrages 1/5 séances et 1/2/3 mois, URL et preuve datée",
       "Priorite_collecte": "2",
-      "Date_prochaine_verification": "2026-11-21"
+      "Date_prochaine_verification": "2026-11-22"
     },
     {
       "Ticker": "0E1Y.IL",
@@ -3259,7 +3260,7 @@
       "Decision_externe": "DOSSIER_INCOMPLET",
       "Manquants": "Identité/ISIN et cotation principale ; clôture attendue, volume, ancrages 1/5 séances et 1/2/3 mois, URL et preuve datée",
       "Priorite_collecte": "2",
-      "Date_prochaine_verification": "2026-11-21"
+      "Date_prochaine_verification": "2026-11-22"
     },
     {
       "Ticker": "0E7Z.IL",
@@ -3271,7 +3272,7 @@
       "Decision_externe": "DOSSIER_INCOMPLET",
       "Manquants": "Identité/ISIN et cotation principale ; clôture attendue, volume, ancrages 1/5 séances et 1/2/3 mois, URL et preuve datée",
       "Priorite_collecte": "2",
-      "Date_prochaine_verification": "2026-11-21"
+      "Date_prochaine_verification": "2026-11-22"
     },
     {
       "Ticker": "0EVI.IL",
@@ -3283,7 +3284,7 @@
       "Decision_externe": "DOSSIER_INCOMPLET",
       "Manquants": "Identité/ISIN et cotation principale ; clôture attendue, volume, ancrages 1/5 séances et 1/2/3 mois, URL et preuve datée",
       "Priorite_collecte": "2",
-      "Date_prochaine_verification": "2026-11-21"
+      "Date_prochaine_verification": "2026-11-22"
     },
     {
       "Ticker": "0F7.F",
@@ -3295,7 +3296,7 @@
       "Decision_externe": "DOSSIER_INCOMPLET",
       "Manquants": "Identité/ISIN et cotation principale ; clôture attendue, volume, ancrages 1/5 séances et 1/2/3 mois, URL et preuve datée",
       "Priorite_collecte": "2",
-      "Date_prochaine_verification": "2026-11-21"
+      "Date_prochaine_verification": "2026-11-22"
     },
     {
       "Ticker": "0F9.DU",
@@ -3307,7 +3308,7 @@
       "Decision_externe": "DOSSIER_INCOMPLET",
       "Manquants": "Identité/ISIN et cotation principale ; clôture attendue, volume, ancrages 1/5 séances et 1/2/3 mois, URL et preuve datée",
       "Priorite_collecte": "2",
-      "Date_prochaine_verification": "2026-11-21"
+      "Date_prochaine_verification": "2026-11-22"
     },
     {
       "Ticker": "0F9.F",
@@ -3319,7 +3320,7 @@
       "Decision_externe": "DOSSIER_INCOMPLET",
       "Manquants": "Identité/ISIN et cotation principale ; clôture attendue, volume, ancrages 1/5 séances et 1/2/3 mois, URL et preuve datée",
       "Priorite_collecte": "2",
-      "Date_prochaine_verification": "2026-11-21"
+      "Date_prochaine_verification": "2026-11-22"
     },
     {
       "Ticker": "0FG.F",
@@ -3331,7 +3332,7 @@
       "Decision_externe": "DOSSIER_INCOMPLET",
       "Manquants": "Identité/ISIN et cotation principale ; clôture attendue, volume, ancrages 1/5 séances et 1/2/3 mois, URL et preuve datée",
       "Priorite_collecte": "2",
-      "Date_prochaine_verification": "2026-11-21"
+      "Date_prochaine_verification": "2026-11-22"
     },
     {
       "Ticker": "0FO.F",
@@ -3343,7 +3344,7 @@
       "Decision_externe": "DOSSIER_INCOMPLET",
       "Manquants": "Identité/ISIN et cotation principale ; clôture attendue, volume, ancrages 1/5 séances et 1/2/3 mois, URL et preuve datée",
       "Priorite_collecte": "2",
-      "Date_prochaine_verification": "2026-11-21"
+      "Date_prochaine_verification": "2026-11-22"
     },
     {
       "Ticker": "0FS0.F",
@@ -3355,7 +3356,7 @@
       "Decision_externe": "DOSSIER_INCOMPLET",
       "Manquants": "Identité/ISIN et cotation principale ; clôture attendue, volume, ancrages 1/5 séances et 1/2/3 mois, URL et preuve datée",
       "Priorite_collecte": "2",
-      "Date_prochaine_verification": "2026-11-21"
+      "Date_prochaine_verification": "2026-11-22"
     },
     {
       "Ticker": "0FY.F",
@@ -3367,7 +3368,7 @@
       "Decision_externe": "DOSSIER_INCOMPLET",
       "Manquants": "Identité/ISIN et cotation principale ; clôture attendue, volume, ancrages 1/5 séances et 1/2/3 mois, URL et preuve datée",
       "Priorite_collecte": "2",
-      "Date_prochaine_verification": "2026-11-21"
+      "Date_prochaine_verification": "2026-11-22"
     },
     {
       "Ticker": "0FZ.F",
@@ -3379,7 +3380,7 @@
       "Decision_externe": "DOSSIER_INCOMPLET",
       "Manquants": "Identité/ISIN et cotation principale ; clôture attendue, volume, ancrages 1/5 séances et 1/2/3 mois, URL et preuve datée",
       "Priorite_collecte": "2",
-      "Date_prochaine_verification": "2026-11-21"
+      "Date_prochaine_verification": "2026-11-22"
     },
     {
       "Ticker": "0G15.IL",
@@ -3391,7 +3392,7 @@
       "Decision_externe": "DOSSIER_INCOMPLET",
       "Manquants": "Identité/ISIN et cotation principale ; clôture attendue, volume, ancrages 1/5 séances et 1/2/3 mois, URL et preuve datée",
       "Priorite_collecte": "2",
-      "Date_prochaine_verification": "2026-11-21"
+      "Date_prochaine_verification": "2026-11-22"
     },
     {
       "Ticker": "0G93.F",
@@ -3403,7 +3404,7 @@
       "Decision_externe": "DOSSIER_INCOMPLET",
       "Manquants": "Identité/ISIN et cotation principale ; clôture attendue, volume, ancrages 1/5 séances et 1/2/3 mois, URL et preuve datée",
       "Priorite_collecte": "2",
-      "Date_prochaine_verification": "2026-11-21"
+      "Date_prochaine_verification": "2026-11-22"
     },
     {
       "Ticker": "0GC8.IL",
@@ -3415,7 +3416,7 @@
       "Decision_externe": "DOSSIER_INCOMPLET",
       "Manquants": "Identité/ISIN et cotation principale ; clôture attendue, volume, ancrages 1/5 séances et 1/2/3 mois, URL et preuve datée",
       "Priorite_collecte": "2",
-      "Date_prochaine_verification": "2026-11-21"
+      "Date_prochaine_verification": "2026-11-22"
     },
     {
       "Ticker": "0GF.F",
@@ -3427,7 +3428,7 @@
       "Decision_externe": "DOSSIER_INCOMPLET",
       "Manquants": "Identité/ISIN et cotation principale ; clôture attendue, volume, ancrages 1/5 séances et 1/2/3 mois, URL et preuve datée",
       "Priorite_collecte": "2",
-      "Date_prochaine_verification": "2026-11-21"
+      "Date_prochaine_verification": "2026-11-22"
     },
     {
       "Ticker": "0GV.F",
@@ -3439,7 +3440,7 @@
       "Decision_externe": "DOSSIER_INCOMPLET",
       "Manquants": "Identité/ISIN et cotation principale ; clôture attendue, volume, ancrages 1/5 séances et 1/2/3 mois, URL et preuve datée",
       "Priorite_collecte": "2",
-      "Date_prochaine_verification": "2026-11-21"
+      "Date_prochaine_verification": "2026-11-22"
     },
     {
       "Ticker": "0H19.IL",
@@ -3451,7 +3452,7 @@
       "Decision_externe": "DOSSIER_INCOMPLET",
       "Manquants": "Identité/ISIN et cotation principale ; clôture attendue, volume, ancrages 1/5 séances et 1/2/3 mois, URL et preuve datée",
       "Priorite_collecte": "2",
-      "Date_prochaine_verification": "2026-11-21"
+      "Date_prochaine_verification": "2026-11-22"
     },
     {
       "Ticker": "0H9P.IL",
@@ -3463,7 +3464,7 @@
       "Decision_externe": "DOSSIER_INCOMPLET",
       "Manquants": "Identité/ISIN et cotation principale ; clôture attendue, volume, ancrages 1/5 séances et 1/2/3 mois, URL et preuve datée",
       "Priorite_collecte": "2",
-      "Date_prochaine_verification": "2026-11-21"
+      "Date_prochaine_verification": "2026-11-22"
     },
     {
       "Ticker": "0HF.F",
@@ -3475,7 +3476,7 @@
       "Decision_externe": "DOSSIER_INCOMPLET",
       "Manquants": "Identité/ISIN et cotation principale ; clôture attendue, volume, ancrages 1/5 séances et 1/2/3 mois, URL et preuve datée",
       "Priorite_collecte": "2",
-      "Date_prochaine_verification": "2026-11-21"
+      "Date_prochaine_verification": "2026-11-22"
     },
     {
       "Ticker": "0HLU.L",
@@ -3487,7 +3488,7 @@
       "Decision_externe": "DOSSIER_INCOMPLET",
       "Manquants": "Identité/ISIN et cotation principale ; clôture attendue, volume, ancrages 1/5 séances et 1/2/3 mois, URL et preuve datée",
       "Priorite_collecte": "2",
-      "Date_prochaine_verification": "2026-11-21"
+      "Date_prochaine_verification": "2026-11-22"
     },
     {
       "Ticker": "0IT.F",
@@ -3499,7 +3500,7 @@
       "Decision_externe": "DOSSIER_INCOMPLET",
       "Manquants": "Identité/ISIN et cotation principale ; clôture attendue, volume, ancrages 1/5 séances et 1/2/3 mois, URL et preuve datée",
       "Priorite_collecte": "2",
-      "Date_prochaine_verification": "2026-11-21"
+      "Date_prochaine_verification": "2026-11-22"
     },
     {
       "Ticker": "0JL.SG",
@@ -3511,7 +3512,7 @@
       "Decision_externe": "DOSSIER_INCOMPLET",
       "Manquants": "Identité/ISIN et cotation principale ; clôture attendue, volume, ancrages 1/5 séances et 1/2/3 mois, URL et preuve datée",
       "Priorite_collecte": "2",
-      "Date_prochaine_verification": "2026-11-21"
+      "Date_prochaine_verification": "2026-11-22"
     },
     {
       "Ticker": "0JV0.F",
@@ -3523,7 +3524,7 @@
       "Decision_externe": "DOSSIER_INCOMPLET",
       "Manquants": "Identité/ISIN et cotation principale ; clôture attendue, volume, ancrages 1/5 séances et 1/2/3 mois, URL et preuve datée",
       "Priorite_collecte": "2",
-      "Date_prochaine_verification": "2026-11-21"
+      "Date_prochaine_verification": "2026-11-22"
     },
     {
       "Ticker": "0JW.F",
@@ -3535,7 +3536,7 @@
       "Decision_externe": "DOSSIER_INCOMPLET",
       "Manquants": "Identité/ISIN et cotation principale ; clôture attendue, volume, ancrages 1/5 séances et 1/2/3 mois, URL et preuve datée",
       "Priorite_collecte": "2",
-      "Date_prochaine_verification": "2026-11-21"
+      "Date_prochaine_verification": "2026-11-22"
     },
     {
       "Ticker": "0K6.F",
@@ -3547,7 +3548,7 @@
       "Decision_externe": "DOSSIER_INCOMPLET",
       "Manquants": "Identité/ISIN et cotation principale ; clôture attendue, volume, ancrages 1/5 séances et 1/2/3 mois, URL et preuve datée",
       "Priorite_collecte": "2",
-      "Date_prochaine_verification": "2026-11-21"
+      "Date_prochaine_verification": "2026-11-22"
     },
     {
       "Ticker": "0KB3.IL",
@@ -3559,7 +3560,7 @@
       "Decision_externe": "DOSSIER_INCOMPLET",
       "Manquants": "Identité/ISIN et cotation principale ; clôture attendue, volume, ancrages 1/5 séances et 1/2/3 mois, URL et preuve datée",
       "Priorite_collecte": "2",
-      "Date_prochaine_verification": "2026-11-21"
+      "Date_prochaine_verification": "2026-11-22"
     },
     {
       "Ticker": "0KG.DU",
@@ -3571,7 +3572,7 @@
       "Decision_externe": "DOSSIER_INCOMPLET",
       "Manquants": "Identité/ISIN et cotation principale ; clôture attendue, volume, ancrages 1/5 séances et 1/2/3 mois, URL et preuve datée",
       "Priorite_collecte": "2",
-      "Date_prochaine_verification": "2026-11-21"
+      "Date_prochaine_verification": "2026-11-22"
     },
     {
       "Ticker": "0KG.F",
@@ -3583,7 +3584,7 @@
       "Decision_externe": "DOSSIER_INCOMPLET",
       "Manquants": "Identité/ISIN et cotation principale ; clôture attendue, volume, ancrages 1/5 séances et 1/2/3 mois, URL et preuve datée",
       "Priorite_collecte": "2",
-      "Date_prochaine_verification": "2026-11-21"
+      "Date_prochaine_verification": "2026-11-22"
     },
     {
       "Ticker": "0KH.SG",
@@ -3595,7 +3596,7 @@
       "Decision_externe": "DOSSIER_INCOMPLET",
       "Manquants": "Identité/ISIN et cotation principale ; clôture attendue, volume, ancrages 1/5 séances et 1/2/3 mois, URL et preuve datée",
       "Priorite_collecte": "2",
-      "Date_prochaine_verification": "2026-11-21"
+      "Date_prochaine_verification": "2026-11-22"
     },
     {
       "Ticker": "0KHH.IL",
@@ -3607,7 +3608,7 @@
       "Decision_externe": "DOSSIER_INCOMPLET",
       "Manquants": "Identité/ISIN et cotation principale ; clôture attendue, volume, ancrages 1/5 séances et 1/2/3 mois, URL et preuve datée",
       "Priorite_collecte": "2",
-      "Date_prochaine_verification": "2026-11-21"
+      "Date_prochaine_verification": "2026-11-22"
     },
     {
       "Ticker": "0KM.F",
@@ -3619,7 +3620,7 @@
       "Decision_externe": "DOSSIER_INCOMPLET",
       "Manquants": "Identité/ISIN et cotation principale ; clôture attendue, volume, ancrages 1/5 séances et 1/2/3 mois, URL et preuve datée",
       "Priorite_collecte": "2",
-      "Date_prochaine_verification": "2026-11-21"
+      "Date_prochaine_verification": "2026-11-22"
     },
     {
       "Ticker": "0KP.F",
@@ -3631,7 +3632,7 @@
       "Decision_externe": "DOSSIER_INCOMPLET",
       "Manquants": "Identité/ISIN et cotation principale ; clôture attendue, volume, ancrages 1/5 séances et 1/2/3 mois, URL et preuve datée",
       "Priorite_collecte": "2",
-      "Date_prochaine_verification": "2026-11-21"
+      "Date_prochaine_verification": "2026-11-22"
     },
     {
       "Ticker": "0L3.F",
@@ -3643,7 +3644,7 @@
       "Decision_externe": "DOSSIER_INCOMPLET",
       "Manquants": "Identité/ISIN et cotation principale ; clôture attendue, volume, ancrages 1/5 séances et 1/2/3 mois, URL et preuve datée",
       "Priorite_collecte": "2",
-      "Date_prochaine_verification": "2026-11-21"
+      "Date_prochaine_verification": "2026-11-22"
     },
     {
       "Ticker": "0LA.F",
@@ -3655,7 +3656,7 @@
       "Decision_externe": "DOSSIER_INCOMPLET",
       "Manquants": "Identité/ISIN et cotation principale ; clôture attendue, volume, ancrages 1/5 séances et 1/2/3 mois, URL et preuve datée",
       "Priorite_collecte": "2",
-      "Date_prochaine_verification": "2026-11-21"
+      "Date_prochaine_verification": "2026-11-22"
     },
     {
       "Ticker": "0LF.F",
@@ -3667,7 +3668,7 @@
       "Decision_externe": "DOSSIER_INCOMPLET",
       "Manquants": "Identité/ISIN et cotation principale ; clôture attendue, volume, ancrages 1/5 séances et 1/2/3 mois, URL et preuve datée",
       "Priorite_collecte": "2",
-      "Date_prochaine_verification": "2026-11-21"
+      "Date_prochaine_verification": "2026-11-22"
     },
     {
       "Ticker": "0LT.F",
@@ -3679,7 +3680,7 @@
       "Decision_externe": "DOSSIER_INCOMPLET",
       "Manquants": "Identité/ISIN et cotation principale ; clôture attendue, volume, ancrages 1/5 séances et 1/2/3 mois, URL et preuve datée",
       "Priorite_collecte": "2",
-      "Date_prochaine_verification": "2026-11-21"
+      "Date_prochaine_verification": "2026-11-22"
     },
     {
       "Ticker": "0MD.F",
@@ -3691,7 +3692,7 @@
       "Decision_externe": "DOSSIER_INCOMPLET",
       "Manquants": "Identité/ISIN et cotation principale ; clôture attendue, volume, ancrages 1/5 séances et 1/2/3 mois, URL et preuve datée",
       "Priorite_collecte": "2",
-      "Date_prochaine_verification": "2026-11-21"
+      "Date_prochaine_verification": "2026-11-22"
     },
     {
       "Ticker": "0MFU.IL",
@@ -3703,7 +3704,7 @@
       "Decision_externe": "DOSSIER_INCOMPLET",
       "Manquants": "Identité/ISIN et cotation principale ; clôture attendue, volume, ancrages 1/5 séances et 1/2/3 mois, URL et preuve datée",
       "Priorite_collecte": "2",
-      "Date_prochaine_verification": "2026-11-21"
+      "Date_prochaine_verification": "2026-11-22"
     },
     {
       "Ticker": "0MKG.IL",
@@ -3715,7 +3716,7 @@
       "Decision_externe": "DOSSIER_INCOMPLET",
       "Manquants": "Identité/ISIN et cotation principale ; clôture attendue, volume, ancrages 1/5 séances et 1/2/3 mois, URL et preuve datée",
       "Priorite_collecte": "2",
-      "Date_prochaine_verification": "2026-11-21"
+      "Date_prochaine_verification": "2026-11-22"
     },
     {
       "Ticker": "0MN.F",
@@ -3727,7 +3728,7 @@
       "Decision_externe": "DOSSIER_INCOMPLET",
       "Manquants": "Identité/ISIN et cotation principale ; clôture attendue, volume, ancrages 1/5 séances et 1/2/3 mois, URL et preuve datée",
       "Priorite_collecte": "2",
-      "Date_prochaine_verification": "2026-11-21"
+      "Date_prochaine_verification": "2026-11-22"
     },
     {
       "Ticker": "0N75.IL",
@@ -3739,7 +3740,7 @@
       "Decision_externe": "DOSSIER_INCOMPLET",
       "Manquants": "Identité/ISIN et cotation principale ; clôture attendue, volume, ancrages 1/5 séances et 1/2/3 mois, URL et preuve datée",
       "Priorite_collecte": "2",
-      "Date_prochaine_verification": "2026-11-21"
+      "Date_prochaine_verification": "2026-11-22"
     },
     {
       "Ticker": "0N9.F",
@@ -3751,7 +3752,7 @@
       "Decision_externe": "DOSSIER_INCOMPLET",
       "Manquants": "Identité/ISIN et cotation principale ; clôture attendue, volume, ancrages 1/5 séances et 1/2/3 mois, URL et preuve datée",
       "Priorite_collecte": "2",
-      "Date_prochaine_verification": "2026-11-21"
+      "Date_prochaine_verification": "2026-11-22"
     },
     {
       "Ticker": "0NYZ.IL",
@@ -3763,7 +3764,7 @@
       "Decision_externe": "DOSSIER_INCOMPLET",
       "Manquants": "Identité/ISIN et cotation principale ; clôture attendue, volume, ancrages 1/5 séances et 1/2/3 mois, URL et preuve datée",
       "Priorite_collecte": "2",
-      "Date_prochaine_verification": "2026-11-21"
+      "Date_prochaine_verification": "2026-11-22"
     },
     {
       "Ticker": "0NZY.IL",
@@ -3775,7 +3776,7 @@
       "Decision_externe": "DOSSIER_INCOMPLET",
       "Manquants": "Identité/ISIN et cotation principale ; clôture attendue, volume, ancrages 1/5 séances et 1/2/3 mois, URL et preuve datée",
       "Priorite_collecte": "2",
-      "Date_prochaine_verification": "2026-11-21"
+      "Date_prochaine_verification": "2026-11-22"
     },
     {
       "Ticker": "0O8X.IL",
@@ -3787,7 +3788,7 @@
       "Decision_externe": "DOSSIER_INCOMPLET",
       "Manquants": "Identité/ISIN et cotation principale ; clôture attendue, volume, ancrages 1/5 séances et 1/2/3 mois, URL et preuve datée",
       "Priorite_collecte": "2",
-      "Date_prochaine_verification": "2026-11-21"
+      "Date_prochaine_verification": "2026-11-22"
     },
     {
       "Ticker": "0O9.F",
@@ -3799,7 +3800,7 @@
       "Decision_externe": "DOSSIER_INCOMPLET",
       "Manquants": "Identité/ISIN et cotation principale ; clôture attendue, volume, ancrages 1/5 séances et 1/2/3 mois, URL et preuve datée",
       "Priorite_collecte": "2",
-      "Date_prochaine_verification": "2026-11-21"
+      "Date_prochaine_verification": "2026-11-22"
     },
     {
       "Ticker": "0OE.F",
@@ -3811,7 +3812,7 @@
       "Decision_externe": "DOSSIER_INCOMPLET",
       "Manquants": "Identité/ISIN et cotation principale ; clôture attendue, volume, ancrages 1/5 séances et 1/2/3 mois, URL et preuve datée",
       "Priorite_collecte": "2",
-      "Date_prochaine_verification": "2026-11-21"
+      "Date_prochaine_verification": "2026-11-22"
     },
     {
       "Ticker": "0OG.F",
@@ -3823,7 +3824,7 @@
       "Decision_externe": "DOSSIER_INCOMPLET",
       "Manquants": "Identité/ISIN et cotation principale ; clôture attendue, volume, ancrages 1/5 séances et 1/2/3 mois, URL et preuve datée",
       "Priorite_collecte": "2",
-      "Date_prochaine_verification": "2026-11-21"
+      "Date_prochaine_verification": "2026-11-22"
     },
     {
       "Ticker": "0OM.F",
@@ -3835,7 +3836,7 @@
       "Decision_externe": "DOSSIER_INCOMPLET",
       "Manquants": "Identité/ISIN et cotation principale ; clôture attendue, volume, ancrages 1/5 séances et 1/2/3 mois, URL et preuve datée",
       "Priorite_collecte": "2",
-      "Date_prochaine_verification": "2026-11-21"
+      "Date_prochaine_verification": "2026-11-22"
     },
     {
       "Ticker": "0P1A.F",
@@ -3847,7 +3848,7 @@
       "Decision_externe": "DOSSIER_INCOMPLET",
       "Manquants": "Identité/ISIN et cotation principale ; clôture attendue, volume, ancrages 1/5 séances et 1/2/3 mois, URL et preuve datée",
       "Priorite_collecte": "2",
-      "Date_prochaine_verification": "2026-11-21"
+      "Date_prochaine_verification": "2026-11-22"
     },
     {
       "Ticker": "0PI.F",
@@ -3859,7 +3860,7 @@
       "Decision_externe": "DOSSIER_INCOMPLET",
       "Manquants": "Identité/ISIN et cotation principale ; clôture attendue, volume, ancrages 1/5 séances et 1/2/3 mois, URL et preuve datée",
       "Priorite_collecte": "2",
-      "Date_prochaine_verification": "2026-11-21"
+      "Date_prochaine_verification": "2026-11-22"
     },
     {
       "Ticker": "0PL.F",
@@ -3871,7 +3872,7 @@
       "Decision_externe": "DOSSIER_INCOMPLET",
       "Manquants": "Identité/ISIN et cotation principale ; clôture attendue, volume, ancrages 1/5 séances et 1/2/3 mois, URL et preuve datée",
       "Priorite_collecte": "2",
-      "Date_prochaine_verification": "2026-11-21"
+      "Date_prochaine_verification": "2026-11-22"
     },
     {
       "Ticker": "0PQ.F",
@@ -3883,7 +3884,7 @@
       "Decision_externe": "DOSSIER_INCOMPLET",
       "Manquants": "Identité/ISIN et cotation principale ; clôture attendue, volume, ancrages 1/5 séances et 1/2/3 mois, URL et preuve datée",
       "Priorite_collecte": "2",
-      "Date_prochaine_verification": "2026-11-21"
+      "Date_prochaine_verification": "2026-11-22"
     },
     {
       "Ticker": "0Q30.F",
@@ -3895,7 +3896,7 @@
       "Decision_externe": "DOSSIER_INCOMPLET",
       "Manquants": "Identité/ISIN et cotation principale ; clôture attendue, volume, ancrages 1/5 séances et 1/2/3 mois, URL et preuve datée",
       "Priorite_collecte": "2",
-      "Date_prochaine_verification": "2026-11-21"
+      "Date_prochaine_verification": "2026-11-22"
     },
     {
       "Ticker": "0Q30.MU",
@@ -3907,7 +3908,7 @@
       "Decision_externe": "DOSSIER_INCOMPLET",
       "Manquants": "Identité/ISIN et cotation principale ; clôture attendue, volume, ancrages 1/5 séances et 1/2/3 mois, URL et preuve datée",
       "Priorite_collecte": "2",
-      "Date_prochaine_verification": "2026-11-21"
+      "Date_prochaine_verification": "2026-11-22"
     },
     {
       "Ticker": "0Q7.F",
@@ -3919,7 +3920,7 @@
       "Decision_externe": "DOSSIER_INCOMPLET",
       "Manquants": "Identité/ISIN et cotation principale ; clôture attendue, volume, ancrages 1/5 séances et 1/2/3 mois, URL et preuve datée",
       "Priorite_collecte": "2",
-      "Date_prochaine_verification": "2026-11-21"
+      "Date_prochaine_verification": "2026-11-22"
     },
     {
       "Ticker": "0QAJ.IL",
@@ -3931,7 +3932,7 @@
       "Decision_externe": "DOSSIER_INCOMPLET",
       "Manquants": "Identité/ISIN et cotation principale ; clôture attendue, volume, ancrages 1/5 séances et 1/2/3 mois, URL et preuve datée",
       "Priorite_collecte": "2",
-      "Date_prochaine_verification": "2026-11-21"
+      "Date_prochaine_verification": "2026-11-22"
     },
     {
       "Ticker": "0QF5.IL",
@@ -3943,7 +3944,7 @@
       "Decision_externe": "DOSSIER_INCOMPLET",
       "Manquants": "Identité/ISIN et cotation principale ; clôture attendue, volume, ancrages 1/5 séances et 1/2/3 mois, URL et preuve datée",
       "Priorite_collecte": "2",
-      "Date_prochaine_verification": "2026-11-21"
+      "Date_prochaine_verification": "2026-11-22"
     },
     {
       "Ticker": "0QN3.IL",
@@ -3955,7 +3956,7 @@
       "Decision_externe": "DOSSIER_INCOMPLET",
       "Manquants": "Identité/ISIN et cotation principale ; clôture attendue, volume, ancrages 1/5 séances et 1/2/3 mois, URL et preuve datée",
       "Priorite_collecte": "2",
-      "Date_prochaine_verification": "2026-11-21"
+      "Date_prochaine_verification": "2026-11-22"
     },
     {
       "Ticker": "0QVQ.IL",
@@ -3967,7 +3968,7 @@
       "Decision_externe": "DOSSIER_INCOMPLET",
       "Manquants": "Identité/ISIN et cotation principale ; clôture attendue, volume, ancrages 1/5 séances et 1/2/3 mois, URL et preuve datée",
       "Priorite_collecte": "2",
-      "Date_prochaine_verification": "2026-11-21"
+      "Date_prochaine_verification": "2026-11-22"
     },
     {
       "Ticker": "0QZ.F",
@@ -3979,7 +3980,7 @@
       "Decision_externe": "DOSSIER_INCOMPLET",
       "Manquants": "Identité/ISIN et cotation principale ; clôture attendue, volume, ancrages 1/5 séances et 1/2/3 mois, URL et preuve datée",
       "Priorite_collecte": "2",
-      "Date_prochaine_verification": "2026-11-21"
+      "Date_prochaine_verification": "2026-11-22"
     },
     {
       "Ticker": "0R5W.IL",
@@ -3991,7 +3992,7 @@
       "Decision_externe": "DOSSIER_INCOMPLET",
       "Manquants": "Identité/ISIN et cotation principale ; clôture attendue, volume, ancrages 1/5 séances et 1/2/3 mois, URL et preuve datée",
       "Priorite_collecte": "2",
-      "Date_prochaine_verification": "2026-11-21"
+      "Date_prochaine_verification": "2026-11-22"
     },
     {
       "Ticker": "0RC1.IL",
@@ -4003,7 +4004,7 @@
       "Decision_externe": "DOSSIER_INCOMPLET",
       "Manquants": "Identité/ISIN et cotation principale ; clôture attendue, volume, ancrages 1/5 séances et 1/2/3 mois, URL et preuve datée",
       "Priorite_collecte": "2",
-      "Date_prochaine_verification": "2026-11-21"
+      "Date_prochaine_verification": "2026-11-22"
     },
     {
       "Ticker": "0RN4.IL",
@@ -4015,7 +4016,7 @@
       "Decision_externe": "DOSSIER_INCOMPLET",
       "Manquants": "Identité/ISIN et cotation principale ; clôture attendue, volume, ancrages 1/5 séances et 1/2/3 mois, URL et preuve datée",
       "Priorite_collecte": "2",
-      "Date_prochaine_verification": "2026-11-21"
+      "Date_prochaine_verification": "2026-11-22"
     }
   ],
   "journal": [
