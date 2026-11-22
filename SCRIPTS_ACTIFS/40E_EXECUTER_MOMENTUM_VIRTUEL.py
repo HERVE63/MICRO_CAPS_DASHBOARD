@@ -2,8 +2,8 @@
 """Adaptateur momentum vers l'exécuteur 10 et le replay 05C existants.
 Commande virtuelle ponctuelle, aucune connexion à un courtier.
 """
-import csv,hashlib,importlib.util,json
-from datetime import datetime,timezone
+import argparse,hashlib,importlib.util,json,math
+from datetime import date,datetime,timezone
 from pathlib import Path
 from zoneinfo import ZoneInfo
 import pandas as pd
@@ -32,9 +32,45 @@ def select_pair(rows,active):
   if losers:return max(losers,key=lambda r:int(r['Rang_momentum'])),winner
  return None
 
-def execute(root=ROOT,asof=None):
+class RotationIndisponible(ValueError):
+ pass
+
+def load_fx(data_dir, price_date, currency):
+ suffix=date.fromisoformat(price_date).strftime('%Y%m%d')
+ path=data_dir/f'FX_REFERENCE_BCE_{suffix}.json'
+ try:
+  fx=json.loads(path.read_text())
+  rate=1.0 if currency=='EUR' else float(fx['par_eur'][currency])
+ except (OSError,ValueError,KeyError,TypeError) as exc:
+  raise RotationIndisponible(f'Référence BCE {currency} du {price_date} absente ou invalide') from exc
+ if fx.get('date')!=price_date or not math.isfinite(rate) or rate<=0:
+  raise RotationIndisponible(f'Référence BCE {currency} du {price_date} invalide')
+ return fx,rate
+
+def revue_24(root=ROOT,asof=None):
+ asof=asof or datetime.now(timezone.utc)
+ paris=asof.astimezone(ZoneInfo('Europe/Paris'))
+ if paris.date().isoformat()!='2026-11-24' or paris.hour<19:
+  return None
+ d=root/'DONNEES'
+ ready=d/'REVUE_MOMENTUM_PRETE_20261124.json'
+ if not ready.exists():
+  return None
+ if json.loads(ready.read_text()).get('date_prix')!='2026-11-23':
+  raise ValueError('Date de clôture incorrecte dans le signal de la revue')
+ try:
+  result=execute(root,asof,authorization='AUTORISATION_MOMENTUM_VIRTUEL_20261124.json')
+  result=dict(result,statut='EXECUTEE')
+ except RotationIndisponible as exc:
+  result={'date_decision':'2026-11-24','date_prix':'2026-11-23',
+          'statut':'SANS_ROTATION','motif':str(exc),'operations_ajoutees':0}
+ (d/'REVUE_MOMENTUM_INTERNE_20261124.json').write_text(json.dumps(result,ensure_ascii=False,indent=2)+'\n')
+ print(json.dumps(result,ensure_ascii=False))
+ return result
+
+def execute(root=ROOT,asof=None,authorization='AUTORISATION_MOMENTUM_VIRTUEL.json'):
  asof=asof or datetime.now(timezone.utc);day=asof.astimezone(ZoneInfo('Europe/Paris')).date().isoformat()
- auth=json.loads((root/'CONFIG/AUTORISATION_MOMENTUM_VIRTUEL.json').read_text())
+ auth=json.loads((root/'CONFIG'/authorization).read_text())
  if auth['date']!=day or auth['maximum_rotations']!=1 or auth['type']!='COMMANDE_UTILISATEUR_VIRTUELLE':
   raise ValueError('Commande virtuelle datée absente')
  d=root/'DONNEES';journal=d/'JOURNAL_ARBITRAGES_GERE.csv';before=journal.read_bytes()
@@ -51,23 +87,22 @@ def execute(root=ROOT,asof=None):
  protected=[d/'ETAT_INITIAL_PORTEFEUILLE_GERE.csv',d/'COHORTE_MICRO_CAPS_T0.csv']
  initial_hash={str(p):sha(p) for p in protected}
  engine=load('40M_MOMENTUM_EXPERIENCE.py');report=engine.main(root,asof)
- if not report['arbitrage_autorise']:raise ValueError('Seuil de 35 non atteint')
+ if not report['arbitrage_autorise']:raise RotationIndisponible(f"Seuil de 35/40 non atteint ({report['lectures_exploitables']}/40)")
  state=replay(root).executer();positions=state['positions']
  active={r.Ticker:str(r.ID_position) for r in positions[positions.Statut=='ACTIF'].itertuples()}
  rows=engine.read(d/'EXPERIENCE_MOMENTUM_40.csv');pair=select_pair(rows,active)
- if pair is None:raise ValueError('Aucune rotation confirmée sur cinq horizons et même devise')
+ if pair is None:raise RotationIndisponible('Aucun couple de titulaires confirmé sur cinq horizons et dans la même devise')
  outgoing,incoming=pair
- if outgoing['Date_historique']!=incoming['Date_historique']:raise ValueError('Dates de prix différentes')
- fx_data=json.loads((d/'FX_REFERENCE_BCE_20261119.json').read_text())
- if fx_data['date']!=outgoing['Date_historique']:raise ValueError('FX périmé')
- currency=outgoing['Devise'];rate=float(fx_data['par_eur'][currency])
- if rate<=0:raise ValueError('FX non positif')
+ if any(row['Date_historique']!=auth['date_prix'] for row in pair):
+  raise RotationIndisponible(f"Clôtures attendues le {auth['date_prix']} pour les deux titres")
+ currency=outgoing['Devise']
+ fx_data,rate=load_fx(d,auth['date_prix'],currency)
  context={'autorisation_date':day,'mode':'VIRTUEL_MOMENTUM_COMMANDE_UTILISATEUR','valides':report['lectures_exploitables'],
   'prix':{r['Ticker']:float(r['Cours_devise']) for r in pair},'fx':{currency:{'fx_vers_eur':1/rate}},
   'duels':pd.DataFrame([{'ID_position_source':active[outgoing['Ticker']],'ID_position_destination':active[incoming['Ticker']],
    'Type_destination':'TITULAIRE','Part_allocation':1.0,'Statut_duel':'ALLOCATION_DETERMINEE'}]),
   'commentaire':'SIMULATION VIRTUELLE sur clôtures du '+outgoing['Date_historique']+' connues lors de la décision du '+day+
-   '; aucun remplissage réel ni backtest causal ; GBP/GBP, FX BCE de référence pour comptabilité EUR ; prix et preuves : '+
+   '; aucun remplissage réel ni backtest causal ; même devise, FX BCE de référence pour comptabilité EUR ; prix et preuves : '+
    ' | '.join(r['Source']+' SHA256 '+r['SHA256_preuve'] for r in pair)}
  exe=load('10_EXECUTION_MENSUELLE.py');exe.JOURNAL=journal;exe.PARAMS=root/'CONFIG/PARAMETRES_ARBITRAGE_MICRO_CAPS.csv'
  original=exe.charger
@@ -91,4 +126,10 @@ def execute(root=ROOT,asof=None):
  audit.write_text(json.dumps(result,ensure_ascii=False,indent=2)+'\n')
  print(json.dumps(result,ensure_ascii=False));return result
 
-if __name__=='__main__':execute()
+if __name__=='__main__':
+ parser=argparse.ArgumentParser()
+ parser.add_argument('--revue-24',action='store_true')
+ if parser.parse_args().revue_24:
+  revue_24()
+ else:
+  execute()

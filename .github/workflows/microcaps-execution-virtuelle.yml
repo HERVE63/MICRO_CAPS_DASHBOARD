@@ -31,6 +31,10 @@ jobs:
       - name: Verifier le gate et executer la commande virtuelle
         id: execute
         run: |
+          if [ "$(TZ=Europe/Paris date +%F)" != "$(jq -r .date CONFIG/AUTORISATION_MOMENTUM_VIRTUEL.json)" ]; then
+            echo 'Commande ponctuelle historique hors date.'
+            exit 0
+          fi
           python SCRIPTS_ACTIFS/ZONEBOURSE_MOMENTUM_40_GATE.py
           python SCRIPTS_ACTIFS/40E_EXECUTER_MOMENTUM_VIRTUEL.py
           python SCRIPTS_ACTIFS/40E_EXECUTER_MOMENTUM_VIRTUEL.py

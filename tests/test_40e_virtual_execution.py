@@ -60,3 +60,33 @@ def test_expired_authorization_never_modifies_ledger(tmp_path):
  d=setup(tmp_path);before=(d/'JOURNAL_ARBITRAGES_GERE.csv').read_bytes()
  with pytest.raises(ValueError,match='datée'):m.execute(tmp_path,datetime(2026,11,21,20,tzinfo=timezone.utc))
  assert (d/'JOURNAL_ARBITRAGES_GERE.csv').read_bytes()==before
+
+
+def test_weekly_review_requires_readiness_and_paris_time(tmp_path):
+ d=setup(tmp_path)
+ journal=d/'JOURNAL_ARBITRAGES_GERE.csv'
+ before=journal.read_bytes()
+ at_review=datetime(2026,11,24,18,tzinfo=timezone.utc)
+ assert m.revue_24(tmp_path,at_review) is None
+ (d/'REVUE_MOMENTUM_PRETE_20261124.json').write_text('{"date_prix":"2026-11-23"}')
+ assert m.revue_24(tmp_path,at_review.replace(hour=17)) is None
+ assert m.revue_24(tmp_path,at_review.replace(day=25)) is None
+ shutil.copy(ROOT/'CONFIG/AUTORISATION_MOMENTUM_VIRTUEL_20261124.json',tmp_path/'CONFIG')
+ result=m.revue_24(tmp_path,at_review)
+ assert result['statut']=='SANS_ROTATION'
+ assert '35/40' in result['motif']
+ assert result['date_prix']=='2026-11-23'
+ assert json.loads((d/'REVUE_MOMENTUM_INTERNE_20261124.json').read_text())==result
+ assert journal.read_bytes()==before
+
+
+def test_fx_is_loaded_only_from_the_requested_closing_date(tmp_path):
+ d=setup(tmp_path)
+ with pytest.raises(m.RotationIndisponible,match='2026-11-23'):
+  m.load_fx(d,'2026-11-23','GBP')
+ path=d/'FX_REFERENCE_BCE_20261123.json'
+ path.write_text(json.dumps({'date':'2026-11-19','par_eur':{'GBP':.85}}))
+ with pytest.raises(m.RotationIndisponible,match='invalide'):
+  m.load_fx(d,'2026-11-23','GBP')
+ path.write_text(json.dumps({'date':'2026-11-23','par_eur':{'GBP':.85}}))
+ assert m.load_fx(d,'2026-11-23','GBP')[1]==.85

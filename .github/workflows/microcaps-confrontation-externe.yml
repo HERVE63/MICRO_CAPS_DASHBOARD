@@ -10,6 +10,9 @@ on:
       - 'DONNEES/ZONEBOURSE_EXTERNES/**'
       - 'DONNEES/ZONEBOURSE_NAVIGATEUR/**'
       - 'tests/test_41m_external.py'
+      - 'CONFIG/AUTORISATION_MOMENTUM_VIRTUEL_20261124.json'
+      - 'DONNEES/REVUE_MOMENTUM_PRETE_20261124.json'
+      - 'DONNEES/FX_REFERENCE_BCE_20261123.json'
       - '.github/workflows/microcaps-confrontation-externe.yml'
 permissions:
   contents: write
@@ -34,8 +37,16 @@ jobs:
       - name: Confronter les externes et executer uniquement si admissible
         id: execute
         run: |
-          python SCRIPTS_ACTIFS/ZONEBOURSE_MOMENTUM_40_GATE.py
-          python SCRIPTS_ACTIFS/41M_CONFRONTATION_EXTERNES.py --execute
+          if [ "$(TZ=Europe/Paris date +%F)" = "2026-11-24" ]; then
+            gate_status=0
+            python SCRIPTS_ACTIFS/ZONEBOURSE_MOMENTUM_40_GATE.py || gate_status=$?
+            if [ "$gate_status" -ne 0 ] && [ "$gate_status" -ne 2 ]; then exit "$gate_status"; fi
+            python SCRIPTS_ACTIFS/40E_EXECUTER_MOMENTUM_VIRTUEL.py --revue-24
+            python SCRIPTS_ACTIFS/41M_CONFRONTATION_EXTERNES.py
+          else
+            python SCRIPTS_ACTIFS/ZONEBOURSE_MOMENTUM_40_GATE.py
+            python SCRIPTS_ACTIFS/41M_CONFRONTATION_EXTERNES.py --execute
+          fi
           python SCRIPTS_ACTIFS/08M_GENERER_DASHBOARD_MOMENTUM.py
       - name: Archiver les preuves
         if: always()
@@ -56,7 +67,8 @@ jobs:
             DONNEES/EXPERIENCE_MOMENTUM_40.csv
             DONNEES/ETAT_MOMENTUM_QUOTIDIEN.json
             DONNEES/PREPARATION_HEBDOMADAIRE_MOMENTUM_40.csv
-            DONNEES/FX_REFERENCE_BCE_20261119.json
+            DONNEES/FX_REFERENCE_BCE_*.json
+            DONNEES/REVUE_MOMENTUM_*_20261124.json
       - name: Sauvegarder le journal et le portefeuille gere
         if: success()
         env:
@@ -65,11 +77,14 @@ jobs:
           git config user.name 'github-actions[bot]'
           git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
           git add APPLICATION/index.html APPLICATION/momentum-data.json index.html DONNEES/ETAT_CONFRONTATION_EXTERNES.json DONNEES/CANDIDATS_EXTERNES_MOMENTUM.csv DONNEES/CONFRONTATION_MOMENTUM_EXTERNES.csv DONNEES/VIGILANCE_EXTERNES_QUOTIDIENNE.csv DONNEES/JOURNAL_ARBITRAGES_GERE.csv DONNEES/TEST_ETAT_GERE_RECONSTRUIT.csv DONNEES/ARBITRAGE_MOMENTUM_*.json DONNEES/EXPERIENCE_MOMENTUM_40.csv DONNEES/ETAT_MOMENTUM_QUOTIDIEN.json DONNEES/PREPARATION_HEBDOMADAIRE_MOMENTUM_40.csv
+          if [ -f DONNEES/REVUE_MOMENTUM_INTERNE_20261124.json ]; then
+            git add DONNEES/REVUE_MOMENTUM_INTERNE_20261124.json
+          fi
           if git diff --cached --quiet; then exit 0; fi
           git commit -m 'data: confrontation externe et affichage momentum verifies [skip ci]'
           for attempt in 1 2 3; do
             git fetch origin repair/microcaps-chain-20261030
-            changed=$(git diff --name-only "$EXPECTED_HEAD" FETCH_HEAD -- DONNEES/JOURNAL_ARBITRAGES_GERE.csv DONNEES/ZONEBOURSE_EXTERNES/ DONNEES/ZONEBOURSE_NAVIGATEUR/ CONFIG/AUTORISATION_MOMENTUM_VIRTUEL.json CONFIG/CONTROLES_MARCHE_DOCUMENTES.json SCRIPTS_ACTIFS/40E_EXECUTER_MOMENTUM_VIRTUEL.py SCRIPTS_ACTIFS/40M_MOMENTUM_EXPERIENCE.py SCRIPTS_ACTIFS/10_EXECUTION_MENSUELLE.py)
+            changed=$(git diff --name-only "$EXPECTED_HEAD" FETCH_HEAD -- DONNEES/JOURNAL_ARBITRAGES_GERE.csv DONNEES/ZONEBOURSE_EXTERNES/ DONNEES/ZONEBOURSE_NAVIGATEUR/ 'CONFIG/AUTORISATION_MOMENTUM_VIRTUEL*.json' 'DONNEES/REVUE_MOMENTUM_*_20261124.json' 'DONNEES/FX_REFERENCE_BCE_*.json' CONFIG/CONTROLES_MARCHE_DOCUMENTES.json SCRIPTS_ACTIFS/40E_EXECUTER_MOMENTUM_VIRTUEL.py SCRIPTS_ACTIFS/40M_MOMENTUM_EXPERIENCE.py SCRIPTS_ACTIFS/10_EXECUTION_MENSUELLE.py)
             if [ -n "$changed" ]; then
               echo 'Entrees changees : execution seulement dans artefact, journal non publie.'
               exit 1
