@@ -1,25 +1,26 @@
 {
-  "date_execution": "2026-11-22",
-  "asof_utc": "2026-11-22T21:26:18.740443+00:00",
+  "date_execution": "2026-11-24",
+  "asof_utc": "2026-11-24T18:20:27.909555+00:00",
   "titulaires": 40,
-  "lectures_exploitables": 38,
-  "lignes_sans_cotation_actualisee": 2,
-  "statut": "PRET_POUR_REVUE_HEBDOMADAIRE",
+  "lectures_exploitables": 0,
+  "lignes_sans_cotation_actualisee": 40,
+  "statut": "SEUIL_35_NON_ATTEINT",
   "regle_cloture": "Dernière séance strictement antérieure au jour du contrôle (Europe/Paris), calendrier de chaque marché",
   "source_requise": "Zonebourse, consultation individuelle navigateur",
-  "source_dossier": "DONNEES/ZONEBOURSE_NAVIGATEUR/2026-11-22",
+  "source_dossier": "DONNEES/ZONEBOURSE_NAVIGATEUR/2026-11-24",
   "frais_vente_pct": 2.5,
   "frais_achat_pct": 2.5,
   "friction_vente_achat_pct": 4.8780487804877986,
   "journal_sha256": "1eac2a5b42507a0b28a4c5fb54de4bb349a23a349fc2c257f540c68042c340ce",
   "transactions": 0,
   "arbitrage_automatique": "DESACTIVE",
-  "classement": "PERIMETRE_VALIDE_35_MINIMUM",
+  "classement": "DIAGNOSTIC_PARTIEL",
   "temoin": "40 positions T0 figées; aucune valorisation complète réétiquetée comme Zonebourse actuelle",
   "blocage_collecte": null,
   "seuil_minimum_valides": 35,
-  "arbitrage_autorise": true,
-  "perimetre_arbitrable": [
+  "arbitrage_autorise": false,
+  "perimetre_arbitrable": [],
+  "lignes_exclues": [
     "IDN",
     "INFU",
     "OSS",
@@ -37,6 +38,7 @@
     "CEMX.TO",
     "CTT.ST",
     "ALICA.PA",
+    "PLEJD.ST",
     "SFT.L",
     "TSTL.L",
     "GENI.ST",
@@ -47,6 +49,7 @@
     "ALBFR.PA",
     "CER.L",
     "TRT.L",
+    "PULS.L",
     "HSP.L",
     "ALBPK.PA",
     "ALESE.PA",
@@ -59,10 +62,6 @@
     "ALCUR.PA",
     "ALIEV.PA"
   ],
-  "lignes_exclues": [
-    "PLEJD.ST",
-    "PULS.L"
-  ],
-  "confrontation": "PARTIELLE_AUTORISEE",
+  "confrontation": "BLOQUEE",
   "suspensions_documentees": []
 }
