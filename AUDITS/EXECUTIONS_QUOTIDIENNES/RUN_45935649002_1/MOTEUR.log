@@ -1,0 +1,34 @@
+================================================================================================
+🚀 MICRO CAPS — EXÉCUTION QUOTIDIENNE V3
+================================================================================================
+Début UTC : 2026-11-27T03:43:04.501158+00:00
+Nombre d'étapes : 8
+
+================================================================================================
+▶ ÉTAPE T0 — Intégrité des références figées
+================================================================================================
+Intégrité T0 SHA256 : OK
+
+✅ ÉTAPE T0 TERMINÉE
+
+================================================================================================
+▶ ÉTAPE 03 — Clôtures + FX
+================================================================================================
+STDERR :
+Traceback (most recent call last):
+  File "/home/runner/work/MICRO_CAPS_DASHBOARD/MICRO_CAPS_DASHBOARD/SCRIPTS_ACTIFS/03_MOTEUR_CLOTURES_FX.py", line 328, in <module>
+    executer()
+  File "/home/runner/work/MICRO_CAPS_DASHBOARD/MICRO_CAPS_DASHBOARD/SCRIPTS_ACTIFS/03_MOTEUR_CLOTURES_FX.py", line 248, in executer
+    raise RuntimeError(
+RuntimeError: MOTEUR BLOQUÉ : clôtures non synchronisées entre marchés : 2026-11-25, 2026-11-26
+
+
+⛔ CHAÎNE ARRÊTÉE À L'ÉTAPE 03
+Traceback (most recent call last):
+  File "/home/runner/work/MICRO_CAPS_DASHBOARD/MICRO_CAPS_DASHBOARD/SCRIPTS_ACTIFS/00_EXECUTION_QUOTIDIENNE_V3.py", line 189, in <module>
+    executer()
+  File "/home/runner/work/MICRO_CAPS_DASHBOARD/MICRO_CAPS_DASHBOARD/SCRIPTS_ACTIFS/00_EXECUTION_QUOTIDIENNE_V3.py", line 155, in executer
+    executer_script(
+  File "/home/runner/work/MICRO_CAPS_DASHBOARD/MICRO_CAPS_DASHBOARD/SCRIPTS_ACTIFS/00_EXECUTION_QUOTIDIENNE_V3.py", line 105, in executer_script
+    raise RuntimeError(
+RuntimeError: Échec 03 — Clôtures + FX
