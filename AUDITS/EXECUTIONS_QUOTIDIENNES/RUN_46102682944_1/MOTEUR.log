@@ -1,0 +1,219 @@
+================================================================================================
+🚀 MICRO CAPS — EXÉCUTION QUOTIDIENNE V3
+================================================================================================
+Début UTC : 2026-11-28T03:25:33.312948+00:00
+Nombre d'étapes : 8
+
+================================================================================================
+▶ ÉTAPE T0 — Intégrité des références figées
+================================================================================================
+Intégrité T0 SHA256 : OK
+
+✅ ÉTAPE T0 TERMINÉE
+
+================================================================================================
+▶ ÉTAPE 03 — Clôtures + FX
+================================================================================================
+================================================================================
+MICRO CAPS — MOTEUR QUOTIDIEN V3
+================================================================================
+Heure UTC : 2026-11-28 03:25:33
+40 lignes : OK
+Valeur totale : 3616.09 €
+Performance : -9.5978%
+
+Séances utilisées :
+   Marche Date_cloture  Nb
+   Canada   2026-11-27   7
+  Londres   2026-11-27  10
+    Milan   2026-11-27   1
+    Paris   2026-11-27  14
+Stockholm   2026-11-27   3
+      USA   2026-11-27   5
+
+Fichier TEST : /home/runner/work/MICRO_CAPS_DASHBOARD/MICRO_CAPS_DASHBOARD/DONNEES/TEST_MOTEUR_V3.csv
+
+🔒 T0 non modifié.
+🔒 DERNIER_ETAT_MICRO_CAPS.csv non modifié.
+
+✅ ÉTAPE 03 TERMINÉE
+
+================================================================================================
+▶ ÉTAPE 03C — Actions corporatives
+================================================================================================
+============================================================================================
+🏢 MICRO CAPS — ACTIONS CORPORATIVES POST-T0
+============================================================================================
+Événements détectés : 1
+Dividendes : 1
+Splits     : 0
+
+ ID_ligne Societe Ticker Devise Date_evenement Type_evenement  Valeur_evenement    Statut_traitement         Source
+       20 Tristel TSTL.L    GBP     2026-11-26      DIVIDENDE              9.23 DETECTE_NON_APPLIQUE YAHOO_YFINANCE
+
+Fichier TEST : /home/runner/work/MICRO_CAPS_DASHBOARD/MICRO_CAPS_DASHBOARD/DONNEES/TEST_ACTIONS_CORPORATIVES_V3.csv
+
+⚠️ Événements détectés mais NON appliqués.
+🔒 Aucun cash crédité
+🔒 Aucune quantité modifiée
+🔒 T0 inchangé
+
+✅ ÉTAPE 03C TERMINÉE
+
+================================================================================================
+▶ ÉTAPE 04 — Contrôle qualité
+================================================================================================
+====================================================================================================
+🛡️ MICRO CAPS — CONTROLE QUALITE V3.4
+====================================================================================================
+ ID_ligne                     Societe Date_precedente Date_cloture Variation_JJ_pct Performance_depuis_T0_pct Statut_qualite
+        1                Intellicheck      2026-11-25   2026-11-27           +3.11%                   -24.84%             OK
+        2                  InfuSystem      2026-11-25   2026-11-27           +0.96%                   +18.94%             OK
+        3            One Stop Systems      2026-11-25   2026-11-27           +4.67%                   -48.44%             OK
+        4                    Crexendo      2026-11-25   2026-11-27           +2.44%                   -19.74%             OK
+        5               Lifeway Foods      2026-11-25   2026-11-27           +2.76%                    -3.37%             OK
+        6                   ActiveOps      2026-11-26   2026-11-27           +0.00%                   -60.13%             OK
+        7                        STIF      2026-11-26   2026-11-27           +0.00%                   -62.74%             OK
+        8                     MEMSCAP      2026-11-26   2026-11-27           +0.00%                    -1.82%             OK
+        9            Firan Technology      2026-11-26   2026-11-27           +4.55%                   +33.91%             OK
+       10                 Electrovaya      2026-11-26   2026-11-27           +2.48%                   -39.32%             OK
+       11        Covalon Technologies      2026-11-26   2026-11-27           +2.31%                    +6.10%             OK
+       12               ROK Resources      2026-11-26   2026-11-27           -5.17%                   -11.34%             OK
+       13             Made Tech Group      2026-11-26   2026-11-27           +0.00%                    +3.10%             OK
+       14          Zoomd Technologies      2026-11-26   2026-11-27           +0.00%                    -2.26%             OK
+       15                    CEMATRIX      2026-11-26   2026-11-27           -1.11%                    -6.30%             OK
+       16                 CTT Systems      2026-11-26   2026-11-27           +0.00%                    +9.01%             OK
+       17               ICAPE Holding      2026-11-26   2026-11-27           +0.00%                    +5.60%             OK
+       18                       Plejd      2026-11-26   2026-11-27           +0.00%                   -16.22%             OK
+       19             Software Circle      2026-11-26   2026-11-27           +0.00%                    -6.63%             OK
+       20                     Tristel      2026-11-26   2026-11-27           +0.00%                    -3.00%             OK
+       21              Generic Sweden      2026-11-26   2026-11-27           +0.00%                    -7.52%             OK
+       22  Light Science Technologies      2026-11-26   2026-11-27           +0.00%                   -33.28%             OK
+       23                     Growens      2026-11-26   2026-11-27           +0.00%                    -2.84%             OK
+       24                     Hardide      2026-11-26   2026-11-27           +0.00%                   +23.90%             OK
+       25          Kenorland Minerals      2026-11-26   2026-11-27           -1.00%                    -2.72%             OK
+       26                   Sidetrade      2026-11-26   2026-11-27           +0.00%                    +0.41%             OK
+       27                   Cerillion      2026-11-26   2026-11-27           +0.00%                   +14.18%             OK
+       28      Transense Technologies      2026-11-26   2026-11-27           +0.00%                    +4.20%             OK
+       29                Pulsar Group      2026-11-26   2026-11-27           +0.00%                   -27.87%             OK
+       30         Hargreaves Services      2026-11-26   2026-11-27           +0.00%                    +9.66%             OK
+       31                   Broadpeak      2026-11-26   2026-11-27           +0.00%                   -28.17%             OK
+       32                      Entech      2026-11-26   2026-11-27           +0.00%                    -9.04%             OK
+       33  Diagnostic Medical Systems      2026-11-26   2026-11-27           +0.00%                    +1.10%             OK
+       34                  StreamWIDE      2026-11-26   2026-11-27           +0.00%                    -9.09%             OK
+       35                   Sogeclair      2026-11-26   2026-11-27           +0.00%                    -8.25%             OK
+       36 Mon Courtier Énergie Groupe      2026-11-26   2026-11-27           +0.00%                   -11.79%             OK
+       37                       2CRSi      2026-11-26   2026-11-27           +0.00%                   -34.83%             OK
+       38                      WALLIX      2026-11-26   2026-11-27           +0.00%                    -5.76%             OK
+       39                      Arcure      2026-11-26   2026-11-27           +0.00%                    -1.33%             OK
+       40                        IEVA      2026-11-26   2026-11-27           +0.00%                   -25.39%             OK
+
+Synthèse :
+Statut_qualite
+OK    40
+
+Alertes à vérifier : 0
+Erreurs bloquantes : 0
+
+🔒 Une ALERTE >25 % conserve le cours observé, mais bloque l'historisation officielle tant qu'elle est EN_ATTENTE.
+🔒 Une perte réelle CONFIRMEE sera comptée intégralement.
+
+✅ ÉTAPE 04 TERMINÉE
+
+================================================================================================
+▶ ÉTAPE 04B — Résolution économique
+================================================================================================
+============================================================================================
+🧠 MICRO CAPS — MOTEUR ÉCONOMIQUE RÉSOLU
+============================================================================================
+Lignes : 40
+Sans anomalie : 40
+Mouvements réels confirmés : 0
+Faux prix corrigés : 0
+Valeur témoin résolue : 3616.0880 €
+
+Fichier TEST : /home/runner/work/MICRO_CAPS_DASHBOARD/MICRO_CAPS_DASHBOARD/DONNEES/TEST_MOTEUR_RESOLU_V3.csv
+
+🔒 Aucun historique modifié
+🔒 T0 non modifié
+
+✅ ÉTAPE 04B TERMINÉE
+
+================================================================================================
+▶ ÉTAPE 05 — Portefeuilles
+================================================================================================
+============================================================================================
+🔁 MICRO CAPS — REPLAY PORTEFEUILLE GÉRÉ V2
+============================================================================================
+Opérations journalisées : 0
+Positions actives : 40
+Positions sorties archivées : 0
+Cash disponible : 0.0000 €
+
+Comparaison état initial / replay : IDENTIQUE
+
+Fichier TEST :
+/home/runner/work/MICRO_CAPS_DASHBOARD/MICRO_CAPS_DASHBOARD/DONNEES/TEST_ETAT_GERE_RECONSTRUIT.csv
+
+🔒 Journal non modifié
+🔒 Etat initial non modifié
+🔒 T0 non modifié
+============================================================================================
+📊 MICRO CAPS — PORTEFEUILLES V2
+============================================================================================
+Témoin       : 3616.087990 € | -9.597800%
+Géré titres  : 3616.087990 €
+Cash géré    : 0.000000 €
+Géré total   : 3616.087990 € | -9.597800%
+Alpha gestion: +0.0000000000 point
+Positions gérées actives : 40
+Positions archivées : 0
+
+Fichier TEST : /home/runner/work/MICRO_CAPS_DASHBOARD/MICRO_CAPS_DASHBOARD/DONNEES/TEST_PORTEFEUILLES_V3.csv
+
+✅ ÉTAPE 05 TERMINÉE
+
+================================================================================================
+▶ ÉTAPE 06 — Benchmarks
+================================================================================================
+======================================================================================
+📊 MICRO CAPS — BENCHMARKS V3
+======================================================================================
+       Benchmark Date_cloture     Cours_T0 Cours_cloture Base_100 Performance_pct
+         S&P 500   2026-11-27  7666.450195   7297.490234  95.1873        -4.8127%
+      Nasdaq-100   2026-11-27 30501.560547  26726.388672  87.6230       -12.3770%
+STOXX Europe 600   2026-11-27   626.650024    643.849976 102.7447        +2.7447%
+
+Fichier TEST : /home/runner/work/MICRO_CAPS_DASHBOARD/MICRO_CAPS_DASHBOARD/DONNEES/TEST_BENCHMARKS_V3.csv
+
+🔒 Aucune barre intraday admise.
+
+✅ ÉTAPE 06 TERMINÉE
+
+================================================================================================
+▶ ÉTAPE 07B — Historique officiel
+================================================================================================
+==============================================================================================
+📚 MICRO CAPS — AJOUT HISTORIQUE V3
+==============================================================================================
+Date candidate : 2026-11-27
+Garde-barrière : PRETE_A_AJOUTER
+
+✅ JOURNÉE AJOUTÉE
+Date : 2026-11-27
+Témoin : 3616.09 € | -9.5978%
+Géré   : 3616.09 € | -9.5978%
+Alpha  : +0.0000 point
+
+Nombre de dates officielles : 34
+
+✅ ÉTAPE 07B TERMINÉE
+
+================================================================================================
+🏁 CHAÎNE QUOTIDIENNE TERMINÉE
+================================================================================================
+Fin UTC   : 2026-11-28T03:25:48.226914+00:00
+Durée      : 14.91 secondes
+
+🔒 T0 jamais modifié par l'orchestrateur
+🔒 CPI / ETF hors périmètre
